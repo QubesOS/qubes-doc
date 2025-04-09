@@ -200,16 +200,27 @@ website](https://docs.nitrokey.com/software/nitropy/all-platforms/installation).
 
 3. Configure your YubiKey / NitroKey3:
    
-   **YubiKey**
+   **YubiKey (via CLI)**
    
    Configure your YubiKey for challenge-response `HMAC-SHA1` mode. This can be
    done on any qube, e.g. a disposable (you need to [attach the
 YubiKey](https://www.qubes-os.org/doc/how-to-use-usb-devices/) to this app qube
 though) or directly on the sys-usb vm.
 
-   You need to (temporarily) install the package "yubikey-personalization-gui" and
-   run it by typing `yubikey-personalization-gui` in the command line.
+    This command will configure your Yubikey:
 
+    `ykpersonalize -2 -ochal-resp -ochal-hmac -ohmac-lt64 -ochal-btn-trig -a 303132333435363738393a3b3c3d3e3f40414243`
+
+    With the following settings:
+    - Configuration Slot: `2`,
+    - Challenge-Response Mode: `HMAC-SHA1`,
+    - Require usser input (Optional, but Recommended): `true`,
+    - HMAC-SHA1 Mode: `fixed 64 bit input`
+
+   **Yubikey (via GUI)**
+   
+   Previously, this document mentioned to (temporarily) install the package "yubikey-personalization-gui" and
+   run it by typing `yubikey-personalization-gui` in the command line. However, this program is now [EOL](https://developers.yubico.com/yubikey-personalization-gui/), and is not present in Debian repositories newer than Bullseye (e.g. this package is not available in Debian Bookworm). The GUI instructions are left below for posterity:
    - In the program go to `Challenge-Response`,
    - select `HMAC-SHA1`,
    - choose `Configuration Slot 2`,
@@ -248,7 +259,7 @@ of this method. If you want to switch to a different NitroKey later, delete the 
 Do the same if for some reason your counters get desynchronized (it stops working), e.g. due
 to connectivity issues (NitroKey3A Minis are known to wear out quickly).
 
-4. **YubiKey**
+5. **YubiKey**
 
    Paste your `AESKEY` into `/etc/qubes/yk-keys/yk-secret-key.hex` in dom0.
    Note that if you had previously used a NitroKey3 with this package, you *must* delete
@@ -259,7 +270,7 @@ to connectivity issues (NitroKey3A Minis are known to wear out quickly).
    Create the file `/etc/qubes/yk-keys/nk-hotp-secret` in dom0 and paste your `AESKEY` 
    (in base 32 format) into it.
 
-5. As mentioned before, you need to define a new password that is only used in
+6. As mentioned before, you need to define a new password that is only used in
    combination with the YubiKey / NitroKey3. You can write this password in plain text into
 `/etc/qubes/yk-keys/login-pass` in dom0. This is considered safe as dom0 is
 ultimately trusted anyway.
@@ -281,7 +292,7 @@ ultimately trusted anyway.
     echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
     ```
 
-6. To enable multi-factor authentication for a service, you need to add
+7. To enable multi-factor authentication for a service, you need to add
 
     ```
     auth include yubikey
@@ -297,7 +308,7 @@ display manager and so on.
     It is important, that `auth include yubikey` is added at the beginning of
 these files, otherwise it will most likely not work.
 
-7. Adjust the USB VM name in case you are using something other than the default
+8. Adjust the USB VM name in case you are using something other than the default
    `sys-usb` by editing `/etc/qubes/yk-keys/vm` in dom0.
 
 #### Usage
