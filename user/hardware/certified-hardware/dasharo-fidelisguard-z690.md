@@ -8,7 +8,7 @@ image: /attachment/posts/dasharo-fidelisguard-z690_2.jpg
 
 The [Dasharo FidelisGuard Z690](https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
 
-[![Photo of MSI PRO Z690-A DDR4 motherboard](/attachment/posts/dasharo-fidelisguard-z690_1.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
+[![Photo of MSI PRO Z690-A DDR4 motherboard](/attachment/posts/dasharo-fidelisguard-z690_1.jpg)](https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
 
 The [Dasharo FidelisGuard Z690](https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is a full desktop PC build that brings the [Dasharo](https://dasharo.com/) open-source firmware distribution to the MSI PRO Z690-A DDR4 motherboard with Qubes OS preinstalled. The full configuration includes:
 
