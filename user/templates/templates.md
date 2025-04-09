@@ -145,7 +145,7 @@ After installing a fresh template, we recommend performing the following steps:
 
 For information about how templates access the network, please see [Why don’t
 templates have network
-access?](/doc/how-to-install-software/#why-dont-templates-have-network-access)
+access?](/doc/how-to-install-software/#why-dont-templates-have-normal-network-access)
 and the [Updates proxy](/doc/how-to-install-software/#updates-proxy).
 
 ## Updating
