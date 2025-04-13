@@ -12,17 +12,17 @@ title: Development workflow
 
 A workflow for developing Qubes OS+
 
-First things first, setup [QubesBuilder](/doc/qubes-builder-v2/). This guide
+To begin, setup [QubesBuilder](/doc/qubes-builder-v2/). This guide
 assumes you're using qubes-builder v2 to build Qubes.
 
 ## Repositories and committing Code
 
-Qubes is split into a bunch of git repos. These are all contained in the
+Qubes source code is split into many git repos. These are all contained in the
 `artifacts/sources` directory under qubes-builder. Subdirectories there are
 separate components, stored in separate git repositories.
 
 The best way to write and contribute code is to create a git repo somewhere
-(e.g., github) for the repo you are interested in editing (e.g.,
+(e.g., GitHub) for the repo you are interested in editing (e.g.,
 `qubes-manager`, `core-agent-linux`, etc). To integrate your repo with the rest
 of Qubes, cd to the repo directory and add your repository as a remote in git
 
@@ -30,18 +30,17 @@ of Qubes, cd to the repo directory and add your repository as a remote in git
 
 ~~~
 $ cd qubes-builder/artifacts/sources/qubes-manager
-$ git remote add abel git@github.com:abeluck/qubes-manager.git
+$ git remote add abel git@GitHub.com:abeluck/qubes-manager.git
 ~~~
 
 You can then proceed to easily develop in your own branches, pull in new
-commits from the dev branches, merge them, and eventually push to your own repo
-on github.
+commits from the dev branches, merge them, and eventually push to your own repo.
 
 When you are ready to submit your changes to Qubes to be merged, push your
 changes, then create a signed git tag (using `git tag -s`). Finally, send a
-letter to the Qubes listserv describing the changes and including the link to
-your repository. You can also create pull request on github. Don't forget to
-include your public PGP key you use to sign your tags.
+letter to the Qubes listserv describing the changes, and including a link to
+your repository. If you are using GitHub you can instead create a pull request.
+Don't forget to include the public PGP key you use to sign your tags.
 
 ### Kernel-specific notes
 
@@ -117,7 +116,7 @@ vi series.conf
 
 #### Building RPMs
 
-Now it is a good moment to make sure you have changed kernel release name in
+Now is a good moment to make sure you have changed the kernel release name in
 rel file. For example, if you change it to '1debug201211116c' the
 resulting RPMs will be named
 'kernel-3.4.18-1debug20121116c.pvops.qubes.x86\_64.rpm'. This will help
@@ -284,12 +283,12 @@ if [ "$1" = "tb" ]; then
     exit $?
 fi
 
-git remote add $1 git@github.com:$1/qubes-`basename $PWD`
+git remote add $1 git@GitHub.com:$1/qubes-`basename $PWD`
 ~~~
 
 It should be executed from component top level directory. This script takes one
 argument - remote name. If it is `tb`, then it creates qrexec-based git remote
-to `testbuilder` VM. Otherwise it creates remote pointing at github account of
+to `testbuilder` VM. Otherwise it creates remote pointing at GitHub account of
 the same name. In any case it points at repository matching current directory
 name.
 
@@ -308,7 +307,7 @@ current and current-testing).
 
 ### RPM packages - yum repo
 
-In source VM, grab [linux-yum](https://github.com/QubesOS/qubes-linux-yum) repository (below is assumed you've made it in
+In source VM, grab [linux-yum](https://GitHub.com/QubesOS/qubes-linux-yum) repository (below is assumed you've made it in
 `~/repo-yum-upload` directory) and replace `update_repo.sh` script with:
 
 ~~~
@@ -324,7 +323,7 @@ find -type f -name '*.rpm' -delete
 qrexec-client-vm $VMNAME local.UpdateYum
 ~~~
 
-In target VM, setup actual yum repository (also based on [linux-yum](https://github.com/QubesOS/qubes-linux-yum), this time
+In target VM, setup actual yum repository (also based on [linux-yum](https://GitHub.com/QubesOS/qubes-linux-yum), this time
 without modifications). You will also need to setup some gpg key for signing
 packages (it is possible to force yum to install unsigned packages, but it
 isn't possible for `qubes-dom0-update` tool). Fill `~/.rpmmacros` with
@@ -404,7 +403,7 @@ Remember to also import gpg public key using `rpm --import`.
 
 Steps are mostly the same as in the case of yum repo. The only details that differ:
 
-- use [linux-deb](https://github.com/QubesOS/qubes-linux-deb) instead of [linux-yum](https://github.com/QubesOS/qubes-linux-yum) as a base - both in source and target VM
+- use [linux-deb](https://GitHub.com/QubesOS/qubes-linux-deb) instead of [linux-yum](https://GitHub.com/QubesOS/qubes-linux-yum) as a base - both in source and target VM
 - use different `update_repo.sh` script in source VM (below)
 - use `local.UpdateApt` qrexec service in target VM (code below)
 - in target VM additionally place `update-local-repo.sh` script in repository dir (code below)
