@@ -10,8 +10,8 @@ ref: 311
 title: Qubes builder v2
 ---
 
-This is a brief introduction of using Qubes Builder v2 to work with Qubes OS
-sources. It will walk you through installing and configuring Builder v2 and
+This is a brief introduction to using Qubes Builder v2 to work with Qubes OS
+sources. It will walk you through installing and configuring Builder v2, and
 using it to fetch and build Qubes OS packages.
 
 For details and customization, use [Qubes OS v2 builder documentation](https://github.com/QubesOS/qubes-builderv2/).
@@ -30,25 +30,17 @@ uploading stages are executed locally outside a cage.
 
 # Setup
 
-This is a simple setup for using a docker executor (a good default choice,
-if you don't know which executor to use, use docker).
+This is a simple setup using a docker executor. This is a good default choice;
+if you don't know which executor to use, use docker.
 
-1. First, decide what qube are you going to use for working with Qubes
+1. First, decide what qube you are going to use when working with Qubes
    Builder v2. It can be an AppVM or a Standalone qube, with some steps
    different between the two.
 
-2. Then, clone the qubes-builder v2 repository into a location of your
-   choice:
-    ```shell
-    git clone https://github.com/QubesOS/qubes-builderv2
-    cd qubes-builderv2/
-    ```
+2. Installing dependencies
 
-3. Installing dependencies
-
-   Dependencies need to be installed for the qube you want to be developing
-   using Qubes Builder v2 - either in its template, or in the qube itself,
-   if it's a standalone.
+   If you want to use an app qube for developing, install dependencies in the template.
+   If you are using a standalone, install them in the qube itself.
     Dependencies are specified in `dependencies-*.
    txt` files in the main builder directory, and you can install them easily
    in the following ways:
@@ -64,7 +56,16 @@ if you don't know which executor to use, use docker).
     $ test -f /usr/share/qubes/marker-vm && sudo apt install qubes-gpg-split
    ```
 
-4. If you haven't used docker in the current qube, you need also to set up
+    If you have installed dependencies in the template, close it, and
+    (re)start the development qube.
+
+3. Clone the qubes-builder v2 repository into a location of your choice:
+    ```shell
+    git clone https://github.com/QubesOS/qubes-builderv2
+    cd qubes-builderv2/
+    ```
+
+4. If you haven't previously used docker in the current qube, you need to set up
    some permissions. In particular, the user has to be added to the `docker`
    group:
     ```shell
@@ -77,8 +78,8 @@ if you don't know which executor to use, use docker).
    $ tools/generate-container-image.sh docker
     ```
 
-   In an AppVM, as `/var/lib/docker` is not persistent by default, you also
-   need to use bind-dirs to avoid repeating this step after reboot, adding
+   In an app qube, as `/var/lib/docker` is not persistent by default, you also
+   need to use [bind-dirs](/doc/bind-dirs/) to avoid repeating this step after reboot, adding
    the following to the `/rw/config/qubes-bind-dirs.d/docker.conf` file in
    this qube:
 
@@ -148,13 +149,14 @@ using Fedora 37, `vm-fc40` would be a qube using Fedora 40 etc.), use:
 $ ./qb -c core-admin-client -d host-fc37 package fetch prep build
 ```
 
-If you want to fetch entire Qubes OS sources (caution: some repositories might
-have additional requirements; you can disable repositories that are not
-needed in the `example-configs/*.yml` file you are using by commenting them
-out. In particular, `python-fido2`, `lvm` and `windows`-related repositories
-have
-special requirements), use the following:
+If you want to fetch the entire Qubes OS source use the following:
 
 ```shell
 $ ./qb package fetch
 ```
+
+**caution**: some repositories might have additional requirements. You can
+disable repositories that are not needed in the `example-configs/*.yml`
+file you are using by commenting them out. In particular, `python-fido2`,
+`lvm` and `windows`-related repositories have special requirements.
+
