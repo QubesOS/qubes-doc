@@ -387,8 +387,9 @@ this context: the same as their template filesystem, of course.
 
 * Some templates are available in ready-to-use binary form, but some of them
   are available only as source code, which can be built using the [Qubes
-  Builder](/doc/qubes-builder/). In particular, some template "flavors" are
-  available in source code form only. For the technical details of the template
+  Builder](https://github.com/QubesOS/qubes-builderv2/). In particular, some
+  template "flavors" are  available in source code form only. For the
+  technical details of the template
   system, please see [Template Implementation](/doc/template-implementation/).
-  Take a look at the [Qubes Builder](/doc/qubes-builder/) documentation for
+  Take a look at the [Qubes Builder](/doc/qubes-builder-v2/) documentation for
   instructions on how to compile them.
