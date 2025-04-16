@@ -269,7 +269,8 @@ As an example we can take the use case of qube QubeDest running a web server lis
 
 **1. Identify the IP addresses you will need to use for sys-net, sys-firewall and the destination qube.**
 
-You can get this information using various methods, but only the first one can be used for `sys-net` outside world IP:
+You can get this information using various methods.
+Only the first method can be used for `sys-net` to find the external IP:
 
 - by running this command in each qube: `ip -4 -br a | grep UP`
 - using `qvm-ls -n`
@@ -284,7 +285,12 @@ Note the IP addresses you will need, they will be required in the next steps.
 
 For the following example, we assume that the physical interface ens6 in sys-net is on the local network 192.168.x.y with the IP 192.168.x.n, and that the IP address of sys-firewall is 10.137.1.z.
 
-In the sys-net VM's Terminal, the first step is to define an ntables chain that will receive DNAT rules to relay the network traffic on a given port to the qube NetVM, we recommend to define a new chain for each destination qube to ease rules management:
+When writing rules in sys-net, you can use `iif` or `iifname`.
+`iif` is faster, but can change where interfaces are dynamically created and destroyed, eg. ppp0.
+In that case use `iifname`, like this `iifname ens6`.
+`iifname` can also match wildcards - `iifname "eth*"`
+
+In the sys-net VM's Terminal, the first step is to define an nftables chain that will receive DNAT rules to relay the network traffic on a given port to the qube NetVM, we recommend to define a new chain for each destination qube to ease rules management:
 
 ```
 nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
@@ -292,25 +298,25 @@ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority fi
 
 - **Note:** the name `custom-dnat-qubeDST` is arbitrary
 
-- **Note:** while we use a DNAT chain for a single qube, it's totally possible to have a single DNAT chain for multiple qubes
+- **Note:** while we use a DNAT chain for a single qube, it's possible to have a single DNAT chain for multiple qubes
 
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
 ```
-nft add rule qubes custom-dnat-qubeDEST iif == "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
+nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 ```
 
 Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
 ```
-nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
+nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 ```
 
 - **Note:** If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
 
-- If you want to expose the service on multiple interfaces, repeat the steps 2 and 3 described above, for each interface. Alternatively, you can leave out the interface completely.
+- If you want to expose the service on multiple interfaces, repeat steps 2 and 3 above, for each interface. Alternatively, you can leave out the interface completely.
 
-Verify the rules on sys-net firewall correctly match the packets you want by looking at its counters, check for the counter lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
+Verify the rules on the sys-net firewall correctly match the packets you want by looking at the counters: check for the counter lines in the chains `custom-forward` and `custom-dnat-qubeDEST`:
 
 ```
 nft list table ip qubes
@@ -320,12 +326,12 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 ```
 chain custom-forward {
-  iif "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept
+  iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept
 }
 
 chain custom-dnat-qubeDEST {
   type nat hook prerouting priority filter + 1; policy accept;
-  iif "ens6" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter packets 3 bytes 192 dnat to 10.138.33.59
+  iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter packets 3 bytes 192 dnat to 10.138.33.59
 }
 ```
 
@@ -351,18 +357,20 @@ Content of `/rw/config/qubes-firewall-user-script` in `sys-net`:
 if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 then
   # create the dnat rule
-  nft add rule qubes custom-dnat-qubeDEST iif == "ens6" saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
+  nft add rule qubes custom-dnat-qubeDEST iifname ens6 saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
   # allow forwarded traffic
-  nft add rule qubes custom-forward iif == "ens6" ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
+  nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 fi
 ~~~
 
 **3. Route packets from the FirewallVM to the VM**
 
-For the following example, we use the fact that the physical interface of sys-firewall, facing sys-net, is eth0. Furthermore, we assume that the target VM running the web server has the IP address 10.137.0.xx and that the IP address of sys-firewall is 10.137.1.z.
+For the following example, we use the fact that the interface of sys-firewall facing sys-net, is eth0.
+This is allocated to iifgroup 1.
+Furthermore, we assume that the IP address of sys-firewall is 10.137.1.z, and the target VM running the web server has the IP address 10.137.0.xx.
 
-In the sys-firewall VM's Terminal, add a DNAT chain that will contain routing rules:
+In the sys-firewall Terminal, add a DNAT chain that will contain routing rules:
 
 ```
 nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
@@ -371,13 +379,13 @@ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority fi
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the destination qube
 
 ```
-nft add rule qubes custom-dnat-qubeDEST iif == "eth0" ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
+nft add rule qubes custom-dnat-qubeDEST iifgroup 1 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 ```
 
 Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
 ```
-nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
+nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 ```
 
 - **Note:** If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
@@ -398,10 +406,10 @@ Content of `/rw/config/qubes-firewall-user-script` in `sys-firewall`:
 if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 then
   # create the dnat rule
-  nft add rule qubes custom-dnat-qubeDEST iif == "eth0" tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
+  nft add rule qubes custom-dnat-qubeDEST iifgroup 1 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 
   # allow forwarded traffic
-  nft add rule qubes custom-forward iif == "eth0" ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
+  nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 fi
 ~~~
 

@@ -18,7 +18,7 @@ That way, they can be used to customize a single VM instead of all VMs based on 
 The scripts here all run as root.
 
 - `/rw/config/rc.local` - script runs at VM startup.
-    Good place to change some service settings, replace config files with its copy stored in `/rw/config`, etc.
+    Good place to change some service settings, replace config files with its copy stored in `/rw/config`, etc. The script need to have the executable permission set to be executed.
     Example usage:
 
     ~~~
@@ -32,6 +32,8 @@ The scripts here all run as root.
     echo '127.0.0.1 example.com' >> /etc/hosts
     ~~~
 
+- `/rw/config/rc.local.d/*.rc` - scripts run at VM startup just before `/rw/config/rc.local`
+- `/rw/config/rc.local-early.d/*.rc`, `/rw/config/rc.local-early` - scripts similar to `/rw/config/rc.local`, but running earlier in the system startup sequence - just before `sysinit.target`, and setting up the network.
 - `/rw/config/qubes-ip-change-hook` - script runs in NetVM after every external IP change and on "hardware" link status change.
 
 - In ProxyVMs (or app qubes with `qubes-firewall` service enabled), scripts placed in the following directories will be executed in the listed order followed by `qubes-firewall-user-script` at start up.

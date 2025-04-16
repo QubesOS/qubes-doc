@@ -132,7 +132,7 @@ Whereas integration tests are mostly stored in the [qubes-core-admin](https://gi
 To for example run the `qubes-core-admin` unit tests, you currently have to clone at least [qubes-core-admin](https://github.com/QubesOS/qubes-core-admin) and
 its dependency [qubes-core-qrexec](https://github.com/QubesOS/qubes-core-qrexec) repository in the branches that you want to test.
 
-The below example however will assume that you set up a build environment as described in the [Qubes Builder documentation](/doc/qubes-builder/).
+The below example however will assume that you set up a build environment as described in the [Qubes Builder documentation](/doc/qubes-builder-v2/).
 
 Assuming you cloned the `qubes-builder` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
 

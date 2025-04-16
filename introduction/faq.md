@@ -678,7 +678,7 @@ Any rpm-based, 64-bit environment, the preferred OS being Fedora.
 
 ### How do I build Qubes from sources?
 
-See [these instructions](/doc/qubes-builder/).
+See [these instructions](/doc/qubes-builder-v2/).
 
 ### How do I submit a patch?
 

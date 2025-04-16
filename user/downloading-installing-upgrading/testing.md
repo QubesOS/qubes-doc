@@ -17,7 +17,7 @@ How to test upcoming Qubes OS releases:
 
 - Test the latest release candidate (RC) on the [downloads](/downloads/) page, if one is currently available. (Or try an older RC from our [FTP server](https://ftp.qubes-os.org/iso/).)
 - Try the [signed weekly builds](https://qubes.notset.fr/iso/). ([Learn more](https://forum.qubes-os.org/t/16929) and [track their status](https://github.com/fepitre/updates-status-iso/issues).)
-- Use [qubes-builder](/doc/qubes-builder/) to build the latest release yourself.
+- Use [qubes-builder](/doc/qubes-builder-v2/) to build the latest release yourself.
 - (No support) Experiment with developer alpha ISOs found from time to time at [Qubes OpenQA](https://openqa.qubes-os.org/).
 
 Please make sure to [report any bugs you encounter](/doc/issue-tracking/).
