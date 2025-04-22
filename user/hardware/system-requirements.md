@@ -114,16 +114,16 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   other security updates directly to users. By contrast, on AMD client (as
   opposed to server) platforms, microcode updates are typically shipped only as
   part of system firmware and generally cannot be loaded from the operating
-  system. This means that AMD users typically must wait for:
-  
+  system [^1]. This means that AMD users typically must wait for:
+
   1. AMD to distribute microcode updates to original equipment manufacturers
   (OEMs), original design manufacturers (ODMs), and motherboard manufacturers
   (MB); and
   2. The user's OEM, ODM, or MB to provide a suitable BIOS or (U)EFI update for
   the user's system.
-  
+
   - Historically, AMD has often been slow to complete step (1), at least for its
-  client (as opposed to server) platforms. In some cases, AMD has made fixes
+  client (as opposed to server) platforms [^2]. In some cases, AMD has made fixes
   available for its server platforms very shortly after a security embargo was
   lifted, but it did not make fixes available for client platforms facing the
   same vulnerability until weeks or months later. (A "security embargo" is the
@@ -131,10 +131,8 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   designated date.) By contrast, Intel has consistently made fixes available for
   new CPU vulnerabilities across its supported platforms very shortly after
   security embargoes have been lifted.
-
   - Step (2) varies by vendor. Many vendors fail to complete step (2) at all,
   while some others take a very long time to complete it.
-  
   - The bottom line is that Qubes OS **can** run on AMD systems, and the Qubes and
   Xen security teams do their best to provide security support for AMD systems.
   However, without the ability to ship microcode updates, there is only so much
@@ -163,3 +161,17 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
 
 - You can check whether an Intel processor has VT-x and VT-d on
   [ark.intel.com](https://ark.intel.com/content/www/us/en/ark.html#@Processors).
+
+[^1]: There is an `amd-ucode-firmware` package, but it only contains
+      microcode for servers and outdated microcode for Chromebooks.  Also,
+      the [AMD security website](https://www.amd.com/en/resources/product-security.html)
+      only lists microcode as a mitigation for data center CPUs.
+
+[^2]: As shown on [the AMD page for Speculative Return Stack Overflow](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-7005.html),
+      updated AGESA™ firmware for AMD Ryzen™ Threadripper™ 5000WX Processors
+      was not available until 2024-01-11, even though the vulnerability became
+      public on 2023-08-08.  AMD did not provide updated firmware for other client
+      processors until a date between 2023-08-22 to 2023-08-25.
+
+      For Zenbleed, firmware was not available until 2024 for most client parts,
+      even though server parts got microcode on 2023-06-06.
