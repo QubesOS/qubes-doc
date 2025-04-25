@@ -146,18 +146,17 @@ These parameters are set for the following reasons:
   - Install on first disk.
   - **For Windows 11 only**: Windows 11 requires TPM 2.0, which currently is not supported from Xen. In Order to install Windows 11 under Qubes, the check for TPM in the Windows installer has to be disabled:
  
-    -  When you start setup without having a TPM, you get an error message like *This PC does not fulfil the minimum requirements for Windows 11*.
-    -  Typing Shift-F10 then opens a console window.
+    -  When the window allowing you to select a Windows version is displayed, **do not select a version and close this window**, but instead type Shift-F10 to open a console window.
     -  Here you type `regedit` to start the registry editor.
     -  There you position to the key `HKEY_LOCAL_MACHINE\SYSTEM\Setup`.
     -  Now create the key `LabConfig`.
     -  Position to this key and create 3 DWORD values called `BypassTPMCheck`, `BypassSecureBootCheck` and `BypassRAMCheck` and set each value to `1`.
     -  Close the registry editor and console windows.
-    -  In the setup window, hit the left arrow in the left upper corner. You will then return into the setup, which will continue normally and install Windows 11 without TPM 2.0.
+    -  You will then return to the setup, which will continue normally and install Windows 11 without TPM 2.0.
    
-    :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft some time.
+    :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
     
-    The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
+    The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
     
     - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
     - Here you type `taskmgr` to start the Task Manager window so you can see all running processes.
@@ -172,6 +171,15 @@ These parameters are set for the following reasons:
     - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
     - Enter the username you want to use and click `Next`.
     - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
+
+    For version 24H2, the following actions allow you to install Windows 11 with a local account, if the VM is defined, at least temporarily, without a netVM:
+     - After some reboots, the VM will show a window allowing the selection of an installation country. In this window, type  Shift-F10 to open a console window.
+     - In this window, type `oobe\bypassnro`. The VM will then reboot and return to the country selection window. The network connection window will now show an option "I don't have internet", allowing you to define a local account.
+
+    In new preview builds of Windows (26120 and beyond, and eventually the next release version), the `oobe\bypassnro` command has been erased and no longer works. Instead, there's a new command called start `ms-chx:localonly` that does something similar. In this case, proceed as follows:
+     - Follow the Windows 11 install process until you get to the Sign in screen. Here, type  Shift-F10 to open a console window.
+     - Enter start `ms-cxh:localonly` at the command prompt.
+     - A "Create a user for this PC" dialog window appears, allowing you to define a local account.
 
 - On systems shipped with a Windows license, the product key may be read from flash via root in dom0:
 
