@@ -67,8 +67,9 @@ in dom0. (That's what your app qubes are for!) In short, be very careful when in
 ### Color & Security
 
 You'll choose a **color** for each of your qubes out of a predefined set of
-colors. The color of the frame of each window on your desktop will correspond to the color of that cube. 
-These colored frames help you keep track of which qube you're currently using and how trustworthy it is. This is especially helpful
+colors. The color of the frame of each window on your desktop will correspond to the color of that qube. 
+These colored frames help you keep track of which qube you're currently using.
+You may use them to show how trustworthy it is. This is especially helpful
 when you have the same program running in multiple qubes at the same time. For
 example, if you're logged in to your bank account in one qube while doing some
 random web surfing in a different qube, you wouldn't want to accidentally enter
