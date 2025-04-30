@@ -50,6 +50,21 @@ is about the virtualization mode. In practice, however, it is most common for
 standalones to be HVMs and for HVMs to be standalones. Hence, this page covers
 both topics.
 
+## Understanding Virtualization Modes
+
+PVH has both better performance and better security than either PV or HVM:
+
+PVH has less attack surface than PV, as it relies on Second Level Address Translation (SLAT) hardware. Guests modify their own page tables natively, without hypervisor involvement. Xen does not need to perform complex checks to ensure that a guest cannot obtain write access to its own page tables, as is necessary for PV. Flaws in these checks have been a source of no fewer than four guest ⇒ host escapes: XSA-148, XSA-182, XSA-212, and XSA-213.
+
+PVH also has less attack surface than HVM, as it does not require QEMU to provide device emulation services. While QEMU is confined in a stubdomain, and again in a seccomp based sandbox, the stubdomain has significant attack surface against the hypervisor. Not only does it have the full attack surface of a PV domain, it also has access to additional hypercalls that allow it to control the guest it is providing emulation services for. XSA-109 was a vulnerability in one of these hypercalls.
+
+PVH has better performance than HVM, as the stubdomain iin HVM consumes resources (both memory and a small amount of CPU). There is little difference in the I/O path at runtime, as both PVH and HVM guests usually use paravirtualized I/O protocols.
+
+Surprisingly, PVH often has better performance than PV. This is because PVH does not require hypercalls for page table updates, which are expensive. SLAT does raise the cost of TLB misses, but this is somewhat mitigated by a second-level TLB in recent hardware.
+
+
+
+
 ## Creating a standalone
 
 You can create a standalone in the Qube Manager by selecting the "Type" of
