@@ -167,10 +167,10 @@ For example, you might see output like this:
 ```
 In this case, there is a PCI bridge, and the BDF address of the controller is the *last* item, 01:00.0
 
-If the output format does not match this example, or you are unsure if it contains the correct BDF address, you can try finding the address using method 2 using the Qube Manager instead.
+If the output format does not match this example, or you are unsure if it contains the correct BDF address, you can try finding the address using using the Qube Manager instead.
 
-#### Identifying controllers using the Qube Manager
-Using Qube Manager you can quickly determine the controllers on your system and their BDF addresses.
+### Identifying controllers using the Qube Manager
+Using Qube Manager you can quickly determine the controllers on your system and their BDF addresses, but not which controller a particular device is attached to.
 
 Open the Qube Manager, then right click on one of the qubes and open the settings. Go to the tab "Devices".
 Here you should see your available devices along with their BDF addresses. Look for the lines containing "USB controller".
