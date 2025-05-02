@@ -9,7 +9,7 @@ title: Qubes R4.0 release notes
 New features since 3.2
 ----------------------
 
-* Core management scripts rewrite with better structure and extensibility, [API documentation](https://dev.qubes-os.org/en/latest/index.html)
+* Core management scripts rewrite with better structure and extensibility, [API documentation](https://dev.qubes-os.org/projects/core-admin/en/latest/index.html)
 * [Admin API](/news/2017/06/27/qubes-admin-api/) allowing strictly controlled managing from non-dom0
 * All `qvm-*` command-line tools rewritten, some options have changed
 * Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
