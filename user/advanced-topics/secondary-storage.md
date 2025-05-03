@@ -65,9 +65,11 @@ In theory, you can still use file-based disk images ("file" pool driver), but it
 Assuming the secondary hard disk is at `/dev/sdb` (it will be completely erased), you can set it up for encryption by doing in a dom0 terminal (use the same passphrase as the main Qubes disk to avoid a second password prompt at boot):
 
 ```
-sudo cryptsetup luksFormat --hash=sha512 --key-size=512 --cipher=aes-xts-plain64 --verify-passphrase /dev/sdb
+sudo cryptsetup luksFormat --sector-size=512 /dev/sdb
 sudo blkid /dev/sdb
 ```
+
+(The `--sector-size=512` argument can sometimes work around an incompatibility of storage hardware with LVM thin pools on Qubes. If this does not apply to your hardware, the argument will make no difference.)
 
 Note the device's UUID (in this example "b209..."), we will use it as its luks name for auto-mounting at boot, by doing:
 
