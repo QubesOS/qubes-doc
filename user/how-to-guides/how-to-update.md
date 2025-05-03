@@ -33,7 +33,7 @@ However, you can also start the tool manually by selecting it in the Application
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-question-circle"></i>
-  For information about how templates download updates, please see <a href="/doc/how-to-install-software/#why-dont-templates-have-network-access">Why don't templates have network access?</a> and the <a href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
+  For information about how templates download updates, please see <a href="/doc/how-to-install-software/#why-dont-templates-have-normal-network-access">Why don't templates have normal network access?</a> and the <a href="/doc/how-to-install-software/#updates-proxy">Updates proxy</a>.
 </div>
 
 By default, most qubes that are connected to the internet will periodically check for updates for their parent templates. You can check the date of the last update check in the "last checked" column. If updates are available for any qube, you will receive a notification as described above, and in the "Updates available" column you will see "YES" for that qube(s). If the update check did not find any new updates, "NO" will appear in the column. Respectively, for qubes that are no longer supported, "OBSOLETE" will be displayed. However, if you have any templates that do *not* have any online child qubes, you will *not* receive update notifications for them. By default, after a week, if updates for a given qube have not been checked, the value in the "Updates available" column will be set to "MAYBE". 
