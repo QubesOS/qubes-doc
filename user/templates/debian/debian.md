@@ -60,7 +60,9 @@ This section contains notes about specific Debian releases.
 
 ### Debian 12
 
-If you want to use a Debian 12 template for salting Qubes, you **must** stop the salt-common and salt-ssh packages from being upgraded.
+The Debian-12 templates that ship with release 4.2.4 cannot be used for salting Fedora templates. You must change the template used by `default-mgmt-dvm` to a Fedora template. You can do this in the Qubes Template Switcher tool, or at the command line using `qvm-prefs default-mgmt-dvm template`.
+
+If you have a Debian template from an earlier release that you want to use for salting Qubes, you **must** stop the salt-common and salt-ssh packages from being upgraded.
 Do this by marking these packages on hold *before* updating the template.
 
 ```
