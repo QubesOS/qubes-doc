@@ -175,7 +175,7 @@ $ qvm-template list --installed
 
 In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. "Global property default_template" requires [switching](#switching) the default_template property to another template. "Template for" can be resolved by [switching](#switching) the dependent qubes' template. Once the issues are addressed, attempt the removal again.
 
-If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#fixing-shortcuts).
+If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#what-if-a-removed-application-is-still-in-the-app-menu).
 
 ## Reinstalling
 

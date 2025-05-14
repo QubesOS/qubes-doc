@@ -166,37 +166,36 @@ These parameters are set for the following reasons:
     -  Close the registry editor and console windows.
     -  You will then return to the setup, which will continue normally and install Windows 11 without TPM 2.0.
 
-<div class="alert alert-warning" role="alert">
-  <i class="fa fa-exclamation-triangle"></i>
-  **Caution:** This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
-</div>
+    <div class="alert alert-warning" role="alert">
+      <i class="fa fa-exclamation-circle"></i>
+       <b>Caution:</b> This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
+    </div>
     
-    The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
+
+    - The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
     
-    - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
-    - Here you type `taskmgr` to start the Task Manager window so you can see all running processes.
-    - Expand the Task Manager by clicking the “More Details” button, and then find “Network Connection Flow.”
-    - Select this process and then hit the “End Task” button.
-    - Now you can close these newly opened windows and return to the Windows 11 setup, where you will enter local account information.
+      - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
+      - Here you type `taskmgr` to start the Task Manager window so you can see all running processes.
+      - Expand the Task Manager by clicking the “More Details” button, and then find “Network Connection Flow.”
+      - Select this process and then hit the “End Task” button.
+      - Now you can close these newly opened windows and return to the Windows 11 setup, where you will enter local account information.
  
-  - For Windows 11 version 22H2, the following sequence of actions to use a local account instead of a Microsoft account has been published:
+    - For Windows 11 version 22H2, the following sequence of actions to use a local account instead of a Microsoft account has been published:
 
-    - Enter `no@thankyou.com` (or some other senseless address) as the email address and click `Next` when Windows 11 setup prompts you to log into your Microsoft account.
-    - Enter any text you want in the password field and click `Sign in`. If this method works, you'll get a message saying "Oops, something went wrong."
-    - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
-    - Enter the username you want to use and click `Next`.
-    - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
+      - Enter `no@thankyou.com` (or some other senseless address) as the email address and click `Next` when Windows 11 setup prompts you to log into your Microsoft account.
+      - Enter any text you want in the password field and click `Sign in`. If this method works, you'll get a message saying "Oops, something went wrong."
+      - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
+      - Enter the username you want to use and click `Next`.
+      - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
    
-    For Windows 11 version 24H2, the following sequence of actions to use a local account instead of a Microsoft account has been proved working:
+    - For version 24H2, the following actions allow you to install Windows 11 with a local account, if the VM is defined, at least temporarily, without a netVM:
+      - After some reboots, the VM will show a window allowing the selection of an installation country. In this window, type  Shift-F10 to open a console window.
+      - In this window, type `oobe\bypassnro`. The VM will then reboot and return to the country selection window. The network connection window will now show an option "I don't have internet", allowing you to define a local account.
 
-    For version 24H2, the following actions allow you to install Windows 11 with a local account, if the VM is defined, at least temporarily, without a netVM:
-     - After some reboots, the VM will show a window allowing the selection of an installation country. In this window, type  Shift-F10 to open a console window.
-     - In this window, type `oobe\bypassnro`. The VM will then reboot and return to the country selection window. The network connection window will now show an option "I don't have internet", allowing you to define a local account.
-
-    In new preview builds of Windows (26120 and beyond, and eventually the next release version), the `oobe\bypassnro` command has been erased and no longer works. Instead, there's a new command called start `ms-chx:localonly` that does something similar. In this case, proceed as follows:
-     - Follow the Windows 11 install process until you get to the Sign in screen. Here, type  Shift-F10 to open a console window.
-     - Enter start `ms-cxh:localonly` at the command prompt.
-     - A "Create a user for this PC" dialog window appears, allowing you to define a local account.
+    - In new preview builds of Windows (26120 and beyond, and eventually the next release version), the `oobe\bypassnro` command has been erased and no longer works. Instead, there's a new command called start `ms-chx:localonly` that does something similar. In this case, proceed as follows:
+      - Follow the Windows 11 install process until you get to the Sign in screen. Here, type  Shift-F10 to open a console window.
+      - Enter start `ms-cxh:localonly` at the command prompt.
+      - A "Create a user for this PC" dialog window appears, allowing you to define a local account.
 
 - On systems shipped with a Windows license, the product key may be read from flash via root in dom0:
 

@@ -39,18 +39,20 @@ if you don't know which executor to use, use docker.
 
 2. Installing dependencies
 
-   If you want to use an app qube for developing, install dependencies in the template.
+   - If you want to use an app qube for developing, install dependencies in the template.
    If you are using a standalone, install them in the qube itself.
     Dependencies are specified in `dependencies-*.
    txt` files in the main builder directory, and you can install them easily
    in the following ways:
    1. for Fedora, use:
+
     ```shell
     $ sudo dnf install $(cat dependencies-fedora.txt)
     $ test -f /usr/share/qubes/marker-vm && sudo dnf install qubes-gpg-split
    ```
    2. for Debian (note: some Debian packages require Debian version 13 or
       later), use:
+
     ```shell
     $ sudo apt install $(cat dependencies-debian.txt)
     $ test -f /usr/share/qubes/marker-vm && sudo apt install qubes-gpg-split
@@ -60,6 +62,7 @@ if you don't know which executor to use, use docker.
     (re)start the development qube.
 
 3. Clone the qubes-builder v2 repository into a location of your choice:
+
     ```shell
     git clone https://github.com/QubesOS/qubes-builderv2
     cd qubes-builderv2/
@@ -68,12 +71,14 @@ if you don't know which executor to use, use docker.
 4. If you haven't previously used docker in the current qube, you need to set up
    some permissions. In particular, the user has to be added to the `docker`
    group:
+
     ```shell
    $ sudo usermod -aG docker user
     ```
     Next, **restart the qube**.
 
 5. Finally, you need to generate a docker image:
+
     ```shell
    $ tools/generate-container-image.sh docker
     ```
@@ -94,7 +99,7 @@ You can use one of the sample files from the `example-configs/` directory; for a
 more readable `builder.yml`, you can also include one of the files from that
 directory in your `builder.yml`. An example `builder.yml` is:
 
-```yaml
+```
 # include configuration relevant for the current release
 include:
 - example-configs/qubes-os-r4.2.yml
@@ -120,7 +125,6 @@ executor:
   type: docker
   options:
     image: "qubes-builder-fedora:latest"
-
 ```
 
 
