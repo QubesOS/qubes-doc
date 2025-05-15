@@ -16,6 +16,12 @@ ref: 168
 title: Split GPG
 ---
 
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> This information concerns split-gpg. 
+  The implementation has been updated to provide more features in split-gpg-2. Some incomplete information on split-gpg-2 is available <a href="https://www.qubes-os.org/doc/split-gpg-2/">here</a>
+</div>
+
 Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes app qube.
 This way one not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations -- such as encryption/decryption and signing -- to another, more trusted, network-isolated domain.
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.

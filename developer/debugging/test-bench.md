@@ -205,9 +205,10 @@ pushd ${HOME}/builder >/dev/null
 
 # the following are needed only if you have sources outside builder
 #rm -rf qubes-src/core-admin
-#make COMPONENTS=core-admin get-sources
+#qb -c core-admin package fetch
 
-make core-admin
+qb -c core-admin -d host-fc41 prep build
+# update your dom0 fedora distribution as appropriate
 qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-*.rpm
 qtb-runtests
 ```

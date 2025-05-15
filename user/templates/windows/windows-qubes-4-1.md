@@ -146,18 +146,17 @@ These parameters are set for the following reasons:
   - Install on first disk.
   - **For Windows 11 only**: Windows 11 requires TPM 2.0, which currently is not supported from Xen. In Order to install Windows 11 under Qubes, the check for TPM in the Windows installer has to be disabled:
  
-    -  When you start setup without having a TPM, you get an error message like *This PC does not fulfil the minimum requirements for Windows 11*.
-    -  Typing Shift-F10 then opens a console window.
+    -  When the window allowing you to select a Windows version is displayed, **do not select a version and close this window**, but instead type Shift-F10 to open a console window.
     -  Here you type `regedit` to start the registry editor.
     -  There you position to the key `HKEY_LOCAL_MACHINE\SYSTEM\Setup`.
     -  Now create the key `LabConfig`.
     -  Position to this key and create 3 DWORD values called `BypassTPMCheck`, `BypassSecureBootCheck` and `BypassRAMCheck` and set each value to `1`.
     -  Close the registry editor and console windows.
-    -  In the setup window, hit the left arrow in the left upper corner. You will then return into the setup, which will continue normally and install Windows 11 without TPM 2.0.
+    -  You will then return to the setup, which will continue normally and install Windows 11 without TPM 2.0.
    
-    :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft some time.
+    :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
     
-    The installation of Windows 11 may require an internet connection to grab a Microsoft ID. This is currently true only for the home addition, but will probably extend to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that currently works for version 21H2 but may be blocked some time in the future by Microsoft:
+    The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
     
     - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
     - Here you type `taskmgr` to start the Task Manager window so you can see all running processes.
@@ -172,6 +171,17 @@ These parameters are set for the following reasons:
     - Click `Next`. A screen appears saying "Who's going to use this device?" This is the local account creation screen.
     - Enter the username you want to use and click `Next`.
     - Enter a password and click `Next`. You can leave the field blank but it's not recommended.
+   
+    For Windows 11 version 24H2, the following sequence of actions to use a local account instead of a Microsoft account has been proved working:
+
+    For version 24H2, the following actions allow you to install Windows 11 with a local account, if the VM is defined, at least temporarily, without a netVM:
+     - After some reboots, the VM will show a window allowing the selection of an installation country. In this window, type  Shift-F10 to open a console window.
+     - In this window, type `oobe\bypassnro`. The VM will then reboot and return to the country selection window. The network connection window will now show an option "I don't have internet", allowing you to define a local account.
+
+    In new preview builds of Windows (26120 and beyond, and eventually the next release version), the `oobe\bypassnro` command has been erased and no longer works. Instead, there's a new command called start `ms-chx:localonly` that does something similar. In this case, proceed as follows:
+     - Follow the Windows 11 install process until you get to the Sign in screen. Here, type  Shift-F10 to open a console window.
+     - Enter start `ms-cxh:localonly` at the command prompt.
+     - A "Create a user for this PC" dialog window appears, allowing you to define a local account.
 
 - On systems shipped with a Windows license, the product key may be read from flash via root in dom0:
 
@@ -231,7 +241,16 @@ For additional information on configuring a Windows qube, see the [Customizing W
 
 ## Windows as a template
 
-As described above Windows 7, 8.1, 10 and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the option `Move User Profiles` has to be selected on installation of Qubes Windows Tools. For Windows 7, before installing QWT, the private disk `D:` has to be renamed to `Q:`, see the QWT installation documentation in [Qubes Windows Tools](/doc/templates/windows/qubes-windows-tools-4-1).
+As described above Windows 7, 8.1, 10, and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the user data have to be stored on a private disk named `Q:`. If there is already a disk for user data, possibly called `D:`, it has to be renamed to `Q:`. Otherwise, this disk has to be created via the Windows `diskpart` utility, or the Disk Management administrative function by formatting the qube's private volume and associating the letter `Q:` with it. The volume name is of no importance.
+
+Moving the user data is not directly possible under Windows, because the directory `C:\Users` is permanently open and thus locked. Qubes Windows Tools provides a function to move these data on Windows reboot when the directory is not yet locked. To use this function, a working version of QWT has to be used (see the documentation on QWT installation). For Qubes R4.2, this is currently the version 4.1.69. There are two possibilities to move the user data to this volume `Q:`.
+
+- If Qubes Windows Tools is installed, the option `Move User Profiles` has to be selected on the installation. In this case, the user files are moved to the new disk during the reboot at the end of the installation.
+
+- This can also be accomplished without QWT installation, avoiding the installation of the Xen PV drivers, if the risk of a compromised version of these drivers according to QSB-091 is considered too severe. In this case, the file `relocate_dir.exe` has to be extracted from the QWT installer kit `qubes-tools-x64.msi`, which will be shown as the content of the CDROM made available by starting the Windows qube with the additional option `--install-windows-tools` (see the QWT installation documentation). The installer kit is a specially formatted archive, from which the file `relocate_dir.exe` can be extracted using a utility like 7-Zip. The file has then to be copied to `%windir%\system32`, i.e. usually `C:\Windows\system32`. Furthermore, locate the registry key `HKLM\SYSTEM\CurrentControlSet\Control\Session Manager`, and add the text `relocate_dir.exe C:\Users Q:\Users` as a new line to the `REG_MULTI_SZ` value `\BootExecute` in this key. On rebooting the Windows qube, the user files will be moved to the disk `Q:`, and the additional registry entry will be removed, such that this action occurs only once.
+
+If the user data have been moved to `Q:`, be sure not to user the option `Move User Profeiles`on subsequent installations of Qubes Windows tools.
+
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
 ~~~

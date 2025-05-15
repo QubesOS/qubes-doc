@@ -78,10 +78,15 @@ developers do not test them.
 * [Whonix](/doc/templates/whonix/)
 * [Ubuntu](/doc/templates/ubuntu/)
 * [Arch Linux](/doc/building-archlinux-template/)
-* [CentOS](/doc/templates/centos/)
-* [CentOS Minimal](/doc/templates/minimal/)
 * [Gentoo](/doc/templates/gentoo/)
 * [Gentoo Minimal](/doc/templates/minimal/)
+* [CentOS*](/doc/templates/centos)
+
+*\* The CentOS version used by this template reached 
+[End-of-Life in June 2024](https://en.wikipedia.org/wiki/CentOS_Stream#Release_history) 
+and is no longer receiving updates. Due to a lack of specific interest 
+at this time a proposal to create a new CentOS 10 template was 
+[declined](https://github.com/QubesOS/qubes-issues/issues/9716).*
 
 ## Windows
 
@@ -153,68 +158,21 @@ Please see [How to Install Software](/doc/how-to-install-software).
 
 ## Uninstalling
 
-If you want to remove a template you must make sure that it is not being used.
-You should check that the template is not being used by any qubes,
-and also that it is not set as the default template.
+To remove a template, the graphical `Qube Manager` (Qubes Menu > Qubes Tools > Qube Manager) may be used. Right-click the template to be uninstalled and click "Delete qube" to begin removal. If no issues are found, a dialog box will request the template's name be typed as a final confirmation. Upon completion, the template will be deleted.
 
-The procedure for uninstalling a template depends on how it was created.
-
-If the template was originaly created by cloning another template, then you can
-delete it the same way as you would any other qube. In the Qube Manager,
-right-click on the template and select **Delete qube**. (If you're not sure,
-you can safely try this method first to see if it works.)
-
-If, on the other hand, the template came pre-installed or was installed by
-installing a template package in dom0, per the instructions
-[above](#installing), then you must execute the following type of command in
-dom0 in order to uninstall it:
-
+Alternatively, to remove a template via the command line in dom0:
 ```
-$ qvm-template remove qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
+$ qvm-template remove <TEMPLATE_NAME>
 ```
 
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>` is the name of the desired
-template package.
-
-You may see warning messages like the following:
-
+\<TEMPLATE_NAME> is the first column from the output of:
 ```
-warning: file /var/lib/qubes/vm-templates/fedora-XX/whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/vm-whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.04: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.03: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.02: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.01: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.00: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/netvm-whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/icon.png: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/clean-volatile.img.tar: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps.templates: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps.tempicons: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX: remove failed: No such file or directory
+$ qvm-template list --installed
 ```
 
-These are normal and expected. Nothing is wrong, and no action is required to
-address these warnings.
+In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. "Global property default_template" requires [switching](#switching) the default_template property to another template. "Template for" can be resolved by [switching](#switching) the dependent qubes' template. Once the issues are addressed, attempt the removal again.
 
-If the uninstallation command doesn't work, pay close attention to
-any error message: it may tell you what qube is using the template,
-or if the template is default. In other cases, please see [VM Troubleshooting](/doc/vm-troubleshooting/).
-
-If the Applications Menu entry doesn't go away after you uninstall a template,
-execute the following type of command in dom0:
-
-```
-$ rm ~/.local/share/applications/<TEMPLATE_NAME>
-```
-
-Applications Menu entries for backups of removed qubes can also be found in
-`/usr/local/share/applications/` of dom0.
-
-```
-$ rm /usr/local/share/applications/<TEMPLATE_NAME>
-```
+If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#fixing-shortcuts).
 
 ## Reinstalling
 
@@ -429,8 +387,9 @@ this context: the same as their template filesystem, of course.
 
 * Some templates are available in ready-to-use binary form, but some of them
   are available only as source code, which can be built using the [Qubes
-  Builder](/doc/qubes-builder/). In particular, some template "flavors" are
-  available in source code form only. For the technical details of the template
+  Builder](https://github.com/QubesOS/qubes-builderv2/). In particular, some
+  template "flavors" are  available in source code form only. For the
+  technical details of the template
   system, please see [Template Implementation](/doc/template-implementation/).
-  Take a look at the [Qubes Builder](/doc/qubes-builder/) documentation for
+  Take a look at the [Qubes Builder](/doc/qubes-builder-v2/) documentation for
   instructions on how to compile them.
