@@ -191,9 +191,40 @@ seen, e.g., in the Qube Manager in the qube's properties:
 
 Alternatively, one can use the `qvm-ls -n` command to obtain the same
 information (IP/netmask/gateway).
+The Qube Settimgs shows a netmask of 255.255.255.255.
+This is not suitable for most standalones, and you will need to use a different value.
 
-The DNS IP addresses are `10.139.1.1` and `10.139.1.2`. There is [opt-in
-support](/doc/networking/#ipv6) for IPv6 forwarding.
+In Qubes, the IP address is usually in range 10.137.0.0/16, with disposables in range 10.138.0.0/16, and DNS set to `10.139.1.1` and `10.139.1.2`.
+The simplest solution is to set the netmask to 255.0.0.0 - standard for a class A network.
+If you want a more restricted solution you could use 255.252.0.0, or 255.255.255.0
+
+There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
+
+### An example of setting up a network - Network Manager on KDE
+
+Every guest operating system has its own way of handling networking, and the user is 
+referred to the documentation that comes with that operating system. However, 
+Network Manager is widely used on Linux systems, and so a worked example will 
+prove useful. This example is for an HVM running EndeavourOS. 
+
+![Image of Qube Settings](/attachment/doc/EndeavourOS_Network.png "Qube Settings")
+
+In this example, Network Manager on KDE, the network had the following values:
+
+1. IPv4 networking
+2. IP address 10.137.0.17
+3. Netmask - qube settings showed 255.255.255.255, but we decided to use 255.255.255.0
+4. Gateway 10.138.24.248
+5. Virtual DNS 10.139.1.1 and 10.139.1.2
+
+![Image of Network Manager, annotated by numbers for reference below](/attachment/doc/Network Manager.png "Annotated image of KDE Network Manager")
+
+The network was set up by entering Network Manager, selecting the Wi-Fi & Networking tab, clicking on the Wired Ethernet
+item, and selecting tab IPv4 (1).
+The Manual method was selected (2), which revealed areas for data entry.
+The DNS Servers section takes a comma-separated list, here 10.139.1.1,10.1.139.2 (3).
+At the bottom of the tab (4),  the '+ Add' button was selected, and the IP address of 10.137.0.17 entered in the 'Address' column,  the Netmask of 255.255.255.0 entered in the 'Netmask' column, and the Gateway of 10.138.24.248 under 'Gateway'.
+Selecting the "Apply" button stored these changes
 
 ## Using template-based HVMs
 
