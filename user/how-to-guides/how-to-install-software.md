@@ -68,13 +68,6 @@ will appear in the Applications Menu. (If you encounter problems, see
 
 ## Installing software from other sources
 
-**Warning:** This method gives your template direct network access, which is
-[risky](#why-dont-templates-have-normal-network-access). This method is **not**
-recommended for trusted templates. Moreover, depending on how you install this
-software, it may not get updated automatically when you [update Qubes
-normally](/doc/how-to-update/), which means you may have to update it manually
-yourself.
-
 Some software is not available from the default repositories and must be
 downloaded and installed from another source. Depending on the installation method,
 you may either use the updates proxy or direct networking.
@@ -98,8 +91,15 @@ $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
 
 ### Using direct networking
 
-This method assumes that you're trying to follow the instructions to install some piece
-of software in a normal operating system, except that operating system is running as a
+**Warning:** This method gives your template direct network access, which is
+[risky](#why-dont-templates-have-normal-network-access). This method is **not**
+recommended for trusted templates. Moreover, depending on how you install this
+software, it may not get updated automatically when you [update Qubes
+normally](/doc/how-to-update/), which means you may have to update it manually
+yourself.
+
+This method assumes that you are trying to follow instructions to install some piece
+of software in a normal operating system, except *that* operating system is running as a
 template in Qubes OS.
 
 1. (Recommended) Clone the desired template (since this new template will
@@ -166,7 +166,7 @@ Please see [How to Update](/doc/how-to-update/).
 In order to protect you from performing risky activities in templates, they do
 not have normal network access by default. Instead, templates use an [updates
 proxy](#updates-proxy) which allows you to install and update software using
-the distribution package manager over the proxy connection.
+the distribution's package manager over the proxy connection.
 **The updates proxy is already set up to work automatically out-of-the-box and
 requires no special action from you.**
 Most users should simply follow the normal instructions for [installing software
@@ -179,7 +179,7 @@ sources](#installing-software-from-other-sources).
 ## Advanced
 
 The following sections cover advanced topics pertaining to installing and
-updating software in domUs.
+updating software in qubes.
 
 
 ### Testing repositories
