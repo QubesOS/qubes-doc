@@ -151,7 +151,8 @@ Which one to use depends on the device whose firmware is being updated.
 Firmware updates are important on all systems, but they are especially
 important on AMD client systems.  These do not support loading microcode from
 the OS, so firmware updates are the **only** way to obtain microcode updates.
-## Firmware updates
+
+## Firmware update methods
 
 As of Qubes 4.2, firmware updates can be performed from within Qubes for [fwupd-supported computers](https://fwupd.org/).
 
