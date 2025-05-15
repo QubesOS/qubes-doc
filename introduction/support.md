@@ -502,7 +502,6 @@ The Qubes OS Project has a presence on the following social media platforms:
 - <a rel="me" href="https://twitter.com/QubesOS">Twitter</a>
 - <a rel="me" href="https://mastodon.social/@QubesOS">Mastodon</a>
 - <a rel="me" href="https://www.reddit.com/r/Qubes/">Reddit</a>
-- <a rel="me" href="https://www.facebook.com/QubesOS/">Facebook</a>
 - <a rel="me" href="https://www.linkedin.com/company/qubes-os/">LinkedIn</a>
 
 Generally speaking, these are not intended to be primary support venues. (Those

@@ -68,18 +68,39 @@ will appear in the Applications Menu. (If you encounter problems, see
 
 ## Installing software from other sources
 
+Some software is not available from the default repositories and must be
+downloaded and installed from another source. Depending on the installation method,
+you may either use the updates proxy or direct networking.
+
+### Using the updates proxy
+
+If you are still using the distribution package manager, updates will likely still
+work over the updates proxy without needing to give the TemplateVM direct network access.
+
+If you are using another installation method fetching remote resources, you might still
+be able to use the updates proxy by making the tools aware of the proxy. For many tools,
+it is enough to export the following environment variables in your shell session before
+proceeding:
+
+```sh
+$ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
+         HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
+         ALL_PROXY=$HTTP_PROXY all_proxy=$ALL_PROXY \
+         NO_PROXY=127.0.0.1 no_proxy=$NO_PROXY
+```
+
+### Using direct networking
+
 **Warning:** This method gives your template direct network access, which is
-[risky](#why-dont-templates-have-network-access). This method is **not**
+[risky](#why-dont-templates-have-normal-network-access). This method is **not**
 recommended for trusted templates. Moreover, depending on how you install this
 software, it may not get updated automatically when you [update Qubes
 normally](/doc/how-to-update/), which means you may have to update it manually
 yourself.
 
-Some software is not available from the default repositories and must be
-downloaded and installed from another source. This method assumes that you're
-trying to follow the instructions to install some piece of software in a normal
-operating system, except that operating system is running as a template in
-Qubes OS.
+This method assumes that you are trying to follow instructions to install some piece
+of software in a normal operating system, except *that* operating system is running as a
+template in Qubes OS.
 
 1. (Recommended) Clone the desired template (since this new template will
    probably be less trusted than the original).
@@ -140,25 +161,25 @@ If things are still not working as expected:
 Please see [How to Update](/doc/how-to-update/).
 
 
-## Why don't templates have network access?
+## Why don't templates have normal network access?
 
 In order to protect you from performing risky activities in templates, they do
 not have normal network access by default. Instead, templates use an [updates
-proxy](#updates-proxy) that allows you to install and update software using
-the distribution package manager without giving the template direct network
-access.**The updates proxy is already setup to work automatically
-out-of-the-box and requires no special action from you.** Most users should
-simply follow the normal instructions for [installing software from default
-repositories](#installing-software-from-default-repositories) and
-[updating](/doc/how-to-update/) software. If your software is not available in
-the default repositories, see [installing software from other
+proxy](#updates-proxy) which allows you to install and update software using
+the distribution's package manager over the proxy connection.
+**The updates proxy is already set up to work automatically out-of-the-box and
+requires no special action from you.**
+Most users should simply follow the normal instructions for [installing software
+from default repositories](#installing-software-from-default-repositories)
+and [updating](/doc/how-to-update/) software. If your software is not available
+in the default repositories, see [installing software from other
 sources](#installing-software-from-other-sources).
 
 
 ## Advanced
 
 The following sections cover advanced topics pertaining to installing and
-updating software in domUs.
+updating software in qubes.
 
 
 ### Testing repositories
@@ -429,7 +450,7 @@ these in an app qube you need to take the following steps:
    When the install is complete you can close the terminal window.
 
 3. Refresh the Applications list for the app qube. In the Qubes Menu for the
-   **app qube*** launch the Qube Settings. Then go to the Applications tab and
+   **app qube** launch the Qube Settings. Then go to the Applications tab and
    click "Refresh Applications"
 
    The refresh will take a few minutes; after it's complete the Snap app will

@@ -57,7 +57,7 @@ It is the responsibility of each distribution to clearly notify its users in adv
 
 | Qubes OS    | Fedora | Debian |
 | ----------- | ------ | ------ |
-| Release 4.2 | 39, 40 | 12     |
+| Release 4.2 | 41     | 12     |
 
 ### Note on Debian support
 

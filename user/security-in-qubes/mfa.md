@@ -66,7 +66,7 @@ Now we are going to add the authenticator as a login requirement:
 
 1. `sudo authselect create-profile mfa --base-on sssd`
 
-2. Edit the custom system authentication template with `sudo nanois encouraged /etc/authselect/custom/mfa/system-auth`. there is an error in this line
+2. Edit the custom system authentication template in `/etc/authselect/custom/mfa/system-auth`.
 
    Add the following line right after `auth required pam_faildelay.so delay=2000000`:
 

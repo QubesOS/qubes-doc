@@ -62,9 +62,12 @@ Such configuration can be expressed by enabling `ipv6` feature only on some subs
 
 ![ipv6-2](/attachment/doc/ipv6-2.png)
 
-Besides enabling IPv6 forwarding, standard Qubes firewall can be used to limit what network resources are available to each qube. Currently only `qvm-firewall` command support adding IPv6 rules, GUI firewall editor will have this ability later.
+Besides enabling IPv6 forwarding, the standard Qubes firewall can be used to limit what network resources are available to each qube. Currently only the `qvm-firewall` command supports adding IPv6 rules, the GUI firewall editor will have this ability later.
+
+**Note:** Setting or unsetting the `ipv6` feature only affects qubes-configured networking. It does not affect e.g. external interfaces. If you want to restrict IPv6 on these interfaces change the settings in Network Manager. Alternatively, disable IPv6 support using methods appropriate to the underlying template.
 
 ### Limitations
 
 Currently only IPv4 DNS servers are configured, regardless of `ipv6` feature state. It is done this way to avoid reconfiguring all connected qubes whenever IPv6 DNS becomes available or not. Configuring qubes to always use IPv6 DNS and only fallback to IPv4 may result in relatively long timeouts and poor usability.
 But note that DNS using IPv4 does not prevent to return IPv6 addresses. In practice this is only a problem for IPv6-only networks.
+

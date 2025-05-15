@@ -30,4 +30,21 @@ After suspend/resume, OpenVPN may not automatically reconnect. In order to get i
 
 After setting up OpenVPN and restarting the VM, you may be repeatedly getting the popup "Ready to start link", but the VPN isn't connected.
 
-To figure out the root of the problem, check the VPN logs in `/var/logs/syslog`. The log may reveal issues like missing OpenVPN libraries, which you can then install.
+To figure out the root of the problem, check the VPN logs in `/var/log/syslog` or use `journalctl`. The logs may reveal issues like missing OpenVPN libraries, which you can then install.
+
+## `notify-send` induced failure
+[Some VPN guides](https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061) use complex scripts that include a call to `notify-send`, yet some images may not contain this tool or may not have it working properly.
+For instance calling `notify-send` on a `fedora-36` template VM gives:
+```
+Failed to execute child process “dbus-launch” (No such file or directory)
+```
+
+To check this tool is working properly run:
+```bash
+sudo notify-send "$(hostname): Test notify-send OK" --icon=network-idle
+```
+You should see the `info` message appear on the top of your screen.
+If that is the case then `notify-send` is not the issue.
+If it is not, and you have an error of some sort you can:
+1. Remove all calls to `notify-send` from scripts you are using to start VPN
+2. Use another template qube that has a working `notify-send` or find proper guide and make your current template run `notify-send` work properly.

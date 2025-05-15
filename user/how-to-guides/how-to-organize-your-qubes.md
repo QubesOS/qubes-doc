@@ -89,7 +89,7 @@ the other. Alice's setup looks like this:
   [bind-dirs](/doc/bind-dirs/) to make those changes persistent, but sometimes
   she doesn't want to get bogged down doing with all that and figures it
   wouldn't be worth it just for this one qube. She's secretly glad that Qubes
-  OS doesn't judge her this and just gives her the freedom to do things however
+  OS doesn't judge her for this and just gives her the freedom to do things however
   she likes while keeping everything securely compartmentalized. At times like
   these, she takes comfort in knowing that things can be messy and disorganized
   *within* a qube while her overall digital life remains well-organized.
