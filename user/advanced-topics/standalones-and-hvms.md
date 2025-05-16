@@ -83,6 +83,7 @@ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --
 ```
 
 Notes:
+
 - Technically, `virt_mode=hvm` is not necessary for every standalone.
 However, it is needed if you want to use a kernel from within the qube.
 - If you want to make software installed in a template available in your standalone, pass in the name of the template using the `--template` option.
@@ -247,7 +248,7 @@ as is, then any HVMs based on it will effectively be disposables. All file
 system changes will be wiped when the HVM is shut down.
 
 Please see [this
-page](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md)
+page](/doc/templates/windows/windows-qubes-4-1/#windows-as-a-template)
 for specific advice on installing and using Windows-based templates.
 
 ## Cloning HVMs
@@ -411,9 +412,7 @@ device again. This is illustrated in the screenshot below:
 
 You can convert any VirtualBox VM to a Qubes HVM using this method.
 
-For example, Microsoft provides [free 90-day evaluation VirtualBox VMs for
-browser
-testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+For example, Microsoft provides [virtual machines containing an evaluation version of Windows](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/).
 
 About 60 GB of disk space is required for conversion. Use an external hard
 drive if needed. The final `root.img` size is 40 GB.
@@ -492,5 +491,5 @@ qemu-img -h | tail -n1
 
 Other documents related to HVMs:
 
-- [Windows VMs](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm.md)
+- [Windows VMs](https://forum.qubes-os.org/search?q=windows%20hvm%20%23guides)
 - [Linux HVM Tips](https://forum.qubes-os.org/t/19008)

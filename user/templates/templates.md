@@ -112,6 +112,7 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 You can use a command line tool - `qvm-template` - or a GUI - `qvm-template-gui`.
 
 At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
+
 ```
 $ qvm-template install  <template_name>
 ```
@@ -121,9 +122,11 @@ You can also use `qvm-template` to upgrade or reinstall templates.
 Repo definitions are stored in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.  
 There are additional repos for testing releases and community templates.
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option. E.g. :
+
 ```
 $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 ```
+
 To permanently enable a repo, set the line `enabled = 1` in the repo definition in `/etc/qubes/repo-templates`.  
 To permanently disable, set the line to `enabled = 0`.
 
@@ -172,7 +175,7 @@ $ qvm-template list --installed
 
 In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. "Global property default_template" requires [switching](#switching) the default_template property to another template. "Template for" can be resolved by [switching](#switching) the dependent qubes' template. Once the issues are addressed, attempt the removal again.
 
-If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#fixing-shortcuts).
+If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#what-if-a-removed-application-is-still-in-the-app-menu).
 
 ## Reinstalling
 

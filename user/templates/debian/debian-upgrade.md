@@ -189,13 +189,11 @@ instructions](https://www.debian.org/releases/buster/amd64/release-notes/ch-upgr
 
 * If sound is not working, you may need to enable the Qubes testing repository
   to get the testing version of `qubes-gui-agent`. This can be done by editing
-  the `/etc/apt/sources.list.d/qubes-r4.list` file and uncommenting the `Qubes
-  Updates Candidates` repo.
+  the `/etc/apt/sources.list.d/qubes-r4.list` file and uncommenting the `Qubes Updates Candidates` repo.
 
 * User-initiated updates/upgrades may not run when a template first starts.
   This is due to a new Debian config setting that attempts to update
-  automatically; it should be disabled with `sudo systemctl disable
-  apt-daily.{service,timer}`.
+  automatically; it should be disabled with `sudo systemctl disable apt-daily.{service,timer}`.
 
 Relevant discussions:
 

@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/novacustom-v54-series/
 title: NovaCustom V54 Series
 image: /attachment/site/novacustom-v54-series.png
+ref: 358
 ---
 
 The [NovaCustom V54 Series 14.0 inch coreboot laptop](https://novacustom.com/product/v54-series/) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.

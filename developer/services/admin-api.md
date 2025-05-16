@@ -13,8 +13,7 @@ ref: 36
 title: Admin API
 ---
 
-_You may also be interested in the article
-[Introducing the Qubes Admin API](/news/2017/06/27/qubes-admin-api/)._
+_You may also be interested in the article [Introducing the Qubes Admin API](/news/2017/06/27/qubes-admin-api/)._
 
 ## Goals
 
