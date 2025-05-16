@@ -47,7 +47,8 @@ The configuration options required for Qubes certification are detailed below.
 
 - Qubes OS does not currently support UEFI secure boot.
 - The option to be kept up to date with firmware updates is merely an email notification service and therefore does not affect certification.
-- The coreboot+Heads option is not currently certified. This option is a separate firmware variant. As such, it requires a separate certification process, which we expect to occur in the future.
+- Certified: coreboot+EDK-II
+- Certified: coreboot+Heads
 - Disabling Intel Management Engine (HAP disabling) does not affect certification.
 
 ### Operating system
