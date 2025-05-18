@@ -158,7 +158,7 @@ As of Qubes 4.2, firmware updates can be performed from within Qubes for [fwupd-
 
 ### In dom0
 
-First, ensure that your [UpdateVM](/doc/Software/UpdateVM/)
+First, ensure that your UpdateVM
 contains the `fwupd-qubes-vm` package. This package is installed
 by default for qubes with `qubes-vm-recommended` packages.
 
@@ -198,8 +198,7 @@ Repeat the update process for any additional devices on your computer.
 
 Devices that are attached to non-dom0 qubes can be updated via a graphical tool for `fwupd`, or via the `fwupdmgr` commandline tool.
 
-To update the firmware of offline qubes, use the [Updates
-proxy](/doc/how-to/install/software/#updates-proxy).
+To update the firmware of offline qubes, use the [Updates proxy](/doc/how-to-install-software/#updates-proxy).
 
 ### Computers without fwupd support
 
