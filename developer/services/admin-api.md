@@ -64,7 +64,7 @@ to set the policy using current mechanism.
 | call                                           | dest       | argument     | inside                                                              | return                                              | note |
 |------------------------------------------------|------------|--------------|---------------------------------------------------------------------|-----------------------------------------------------| ---- |
 | `admin.vmclass.List`                           | `dom0`     | -            | -                                                                   | `<class>\n`                                         |
-| `admin.vm.List`                                | `dom0      | <vm>`        | -                                                                   | -                                                   | `<name> class=<class> state=<state>\n`                    |
+| `admin.vm.List`                                | `dom0|<vm>`| -            | -                                                                   | `<name> class=<class> state=<state>\n`              |
 | `admin.vm.Create.<class>`                      | `dom0`     | template     | `name=<name> label=<label>`                                         | -                                                   |
 | `admin.vm.CreateInPool.<class>`                | `dom0`     | template     | `name=<name> label=<label> `<br/>`pool=<pool> pool:<volume>=<pool>` | -                                                   | either use `pool=` to put all volumes there, <br/>or `pool:<volume>=` for individual volumes - both forms are not allowed at the same time
 | `admin.vm.CreateDisposable`                    | template   | -            | -                                                                   | name                                                | Create new DisposableVM, `template` is any AppVM with `dispvm_allowed` set to True, or `dom0` to use default defined in `default_dispvm` property of calling VM; VM created with this call will be automatically removed after its shutdown; the main difference from `admin.vm.Create.DispVM` is automatic (random) name generation.
@@ -75,17 +75,17 @@ to set the policy using current mechanism.
 | `admin.label.Index`                            | `dom0`     | label        | -                                                                   | `<label-index>`                                     |
 | `admin.label.Remove`                           | `dom0`     | label        | -                                                                   | -                                                   |
 | `admin.property.List`                          | `dom0`     | -            | -                                                                   | `<property>\n`                                      |
-| `admin.property.Get`                           | `dom0`     | property     | -                                                                   | `default={True                                      |False} `<br/>`type={str|int|bool|vm|label|list} <value>`   | Type `list` is added in R4.1. Values are of type `str` and each entry is suffixed with newline character.
+| `admin.property.Get`                           | `dom0`     | property     | -                                                                   | `default={True|False} `<br/>`type={str|int|bool|vm|label|list} <value>`   | Type `list` is added in R4.1. Values are of type `str` and each entry is suffixed with newline character.
 | `admin.property.GetAll`                        | `dom0`     | -            | -                                                                   | `<property-name> <full-value-as-in-property.Get>\n` | Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal `\n` and literal `\` are encoded as `\\`.
-| `admin.property.GetDefault`                    | `dom0`     | property     | -                                                                   | `type={str                                          |int|bool|vm|label|list} <value>`               | Type `list` is added in R4.1. Values are of type `str` and each entry is suffixed with newline character.
+| `admin.property.GetDefault`                    | `dom0`     | property     | -                                                                   | `type={str|int|bool|vm|label|list} <value>`         | Type `list` is added in R4.1. Values are of type `str` and each entry is suffixed with newline character.
 | `admin.property.Help`                          | `dom0`     | property     | -                                                                   | `help`                                              |
 | `admin.property.HelpRst`                       | `dom0`     | property     | -                                                                   | `help.rst`                                          |
 | `admin.property.Reset`                         | `dom0`     | property     | -                                                                   | -                                                   |
 | `admin.property.Set`                           | `dom0`     | property     | value                                                               | -                                                   |
 | `admin.vm.property.List`                       | vm         | -            | -                                                                   | `<property>\n`                                      |
-| `admin.vm.property.Get`                        | vm         | property     | -                                                                   | `default={True                                      |False} `<br/>`type={str|int|bool|vm|label|list} <value>`   | Type `list` is added in R4.1. Each list entry is suffixed with a newline character.
+| `admin.vm.property.Get`                        | vm         | property     | -                                                                   | `default={True|False} `<br/>`type={str|int|bool|vm|label|list} <value>`   | Type `list` is added in R4.1. Each list entry is suffixed with a newline character.
 | `admin.vm.property.GetAll`                     | vm         | -            | -                                                                   | `<property-name> <full-value-as-in-property.Get>\n` | Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal `\n` and literal `\` are encoded as `\\`.
-| `admin.vm.property.GetDefault`                 | vm         | property     | -                                                                   | `type={str                                          |int|bool|vm|label|type} <value>`               | Type `list` is added in R4.1. Each list entry is suffixed with a newline character.
+| `admin.vm.property.GetDefault`                 | vm         | property     | -                                                                   | `type={str|int|bool|vm|label|type} <value>`         | Type `list` is added in R4.1. Each list entry is suffixed with a newline character.
 | `admin.vm.property.Help`                       | vm         | property     | -                                                                   | `help`                                              |
 | `admin.vm.property.HelpRst`                    | vm         | property     | -                                                                   | `help.rst`                                          |
 | `admin.vm.property.Reset`                      | vm         | property     | -                                                                   | -                                                   |
@@ -151,8 +151,8 @@ to set the policy using current mechanism.
 | `admin.backup.Execute`                         | `dom0`     | config id    | -                                                                   | -                                                   | config in `/etc/qubes/backup/<id>.conf`, only one backup operation of given `config id` can be running at once |
 | `admin.backup.Info`                            | `dom0`     | config id    | -                                                                   | backup info                                         | info what would be included in the backup
 | `admin.backup.Cancel`                          | `dom0`     | config id    | -                                                                   | -                                                   | cancel running backup operation
-| `admin.Events`                                 | `dom0      | vm`          | -                                                                   | -                                                   | events                                                    |
-| `admin.vm.Stats`                               | `dom0      | vm`          | -                                                                   | -                                                   | `vm-stats` events, see below                              | emit VM statistics (CPU, memory usage) in form of events
+| `admin.Events`                                 | `dom0| vm` | -            | -                                                                   | events                                              |
+| `admin.vm.Stats`                               | `dom0| vm` | -            | -                                                                   | `vm-stats` events, see below                        | emit VM statistics (CPU, memory usage) in form of events
 
 Volume properties:
 
@@ -216,8 +216,8 @@ Server will close the connection.
 Traceback may be empty, can be enabled server-side as part of debug mode.
 Delimiting zero-byte is always present.
 
-Fields are should substituted into `%`-style format string, possibly after
-client-side translation, to form final message to be displayed unto user. Server
+Fields should be fromatted to `%`-style format string, possibly after
+client-side translation, to form final message to be displayed to the user. Server
 does not by itself support translation.
 
 ## Tags
@@ -225,10 +225,10 @@ does not by itself support translation.
 The tags provided can be used to write custom policies. They are not used in
 a&nbsp;default Qubes OS installation. However, they are created anyway.
 
-- `created-by-<vm>` &mdash;&nbsp;Created in an extension to qubesd at the
+- `created-by-<vm>` - Created in an extension to `qubesd` at the
   moment of creation of the VM. Cannot be changed via API, which is also
   enforced by this extension.
-- `managed-by-<vm>` &mdash;&nbsp;Can be used for the same purpose, but it is
+- `managed-by-<vm>` - Can be used for the same purpose, but it is
   not created automatically, nor is it forbidden to set or reset this tag.
 
 ## Backup profile

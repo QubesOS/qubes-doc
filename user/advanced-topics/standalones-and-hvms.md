@@ -218,7 +218,7 @@ In this example, Network Manager on KDE, the network had the following values:
 4. Gateway 10.138.24.248
 5. Virtual DNS 10.139.1.1 and 10.139.1.2
 
-![Image of Network Manager, annotated by numbers for reference below](/attachment/doc/Network Manager.png "Annotated image of KDE Network Manager")
+![Image of Network Manager, annotated by numbers for reference below](/attachment/doc/Network_Manager.png "Annotated image of KDE Network Manager")
 
 The network was set up by entering Network Manager, selecting the Wi-Fi & Networking tab, clicking on the Wired Ethernet
 item, and selecting tab IPv4 (1).
