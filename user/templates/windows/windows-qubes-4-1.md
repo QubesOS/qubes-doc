@@ -154,8 +154,11 @@ These parameters are set for the following reasons:
     -  Close the registry editor and console windows.
     -  You will then return to the setup, which will continue normally and install Windows 11 without TPM 2.0.
    
-    :warning: **Caution:** This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
-    
+<div class="alert alert-warning" role="alert">
+    <i class="fa fa-exclamation-circle"></i>
+    <b>Caution:</b> This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
+</div>
+
     The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
     
     - When you reach the “Let’s Connect You To A Network” page, type Shift-F10 to open a console window.
