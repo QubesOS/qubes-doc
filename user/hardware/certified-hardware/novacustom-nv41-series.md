@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/novacustom-nv41-series/
 title: NovaCustom NV41 Series
 image: /attachment/site/novacustom-nv41-series.png
+ref: 357
 ---
 
 The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
