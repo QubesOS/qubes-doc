@@ -589,19 +589,32 @@ The output for each qube is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
 
 If the log does not contain useful information:
 1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.apply`
-2. When your qube is being started (yellow) press Ctrl-z on qubesctl.
-3. Open terminal in disp-mgmt-qube_NAME.
-4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is
-   executed in the management qube.
-5. Get the last two lines:
+2. Wait until you see the notification that the qube disp-mgmt-qube_VM_NAME is starting
+   - **NOTE** - "VM_NAME" will be replaced by the name of the target.
+3. Press Ctrl-z to pause `qubesctl` from the terminal in dom0.
+4. Open a terminal in the disp-mgmt-qube_VM_NAME qube by:
+   - opening the "Qube Manager" and right click on disp-mgmt-qube_VM_NAME
+   - selecting `Open Console in Qube`
+6. Edit `qubes.SaltLinuxVM` RPC file using the below command - this is what is
+   executed in the management qube:
+
+   ```shell_session
+   $ sudoedit /etc/qubes-rpc/qubes.SaltLinuxVM
+   ```
+
+5. Edit the `salt-ssh` command on the last line of the file to add debugging `-l debug`:
 
     ```shell_session
-    $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
-    $ salt-ssh "$target_vm" $salt_command
+    salt-ssh -l debug "$target_vm" $salt_command
     ```
 
-  Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
-6. Execute them, fix problems, repeat.
+6. Unpause the `qubesctl` process in the dom0 terminal.
+
+    ```shell_session
+    $ fg
+    ```
+
+7 Fix problems, repeat.
 
 ## Known Pitfalls
 
