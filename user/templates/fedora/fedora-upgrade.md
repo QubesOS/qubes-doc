@@ -47,7 +47,7 @@ If you wish to install a new, unmodified Fedora template instead of upgrading a 
 [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
 [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
 [user@fedora-<new> ~]$ sudo dnf clean all
-[user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+[user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
 [user@dom0 ~]$ qvm-shutdown fedora-<new>
 [user@dom0 ~]$ sudo losetup -d $dev
 [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
@@ -116,7 +116,7 @@ The same general procedure may be used to upgrade any template based on the stan
         [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
         [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
         [user@fedora-<new> ~]$ sudo dnf clean all
-        [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
         ```
 
        If this attempt is successful, proceed to step 4.
@@ -185,7 +185,7 @@ The same general procedure may be used to upgrade any template based on the stan
 [user@dom0 ~]$ qvm-clone fedora-<old>-minimal fedora-<new>-minimal
 [user@dom0 ~]$ qvm-run -u root -a fedora-<new>-minimal xterm
 [root@fedora-<new>-minimal ~]# dnf clean all
-[user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best --allowerasing distro-sync
+[user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best distro-sync --allowerasing
 [user@fedora-<new>-minimal ~]# fstrim -v /
 [user@dom0 ~]$ qvm-features fedora-<new>-minimal template-name fedora-<new>
 ```
