@@ -248,10 +248,10 @@ depending on which RPM Fusion repositories you wish to enable (see [RPM
 Fusion](https://rpmfusion.org/) for details):
 
 ~~~
-sudo dnf config-manager --set-enabled rpmfusion-free
-sudo dnf config-manager --set-enabled rpmfusion-free-updates
-sudo dnf config-manager --set-enabled rpmfusion-nonfree
-sudo dnf config-manager --set-enabled rpmfusion-nonfree-updates
+sudo dnf config-manager setopt rpmfusion-free.enabled=1
+sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
+sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
+sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
 sudo dnf upgrade --refresh
 ~~~
 
