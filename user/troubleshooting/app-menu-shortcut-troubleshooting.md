@@ -30,20 +30,20 @@ After that, use the directional buttons (`>`, `>>`, `<` or `<<`) to customize wh
 
 To update the list of available applications, use the `qvm-sync-appmenus` command in dom0, replacing `<QUBE_NAME>` by the qube name:
 
-```console
+```
 $ qvm-sync-appmenus <QUBE_NAME>
 ```
 
 When using the *Refresh Applications* button in a qube's settings, the command `qvm-sync-appmenus` is used at least one time. When refreshing an AppVM application, it is also run against the template. So the console equivalent of clicking the *Refresh button* is the following (always in dom0):
 
-```console
+```
 $ qvm-sync-appmenus <APPVM_NAME>
 $ qvm-sync-appmenus <TEMPLATE_NAME>
 ```
 
 In dom0, the `qvm-appmenus` tool allows the user to see the list of available applications (unstable feature), the whitelist of currently show application (unstable feature) and to change this list:
 
-```console
+```
 $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 ```
 

@@ -97,10 +97,10 @@ The same general procedure may be used to upgrade any template based on the stan
 
     This key was already checked when it was installed (notice that the "From" line refers to a location on your local disk), so you can safely say yes to this prompt.
 
-    **Note:** If you encounter no errors, proceed to step 4.
+     - **Note:** If you encounter no errors, proceed to step 4.
     If you do encounter errors, see the next two points first.
 
-     * If `dnf` reports that you do not have enough free disk space to proceed
+     - If `dnf` reports that you do not have enough free disk space to proceed
        with the upgrade process, create an empty file in dom0 to use as a cache
        and attach it to the template as a virtual disk.
 
@@ -121,7 +121,7 @@ The same general procedure may be used to upgrade any template based on the stan
 
        If this attempt is successful, proceed to step 4.
 
-     * `dnf` may complain: `At least X MB more space needed on the / filesystem.`
+     - `dnf` may complain: `At least X MB more space needed on the / filesystem.`
 
        In this case, one option is to [resize the template's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
        (See [Additional Information](#additional-information) below for other options.)

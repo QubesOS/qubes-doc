@@ -45,6 +45,8 @@ At this point, you need to shutdown all your running qubes as the `default_guivm
 
 Here, we describe how to setup `sys-gui-gpu` which is a GUI domain with *GPU passthrough* in [GUI domain](/news/2020/03/18/gui-domain/#gpu-passthrough-the-perfect-world-desktop-solution).
 
+> Note: the purpose of `sys-gui-gpu` is to improve Qubes OS security by detaching the GPU from dom0, this is not intended to improve GPU related performance within qubes, and this will not improve performance.
+
 [![sys-gui-gpu](/attachment/posts/guivm-gpu.png)](/attachment/posts/guivm-gpu.png)
 
 In `dom0`, enable the formula for `sys-gui-gpu` with pillar data:
