@@ -110,13 +110,7 @@ sudo blkid /dev/sdb
 
 (The `--sector-size=512` argument can sometimes work around an incompatibility of storage hardware with LVM thin pools on Qubes. If this does not apply to your hardware, the argument will make no difference.)
 
-Note the device's UUID (in this example "b209..."), we will use it as its luks name for auto-mounting at boot, by doing:
-
-```shell_session
-sudo nano /etc/crypttab
-```
-
-And adding this line to crypttab (replacing both "b209..." entries with your device's UUID taken from blkid) :
+Note the device's UUID (in this example "b209..."), we will use it as its luks name for auto-mounting at boot, by editing `/etc/crypttab`, and adding this line to crypttab (replacing both "b209..." entries with your device's UUID taken from blkid) :
 
 ```shell_session
 luks-b20975aa-8318-433d-8508-6c23982c6cde UUID=b20975aa-8318-433d-8508-6c23982c6cde none
@@ -190,11 +184,9 @@ By default VMs will be created on the main Qubes disk (i.e. a small SSD), to cre
 ```shell_session
 qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 ```
-=======
 
 Verify that corresponding lines were added to /etc/fstab and /etc/cryptab to enable auto mounting of the new pool.
 
 
 [Qubes Backup]: /doc/BackupRestore/
 [TemplateVM]: /doc/Templates/
->>>>>>> pr-1130:user/advanced-configuration/secondary-storage.md
