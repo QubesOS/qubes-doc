@@ -99,6 +99,8 @@ to set the policy using current mechanism.
 | `admin.vm.feature.CheckWithTemplateAndAdminVM` | vm         | feature      | -                                                                   | value                                               |
 | `admin.vm.feature.Remove`                      | vm         | feature      | -                                                                   | -                                                   |
 | `admin.vm.feature.Set`                         | vm         | feature      | value                                                               | -                                                   |
+| `admin.vm.notes.Get`                           | vm         | -            | -                                                                   | notes                                               |
+| `admin.vm.notes.Set`                           | vm         | -            | notes                                                               | -                                                   |
 | `admin.vm.tag.List`                            | vm         | -            | -                                                                   | `<tag>\n`                                           |
 | `admin.vm.tag.Get`                             | vm         | tag          | -                                                                   | `0` or `1`                                          | retcode? |
 | `admin.vm.tag.Remove`                          | vm         | tag          | -                                                                   | -                                                   |
