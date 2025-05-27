@@ -13,10 +13,15 @@ title: Templates
 
 In [Getting Started](/doc/getting-started/), we covered the distinction
 in Qubes OS between where you *install* your software and where you *run* your
-software. Your software is installed in [templates](/doc/glossary/#template).
-Each template shares its root filesystem (i.e., all of its programs and system
-files) with all the qubes based on it. [App qubes](/doc/glossary/#app-qube) are
-where you run your software and store your data.
+software. Software that you use in most everyday tasks, is installed within [templates](/doc/glossary/#template).
+When using Qubes OS, you normally work in [app qubes](/doc/glossary/#app-qube).
+App qubes are based on a *template* qube (or more simply, just *a template*).
+They inherit most of the ["root filesystem"](https://opensource.com/life/16/10/introduction-linux-filesystems), from the template.
+Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user's home directory.)
+The user home directory *is* specific to the app qube, and changes there are kept.
+There is a full explanation of this [below](#inheritance-and-persistence).
+
+If you use a [Standalone](/doc/glossary/#standalone), the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
 
 The template system has significant benefits:
 
@@ -37,7 +42,7 @@ The template system has significant benefits:
 
 An important side effect of this system is that any software installed in an
 app qube (rather than in the template on which it is based) will disappear
-after the app qube reboots (see [Inheritance and
+when the app qube shuts down (see [Inheritance and
 Persistence](#inheritance-and-persistence)). For this reason, we recommend
 installing most of your software in templates, not app qubes.
 
@@ -61,6 +66,9 @@ exactly the same source code as we publish.
 * [Fedora Xfce](/doc/templates/xfce)
 * [Debian](/doc/templates/debian/)
 * [Debian Minimal](/doc/templates/minimal/)
+* [Debian Xfce](/doc/templates/xfce)
+
+You can see the current supported versions [here](/doc/supported-releases#templates).
 
 ## Community
 
@@ -109,16 +117,16 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 * When you suspect your template has been compromised.
 * When you have made modifications to your template that you no longer want.
 
-You can use a command line tool - `qvm-template` - or a GUI - `qvm-template-gui`.
+You can manage your templates using the `Qubes Template Manager`, a GUI tool available from the Qube menu.
+You can also use a command line tool in dom0 - `qvm-template`.
 
 At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
 ```
 $ qvm-template install  <template_name>
 ```
-
 You can also use `qvm-template` to upgrade or reinstall templates.
 
-Repo definitions are stored in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.  
+Repository (repo) definitions are stored in dom0 in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.
 There are additional repos for testing releases and community templates.
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option. E.g. :
 ```
