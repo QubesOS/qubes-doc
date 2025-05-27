@@ -12,19 +12,18 @@ title: Debian templates
 ---
 
 The Debian [template](/doc/templates/) is an officially [supported](/doc/supported-releases/#templates) template in Qubes OS.
-This page is about the standard (or "full") Debian template.
+The Current version is Debian 12 ("bookworm"). It is available in 3 versions - `debian-12`, a standard template; `debian-12-xfce`, a larger template with more installed applications, selected for [Xfce](/doc/templates/xfce/); `debian-12-minimal`.
+This page is about the "full" templates.
 For the minimal version, please see the [Minimal templates](/doc/templates/minimal/) page.
-There is also a [Qubes page on the Debian Wiki](https://wiki.debian.org/Qubes).
 
 ## Installing
 
-To [install](/doc/templates/#installing) a specific Debian template that is not currently installed in your system, use the following command in dom0:
+To [install](/doc/templates/#installing) a specific Debian template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 
 ```
-$ sudo qubes-dom0-update qubes-template-debian-XX
+$ qvm-template install XX
 ```
-
-   (Replace `XX` with the Debian version number of the template you wish to install.)
+   (Replace `XX` with the name of the template you wish to install.)
 
 To reinstall a Debian template that is already installed in your system, see [How to Reinstall a template](/doc/reinstall-template/).
 
@@ -100,10 +99,8 @@ Don't forget to make the file executable.
 
 ### Unattended Upgrades
 
-Some users have noticed that on upgrading to Stretch, the `unattended-upgrade` package is installed.
-
+Some users have noticed that on upgrading Debian templates, the `unattended-upgrade` package is installed.
 This package is pulled in as part of a Recommend chain, and can be purged.
-
 The lesson is that you should carefully look at what is being installed to your system, particularly if you run `dist-upgrade`.
 
 ### Package installation errors in Qubes 4.0

@@ -6,17 +6,15 @@ ref: 136
 title: Fedora templates
 ---
 
-The Fedora [template](/doc/templates/) is the default template in Qubes OS. This page is about the standard (or "full") Fedora template. For the minimal and Xfce versions, please see the [Minimal templates](/doc/templates/minimal/) and [Xfce templates](/doc/templates/xfce/) pages.
+The Fedora [template](/doc/templates/) is the default template in Qubes OS. The current version is Fedora 41. This page is about the standard (or "full") Fedora template. For the minimal and Xfce versions, please see the [Minimal templates](/doc/templates/minimal/) and [Xfce templates](/doc/templates/xfce/) pages.
 
 ## Installing
 
-To [install](/doc/templates/#installing) a specific Fedora template that is not currently installed in your system, use the following command in dom0:
-
+To [install](/doc/templates/#installing) a specific Fedora template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 ```
-$ sudo qubes-dom0-update qubes-template-fedora-XX
+$ qvm-template install XX 
 ```
-
-   (Replace `XX` with the Fedora version number of the template you wish to install.)
+   (Replace `XX` with the name of the Fedora template you wish to install.)
 
 To reinstall a Fedora template that is already installed in your system, see [How to Reinstall a template](/doc/reinstall-template/).
 
