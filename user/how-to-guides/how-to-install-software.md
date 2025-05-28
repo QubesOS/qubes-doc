@@ -165,7 +165,7 @@ Please see [How to Update](/doc/how-to-update/).
 
 In order to protect you from performing risky activities in templates, they do
 not have normal network access by default. Instead, templates use an
-[updates-proxy](#updates-proxy)which allows you to install and update software using
+[updates-proxy](#updates-proxy) which allows you to install and update software using
 the distribution's package manager over the proxy connection.
 **The updates proxy is already set up to work automatically out-of-the-box and
 requires no special action from you.**

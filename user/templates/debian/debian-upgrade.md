@@ -179,7 +179,7 @@ command is required:
 ### Debian 10 ("Buster")
 
 Please see [Debian's Buster upgrade
-instructions](https://www.debian.org/releases/buster/amd64/release-notes/ch-upgrading.en.html).
+instructions](https://www.debian.org/releases/buster/amd64/release-notes.en.txt).
 
 ### Debian 9 ("Stretch")
 
@@ -203,12 +203,12 @@ Relevant discussions:
 * [User apt commands blocked on startup](https://github.com/QubesOS/qubes-issues/issues/2621)
 
 Also see [Debian's Stretch upgrade
-instructions](https://www.debian.org/releases/stretch/amd64/release-notes/ch-upgrading.en.html).
+instructions](https://www.debian.org/releases/stretch/amd64/release-notes.en.txt).
 
 ### Debian 8 ("Jessie")
 
 Please see [Debian's Jessie upgrade
-instructions](https://www.debian.org/releases/jessie/amd64/release-notes/ch-upgrading.en.html).
+instructions](https://www.debian.org/releases/jessie/amd64/release-notes.en.txt).
 
 ### End-of-life (EOL) releases
 
