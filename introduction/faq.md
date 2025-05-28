@@ -144,7 +144,7 @@ Briefly, here are some of the main pros and cons of this approach relative to Qu
   (For example, you might find it natural to lock your secure laptop in a safe when you take your unsecure laptop out with you.)
 
 <div class="focus">
-    <i class="fa fa-times"></i> <strong>Cons</strong>
+  <i class="fa fa-times"></i> <strong>Cons</strong>
 </div>
 
 - Physical separation can be cumbersome and expensive, since we may have to obtain and set up a separate physical machine for each security level we need.

@@ -155,11 +155,10 @@ Consider the following example. `mytcp-service` qube has a TCP service running o
 
 - In untrusted, use the Qubes tool `qvm-connect-tcp`:
 
-    ~~~
+    ```
     [user@untrusted #]$ qvm-connect-tcp 444:@default:444
-    ~~~
-
-> Note: The syntax is the same as SSH tunnel handler. The first `444` correspond to the localport destination of `untrusted`, `@default` the remote machine and the second `444` to the remote machine port.
+    ```
+- **Note:** The syntax is the same as SSH tunnel handler. The first `444` correspond to the localport destination of `untrusted`, `@default` the remote machine and the second `444` to the remote machine port.
 
 The service of `mytcp-service` running on port `444` is now accessible in `untrusted` as `localhost:444`.
 
@@ -257,15 +256,16 @@ In order to allow a service present in a qube to be exposed to the outside world
 
 As an example we can take the use case of a web server listening on port 443 that we want to expose on our physical interface eth0, but only to our local network 192.168.x.0/24.
 
-> Note: To have all interfaces available and configured, make sure the 3 qubes are up and running
+  - **Note:** To have all interfaces available and configured, make sure the 3 qubes are up and running
 
-> Note: [Issue #4028](https://github.com/QubesOS/qubes-issues/issues/4028) discusses adding a command to automate exposing the port.
+  - **Note:** [Issue #4028](https://github.com/QubesOS/qubes-issues/issues/4028) discusses adding a command to automate exposing the port.
 
 **1. Identify the IP addresses you will need to use for sys-net, sys-firewall and the destination qube.**
 
 You can get this information from the Settings Window for the qube, or by running this command in each qube:
 `ifconfig | grep -i cast `
 Note the IP addresses you will need.
+
 > Note: The vifx.0 interface is the one used by qubes connected to this netvm so it is _not_ an outside world interface.
 
 **2. Route packets from the outside world to the FirewallVM**
@@ -280,23 +280,23 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j DNAT 
 
 Code the appropriate new filtering firewall rule to allow new connections for the service
 
-```
-iptables -I FORWARD 2 -i eth0 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-```
+  ```
+  iptables -I FORWARD 2 -i eth0 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+  ```
 
-> If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
-> In Qubes R4, at the moment ([QubesOS/qubes-issues#3644](https://github.com/QubesOS/qubes-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `qubes-firewall` nft table with a forward chain.
+  - If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
+  - In Qubes R4, at the moment ([QubesOS/qubes-issues#3644](https://github.com/QubesOS/qubes-issues/issues/3644)), nftables is also used which imply that additional rules need to be set in a `qubes-firewall` nft table with a forward chain.
 
 `nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.1.z tcp dport 443 ct state new counter accept`
 
 Verify you are cutting through the sys-net VM firewall by looking at its counters (column 2)
 
-```
-iptables -t nat -L -v -n
-iptables -L -v -n
-```
+  ```
+  iptables -t nat -L -v -n
+  iptables -L -v -n
+  ```
+  - **Note:** On Qubes R4, you can also check the nft counters
 
-> Note: On Qubes R4, you can also check the nft counters
 
 ```
 nft list table ip qubes-firewall
@@ -358,7 +358,9 @@ if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
 fi
 ~~~
 
-> Note: Again in R4 the following needs to be added:
+
+  - **Note:** Again in R4 the following needs to be added:
+
 
 ~~~
 #############
@@ -389,9 +391,9 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 iptables -I FORWARD 2 -i eth0 -s 192.168.x.0/24 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 ```
 
-> Note: If you do not wish to limit the IP addresses connecting to the service, remove the ` -s 192.168.0.1/24 `
+  - **Note:** If you do not wish to limit the IP addresses connecting to the service, remove the ` -s 192.168.0.1/24 `
 
-> Note: On Qubes R4
+  - **Note:** On Qubes R4
 
 ```
 nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept

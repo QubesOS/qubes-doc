@@ -59,7 +59,7 @@ If error should be thrown, you need to provide the error code and name, for exam
       b'2\x00QubesNoSuchPropertyError\x00\x00No such property\x00'
 ```
 
-For details of particular calls, you can use [Extending the mock Qubes object].
+For details of particular calls, you can use [Extending the mock Qubes object](#extending-the-mock-qubes-object).
 
 
 ## Available mocks

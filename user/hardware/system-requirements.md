@@ -98,7 +98,7 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   offer significant security advantages over conventional operating systems on
   the same hardware.
 
-  Intel maintains a
+  - Intel maintains a
   [list](https://www.intel.com/content/www/us/en/support/articles/000022396/processors.html)
   of end-of-support dates for its processors. However, this list seems to
   include only processors that are no longer supported or will soon no longer
@@ -122,7 +122,7 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   2. The user's OEM, ODM, or MB to provide a suitable BIOS or (U)EFI update for
   the user's system.
 
-  Historically, AMD has often been slow to complete step (1), at least for its
+  - Historically, AMD has often been slow to complete step (1), at least for its
   client (as opposed to server) platforms [^2]. In some cases, AMD has made fixes
   available for its server platforms very shortly after a security embargo was
   lifted, but it did not make fixes available for client platforms facing the
@@ -131,11 +131,9 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
   designated date.) By contrast, Intel has consistently made fixes available for
   new CPU vulnerabilities across its supported platforms very shortly after
   security embargoes have been lifted.
-
-  Step (2) varies by vendor. Many vendors fail to complete step (2) at all,
+  - Step (2) varies by vendor. Many vendors fail to complete step (2) at all,
   while some others take a very long time to complete it.
-
-  The bottom line is that Qubes OS **can** run on AMD systems, and the Qubes and
+  - The bottom line is that Qubes OS **can** run on AMD systems, and the Qubes and
   Xen security teams do their best to provide security support for AMD systems.
   However, without the ability to ship microcode updates, there is only so much
   they can do.

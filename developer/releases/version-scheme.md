@@ -71,7 +71,7 @@ When enough progress has been made, we announce the first stable release, e.g.
 `3.0.0`. This is not only a version but an actual release. It is considered
 stable, and we commit to supporting it according to our [support
 schedule](/doc/supported-releases/). Core components are branched at this
-moment, and bug fixes are backported from the master branch. Please see [help,
+moment, and bug fixes are backported from the main branch. Please see [help,
 support, mailing lists, and forum](/support/) for places to ask questions about
 stable releases. No major features or interface incompatibilities are to be
 included in this release. We release bug fixes as patch releases (`3.0.1`,
@@ -173,7 +173,7 @@ We mark each component version in the repository by tag containing
 
 At the release of some release we create branches named like `release2`. Only
 bug fixes and compatible improvements are backported to these branches. These
-branches should compile. All new development is done in `master` branch. This
+branches should compile. All new development is done in `main` branch. This
 branch is totally unsupported and may not even compile depending on maintainer
 of repository.
 

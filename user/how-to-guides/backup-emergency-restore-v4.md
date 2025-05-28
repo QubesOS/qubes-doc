@@ -131,10 +131,10 @@ any GNU/Linux system.
             scrypt dec -P qubes.xml.000.enc | gzip -d | tar -xv
         qubes.xml
 
-    If this pipeline fails, it is likely that the backup is corrupted or has
+    - If this pipeline fails, it is likely that the backup is corrupted or has
     been tampered with.
 
-    **Note:** If your backup was compressed with a program other than `gzip`,
+    - **Note:** If your backup was compressed with a program other than `gzip`,
     you must substitute the correct compression program in the command above.
     This information is contained in `backup-header` (see step 4). For example,
     if your backup is compressed with `bzip2`, use `bzip2 -d` instead of `gzip

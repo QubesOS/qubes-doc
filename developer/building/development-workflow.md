@@ -46,7 +46,7 @@ Don't forget to include the public PGP key you use to sign your tags.
 
 #### Prepare fresh version of kernel sources, with Qubes-specific patches applied
 
-In qubes-builder/artifacts/sources/linux-kernel:
+In `qubes-builder/artifacts/sources/linux-kernel`:
 
 ~~~
 make prep
@@ -65,7 +65,7 @@ drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
 
 #### Go to the kernel tree and update the version
 
-In qubes-builder/artifacts/sources/linux-kernel:
+In `qubes-builder/artifacts/sources/linux-kernel`:
 
 ~~~
 cd kernel-3.4.18/linux-3.4.18
@@ -73,14 +73,14 @@ cd kernel-3.4.18/linux-3.4.18
 
 #### Changing the config
 
-In kernel-3.4.18/linux-3.4.18:
+In `kernel-3.4.18/linux-3.4.18`:
 
 ~~~
 cp ../../config .config
 make oldconfig
 ~~~
 
-Now change the configuration. For example, in kernel-3.4.18/linux-3.4.18:
+Now change the configuration. For example, in `kernel-3.4.18/linux-3.4.18`:
 
 ~~~
 make menuconfig
@@ -139,7 +139,7 @@ RPMs will appear in
 
 1. `./qb package diff` - show uncommitted changes
 2. ` ./qb repository check-release-status-for-component` and
-`./qb repository check-release-status-for-template`- show version of each
+`./qb repository check-release-status-for-template` - show version of each
    component/template (based on git tags)
 3. `./qb package sign` -  sign built packages
 4. `./qb package publish` and `./qb package upload` - publish signed packages
