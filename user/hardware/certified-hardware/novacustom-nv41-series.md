@@ -16,19 +16,23 @@ The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is [of
 The following configuration options are certified for Qubes OS Release 4:
 
 Processor:
+
 - Intel Core i5-1240P processor
 - Intel Core i7-1260P processor
 
 Memory:
+
 - 2 x 16 GB Kingston DDR4 SODIMM 3200 MHz (32 GB total)
 - 1 x 32 GB Kingston DDR4 SODIMM 3200 MHz (32 GB total)
 - 2 x 32 GB Kingston DDR4 SODIMM 3200 MHz (64 GB total)
 
 M.2 storage chip:
+
 - Samsung 980 SSD (all capacities)
 - Samsung 980 Pro SSD (all capacities)
 
 Wi-Fi and Bluetooth:
+
 - Intel AX-200/201 Wi-Fi module 2976 Mbps, 802.11ax/Wi-Fi 6 + Bluetooth 5.2
 - Killer (Intel) Wireless-AX 1675x M.2 Wi-Fi module 802.11ax/Wi-Fi 6E + Bluetooth 5.3
 - Blob-free: Qualcomm Atheros QCNFA222 Wi-Fi 802.11a/b/g/n + Bluetooth 4.0

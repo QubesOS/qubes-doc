@@ -17,7 +17,7 @@ ref: 356
   <b>Note:</b> Only the "Dasharo TianoCore UEFI without Measured Boot, without Nitrokey" firmware option is certified. The "HEADS with Measured Boot, requires Nitrokey!" firmware option is <em>not</em> certified.
 </div>
 
-The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
+The [NitroPC Pro](https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523) is [officially certified](/doc/certified-hardware/) for Qubes OS Release 4.
 
 [![Photo of NitroPC Pro](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
 
@@ -40,7 +40,7 @@ The NitroPC Pro also comes with a "Dasharo Entry Subscription," which includes t
 - Accesses to the latest firmware releases
 - Exclusive newsletter
 - Special firmware updates, including early access to updates enhancing privacy, security, performance, and compatibility
-- Early access to new firmware releases for [newly-supported desktop platforms](https://docs.dasharo.com/variants/overview/#desktop) (please see the [roadmap](https://github.com/Dasharo/presentations/blob/main/dug2_dasharo_roadmap.md#dasharo-desktop-roadmap))
+- Early access to new firmware releases for [newly-supported desktop platforms](https://docs.dasharo.com/variants/overview/#desktop) (please see the [roadmap](https://github.com/Dasharo/presentations/blob/main/archive/dug_2/dug2_dasharo_roadmap.md#dasharo-desktop-roadmap))
 - Access to the Dasharo Premier Support invite-only live chat channel on the Matrix network, allowing direct access to the Dasharo Team and fellow subscribers with personalized and priority assistance
 - Insider's view and influence on the Dasharo feature roadmap for a real impact on Dasharo development
 - [Dasharo Tools Suite Entry Subscription](https://docs.dasharo.com/osf-trivia-list/dts/#what-is-dasharo-tools-suite-supporters-entrance) keys

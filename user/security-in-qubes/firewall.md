@@ -312,7 +312,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 ```
 
-- **Note:** If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules
+- **Note:** If you do not wish to limit the IP addresses connecting to the service, remove `ip saddr 192.168.x.y/24` from the rules.
 
 - If you want to expose the service on multiple interfaces, repeat steps 2 and 3 above, for each interface. Alternatively, you can leave out the interface completely.
 

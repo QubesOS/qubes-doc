@@ -121,7 +121,7 @@ If you want to generate a key on a smartcard or other hardware token, use `addca
 ## Advanced usage
 
 There are a few option not described in this README.
-See the comments in the example (config and the source code)[https://github.com/QubesOS/qubes-app-linux-split-gpg2/blob/main/qubes-split-gpg2.conf.example].
+See the comments in the example [config and the source code](https://github.com/QubesOS/qubes-app-linux-split-gpg2/blob/main/qubes-split-gpg2.conf.example).
 
 Similar to a smartcard, split-gpg2 only tries to protect the private key.
 For advanced usages, consider if a specialized RPC service would be better.

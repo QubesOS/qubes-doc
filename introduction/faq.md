@@ -190,7 +190,7 @@ By default, Qubes OS uses [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key
 
 ### What do all these terms mean?
 
-All Qubes-specific terms are defined in the [glossary](/doc/glossary/)
+All Qubes-specific terms are defined in the [glossary](/doc/glossary/).
 
 ### Does Qubes run every app in a separate VM?
 

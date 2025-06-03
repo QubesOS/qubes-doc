@@ -149,7 +149,7 @@ The default terminal emulator in Qubes is Xfce Terminal.
 Opening a terminal emulator in dom0 can be done in several ways:
 
 - Go to the App Menu, click on the Settings icon, choose Other from the drop-down menu, and select **Xfce Terminal Emulator** at the bottom.
-- Press `Alt`+`F3` and search for `xfce terminal`.
+- Press `Alt` + `F3` and search for `xfce terminal`.
 - Right-click on the desktop and select **Open Terminal Here**.
 
 Various command-line tools are described as part of this guide, and the whole reference can be found [here](/doc/tools/).

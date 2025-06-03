@@ -600,8 +600,8 @@ If the log does not contain useful information:
 $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
 $ salt-ssh "$target_vm" $salt_command
 ```
-
   Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
+
 6. Execute them, fix problems, repeat.
 
 ## Known Pitfalls

@@ -46,7 +46,7 @@ and then use it as an additional factor to login to your Qubes system.
     google-authenticator
     ```
 
-3. Walk through the setup instructions 2 which will also generate your QR code for your auth app of choice:
+3. Walk through the setup instructions which will also generate your QR code for your auth app of choice:
 
    ```
    Do you want me to update your “/home/user/.google_authenticator” file (y/n) y
@@ -120,7 +120,8 @@ The second option is recovery from a backup. It will work as long as you include
 The YubiKey / NitroKey3 is a hardware authentication device manufactured by Yubico / NitroKey
 to protect access to computers, networks, and online services that supports
 one-time passwords (OTP), public-key cryptography, and authentication, and the
-Universal 2nd Factor (U2F) and FIDO2 protocols[1] developed by the FIDO Alliance.
+Universal 2nd Factor [(U2F)](https://en.wikipedia.org/wiki/Universal_2nd_Factor)
+and FIDO2 protocols developed by the [FIDO Alliance](https://en.wikipedia.org/wiki/FIDO_Alliance).
 
 You can use a YubiKey / NitroKey3 to enhance the user authentication in Qubes. The following
 instructions explain how to setup the YubiKey / NitroKey3 as an *additional* way to login.
