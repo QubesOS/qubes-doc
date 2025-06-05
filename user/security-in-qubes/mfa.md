@@ -200,16 +200,28 @@ website](https://docs.nitrokey.com/software/nitropy/all-platforms/installation).
 
 3. Configure your YubiKey / NitroKey3:
    
-   **YubiKey**
+   **YubiKey (via CLI)**
    
    Configure your YubiKey for challenge-response `HMAC-SHA1` mode. This can be
    done on any qube, e.g. a disposable (you need to [attach the
 YubiKey](https://www.qubes-os.org/doc/how-to-use-usb-devices/) to this app qube
 though) or directly on the sys-usb vm.
 
-   You need to (temporarily) install the package "yubikey-personalization-gui" and
-   run it by typing `yubikey-personalization-gui` in the command line.
+    This command will configure your Yubikey, given a 40 character (all lowercase) secret key, like the example below:
 
+    `ykpersonalize -2 -ochal-resp -ochal-hmac -ohmac-lt64 -ochal-btn-trig -a 0123456789abcdef0123456789abcdef01234567`
+
+    With the following settings:
+    - Configuration Slot: `2`,
+    - Challenge-Response Mode: `HMAC-SHA1`,
+    - Require usser input (Optional, but Recommended): `true`,
+    - HMAC-SHA1 Mode: `fixed 64 bit input`
+    - Secret Key (example): `0123456789abcdef0123456789abcdef01234567`
+
+   **Yubikey (via GUI)**
+   
+   Previously, this document mentioned to (temporarily) install the package "yubikey-personalization-gui" and
+   run it by typing `yubikey-personalization-gui` in the command line. However, this program is now [EOL](https://developers.yubico.com/yubikey-personalization-gui/), and is not present in Debian repositories newer than Bullseye (e.g. this package is not available in Debian Bookworm). The GUI instructions are left below for posterity:
    - In the program go to `Challenge-Response`,
    - select `HMAC-SHA1`,
    - choose `Configuration Slot 2`,
