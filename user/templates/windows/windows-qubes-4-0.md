@@ -16,11 +16,13 @@ title: How to install Windows qubes in Qubes OS 4.0
 If you just want something simple and you can live without some features.
 
 Works:
+
 - display (1440x900 or 1280x1024 are a nice fit onto FHD hw display)
 - keyboard (incl. correct mapping), pointing device
 - network (emulated Realtek NIC)
 
 Does not work:
+
 - copy & paste (the qubes way)
 - copying files into / out of the VM (the qubes way)
 - assigning USB devices (the qubes way via the tray applet)
@@ -29,6 +31,7 @@ Does not work:
 - all other features/hardware needing special tool/driver support
 
 Installation procedure:
+
 - Have the Windows 10 ISO image (I used the 64-bit version) downloaded in some qube.
 - Create a new Qube:
   - Name: Win10, Color: red
@@ -219,6 +222,7 @@ At that point you should have a functional and stable Windows VM, although witho
 ## Windows as a template
 
 Windows 7 and 10 can be installed as TemplateVM by selecting
+
 ~~~
 qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-template
 ~~~
@@ -231,6 +235,7 @@ when creating the VM. To have the user data stored in AppVMs depending on this t
 For Windows 10, configuration data like those stored in directories like `AppData` still remain in the TemplateVM, such that their changes are lost each time the AppVM shuts down. In order to make permanent changes to these configuration data, they have to be changed in the TemplateVM, meaning that applications have to be started there, which violates and perhaps even endangers the security of the TemplateVM. Such changes should be done only if absolutely necessary and with great care. It is a good idea to test them first in a cloned TemplateVM before applying them in the production VM.
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
+
 ~~~
 qvm-create --class=AppVM --template=<VMname> 
 ~~~

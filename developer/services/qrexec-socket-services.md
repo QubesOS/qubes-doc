@@ -62,6 +62,7 @@ See the below example.
 
 `qrexec-policy-agent` is the program that handles "ask" prompts for Qubes RPC calls.
 It is a good example of an application that:
+
 * Uses Python and asyncio.
 * Runs as a daemon, to save some overhead on starting process.
 * Runs as a normal user.

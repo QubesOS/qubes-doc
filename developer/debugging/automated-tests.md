@@ -267,11 +267,13 @@ It feeds off of the openQA test data to make graph plots. Here is an example:
 ![openqa-investigator-splitgpg-example.png](/attachment/doc/openqa-investigator-splitgpg-example.png)
 
 Some outputs:
+
   - plot by tests
   - plot by errors
   - markdown
 
 Some filters:
+
   - filter by error
   - filter by test name
 

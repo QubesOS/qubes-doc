@@ -19,7 +19,7 @@ For guidance setting up a USB qube, see the [USB documentation](/doc/how-to-use-
 Currently (until issue [1082](https://github.com/QubesOS/qubes-issues/issues/1082) gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, `libvirtd`) will think that the device is still attached to the qube and will not allow attaching further devices under the same name.
 This may be characterized by VM manager crashes and the error message: `Houston, we have a problem`.
 The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
-If this isn't an option, you can manually recover from the situation by following the instructions at the [Block Devices documentation](/doc/how-to-use-block-storage-devices/#what-if-i-removed-the-device-before-detaching-it-from-the-vm)
+If this isn't an option, you can manually recover from the situation by following the instructions at the [Block Devices documentation](/doc/how-to-use-block-storage-devices/#what-if-i-removed-the-device-before-detaching-it-from-the-vm).
 
 ## "Device attach failed" error
 

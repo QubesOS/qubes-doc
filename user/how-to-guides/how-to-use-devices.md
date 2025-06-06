@@ -26,6 +26,7 @@ In Qubes 3.X, the Qubes VM Manager dealt with attachment as well.
 This functionality was moved to the Qubes Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
 
 There are currently four categories of devices Qubes understands:
+
  - Microphones
  - Block devices
  - USB devices
@@ -64,7 +65,7 @@ A list of VMs appears, one showing the eject symbol: ![eject icon](/attachment/d
 Only `mic` should be attached to more than one running VM.
 You may *assign* a device to more than one VM (using the `--persistent` option), however, only one of them can be started at the same time.
 
-But be careful: There is a [bug in `qvm-device block` or `qvm-block`](https://github.com/QubesOS/qubes-issues/issues/4692) which will allow you to *attach* a block device to two running VMs.
+But be careful: There is a [bug in](https://github.com/QubesOS/qubes-issues/issues/4692) `qvm-device block` or `qvm-block` which will allow you to *attach* a block device to two running VMs.
 Don't do that!
 
 

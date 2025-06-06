@@ -23,7 +23,7 @@ specifically override the changes.) Other operations that work well on normal
 VMs are also somewhat inconsistent on RPM-managed templates. This includes
 actions such as renaming
 ([#839](https://github.com/QubesOS/qubes-issues/issues/839)), removal
-([#5509](https://github.com/QubesOS/qubes-issues/issues/5509)) and
+([#5509](https://web.archive.org/web/20210526123932/https://github.com/QubesOS/qubes-issues/issues/5509)) and
 backup/restore ([#1385](https://github.com/QubesOS/qubes-issues/issues/1385),
 [#1453](https://github.com/QubesOS/qubes-issues/issues/1453), [discussion
 thread

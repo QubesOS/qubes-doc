@@ -15,7 +15,7 @@ Rationale
 
 Traditionally, Xen VMs are assigned a fixed amount of memory. It is not the optimal solution, as some VMs may require more memory than assigned initially, while others underutilize memory. Thus, there is a need for solution capable of shifting free memory from VM to another VM.
 
-The [tmem](https://oss.oracle.com/projects/tmem/) project provides a "pseudo-RAM" that is assigned on per-need basis. However this solution has some disadvantages:
+The [tmem](https://web.archive.org/web/20210712161104/https://oss.oracle.com/projects/tmem/) project provides a "pseudo-RAM" that is assigned on per-need basis. However this solution has some disadvantages:
 
 - It does not provide real RAM, just an interface to copy memory to/from fast, RAM-based storage. It is perfect for swap, good for file cache, but not ideal for many tasks.
 - It is deeply integrated with the Linux kernel. When Qubes will support Windows guests natively, we would have to port *tmem* to Windows, which may be challenging.
@@ -24,13 +24,19 @@ Therefore, in Qubes another solution is used. There is the *qmemman* dom0 daemon
 
 Similarly, when there is need for Xen free memory (for instance, in order to create a new VM), traditionally the memory is obtained from dom0 only. When *qmemman* is running, it offers an interface to obtain memory from all domains.
 
-To sum up, *qmemman* pros and cons. Pros:
+To sum up, *qmemman* pros and cons.
+
+<div class="focus">
+  <i class="fa fa-check"></i> <strong>Pros</strong>
+</div>
 
 - provides automatic balancing of memory across participating PV and HVM domains, based on their memory demand
 - works well in practice, with less than 1% CPU consumption in the idle case
 - simple, concise implementation
 
-Cons:
+<div class="focus">
+  <i class="fa fa-times"></i> <strong>Cons</strong>
+</div>
 
 - the algorithm to calculate the memory requirement for a domain is necessarily simple, and may not closely reflect reality
 - *qmemman* is notified by a VM about memory usage change not more often than 10 times per second (to limit CPU overhead in VM). Thus, there can be up to 0.1s delay until qmemman starts to react to the new memory requirements

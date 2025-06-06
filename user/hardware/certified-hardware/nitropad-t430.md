@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/nitropad-t430/
 title: NitroPad T430
 image: /attachment/site/nitropad-t430.jpg
+ref: 352
 ---
 
 <div class="alert alert-danger" role="alert">
