@@ -336,7 +336,7 @@ her setup looks like this:
   reports.
 
 - **Two qubes for taxes.** Carol has a [Windows
-  qube](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md)
+  qube](/doc/templates/windows/)
   for running her Windows-only tax software. She also has an offline vault
   where she stores all of her tax-related forms and documents, organized by
   year.

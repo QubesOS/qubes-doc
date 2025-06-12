@@ -165,7 +165,7 @@ Please see [How to Update](/doc/how-to-update/).
 
 In order to protect you from performing risky activities in templates, they do
 not have normal network access by default. Instead, templates use an
-[updates-proxy](#updates-proxy)which allows you to install and update software using
+[updates-proxy](#updates-proxy) which allows you to install and update software using
 the distribution's package manager over the proxy connection.
 **The updates proxy is already set up to work automatically out-of-the-box and
 requires no special action from you.**
@@ -453,10 +453,10 @@ these in an app qube you need to take the following steps:
    **app qube** launch the Qube Settings. Then go to the Applications tab and
    click "Refresh Applications"
 
-   The refresh will take a few minutes; after it's complete the Snap app will
-   appear in the app qube's list of available applications. At this point the
-   snap will be persistent within the app qube and will receive updates when
-   the app qube is running.
+   - The refresh will take a few minutes; after it's complete the Snap app will
+     appear in the app qube's list of available applications. At this point the
+     snap will be persistent within the app qube and will receive updates when
+     the app qube is running.
 
 
 ### Autostarting Installed Applications

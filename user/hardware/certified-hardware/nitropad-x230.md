@@ -4,6 +4,7 @@ layout: doc
 permalink: /doc/certified-hardware/nitropad-x230/
 title: NitroPad X230
 image: /attachment/site/nitropad-x230.jpg
+ref: 354
 ---
 
 <div class="alert alert-danger" role="alert">

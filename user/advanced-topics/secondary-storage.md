@@ -29,6 +29,7 @@ You can query qvm-pool to list available storage drivers:
 qvm-pool --help-drivers
 ```
 qvm-pool driver explanation:
+
 ```
 <file> refers to using a simple file for image storage and lacks a few features.
 <file-reflink> refers to storing images on a filesystem supporting copy on write.

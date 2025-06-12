@@ -40,7 +40,7 @@ Some laptops cannot read from an external boot device larger than 8GB. If you en
 
 ## Installation completes successfully but then system crash/restarts on next boot
 
-Some Dell systems and probably others have [another bug in UEFI firmware](https://markmail.org/message/amw5336otwhdxi76).
+Some Dell systems and probably others have [another bug in UEFI firmware](https://web.archive.org/web/20170901231026/https://markmail.org/message/amw5336otwhdxi76).
 These systems need `efi=attr=uc` enabled at all times.
 Although this is enabled by default in the installer, it is disabled after the first stage of a successful install.
 You can re-enable it either as part of the install process:
