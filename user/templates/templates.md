@@ -117,7 +117,10 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 * When you suspect your template has been compromised.
 * When you have made modifications to your template that you no longer want.
 
-You can manage your templates using the `Qubes Template Manager`, a GUI tool available from the Qube menu.
+You can manage your templates using the `Qubes Template Manager`, a GUI tool available from the Qube > Qubes Tools menu.
+
+[![The GUI Qubes Template Manager in Qubes 4.3](/attachment/doc/qubes-template-manager-4.3.png)](/attachment/doc/qubes-template-manager-4.3.png)
+
 You can also use a command line tool in dom0 - `qvm-template`.
 
 At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
