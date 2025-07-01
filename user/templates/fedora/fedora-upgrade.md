@@ -121,7 +121,7 @@ The same general procedure may be used to upgrade any template based on the stan
 
        If this attempt is successful, proceed to step 4.
 
-     - `dnf` may complain: `At least X MB more space needed on the / filesystem.`
+     - `dnf` may error with the text: `At least X MB more space needed on the / filesystem.`
 
        In this case, one option is to [resize the template's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
        (See [Additional Information](#additional-information) below for other options.)

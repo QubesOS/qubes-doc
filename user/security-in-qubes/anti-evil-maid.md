@@ -43,7 +43,7 @@ Security Considerations
 However, in its default configuration, installing and using AEM requires attaching a USB drive (i.e., [mass storage device](https://en.wikipedia.org/wiki/USB_mass_storage_device_class)) directly to dom0.
 (The other option is to install AEM to an internal disk.
 However, this carries significant security implications, as explained [here](https://blog.invisiblethings.org/2011/09/07/anti-evil-maid.html).) This presents us with a classic security trade-off: each Qubes user must make a choice between protecting dom0 from a potentially malicious USB drive, on the one hand, and protecting the system from Evil Maid attacks, on the other hand.
-Given the practical feasibility of attacks like [BadUSB](https://www.blackhat.com/us-14/briefings.html#badusb-on-accessories-that-turn-evil) and revelations regarding pervasive government hardware backdoors, this is no longer a straightforward decision.
+Given the practical feasibility of attacks like [BadUSB](https://web.archive.org/web/20160304013434/https://srlabs.de/badusb/) and revelations regarding pervasive government hardware backdoors, this is no longer a straightforward decision.
 New, factory-sealed USB drives cannot simply be assumed to be "clean" (e.g., to have non-malicious microcontroller firmware).
 Therefore, it is up to each individual Qubes user to evaluate the relative risk of each attack vector against his or her security model.
 
