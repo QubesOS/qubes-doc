@@ -1,4 +1,4 @@
-    ---
+---
 lang: en
 layout: doc
 permalink: /doc/install-security/
