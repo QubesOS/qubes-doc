@@ -31,7 +31,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 
 1. Use Git to clone the qubes-secpack repo.
 
-   .. code:: bash
+   .. code::
 
          $ git clone https://github.com/QubesOS/qubes-secpack.git
          Cloning into 'qubes-secpack'...
@@ -44,7 +44,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 
 2. Import the included PGP keys. See our `PGP key policies <#pgp-key-policies>`__ for important information about these keys.
 
-   .. code:: bash
+   .. code::
 
          $ gpg --import qubes-secpack/keys/*/*
          gpg: directory `/home/user/.gnupg' created

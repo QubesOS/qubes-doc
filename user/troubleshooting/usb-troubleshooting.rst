@@ -51,7 +51,7 @@ Errors suggesting this issue:
 
 - in ``xl dmesg`` output:
 
-  .. code:: bash
+  .. code::
 
         (XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
         (XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
@@ -60,7 +60,7 @@ Errors suggesting this issue:
 
 - during ``qvm-start sys-usb``:
 
-  .. code:: bash
+  .. code::
 
         internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
 

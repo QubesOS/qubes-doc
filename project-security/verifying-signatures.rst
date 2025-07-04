@@ -167,7 +167,7 @@ Once you’ve observed enough matching fingerprints from enough independent sour
 
 Now that you’ve imported the authentic QMSK, set its trust level to “ultimate” so that it can be used to automatically verify all the keys signed by the QMSK (in particular, RSKs).
 
-.. code:: bash
+.. code::
 
       $ gpg2 --edit-key 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
@@ -647,7 +647,7 @@ Why am I getting "CRC error; […] no signature found […]"?
 You’re not verifying against the correct `detached PGP signature file <#how-to-verify-detached-pgp-signatures-on-qubes-isos>`__, or the signature file has been modified. Try downloading it again or from a different source.
 
 Do I have to verify both the `detached PGP signature file <#how-to-verify-detached-pgp-signatures-on-qubes-isos>`__ and the `cryptographic hash values <#how-to-verify-the-cryptographic-hash-values-of-qubes-isos>`__?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 No, either method is sufficient by itself, but you can do both if you like.

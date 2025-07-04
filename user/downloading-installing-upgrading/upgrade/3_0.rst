@@ -161,7 +161,7 @@ Because of above limitations, you will need to configure some of those manually.
 
 2. Start the VM from command line:
 
-   .. code:: bash
+   .. code::
 
          [user@dom0 ~]$ qvm-start custom-template
          --> Loading the VM (type = template)...
@@ -177,7 +177,7 @@ Because of above limitations, you will need to configure some of those manually.
 
 3. Access VM console:
 
-   .. code:: bash
+   .. code::
 
          [user@dom0 ~]$ virsh -c xen:/// console custom-template
 

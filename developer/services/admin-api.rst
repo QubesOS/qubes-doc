@@ -762,7 +762,7 @@ Example backup profile:
    include:
      - work
      - personal
-     - ``vault``
+     - vault
      - banking
 
    # Store the backup on external disk
