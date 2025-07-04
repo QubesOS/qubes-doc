@@ -238,7 +238,7 @@ Set the debug flag in order to have a graphical console:
 
 The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in “transient” mode with the following error in ``guest-win7new-dm.log``:
 
-.. code:: bash
+.. code::
 
       qemu: /home/user/qubes-src/vmm-xen-stubdom-linux/build/qemu/exec.c:1187: cpu_physical_memory_snapshot_get_dirty: Assertion `start + length <= snap->end' failed.
 

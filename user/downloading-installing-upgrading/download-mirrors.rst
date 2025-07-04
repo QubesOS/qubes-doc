@@ -9,7 +9,7 @@ List of Download Mirrors
 ------------------------
 
 
-The full list of known Qubes download mirrors is available `here <https://www.qubes-os.org/downloads/#mirrors>__.
+The full list of known Qubes download mirrors is available `here <https://www.qubes-os.org/downloads/#mirrors>`__.
 
 Instructions for Mirror Operators
 ---------------------------------

@@ -90,7 +90,7 @@ Project Ideas
 
 These project ideas were contributed by our developers and may be incomplete. If you are interested in submitting a proposal based on these ideas, you should contact the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` and associated GitHub issue to learn more about the idea.
 
-.. code:: bash
+.. code::
 
       ### Adding a Proposal
       

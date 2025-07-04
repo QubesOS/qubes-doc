@@ -145,7 +145,7 @@ To actually build RPMs, in qubes-builder:
 RPMs will appear in ``artifacts/repository/destination_name/package_name`` (for example ``artifacts/repository/host-fc37/linux-kernel-6.6.31-1.1/``
 
 Useful :doc:`QubesBuilder </developer/building/qubes-builder-v2>` commands
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 1. ``./qb package diff`` - show uncommitted changes

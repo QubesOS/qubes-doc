@@ -17,6 +17,7 @@ Watch all the talks from Qubes OS Summit 2022, which took place September 9-11, 
              :height: 315
              :width: 560
              :align: left
+
 ----
 
 
@@ -24,6 +25,7 @@ Watch all the talks from Qubes OS Summit 2022, which took place September 9-11, 
              :height: 315
              :width: 560
              :align: left
+
 ----
 
 
@@ -31,7 +33,6 @@ Watch all the talks from Qubes OS Summit 2022, which took place September 9-11, 
              :height: 315
              :width: 560
              :align: left
-
 
 
 
@@ -53,10 +54,6 @@ Micah Lee presents "Qubes OS: The Operating System That Can Protect You Even If 
 
 Explaining Computers presents "Qubes OS: Security Oriented Operating System"
 ----------------------------------------------------------------------------
-
-
-
-----
 
 
 .. youtube:: hWDvS_Mp6gc
