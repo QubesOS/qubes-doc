@@ -1,640 +1,708 @@
----
-lang: en
-layout: doc
-permalink: /doc/salt/
-ref: 185
-title: Salt (management software)
----
+==========================
+Salt (management software)
+==========================
 
-Since the Qubes R3.1 release we have included the Salt (also called SaltStack)
-management engine in dom0 as default (with some states already configured).
-Salt allows administrators to easily configure their systems.
-In this guide we will show how it is set up and how you can modify it for your
-own purpose.
+.. warning::
 
-In the current form the **API is provisional** and subject to change between
-*minor* releases.
+      This page is intended for advanced users.
 
-## Understanding Salt
+Since the Qubes R3.1 release we have included the Salt (also called SaltStack) management engine in dom0 as default (with some states already configured). Salt allows administrators to easily configure their systems. In this guide we will show how it is set up and how you can modify it for your own purpose.
 
-This document is not meant to be comprehensive Salt documentation; however,
-before writing anything it is required you have at least *some* understanding of
-basic Salt-related vocabulary.
-For more exhaustive documentation, visit [official site](https://docs.saltproject.io/en/latest/), though we
-must warn you that it is not easy to read if you just start working with Salt
-and know nothing.
+In the current form the **API is provisional** and subject to change between *minor* releases.
 
-### The Salt Architecture
+Understanding Salt
+------------------
 
-Salt is a client-server model, where the server (called *master*) manages
-its clients (called *minions*).
-In typical situations, it is intended that the administrator interacts only
-with the master and keeps the configurations there.
-In Qubes, we don't have a master.
-Instead we have one minion which resides in `dom0` and manages qubes from
-there.
-This setup is also supported by Salt.
 
-Salt is a management engine (similar to Ansible, Puppet, and Chef), that
-enforces a particular state of a minion system.
-A *state* is an end effect *declaratively* expressed by the administrator.
-This is the most important concept in the entire engine.
-All configurations (i.e., the states) are written in YAML.
+This document is not meant to be comprehensive Salt documentation; however, before writing anything it is required you have at least *some* understanding of basic Salt-related vocabulary. For more exhaustive documentation, visit `official site <https://docs.saltproject.io/en/latest/>`__, though we must warn you that it is not easy to read if you just start working with Salt and know nothing.
 
-A *pillar* is a data back-end declared by the administrator.
-When states become repetitive, instead of pure YAML they can be written using a
-template engine (preferably Jinja2); which can use data structures specified in
-pillars.
+The Salt Architecture
+^^^^^^^^^^^^^^^^^^^^^
 
-A *formula* is a ready to use, packaged solution that combines a state and a
-pillar (possibly with some file templates and other auxiliary files).
-There are many formulas made by helpful people all over the Internet.
 
-A *grain* is some data that is also available in templates, but its value is not
-directly specified by administrator.
-For example, the distribution (e.g., `"Debian"` or `"Gentoo"`) is a value of
-the grain `"os"`. It also contains other information about the kernel,
-hardware, etc.
+Salt is a client-server model, where the server (called *master*) manages its clients (called *minions*). In typical situations, it is intended that the administrator interacts only with the master and keeps the configurations there. In Qubes, we don’t have a master. Instead we have one minion which resides in ``dom0`` and manages qubes from there. This setup is also supported by Salt.
 
-A *module* is a Python extension to Salt that is responsible for actually
-enforcing the state in a particular area.
-It exposes some *imperative* functions for the administrator.
-For example, there is a `system` module that has a `system.halt` function that,
-when issued, will immediately halt a domain.
+Salt is a management engine (similar to Ansible, Puppet, and Chef), that enforces a particular state of a minion system. A *state* is an end effect *declaratively* expressed by the administrator. This is the most important concept in the entire engine. All configurations (i.e., the states) are written in YAML.
 
-In salt, there are different levels of functionality.
-The lowest level is a single state function, called like
-this `state.single pkg.installed name=firefox-esr`
-When the system compiles data from sls formulas, it generates *chunks* -
-low chunks are at the bottom of the compiler . You can call them with
-`state.low`.
-Next up is the *lowstate* level - this is the list of all low chunks in
-order. To see them you have `state.show_lowstate`, and use `state.lowstate` to apply them.
-At the top level is *highstate* - this is an interpretation of **all** the data represented in YAML
-in sls files. You can view it with `state.show_highstate`.
+A *pillar* is a data back-end declared by the administrator. When states become repetitive, instead of pure YAML they can be written using a template engine (preferably Jinja2); which can use data structures specified in pillars.
 
-When you want to apply a configuration, you can use `qubesctl state.highstate.`
-This will apply all the states you have included in highstate.
+A *formula* is a ready to use, packaged solution that combines a state and a pillar (possibly with some file templates and other auxiliary files). There are many formulas made by helpful people all over the Internet.
 
-There is another function, `state.apply`; `state.apply` has two uses.
-When used on its own, it will apply *highstate* - all the configuration that has been enabled.
-It can also be used to apply a specific state, like this: `state.apply browser` - this will apply the state specified in `browser.sls`.
+A *grain* is some data that is also available in templates, but its value is not directly specified by administrator. For example, the distribution (e.g., ``"Debian"`` or ``"Gentoo"``) is a value of the grain ``"os"``. It also contains other information about the kernel, hardware, etc.
 
-For simplicity we will use `state.apply` through this page, when we want to apply all configured states.
+A *module* is a Python extension to Salt that is responsible for actually enforcing the state in a particular area. It exposes some *imperative* functions for the administrator. For example, there is a ``system`` module that has a ``system.halt`` function that, when issued, will immediately halt a domain.
 
-### Configuration
+In salt, there are different levels of functionality. The lowest level is a single state function, called like this ``state.single pkg.installed name=firefox-esr`` When the system compiles data from sls formulas, it generates *chunks* - low chunks are at the bottom of the compiler . You can call them with ``state.low``. Next up is the *lowstate* level - this is the list of all low chunks in order. To see them you have ``state.show_lowstate``, and use ``state.lowstate`` to apply them. At the top level is *highstate* - this is an interpretation of **all** the data represented in YAML in sls files. You can view it with ``state.show_highstate``.
 
-#### States
+When you want to apply a configuration, you can use ``qubesctl state.highstate.`` This will apply all the states you have included in highstate.
 
-The smallest unit of configuration is a state.
-A state is written in YAML and looks like this:
+There is another function, ``state.apply``; ``state.apply`` has two uses. When used on its own, it will apply *highstate* - all the configuration that has been enabled. It can also be used to apply a specific state, like this: ``state.apply browser`` - this will apply the state specified in ``browser.sls``.
 
-```
-stateid:
-  cmd.run:  #this is the execution module. in this case it will execute a command on the shell
-  - name: echo 'hello world' #this is a parameter of the state.
-```
+For simplicity we will use ``state.apply`` through this page, when we want to apply all configured states.
 
-The stateid has to be unique throughout all states running for a minion and can
-be used to order the execution of the references state.
-`cmd.run` is an execution module.
-It executes a command on behalf of the administrator.
-`name: echo 'hello world'` is a parameter for the execution module `cmd.run`.
-The module used defines which parameters can be passed to it.
+Configuration
+^^^^^^^^^^^^^
 
-There is a list of [officially available states](https://docs.saltproject.io/en/latest/ref/states/all/).
-There are many very useful states:
 
-- For [managing files](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html): Use this to create files or
-  directories and change them (append lines, replace text, set their content etc.)
-- For [installing and uninstalling](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html) packages.
-- For [executing shell commands](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html).
+States
+^^^^^^
+
+
+The smallest unit of configuration is a state. A state is written in YAML and looks like this:
+
+.. code:: bash
+
+      stateid:
+        cmd.run:  #this is the execution module. in this case it will execute a command on the shell
+        - name: echo 'hello world' #this is a parameter of the state.
+
+
+
+The stateid has to be unique throughout all states running for a minion and can be used to order the execution of the references state. ``cmd.run`` is an execution module. It executes a command on behalf of the administrator. ``name: echo 'hello world'`` is a parameter for the execution module ``cmd.run``. The module used defines which parameters can be passed to it.
+
+There is a list of `officially available states <https://docs.saltproject.io/en/latest/ref/states/all/>`__. There are many very useful states:
+
+- For `managing files <https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html>`__: Use this to create files or directories and change them (append lines, replace text, set their content etc.)
+
+- For `installing and uninstalling <https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html>`__ packages.
+
+- For `executing shell commands <https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html>`__.
+
+
 
 With these three states you can define most of the configuration of a VM.
 
-You can also [order the execution](https://docs.saltproject.io/en/latest/ref/states/ordering.html) of your states:
+You can also `order the execution <https://docs.saltproject.io/en/latest/ref/states/ordering.html>`__ of your states:
 
-```
-D:
-  cmd.run:
-  - name: echo 1
-  - order: last
-C:
-  cmd.run:
-  - name: echo 1
-B:
-  cmd.run:
-  - name: echo 1
-  - require:
-    - cmd: A
-  - require_in:
-    - cmd:C
-A:
-  cmd.run:
-  - name: echo 1
-  - order: 1
-```
+.. code:: bash
 
-The order of execution will be `A, B, C, D`.
-The official documentation has more details on the
-[require](https://docs.saltproject.io/en/latest/ref/states/requisites.html) and [order](https://docs.saltproject.io/en/latest/ref/states/ordering.html#the-order-option) arguments.
+      D:
+        cmd.run:
+        - name: echo 1
+        - order: last
+      C:
+        cmd.run:
+        - name: echo 1
+      B:
+        cmd.run:
+        - name: echo 1
+        - require:
+          - cmd: A
+        - require_in:
+          - cmd:C
+      A:
+        cmd.run:
+        - name: echo 1
+        - order: 1
 
-#### State Files
 
-When configuring a system you will write one or more state files (`*.sls`) and
-put (or symlink) them into the main Salt directory `/srv/salt/`.
-Each state file contains multiple states and should describe some unit of
-configuration (e.g., a state file `mail.sls` could setup a qube for e-mail).
 
-#### Top Files
+The order of execution will be ``A, B, C, D``. The official documentation has more details on the `require <https://docs.saltproject.io/en/latest/ref/states/requisites.html>`__ and `order <https://docs.saltproject.io/en/latest/ref/states/ordering.html#the-order-option>`__ arguments.
 
-After you have several state files, you need something to assign them to a qube.
-This is done by `*.top` files ([official documentation](https://docs.saltproject.io/en/latest/ref/states/top.html)).
-Their structure looks like this:
+State Files
+^^^^^^^^^^^
 
-```
-environment:
-  target_matching_clause:
-  - statefile1
-  - folder2.statefile2
-```
 
-In most cases, the environment will be called `base`.
-The `target_matching_clause` will be used to select your minions (Templates or qubes).
-It can be either the name of a qube or a regular expression.
-If you are using a regular expressions, you need to give Salt a hint you are
-doing so:
+When configuring a system you will write one or more state files (``*.sls``) and put (or symlink) them into the main Salt directory ``/srv/salt/``. Each state file contains multiple states and should describe some unit of configuration (e.g., a state file ``mail.sls`` could setup a qube for e-mail).
 
-```
-environment:
-  ^app-(work|(?!mail).*)$:
-  - match: pcre
-  - statefile
-```
+Top Files
+^^^^^^^^^
 
-For each target you can write a list of state files.
-Each line is a path to a state file (without the `.sls` extension) relative to
-the main directory.
-Each `/` is exchanged with a `.`, so you can't reference files or directories
-with a `.` in their name.
 
-### Enabling Top Files and Applying the States
+After you have several state files, you need something to assign them to a qube. This is done by ``*.top`` files (`official documentation <https://docs.saltproject.io/en/latest/ref/states/top.html>`__). Their structure looks like this:
 
-Now, because we use custom extensions to manage top files (instead of just
-enabling them all), to enable a particular top file you should issue command:
+.. code:: bash
 
-```
-$ qubesctl top.enable my-new-vm
-```
+      environment:
+        target_matching_clause:
+        - statefile1
+        - folder2.statefile2
+
+
+
+In most cases, the environment will be called ``base``. The ``target_matching_clause`` will be used to select your minions (Templates or qubes). It can be either the name of a qube or a regular expression. If you are using a regular expressions, you need to give Salt a hint you are doing so:
+
+.. code:: bash
+
+      environment:
+        ^app-(work|(?!mail).*)$:
+        - match: pcre
+        - statefile
+
+
+
+For each target you can write a list of state files. Each line is a path to a state file (without the ``.sls`` extension) relative to the main directory. Each ``/`` is exchanged with a ``.``, so you can’t reference files or directories with a ``.`` in their name.
+
+Enabling Top Files and Applying the States
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Now, because we use custom extensions to manage top files (instead of just enabling them all), to enable a particular top file you should issue command:
+
+.. code:: bash
+
+      $ qubesctl top.enable my-new-vm
+
+
 
 To list all enabled top files:
 
-```
-$ qubesctl top.enabled
-```
+.. code:: bash
+
+      $ qubesctl top.enabled
+
+
 
 And to disable one:
 
-```
-$ qubesctl top.disable my-new-vm
-```
+.. code:: bash
+
+      $ qubesctl top.disable my-new-vm
+
+
 
 To apply the states to dom0 and all VMs:
 
-```
-$ qubesctl --all state.apply
-```
+.. code:: bash
 
-(More information on the `qubesctl` command further down.)
+      $ qubesctl --all state.apply
 
-### Template Files
 
-You will sometimes find yourself writing repetitive states.
-To solve this, there is the ability to template files or states.
-This is most commonly done with [Jinja](https://palletsprojects.com/p/jinja/).
-Jinja is similar to Python and in many cases behaves in a similar fashion, but
-there are sometimes differences when, for example, you set some variable inside
-a loop: the variable outside will not get changed.
-Instead, to get this behavior, you would use a `do` statement.
-So you should take a look at the [Jinja API documentation](https://jinja.palletsprojects.com/templates/).
-Documentation about using Jinja to directly call Salt functions and get data
-about your system can be found in the official
-[Salt documentation](https://docs.saltproject.io/salt/user-guide/en/latest/topics/jinja.html).
 
-## Salt Configuration, QubesOS layout
+(More information on the ``qubesctl`` command further down.)
 
-All Salt configuration files are in the `/srv/` directory, as usual.
-The main directory is `/srv/salt/` where all state files reside.
-States are contained in `*.sls` files.
-However, the states that are part of the standard Qubes distribution are mostly
-templates and the configuration is done in pillars from formulas.
+Template Files
+^^^^^^^^^^^^^^
 
-The formulas are in `/srv/formulas`, including stock formulas for domains in
-`/srv/formulas/dom0/virtual-machines-formula/qvm`, which are used by first boot.
 
-Because we use some code that is not found in older versions of Salt, there is
-a tool called `qubesctl` that should be run instead of `salt-call --local`.
-It accepts all the same arguments of the vanilla tool.
+You will sometimes find yourself writing repetitive states. To solve this, there is the ability to template files or states. This is most commonly done with `Jinja <https://palletsprojects.com/p/jinja/>`__. Jinja is similar to Python and in many cases behaves in a similar fashion, but there are sometimes differences when, for example, you set some variable inside a loop: the variable outside will not get changed. Instead, to get this behavior, you would use a ``do`` statement. So you should take a look at the `Jinja API documentation <https://jinja.palletsprojects.com/templates/>`__. Documentation about using Jinja to directly call Salt functions and get data about your system can be found in the official `Salt documentation <https://docs.saltproject.io/salt/user-guide/en/latest/topics/jinja.html>`__.
 
-## Configuring a qube's System from Dom0
+Salt Configuration, QubesOS layout
+----------------------------------
 
-Salt can be used to configure qubes from dom0.
-Simply set the qube name as the target minion name in the top file.
-You can also use the `qubes` pillar module to select qubes with a particular
-property (see below).
-If you do so, then you need to pass additional arguments to the `qubesctl` tool:
 
-```
-usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
-                [--targets TARGETS | --templates | --app | --all]
-                ...
+All Salt configuration files are in the ``/srv/`` directory, as usual. The main directory is ``/srv/salt/`` where all state files reside. States are contained in ``*.sls`` files. However, the states that are part of the standard Qubes distribution are mostly templates and the configuration is done in pillars from formulas.
 
-positional arguments:
-  command            Salt command to execute (e.g., state.apply)
+The formulas are in ``/srv/formulas``, including stock formulas for domains in ``/srv/formulas/dom0/virtual-machines-formula/qvm``, which are used by first boot.
 
-optional arguments:
-  -h, --help         show this help message and exit
-  --show-output      Show output of management commands
-  --force-color      Force color output, allow control characters from VM,
-                     UNSAFE
-  --skip-dom0        Skip dom0 configuration (VM creation etc)
-  --targets TARGETS  Coma separated list of VMs to target
-  --templates        Target all templates
-  --app              Target all app qubes
-  --all              Target all non-disposables (templates and app qubes)
-```
+Because we use some code that is not found in older versions of Salt, there is a tool called ``qubesctl`` that should be run instead of ``salt-call --local``. It accepts all the same arguments of the vanilla tool.
 
-To apply a state to all templates, call `qubesctl --templates state.apply`.
+Configuring a qube's System from Dom0
+-------------------------------------
 
-The actual configuration is applied using `salt-ssh` (running over `qrexec`
-instead of `ssh`).
-Which means you don't need to install anything special in a qube you want to
-manage.
-Additionally, for each target qube, `salt-ssh` is started from a temporary qube.
-This way dom0 doesn't directly interact with potentially malicious target qubes;
-and in the case of a compromised Salt qube, because they are temporary, the
-compromise cannot spread from one qube to another.
 
-Beginning with Qubes 4.0 and after [QSB #45](/news/2018/12/03/qsb-45/), we implemented two changes:
+Salt can be used to configure qubes from dom0. Simply set the qube name as the target minion name in the top file. You can also use the ``qubes`` pillar module to select qubes with a particular property (see below). If you do so, then you need to pass additional arguments to the ``qubesctl`` tool:
 
-1. Added the `management_dispvm` qube property, which specifies the disposable
-   Template that should be used for management, such as Salt
-   configuration.  App qubes inherit this property from their
-   parent templates.  If the value is not set explicitly, the default
-   is taken from the global `management_dispvm` property. The
-   qube-specific property is set with the `qvm-prefs` command, while the
-   global property is set with the `qubes-prefs` command.
+.. code:: bash
 
-2. Created the `default-mgmt-dvm` disposable template, which is hidden from
-   the menu (to avoid accidental use), has networking disabled, and has
-   a black label (the same as templates). This qube is set as the global
-   `management_dispvm`. Keep in mind that this disposable template has full control
-   over the qubes it's used to manage.
+      usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
+                      [--targets TARGETS | --templates | --app | --all]
+                      ...
+      
+      positional arguments:
+        command            Salt command to execute (e.g., state.apply)
+      
+      optional arguments:
+        -h, --help         show this help message and exit
+        --show-output      Show output of management commands
+        --force-color      Force color output, allow control characters from VM,
+                           UNSAFE
+        --skip-dom0        Skip dom0 configuration (VM creation etc)
+        --targets TARGETS  Coma separated list of VMs to target
+        --templates        Target all templates
+        --app              Target all app qubes
+        --all              Target all non-disposables (templates and app qubes)
 
-## Writing Your Own Configurations
 
-Let's start with a quick example:
 
-```
-my new and shiny VM:
-  qvm.present:
-    - name: salt-test # can be omitted when same as ID
-    - template: fedora-21
-    - label: yellow
-    - mem: 2000
-    - vcpus: 4
-    - flags:
-      - proxy
-```
+To apply a state to all templates, call ``qubesctl --templates state.apply``.
 
-It uses the Qubes-specific `qvm.present` state, which ensures that the qube is
-present (if not, it creates it).
+The actual configuration is applied using ``salt-ssh`` (running over ``qrexec`` instead of ``ssh``). Which means you don’t need to install anything special in a qube you want to manage. Additionally, for each target qube, ``salt-ssh`` is started from a temporary qube. This way dom0 doesn’t directly interact with potentially malicious target qubes; and in the case of a compromised Salt qube, because they are temporary, the compromise cannot spread from one qube to another.
 
-- The `name` flag informs Salt that the qube should be named `salt-test` (not
-  `my new and shiny VM`).
-- The `template` flag informs Salt which template should be used for the qube.
-- The `label` flag informs Salt what color the qube should be.
-- The `mem` flag informs Salt how much RAM should be allocated to the qube.
-- The `vcpus` flag informs Salt how many Virtual CPUs should be allocated to the
-  qube
-- The `proxy` flag informs Salt that the qube should be a ProxyVM.
+Beginning with Qubes 4.0 and after `QSB #45 <https://www.qubes-os.org/news/2018/12/03/qsb-45/>`__, we implemented two changes:
 
-As you will notice, the options are the same (or very similar) to those used in
-`qvm-prefs`.
+1. Added the ``management_dispvm`` qube property, which specifies the disposable Template that should be used for management, such as Salt configuration. App qubes inherit this property from their parent templates. If the value is not set explicitly, the default is taken from the global ``management_dispvm`` property. The qube-specific property is set with the ``qvm-prefs`` command, while the global property is set with the ``qubes-prefs`` command.
 
-This should be put in `/srv/salt/my-new-vm.sls` or another `.sls` file.
-A separate `*.top` file should be also written:
+2. Created the ``default-mgmt-dvm`` disposable template, which is hidden from the menu (to avoid accidental use), has networking disabled, and has a black label (the same as templates). This qube is set as the global ``management_dispvm``. Keep in mind that this disposable template has full control over the qubes it’s used to manage.
 
-```
-base:
-  dom0:
-    - my-new-vm
-```
 
-**Note** The third line should contain the name of the previous state file,
-without the `.sls` extension.
+
+Writing Your Own Configurations
+-------------------------------
+
+
+Let’s start with a quick example:
+
+.. code:: bash
+
+      my new and shiny VM:
+        qvm.present:
+          - name: salt-test # can be omitted when same as ID
+          - template: fedora-21
+          - label: yellow
+          - mem: 2000
+          - vcpus: 4
+          - flags:
+            - proxy
+
+
+
+It uses the Qubes-specific ``qvm.present`` state, which ensures that the qube is present (if not, it creates it).
+
+- The ``name`` flag informs Salt that the qube should be named ``salt-test`` (not ``my new and shiny VM``).
+
+- The ``template`` flag informs Salt which template should be used for the qube.
+
+- The ``label`` flag informs Salt what color the qube should be.
+
+- The ``mem`` flag informs Salt how much RAM should be allocated to the qube.
+
+- The ``vcpus`` flag informs Salt how many Virtual CPUs should be allocated to the qube
+
+- The ``proxy`` flag informs Salt that the qube should be a ProxyVM.
+
+
+
+As you will notice, the options are the same (or very similar) to those used in ``qvm-prefs``.
+
+This should be put in ``/srv/salt/my-new-vm.sls`` or another ``.sls`` file. A separate ``*.top`` file should be also written:
+
+.. code:: bash
+
+      base:
+        dom0:
+          - my-new-vm
+
+
+
+**Note** The third line should contain the name of the previous state file, without the ``.sls`` extension.
 
 To enable the particular top file you should issue the command:
 
-```
-$ qubesctl top.enable my-new-vm
-```
+.. code:: bash
+
+      $ qubesctl top.enable my-new-vm
+
+
 
 To apply the state:
 
-```
-$ qubesctl state.apply
-```
+.. code:: bash
 
-### Example of Configuring Templates from Dom0
+      $ qubesctl state.apply
 
-Lets make sure that the `mc` package is installed in all templates.
-Similar to the previous example, you need to create a state file
-(`/srv/salt/mc-everywhere.sls`):
 
-```
-mc:
-  pkg.installed: []
-```
 
-Then the appropriate top file (`/srv/salt/mc-everywhere.top`):
+Example of Configuring Templates from Dom0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-```
-base:
- qubes:type:template:
-    - match: pillar
-    - mc-everywhere
-```
+
+Lets make sure that the ``mc`` package is installed in all templates. Similar to the previous example, you need to create a state file (``/srv/salt/mc-everywhere.sls``):
+
+.. code:: bash
+
+      mc:
+        pkg.installed: []
+
+
+
+Then the appropriate top file (``/srv/salt/mc-everywhere.top``):
+
+.. code:: bash
+
+      base:
+       qubes:type:template:
+          - match: pillar
+          - mc-everywhere
+
+
 
 Now you need to enable the top file:
 
-```
-$ qubesctl top.enable mc-everywhere
-```
+.. code:: bash
+
+      $ qubesctl top.enable mc-everywhere
+
+
 
 And apply the configuration:
 
-```
-$ qubesctl --all state.apply
-```
+.. code:: bash
 
-## All Qubes-specific States
+      $ qubesctl --all state.apply
 
-### `qvm.present`
+
+
+All Qubes-specific States
+-------------------------
+
+
+``qvm.present``
+^^^^^^^^^^^^^^^
+
 
 As in the example above, it creates a qube and sets its properties.
 
-### `qvm.prefs`
+``qvm.prefs``
+^^^^^^^^^^^^^
+
 
 You can set properties of an existing qube:
 
-```
-my preferences:
-  qvm.prefs:
-    - name: salt-test2
-    - netvm: sys-firewall
-```
+.. code:: bash
 
-***Note*** The `name:` option will not change the name of a qube, it will only
-be used to match a qube to apply the configurations to it.
+      my preferences:
+        qvm.prefs:
+          - name: salt-test2
+          - netvm: sys-firewall
 
-### `qvm.service`
 
-```
-services in my qube:
-  qvm.service:
-    - name: salt-test3
-    - enable:
-      - service1
-      - service2
-    - disable:
-      - service3
-      - service4
-    - default:
-      - service5
-```
 
-This enables, disables, or sets to default, services as in `qvm-service`.
+**Note** The ``name:`` option will not change the name of a qube, it will only be used to match a qube to apply the configurations to it.
 
-### `qvm.running`
+``qvm.service``
+^^^^^^^^^^^^^^^
+
+
+.. code:: bash
+
+      services in my qube:
+        qvm.service:
+          - name: salt-test3
+          - enable:
+            - service1
+            - service2
+          - disable:
+            - service3
+            - service4
+          - default:
+            - service5
+
+
+
+This enables, disables, or sets to default, services as in ``qvm-service``.
+
+``qvm.running``
+^^^^^^^^^^^^^^^
+
 
 Ensures the specified qube is running:
 
-```
-qube is running:
-  qvm.running:
-    - name: salt-test4
-```
+.. code:: bash
 
-## Virtual Machine Formulae
+      qube is running:
+        qvm.running:
+          - name: salt-test4
 
-You can use these formulae to download, install, and configure qubes in Qubes.
-These formulae use pillar data to define default qube names and configuration details.
-The default settings can be overridden in the pillar data located in:
 
-```
-/srv/pillar/base/qvm/init.sls
-```
 
-In dom0, you can apply a single state with `sudo qubesctl state.sls STATE_NAME`.
-For example, `sudo qubesctl state.sls qvm.personal` will create a `personal` qube (if it does not already exist) with all its dependencies (template, `sys-firewall`, and `sys-net`).
+Virtual Machine Formulae
+------------------------
 
-### Available states
 
-#### `qvm.sys-net`
+You can use these formulae to download, install, and configure qubes in Qubes. These formulae use pillar data to define default qube names and configuration details. The default settings can be overridden in the pillar data located in:
+
+.. code:: bash
+
+      /srv/pillar/base/qvm/init.sls
+
+
+
+In dom0, you can apply a single state with ``sudo qubesctl state.sls STATE_NAME``. For example, ``sudo qubesctl state.sls qvm.personal`` will create a ``personal`` qube (if it does not already exist) with all its dependencies (template, ``sys-firewall``, and ``sys-net``).
+
+Available states
+^^^^^^^^^^^^^^^^
+
+
+``qvm.sys-net``
+^^^^^^^^^^^^^^^
+
 
 System NetVM
 
-#### `qvm.sys-usb`
+``qvm.sys-usb``
+^^^^^^^^^^^^^^^
+
 
 System USB qube
 
-#### `qvm.sys-net-as-usbvm`
+``qvm.sys-net-as-usbvm``
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-System USB qube bundled into NetVM. Do not enable together with `qvm.sys-usb`.
 
-#### `qvm.usb-keyboard`
+System USB qube bundled into NetVM. Do not enable together with ``qvm.sys-usb``.
 
-Enable USB keyboard together with USB qube, including for early system boot (for LUKS passhprase).
-This state implicitly creates a USB qube (`qvm.sys-usb` state), if not already done.
+``qvm.usb-keyboard``
+^^^^^^^^^^^^^^^^^^^^
 
-#### `qvm.sys-firewall`
+
+Enable USB keyboard together with USB qube, including for early system boot (for LUKS passhprase). This state implicitly creates a USB qube (``qvm.sys-usb`` state), if not already done.
+
+``qvm.sys-firewall``
+^^^^^^^^^^^^^^^^^^^^
+
 
 System firewall ProxyVM
 
-#### `qvm.sys-whonix`
+``qvm.sys-whonix``
+^^^^^^^^^^^^^^^^^^
+
 
 Whonix gateway ProxyVM
 
-#### `qvm.personal`
+``qvm.personal``
+^^^^^^^^^^^^^^^^
+
 
 Personal app qube
 
-#### `qvm.work`
+``qvm.work``
+^^^^^^^^^^^^
+
 
 Work app qube
 
-#### `qvm.untrusted`
+``qvm.untrusted``
+^^^^^^^^^^^^^^^^^
+
 
 Untrusted app qube
 
-#### `qvm.vault`
+``qvm.vault``
+^^^^^^^^^^^^^
+
 
 Vault app qube with no NetVM enabled.
 
-#### `qvm.default-dispvm`
+``qvm.default-dispvm``
+^^^^^^^^^^^^^^^^^^^^^^
+
 
 Default disposable template - fedora-26-dvm app qube
 
-#### `qvm.anon-whonix`
+``qvm.anon-whonix``
+^^^^^^^^^^^^^^^^^^^
+
 
 Whonix workstation app qube.
 
-#### `qvm.whonix-ws-dvm`
+``qvm.whonix-ws-dvm``
+^^^^^^^^^^^^^^^^^^^^^
+
 
 Whonix workstation app qube for Whonix disposables.
 
-#### `qvm.updates-via-whonix`
+``qvm.updates-via-whonix``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Setup UpdatesProxy to route all templates updates through Tor (sys-whonix here).
 
-#### `qvm.template-fedora-21`
+``qvm.template-fedora-21``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Fedora-21 template
 
-#### `qvm.template-fedora-21-minimal`
+``qvm.template-fedora-21-minimal``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Fedora-21 minimal template
 
-#### `qvm.template-debian-7`
+``qvm.template-debian-7``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Debian 7 (wheezy) template
 
-#### `qvm.template-debian-8`
+``qvm.template-debian-8``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Debian 8 (jessie) template
 
-#### `qvm.template-whonix-gw`
+``qvm.template-whonix-gw``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Whonix Gateway template
 
-#### `qvm.template-whonix-ws`
+``qvm.template-whonix-ws``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Whonix Workstation template
 
-#### `update.qubes-dom0`
+``update.qubes-dom0``
+^^^^^^^^^^^^^^^^^^^^^
+
 
 Updates dom0. Example (executed in dom0):
 
-```
-$ sudo qubesctl --show-output state.sls update.qubes-dom0
-```
+.. code:: bash
 
-#### `update.qubes-vm`
+      $ sudo qubesctl --show-output state.sls update.qubes-dom0
+
+
+
+``update.qubes-vm``
+^^^^^^^^^^^^^^^^^^^
+
 
 Updates domUs. Example to update all templates (executed in dom0):
 
-```
-$ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
-```
+.. code:: bash
+
+      $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
+
+
 
 Useful options:
 
-- `--max-concurrency` --- Limits how many templates are updated at the same time.
-  Adjust to your available RAM.
-  The default is 4, and the GUI updater sets it to 1.
-- `--targets=vm1,vm2,...` --- Limit to specific qubes, instead of all of them.
-  (Use instead of `--templates` or `--standalones`.)
-- `--show-output` --- Show an update summary instead of just OK/FAIL.
+- ``--max-concurrency`` — Limits how many templates are updated at the same time. Adjust to your available RAM. The default is 4, and the GUI updater sets it to 1.
 
-For other options, see `qubesctl --help`.
+- ``--targets=vm1,vm2,...`` — Limit to specific qubes, instead of all of them. (Use instead of ``--templates`` or ``--standalones``.)
 
-## The `qubes` Pillar Module
+- ``--show-output`` — Show an update summary instead of just OK/FAIL.
+
+
+
+For other options, see ``qubesctl --help``.
+
+The ``qubes`` Pillar Module
+---------------------------
+
 
 Additional pillar data is available to ease targeting configurations (for example all templates).
 
 **Note:** This list is subject to change in future releases.
 
-### `qubes:features`
+``qubes:features``
+^^^^^^^^^^^^^^^^^^
+
 
 Features the qube has. Only some values are included:
 
-- `service.*` - services enabled or disabled in the qube
-- `vm-config.*` - features also exposed to qubesdb
+- ``service.*`` - services enabled or disabled in the qube
 
-### `qubes:tags`
+- ``vm-config.*`` - features also exposed to qubesdb
+
+
+
+``qubes:tags``
+^^^^^^^^^^^^^^
+
 
 Tags the qube has.
 
-### `qubes:type`
+``qubes:type``
+^^^^^^^^^^^^^^
+
 
 qube type. Possible values:
 
-- `admin` - Administration qube (`dom0`)
-- `template` - template
-- `standalone` - Standalone qube
-- `app` - Template based app qube
+- ``admin`` - Administration qube (``dom0``)
 
-### `qubes:template`
+- ``template`` - template
+
+- ``standalone`` - Standalone qube
+
+- ``app`` - Template based app qube
+
+
+
+``qubes:template``
+^^^^^^^^^^^^^^^^^^
+
 
 Template name on which a given qube is based (if any).
 
-### `qubes:netvm`
+``qubes:netvm``
+^^^^^^^^^^^^^^^
+
 
 qube which provides network to the given qube
 
-## Debugging
+Debugging
+---------
 
-The output for each qube is logged in `/var/log/qubes/mgmt-VM_NAME.log`.
+
+The output for each qube is logged in ``/var/log/qubes/mgmt-VM_NAME.log``.
 
 If the log does not contain useful information:
 
-1. Run `sudo qubesctl --skip-dom0 --target=VM_NAME state.apply`
+1. Run ``sudo qubesctl --skip-dom0 --target=VM_NAME state.apply``
+
 2. When your qube is being started (yellow) press Ctrl-z on qubesctl.
+
 3. Open terminal in disp-mgmt-qube_NAME.
-4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is
-   executed in the management qube.
+
+4. Look at /etc/qubes-rpc/qubes.SaltLinuxVM - this is what is executed in the management qube.
+
 5. Get the last two lines:
 
-```shell_session
-$ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
-$ salt-ssh "$target_vm" $salt_command
-```
-  Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
+
+
+.. code:: bash
+
+      $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
+      $ salt-ssh "$target_vm" $salt_command
+
+
+Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
 
 6. Execute them, fix problems, repeat.
 
-## Known Pitfalls
 
-### Using fedora-24-minimal
 
-The fedora-24-minimal package is missing the `sudo` package.
-You can install it via:
 
-```shell_session
-$ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
-```
 
-The `-p` will cause the execution to wait until the package is installed.
-Having the `-p` flag is important when using a state with `cmd.run`.
+Known Pitfalls
+--------------
 
-### Disk Quota Exceeded (When Installing Templates)
 
-If you install multiple templates you may encounter this error.
-The solution is to shut down the updateVM between each install:
+Using fedora-24-minimal
+^^^^^^^^^^^^^^^^^^^^^^^
 
-```
-install template and shutdown updateVM:
-  cmd.run:
-  - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {% raw %}{{ salt.cmd.run(qubes-prefs updateVM) }}{% endraw %}
-```
 
-## Further Reading
+The fedora-24-minimal package is missing the ``sudo`` package. You can install it via:
 
-- [Salt documentation](https://docs.saltproject.io/en/latest/)
-- [Salt states](https://docs.saltproject.io/en/latest/ref/states/all/) ([files](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html), [commands](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html),
-  [packages](https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html), [ordering](https://docs.saltproject.io/en/latest/ref/states/ordering.html))
-- [Top files](https://docs.saltproject.io/en/latest/ref/states/top.html)
-- [Jinja templates](https://palletsprojects.com/p/jinja/)
-- [Qubes specific modules](https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst)
-- [Formulas for default Qubes qubes](https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm)
+.. code:: bash
+
+      $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
+
+
+The ``-p`` will cause the execution to wait until the package is installed. Having the ``-p`` flag is important when using a state with ``cmd.run``.
+
+Disk Quota Exceeded (When Installing Templates)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+If you install multiple templates you may encounter this error. The solution is to shut down the updateVM between each install:
+
+.. code:: bash
+
+      install template and shutdown updateVM:
+        cmd.run:
+        - name: sudo qubes-dom0-update -y fedora-24; qvm-shutdown {{ salt.cmd.run(qubes-prefs updateVM) }}
+
+
+
+Further Reading
+---------------
+
+
+- `Salt documentation <https://docs.saltproject.io/en/latest/>`__
+
+- `Salt states <https://docs.saltproject.io/en/latest/ref/states/all/>`__ (`files <https://docs.saltproject.io/en/latest/ref/states/all/salt.states.file.html>`__, `commands <https://docs.saltproject.io/en/latest/ref/states/all/salt.states.cmd.html>`__, `packages <https://docs.saltproject.io/en/latest/ref/states/all/salt.states.pkg.html>`__, `ordering <https://docs.saltproject.io/en/latest/ref/states/ordering.html>`__)
+
+- `Top files <https://docs.saltproject.io/en/latest/ref/states/top.html>`__
+
+- `Jinja templates <https://palletsprojects.com/p/jinja/>`__
+
+- `Qubes specific modules <https://github.com/QubesOS/qubes-mgmt-salt-dom0-qvm/blob/master/README.rst>`__
+
+- `Formulas for default Qubes qubes <https://github.com/QubesOS/qubes-mgmt-salt-dom0-virtual-machines/tree/master/qvm>`__
+
+

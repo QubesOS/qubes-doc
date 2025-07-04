@@ -1,236 +1,266 @@
----
-lang: en
-layout: doc
-permalink: /doc/test-bench/
-redirect_from:
-- /en/doc/test-bench/
-- /doc/TestBench/
-- /wiki/TestBench/
-ref: 44
-title: How to set up a test bench
----
+==========================
+How to set up a test bench
+==========================
 
-This guide shows how to set up simple test bench that automatically test your code you're about to push. It is written especially for `core3` branch of `core-admin.git` repo, but some ideas are universal.
 
-We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with [QubesBuilder](/doc/qubes-builder/) and you have it set up and running flawlessly.
+This guide shows how to set up simple test bench that automatically test your code you’re about to push. It is written especially for ``core3`` branch of ``core-admin.git`` repo, but some ideas are universal.
 
-> **Notice:**
-> This setup intentionally weakens some security properties in the testing system. So make sure you understand the risks and use exclusively for testing.
+We will set up a spare machine (bare metal, not a virtual) that will be hosting our experimental Dom0. We will communicate with it via Ethernet and SSH. This tutorial assumes you are familiar with :doc:`QubesBuilder </developer/building/qubes-builder>` and you have it set up and running flawlessly.
 
-## Setting up the Machine
+   **Notice:** This setup intentionally weakens some security properties in the testing system. So make sure you understand the risks and use exclusively for testing.
 
-### Install ISO
-First, do a clean install from the `.iso` [you built](/doc/qubes-iso-building/) or grabbed elsewhere (for example [here](https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601)).
+Setting up the Machine
+----------------------
 
-### Enabling Network Access in Dom0
 
-Internet access is intentionally disabled by default in dom0. But to ease the deployment process we will give it access. The following steps should be done in `dom0`.
+Install ISO
+^^^^^^^^^^^
 
-> **Note:** the following assume you have only one network card. If you have two, pick one and leave the other attached to `sys-net`.
 
-1. Remove the network card (PCI device) from `sys-net`
+First, do a clean install from the ``.iso`` :doc:`you built </developer/building/qubes-iso-building>` or grabbed elsewhere (for example `here <https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601>`__).
+
+Enabling Network Access in Dom0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Internet access is intentionally disabled by default in dom0. But to ease the deployment process we will give it access. The following steps should be done in ``dom0``.
+
+   **Note:** the following assume you have only one network card. If you have two, pick one and leave the other attached to ``sys-net``.
+
+1. Remove the network card (PCI device) from ``sys-net``
+
 2. Restart your computer (for the removal to take effect)
-3. Install `dhcp-client` and `openssh-server` on your testbench's dom0.
-4. Save the following script in `/home/user/bin/dom0_network.sh` and make it executable. It should enable your network card in dom0. *Be sure to adjust the script's variables to suit your needs.*
 
-   ```bash
-   #!/bin/sh
+3. Install ``dhcp-client`` and ``openssh-server`` on your testbench’s dom0.
 
-   # adjust this for your NIC (run lspci)
-   BDF=0000:02:00.0
+4. Save the following script in ``/home/user/bin/dom0_network.sh`` and make it executable. It should enable your network card in dom0. *Be sure to adjust the script’s variables to suit your needs.*
 
-   # adjust this for your network driver
-   DRIVER=e1000e
+   .. code:: bash
 
-   prog=$(basename $0)
+         #!/bin/sh
+         
+         # adjust this for your NIC (run lspci)
+         BDF=0000:02:00.0
+         
+         # adjust this for your network driver
+         DRIVER=e1000e
+         
+         prog=$(basename $0)
+         
+         pciunbind() {
+             local path
+             path=/sys/bus/pci/devices/${1}/driver/unbind
+             if ! [ -w ${path} ]; then
+                 echo "${prog}: Device ${1} not bound"
+                 return 1
+             fi
+             echo -n ${1} >${path}
+         }
+         
+         pcibind() {
+             local path
+             path=/sys/bus/pci/drivers/${2}/bind
+             if ! [ -w ${path} ]; then
+                 echo "${prog}: Driver ${2} not found"
+                 return 1
+             fi
+             echo ${1} >${path}
+         }
+         
+         pciunbind ${BDF}
+         pcibind ${BDF} ${DRIVER}
+         
+         sleep 1
+         dhclient
 
-   pciunbind() {
-       local path
-       path=/sys/bus/pci/devices/${1}/driver/unbind
-       if ! [ -w ${path} ]; then
-           echo "${prog}: Device ${1} not bound"
-           return 1
-       fi
-       echo -n ${1} >${path}
-   }
-
-   pcibind() {
-       local path
-       path=/sys/bus/pci/drivers/${2}/bind
-       if ! [ -w ${path} ]; then
-           echo "${prog}: Driver ${2} not found"
-           return 1
-       fi
-       echo ${1} >${path}
-   }
-
-   pciunbind ${BDF}
-   pcibind ${BDF} ${DRIVER}
-    
-   sleep 1
-   dhclient
-   ```
 
 5. Configure your DHCP server so your testbench gets static IP and connect your machine to your local network. You should ensure that your testbench can reach the Internet.
 
-6. You'll need to run the above script on every startup. To automate this save the following systemd service `/etc/systemd/system/dom0-network-direct.service`
+6. You’ll need to run the above script on every startup. To automate this save the following systemd service ``/etc/systemd/system/dom0-network-direct.service``
 
-   ```
-   [Unit]
-   Description=Connect network to dom0
+   .. code:: bash
 
-   [Service]
-   Type=oneshot
-   ExecStart=/home/user/bin/dom0_network.sh
+         [Unit]
+         Description=Connect network to dom0
+         
+         [Service]
+         Type=oneshot
+         ExecStart=/home/user/bin/dom0_network.sh
+         
+         [Install]
+         WantedBy=multi-user.target
 
-   [Install]
-   WantedBy=multi-user.target
-   ```
+
 
 7. Then, enable and start the SSH Server and the script on boot:
 
-   ```bash
-   sudo systemctl enable sshd
-   sudo systemctl start sshd
-   
-   sudo systemctl enable dom0-network-direct
-   sudo systemctl start dom0-network-direct
-   ```
+   .. code:: bash
 
-> **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then _instead_ of the usual `sudo qubes-dom0-update <PACKAGE>` now you run `sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>`.
+         sudo systemctl enable sshd
+         sudo systemctl start sshd
+         
+         sudo systemctl enable dom0-network-direct
+         sudo systemctl start dom0-network-direct
 
-### Install Tests and Their Dependencies
 
-A regular Qubes installation isn't ready to run the full suite of tests. For example, in order to run the [Split GPG tests](https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py) you need to have the `qubes-gpg-split-tests` package installed in your app qubes.
 
-Because of the above reason, some additional configurations need to be done to your testing environment. This can be done in an automated manner with the help of the [Salt](/doc/salt) configuration that provisions the [automated testing environment](/doc/automated-tests/). 
 
-The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the [openQA environment](https://openqa.qubes-os.org/) and not your specific local testing system. Run the following in `dom0`:
+   **Note:** If you want to install additional software in dom0 and your only network card was assigned to dom0, then *instead* of the usual ``sudo qubes-dom0-update <PACKAGE>`` now you run ``sudo dnf --setopt=reposdir=/etc/yum.repos.d install <PACKAGE>``.
 
-   ```bash
-   # For future reference the following commands are an adaptation of
-   # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
+Install Tests and Their Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   # Install git
-   sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
-   
-   # Download the openQA automated testing environment Salt configuration
-   git clone https://github.com/marmarek/openqa-tests-qubesos/
-   cd openqa-tests-qubesos/extra-files
-   sudo cp -a system-tests/ /srv/salt/
-   sudo qubesctl top.enable system-tests
 
-   # Install the same configuration as the one in openQA
-   QUBES_VERSION=4.1
-   PILLAR_DIR=/srv/pillar/base/update
-   sudo mkdir -p $PILLAR_DIR
-   printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
-   printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
-   sudo qubesctl top.enable update pillar=True
+A regular Qubes installation isn’t ready to run the full suite of tests. For example, in order to run the `Split GPG tests <https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py>`__ you need to have the ``qubes-gpg-split-tests`` package installed in your app qubes.
 
-   # Apply states to dom0 and VMs
-   # NOTE: These commands can take several minutes (if not more) without showing output
-   sudo qubesctl --show-output state.highstate
-   sudo qubesctl --max-concurrency=2 --skip-dom0 --templates --show-output state.highstate
-   ```
+Because of the above reason, some additional configurations need to be done to your testing environment. This can be done in an automated manner with the help of the :doc:`Salt </user/advanced-topics/salt>` configuration that provisions the :doc:`automated testing environment </developer/debugging/automated-tests>`.
 
-## Development VM
+The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific local testing system. Run the following in ``dom0``:
 
-### SSH
+.. code:: bash
 
-Arrange firewall so you can reach the testbench from your `qubes-dev` VM. Generate SSH key in `qubes-dev`:
+      # For future reference the following commands are an adaptation of
+      # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
+      
+      # Install git
+      sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
+      
+      # Download the openQA automated testing environment Salt configuration
+      git clone https://github.com/marmarek/openqa-tests-qubesos/
+      cd openqa-tests-qubesos/extra-files
+      sudo cp -a system-tests/ /srv/salt/
+      sudo qubesctl top.enable system-tests
+      
+      # Install the same configuration as the one in openQA
+      QUBES_VERSION=4.1
+      PILLAR_DIR=/srv/pillar/base/update
+      sudo mkdir -p $PILLAR_DIR
+      printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
+      printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
+      sudo qubesctl top.enable update pillar=True
+      
+      # Apply states to dom0 and VMs
+      # NOTE: These commands can take several minutes (if not more) without showing output
+      sudo qubesctl --show-output state.highstate
+      sudo qubesctl --max-concurrency=2 --skip-dom0 --templates --show-output state.highstate
 
-~~~
-ssh-keygen -t ecdsa -b 521
-~~~
 
-Add the following section in `.ssh/config` in `qubes-dev`:
+Development VM
+--------------
 
-~~~
-Host testbench
-    # substitute username in testbench
-    User user
-    # substitute address of your testbench
-    HostName 192.168.123.45
-~~~
 
-#### Passwordless SSH Login
+SSH
+^^^
 
-To log to your testbench without entering password every time, copy your newly generated public key (`id_ecdsa.pub`) to `~/.ssh/authorized_keys` on your testbench. You can do this easily by running this command on `qubes-dev`: `ssh-copy-id -i ~/.ssh/id_ecdsa.pub user@192.168.123.45` (substituting with the actual username address of your testbench).
 
-### Scripting
+Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Generate SSH key in ``qubes-dev``:
 
-This step is optional, but very helpful. Put these scripts somewhere in your `${PATH}`, like `/usr/local/bin`.
+.. code:: bash
 
-`qtb-runtests`:
+      ssh-keygen -t ecdsa -b 521
 
-```bash
-#!/bin/sh
 
-ssh testbench python -m qubes.tests.run
-```
 
-`qtb-install`:
+Add the following section in ``.ssh/config`` in ``qubes-dev``:
 
-```bash
-#!/bin/sh
+.. code:: bash
 
-TMPDIR=/tmp/qtb-rpms
+      Host testbench
+          # substitute username in testbench
+          User user
+          # substitute address of your testbench
+          HostName 192.168.123.45
 
-if [ $# -eq 0 ]; then
-        echo "usage: $(basename $0) <rpmfile> ..."
-        exit 2
-fi
 
-set -e
 
-ssh testbench mkdir -p "${TMPDIR}"
-scp "${@}" testbench:"${TMPDIR}" || echo "check if you have 'scp' installed on your testbench"
+Passwordless SSH Login
+^^^^^^^^^^^^^^^^^^^^^^
 
-while [ $# -gt 0 ]; do
-        ssh testbench sudo rpm -i --replacepkgs --replacefiles "${TMPDIR}/$(basename ${1})"
-        shift
-done
-```
 
-`qtb-iterate`:
+To log to your testbench without entering password every time, copy your newly generated public key (``id_ecdsa.pub``) to ``~/.ssh/authorized_keys`` on your testbench. You can do this easily by running this command on ``qubes-dev``: ``ssh-copy-id -i ~/.ssh/id_ecdsa.pub user@192.168.123.45`` (substituting with the actual username address of your testbench).
 
-```bash
-#!/bin/sh
+Scripting
+^^^^^^^^^
 
-set -e
 
-# substitute path to your builder installation
-pushd ${HOME}/builder >/dev/null
+This step is optional, but very helpful. Put these scripts somewhere in your ``${PATH}``, like ``/usr/local/bin``.
 
-# the following are needed only if you have sources outside builder
-#rm -rf qubes-src/core-admin
-#qb -c core-admin package fetch
+``qtb-runtests``:
 
-qb -c core-admin -d host-fc41 prep build
-# update your dom0 fedora distribution as appropriate
-qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-*.rpm
-qtb-runtests
-```
+.. code:: bash
 
-### Hooking git
+      #!/bin/sh
+      
+      ssh testbench python -m qubes.tests.run
 
-I (woju) have those two git hooks. They ensure tests are passing (or are marked as expected failure) when committing and pushing. For committing it is only possible to run tests that may be executed from git repo (even if the rest were available, I probably wouldn't want to do that). For pushing, I also install RPM and run tests on testbench.
 
-`core-admin/.git/hooks/pre-commit`: (you may retain also the default hook, here omitted for readability)
+``qtb-install``:
 
-```bash
-#!/bin/sh
+.. code:: bash
 
-set -e
+      #!/bin/sh
+      
+      TMPDIR=/tmp/qtb-rpms
+      
+      if [ $# -eq 0 ]; then
+              echo "usage: $(basename $0) <rpmfile> ..."
+              exit 2
+      fi
+      
+      set -e
+      
+      ssh testbench mkdir -p "${TMPDIR}"
+      scp "${@}" testbench:"${TMPDIR}" || echo "check if you have 'scp' installed on your testbench"
+      
+      while [ $# -gt 0 ]; do
+              ssh testbench sudo rpm -i --replacepkgs --replacefiles "${TMPDIR}/$(basename ${1})"
+              shift
+      done
 
-python -c "import sys, qubes.tests.run; sys.exit(not qubes.tests.run.main())"
-```
 
-`core-admin/.git/hooks/pre-push`:
+``qtb-iterate``:
 
-```bash
-#!/bin/sh
+.. code:: bash
 
-exec qtb-iterate
-```
+      #!/bin/sh
+      
+      set -e
+      
+      # substitute path to your builder installation
+      pushd ${HOME}/builder >/dev/null
+      
+      # the following are needed only if you have sources outside builder
+      #rm -rf qubes-src/core-admin
+      #qb -c core-admin package fetch
+      
+      qb -c core-admin -d host-fc41 prep build
+      # update your dom0 fedora distribution as appropriate
+      qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-*.rpm
+      qtb-runtests
+
+
+Hooking git
+^^^^^^^^^^^
+
+
+I (woju) have those two git hooks. They ensure tests are passing (or are marked as expected failure) when committing and pushing. For committing it is only possible to run tests that may be executed from git repo (even if the rest were available, I probably wouldn’t want to do that). For pushing, I also install RPM and run tests on testbench.
+
+``core-admin/.git/hooks/pre-commit``: (you may retain also the default hook, here omitted for readability)
+
+.. code:: bash
+
+      #!/bin/sh
+      
+      set -e
+      
+      python -c "import sys, qubes.tests.run; sys.exit(not qubes.tests.run.main())"
+
+
+``core-admin/.git/hooks/pre-push``:
+
+.. code:: bash
+
+      #!/bin/sh
+      
+      exec qtb-iterate
+

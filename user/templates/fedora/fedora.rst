@@ -1,45 +1,60 @@
----
-lang: en
-layout: doc
-permalink: /doc/templates/fedora/
-ref: 136
-title: Fedora templates
----
+================
+Fedora templates
+================
 
-The Fedora [template](/doc/templates/) is the default template in Qubes OS. The current version is Fedora 41. This page is about the standard (or "full") Fedora template. For the minimal and Xfce versions, please see the [Minimal templates](/doc/templates/minimal/) and [Xfce templates](/doc/templates/xfce/) pages.
 
-## Installing
+The Fedora :doc:`template </user/templates/templates>` is the default template in Qubes OS. The current version is Fedora 41. This page is about the standard (or “full”) Fedora template. For the minimal and Xfce versions, please see the :doc:`Minimal templates </user/templates/minimal-templates>` and :doc:`Xfce templates </user/templates/xfce-templates>` pages.
 
-To [install](/doc/templates/#installing) a specific Fedora template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
-```
-$ qvm-template install XX 
-```
-   (Replace `XX` with the name of the Fedora template you wish to install.)
+Installing
+----------
 
-To reinstall a Fedora template that is already installed in your system, see [How to Reinstall a template](/doc/reinstall-template/).
 
-## After Installing
+To :ref:`install <user/templates/templates:installing>` a specific Fedora template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
+
+.. code:: bash
+
+      $ qvm-template install XX
+
+
+
+(Replace ``XX`` with the name of the Fedora template you wish to install.)
+
+To reinstall a Fedora template that is already installed in your system, see :doc:`How to Reinstall a template </user/how-to-guides/how-to-reinstall-a-template>`.
+
+After Installing
+----------------
+
 
 After installing a fresh Fedora template, we recommend performing the following steps:
 
-1. [Update the template](/doc/software-update-vm/).
+1. :doc:`Update the template </user/how-to-guides/how-to-install-software>`.
 
-2. [Switch any app qubes that are based on the old template to the new one](/doc/templates/#switching).
+2. :ref:`Switch any app qubes that are based on the old template to the new one <user/templates/templates:switching>`.
 
-3. If desired, [uninstall the old template](/doc/templates/#uninstalling).
+3. If desired, :ref:`uninstall the old template <user/templates/templates:uninstalling>`.
 
-## Installing software
 
-See [How to Install Software](/doc/how-to-install-software/).
 
-## Updating
+Installing software
+-------------------
 
-For routine daily updates within a given release, see [How to Update](/doc/how-to-update/).
 
-## Upgrading
+See :doc:`How to Install Software </user/how-to-guides/how-to-install-software>`.
+
+Updating
+--------
+
+
+For routine daily updates within a given release, see :doc:`How to Update </user/how-to-guides/how-to-update>`.
+
+Upgrading
+---------
+
 
 There are two ways to upgrade your template to a new Fedora release:
 
-- **Recommended:** [Install a fresh template to replace the existing one.](#installing) **This option may be simpler for less experienced users.** After you install the new template, redo all desired template modifications and [switch everything that was set to the old template to the new template](/doc/templates/#switching). You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. To see a log of package manager actions, open a terminal in the old Fedora template and use the `dnf history` command.
+- **Recommended:** `Install a fresh template to replace the existing one. <#installing>`__ **This option may be simpler for less experienced users.** After you install the new template, redo all desired template modifications and :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>`. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. To see a log of package manager actions, open a terminal in the old Fedora template and use the ``dnf history`` command.
 
-- **Advanced:** [Perform an in-place upgrade of an existing Fedora template.](/doc/templates/fedora/in-place-upgrade/) This option will preserve any modifications you've made to the template, **but it may be more complicated for less experienced users.**
+- **Advanced:** :doc:`Perform an in-place upgrade of an existing Fedora template. </user/templates/fedora/fedora-upgrade>` This option will preserve any modifications you’ve made to the template, **but it may be more complicated for less experienced users.**
+
+

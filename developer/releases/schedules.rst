@@ -1,14 +1,21 @@
----
-lang: en
-layout: doc
-permalink: /doc/releases/schedules/
-ref: 15
-title: Release schedules
----
+=================
+Release schedules
+=================
 
-- [Qubes R3.0 release schedule](/doc/releases/3.0/schedule/)
-- [Qubes R3.1 release schedule](/doc/releases/3.1/schedule/)
-- [Qubes R3.2 release schedule](/doc/releases/3.2/schedule/)
-- [Qubes R4.0 release schedule](/doc/releases/4.0/schedule/)
-- [Qubes R4.1 release schedule](/doc/releases/4.1/schedule/)
-- [Qubes R4.2 release schedule](/doc/releases/4.2/schedule/)
+
+.. toctree::
+   :maxdepth: 1
+
+   Qubes R3.0 release schedule </developer/releases/3_0/schedule>
+
+   Qubes R3.1 release schedule </developer/releases/3_1/schedule>
+
+   Qubes R3.2 release schedule </developer/releases/3_2/schedule>
+
+   Qubes R4.0 release schedule </developer/releases/4_0/schedule>
+
+   Qubes R4.1 release schedule </developer/releases/4_1/schedule>
+
+   Qubes R4.2 release schedule </developer/releases/4_2/schedule>
+
+
