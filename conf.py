@@ -26,7 +26,7 @@ title = "Qubes Docs"
 html_title = "Qubes Docs"
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '4.3'
 
 # -- General configuration ---------------------------------------------------
 
