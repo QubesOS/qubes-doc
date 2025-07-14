@@ -223,7 +223,7 @@ When you have completed all the items marked with the warning icon, press **Begi
 
 Installation can take some time. 
 [![Windows showing installation complete and Reboot button. ](/attachment/doc/installation-complete-4.2.png)](/attachment/doc/installation-complete-4.2.png)
-When the installation is complete, press **Reboot System**. Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again.
+When the installation is complete, press **Reboot System**. Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again. Also disconnect any USB devices connected to the machine, including Security dongles, mouse or keyboard since the second stage install might take decisions on your behalf lowering security model (ie: dongles or USB keyboard being connected on next boot will punch holes so that USB keyboard can be used to control dom0, which might or might not be desired).
 
 ## Post-installation
 
