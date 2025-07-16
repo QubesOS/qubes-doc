@@ -37,7 +37,7 @@ You can now disable the `sys-gui` formula:
 sudo qubesctl top.disable qvm.sys-gui
 ```
 
-At this point, you need to shutdown all your running qubes as the `default_guivm` qubes global property has been set to `sys-gui`. In order to use `sys-gui` as GUI domain, you need to logout and, in the top right corner, select `lightdm` session type to **GUI domain (sys-gui)**. Once logged, you are running `sys-gui` as fullscreen window and you can perform any operation as if you would be in `dom0` desktop.
+At this point, you need to shutdown all your running qubes. In order to use `sys-gui` as GUI domain, you need to logout and, in the top right corner, select `lightdm` session type to **GUI domain (sys-gui)**. Once logged, you are running `sys-gui` as fullscreen window and you can perform any operation as if you would be in `dom0` desktop.
 
 > Note: In order to go back to `dom0` desktop, you need to logout and then, select `lightdm` session to *Session Xfce*.
 
