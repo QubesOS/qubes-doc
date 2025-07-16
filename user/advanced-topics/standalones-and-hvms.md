@@ -58,7 +58,7 @@ PVH has less attack surface than PV, as it relies on Second Level Address Transl
 
 PVH also has less attack surface than HVM, as it does not require QEMU to provide device emulation services. While QEMU is confined in a stubdomain, and again in a seccomp based sandbox, the stubdomain has significant attack surface against the hypervisor. Not only does it have the full attack surface of a PV domain, it also has access to additional hypercalls that allow it to control the guest it is providing emulation services for. XSA-109 was a vulnerability in one of these hypercalls.
 
-PVH has better performance than HVM, as the stubdomain iin HVM consumes resources (both memory and a small amount of CPU). There is little difference in the I/O path at runtime, as both PVH and HVM guests usually use paravirtualized I/O protocols.
+PVH has better performance than HVM, as the stubdomain in HVM consumes resources (both memory and a small amount of CPU). There is little difference in the I/O path at runtime, as both PVH and HVM guests usually use paravirtualized I/O protocols.
 
 Surprisingly, PVH often has better performance than PV. This is because PVH does not require hypercalls for page table updates, which are expensive. SLAT does raise the cost of TLB misses, but this is somewhat mitigated by a second-level TLB in recent hardware.
 
@@ -101,9 +101,9 @@ independent qube. See [How to Update](/doc/how-to-update/).
 
 ### Using the GUI
 
-In Qube Manager, select "Create new qube" from the Qube menu, or select the
-"Create a new qube" button. In the "create new qube" dialog box set Type to
-"Empty standalone qube (install your own OS)". If "install system from device"
+In Qube Manager, select the `New qube` button or under the `Qube` menu.
+In the `Create new qube` dialog box set `Type` to
+`StandaloneVM (fully persistent)`. If "install system from device"
 is selected (which it is by default), then `virt_mode` will be set to `hvm`
 automatically. Otherwise, open the newly-created qube's Settings GUI and, in
 the "Advanced" tab, select `HVM` in the virtualization mode drop-down list.
