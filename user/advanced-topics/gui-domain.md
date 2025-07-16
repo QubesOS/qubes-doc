@@ -124,25 +124,17 @@ A VNC server session is running on `localhost:5900` in `sys-gui-vnc`. In order t
 
 ### Known issues
 
-#### Application menu lacks qubes entries in a fresh GUI domain
-
-See [QubesOS/qubes-issues#5804](https://github.com/QubesOS/qubes-issues/issues/5804)
-
 #### Cannot update dom0 from sys-gui
 
 See [QubesOS/qubes-issues#8934](https://github.com/QubesOS/qubes-issues/issues/8934)
 
-#### GUI of HVM qubes not visible
+#### Windows qubes do not display in sys-gui
 
-See [QubesOS/qubes-issues#9385](https://github.com/QubesOS/qubes-issues/issues/9385)
+See [QubesOS/qubes-issues#10043](https://github.com/QubesOS/qubes-issues/issues/10043#issuecomment-3070449240)
 
 ### Power saving/screensaver issues
 
-See [QubesOS/qubes-issues#9033](https://github.com/QubesOS/qubes-issues/issues/9033), [QubesOS/qubes-issues#9384](https://github.com/QubesOS/qubes-issues/issues/9384), [QubesOS/qubes-issues#7989](https://github.com/QubesOS/qubes-issues/issues/7989)
-
-#### Qube startup order (sys-usb and sys-gui)
-
-See [QubesOS/qubes-issues#7954](https://github.com/QubesOS/qubes-issues/issues/7954)
+See [QubesOS/qubes-issues#9033](https://github.com/QubesOS/qubes-issues/issues/9033), [QubesOS/qubes-issues#9384](https://github.com/QubesOS/qubes-issues/issues/9384)
 
 #### Other GUI domain issues
 
