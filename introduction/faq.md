@@ -344,18 +344,17 @@ For the same general reasons as listed in [FAQ: Why do you use GitHub?](/faq/#wh
 
 Absolutely.
 
-### Can I run applications, like games, which require hardware acceleration?
+### Can I run applications, like games and video editors, which require hardware acceleration?
 
-Those won’t fly.
-We do not provide GPU virtualization for Qubes.
-This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure.
-However, Qubes does allow for the use of accelerated graphics (e.g. OpenGL) in dom0’s Window Manager, so all the fancy desktop effects should still work.
-App qubes use a software-only (CPU-based) implementation of OpenGL, which may be good enough for basic games and applications.
+This is possible, but not recommended. It's usually a better idea to have a separate device for GPU-intensive tasks, but if that's not possible for financial or other reasons, this can be done with significant effort and security trade-offs.
 
-For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
+Qubes does not implement GPU virtualization, so any GPU-based tasks will require giving a Qube full access to your GPU, so any security vulnerabilities in your GPU will be exploitable if the Qube is compromised. Furthermore, your system will need two GPUs - one to render the Qubes desktop, and one for your GPU-accelerated Qube. If you have an integrated graphics chip on your CPU, you can use the CPU graphics to render Qubes and the dedicated graphics for your GPU-accelerated Qube.
 
-- [GPU passing to HVM](https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&)
-- [Clarifications on GPU security](https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&)
+Also note that you will likely experience noticeably worse performance in video games unless you have a good CPU due to the hardening and virtualization features of Qubes.
+
+For instructions, see [Create a Gaming HVM](https://forum.qubes-os.org/t/create-a-gaming-hvm/19000) on the Qubes forums.
+
+There are plans to implement GPU virtualization in Qubes, but it will take a while before this is available. See [the GPU acceleration project on GitHub](https://github.com/orgs/QubesOS/projects/17/views/1) for more information.
 
 ### Is Qubes a multi-user system?
 
