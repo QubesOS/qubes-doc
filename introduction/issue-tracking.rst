@@ -171,17 +171,22 @@ If your issue is not actionable, please see :doc:`Help, Support, Mailing Lists, 
 
 This guideline is extremely important for making the issue tracker a useful tool for the developers. When an issue is too big and composite, it becomes intractable and drastically increases the likelihood that nothing will get done. Such issues also tend to encourage an excessive amount of general discussion that is simply not appropriate for a technical issue tracker (see `the issue tracker is not a discussion forum <#the-issue-tracker-is-not-a-discussion-forum>`__).
 
-New issues should not be duplicates of existing issues
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Before you submit an issue, check to see whether it has already been reported. Search through the existing issues – both open and closed – by typing your key words in the **Filters** box. If you find an issue that seems to be similar to yours, read through it. If you find an issue that is the same as or subsumes yours, leave a comment on the existing issue rather than filing a new one, even if the existing issue is closed. If an issue affects more than one Qubes version, we usually keep only one issue for all versions. The Qubes team will see your comment and reopen the issue, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments.
-
 Every issue must be of a single type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Every issue must be exactly one of the following types: a bug report (``bug``), a feature or improvement request (``enhancement``), or a task (``task``). Do not file multi-typed issues. Instead, file multiple issues of distinct types. The Qubes team will classify your issue according to its type.
+
+New issues should not be duplicates of existing issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Before you submit an issue, check to see whether it has already been reported. Search through the existing issues – both open and closed – by typing your key words in the **Filters** box. If you find an issue that seems to be similar to yours, read through it.
+
+For bug reports, if you find an issue that is the same as or subsumes yours, leave a comment on the existing bug report issue rather than opening a new one, even if the existing bug report is closed. If a bug report affects more than one Qubes version, we usually keep only one bug report for all versions. The Qubes team will see your comment and reopen the bug report, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments.
+
+For feature requests, it depends on what you want to report. If the initial implementation was incomplete or unsuccessful, then please leave a comment on the existing feature request issue, and we will reopen it. However, if the initial implementation of the feature was successful, and you are reporting a problem with the feature that arose later, then please open a separate bug report (if one doesn't already exist for that bug) instead of commenting on the old feature request, as we generally prefer not to reopen old feature requests the initial implemntation of which was successfully completed.
+
 
 New issues should include all relevant information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
