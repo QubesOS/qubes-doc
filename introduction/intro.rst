@@ -8,7 +8,6 @@ What is Qubes OS?
 Qubes OS is a free and open-source, security-oriented operating system for
 single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :ref:`qubes <user/reference/glossary:qube>`.
 
-
 These qubes, which are implemented as :ref:`virtual machines (VMs)<user/reference/glossary:vm>`, have specific:
                
 - **Purposes:** with a predefined set of one or many isolated
@@ -24,14 +23,12 @@ These qubes, which are implemented as :ref:`virtual machines (VMs)<user/referenc
 - **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with
   :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
 
-.. figure:: /attachment/site/qubes-trust-level-architecture.png
-   :alt: Qubes system diagram
-
+.. image:: /attachment/site/qubes-trust-level-architecture.png
+   :alt:
 
 .. note::
 
       **Note:** See our :doc:`glossary </user/reference/glossary>` and :doc:`FAQ </introduction/faq>` for more information.
-
 
 Features
 --------
@@ -42,7 +39,6 @@ Features
 - **Template system** Use :ref:`app qubes <user/reference/glossary:app qube>` to
   share a root file system without sacrificing security using the innovative
   :doc:`Template system </user/templates/templates>`.
-
 
 - **Multiple operating systems** Use multiple operating systems at the same time, including
   :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and
@@ -60,15 +56,12 @@ Features
 
 - **Open-source** Users are free to use, copy, and modify Qubes OS and :doc:`are encouraged to do so! </introduction/contributing>`
 
-
 .. note::
 
       **Note:** Given the technical nature of Qubes OS, prior experience with Linux can be helpful.
 
-
 Why Qubes OS?
 -------------
-
 
 Physical isolation is a given safeguard that the digital world lacks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,17 +83,11 @@ Better yet, it allows us to create new compartments whenever we need them,
 and it gives us sophisticated tools for securely managing our activities
 and data across these compartments.
 
-.. figure:: /attachment/doc/r4.0-qubes-manager.png
-   :alt: Qubes manager
-
-
+.. image:: /attachment/doc/r4.0-qubes-manager.png
+   :alt:
 
 Qubes allows you to compartmentalize your digital life
 ------------------------------------------------------
-
-.. figure:: /attachment/site/qubes-partition-data-flows.jpg
-   :alt: Compartmentalization example
-
 
 Many of us are initially surprised to learn that our devices do not
 support the kind of secure compartmentalization that our lives demand, and
@@ -125,10 +112,11 @@ physical computer without having to worry about a single successful
 cyberattack taking down your entire digital life in one fell swoop. In
 fact, Qubes has `distinct advantages over physical air gaps <https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf>`__.
 
+.. image:: /attachment/site/qubes-partition-data-flows.jpg
+   :alt:
 
 Made to support vulnerable users and power users alike
 ------------------------------------------------------
-
 
 Qubes provides practical, usable security to vulnerable and
 actively-targeted individuals, such as journalists, activists,
@@ -154,31 +142,15 @@ software, because the fundamental operating system that constitutes the
 core infrastructure of our digital lives **must** be free and
 open-source in order to be trustworthy.
 
+.. image:: /attachment/doc/r4.0-snapshot12.png
+   :alt:
 
-.. figure:: /attachment/doc/r4.0-snapshot12.png
-   :alt: Qubes desktop screenshot
+Qubes OS at a glance
+--------------------
 
-
-
-Video Tours
-~~~~~~~~~~~
-
-Want to see Qubes OS in action? Sit back and watch a guided :doc:`tour! </introduction/video-tours/>`
-
-
-Screenshots
-~~~~~~~~~~~
-
-See what using Qubes actually looks like with these :doc:`screenshots </introduction/screenshots/>` of various
-applications running in Qubes.
-
-
-Getting Started
-~~~~~~~~~~~~~~~
-
-Ready to get started with Qubes? :doc:`Here's </introduction/getting-started>` what you need to know after installing.
-
-
+- :doc:`Video tours</introduction/video-tours/>`: want to see Qubes OS in action? Sit back and watch one of the guided tour!
+- :doc:`Screenshots </introduction/screenshots/>`: see what using Qubes actually looks like with various applications running in Qubes.
+- :doc:`Getting started </introduction/getting-started>`: ready to get started with Qubes? Find all you need to know after installing. 
 
 More information
 ----------------
@@ -186,7 +158,6 @@ More information
 This page is just a brief introduction to what Qubes is all about, and
 many technical details have been omitted here for the sake of
 presentation.
-
 
 - If you’re a current or potential Qubes user, you may want to check out the :doc:`documentation </index>` and the :ref:`user FAQ <introduction/faq:users>`.
 - If you’re a developer, there’s dedicated :ref:`developer documentation <index:developer documentation>` and a :ref:`developer FAQ <introduction/faq:developers>` just for you.
