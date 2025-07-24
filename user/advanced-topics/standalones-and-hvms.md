@@ -34,7 +34,7 @@ virtualization extensions of the host CPU. These are typically contrasted with
 Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an
-installation ISO, so you can easily have qubes running Windows, \*BSD, or any
+installation ISO, so you can easily have qubes running Windows, `*BSD`, or any
 Linux distribution. You can also use HVMs to run "live" distros.
 
 By default, every qube runs in PVH mode (which has security advantages over
@@ -50,20 +50,43 @@ is about the virtualization mode. In practice, however, it is most common for
 standalones to be HVMs and for HVMs to be standalones. Hence, this page covers
 both topics.
 
+## Understanding Virtualization Modes
+
+PVH has both better performance and better security than either PV or HVM:
+
+PVH has less attack surface than PV, as it relies on Second Level Address Translation (SLAT) hardware. Guests modify their own page tables natively, without hypervisor involvement. Xen does not need to perform complex checks to ensure that a guest cannot obtain write access to its own page tables, as is necessary for PV. Flaws in these checks have been a source of no fewer than four guest ⇒ host escapes: XSA-148, XSA-182, XSA-212, and XSA-213.
+
+PVH also has less attack surface than HVM, as it does not require QEMU to provide device emulation services. While QEMU is confined in a stubdomain, and again in a seccomp based sandbox, the stubdomain has significant attack surface against the hypervisor. Not only does it have the full attack surface of a PV domain, it also has access to additional hypercalls that allow it to control the guest it is providing emulation services for. XSA-109 was a vulnerability in one of these hypercalls.
+
+PVH has better performance than HVM, as the stubdomain iin HVM consumes resources (both memory and a small amount of CPU). There is little difference in the I/O path at runtime, as both PVH and HVM guests usually use paravirtualized I/O protocols.
+
+Surprisingly, PVH often has better performance than PV. This is because PVH does not require hypercalls for page table updates, which are expensive. SLAT does raise the cost of TLB misses, but this is somewhat mitigated by a second-level TLB in recent hardware.
+
+
+
+
 ## Creating a standalone
 
 You can create a standalone in the Qube Manager by selecting the "Type" of
 "Standalone qube copied from a template" or "Empty standalone qube (install
 your own OS)."
 
-Alternatively, from the dom0 command line:
+Alternatively, to create an empty standalone from the dom0 command line:
 
 ```
 qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
 ```
 
-(Note: Technically, `virt_mode=hvm` is not necessary for every standalone.
-However, it makes sense if you want to use a kernel from within the qube.)
+Or to create a standalone copied from a template:
+```
+qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
+```
+
+Notes:
+
+- Technically, `virt_mode=hvm` is not necessary for every standalone.
+However, it is needed if you want to use a kernel from within the qube.
+- If you want to make software installed in a template available in your standalone, pass in the name of the template using the `--template` option.
 
 ## Updating standalones
 
@@ -169,9 +192,40 @@ seen, e.g., in the Qube Manager in the qube's properties:
 
 Alternatively, one can use the `qvm-ls -n` command to obtain the same
 information (IP/netmask/gateway).
+The Qube Settimgs shows a netmask of 255.255.255.255.
+This is not suitable for most standalones, and you will need to use a different value.
 
-The DNS IP addresses are `10.139.1.1` and `10.139.1.2`. There is [opt-in
-support](/doc/networking/#ipv6) for IPv6 forwarding.
+In Qubes, the IP address is usually in range 10.137.0.0/16, with disposables in range 10.138.0.0/16, and DNS set to `10.139.1.1` and `10.139.1.2`.
+The simplest solution is to set the netmask to 255.0.0.0 - standard for a class A network.
+If you want a more restricted solution you could use 255.252.0.0, or 255.255.255.0
+
+There is [opt-in support](/doc/networking/#ipv6) for IPv6 forwarding.
+
+### An example of setting up a network - Network Manager on KDE
+
+Every guest operating system has its own way of handling networking, and the user is 
+referred to the documentation that comes with that operating system. However, 
+Network Manager is widely used on Linux systems, and so a worked example will 
+prove useful. This example is for an HVM running EndeavourOS. 
+
+![Image of Qube Settings](/attachment/doc/EndeavourOS_Network.png "Qube Settings")
+
+In this example, Network Manager on KDE, the network had the following values:
+
+1. IPv4 networking
+2. IP address 10.137.0.17
+3. Netmask - qube settings showed 255.255.255.255, but we decided to use 255.255.255.0
+4. Gateway 10.138.24.248
+5. Virtual DNS 10.139.1.1 and 10.139.1.2
+
+![Image of Network Manager, annotated by numbers for reference below](/attachment/doc/Network_Manager.png "Annotated image of KDE Network Manager")
+
+The network was set up by entering Network Manager, selecting the Wi-Fi & Networking tab, clicking on the Wired Ethernet
+item, and selecting tab IPv4 (1).
+The Manual method was selected (2), which revealed areas for data entry.
+The DNS Servers section takes a comma-separated list, here 10.139.1.1,10.1.139.2 (3).
+At the bottom of the tab (4),  the '+ Add' button was selected, and the IP address of 10.137.0.17 entered in the 'Address' column,  the Netmask of 255.255.255.0 entered in the 'Netmask' column, and the Gateway of 10.138.24.248 under 'Gateway'.
+Selecting the "Apply" button stored these changes
 
 ## Using template-based HVMs
 
@@ -190,11 +244,11 @@ you would install it into a normal HVM. Generally, you should install in to the
 first "system" disk. (Resize it as needed before starting installation.)
 
 You can then create a new qube using the new template. If you use this Template
-as is, then any HVMs based on it it will effectively be disposables. All file
+as is, then any HVMs based on it will effectively be disposables. All file
 system changes will be wiped when the HVM is shut down.
 
 Please see [this
-page](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md)
+page](/doc/templates/windows/windows-qubes-4-1/#windows-as-a-template)
 for specific advice on installing and using Windows-based templates.
 
 ## Cloning HVMs
@@ -358,9 +412,7 @@ device again. This is illustrated in the screenshot below:
 
 You can convert any VirtualBox VM to a Qubes HVM using this method.
 
-For example, Microsoft provides [free 90-day evaluation VirtualBox VMs for
-browser
-testing](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+For example, Microsoft provides [virtual machines containing an evaluation version of Windows](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/).
 
 About 60 GB of disk space is required for conversion. Use an external hard
 drive if needed. The final `root.img` size is 40 GB.
@@ -439,5 +491,5 @@ qemu-img -h | tail -n1
 
 Other documents related to HVMs:
 
-- [Windows VMs](https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-vm.md)
-- [Linux HVM Tips](https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md)
+- [Windows VMs](https://forum.qubes-os.org/search?q=windows%20hvm%20%23guides)
+- [Linux HVM Tips](https://forum.qubes-os.org/t/19008)

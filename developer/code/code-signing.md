@@ -65,18 +65,15 @@ Currently, [these](https://github.com/marmarek/signature-checker/blob/master/che
 
 In the example below, we will use `keyserver.ubuntu.com`.
 
-Replace 6E2F4E7AF50A5827 with your key ID, which is the last 8 hex digits of the long number in the second line of the output above:
+Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID**
+which is the last 16 hex digits of the long number in the second line
+of the output above:
 ```
 pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
       87975838063F97A968D503266E2F4E7AF50A5827
 ```
 
 ```shell_session
-$ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
-gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
-```
-
-```
 $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
 gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
 ```
@@ -147,9 +144,11 @@ Although GitHub adds a little green `Verified` button next to the commit, the [s
 
 1. Is the commit signed?
    If the commit is not signed, you can see the message
+   
    > policy/qubesos/code-signing — No signature found
 2. If the commit is signed, the key is downloaded from a GPG key server.
    If you can see the following error message, please check if you have uploaded the key to a key server.
+   
    > policy/qubesos/code-signing — Unable to verify (no valid key found)
 
 ### No Signature Found

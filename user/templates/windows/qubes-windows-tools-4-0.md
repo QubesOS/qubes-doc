@@ -32,16 +32,16 @@ Below is a breakdown of the feature availability depending on the windows versio
 
 |             Feature                  |  Windows 7 x64 | Windows 10 x64 |
 | ------------------------------------ | :------------: | :------------: |
-| Qubes Video Driver                   |        +       |       -        |
-| Qubes Network Setup                  |        +       |       +        |
-| Private Volume Setup (move profiles) |        +       |       +        |
-| File sender/receiver                 |        +       |       +        |
-| Clipboard Copy/Paste                 |        +       |       +        |
-| Application shortcuts                |        +       |       +        |
-| Copy/Edit in Disposable VM           |        +       |       +        |
-| Block device                         |        +       |       +        |
-| USB device                           |        +       |       +        |
-| Audio                                |        -       |       -        |
+| Qubes Video Driver                   |        y       |       n        |
+| Qubes Network Setup                  |        y       |       y        |
+| Private Volume Setup (move profiles)  |        y       |       y        |
+| File sender/receiver                 |        y       |       y        |
+| Clipboard Copy/Paste                 |        y       |       y        |
+| Application shortcuts                |        y       |       y        |
+| Copy/Edit in Disposable VM           |        y       |       y        |
+| Block device                         |        y       |       y        |
+| USB device                           |        y       |       y        |
+| Audio                                |        n       |       n        |
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
@@ -79,9 +79,9 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
         
 		certutil -hashfile C:\qubes-tools-4.0.1.3.exe SHA256
 
-	And compare it the value to `148A2A993F0C746B48FA6C5C9A5D1B504E09A7CFBA3FB931A4DCF86FDA4EC9B1` (**it has to exactly match for security reasons**). If it matches, feel free to continue the installation. If not, repeat the download to make sure it was not corrupted due to a network problem. If keeps on not matching it might be an attacker attempting to do something nasty to your system -- Ask for support.
+	- And compare it the value to `148A2A993F0C746B48FA6C5C9A5D1B504E09A7CFBA3FB931A4DCF86FDA4EC9B1` (**it has to exactly match for security reasons**). If it matches, feel free to continue the installation. If not, repeat the download to make sure it was not corrupted due to a network problem. If keeps on not matching it might be an attacker attempting to do something nasty to your system -- Ask for support.
 
-    **Note**: This is a workaround for installing the qubes windows tools on windows 10 since the standard way is broken.
+    - **Note**: This is a workaround for installing the qubes windows tools on windows 10 since the standard way is broken.
 
  7. Install Qubes Windows Tools 4.0.1.3 by starting `qubes-tools-4.0.1.3.exe`, not selecting the `Xen PV disk drivers` and the `Move user profiles` (which would probably lead to problems in Windows, anyhow). If during installation, the Xen driver requests a reboot, select "No" and let the installation continue - the system will be rebooted later.
 
@@ -98,7 +98,9 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
  
  12. Lastly to enable file copy operations to a Windows 10 VM the `default_user` property should be set the `<username>` that you use to login to the Windows VM. This can be done via the following command on a `dom0` terminal: *(where `<VMname>` is the name of your Windows 10 VM)*
         
-		`qvm-prefs <VMname> default_user <username> `
+        ```
+        qvm-prefs <VMname> default_user <username> 
+        ```
 
   **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
 		
@@ -165,6 +167,7 @@ Installing Xen's PV drivers in the VM will lower its resources usage when using 
 2. installing Qubes Windows Tools (QWT), which bundles Xen's PV drivers.
 
 Notes about using Xen's VBD (storage) PV driver:
+
 - **Windows 7:** installing the driver requires a fully updated VM or else you'll likely get a BSOD and a VM in a difficult to fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools (QWT). If QWT are installed, you should temporarily re-enable the standard VGA adapter in Windows and disable Qubes' (see the section above).
 - the option to install the storage PV driver is disabled by default in Qubes Windows Tools 
 - in case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver from Xen's site (xenvbd.tar).
@@ -270,7 +273,7 @@ Qubes Windows Tools (QWT for short) contain several components than can be enabl
    - Xen PV Disk Drivers: paravirtual storage drivers.
    - Xen PV Network Drivers: paravirtual network drivers.
 - Qubes Core Agent: qrexec agent and services. Needed for proper integration with Qubes.
-   - Move user profiles: user profile directory (c:\users) is moved to VM's private disk backed by private.img file in dom0 (useful mainly for HVM templates).
+   - Move user profiles: user profile directory (`c:\users`) is moved to VM's private disk backed by private.img file in dom0 (useful mainly for HVM templates).
 - Qubes GUI Agent: video driver and gui agent that enable seamless showing of Windows applications on the secure Qubes desktop.
 - Disable UAC: User Account Control may interfere with QWT and doesn't really provide any additional benefits in Qubes environment.
 
@@ -317,8 +320,8 @@ To override global settings for a specific component, create a new key under the
 
 Component-specific settings currently available:
 
-|**Component**|**Setting**|**Type**|**Description**|**Default value**|
-|:------------|:----------|:-------|:--------------|:----------------|
+|   Component   |   Setting   |   Type     |   Description                                   |   Default value   |
+|:--------------|:------------|:-----------|:------------------------------------------------|:------------------|
 |qga|DisableCursor|DWORD|Disable cursor in the VM. Useful for integration with Qubes desktop so you don't see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).|1|
 
 Troubleshooting
@@ -331,12 +334,13 @@ If the VM is inaccessible (doesn't respond to qrexec commands, gui is not functi
 
 Safe Mode should at least give you access to logs (see above).
 
-**Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QWT version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events. If you can, send the `memory.dmp` dump file from c:\Windows.
-Xen logs (/var/log/xen/console/guest-*) are also useful as they contain pvdrivers diagnostic output.
+**Please include appropriate logs when reporting bugs/problems.** Starting from version 2.4.2 logs contain QWT version, but if you're using an earlier version be sure to mention which one. If the OS crashes (BSOD) please include the BSOD code and parameters in your bug report. The BSOD screen should be visible if you run the VM in debug mode (`qvm-start --debug vmname`). If it's not visible or the VM reboots automatically, try to start Windows in safe mode (see above) and 1) disable automatic restart on BSOD (Control Panel - System - Advanced system settings - Advanced - Startup and recovery), 2) check the system event log for BSOD events. If you can, send the `memory.dmp` dump file from `c:\Windows`.
+Xen logs (`/var/log/xen/console/guest-*`) are also useful as they contain pvdrivers diagnostic output.
 
 If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
-||
+| Component  |  Description                                                                                                           |
+|:-----------|:-----------------------------------------------------------------------------------------------------------------------|
 |qrexec-agent|Responsible for most communication with Qubes (dom0 and other domains), secure clipboard, file copying, qrexec services.|
 |qrexec-wrapper|Helper executable that's responsible for launching qrexec services, handling their I/O and vchan communication.|
 |qrexec-client-vm|Used for communications by the qrexec protocol.|

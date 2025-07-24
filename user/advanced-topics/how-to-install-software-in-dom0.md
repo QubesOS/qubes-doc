@@ -65,44 +65,15 @@ commands to `dnf` using `--action=...`.
 **WARNING:** Downgrading a package can expose your system to security
 vulnerabilities.
 
-1. Download an older version of the package:
+To downgrade a specific package in dom0:
 
-    ~~~
-    sudo qubes-dom0-update package-version
-    ~~~
-
-    Dnf will say that there is no update, but the package will nonetheless be
-    downloaded to dom0.
-
-2. Downgrade the package:
-
-    ~~~
-    sudo dnf downgrade package-version
-    ~~~
+    sudo qubes-dom0-update --action=downgrade package-version
 
 ## How to re-install a package
 
-You can re-install in a similar fashion to downgrading.
+To re-install a package in dom0:
 
-1. Download the package:
-
-    ~~~
-    sudo qubes-dom0-update package
-    ~~~
-
-    Dnf will say that there is no update, but the package will nonetheless be
-    downloaded to dom0.
-
-2. Re-install the package:
-
-    ~~~
-    sudo dnf reinstall package
-    ~~~
-
-    Note that `dnf` will only re-install if the installed and downloaded
-    versions match. You can ensure they match by either updating the package to
-    the latest version, or specifying the package version in the first step
-    using the form `package-version`.
+    sudo qubes-dom0-update --action=reinstall package
 
 ## How to uninstall a package
 
@@ -209,23 +180,7 @@ to do a lot of work yourself](https://groups.google.com/d/msg/qubes-users/m8sWoy
 
 This section describes changing the default kernel in dom0. It is sometimes
 needed if you have upgraded to a newer kernel and are having problems booting,
-for example. The procedure varies depending on if you are booting with UEFI or
-grub. On the next kernel update, the default will revert to the newest.
-
-### EFI
-
-~~~
-sudo nano /boot/efi/EFI/qubes/xen.cfg
-~~~
-
-In the `[global]` section at the top, change the `default=` line to match one
-of the three boot entries listed below. For example:
-
-~~~
-default=4.19.67-1.pvops.qubes.x86_64
-~~~
-
-### Grub2
+for example. On the next kernel update, the default will revert to the newest.
 
 ~~~
 sudo nano /etc/default/grub

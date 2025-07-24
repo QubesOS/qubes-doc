@@ -19,7 +19,7 @@ title: Introduction
     <p>
       Qubes OS is a free and open-source, security-oriented operating system for
       single-user desktop computing. Qubes OS leverages
-      <a href="https://wiki.xen.org/wiki/Xen_Project_Software_Overview">
+      <a href="https://wiki.xenproject.org/wiki/Xen_Project_Software_Overview">
       Xen-based virtualization</a> to allow for the creation and management of
       isolated compartments called <a href="/doc/glossary#qube">qubes</a>.
     </p>
@@ -136,9 +136,9 @@ title: Introduction
     </p>
   </div>
   <div class="col-lg-4 col-md-4 col-xs-12">
-    <h3>U2F proxy</h3>
+    <h3>CTAP proxy</h3>
     <p>
-      Operate <a href="/doc/u2f-proxy/">Qubes U2F proxy</a> to use your
+      Operate <a href="/doc/ctap-proxy/">Qubes CTAP proxy</a> to use your
       two-factor authentication devices without exposing your web browser to the
       full USB stack.
     </p>

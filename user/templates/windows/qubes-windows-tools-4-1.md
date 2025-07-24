@@ -48,6 +48,7 @@ Below is a breakdown of the feature availability depending on the Windows versio
 | USB device                            |      y     |     y      |     y      |
 | Audio                                 |      y     |     y      |     y      |
 
+
 Qubes Windows Tools are open source and are distributed under a GPL license.
 
 **Notes:**
@@ -65,6 +66,7 @@ Before proceeding with the installation, we need to disable the Windows mechanis
  2. In the command prompt, type `bcdedit /set testsigning on`
  3. Reboot your Windows VM
 
+
 Maybe in the future, this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even given the fact that those drivers are not digitally signed, this doesn't affect the security of the Windows VM in any way. This is because the actual installation `iso` file can be verified as described in step 3 below. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
 
 QWT relies on PowerShell scripts. If PowerShell's execution policy is set to `Restricted`, execution of these scripts is blocked. Before QWT installation, this should be checked using the PowerShell command
@@ -72,6 +74,7 @@ QWT relies on PowerShell scripts. If PowerShell's execution policy is set to `Re
  	Get-ExecutionPolicy
  
  If script execution is blocked, it must be allowed using the following PowerShell command with administrator privileges:
+
 
 	Set-ExecutionPolicy unrestricted
 
@@ -208,6 +211,7 @@ Installing Xen's PV drivers in the VM will lower its resource usage when using n
 **Notes** about using Xen's VBD (storage) PV driver:
 
 - **Windows 7:** Installing the driver requires a fully updated VM or else you'll likely get a BSOD ("Blue Screen Of Death") and a VM in a difficult-to-fix state. Updating Windows takes *hours* and for casual usage there isn't much of a performance between the disk PV driver and the default one; so there is likely no need to go through the lengthy Windows Update process if your VM doesn't have access to untrusted networks and if you don't use I/O intensive apps or attach block devices. If you plan to update your newly installed Windows VM it is recommended that you do so *before* installing Qubes Windows Tools.  Installing the driver will probably cause Windows 7 activation to become invalid, but the activation can be restored using the Microsoft telephone activation method. 
+
 - The option to install the storage PV driver is disabled by default in Qubes Windows Tools 
 - In case you already had QWT installed without the storage PV driver and you then updated the VM, you may then install the driver by again starting the QWT installer and selecting the change option.
 
@@ -284,6 +288,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 	- Right-click and select the option "New -> Link".
 	- Select `C:\Windows\System32\CMD.exe` as executable.
 	- Name the link, e.g., as `Command Prompt`.
+
 	- Close the Window with `OK`.
 	- Shut down this AppVM.
 - In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command `qvm-sync-appmenus <VMname>`, *where* `<VMname>` *is the name of your windows qube*.

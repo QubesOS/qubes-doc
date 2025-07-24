@@ -16,8 +16,8 @@ title: GUI virtualization
 
 All AppVM X applications connect to local (running in AppVM) Xorg servers that use the following "hardware" drivers:
 
-- *`dummyqsb_drv`* - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
-- *`qubes_drv`* - it provides a virtual keyboard and mouse (in fact, more, see below)
+- `dummyqsb_drv` - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
+- `qubes_drv` - it provides a virtual keyboard and mouse (in fact, more, see below)
 
 For each AppVM, there is a pair of `qubes-gui` (running in AppVM) and `qubes-guid` (running in the AppVM’s GuiVM, dom0 by default) processes connected over vchan.
 The main responsibilities of `qubes-gui` are:
@@ -49,7 +49,7 @@ In the case of Qubes, `qubes-gui` does not transfer all changed pixels via vchan
   and pass this to dom0 via the deprecated `MFNDUMP` message.
 - New `qubes-gui` versions will rely on `qubes-drv` having allocated
   memory using gntalloc, and then pass the grant table indexes gntalloc
-  has chosen to the GUI daemon using using the `WINDOW_DUMP` message.
+  has chosen to the GUI daemon using the `WINDOW_DUMP` message.
 
 Now, `qubes-guid` has to tell the dom0 Xorg server about the location of the buffer.
 There is no supported way (e.g. Xorg extension) to do this zero-copy style.
@@ -90,9 +90,10 @@ Clipboard sharing implementation
 Certainly, it would be insecure to allow AppVM to read/write the clipboards of other AppVMs unconditionally.
 Therefore, the following mechanism is used:
 
-- there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0.
+- there is a "qubes clipboard" in dom0 - its contents are stored in a regular file in dom0 as `/run/qubes/qubes-clipboard.bin`.
 - if the user wants to copy local AppVM clipboard to qubes clipboard, she must focus on any window belonging to this AppVM, and press **Ctrl-Shift-C**. This combination is trapped by `qubes-guid`, and `CLIPBOARD_REQ` message is sent to AppVM. `qubes-gui` responds with `CLIPBOARD_DATA` message followed by clipboard contents.
 - the user focuses on other AppVM window, presses **Ctrl-Shift-V**. This combination is trapped by `qubes-guid`, and `CLIPBOARD_DATA` message followed by qubes clipboard contents is sent to AppVM; `qubes-gui` copies data to the local clipboard, and then user can paste its contents to local applications normally.
+- a supplementary JSON metadata file will be saved as `/run/qubes/qubes-clipboard.bin.metadata` on global clipboard copy or paste actions. Explanation of each field is available in `xside.h` header file of `qubes-guid` under `clipboard_metadata` structure. While the output from `qubes-guid` is fully JSON compatible, the `qubes-guid` parser is limited. It expects line breaks after each key-value pair and only one key-value pair per line. Opening and closing curly braces should be on their own lines. There should be no leading white-space.
 
 This way, the user can quickly copy clipboards between AppVMs.
 This action is fully controlled by the user, it cannot be triggered/forced by any AppVM.
@@ -118,7 +119,7 @@ AppVM -> GuiVM messages
 Proper handling of the below messages is security-critical.
 Note that all messages except for `CLIPBOARD`, `MFNDUMP`, and `WINDOW_DUMP` have fixed size, so the parsing code can be small.
 
-The `override_redirect` window attribute is explained at [Override Redirect Flag](https://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The `transient_for` attribute is explained at [`transient_for` attribute](https://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
+The `override_redirect` window attribute is explained at [Override Redirect Flag](https://tronche.com/gui/x/xlib/window/attributes/override-redirect.html). The `transient_for` attribute is explained at `transient_for` [attribute](https://tronche.com/gui/x/icccm/sec-4.html#WM_TRANSIENT_FOR).
 
 Window manager hints and flags are described in the [Extended Window Manager Hints (EWMH) spec](https://standards.freedesktop.org/wm-spec/latest/), especially under the `_NET_WM_STATE` section.
 

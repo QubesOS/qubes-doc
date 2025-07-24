@@ -23,43 +23,21 @@ You may also be interested in the [community-recommended hardware](https://forum
 
 Qubes-certified computers are certified for a [major release](/doc/version-scheme/) and regularly tested by the Qubes developers to ensure compatibility with all of Qubes' features within that major release. The developers test all new updates within that major release to ensure that no regressions are introduced.
 
-The current Qubes-certified models are listed below in chronological order of certification.
+The current Qubes-certified models are listed below in reverse chronological order of certification.
 
-### Insurgo PrivacyBeast X230
-
-[![Photo of the Insurgo PrivacyBeast X230](/attachment/site/insurgo-privacybeast-x230.png)](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)
-
-The [Insurgo PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/) is a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.X. Read our [announcement](/news/2019/07/18/insurgo-privacybeast-qubes-certification/) for details.
-
-### NitroPad X230
-
-[![Photo of the NitroPad X230](/attachment/site/nitropad-x230.jpg)](https://shop.nitrokey.com/shop/product/nitropad-x230-67)
-
-The [NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67) is a laptop based on the ThinkPad X230. It is certified for Qubes OS 4.X. Read our [announcement](/news/2020/03/04/nitropad-x230-qubes-certification/) for details.
-
-### NitroPad T430
-
-[![Photo of the NitroPad T430](/attachment/site/nitropad-t430.jpg)](https://shop.nitrokey.com/shop/product/nitropad-t430-119)
-
-The [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119) is a laptop based on the ThinkPad T430. It is certified for Qubes OS 4.X. Read our [announcement](/news/2021/06/01/nitropad-t430-qubes-certification/) for details.
-
-### Dasharo FidelisGuard Z690
-
-[![Photo of the Dasharo FidelisGuard Z690](/attachment/site/dasharo-fidelisguard-z690.jpg)](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/)
-
-The [Dasharo FidelisGuard Z690](https://3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) is a desktop based on the MSI PRO Z690-A DDR4 motherboard. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/03/15/dasharo-fidelisguard-z690-first-qubes-certified-desktop/) for details.
-
-### NovaCustom NV41 Series
-
-[![Photo of the NovaCustom NV41 Series](/attachment/site/novacustom-nv41-series.png)](https://novacustom.com/product/nv41-series/)
-
-The [NovaCustom NV41 Series](https://novacustom.com/product/nv41-series/) is a 14-inch custom laptop. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/05/03/novacustom-nv41-series-qubes-certified/) for details.
-
-### NitroPC Pro
-
-[![Photo of the NitroPC Pro](/attachment/posts/nitropc-pro.jpg)](https://shop.nitrokey.com/shop/product/nitropc-pro-523)
-
-The [NitroPC Pro](https://shop.nitrokey.com/shop/product/nitropc-pro-523) is a desktop based on the MSI PRO Z690-A DDR5 motherboard. It is certified for Qubes OS 4.X. Read our [announcement](/news/2023/09/06/nitropc-pro-qubes-certified/) for details.
+| Brand                                  | Model                                                                                                                                                                  | Certification details                                                       |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [NovaCustom](https://novacustom.com/)  | [V54 Series](https://novacustom.com/product/v54-series/)                                                                                                               | [Certification details](/doc/certified-hardware/novacustom-v54-series/)     |
+| [Nitrokey](https://www.nitrokey.com/)  | [NitroPad V56](https://shop.nitrokey.com/shop/nitropad-v56-684)                                                                                                        | [Certification details](/doc/certified-hardware/nitropad-v56/)              |
+| [NovaCustom](https://novacustom.com/)  | [V56 Series](https://novacustom.com/product/v56-series/)                                                                                                               | [Certification details](/doc/certified-hardware/novacustom-v56-series/)     |
+| [Nitrokey](https://www.nitrokey.com/)  | [NitroPC Pro 2](https://shop.nitrokey.com/shop/nitropc-pro-2-523)                                                                                                      | [Certification details](/doc/certified-hardware/nitropc-pro-2/)             |
+| [Star Labs](https://starlabs.systems/) | [StarBook](https://starlabs.systems/pages/starbook)                                                                                                                    | [Certification details](/doc/certified-hardware/starlabs-starbook/)         |
+| [Nitrokey](https://www.nitrokey.com/)  | [NitroPC Pro](https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523)                                                       | [Certification details](/doc/certified-hardware/nitropc-pro/)               |
+| [NovaCustom](https://novacustom.com/)  | [NV41 Series](https://novacustom.com/product/nv41-series/)                                                                                                             | [Certification details](/doc/certified-hardware/novacustom-nv41-series/)    |
+| [3mdeb](https://3mdeb.com/)            | [Dasharo FidelisGuard Z690](https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/) | [Certification details](/doc/certified-hardware/dasharo-fidelisguard-z690/) |
+| [Nitrokey](https://www.nitrokey.com/)  | [NitroPad T430](https://shop.nitrokey.com/shop/product/nitropad-t430-119)                                                                                              | [Certification details](/doc/certified-hardware/nitropad-t430/)             |
+| [Nitrokey](https://www.nitrokey.com/)  | <a id="nitropad-x230"></a>[NitroPad X230](https://shop.nitrokey.com/shop/product/nitropad-x230-67)                                                                                               | [Certification details](/doc/certified-hardware/nitropad-x230/)             |
+| [Insurgo](https://insurgo.ca/)         | [PrivacyBeast X230](https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/)                                                         | [Certification details](/doc/certified-hardware/insurgo-privacybeast-x230/) |
 
 ## Become hardware certified
 
@@ -74,7 +52,7 @@ If you are a hardware vendor, you can have your hardware certified as compatible
 
 **Note:** This section describes the requirements for hardware *certification*, *not* the requirements for *running* Qubes OS. For the latter, please see the [system requirements](/doc/system-requirements/). A brief list of the requirements described in this section is available [here](/doc/system-requirements/#qubes-certified-hardware).
 
-A basic requirement is that all Qubes-certified devices must be be available for purchase with Qubes OS preinstalled. Customers may be offered the option to select from a list of various operating systems (or no operating system at all) to be preinstalled, but Qubes OS must be on that list in order to maintain Qubes hardware certification.
+A basic requirement is that all Qubes-certified devices must be available for purchase with Qubes OS preinstalled. Customers may be offered the option to select from a list of various operating systems (or no operating system at all) to be preinstalled, but Qubes OS must be on that list in order to maintain Qubes hardware certification.
 
 One of the most important security improvements introduced with the release of Qubes 4.0 was to replace paravirtualization (PV) technology with **hardware-enforced memory virtualization**, which recent processors have made possible thanks to so-called Second Level Address Translation ([SLAT](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)), also known as [EPT](https://ark.intel.com/Search/FeatureFilter?productType=processors&ExtendedPageTables=true&MarketSegment=Mobile) in Intel parlance. SLAT (EPT) is an extension to Intel VT-x virtualization, which originally was capable of only CPU virtualization but not memory virtualization and hence required a complex Shadow Page Tables approach. We hope that embracing SLAT-based memory virtualization will allow us to prevent disastrous security bugs, such as the infamous [XSA-148](https://xenbits.xen.org/xsa/advisory-148.html), which --- unlike many other major Xen bugs --- regrettably did [affect](https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-022-2015.txt) Qubes OS. Consequently, we require SLAT support of all certified hardware beginning with Qubes OS 4.0.
 

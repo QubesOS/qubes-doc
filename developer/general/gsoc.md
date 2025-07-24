@@ -31,7 +31,7 @@ You should start learning the components that you plan on working on before the 
 
 Coming up with an interesting idea that you can realistically achieve in the time available to you (one summer) is probably the most difficult part. We strongly recommend getting involved in advance of the beginning of GSoC, and we will look favorably on applications from prospective contributors who have already started to act like free and open source developers.
 
-Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren't already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags ["help wanted" and "P: minor"](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22) (although more significant things are also welcome, of course). Doing this will get you some practice with [qubes-builder](/doc/qubes-builder/), our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
+Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren't already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from [qubes-issues](https://github.com/QubesOS/qubes-issues/issues) (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags ["help wanted" and "P: minor"](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22) (although more significant things are also welcome, of course). Doing this will get you some practice with [qubes-builder](/doc/qubes-builder-v2/), our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
 
 ### Contributor proposal guidelines
 
@@ -174,45 +174,6 @@ If applicable, links to more information or discussions
 
 **Mentor**: [Frédéric Pierret](/team/)
 
-<!--
-
-REMOVED as of February 2022: work is being done on this
-
-### Wayland support in GUI agent and/or GUI daemon
-
-**Project**: Wayland support in GUI agent and/or GUI daemon
-
-**Brief explanation**: Currently both GUI agent (VM side of the GUI virtualization) and GUI daemon (dom0 side of GUI virtualization) support X11 protocol only. It may be useful to add support for Wayland there. Note that those are in fact two independent projects:
-
-1. GUI agent - make it work as Wayland compositor, instead of extracting window's composition buffers using custom X11 driver
-2. GUI daemon - act as Wayland application, showing windows retrieved from VMs, keeping zero-copy display path (window content is directly mapped from application running in VM, not copied)
-
-**Expected results**:
-
-Choose either of GUI agent, GUI daemon. Both are of similar complexity and each separately looks like a good task for GSoC time period.
-
-- design relevant GUI agent/daemon changes, the GUI protocol should not be affected
-- consider window decoration handling - VM should have no way of spoofing those, so it must be enforced by GUI daemon (either client-side - by GUI daemon itself, or server-side, based on hints given by GUI daemon)
-- implement relevant GUI agent/daemon changes
-- implement tests for new GUI handling, similar to existing tests for X11 based GUI
-
-Relevant links:
-
-- [Low level GUI documentation](/doc/gui/)
-- [qubes-gui-agent-linux](https://github.com/qubesos/qubes-gui-agent-linux)
-- [qubes-gui-daemon](https://github.com/qubesos/qubes-gui-daemon)
-- [Use Wayland instead of X11 to increase performance](https://github.com/qubesos/qubes-issues/issues/3366)
-
-**Knowledge prerequisite**:
-
-- Wayland architecture
-- basics of X11 (for understanding existing code)
-- C language
-- using shared memory (synchronization methods etc)
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/).
-
--->
 
 ### Qubes Live USB
 
@@ -251,26 +212,6 @@ details: [#1552](https://github.com/QubesOS/qubes-issues/issues/1552),
 **Size of the project**: 350 hours
 
 **Mentor**: [Frédéric Pierret](/team/)
-
-<!--
-### Unikernel-based firewallvm with Qubes firewall settings support
-
-REMOVED as of January 2020: work is being done on this
-
-**Project**: Unikernel based firewallvm with Qubes firewall settings support
-
-**Brief explanation**: [blog post](http://roscidus.com/blog/blog/2016/01/01/a-unikernel-firewall-for-qubesos/), [repo](https://github.com/talex5/qubes-mirage-firewall)
-
-**Expected results**: A firewall implemented as a unikernel which supports all the networking-related functionality as the default sys-firewall VM, including configuration via Qubes Manager. Other duties currently assigned to sys-firewall such as the update proxy may need to be appropriately migrated first.
-
-**Knowledge prerequisite**:
-
-- [OCaml](https://ocaml.org/) + [MirageOS](https://mirage.io/) or other unikernel framework,
-- Xen network stack,
-- Qubes networking model & firewall semantics.
-
-**Mentor**: [Thomas Leonard](mailto:talex5@gmail.com), [Marek Marczykowski-Górecki](/team/)
--->
 
 ### LogVM(s)
 
@@ -422,7 +363,7 @@ for more information and qubes-specific background.
 
 **Difficulty**: medium
 
-**Knowledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder/) [[2]](/doc/qubes-builder-details/) [[3]](https://github.com/QubesOS/qubes-builder/tree/master/doc), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+**Knowledge prerequisite**: qubes-builder [[1]](/doc/qubes-builder-v2/) [[2]](https://github.com/QubesOS/qubes-builderv2), and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
 **Size of the project**: 350 hours
 
@@ -460,44 +401,6 @@ Some related discussion:
 
 **Mentor**: [Marek Marczykowski-Górecki](/team/)
 
-
-<!--
-
-REMOVED as of February 2021: work is being done on this
-
-### Porting Qubes to POWER9/PPC64
-
-**Project**: Porting Qubes to POWER9/ppc64
-
-**Brief explanation**:
-
-Qubes currently supports the x86_64 CPU architecture. PowerPC is desirable for security purposes as it is the only architecture where one can get performant hardware with entirely open source firmware. Xen has **deprecated** support for Power9/PPC64 processors. Here are two directions to tackle this project from:
-
-- Port Qubes to KVM then work on ppc64 specifics
-  - Implement some missing functionality in KVM then implement KVM support in the Qubes Hypervisor Abstraction Layer and build process. Improving the HAL will also be beneficial for simplifying the process of porting to further architectures and hypervisors.
-
-- Port Xen to ppc64 then work on Qubes specifics
-  - For more information on porting Xen see [this thread](https://markmail.org/message/vuk7atnyqfq52epp).
-
-More information and further links can be found in the related issue:
-[#4318](https://github.com/QubesOS/qubes-issues/issues/4318).
-
-**Expected results**:
-
-- Add cross-compilation support to qubes-builder and related components.
-- Make ppc64 specific adjustments to Qubes toolstacks/manager (including passthrough of devices from device tree to guest domains).
-- ppc64 specific integration and unit tests.
-- Production of generic u-boot or uefi capable image/iso for target hardware.
-
-**Knowledge prerequisite**:
-
-- Libvirt and Qubes toolstacks (C and python languages).
-- KVM or XEN internals
-- General ppc64 architecture knowledge.
-
-**Mentor**: [Marek Marczykowski-Górecki](/team/)
-
--->
 
 ### Android development in Qubes
 
@@ -538,12 +441,14 @@ Since the Admin API is continuously growing and changing, continuous security as
 A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of these assessments.
 
 **Expected results**:
+
   - fully automated & extensible Fuzzer for parts of the Admin API
   - user & developer documentation
 
 **Difficulty**: medium
 
 **Prerequisites**:
+
   - basic Python understanding
   - some knowledge about fuzzing & existing fuzzing frameworks (e.g. [oss-fuzz](https://github.com/google/oss-fuzz/tree/master/projects/qubes-os))
   - a hacker's curiosity
@@ -560,6 +465,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 **Brief explanation**: Since recently, Xen supports "unified EFI boot" which allows to sign not only Xen binary itself, but also dom0 kernel and their parameters. While the base technology is there, enabling it is a painful and complex process. The goal of this project is to integrate configuration of this feature into Qubes, automating as much as possible. See discussion in [issue #4371](https://github.com/QubesOS/qubes-issues/issues/4371)
 
 **Expected results**:
+
  - a tool to prepare relevant boot files for unified Xen EFI boot - this includes collecting Xen, dom0 kernel, initramfs, config file, and possibly few more (ucode update?); the tool should then sign the file with user provided key (preferably propose to generate it too)
  - integrate it with updates mechanism, so new Xen or dom0 kernel will be picked up automatically
  - include a fallback configuration that can be used for troubleshooting (main unified Xen EFI intentionally does not allow to manipulate parameters at boot time)
@@ -567,6 +473,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 **Difficulty**: hard
 
 **Knowledge prerequisite**:
+
  - basic understanding of Secure Boot
  - Bash and Python scripting
 
@@ -586,6 +493,7 @@ A [Fuzzer](https://en.wikipedia.org/wiki/Fuzzing) would help to automate part of
 **Difficulty**: medium
 
 **Knowledge prerequisite**:
+
  - Python scripting
  - Basic knowledge of Linux system services management (systemd, syslog etc)
 

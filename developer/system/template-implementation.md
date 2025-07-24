@@ -27,7 +27,7 @@ This is mounted as /rw and here is placed all VM private data. This includes:
 - */usr/local* – which is symlink to /rw/usrlocal
 - some config files (/rw/config) called by qubes core scripts (ex /rw/config/rc.local)
 
-**Note:** Whenever a TemplateBasedVM is created, the contents of the `/home` directory of its parent TemplateVM [are *not* copied to the child TemplateBasedVM's `/home`](/doc/templates/#inheritance-and-persistence). The child TemplateBasedVM's `/home` is independent from its parent TemplateVM's `/home`, which means that any changes to the parent TemplateVM's `/home` will not affect the child TemplateBasedVM's `/home`. Once a TemplateBasedVM has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the TemplateBasedVM. No changes in any other directories in TemplateBasedVMs persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent TemplateVM.
+**Note:** Whenever a TemplateBasedVM is created, the contents of the `/home` directory of its parent TemplateVM are *not* copied to the [child TemplateBasedVM's](/doc/templates/#inheritance-and-persistence) `/home`. The child TemplateBasedVM's `/home` is independent from its parent TemplateVM's `/home`, which means that any changes to the parent TemplateVM's `/home` will not affect the child TemplateBasedVM's `/home`. Once a TemplateBasedVM has been created, any changes in its `/home`, `/usr/local`, or `/rw/config` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the TemplateBasedVM. No changes in any other directories in TemplateBasedVMs persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent TemplateVM.
 
 ### modules.img (xvdd)
 
@@ -73,19 +73,9 @@ When TemplateVM is stopped, the xen script moves root-cow.img to root-cow.img.ol
 
 #### Rollback template changes
 
-There is possibility to rollback last template changes. Saved root-cow.img.old contains all changes made during last TemplateVM run. Rolling back changes is done by reverting this "binary patch".
+There is possibility to rollback last template changes. Using the automatic snapshot that is normally saved every time the template is shutdown.
 
-This is done using snapshot-merge device-mapper target (available from 2.6.34 kernel). It requires that no other snapshot device uses underlying block devices (root.img, root-cow.img via loop device). Because of this all AppVMs based on this template must be halted during this operation.
-
-Steps performed by **qvm-revert-template-changes**:
-
-1. Ensure that no other VMs uses this template.
-2. Prepare snapshot device with ***root-cow.img.old*** instead of *root-cow.img* (*/etc/xen/scripts/block-snapshot prepare*).
-3. Replace *snapshot* device-mapper target with *snapshot-merge*, other parameters (chunk size etc) remains untouched. Now kernel starts merging changes stored in *root-cow.img.old* into *root.img*. d-m device can be used normally (if needed).
-4. Waits for merge completed: *dmsetup status* shows used snapshot blocks – it should be equal to metadata size when completed.
-5. Replace *snapshot-merge* d-m target back to *snapshot*.
-6. Cleanup snapshot device (if nobody uses it at the moment).
-7. Move *root-cow.img.old* to *root-cow.img* (overriding existing file).
+Refer to volume backup and revert [documentation](/doc/volume-backup-revert) for more information.
 
 ### Snapshot device in AppVM
 

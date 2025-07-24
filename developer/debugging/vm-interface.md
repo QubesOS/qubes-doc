@@ -22,18 +22,19 @@ Qubes VM have some settings set by dom0 based on VM settings. There are multiple
 
 ### Keys exposed by dom0 to VM
 
+- `/qubes-base-template` - base template
 - `/qubes-vm-type` - VM type, the same as `type` field in `qvm-prefs`. One of `AppVM`, `ProxyVM`, `NetVM`, `TemplateVM`, `HVM`, `TemplateHVM`
 - `/qubes-vm-updatable` - flag whether VM is updatable (whether changes in root.img will survive VM restart). One of `True`, `False`
 - `/qubes-vm-persistence` - what data do persist between VM restarts:
   - `full` - all disks
   - `rw-only` - only `/rw` disk
   - `none` - none
-- `/qubes-timezone - name of timezone based on dom0 timezone. For example `Europe/Warsaw`
+- `/qubes-timezone` - name of timezone based on dom0 timezone. For example `Europe/Warsaw`
 - `/qubes-keyboard` (deprecated in R4.1) - keyboard layout based on dom0 layout. Its syntax is suitable for `xkbcomp` command (after expanding escape sequences like `\n` or `\t`). This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does). This entry is created as part of gui-daemon initialization (so not available when gui-daemon disabled, or not started yet).
 - `/keyboard-layout` - keyboard layout based on GuiVM layout. Its syntax can be `layout+variant+options`, `layout+variant`, `layout++options` or simply `layout`. For example, `fr+oss`, `pl++compose:caps` or `fr`. This is meant only as some default value, VM can ignore this option and choose its own keyboard layout (this is what keyboard setting from Qubes Manager does).
 - `/qubes-debug-mode` - flag whether VM has debug mode enabled (qvm-prefs setting). One of `1`, `0`
 - `/qubes-service/SERVICE_NAME` - subtree for VM services controlled from dom0 (using the `qvm-service` command or Qubes Manager). One of `1`, `0`. Note that not every service will be listed here, if entry is missing, it means "use VM default". A list of currently supported services is in the `qvm-service` man page.
-- `/qubes-netmask` - network mask (only when VM has netvm set); currently hardcoded "255.255.255.0"
+- `/qubes-netm ask` - network mask (only when VM has netvm set); currently hardcoded "255.255.255.0"
 - `/qubes-ip` - IP address for this VM (only when VM has netvm set)
 - `/qubes-gateway` - default gateway IP (only when VM has netvm set); VM should add host route to this address directly via eth0 (or whatever default interface name is)
 - `/qubes-primary-dns` - primary DNS address (only when VM has netvm set)

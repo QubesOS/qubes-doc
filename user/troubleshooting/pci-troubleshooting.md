@@ -104,7 +104,7 @@ While using the `no-strict-reset` flag, do not require PCI device to be reset be
 qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
 ~~~
 
-Be sure to replace `<BDF_OF_DEVICE>` with the BDF of your PCI device, which can be be obtained from running `qvm-pci`.
+Be sure to replace `<BDF_OF_DEVICE>` with the BDF of your PCI device, which can be obtained from running `qvm-pci`.
 
 You can also configure strict reset directly from the Qubes interface by following these steps:
 
@@ -120,7 +120,7 @@ You can also configure strict reset directly from the Qubes interface by followi
 
 ## Broadcom BCM43602 Wi-Fi card causes system freeze
 
-You may face the problem where the BCM43602 Wi-Fi chip causes a system freeze whenever it is attached to a VM. To fix this problem on a Macbook, follow the steps in [Macbook Troubleshooting](https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md#system-freezes-after-attaching-broadcom-bcm43602-wi-fi-card).
+You may face the problem where the BCM43602 Wi-Fi chip causes a system freeze whenever it is attached to a VM. To fix this problem on a Macbook, follow the steps in [Macbook Troubleshooting](https://forum.qubes-os.org/t/19020#system-freezes-after-attaching-broadcom-bcm43602-wi-fi-card).
 
 For other non-Macbook machines, it is advisable to replace the Broadcom BCM43602 with one known to work on Qubes, such as the Atheros AR9462.
 

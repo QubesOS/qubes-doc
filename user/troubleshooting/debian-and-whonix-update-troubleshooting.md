@@ -95,11 +95,11 @@ W: A error occurred during the signature verification. The repository is not upd
 
 Even though, `apt-get` will automatically ignore repositories with expired keys or signatures, you will not receive upgrades from that repository. Unless the issue is already known/documented, it should be reported so it can be further investigated.
 
-There are two possible reasons why this could happen, either there is an issue with the repository that the maintainers have to fix, or you are victim of a [Man-in-the-middle_attacks](https://www.whonix.org/wiki/Warning#Man-in-the-middle_attacks). The latter would not be a big issue and might go away after a while automatically or try to [change your Tor circuit](https://www.whonix.org/wiki/Arm#Arm)
+There are two possible reasons why this could happen, either there is an issue with the repository that the maintainers have to fix, or you are victim of a [Man-in-the-middle_attacks](https://www.whonix.org/wiki/Warning#Man-in-the-middle_attacks). The latter would not be a big issue and might go away after a while automatically or try to [change your Tor circuit](https://www.whonix.org/wiki/Arm#Arm).
 
-In past various apt repositories were signed with expired key. If you want to see how the documentation looked at that point, please click on expand on the right.
+In past various apt repositories were signed with expired key: [The Tor Project's apt repository key was expired](https://trac.torproject.org/projects/tor/ticket/12994).
 
-[The Tor Project's apt repository key was expired](https://trac.torproject.org/projects/tor/ticket/12994). You saw the following warning.
+You saw the following warning:
 
 ~~~
 W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://deb.torproject.org stable Release: The following signatures were invalid: KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681

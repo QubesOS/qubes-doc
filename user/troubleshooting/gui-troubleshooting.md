@@ -6,15 +6,21 @@ ref: 233
 title: GUI troubleshooting
 ---
 
-## Can't click on anything after connecting 4k external display
+## Can't click on parts of the screen after connecting high-resolution external display
 
-When you connect a 4K external display, you may be unable to click on anything but a small area in the upper-right corner.
+When you connect a high-resolution external display, you may be unable to click on parts of the screen.
 
 When a qube starts, a fixed amount of RAM is allocated to the graphics buffer called video RAM.
 This buffer needs to be at least as big as the whole desktop, accounting for all displays that are or will be connected to the machine.
 By default, it is as much as needed for the current display and an additional full HD (FHD) display (1920×1080 8 bit/channel RGBA).
-This logic fails when the machine has primary display in FHD resolution and, after starting some qubes, a 4K display is connected.
+This logic fails when the machine has primary display in FHD resolution and, after starting some qubes, a high-resolution display is connected.
 If the buffer is too small, and internal desktop resize fails.
+
+To determine if this is the problem affecting you, look at the Xorg log inside the Qube at `/home/user/.local/share/xorg/Xorg.0.log` for lines like the following:
+
+~~~
+[  1623.988] (EE) DUMMYQBS(0): Unable to set up a virtual screen size of 3440x1440 with 17101 Kb of video memory available.  Please increase the video memory size.
+~~~
 
 The solution to this problem is to increase the minimum size of the video RAM buffer, as explained in [GUI Configuration](/doc/gui-configuration/#video-ram-adjustment-for-high-resolution-displays).
 
@@ -26,9 +32,7 @@ Similarly, while working, the XScreenSaver dialog may pop up (indicating the scr
 
 If you are experiencing the any of the above symptoms, try disabling the window compositor:
 
-`
-    Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”
-`
+`Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”`
 
 ## Post installation, screen goes black and freezes following LUKS decryption
 

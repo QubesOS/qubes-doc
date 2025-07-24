@@ -45,6 +45,8 @@ At this point, you need to shutdown all your running qubes as the `default_guivm
 
 Here, we describe how to setup `sys-gui-gpu` which is a GUI domain with *GPU passthrough* in [GUI domain](/news/2020/03/18/gui-domain/#gpu-passthrough-the-perfect-world-desktop-solution).
 
+> Note: the purpose of `sys-gui-gpu` is to improve Qubes OS security by detaching the GPU from dom0, this is not intended to improve GPU related performance within qubes, and this will not improve performance.
+
 [![sys-gui-gpu](/attachment/posts/guivm-gpu.png)](/attachment/posts/guivm-gpu.png)
 
 In `dom0`, enable the formula for `sys-gui-gpu` with pillar data:
@@ -120,13 +122,33 @@ A VNC server session is running on `localhost:5900` in `sys-gui-vnc`. In order t
 > **WARNING**: This setup raises multiple security issues: 1) Anyone who can reach the `VNC` server, can take over the control of the Qubes OS machine, 2) A second client can connect even if a connection is already active and potentially get disconnected, 3) You can get disconnected by some unrelated network issues. Generally, if this `VNC` server is exposed to open network, it must be protected with some other (cryptographic) layer like `VPN`. The setup as is, is useful only for purely testing machine.
 
 
-### Troubleshooting
+### Known issues
 
 #### Application menu lacks qubes entries in a fresh GUI domain
 
 See [QubesOS/qubes-issues#5804](https://github.com/QubesOS/qubes-issues/issues/5804)
 
-#### Delete GUI domain
+#### Cannot update dom0 from sys-gui
+
+See [QubesOS/qubes-issues#8934](https://github.com/QubesOS/qubes-issues/issues/8934)
+
+#### GUI of HVM qubes not visible
+
+See [QubesOS/qubes-issues#9385](https://github.com/QubesOS/qubes-issues/issues/9385)
+
+### Power saving/screensaver issues
+
+See [QubesOS/qubes-issues#9033](https://github.com/QubesOS/qubes-issues/issues/9033), [QubesOS/qubes-issues#9384](https://github.com/QubesOS/qubes-issues/issues/9384), [QubesOS/qubes-issues#7989](https://github.com/QubesOS/qubes-issues/issues/7989)
+
+#### Qube startup order (sys-usb and sys-gui)
+
+See [QubesOS/qubes-issues#7954](https://github.com/QubesOS/qubes-issues/issues/7954)
+
+#### Other GUI domain issues
+
+see existing issues `QubesOS/qubes-issues` under [C: gui-domain](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22) label.
+
+### Reverting sys-gui
 
 The following commands have to be run in `dom0`.
 
@@ -149,7 +171,3 @@ You are now able to delete the GUI domain, for example `sys-gui-gpu`:
 ```bash
 qvm-remove -f sys-gui-gpu
 ```
-
-#### General issues
-
-For any general GUI domain issues, please take a loot at existing issues `QubesOS/qubes-issues` under [C: gui-domain](https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22) label.

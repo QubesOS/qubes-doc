@@ -190,8 +190,9 @@ you see here may not be genuine. That's why we strongly suggest obtaining the
 fingerprint from *multiple independent sources in several different ways*, then
 comparing the strings of letters and numbers to make sure they match.
 
-When it comes to PGP fingerprints, spaces and capitalization don't matter. In
-other words, all of these fingerprints are considered the same:
+For the purpose of convincing yourself that you know the authentic QMSK
+fingerprint, spaces and capitalization don't matter. In other words, all of
+these fingerprints are considered the same:
 
 ```
 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
@@ -201,12 +202,16 @@ other words, all of these fingerprints are considered the same:
 ```
 
 Instead, what matters is that *all* the characters are present in *exactly* the
-same order. If even one character is different, the fingerprints do not match.
-Even if two fingerprints have all the same characters, if any of those
-characters are in a different order, sequence, or position, then the
-fingerprints do not match.
+same order. If even one character is different, the fingerprints should not be
+considered the same. Even if two fingerprints have all the same characters, if
+any of those characters are in a different order, sequence, or position, then
+the fingerprints should not be considered the same.
 
-You may also sometimes see the entire fingerprint prefixed with `0x`, as in:
+However, for the purpose of *searching for*, *looking up*, or *entering* keys,
+spaces and capitalization can matter, depending on the software or tool you're
+using. You may need to try different variations (e.g., with and without
+spaces). You may also sometimes see (or need to enter) the entire fingerprint
+prefixed with `0x`, as in:
 
 ```
 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
@@ -214,10 +219,12 @@ You may also sometimes see the entire fingerprint prefixed with `0x`, as in:
 ```
 
 The `0x` prefix is sometimes used to indicate that the string following it is a
-hexadecimal value, and some PGP-related tools may require this prefix. For the
-purpose of comparing fingerprints as described here, you may safely ignore the
-`0x` prefix, as it is not part of the fingerprint. As long as the 40-character
-string after the `0x` matches exactly, the fingerprint is the same.
+hexadecimal value, and some PGP-related tools may require this prefix. Again,
+for the purpose of convincing yourself that you know the authentic QMSK
+fingerprint, you may safely ignore the `0x` prefix, as it is not part of the
+fingerprint. As long as the 40-character string after the `0x` matches exactly,
+the fingerprint is considered the same. The `0x` prefix only matters if the
+software or tool you're using cares about it.
 
 The general idea of "comparing fingerprints" is to go out into the world
 (whether digitally, physically, or both) and find other 40-character strings
@@ -368,11 +375,11 @@ by the QMSK:
 
 ```shell_session
 $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
-pub   rsa4096 2017-03-06 [SC]
-      5817A43B283DE5A9181A522E1848792F9E2795E9
+pub   rsa4096 YYYY-MM-DD [SC]
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 uid           [  full  ] Qubes OS Release X Signing Key
-sig!3        1848792F9E2795E9 2017-03-06  Qubes OS Release X Signing Key
-sig!         DDFA1A3E36879494 2017-03-08  Qubes Master Signing Key
+sig!3        XXXXXXXXXXXXXXXX YYYY-MM-DD  Qubes OS Release X Signing Key
+sig!         DDFA1A3E36879494 YYYY-MM-DD  Qubes Master Signing Key
 
 gpg: 2 good signatures
 ```
@@ -390,9 +397,9 @@ As a final sanity check, make sure the RSK is in your keyring with the correct
 trust level:
 
 ```shell_session
-$ gpg2 -k "Qubes OS Release"
-pub   rsa4096 2017-03-06 [SC]
-      5817A43B283DE5A9181A522E1848792F9E2795E9
+$ gpg2 -k "Qubes OS Release X Signing Key"
+pub   rsa4096 YYYY-MM-DD [SC]
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 uid           [  full  ] Qubes OS Release X Signing Key
 ```
 
@@ -526,7 +533,7 @@ $ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS
 gpg: armor header: Hash: SHA256
 gpg: armor header: Version: GnuPG v2
 gpg: original file name=''
-gpg: Signature made Tue 20 Sep 2016 10:37:03 AM PDT using RSA key ID 03FA5082
+gpg: Signature made <TIME> using RSA key ID 03FA5082
 gpg: using PGP trust model
 gpg: Good signature from "Qubes OS Release X Signing Key"
 gpg: textmode signature, digest algorithm SHA256
@@ -571,7 +578,7 @@ executing this GPG command in the directory that contains both files:
 ```shell_session
 $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
 gpg: armor header: Version: GnuPG v1
-gpg: Signature made Tue 08 Mar 2016 07:40:56 PM PST using RSA key ID 03FA5082
+gpg: Signature made <TIME> using RSA key ID 03FA5082
 gpg: using PGP trust model
 gpg: Good signature from "Qubes OS Release X Signing Key"
 gpg: binary signature, digest algorithm SHA256
@@ -691,8 +698,8 @@ Qubes ISOs](#how-to-verify-detached-pgp-signatures-on-qubes-isos).)
 
 ```shell_session
 $ dd if=/dev/sdX bs=1M count=<ISO_SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
-gpg: Signature made Thu 14 Jul 2022 08:49:38 PM PDT
-gpg:                using RSA key 5817A43B283DE5A9181A522E1848792F9E2795E9
+gpg: Signature made <TIME>
+gpg:                using RSA key XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 gpg: using pgp trust model
 gpg: Good signature from "Qubes OS Release X Signing Key" [full]
 gpg: binary signature, digest algorithm SHA256, key algorithm rsa4096
@@ -826,6 +833,7 @@ the arguments to `gpg2`. (The signature file goes first.)
 ### Why am I getting "WARNING: This key is not certified with a trusted signature! There is no indication that the signature belongs to the owner."?
 
 There are several possibilities:
+
 - You don't have the [Qubes Master Signing
   Key](#how-to-import-and-authenticate-the-qubes-master-signing-key).
 - You have not [set the Qubes Master Signing Key's trust level

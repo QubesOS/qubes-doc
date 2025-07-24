@@ -43,7 +43,7 @@ Even on supported hardware, you must ensure that [IOMMU-based virtualization](ht
 
 ### Copying the ISO onto the installation medium
 
-Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. [Download](/downloads/) a Qubes ISO.
+Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. [Download](/downloads/) a Qubes ISO. If your Internet connection is unstable and the download is interrupted, you could resume the partial download with `wget --continue` in case you are currently using wget for downloading or use a download-manager with resume capability. Alternatively you can download installation ISO via BitTorrent that sometimes enables higher download speeds and more reliable downloads of large files.
 
 <div class="alert alert-danger" role="alert">
   <i class="fa fa-exclamation-triangle"></i>
@@ -74,7 +74,7 @@ Change `Qubes-RX-x86_64.iso` to the filename of the version you're installing, a
 
 #### Windows ISO to USB
 
-On Windows, you can use the [Rufus](https://rufus.akeo.ie/) tool to write the ISO to a USB key. Be sure to select "Write in DD Image mode" *after* selecting the Qubes ISO and pressing "START" on the Rufus main window.
+On Windows, you can use the [Rufus](https://rufus.ie/) tool to write the ISO to a USB key. Be sure to select "Write in DD Image mode" *after* selecting the Qubes ISO and pressing "START" on the Rufus main window.
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
@@ -91,39 +91,43 @@ This section will demonstrate a simple installation using mostly default setting
 
 ### Getting to the boot screen
 
-"Booting" is the process of starting your computer. When a computer boots up, it first runs low-level software before the main operating system. Depending on the computer, this low-level software is may be called the ["BIOS"](https://en.wikipedia.org/wiki/BIOS) or ["UEFI"](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface).
+"Booting" is the process of starting your computer. When a computer boots up, it first runs low-level software before the main operating system. Depending on the computer, this low-level software may be called the ["BIOS"](https://en.wikipedia.org/wiki/BIOS) or ["UEFI"](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface).
 
 Since you're installing Qubes OS, you'll need to access your computer's BIOS or UEFI menu so that you can tell it to boot from the USB drive to which you just copied the Qubes installer ISO.
 
 To begin, power off your computer and plug the USB drive into a USB port, but don't press the power button yet. Right after you press the power button, you'll have to immediately press a specific key to enter the BIOS or UEFI menu. The key to press varies from brand to brand. `Esc`, `Del`, and `F10` are common ones. If you're not sure, you can search the web for `<COMPUTER_MODEL> BIOS key` or `<COMPUTER_MODEL> UEFI key` (replacing `<COMPUTER_MODEL>` with your specific computer model) or look it up in your computer's manual.
 
-Once you know the key to press, press your computer's power button, then repeatedly press that key until you've entered your computer's BIOS or UEFI menu. To give you and idea of what you should be looking for, we've provided a couple of example photos below.
+Once you know the key to press, press your computer's power button, then repeatedly press that key until you've entered your computer's BIOS or UEFI menu. To give you an idea of what you should be looking for, we've provided a couple of example photos below.
 
 Here's an example of what the BIOS menu looks like on a ThinkPad T430:
 
 [![ThinkPad T430 BIOS menu](/attachment/doc/Thinkpad-t430-bios-main.jpg)](/attachment/doc/Thinkpad-t430-bios-main.jpg)
 
-And here's an example of what a UEFI menu looks like:
+And here's an example of what a modern UEFI menu looks like:
 
 [![UEFI menu](/attachment/doc/uefi.jpeg)](/attachment/doc/uefi.jpeg)
 
-Once you access your computer's BIOS or UEFI menu, you'll want to go to the "boot menu," which is where you tell your computer which devices to boot from. The goal is to tell the computer to boot from your USB drive so that you can run the Qubes installer. If your boot menu lets you select which device to boot from first, simply select your USB drive. (If you have multiple entries that all look similar to your USB drive, and you're not sure which one is correct, one option is just to try each one until it works.) If, on the other hand, your boot menu presents you with a list of boot devices in order, then you'll want to move your USB drive to the top so that the Qubes installer runs before anything else.
+Once you access your computer's BIOS or UEFI menu, you'll want to go to the "boot menu", which is where you tell your computer which devices to boot from. The goal is to tell the computer to boot from your USB drive so that you can run the Qubes installer. If your boot menu lets you select which device to boot from first, simply select your USB drive. (If you have multiple entries that all look similar to your USB drive, and you're not sure which one is correct, one option is just to try each one until it works.) If, on the other hand, your boot menu presents you with a list of boot devices in order, then you'll want to move your USB drive to the top so that the Qubes installer runs before anything else.
 
-Once you're done on the boot menu, save your changes. How you do this depends on your BIOS or UEFI, but the instructions should be displayed right there on the screen or in a nearby tab. (If you're not sure whether you've saved your changes correctly, you can always reboot your computer and go back into the boot menu to check whether it still reflects your changes.) Once your BIOS or UEFI is configured the way you want it, reboot your computer. This time, don't press any special keys. Instead, let the BIOS or UEFI load and let your computer boot from your USB drive. If you're successful in this step, after a few seconds you'll be presented with the Qubes installer screen:
+Then, if you are on a computer using UEFI, you'll have to disable [Secure Boot](https://en.m.wikipedia.org/wiki/UEFI#SECURE-BOOT) to allow Qubes OS to boot.
 
-[![Boot screen](/attachment/doc/boot-screen.png)](/attachment/doc/boot-screen.png)
+Once you're done with the settings, save your changes. How you do this depends on your BIOS or UEFI, but the instructions should be displayed right there on the screen or in a nearby tab. (If you're not sure whether you've saved your changes correctly, you can always reboot your computer and go back into the boot menu to check whether it still reflects your changes.) Once your BIOS or UEFI is configured the way you want it, reboot your computer. This time, don't press any special keys. Instead, let the BIOS or UEFI load and let your computer boot from your USB drive. If you're successful in this step, after a few seconds you'll be presented with the Qubes installer screen:
 
-From here, you can navigate the boot screen using the arrow keys on your keyboard. Pressing the "Tab" key will reveal options. You can choose one of three options:
+[![Boot screen](/attachment/doc/boot-screen-4.2.png)](/attachment/doc/boot-screen-4.2.png)
+
+From here, you can navigate the boot screen using the arrow keys on your keyboard. Pressing the "Tab" key will reveal options. You can choose one of five options:
 
 * Install Qubes OS
 * Test this media and install Qubes OS
-* Troubleshooting
+* Troubleshooting - verbose boot
+* Rescue a Qubes OS system
+* Install Qubes OS 4.2.1 using kernel-latest
  
 Select the option to test this media and install Qubes OS. 
 
 <div class="alert alert-info" role="alert">
   <i class="fa fa-info-circle"></i>
-  <b>Note:</b> If the latest stable release is not compatible with your hardware, you may wish to consider <a href="/doc/testing/">testing a newer release</a>.
+  <b>Note:</b> If the latest stable release is not compatible with your hardware, you may wish to consider installing using the latest kernel. Be aware that this has not been as well tested as the standard kernel.
 </div>
 
 If the boot screen does not appear, there are several options to troubleshoot. First, try rebooting your computer. If it still loads your currently installed operating system or does not detect your installation medium, make sure the boot order is set up appropriately. The process to change the boot order varies depending on the currently installed system and the motherboard manufacturer. If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order. This may require an [advanced reboot](https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings).
@@ -132,7 +136,7 @@ If the boot screen does not appear, there are several options to troubleshoot. F
 
 On the first screen, you are asked to select the language that will be used during the installation process. When you are done, select **Continue**.
 
-[![welcome](/attachment/doc/welcome-to-qubes-os-installation-screen.png)](/attachment/doc/welcome-to-qubes-os-installation-screen.png)
+[![Language selection window](/attachment/doc/welcome-to-qubes-os-installation-screen-4.2.png)](/attachment/doc/welcome-to-qubes-os-installation-screen-4.2.png)
 
 Prior to the next screen, a compatibility test runs to check whether IOMMU-virtualization is active or not. If the test fails, a window will pop up. 
 
@@ -153,7 +157,7 @@ Like Fedora, Qubes OS uses the Anaconda installer. Those that are familiar with 
 
 The Installation summary screen allows you to change how the system will be installed and configured, including localization settings. At minimum, you are required to select the storage device on which Qubes OS will be installed. 
 
-[![Installation summary not ready](/attachment/doc/installation-summary-not-ready.png)](/attachment/doc/installation-summary-not-ready.png)
+[![Installation summary screen awaiting input ](/attachment/doc/installation-summary-not-ready-4.2.png)](/attachment/doc/installation-summary-not-ready-4.2.png)
 
 ### Localization
 
@@ -171,22 +175,6 @@ Don't forget to select your time and date by clicking on the Time & Date entry.
 
 [![Time and date](/attachment/doc/time-and-date.png)](/attachment/doc/time-and-date.png)
 
-### Software
-
-[![Add-ons](/attachment/doc/add-ons.png)](/attachment/doc/add-ons.png)
-
-On the software selection tab, you can choose which software to install in Qubes OS. Two options are available:
-
-* **Debian:** Select this option if you would like to use [Debian](/doc/templates/debian/) qubes in addition to the default Fedora qubes.
-* **Whonix:** Select this option if you would like to use [Whonix](https://www.whonix.org/wiki/Qubes) qubes. Whonix allows you to use [Tor](https://www.torproject.org/) securely within Qubes.
-
-Whonix lets you route some or all of your network traffic through Tor for greater privacy. Depending on your threat model, you may need to install Whonix templates right away.
-
-Regardless of your choices on this screen, you will always be able to install these and other [templates](/doc/templates/) later. If you're short on disk space, you may wish to deselect these options.
-
-By default, Qubes OS comes preinstalled with the lightweight Xfce4 desktop environment. Other desktop environments will be available to you after the installation is completed, though they may not be officially supported (see [advanced topics](/doc/#advanced-topics)).
-
-Press **Done** to go back to the installation summary screen.
 
 ### Installation destination
 
@@ -206,7 +194,7 @@ Your installation destination can be an internal or external storage drive, such
 
 Installing an operating system onto a USB drive can be a convenient way to try Qubes. However, USB drives are typically much slower than internal SSDs. We recommend a very fast USB 3.0 drive for decent performance. Please note that a minimum storage of 32 GiB is required. If you want to install Qubes OS onto a USB drive, just select the USB device as the target installation device. Bear in mind that the installation process is likely to take longer than it would on an internal storage device.
 
-[![Select storage device](/attachment/doc/select-storage-device.png)](/attachment/doc/select-storage-device.png)
+[![Select storage device screen](/attachment/doc/select-storage-device-4.2.png)](/attachment/doc/select-storage-device-4.2.png)
 
 <div class="alert alert-success" role="alert">
   <i class="fa fa-check-circle"></i>
@@ -220,21 +208,22 @@ As soon as you press **Done**, the installer will ask you to enter a passphrase 
   <b>Warning:</b> If you forget your encryption passphrase, there is no way to recover it.
 </div>
 
-[![Select storage passhprase](/attachment/doc/select-storage-passphrase.png)](/attachment/doc/select-storage-passphrase.png)
-
-When you're ready, press **Begin Installation**.
-
-[![Installation summary ready](/attachment/doc/installation-summary-ready.png)](/attachment/doc/installation-summary-ready.png)
+[![Select storage passphrase](/attachment/doc/select-storage-passphrase.png)](/attachment/doc/select-storage-passphrase.png)
 
 ### Create your user account
 
-While the installation process is running, you can create your user account. This is what you'll use to log in after disk decryption and when unlocking the screen locker. This is a purely local, offline account in dom0. By design, Qubes OS is a single-user operating system, so this is just for you.
+Select "User Creation" to create your user account. This is what you'll use to log in after disk decryption and when unlocking the screen locker. This is a purely local, offline account in dom0. By design, Qubes OS is a single-user operating system, so this is just for you.
 
-Select **User Creation** to define a new user with administrator privileges and a password. Just as for the disk encryption, this password should be complex. The root account is deactivated and should remain as such.
+The new user you create has full administrator privileges and is protected by a password. Just as for the disk encryption, this password should be complex. The root account is deactivated and should remain as such.
 
-[![Account name and password](/attachment/doc/account-name-and-password.png)](/attachment/doc/account-name-and-password.png)
+[![Account name and password creation window. ](/attachment/doc/account-name-and-password-4.2.png)](/attachment/doc/account-name-and-password-4.2.png)
 
-When the installation is complete, press **Reboot**. Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again.
+### Installation
+When you have completed all the items marked with the warning icon, press **Begin Installation**.
+
+Installation can take some time. 
+[![Windows showing installation complete and Reboot button. ](/attachment/doc/installation-complete-4.2.png)](/attachment/doc/installation-complete-4.2.png)
+When the installation is complete, press **Reboot System**. Don't forget to remove the installation medium, or else you may end up seeing the installer boot screen again.
 
 ## Post-installation
 
@@ -246,31 +235,32 @@ If the installation was successful, you should now see the GRUB menu during the 
 
 Just after this screen, you will be asked to enter your encryption passphrase.
 
-[![Unlock storage device screen](/attachment/doc/unlock-storage-device-screen.png)](/attachment/doc/unlock-storage-device-screen.png)
+[![Screen to enter device decryption password](/attachment/doc/unlock-storage-device-screen-4.2.png)](/attachment/doc/unlock-storage-device-screen-4.2.png)
 
 ### Initial Setup
 
 You're almost done. Before you can start using Qubes OS, some configuration is needed. 
 
-[![Initial setup menu](/attachment/doc/initial-setup-menu.png)](/attachment/doc/initial-setup-menu.png)
+[![Window with link for final configuration ](/attachment/doc/initial-setup-menu-4.2.png)](/attachment/doc/initial-setup-menu-4.2.png)
+Click on the item marked with the warning triangle to enter the configuration screen.
+[![Initial configuration menu](/attachment/doc/initial-setup-menu-configuration-4.2.png)](/attachment/doc/initial-setup-menu-configuration-4.2.png)
 
 By default, the installer will create a number of qubes (depending on the options you selected during the installation process). These are designed to give you a more ready-to-use environment from the get-go.
 
-[![Initial setup menu configuration](/attachment/doc/initial-setup-menu-configuration.png)](/attachment/doc/initial-setup-menu-configuration.png)
-
 Let's briefly go over the options:
 
-* **Create default system qubes:** These are the core components of the system, required for things like internet access.
+* **Templates Configuration:** Here you can decide which [templates](../templates/) you want to have installed, and which will be the default template.
+* **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as [disposables](../glossary#disposable)
 * **Create default application qubes:** These are how you compartmentalize your digital life. There's nothing special about the ones the installer creates. They're just suggestions that apply to most people. If you decide you don't want them, you can always delete them later, and you can always create your own.
-* **Create Whonix Gateway and Workstation qubes:** If you want to use Whonix, you should select this option.
-  * **Enabling system and template updates over the Tor anonymity network using Whonix:** If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
-* **Create USB qube holding all USB controllers:** Just like the network qube for the network stack, the USB qube isolates the USB controllers.
+* **Use a qube to hold all USB controllers:** Just like the network qube for the network stack, the USB qube isolates the USB controllers.
   * **Use sys-net qube for both networking and USB devices:** You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter.
-* **Do not configure anything:** This is for very advanced users only. If you select this option, you'll have to set everything up manually afterward.
+* **Create Whonix Gateway and Workstation qubes:** If you want to use [Whonix](https://www.whonix.org/wiki/Qubes), you should select this option.
+  * **Enabling system and template updates over the Tor anonymity network using Whonix:** If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
+* **Do not configure anything:** This is for very advanced users only. If you select this option, you will have to manually set up everything.
 
-When you're satisfied with you choices, press **Done**. This configuration process may take a while, depending on the speed and compatibility of your system.
+When you're satisfied with your choices, press **Done**. This configuration process may take a while, depending on the speed and compatibility of your system.
 
-After the configuration is done, you will be greeted by the login screen. Enter your password and log in.
+After configuration is done, you will be greeted by the login screen. Enter your password and log in.
 
 [![Login screen](/attachment/doc/login-screen.png)](/attachment/doc/login-screen.png)
 
@@ -313,3 +303,4 @@ Find out [Getting Started](/doc/getting-started/) with Qubes, check out the othe
 * If you don't find your answer in the documentation, please see [Help, Support, Mailing Lists, and Forum](/support/) for places to ask.
 
 * Please do **not** email individual members of the Qubes team with questions about installation or other problems. Instead, please see [Help, Support, Mailing Lists, and Forum](/support/) for appropriate places to ask questions.
+

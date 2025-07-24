@@ -22,14 +22,14 @@ However, the OS needs a mechanism to allow the administrative domain (dom0) to f
 For instance, when a user selects an application from the KDE menu, it should start in the selected VM.
 Also, it is often useful to be able to pass stdin/stdout/stderr from an application running in a VM to dom0 (and the other way around).
 (For example, so that a VM can notify dom0 that there are updates available for it).
-By default, Qubes allows VMs initiate such communications in specific circumstances.
-The qrexec framework generalizes this process by providing a remote procedure call (RPC) protocol for the Qubes architecture.
+By default, Qubes allows VMs to initiate such communications in specific circumstances.
+The qrexec framework generalizes this process by providing a remote procedure call (RPC) for the Qubes architecture.
 It allows users and developers to use and design secure inter-VM tools.
 
 ## Qrexec basics: architecture and examples
 
 Qrexec is built on top of *vchan*, a Xen library providing data links between VMs.
-During domain startup , a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
+During domain startup, a process named `qrexec-daemon` is started in dom0, and a process named `qrexec-agent` is started in the VM.
 They are connected over a **vchan** channel.
 `qrexec-daemon` listens for connections from a dom0 utility named `qrexec-client`.
 Let's say we want to start a process (call it `VMprocess`) in a VM (`someVM`).
@@ -47,18 +47,18 @@ For example, the following command creates an empty file called `hello-world.txt
 $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 ```
 
-The string before the colon specifies what user to run the command as.
-The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (whether the process creation succeeded).
+The string before the colon specifies which user will run the command.
+The `-e` flag tells `qrexec-client` to exit immediately after sending the execution request and receiving a status code from `qrexec-agent` (if the process creation succeeded).
 With this option, no further data is passed between the domains.
-By contrast, the following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
+The following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
 ```
 $ qrexec-client -d someVM user:bash
 ```
 
 The `qvm-run` command is heavily based on `qrexec-client`.
-It also takes care of additional activities, e.g. starting the domain if it is not up yet and starting the GUI daemon.
-Thus, it is usually more convenient to use `qvm-run`.
+It also handles additional activities, e.g. starting the domain if the domain is not up yet and starting the GUI daemon.
+It is usually more convenient to use `qvm-run`.
 
 There can be an almost arbitrary number of `qrexec-client` processes for a given domain.
 The limiting factor is the number of available vchan channels, which depends on the underlying hypervisor, as well the domain's OS.
@@ -70,27 +70,28 @@ For more details on the qrexec framework and protocol, see "[Qubes RPC internals
 Some common tasks (like copying files between VMs) have an RPC-like structure: a process in one VM (say, the file sender) needs to invoke and send/receive data to some process in other VM (say, the file receiver).
 The Qubes RPC framework was created to securely facilitate a range of such actions.
 
-Obviously, inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
-Therefore the design decision was made to pass all control communication via dom0, that can enforce proper authorization.
-Then, it is natural to reuse the already-existing qrexec framework.
+Inter-VM communication must be tightly controlled to prevent one VM from taking control of another, possibly more privileged, VM.
+The design decision was made to pass all control communication via dom0 which can enforce proper authorization.
+It is therefore natural to reuse the already-existing qrexec framework.
 
-Also, note that bare qrexec provides `VM <-> dom0` connectivity, but the command execution is always initiated by dom0.
-There are cases when VM needs to invoke and send data to a command in dom0 (e.g. to pass information on newly installed `.desktop` files).
-Thus, the framework allows dom0 to be the RPC target as well.
+Note that bare qrexec provides `VM <-> dom0` connectivity, but the command execution is always initiated by dom0.
+There are cases when a VM needs to invoke and send data to a command in dom0 (e.g. to pass information on newly installed `.desktop` files).
+This framework allows dom0 to be the RPC target as well.
 
 Thanks to the framework, RPC programs are very simple -- both RPC client and server just use their stdin/stdout to pass data.
-The framework does all the inner work to connect these processes to each other via `qrexec-daemon` and `qrexec-agent`.
-Additionally, disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to a normal domain, all one needs is to pass `@dispvm` as the remote domain name.
+The framework does all the inner work to connect the processes to eachother via `qrexec-daemon` and `qrexec-agent`.
+Disposable VMs are tightly integrated -- RPC to a DisposableVM is identical to RPC to an AppVM or StandaloneVM: all one needs is to pass `@dispvm` as the remote domain name.
 
 ## Qubes RPC administration
 
 ### Policy files
 
-The dom0 directory `/etc/qubes/policy.d/` contains files that set policy for each available RPC action that a VM might call.
+The dom0 directories `/etc/qubes/policy.d/` and `/run/qubes/policy.d/` contain files that set policy for each available RPC action that a VM might call.
 For example, `/etc/qubes/policy.d/90-default.policy` contains the default policy settings.  
 When making changes to existing policies it is recommended that you create a *new* policy file starting with a lower number, like `/etc/qubes/policy.d/30-user.policy`.  
 You may keep your custom policies in one file like `/etc/qubes/policy.d/30-user.policy`, or you may choose to have multiple files, like `/etc/qubes/policy.d/10-copy.policy`, `/etc/qubes/policy.d/10-open.policy`.  
 Together the contents of these files make up the RPC access policy database: the files are merged, with policies in lower number files overriding policies in higher numbered files.
+If there are entries in both `/run/qubes/policy.d/` and `/etc/qubes/policy.d/` with the same name, it isn't specified which takes precedence, so you should avoid this situation.
 
 Policies are defined in lines with the following format:
 
@@ -103,14 +104,14 @@ You can specify the source and destination by name or by one of the reserved key
 Service calls from dom0 are currently always allowed, and `@dispvm` means "new VM created for this particular request," so it is never a source of request.)
 Other methods using *tags* and *types* are also available (and discussed below).
 
-Whenever a RPC request for an action is received, the domain checks the first matching line of the files in `/etc/qubes/policy.d/` to determine access:
+Whenever a RPC request for an action is received, the domain checks the first matching line of the files in `/etc/qubes/policy.d/` and `/run/qubes/policy.d/` to determine access:
 whether to allow the request, what VM to redirect the execution to, and what user account the program should run under.
 Note that if the request is redirected (`target=` parameter), policy action remains the same -- even if there is another rule which would otherwise deny such request.
 If no policy rule is matched, the action is denied.
 
-In the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself -- in which case it must have executable permission set (`chmod +x`):
-  - `/etc/qubes-rpc/RPC_ACTION_NAME` when you make it in the template qube;
-  - `/usr/local/etc/qubes-rpc/RPC_ACTION_NAME` for making it only in an app qube.
+Files in `/run/qubes/policy.d/` are deleted when the system is rebooted.
+This is useful for temporary policy that contains the name or UUID of a disposable VM, which will not be meaningful after the system has rebooted.
+Such policy files can be created manually, but they are usually created automatically by a Qrexec call to dom0.
 
 ### Making an RPC call
 
@@ -134,6 +135,17 @@ It is also possible to call service without specific client program -- in which 
 ```
 $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 ```
+
+### Answering an RPC call
+
+In other for a RPC call to be answered in the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself -- in which case it must have executable permission set (`chmod +x`):
+  - `/etc/qubes-rpc/RPC_ACTION_NAME` when you make it in the template qube;
+  - `/usr/local/etc/qubes-rpc/RPC_ACTION_NAME` for making it only in an app qube.
+
+The source VM name can then be accessed in the server process via
+`QREXEC_REMOTE_DOMAIN` environment variable. (Note the source VM has *no*
+control over the name provided in this variable--the name of the VM is
+provided by dom0, and so is trusted.)
 
 ### Specifying VMs: tags, types, targets, etc.
 
@@ -238,7 +250,6 @@ This means it is possible to install a different script for a particular service
 
 See [below](#rpc-service-with-argument-file-reader) for an example of an RPC service using an argument.
 
-<!-- TODO document "Yes to All" authorization if it is reintroduced -->
 
 ## Qubes RPC examples
 

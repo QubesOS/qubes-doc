@@ -47,10 +47,11 @@ If you wish to install a new, unmodified Fedora template instead of upgrading a 
 [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
 [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
 [user@fedora-<new> ~]$ sudo dnf clean all
-[user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+[user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
 [user@dom0 ~]$ qvm-shutdown fedora-<new>
 [user@dom0 ~]$ sudo losetup -d $dev
 [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+[user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
 ```
 
 **Recommended:** [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
@@ -96,10 +97,10 @@ The same general procedure may be used to upgrade any template based on the stan
 
     This key was already checked when it was installed (notice that the "From" line refers to a location on your local disk), so you can safely say yes to this prompt.
 
-    **Note:** If you encounter no errors, proceed to step 4.
+     - **Note:** If you encounter no errors, proceed to step 4.
     If you do encounter errors, see the next two points first.
 
-     * If `dnf` reports that you do not have enough free disk space to proceed
+     - If `dnf` reports that you do not have enough free disk space to proceed
        with the upgrade process, create an empty file in dom0 to use as a cache
        and attach it to the template as a virtual disk.
 
@@ -115,16 +116,12 @@ The same general procedure may be used to upgrade any template based on the stan
         [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
         [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
         [user@fedora-<new> ~]$ sudo dnf clean all
-        [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best --allowerasing distro-sync
+        [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
         ```
 
        If this attempt is successful, proceed to step 4.
 
-     * `dnf` may complain:
-
-        `
-        At least X MB more space needed on the / filesystem.
-        `
+     - `dnf` may error with the text: `At least X MB more space needed on the / filesystem.`
 
        In this case, one option is to [resize the template's disk image](/doc/resize-disk-image/) before reattempting the upgrade process.
        (See [Additional Information](#additional-information) below for other options.)
@@ -159,15 +156,21 @@ The same general procedure may be used to upgrade any template based on the stan
     [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
     ```
 
-8. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
+8. Set the template-name, which is used by the Qubes updater.
 
-9. (Optional) Make the new template the global default.
+    ```
+    [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
+    ```
+
+9. (Recommended) [Switch everything that was set to the old template to the new template.](/doc/templates/#switching)
+
+10. (Optional) Make the new template the global default.
 
     ```
     [user@dom0 ~]$ qubes-prefs --set default_template fedora-<new>
     ```
 
-10. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
+11. (Optional) [Uninstall the old template.](/doc/templates/#uninstalling)
     Make sure that the template you're uninstalling is the old one, not the new one!
 
 ## Summary instructions for Fedora Minimal templates
@@ -178,8 +181,9 @@ The same general procedure may be used to upgrade any template based on the stan
 [user@dom0 ~]$ qvm-clone fedora-<old>-minimal fedora-<new>-minimal
 [user@dom0 ~]$ qvm-run -u root -a fedora-<new>-minimal xterm
 [root@fedora-<new>-minimal ~]# dnf clean all
-[user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best --allowerasing distro-sync
+[user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best distro-sync --allowerasing
 [user@fedora-<new>-minimal ~]# fstrim -v /
+[user@dom0 ~]$ qvm-features fedora-<new>-minimal template-name fedora-<new>
 ```
 
 (Shut down template by any normal means.)

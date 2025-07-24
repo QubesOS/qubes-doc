@@ -13,10 +13,15 @@ title: Templates
 
 In [Getting Started](/doc/getting-started/), we covered the distinction
 in Qubes OS between where you *install* your software and where you *run* your
-software. Your software is installed in [templates](/doc/glossary/#template).
-Each template shares its root filesystem (i.e., all of its programs and system
-files) with all the qubes based on it. [App qubes](/doc/glossary/#app-qube) are
-where you run your software and store your data.
+software. Software that you use in most everyday tasks, is installed within [templates](/doc/glossary/#template).
+When using Qubes OS, you normally work in [app qubes](/doc/glossary/#app-qube).
+App qubes are based on a *template* qube (or more simply, just *a template*).
+They inherit most of the ["root filesystem"](https://opensource.com/life/16/10/introduction-linux-filesystems), from the template.
+Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user's home directory.)
+The user home directory *is* specific to the app qube, and changes there are kept.
+There is a full explanation of this [below](#inheritance-and-persistence).
+
+If you use a [Standalone](/doc/glossary/#standalone), the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
 
 The template system has significant benefits:
 
@@ -37,7 +42,7 @@ The template system has significant benefits:
 
 An important side effect of this system is that any software installed in an
 app qube (rather than in the template on which it is based) will disappear
-after the app qube reboots (see [Inheritance and
+when the app qube shuts down (see [Inheritance and
 Persistence](#inheritance-and-persistence)). For this reason, we recommend
 installing most of your software in templates, not app qubes.
 
@@ -61,6 +66,9 @@ exactly the same source code as we publish.
 * [Fedora Xfce](/doc/templates/xfce)
 * [Debian](/doc/templates/debian/)
 * [Debian Minimal](/doc/templates/minimal/)
+* [Debian Xfce](/doc/templates/xfce)
+
+You can see the current supported versions [here](/doc/supported-releases#templates).
 
 ## Community
 
@@ -78,10 +86,15 @@ developers do not test them.
 * [Whonix](/doc/templates/whonix/)
 * [Ubuntu](/doc/templates/ubuntu/)
 * [Arch Linux](/doc/building-archlinux-template/)
-* [CentOS](/doc/templates/centos/)
-* [CentOS Minimal](/doc/templates/minimal/)
 * [Gentoo](/doc/templates/gentoo/)
 * [Gentoo Minimal](/doc/templates/minimal/)
+* [CentOS*](/doc/templates/centos)
+
+*\* The CentOS version used by this template reached 
+[End-of-Life in June 2024](https://en.wikipedia.org/wiki/CentOS_Stream#Release_history) 
+and is no longer receiving updates. Due to a lack of specific interest 
+at this time a proposal to create a new CentOS 10 template was 
+[declined](https://github.com/QubesOS/qubes-issues/issues/9716).*
 
 ## Windows
 
@@ -104,21 +117,24 @@ when you wish to install a fresh template from the Qubes repositories, e.g.:
 * When you suspect your template has been compromised.
 * When you have made modifications to your template that you no longer want.
 
-You can use a command line tool - `qvm-template` - or a GUI - `qvm-template-gui`.
+You can manage your templates using the `Qubes Template Manager`, a GUI tool available from the Qube menu.
+You can also use a command line tool in dom0 - `qvm-template`.
 
 At the command line in dom0, `qvm-template list --available` will show available templates. To install a template, use:
+
 ```
 $ qvm-template install  <template_name>
 ```
-
 You can also use `qvm-template` to upgrade or reinstall templates.
 
-Repo definitions are stored in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.  
+Repository (repo) definitions are stored in dom0 in `/etc/qubes/repo-templates` and associated keys in `/etc/qubes/repo-templates/keys`.
 There are additional repos for testing releases and community templates.
 To temporarily enable any of these repos, use the `--enablerepo=<repo-name>` option. E.g. :
+
 ```
 $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 ```
+
 To permanently enable a repo, set the line `enabled = 1` in the repo definition in `/etc/qubes/repo-templates`.  
 To permanently disable, set the line to `enabled = 0`.
 
@@ -140,7 +156,7 @@ After installing a fresh template, we recommend performing the following steps:
 
 For information about how templates access the network, please see [Why don’t
 templates have network
-access?](/doc/how-to-install-software/#why-dont-templates-have-network-access)
+access?](/doc/how-to-install-software/#why-dont-templates-have-normal-network-access)
 and the [Updates proxy](/doc/how-to-install-software/#updates-proxy).
 
 ## Updating
@@ -153,68 +169,21 @@ Please see [How to Install Software](/doc/how-to-install-software).
 
 ## Uninstalling
 
-If you want to remove a template you must make sure that it is not being used.
-You should check that the template is not being used by any qubes,
-and also that it is not set as the default template.
+To remove a template, the graphical `Qube Manager` (Qubes Menu > Qubes Tools > Qube Manager) may be used. Right-click the template to be uninstalled and click "Delete qube" to begin removal. If no issues are found, a dialog box will request the template's name be typed as a final confirmation. Upon completion, the template will be deleted.
 
-The procedure for uninstalling a template depends on how it was created.
-
-If the template was originaly created by cloning another template, then you can
-delete it the same way as you would any other qube. In the Qube Manager,
-right-click on the template and select **Delete qube**. (If you're not sure,
-you can safely try this method first to see if it works.)
-
-If, on the other hand, the template came pre-installed or was installed by
-installing a template package in dom0, per the instructions
-[above](#installing), then you must execute the following type of command in
-dom0 in order to uninstall it:
-
+Alternatively, to remove a template via the command line in dom0:
 ```
-$ sudo dnf remove qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>
+$ qvm-template remove <TEMPLATE_NAME>
 ```
 
-`qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>` is the name of the desired
-template package.
-
-You may see warning messages like the following:
-
+\<TEMPLATE_NAME> is the first column from the output of:
 ```
-warning: file /var/lib/qubes/vm-templates/fedora-XX/whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/vm-whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.04: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.03: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.02: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.01: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/root.img.part.00: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/netvm-whitelisted-appmenus.list: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/icon.png: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/clean-volatile.img.tar: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps.templates: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps.tempicons: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX/apps: remove failed: No such file or directory
-warning: file /var/lib/qubes/vm-templates/fedora-XX: remove failed: No such file or directory
+$ qvm-template list --installed
 ```
 
-These are normal and expected. Nothing is wrong, and no action is required to
-address these warnings.
+In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. "Global property default_template" requires [switching](#switching) the default_template property to another template. "Template for" can be resolved by [switching](#switching) the dependent qubes' template. Once the issues are addressed, attempt the removal again.
 
-If the uninstallation command doesn't work, pay close attention to
-any error message: it may tell you what qube is using the template,
-or if the template is default. In other cases, please see [VM Troubleshooting](/doc/vm-troubleshooting/).
-
-If the Applications Menu entry doesn't go away after you uninstall a template,
-execute the following type of command in dom0:
-
-```
-$ rm ~/.local/share/applications/<TEMPLATE_NAME>
-```
-
-Applications Menu entries for backups of removed qubes can also be found in
-`/usr/local/share/applications/` of dom0.
-
-```
-$ rm /usr/local/share/applications/<TEMPLATE_NAME>
-```
+If the template's entry in the Qubes Menu is not removed with its uninstallation, consult the [troubleshooting page](/doc/app-menu-shortcut-troubleshooting/#what-if-a-removed-application-is-still-in-the-app-menu).
 
 ## Reinstalling
 
@@ -273,6 +242,15 @@ new template:
    old template by clicking on the first one, holding shift, then clicking on
    the last one. With multiple qubes selected, right-click on any of them,
    hover your cursor over Template, then click on the new template.
+    Or in the `System` menu select `Manage templates for qubes`, select
+    any qubes using the old template and update them to the new template
+    using the drop down menu.
+
+4. **Change the template for the default-mgmt-dvm** If the old template
+    was used for management qubes, then you should change the template.
+    This is an *internal* qube which does not appear by default in the Qube manager.
+    In the `System` menu select `Manage templates for qubes`, and you will see the *default-mgmt-dvm* qube.
+    Change the template used for this disposable template to the new template.
 
 ## Advanced
 
@@ -420,8 +398,9 @@ this context: the same as their template filesystem, of course.
 
 * Some templates are available in ready-to-use binary form, but some of them
   are available only as source code, which can be built using the [Qubes
-  Builder](/doc/qubes-builder/). In particular, some template "flavors" are
-  available in source code form only. For the technical details of the template
+  Builder](https://github.com/QubesOS/qubes-builderv2/). In particular, some
+  template "flavors" are  available in source code form only. For the
+  technical details of the template
   system, please see [Template Implementation](/doc/template-implementation/).
-  Take a look at the [Qubes Builder](/doc/qubes-builder/) documentation for
+  Take a look at the [Qubes Builder](/doc/qubes-builder-v2/) documentation for
   instructions on how to compile them.

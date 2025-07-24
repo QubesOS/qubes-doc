@@ -16,6 +16,12 @@ ref: 168
 title: Split GPG
 ---
 
+<div class="alert alert-warning" role="alert">
+  <i class="fa fa-exclamation-circle"></i>
+  <b>Note:</b> This information concerns split-gpg. 
+  The implementation has been updated to provide more features in split-gpg-2. Some incomplete information on split-gpg-2 is available <a href="https://www.qubes-os.org/doc/split-gpg-2/">here</a>
+</div>
+
 Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the "smart card" is played by another Qubes app qube.
 This way one not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations -- such as encryption/decryption and signing -- to another, more trusted, network-isolated domain.
 This way the compromise of your domain where Thunderbird or another client app is running -- arguably a not-so-unthinkable scenario -- does not allow the attacker to automatically also steal all your keys.
@@ -32,7 +38,7 @@ While this might be true (unless the attacker can find a usually-very-expensive-
 However, there is usually nothing that could stop the attacker from requesting the smart card to perform decryption of all the user documents the attacker has found or need to decrypt.
 In other words, while protecting the user's private key is an important task, we should not forget that ultimately it is the user data that are to be protected and that the smart card chip has no way of knowing the requests to decrypt documents are now coming from the attacker's script and not from the user sitting in front of the monitor.
 (Similarly the smart card doesn't make the process of digitally signing a document or a transaction in any way more secure -- the user cannot know what the chip is really signing.
-Unfortunately this problem of signing reliability is not solvable by Split GPG)
+Unfortunately this problem of signing reliability is not solvable by Split GPG.)
 
 With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running.
 This way it would be easy to spot unexpected requests to decrypt documents.
@@ -140,10 +146,10 @@ work-email  work-gpg  allow
 
 where `work-email` is the Thunderbird + Enigmail app qube and `work-gpg` contains your GPG keys.
 
-You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `,default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
+You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append `default_target=<vmname>` to `ask` in `/etc/qubes-rpc/policy/qubes.Gpg`. For the examples given on this page:
 
 ```
-@anyvm  @anyvm  ask,default_target=work-gpg
+@anyvm  @anyvm  ask default_target=work-gpg
 ```
 
 Note that, because this makes it easier to accept Split GPG's qrexec authorization prompts, it may decrease security if the user is not careful in reviewing presented prompts. This may also be inadvisable if there are multiple app qubes with Split GPG set up.
@@ -297,7 +303,7 @@ In this example, the following keys are stored in the following locations (see b
 
 * `sec` (master secret key)
 
-   Depending on your needs, you may wish to create this as a **certify-only (C)** key, i.e., a key which is capable only of signing (a.k.a., "certifying") other keys.
+   - Depending on your needs, you may wish to create this as a **certify-only (C)** key, i.e., a key which is capable only of signing (a.k.a., "certifying") other keys.
    This key may be created *without* an expiration date.
    This is for two reasons.
    First, the master secret key is never to leave the `vault` VM, so it is extremely unlikely ever to be obtained by an adversary (see below).
@@ -306,7 +312,7 @@ In this example, the following keys are stored in the following locations (see b
    An adversary who does *not* possess the passphrase cannot use the key at all.
    In either case, an expiration date provides no additional benefit.
 
-   By the same token, however, having a passphrase on the key is of little value.
+   - By the same token, however, having a passphrase on the key is of little value.
    An adversary who is capable of stealing the key from your `vault` would almost certainly also be capable of stealing the passphrase as you enter it.
    An adversary who obtains the passphrase can then use it in order to change or remove the passphrase from the key.
    Therefore, using a passphrase at all should be considered optional.
@@ -314,40 +320,40 @@ In this example, the following keys are stored in the following locations (see b
 
 * `ssb` (secret subkey)
 
-   Depending on your needs, you may wish to create two different subkeys: one for **signing (S)** and one for **encryption (E)**.
+   - Depending on your needs, you may wish to create two different subkeys: one for **signing (S)** and one for **encryption (E)**.
    You may also wish to give these subkeys reasonable expiration dates (e.g., one year).
    Once these keys expire, it is up to you whether to *renew* these keys by extending the expiration dates or to create *new* subkeys when the existing set expires.
 
-   On the one hand, an adversary who obtains any existing encryption subkey (for example) will be able to use it in order to decrypt all emails (for example) which were encrypted to that subkey.
+   - On the one hand, an adversary who obtains any existing encryption subkey (for example) will be able to use it in order to decrypt all emails (for example) which were encrypted to that subkey.
    If the same subkey were to continue to be used--and its expiration date continually extended--only that one key would need to be stolen (e.g., as a result of the `work-gpg` VM being compromised; see below) in order to decrypt *all* of the user's emails.
    If, on the other hand, each encryption subkey is used for at most approximately one year, then an adversary who obtains the secret subkey will be capable of decrypting at most approximately one year's worth of emails.
 
-   On the other hand, creating a new signing subkey each year without renewing (i.e., extending the expiration dates of) existing signing subkeys would mean that all of your old signatures would eventually read as "EXPIRED" whenever someone attempts to verify them.
+   - On the other hand, creating a new signing subkey each year without renewing (i.e., extending the expiration dates of) existing signing subkeys would mean that all of your old signatures would eventually read as "EXPIRED" whenever someone attempts to verify them.
    This can be problematic, since there is no consensus on how expired signatures should be handled.
    Generally, digital signatures are intended to last forever, so this is a strong reason against regularly retiring one's signing subkeys.
 
 * `pub` (public key)
 
-   This is the complement of the master secret key.
+   - This is the complement of the master secret key.
    It can be uploaded to keyservers (or otherwise publicly distributed) and may be signed by others.
 
 * `vault`
 
-   This is a network-isolated VM.
+   - This is a network-isolated VM.
    The initial master keypair and subkeys are generated in this VM.
    The master secret key *never* leaves this VM under *any* circumstances.
    No files or text is *ever* [copied](/doc/how-to-copy-and-move-files/#security) or [pasted](/doc/how-to-copy-and-paste-text/#security) into this VM under *any* circumstances.
 
 * `work-gpg`
 
-   This is a network-isolated VM.
+   - This is a network-isolated VM.
    This VM is used *only* as the GPG backend for `work-email`.
    The secret subkeys (but *not* the master secret key) are [copied](/doc/how-to-copy-and-move-files/#security) from the `vault` VM to this VM.
    Files from less trusted VMs are *never* [copied](/doc/how-to-copy-and-move-files/#security) into this VM under *any* circumstances.
 
 * `work-email`
 
-   This VM has access to the mail server.
+   - This VM has access to the mail server.
    It accesses the `work-gpg` VM via the Split GPG protocol.
    The public key may be stored in this VM so that it can be attached to emails and for other such purposes.
 
@@ -361,10 +367,10 @@ Once the master secret key is in the `work-email` VM, the attacker could simply 
 
 In the alternative setup described in this section (i.e., the subkey setup), even an attacker who manages to gain access to the `work-gpg` VM will not be able to obtain the user's master secret key since it is simply not there.
 Rather, the master secret key remains in the `vault` VM, which is extremely unlikely to be compromised, since nothing is ever copied or transferred into it.
-<sup>\*</sup> The attacker might nonetheless be able to leak the secret subkeys from the `work-gpg` VM in the manner described above, but even if this is successful, the secure master secret key can simply be used to revoke the compromised subkeys and to issue new subkeys in their place.
+[^a-note] The attacker might nonetheless be able to leak the secret subkeys from the `work-gpg` VM in the manner described above, but even if this is successful, the secure master secret key can simply be used to revoke the compromised subkeys and to issue new subkeys in their place.
 (This is significantly less devastating than having to create a new *master* keypair.)
 
-<sup>\*</sup>In order to gain access to the `vault` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a [signed, compromised package which is already installed in the template](/doc/templates/#trusting-your-templates) upon which the `vault` VM is based.
+[^a-note]: In order to gain access to the `vault` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a [signed, compromised package which is already installed in the template](/doc/templates/#trusting-your-templates) upon which the `vault` VM is based.
 
 ### Subkey Tutorials and Discussions
 
