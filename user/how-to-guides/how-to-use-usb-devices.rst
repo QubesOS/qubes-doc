@@ -27,11 +27,16 @@ Attaching and detaching a USB device
 ------------------------------------
 
 
-With Qubes device manager
-^^^^^^^^^^^^^^^^^^^^^^^^^
+With Qubes Device Widget
+^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. figure:: /attachment/doc/qubes-devices.svg
+   :alt:
+   :align: center
 
-Click the device-manager-icon: |device manager icon| A list of available devices appears. USB-devices have a USB-icon to their right: |usb icon|
+   Qubes Devices Widget tray icon 
+
+Click the Device Widget: a list of available devices appears. USB-devices have a USB-icon to their right: |usb icon|
 
 Hover on one device to display a list of qubes you may attach it to.
 
@@ -203,8 +208,6 @@ The first part is the BDF address, in this example: ``01:00.0``
 If, for example, you have 2 USB controllers in your system because you added one you should see 2 such lines and you can probably guess which controller is the one on the mainboard and which one you added. For example, if you have a mainboard with an Intel chipset, it is possible that all of the mainboard devices show as “Intel Corporation”, while the added controller shows another manufacturer’s name.
 
 Now you should be able to tell which is the BDF address of the mainboard USB controller or the added USB controller.
-
-.. |device manager icon| image:: /attachment/doc/media-removable.png
 
 .. |usb icon| image:: /attachment/doc/generic-usb.png
 

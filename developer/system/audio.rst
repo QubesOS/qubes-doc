@@ -67,4 +67,4 @@ In Qubes R4.1 and later, ``pacat-simple-vchan`` is controlled over a UNIX socket
 
 These commands can be sent using the ``qubes.AudioInputEnable+VMNAME`` and ``qubes.AudioInputDisable+VMNAME`` qrexec services, respectively. The current status is written into QubesDB at ``/audio-input/VMNAME`` (where ``VMNAME`` is the VM’s name) with either ``1`` or ``0`` values. The lack of a key means that the ``pacat-simple-vchan`` for a given VM is not running.
 
-In either version, it is exposed to the user as device of class ``mic``, which can be attached to a VM (for example, using the ``qvm-device mic`` command).
+In either version, it is exposed to the user as device of class ``mic``, which can be attached to a VM (for example, using the :option:`qvm-device mic` command).

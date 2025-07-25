@@ -49,7 +49,7 @@ The qube settings for a VM offers the “Devices”-tab. There you can attach PC
 -----------------
 
 
-The ``qvm-pci`` tool allows PCI attachment and detachment. It’s a shortcut for :ref:`qvm-device pci <user/how-to-guides/how-to-use-devices:general qubes device widget behavior and handling>`
+The ``qvm-pci`` tool allows PCI attachment and detachment. It’s a shortcut for :option:`qvm-device pci`.
 
 To figure out what device to attach, first list the available PCI devices by running (as user) in dom0:
 
