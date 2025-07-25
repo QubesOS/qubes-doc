@@ -62,21 +62,20 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
 
 Before proceeding with the installation, we need to disable the Windows mechanism that allows only signed drivers to be installed, because currently the drivers provided as part of the Windows Tools are not digitally signed with a publicly recognizable certificate. To do that:
 
- 1. Start the command prompt as Administrator, i.e., right click on the Command Prompt icon (All Programs -> Accessories) and choose "Run as administrator".
+ 1. Start the command prompt as Administrator, i.e., right-click on the Command Prompt icon (All Programs -> Accessories) and choose "Run as administrator".
  2. In the command prompt, type `bcdedit /set testsigning on`
  3. Reboot your Windows VM
 
 
 Maybe in the future, this step will not be necessary anymore, because we will sign our drivers with a publicly verifiable certificate. However, it should be noted that even given the fact that those drivers are not digitally signed, this doesn't affect the security of the Windows VM in any way. This is because the actual installation `iso` file can be verified as described in step 3 below. The only downside of those drivers not being signed is the inconvenience to the user that he or she must disable the signature enforcement policy before installing the tools.
 
-QWT relies on PowerShell scripts. If PowerShell's execution policy is set to `Restricted`, execution of these scripts is blocked. Before QWT installation, this should be checked using the PowerShell command
+QWT relies on PowerShell scripts. If the execution policy defined for PowerShell is set to `Restricted`, execution of these scripts is blocked. Before QWT installation, this should be checked using the PowerShell command
 
  	Get-ExecutionPolicy
  
  If script execution is blocked, it must be allowed using the following PowerShell command with administrator privileges:
 
-
-	Set-ExecutionPolicy unrestricted
+	Set-ExecutionPolicy Unrestricted
 
 **Warning:** it is recommended to increase the default value of Windows VM's `qrexec_timeout` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation, Windows user profiles are moved onto the private VM's virtual disk (private.img) and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when `qrexec` is not yet running, so a timeout may occur with the default value. To change the property use this command in `dom0`: *(where* `<VMname>` *is the name of your Windows VM)*
 
@@ -87,6 +86,7 @@ QWT relies on PowerShell scripts. If PowerShell's execution policy is set to `Re
 	powercfg -H off
 
 Additionally, these versions of Windows will not display the CD-ROM drive after starting the qube with `qvm-start vm --cdrom ...` or `qvm-start VMNAME --install-windows-tools`. The solution is to disable hibernation in Windows with this command. (That command is included in QWT’s setup, but it’s necessary to run it manually in order to be able to open QWT’s setup ISO/CD-ROM in Windows).
+
 ## Installing Windows OS as a Qubes VM
 
 Please refer to [this page](/doc/templates/windows/windows-qubes-4-1/) for instructions on how to install Windows in a Qubes VM.
@@ -193,7 +193,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
  
  10. **Windows 7 only:** Optionally enable seamless mode on VM startup. This can be done by setting appropriate values in the Windows registry: 
 	
-	 - Start the command prompt as administrator, i.e., right click on the Command Prompt icon (All Programs -> Accessories) and choose "Run as administrator"
+	 - Start the command prompt as administrator, i.e., right-click on the Command Prompt icon (All Programs -> Accessories) and choose "Run as administrator"
 	 - In the command prompt, type `regedit`
 	 - In the registry editor, position to the key `\HKEY_LOCAL_MACHINE\Software\Invisible Things Lab\Qubes Tools\`
 	 - Change the value `SeamlessMode` from 0 to 1
