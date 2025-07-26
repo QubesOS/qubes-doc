@@ -235,4 +235,4 @@ Customizing disposables
 You can change the template used to generate the disposables, and change settings used in the disposable savefile. These changes will be reflected in every new disposable based on that template. Full instructions can be found :doc:`here </user/advanced-topics/disposable-customization>`.
 
 .. |disposablevm-example.png| image:: /attachment/doc/disposablevm-example.png
-   
+

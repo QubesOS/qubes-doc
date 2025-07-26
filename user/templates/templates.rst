@@ -71,7 +71,7 @@ By installing these templates, you are trusting not only the Qubes developers an
 
 - :doc:`Gentoo Minimal </user/templates/minimal-templates>`
 
-- :doc:`CentOS* <https://forum.qubes-os.org/t/19006>`
+- `CentOS* <https://forum.qubes-os.org/t/19006>`__
 
 
 
