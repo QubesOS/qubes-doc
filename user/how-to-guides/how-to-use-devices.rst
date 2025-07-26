@@ -27,7 +27,7 @@ General Qubes Device Widget Behavior And Handling
    :alt:
    :align: center
 
-   Qubes Devices Widget tray icon 
+   Qubes Devices Widget tray icon
 
 When clicking on the tray icon, several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
@@ -58,7 +58,7 @@ Device Classes
 
 .. program:: qvm-device
 
-``qvm-device`` expects :option:`DEVICE_CLASS` as first argument. 
+``qvm-device`` expects :option:`DEVICE_CLASS` as first argument.
 
 .. option:: DEVICE_CLASS
 
@@ -130,7 +130,7 @@ The :option:`list` action lists known devices in the system. :option:`list` acce
    equivalent to specifying every VM name after :option:`qvm-device list`. No VM-name implies :option:`--all`.
 
 .. option::  --exclude
-   
+
    exclude VMs from :option:`--all`. Requires :option:`--all`.
 
 **SYNOPSIS**::
@@ -152,7 +152,7 @@ The :option:`qvm-device attach` action assigns an exposed device to a VM. This m
 
 :option:`qvm-device attach` accepts two options:
 
-.. option:: --persistent 
+.. option:: --persistent
 
    attach device on :option:`targetVM`-boot. If the device is unavailable (physically missing or ``sourceVM`` not started), booting the :option:`targetVM` fails.
 
