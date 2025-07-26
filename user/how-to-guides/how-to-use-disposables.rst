@@ -3,7 +3,7 @@ How to use disposables
 ======================
 
 
-A :ref:`disposable <user/reference/glossary:disposable>` is a lightweight :ref:`qube <user/reference/glossary:qube>` that can be created quickly and will self-destruct when closed. Disposables are usually created in order to host a single application, like a viewer, editor, or web browser.
+A :term:`disposable` is a lightweight :term:`qube` that can be created quickly and will self-destruct when closed. Disposables are usually created in order to host a single application, like a viewer, editor, or web browser.
 
 From inside an app qube, choosing the ``Open in disposable`` option on a file will launch a disposable for just that file. Changes made to a file opened in a disposable are passed back to the originating qube. This means that you can safely work with untrusted files without risk of compromising your other qubes. Disposables can be launched either directly from dom0’s app menu or terminal window, or from within app qubes. Disposables are generated with names like ``disp####``, where ``####`` is random number.
 
@@ -15,7 +15,7 @@ Named disposables and disposable templates
 ------------------------------------------
 
 
-There is a difference between :ref:`named disposable qubes <user/reference/glossary:named disposable>` and :ref:`disposable templates <user/reference/glossary:disposable template>`.
+There is a difference between :term:`named disposable qubes <named disposable>` and :term:`disposable templates <disposable template>`.
 
 In a default QubesOS Installation, you would probably use the ‘whonix-ws-16-dvm’ disposable template to, for example, browse the Tor network with an disposable qube. Every time you start an application using this disposable template, a new disposable qube - named ``dispX`` (where X is a random number) starts. If you close the application window, the ``dispX`` qube shuts down and vanishes from your system. That is how disposable templates are used.
 
@@ -43,7 +43,7 @@ Security
 --------
 
 
-If a :ref:`disposable template <user/reference/glossary:disposable template>` becomes compromised, then any disposable based on that disposable template could be compromised. In particular, the *default* disposable template is important because it is used by the “Open in disposable” feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
+If a :term:`disposable template` becomes compromised, then any disposable based on that disposable template could be compromised. In particular, the *default* disposable template is important because it is used by the “Open in disposable” feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
 
 Disposables and Local Forensics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ Disposables and Networking
 --------------------------
 
 
-Similarly to how app qubes are based on their underlying :ref:`template <user/reference/glossary:template>`, disposables are based on their underlying :ref:`disposable template <user/reference/glossary:disposable template>`. R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
+Similarly to how app qubes are based on their underlying :term:`template`, disposables are based on their underlying :term:`disposable template`. R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
 
 On a fresh installation of Qubes, the default disposable template is called ``fedora-X-dvm`` or ``debian-X-dvm`` (where ``X`` is a release number). If you have included the Whonix option in your install, there will also be a ``whonix-ws-dvm`` disposable template available for your use.
 
