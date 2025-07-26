@@ -6,10 +6,6 @@ Resize disk image
 
       This page is intended for advanced users.
 
-Resizing Disk Images
---------------------
-
-
 By default Qubes uses thin volumes for the disk images. This means that space is not actually allocated for the volume until it is used. So a 2GB private volume with 100M of files will only use 100M. This explains how you can have *many* qubes with large private volumes on quite a small disk. This is called over provisioning. You should keep an eye on the disk-space widget to see how much free space you actually have.
 
 It is easy to increase the size of disk images. There are risks attached to reducing the size of an image, and in general you should not need to do this.

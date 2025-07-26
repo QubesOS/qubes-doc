@@ -3,11 +3,6 @@ Qubes R3.0 release notes
 ========================
 
 
-Qubes R3.0 Release Notes
-------------------------
-
-
-
 
 This Qubes OS release is dedicated to the memory of Caspar Bowden.
 

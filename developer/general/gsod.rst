@@ -113,22 +113,17 @@ Instructional video series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. _the-projects-problem-1:
-
-
-The project's problem
-^^^^^^^^^^^^^^^^^^^^^
+Instructional video series: The project's problem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
 There is user demand for high-quality, up-to-date video guides that take users from zero Linux knowledge to using Qubes as a daily driver and performing specific tasks inside of Qubes, but almost no such videos exist. Although most of the required knowledge is documented, many users report that they would prefer to watch videos rather than read text or that they would find videos easier to understand and follow along with.
 
-.. _the-projects-scope-1:
 
-
-The project's scope
-^^^^^^^^^^^^^^^^^^^
+Instructional video series: The project's scope
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -219,11 +214,10 @@ Below is an example of the content (which is already :doc:`documented </index>`)
 
 The project is estimated to need around six months to complete (see the timeline below). Qubes team members, including Michael Carbone, Andrew Wong, and Marek Marczykowski-Górecki, will supervise and support the creator.
 
-.. _measuring-the-projects-success-1:
 
 
-Measuring the project's success
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instructional video series: Measuring the project's success
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
