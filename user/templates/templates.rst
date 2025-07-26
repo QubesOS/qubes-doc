@@ -3,9 +3,9 @@ Templates
 =========
 
 
-In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :ref:`templates <user/reference/glossary:template>`. When using Qubes OS, you normally work in :ref:`app qubes <user/reference/glossary:app qube>`. App qubes are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user’s home directory.) The user home directory *is* specific to the app qube, and changes there are kept. There is a full explanation of this `below <#inheritance-and-persistence>`__.
+In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :term:`templates <template>`. When using Qubes OS, you normally work in :term:`app qubes <app qube>`. App qubes are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user’s home directory.) The user home directory *is* specific to the app qube, and changes there are kept. There is a full explanation of this `below <#inheritance-and-persistence>`__.
 
-If you use a :ref:`Standalone <user/reference/glossary:standalone>`, the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
+If you use a :term:`Standalone <standalone>`, the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
 
 The template system has significant benefits:
 
@@ -196,7 +196,7 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
 
 1. **Make the new template the default template.** In the App Menu, go to Qubes Tools, then click on Qubes Global Settings. In the Qube Defaults section, next to Template, select the new template from the drop-down list. Press OK.
 
-2. **Base your** :ref:`disposable templates <user/reference/glossary:disposable template>` **on the new template.**
+2. **Base your** :term:`disposable templates <disposable template>` **on the new template.**
 
    - If your only keyboard and mouse are *not* connected through a :doc:`USB qube </user/advanced-topics/usb-qubes>`, or that USB qube is *not* a disposable, then shut down all disposables. In the App Menu, go to Qubes Tools, then click on Qube Manager. In the Qube Manager, find your disposable template(s). (By default, they end in ``-dvm``.) Right click, hover over Template, then click on the new template. Repeat for each disposable template.
 
@@ -246,20 +246,20 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
    * - Qube Type
      - Inheritance :superscript:`1`
      - Persistence :superscript:`2`
-   * - :ref:`template <user/reference/glossary:template>`
+   * - :term:`template`
      - N/A (templates cannot be based on templates)
      - everything
-   * - :ref:`app qubes <user/reference/glossary:app qube>`:superscript:`3`
+   * - :term:`app qubes <app qube>`:superscript:`3`
      - ``/etc/skel`` to ``/home``; ``/usr/local.orig`` to ``/usr/local``
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
-   * - :ref:`disposable <user/reference/glossary:disposable>`
+   * - :term:`disposable`
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
      - nothing
 
 
 | :superscript:`1` Upon creation
 | :superscript:`2` Following shutdown
-| :superscript:`3` Includes :ref:`disposable templates <user/reference/glossary:disposable template>`
+| :superscript:`3` Includes :term:`disposable templates <disposable template>`
 
 
 Trusting your templates
@@ -272,7 +272,7 @@ There are several ways to deal with this problem:
 
 - Only install packages from trusted sources – e.g. from the pre-configured Fedora repositories. All those packages are signed by Fedora, and we expect that at least the package’s installation scripts are not malicious. This is enforced by default (at the :doc:`firewall qube level </user/security-in-qubes/firewall>`), by not allowing any networking connectivity in the default template, except for access to the Fedora repos.
 
-- Use :ref:`standalones <user/reference/glossary:standalone>` (see below) for installation of untrusted software packages.
+- Use :term:`standalones <standalone>` (see below) for installation of untrusted software packages.
 
 - Use multiple templates (see below) for different classes of domains, e.g. a less trusted template, used for creation of less trusted app qubes, would get various packages from less trusted vendors, while the template used for more trusted app qubes will only get packages from the standard Fedora repos.
 

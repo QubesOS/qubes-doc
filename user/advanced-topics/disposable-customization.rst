@@ -10,7 +10,7 @@ Introduction
 ------------
 
 
-A :doc:`disposable </user/how-to-guides/how-to-use-disposables>` can be based on any :ref:`app qube <user/reference/glossary:app qube>`. You can also choose to use different :ref:`disposable templates <user/reference/glossary:disposable template>` for different disposables. To prepare an app qube to be a disposable template, you need to set the ``template_for_dispvms`` property:
+A :doc:`disposable </user/how-to-guides/how-to-use-disposables>` can be based on any :term:`app qube`. You can also choose to use different :term:`disposable templates <disposable template>` for different disposables. To prepare an app qube to be a disposable template, you need to set the ``template_for_dispvms`` property:
 
 .. code:: console
 
@@ -89,7 +89,7 @@ Using named disposables for service qubes
 -----------------------------------------
 
 
-You can use a :ref:`named disposable <user/reference/glossary:named disposable>` for service qubes (such as those with the ``sys-*`` naming scheme) as long as they are stateless. For example, a ``sys-net`` using DHCP or ``sys-usb`` will work. In most cases ``sys-firewall`` will also work, even if you have configured app qube firewall rules. The only exception is if you require something like VM to VM communication and have manually edited ``iptables`` or other items directly inside the firewall app qube.
+You can use a :term:`named disposable` for service qubes (such as those with the ``sys-*`` naming scheme) as long as they are stateless. For example, a ``sys-net`` using DHCP or ``sys-usb`` will work. In most cases ``sys-firewall`` will also work, even if you have configured app qube firewall rules. The only exception is if you require something like VM to VM communication and have manually edited ``iptables`` or other items directly inside the firewall app qube.
 
 To create one that has no PCI devices attached, such as for ``sys-firewall``:
 

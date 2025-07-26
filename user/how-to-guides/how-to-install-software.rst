@@ -3,7 +3,7 @@ How to install software
 =======================
 
 
-When you wish to install software in Qubes OS, you should generally install it in a :ref:`template <user/reference/glossary:template>`. For installing templates themselves, see :ref:`how to install a template <user/templates/templates:installing>`. Advanced users may also be interested in learning how to install software in :doc:`standalones </user/advanced-topics/standalones-and-hvms>` and :doc:`dom0 </user/advanced-topics/how-to-install-software-in-dom0>`.
+When you wish to install software in Qubes OS, you should generally install it in a :term:`template`. For installing templates themselves, see :ref:`how to install a template <user/templates/templates:installing>`. Advanced users may also be interested in learning how to install software in :doc:`standalones </user/advanced-topics/standalones-and-hvms>` and :doc:`dom0 </user/advanced-topics/how-to-install-software-in-dom0>`.
 
 Qubes OS is effectively a “meta” operating system (OS) that can run almost any arbitrary OS inside of itself. For example, the way software is normally installed in a Linux distribution (“distro”) is quite different from the way software is normally installed in Windows. This isn’t up to Qubes. Qubes is just the framework in which you’re running these other OSes. Therefore, if you want to install software in a Linux template, for example, you should do so in whatever way is normal for that Linux distro. Most Linux software is distributed via `packages <https://en.wikipedia.org/wiki/Package_format>`__, which are stored in `software repositories <https://en.wikipedia.org/wiki/Software_repository>`__ (“repos”). `Package managers <https://en.wikipedia.org/wiki/Package_manager>`__ handle downloading, installing, updating, and removing packages. (Again, none of this is Qubes-specific.) If you’re not familiar with how software is normally installed in Linux distros via package managers or the software you want doesn’t seem to be available in your distro’s repos (or you’re in another situation not covered on this page), please read this `community guide to installing software in Qubes <https://forum.qubes-os.org/t/9991/>`__.
 
@@ -185,7 +185,7 @@ Standalones
 ^^^^^^^^^^^
 
 
-The process for installing and updating software in :ref:`standalones <user/reference/glossary:standalone>` is the same as described above for templates, except no qubes are based on standalones, so there are no other qubes to restart.
+The process for installing and updating software in :term:`standalones <standalone>` is the same as described above for templates, except no qubes are based on standalones, so there are no other qubes to restart.
 
 RPMFusion for Fedora templates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
