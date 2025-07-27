@@ -65,18 +65,14 @@ html_theme = 'sphinx_rtd_theme'
 # html_theme = 'classic'
 
 html_theme_options = {
-  'externalrefs': True,
-  'bgcolor': 'white',
-  'linkcolor': '#99bfff',
-  'textcolor': '#000000',
-  'visitedlinkcolor': '#7b7b7b',
-  'bodyfont': '"Open Sans", Arial, sans-serif',
-  'codebgcolor': '$color-qube-light',
-  'codebgcolor': 'grey',
+  'style_external_links': True,
   'body_min_width': '50%',
   'body_max_width': '90%',
   'collapse_navigation': True,
 }
+
+html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
+html_favicon = "attachment/icons/favicon-16x16.png"
 
 gettext_uuid = True
 gettext_compact = False
