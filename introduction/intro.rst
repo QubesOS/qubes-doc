@@ -1,8 +1,3 @@
-:og:image: https://doc.qubes-os.org/en/latest/_images/qubes-trust-level-architecture.png
-:og:image:alt: An overview of the security features of Qubes OS, including strong isolation, templating system,...
-:og:image:width: 778
-:og:image:height: 591
-
 ============
 Introduction
 ============
@@ -11,10 +6,10 @@ What is Qubes OS?
 -----------------
 
 Qubes OS is a free and open-source, security-oriented operating system for
-single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :term:`qubes <qube>`.
+single-user desktop computing. Qubes OS leverages `Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :ref:`qubes <user/reference/glossary:qube>`.
 
 
-These qubes, which are implemented as :term:`virtual machines (VMs) <vm>`, have specific:
+These qubes, which are implemented as :ref:`virtual machines (VMs)<user/reference/glossary:vm>`, have specific:
 
 - **Purposes:** with a predefined set of one or many isolated
   applications, for personal or professional projects, to manage the
@@ -24,8 +19,8 @@ These qubes, which are implemented as :term:`virtual machines (VMs) <vm>`, have 
 - **Natures:** :doc:`full-fledged </user/advanced-topics/standalones-and-hvms>` or
   :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems,
   such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and
-  `Windows <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md>`__.
-
+  :doc:`Windows </user/templates/windows/windows>`.
+               
 - **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with
   :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
 
@@ -44,14 +39,14 @@ Features
 - **Strong isolation** Isolate different pieces of software as if they were installed on separate
   physical machines using advanced virtualization techniques.
 
-- **Template system** Use :term:`app qubes  <app qube>` to
+- **Template system** Use :ref:`app qubes <user/reference/glossary:app qube>` to
   share a root file system without sacrificing security using the innovative
   :doc:`Template system </user/templates/templates>`.
 
 
 - **Multiple operating systems** Use multiple operating systems at the same time, including
   :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and
-  `Windows <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md>`__
+  :doc:`Windows </user/templates/windows/windows>`         
 
 - **Disposables** Create :doc:`disposables </user/how-to-guides/how-to-use-disposables>` on the fly that self-destruct when shut down.
 
@@ -76,7 +71,7 @@ Why Qubes OS?
 
 
 Physical isolation is a given safeguard that the digital world lacks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Throughout our lives, we engage in various activities, such as going to
 school, working, voting, taking care of our families, and visiting with
@@ -164,20 +159,20 @@ open-source in order to be trustworthy.
 
 
 Video Tours
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Want to see Qubes OS in action? Sit back and watch a guided :doc:`tour! </introduction/video-tours/>`
 
 
 Screenshots
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 See what using Qubes actually looks like with these :doc:`screenshots </introduction/screenshots/>` of various
 applications running in Qubes.
 
 
 Getting Started
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Ready to get started with Qubes? :doc:`Here's </introduction/getting-started>` what you need to know after installing.
 
@@ -192,7 +187,7 @@ presentation.
 
 
 - If you’re a current or potential Qubes user, you may want to check out the :doc:`documentation </index>` and the :ref:`user FAQ <introduction/faq:users>`.
-- If you’re a developer, there’s dedicated :ref:`index:Developer Documentation` and a :ref:`developer FAQ <introduction/faq:developers>` just for you.
-- Ready to give Qubes a try? Head on over to the `downloads page <https://www.qubes-os.org/downloads/>`__, and read the :doc:`Installation guide </user/downloading-installing-upgrading/installation-guide>`.
+- If you’re a developer, there’s dedicated :ref:`developer documentation <index:developer documentation>` and a :ref:`developer FAQ <introduction/faq:developers>` just for you.
+- Ready to give Qubes a try? Head on over to the `downloads page <https://www.qubes-os.org/downloads/>`__, and read the :doc:`installation guide </user/downloading-installing-upgrading/installation-guide>`.
 - Need help, or just want to join the conversation? Learn more about :doc:`help, support, the mailing lists, and the forum </introduction/support>`.
 
