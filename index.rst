@@ -43,7 +43,7 @@ Core documentation for Qubes users.
 
    user/hardware/system-requirements
    user/hardware/certified-hardware/certified-hardware
-   Community-recommended hardware <https://forum.qubes-os.org/t/5560>
+   Community-recommended hardware <https://forum.qubes-os.org/t/community-recommended-computers/5560>
    Hardware compatibility list (HCL) <https://www.qubes-os.org/hcl/>
    user/hardware/how-to-use-the-hcl
 
@@ -320,29 +320,26 @@ others.
    :maxdepth: 1
    :caption: External - Operating System Guides
 
-   Template: Ubuntu <https://github.com/Qubes-Community/Contents/blob/master/docs/os/ubuntu.md>
-   Template: Whonix <https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md>
-   Template: CentOS <https://github.com/Qubes-Community/Contents/blob/master/docs/os/centos.md>
-   Template: Gentoo <https://github.com/Qubes-Community/Contents/blob/master/docs/os/gentoo.md>
-   Pentesting <https://github.com/Qubes-Community/Contents/blob/master/docs/os/pentesting.md>
-   Pentesting: BlackArch <https://github.com/Qubes-Community/Contents/blob/master/docs/os/pentesting/blackarch.md>
-   Pentesting: Kali <https://github.com/Qubes-Community/Contents/blob/master/docs/os/pentesting/kali.md>
-   Pentesting: PTF <https://github.com/Qubes-Community/Contents/blob/master/docs/os/pentesting/ptf.md>
-   Tips for Using Linux in an HVM <https://github.com/Qubes-Community/Contents/blob/master/docs/os/linux-hvm-tips.md>
-   Creating a NetBSD VM <https://github.com/Qubes-Community/Contents/blob/master/docs/os/netbsd.md>
+   Template: CentOS <https://forum.qubes-os.org/t/centos-rhel-clone-8-templatevm/19006>
+   Template: Gentoo <https://forum.qubes-os.org/t/gentoo-templatevm/19007>
+   Pentesting: BlackArch <https://forum.qubes-os.org/t/blackarch-templatevm/19010>
+   Pentesting: Kali <https://forum.qubes-os.org/t/creating-a-kali-linux-templatevm/19071>
+   Pentesting: PTF <https://forum.qubes-os.org/t/penetration-testers-framework-ptf-templatevm/19011>
+   Tips for Using Linux in an HVM <https://forum.qubes-os.org/t/tips-for-linux-hvms/19008>
+   Creating a NetBSD VM <https://forum.qubes-os.org/t/netbsd-qube/19009>
 
 
-.. _exteranl-security-guides:
+.. _external-security-guides:
 
 .. toctree::
    :maxdepth: 1
    :caption: External - Security Guides
 
-   Security Guidelines <https://github.com/Qubes-Community/Contents/blob/master/docs/security/security-guidelines.md>
-   Using Multi-factor Authentication with Qubes <https://github.com/Qubes-Community/Contents/blob/master/docs/security/multifactor-authentication.md>
-   How to Set Up a Split Bitcoin Wallet in Qubes <https://github.com/Qubes-Community/Contents/blob/master/docs/security/split-bitcoin.md>
+   Security Guidelines <https://forum.qubes-os.org/t/general-security-guidelines/19075>
+   Using Multi-factor Authentication with Qubes <https://forum.qubes-os.org/t/using-multi-factor-authentication/19016>
+   How to Set Up a Split Bitcoin Wallet in Qubes <https://forum.qubes-os.org/t/how-to-set-up-a-split-bitcoin-wallet/19017>
    Split dm-crypt <https://github.com/rustybird/qubes-split-dm-crypt>
-   Split SSH <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/split-ssh.md>
+   Split SSH <https://forum.qubes-os.org/t/split-ssh/19060>
    Using OnlyKey with Qubes OS <https://docs.crp.to/qubes.html>
 
 
@@ -352,11 +349,11 @@ others.
    :maxdepth: 1
    :caption: External - Privacy Guides
 
-   Whonix for Privacy & Anonymity <https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/whonix.md>
-   Running Tails in Qubes <https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/tails.md>
-   Anonymizing your MAC Address <https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/anonymizing-your-mac-address.md>
-   Signal <https://github.com/Qubes-Community/Contents/blob/master/docs/privacy/signal.md>
-   Reducing the fingerprint of the text-based web browser w3m <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/w3m.md>
+   Whonix for Privacy & Anonymity <https://forum.qubes-os.org/t/whonix-for-privacy-anonymity/19014>
+   Running Tails in Qubes <https://forum.qubes-os.org/t/tails-hvm/19012>
+   Anonymizing your MAC Address <https://forum.qubes-os.org/t/anonymizing-your-mac-address/19072>
+   Signal <https://forum.qubes-os.org/t/signal-messenger/19073>
+   Reducing the fingerprint of the text-based web browser w3m <https://forum.qubes-os.org/t/reducing-the-fingerprint-of-the-text-based-web-browser-w3m/18993>
 
 
 .. _external-configuration-guides:
@@ -365,25 +362,24 @@ others.
    :maxdepth: 1
    :caption: External - Configuration Guides
 
-   Qubes Tips and Tricks <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/tips-and-tricks.md>
-   How to set up a ProxyVM as a VPN Gateway <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/vpn.md>
-   Multibooting <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/multiboot.md>
-   Changing your Time Zone <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/change-time-zone.md>
-   Installing ZFS in Qubes <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/zfs.md>
-   Mutt Guide <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/mutt.md>
-   Postfix Guide <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/postfix.md>
-   Fetchmail Guide <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/fetchmail.md>
+   How to set up a ProxyVM as a VPN Gateway <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>
+   Multibooting <https://forum.qubes-os.org/t/multibooting-qubes/18988>
+   Changing your Time Zone <https://forum.qubes-os.org/t/changing-your-time-zone/18983>
+   Installing ZFS in Qubes <https://forum.qubes-os.org/t/zfs-in-qubes-os/18994>
+   Mutt Guide <https://forum.qubes-os.org/t/mutt-mail-user-agent/18989>
+   Postfix Guide <https://forum.qubes-os.org/t/postfix-mta/18991>
+   Fetchmail Guide <https://forum.qubes-os.org/t/fetchmail/18985>
    Creating Custom NetVMs and ProxyVMs <https://theinvisiblethings.blogspot.com/2011/09/playing-with-qubes-networking-for-fun.html>
    How to make proxy for individual tcp connection from networkless VM <https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a>
-   Adding Bridge Support to the NetVM (EXPERIMENTAL) <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/network-bridge-support.md>
-   Screen Sharing <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/screen-share.md>
-   Enabling TRIM for SSD disks <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/disk-trim.md>
-   Configuring a Network Printer <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/network-printer.md>
-   Using External Audio Devices <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/external-audio.md>
-   Rxvt Guide <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/rxvt.md>
+   Adding Bridge Support to the NetVM (EXPERIMENTAL) <https://forum.qubes-os.org/t/network-bridge-support-experimental-and-unsupported/18990>
+   Screen Sharing <https://forum.qubes-os.org/t/sharing-a-screen-across-qubes/19059>
+   Enabling TRIM for SSD disks <https://forum.qubes-os.org/t/disk-trimming/19054>
+   Configuring a Network Printer <https://forum.qubes-os.org/t/configuring-a-network-printer/19056>
+   Using External Audio Devices <https://forum.qubes-os.org/t/using-external-audio-devices/18984>
+   Rxvt Guide <https://forum.qubes-os.org/t/rxvt-terminal/18992>
    Adding SSD storage cache <https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com>
-   How to Make a Multimedia TemplateVM <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/multimedia.md>
-   How to install an Nvidia driver in dom0 <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/install-nvidia-driver.md>
+   How to Make a Multimedia TemplateVM <https://forum.qubes-os.org/t/configuring-a-multimedia-templatevm/19055>
+   How to install an Nvidia driver in dom0 <https://forum.qubes-os.org/t/nvidia-proprietary-driver-installation/18987>
 
 
 .. _external-customization-guides:
@@ -392,11 +388,11 @@ others.
    :maxdepth: 1
    :caption: External - Customization Guides
 
-   Customizing Fedora minimal templates <https://github.com/Qubes-Community/Contents/blob/master/docs/customization/fedora-minimal-template-customization.md>
-   Customizing Windows 7 templates <https://github.com/Qubes-Community/Contents/blob/master/docs/customization/windows-template-customization.md>
-   Language Localization <https://github.com/Qubes-Community/Contents/blob/master/docs/customization/language-localization.md>
-   Dark Theme in Dom0 and DomU <https://github.com/Qubes-Community/Contents/blob/master/docs/customization/dark-theme.md>
-   Safely Removing TemplateVM Packages (Example: Thunderbird) <https://github.com/Qubes-Community/Contents/blob/master/docs/customization/removing-templatevm-packages.md>
+   Customizing Fedora minimal templates <https://forum.qubes-os.org/t/fedora-packages-recommendations/18999>
+   Customizing Windows 7 templates <https://forum.qubes-os.org/t/disable-uninstall-unnecessary-features-in-windows-qubes/19005>
+   Language Localization <https://forum.qubes-os.org/t/language-localization/19001>
+   Dark Theme in Dom0 and DomU <https://forum.qubes-os.org/t/dark-theme-in-dom0/18997>
+   Safely Removing TemplateVM Packages (Example: Thunderbird) <https://forum.qubes-os.org/t/safely-uninstalling-packages-in-templatevms/19002>
 
 
 .. _external-troubleshooting:
@@ -405,14 +401,14 @@ others.
    :maxdepth: 1
    :caption: External - Troubleshooting
 
-   Nvidia troubleshooting guide <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/nvidia-troubleshooting.md>
-   Lenovo ThinkPad Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/thinkpad-troubleshooting.md>
-   Apple MacBook Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/macbook-troubleshooting.md>
-   Sony Vaio Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/sony-vaio-tinkering.md>
-   Intel Integrated Graphics Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/intel-igfx-troubleshooting.md>
-   Multiboot Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/configuration/multiboot.md#troubleshooting>
-   Application Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/application-troubleshooting.md>
-   Tails Troubleshooting <https://github.com/Qubes-Community/Contents/blob/master/docs/troubleshooting/tails-troubleshooting.md>
+   Nvidia troubleshooting guide <https://forum.qubes-os.org/t/nvidia-troubleshooting-guide/19021>
+   Lenovo ThinkPad Troubleshooting <https://forum.qubes-os.org/t/lenovo-thinkpad-troubleshooting/19024>
+   Apple MacBook Troubleshooting <https://forum.qubes-os.org/t/apple-macbook-troubleshooting/19020>
+   Sony Vaio Troubleshooting <https://forum.qubes-os.org/t/sony-vaio-z-laptop-troubleshooting/19022>
+   Intel Integrated Graphics Troubleshooting <https://forum.qubes-os.org/t/intel-integrated-graphics-troubleshooting/19081>
+   Multiboot Troubleshooting <https://forum.qubes-os.org/t/multibooting-qubes/18988#troubleshooting-5>
+   Application Troubleshooting <https://forum.qubes-os.org/t/troubleshooting-default-applications/19019>
+   Tails Troubleshooting <https://forum.qubes-os.org/t/tails-troubleshooting-guide/19023>
 
 
 .. _external-building-guides:
@@ -421,8 +417,8 @@ others.
    :maxdepth: 1
    :caption: External - Building Guides
 
-   Building a TemplateVM based on a new OS (ArchLinux example) <https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-non-fedora-template.md>
-   Building the Archlinux Template <https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-archlinux-template.md>
-   Building the Whonix Templates <https://github.com/Qubes-Community/Contents/blob/master/docs/building/building-whonix-template.md>
+   Building a TemplateVM based on a new OS (ArchLinux example) <https://forum.qubes-os.org/t/building-a-templatevm-for-a-new-os/18972>
+   Building the Archlinux Template <https://forum.qubes-os.org/t/archlinux-minimal-template/19052>
+   Building the Whonix Templates <https://forum.qubes-os.org/t/building-whonix-templates/18981>
    How to compile kernels for dom0 <https://groups.google.com/d/topic/qubes-users/yBeUJPwKwHM/discussion>
 
