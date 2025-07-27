@@ -105,7 +105,7 @@ Domain [â€¦] has failed to start: internal error: Unable to reset PCI device [â€
 
 This is a :ref:`PCI passthrough issue <user/troubleshooting/pci-troubleshooting:pci passthrough issues>`, which occurs when PCI arbitrator is too strict. There is a way to enable permissive mode for it. Sometimes, you may instead need to disable the FLR requirement on a device. Both can be achieved during attachment with ``qvm-pci`` as described below.
 
-NOTE: The ``permissive`` flag increases attack surface and possibility of `side channel attacks <https://en.wikipedia.org/wiki/Side-channel_attack>`__. While using the ``no-strict-reset`` flag, do not require PCI device to be reset before attaching it to another VM. This may leak usage data even without malicious intent. Both ``permissive`` and ``no-strict-reset`` options may not be necessary and you should try one first, then the other, before using both.
+NOTE: The ``permissive`` flag increases attack surface and possibility of :wikipedia:`side channel attacks <Side-channel_attack>`. While using the ``no-strict-reset`` flag, do not require PCI device to be reset before attaching it to another VM. This may leak usage data even without malicious intent. Both ``permissive`` and ``no-strict-reset`` options may not be necessary and you should try one first, then the other, before using both.
 
 .. code:: bash
 
@@ -133,7 +133,7 @@ Broadcom BCM43602 Wi-Fi card causes system freeze
 -------------------------------------------------
 
 
-You may face the problem where the BCM43602 Wi-Fi chip causes a system freeze whenever it is attached to a VM. To fix this problem on a Macbook, follow the steps in `Macbook Troubleshooting <https://forum.qubes-os.org/t/19020#system-freezes-after-attaching-broadcom-bcm43602-wi-fi-card>`__.
+You may face the problem where the BCM43602 Wi-Fi chip causes a system freeze whenever it is attached to a VM. To fix this problem on a Macbook, follow the steps in :topic:`Macbook Troubleshooting <19020#system-freezes-after-attaching-broadcom-bcm43602-wi-fi-card>`.
 
 For other non-Macbook machines, it is advisable to replace the Broadcom BCM43602 with one known to work on Qubes, such as the Atheros AR9462.
 

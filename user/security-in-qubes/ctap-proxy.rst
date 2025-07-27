@@ -11,11 +11,11 @@ What is CTAP, U2F, FIDO2?
 
 CTAP, U2F, and FIDO2 are all related to authentication protocols and standards developed by the FIDO Alliance. CTAP has two versions: CTAP1 and CTAP2:
 
-1. `CTAP1/U2F <https://en.wikipedia.org/wiki/Universal_2nd_Factor>`__ (Universal 2nd Factor): U2F is an earlier protocol developed by the FIDO Alliance as part of the FIDO U2F standard. It provides a strong second-factor authentication method using dedicated hardware security keys. U2F allows users to authenticate to online services by simply plugging in a U2F-compliant security key and pressing a button, providing a higher level of security compared to traditional passwords.
+1. :wikipedia:`CTAP1/U2F <Universal_2nd_Factor>` (Universal 2nd Factor): U2F is an earlier protocol developed by the FIDO Alliance as part of the FIDO U2F standard. It provides a strong second-factor authentication method using dedicated hardware security keys. U2F allows users to authenticate to online services by simply plugging in a U2F-compliant security key and pressing a button, providing a higher level of security compared to traditional passwords.
 
-2. `CTAP2 <https://en.wikipedia.org/wiki/Client_to_Authenticator_Protocol>`__ (Client to Authenticator Protocol): CTAP2 is a protocol within the FIDO2 framework that enables communication between a client device (e.g., a computer or smartphone) and an authenticator (e.g., a hardware device). CTAP allows for secure and convenient authentication using public key cryptography and strong authentication factors.
+2. :wikipedia:`CTAP2 <Client_to_Authenticator_Protocol>` (Client to Authenticator Protocol): CTAP2 is a protocol within the FIDO2 framework that enables communication between a client device (e.g., a computer or smartphone) and an authenticator (e.g., a hardware device). CTAP allows for secure and convenient authentication using public key cryptography and strong authentication factors.
 
-3. `FIDO2 <https://en.wikipedia.org/wiki/FIDO_Alliance>`__: FIDO2 is a set of standards and protocols developed by the FIDO Alliance for passwordless and strong authentication. It combines two main components: CTAP (Client to Authenticator Protocol) and WebAuthn (Web Authentication API). FIDO2 enables users to authenticate to online services using various authentication methods, such as biometrics, PINs, or hardware tokens, instead of relying on passwords.
+3. :wikipedia:`FIDO2 <FIDO_Alliance>`: FIDO2 is a set of standards and protocols developed by the FIDO Alliance for passwordless and strong authentication. It combines two main components: CTAP (Client to Authenticator Protocol) and WebAuthn (Web Authentication API). FIDO2 enables users to authenticate to online services using various authentication methods, such as biometrics, PINs, or hardware tokens, instead of relying on passwords.
 
 
 

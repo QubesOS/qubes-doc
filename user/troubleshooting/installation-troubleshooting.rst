@@ -37,7 +37,7 @@ This error message is related to the faulty creation of the USB installation med
 
 
 
-See `here <https://github.com/QubesOS/qubes-issues/issues/6447>`__ for a discussion of this error message.
+See :issue:`here <6447>` for a discussion of this error message.
 
 Boot screen does not appear / system does not detect your installation medium
 -----------------------------------------------------------------------------
@@ -77,13 +77,13 @@ If the above code doesn’t fix the problem, replace it with:
       noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
 
 
-For more information, look at the `Nvidia Troubleshooting guide <https://forum.qubes-os.org/t/19021#disabling-nouveau>`__.
+For more information, look at the :topic:`Nvidia Troubleshooting guide <19021#disabling-nouveau>`.
 
 Installation freezes at "Setting up Networking"
 -----------------------------------------------
 
 
-If you are facing this problem on an Apple computer, check out the `Macbook Troubleshooting guide <https://forum.qubes-os.org/t/19020>`__.
+If you are facing this problem on an Apple computer, check out the :topic:`Macbook Troubleshooting guide <19020>`.
 
 If you are installing Qubes 4.0 on an external storage device, you may have forgotten to disable ``sys-usb`` during the :ref:`initial setup <user/downloading-installing-upgrading/installation-guide:initial setup>`, which is generally required for that setup to work.
 

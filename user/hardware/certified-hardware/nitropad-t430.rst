@@ -27,7 +27,7 @@ Key features of the `NitroPad T430 <https://shop.nitrokey.com/shop/product/nitro
 
 - Professional ThinkPad hardware based on the `ThinkPad T430 <https://www.thinkwiki.org/wiki/Category:T430>`__
 
-- Security-conscious shipping to mitigate against third-party `interdiction <https://en.wikipedia.org/wiki/Interdiction>`__
+- Security-conscious shipping to mitigate against third-party :wikipedia:`interdiction <Interdiction>`
 
 
 

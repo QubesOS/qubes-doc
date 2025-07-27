@@ -209,7 +209,7 @@ Updating over Tor
 -----------------
 
 
-Requires installed `Whonix <https://forum.qubes-os.org/t/19014>`__.
+Requires installed :topic:`Whonix <19014>`.
 
 Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 

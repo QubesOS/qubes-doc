@@ -17,7 +17,7 @@ Install ISO
 ^^^^^^^^^^^
 
 
-First, do a clean install from the ``.iso`` :doc:`you built </developer/building/qubes-iso-building>` or grabbed elsewhere (for example `here <https://forum.qubes-os.org/t/qubesos-4-1-alpha-signed-weekly-builds/3601>`__).
+First, do a clean install from the ``.iso`` :doc:`you built </developer/building/qubes-iso-building>` or grabbed elsewhere (for example :topic:`here <qubesos-4-1-alpha-signed-weekly-builds/3601>`).
 
 Enabling Network Access in Dom0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

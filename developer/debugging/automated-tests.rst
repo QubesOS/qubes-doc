@@ -7,7 +7,7 @@ Unit and Integration Tests
 --------------------------
 
 
-Starting with Qubes R3 we use `python unittest <https://docs.python.org/3/library/unittest.html>`__ to perform automatic tests of Qubes OS. Despite the name, we use it for both `unit tests <https://en.wikipedia.org/wiki/Unit_tests>`__ and `integration tests <https://en.wikipedia.org/wiki/Integration_tests>`__. The main purpose is, of course, to deliver much more stable releases.
+Starting with Qubes R3 we use `python unittest <https://docs.python.org/3/library/unittest.html>`__ to perform automatic tests of Qubes OS. Despite the name, we use it for both :wikipedia:`unit tests <Unit_tests>` and :wikipedia:`integration tests <Integration_tests>`. The main purpose is, of course, to deliver much more stable releases.
 
 The integration tests must be run in dom0, but some unit tests can run inside a VM as well.
 

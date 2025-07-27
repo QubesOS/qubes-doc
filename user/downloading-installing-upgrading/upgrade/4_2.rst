@@ -38,7 +38,7 @@ If you would prefer to perform a clean installation rather than upgrading in-pla
 
 4. Create a :ref:`backup <user/how-to-guides/how-to-back-up-restore-and-migrate:creating a backup>` of your current installation.
 
-5. `Download <https://www.qubes-os.org/downloads/>`__ the latest 4.2 release.
+5. :website:`Download <downloads/>` the latest 4.2 release.
 
 6. Follow the :doc:`installation guide </user/downloading-installing-upgrading/installation-guide>` to install Qubes 4.2.
 

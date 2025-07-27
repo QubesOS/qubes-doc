@@ -87,7 +87,7 @@ Additional Attach Options
 -------------------------
 
 
-Attaching a PCI device through the commandline offers additional options, specifiable via the ``--option``/``-o`` option. (Yes, confusing wording, there’s an `issue for that <https://github.com/QubesOS/qubes-issues/issues/4530>`__.)
+Attaching a PCI device through the commandline offers additional options, specifiable via the ``--option``/``-o`` option. (Yes, confusing wording, there’s an :issue:`issue for that <4530>`.)
 
 ``qvm-pci`` exposes two additional options. Both are intended to fix device or driver specific issues, but both come with :ref:`heavy security implications <user/security-in-qubes/device-handling-security:pci security>`! **Make sure you understand them before continuing!**
 
@@ -109,7 +109,7 @@ permissive
 ^^^^^^^^^^
 
 
-Allow write access to full PCI config space instead of whitelisted registers. This increases attack surface and possibility of `side channel attacks <https://en.wikipedia.org/wiki/Side-channel_attack>`__.
+Allow write access to full PCI config space instead of whitelisted registers. This increases attack surface and possibility of :wikipedia:`side channel attacks <Side-channel_attack>`.
 
 usage example:
 

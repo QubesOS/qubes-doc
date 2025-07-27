@@ -11,7 +11,7 @@ Currently, the only options for reading and recording optical discs (e.g., CDs, 
 
 2. Attach a SATA optical drive to a secondary SATA controller, then assign this secondary SATA controller to a VM.
 
-3. Use a SATA optical drive attached to dom0. (**Caution:** This option is `potentially dangerous <https://forum.qubes-os.org/t/19075#dom0-precautions>`__.)
+3. Use a SATA optical drive attached to dom0. (**Caution:** This option is :topic:`potentially dangerous <19075#dom0-precautions>`.)
 
 
 

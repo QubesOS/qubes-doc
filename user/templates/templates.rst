@@ -61,13 +61,13 @@ These templates are supported by the Qubes community. Some of them are available
 
 By installing these templates, you are trusting not only the Qubes developers and the distribution maintainers, but also the template maintainer. In addition, these templates may be somewhat less stable, since the Qubes developers do not test them.
 
-- `Whonix <https://forum.qubes-os.org/t/19014>`__
+- :topic:`Whonix <19014>`
 
 - `Ubuntu <https://qubes.3isec.org>`__
 
-- `Arch Linux <https://forum.qubes-os.org/t/19052>`__
+- :topic:`Arch Linux <19052>`
 
-- `Gentoo <https://forum.qubes-os.org/t/19007>`__
+- :topic:`Gentoo <19007>`
 
 - :doc:`Gentoo Minimal </user/templates/minimal-templates>`
 
@@ -75,7 +75,7 @@ By installing these templates, you are trusting not only the Qubes developers an
 
 
 
-\* *The CentOS version used by this template reached* `End-of-Life in June 2024 <https://en.wikipedia.org/wiki/CentOS_Stream#Release_history>`__ *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* `declined <https://github.com/QubesOS/qubes-issues/issues/9716>`__ *.*
+\* *The CentOS version used by this template reached* :wikipedia:`End-of-Life in June 2024 <CentOS_Stream#Release_history>` *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* :issue:`declined <9716>` *.*
 
 Windows
 -------
@@ -308,7 +308,7 @@ Important Notes
 ^^^^^^^^^^^^^^^
 
 
-- ``qvm-trim-template`` is no longer necessary or available in Qubes 4.0 and higher. All qubes are created in a thin pool and trimming is handled automatically. No user action is required. See `Disk Trim <https://forum.qubes-os.org/t/19054>`__ for more information.
+- ``qvm-trim-template`` is no longer necessary or available in Qubes 4.0 and higher. All qubes are created in a thin pool and trimming is handled automatically. No user action is required. See :topic:`Disk Trim <19054>` for more information.
 
 - RPM-installed templates are “system managed” and therefore cannot be backed up using Qubes’ built-in backup function. In order to ensure the preservation of your custom settings and the availability of a “known-good” backup template, you may wish to clone the default system template and use your clone as the default template for your app qubes.
 

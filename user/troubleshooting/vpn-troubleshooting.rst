@@ -43,7 +43,7 @@ To figure out the root of the problem, check the VPN logs in ``/var/log/syslog``
 -------------------------------
 
 
-`Some VPN guides <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>`__ use complex scripts that include a call to ``notify-send``, yet some images may not contain this tool or may not have it working properly. For instance calling ``notify-send`` on a ``fedora-36`` template VM gives:
+:topic:`Some VPN guides <configuring-a-proxyvm-vpn-gateway/19061>` use complex scripts that include a call to ``notify-send``, yet some images may not contain this tool or may not have it working properly. For instance calling ``notify-send`` on a ``fedora-36`` template VM gives:
 
 .. code:: bash
 

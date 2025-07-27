@@ -15,7 +15,7 @@ For example, suppose you have an ``email`` app qube. You have set the firewall r
 
 Note that physically air-gapped machines are not necessarily immune to this problem. Covert channels can potentially take many forms (e.g., sneakernet thumb drive, bluetooth, or even microphone and speakers).
 
-For a further discussion of covert channels, see `this thread <https://groups.google.com/d/topic/qubes-users/AqZV65yZLuU/discussion>`__ and `#817 <https://github.com/QubesOS/qubes-issues/issues/817>`__.
+For a further discussion of covert channels, see `this thread <https://groups.google.com/d/topic/qubes-users/AqZV65yZLuU/discussion>`__ and :issue:`817`.
 
 Types of Data Leaks
 -------------------

@@ -85,7 +85,7 @@ Restoring from a backup
 
    2. **ignore username mismatch**: This option applies only to the restoration of dom0’s home directory. If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
 
-   3. **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See `issue #3498 <https://github.com/QubesOS/qubes-issues/issues/3498>`__ for more details.
+   3. **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See :issue:`3498` for more details.
 
 
 
@@ -130,7 +130,7 @@ Migrating between two physical machines
 ---------------------------------------
 
 
-In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, `install Qubes <https://www.qubes-os.org/downloads/>`__ on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
+In order to migrate your Qubes system from one physical machine to another, simply follow the backup procedure on the old machine, :website:`install Qubes <downloads/>` on the new machine, and follow the restoration procedure on the new machine. All of your settings and data will be preserved!
 
 Choosing a backup passphrase
 ----------------------------

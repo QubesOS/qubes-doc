@@ -219,7 +219,7 @@ To apply a state to all templates, call ``qubesctl --templates state.apply``.
 
 The actual configuration is applied using ``salt-ssh`` (running over ``qrexec`` instead of ``ssh``). Which means you don’t need to install anything special in a qube you want to manage. Additionally, for each target qube, ``salt-ssh`` is started from a temporary qube. This way dom0 doesn’t directly interact with potentially malicious target qubes; and in the case of a compromised Salt qube, because they are temporary, the compromise cannot spread from one qube to another.
 
-Beginning with Qubes 4.0 and after `QSB #45 <https://www.qubes-os.org/news/2018/12/03/qsb-45/>`__, we implemented two changes:
+Beginning with Qubes 4.0 and after :website:`QSB #45 <news/2018/12/03/qsb-45/>`, we implemented two changes:
 
 1. Added the ``management_dispvm`` qube property, which specifies the disposable Template that should be used for management, such as Salt configuration. App qubes inherit this property from their parent templates. If the value is not set explicitly, the default is taken from the global ``management_dispvm`` property. The qube-specific property is set with the ``qvm-prefs`` command, while the global property is set with the ``qubes-prefs`` command.
 

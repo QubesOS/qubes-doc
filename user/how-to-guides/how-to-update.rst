@@ -23,7 +23,7 @@ Security updates
 ----------------
 
 
-Security updates are an extremely important part of keeping your Qubes installation secure. When there is an important security incident, we will issue a `Qubes Security Bulletin (QSB) <https://www.qubes-os.org/security/qsb/>`__ via the `Qubes Security Pack (qubes-secpack) <https://www.qubes-os.org/security/pack/>`__. It is very important to read each new QSB and follow any user instructions it contains. Most of the time, simply updating your system normally, as described below, will be sufficient to obtain security updates. However, in some cases, special action may be required on your part, which will be explained in the QSB.
+Security updates are an extremely important part of keeping your Qubes installation secure. When there is an important security incident, we will issue a :website:`Qubes Security Bulletin (QSB) <security/qsb/>` via the :website:`Qubes Security Pack (qubes-secpack) <security/pack/>`. It is very important to read each new QSB and follow any user instructions it contains. Most of the time, simply updating your system normally, as described below, will be sufficient to obtain security updates. However, in some cases, special action may be required on your part, which will be explained in the QSB.
 
 Checking for updates
 --------------------
@@ -109,7 +109,7 @@ The above covers updating *within* a given operating system (OS) release. Eventu
 
 **It’s very important that you use only supported releases so that you continue to receive security updates.** This means that you *must* periodically upgrade Qubes OS and your templates before they reach EOL. You can always see which versions of Qubes OS and select templates are supported on :doc:`Supported releases </user/downloading-installing-upgrading/supported-releases>`.
 
-In the case of Qubes OS itself, we will make an `announcement <https://www.qubes-os.org/news/categories/>`__ when a supported Qubes OS release is approaching EOL and another when it has actually reached EOL, and we will provide :doc:`instructions for upgrading to the next stable supported Qubes OS release </user/downloading-installing-upgrading/upgrade/upgrade>`.
+In the case of Qubes OS itself, we will make an :website:`announcement <news/categories/>` when a supported Qubes OS release is approaching EOL and another when it has actually reached EOL, and we will provide :doc:`instructions for upgrading to the next stable supported Qubes OS release </user/downloading-installing-upgrading/upgrade/upgrade>`.
 
 Periodic upgrades are also important for templates. For example, you might be using a :doc:`Fedora template </user/templates/fedora/fedora>`. The `Fedora Project <https://getfedora.org/>`__ is independent of the Qubes OS Project. They set their own `schedule <https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle#Maintenance_Schedule>`__ for when each Fedora release reaches EOL. You can always find out when an OS reaches EOL from the upstream project that maintains it. We also pass along any EOL notices we receive for official template OSes as a convenience to Qubes users (see the :ref:`supported template releases <user/downloading-installing-upgrading/supported-releases:templates>`).
 

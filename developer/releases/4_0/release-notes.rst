@@ -9,37 +9,37 @@ New features since 3.2
 
 - Core management scripts rewrite with better structure and extensibility, `current API documentation <https://dev.qubes-os.org/projects/core-admin/en/latest/>`__ and the documentation API index as a `webarchive <https://web.archive.org/web/20230128102821/https://dev.qubes-os.org/projects/qubes-core-admin/en/latest/>`__
 
-- `Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__ allowing strictly controlled managing from non-dom0
+- :website:`Admin API <news/2017/06/27/qubes-admin-api/>` allowing strictly controlled managing from non-dom0
 
 - All ``qvm-*`` command-line tools rewritten, some options have changed
 
 - Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
 
-- Use `PVH <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__ and `HVM <https://github.com/QubesOS/qubes-issues/issues/2185>`__ by default to `mitigate Meltdown & Spectre <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__ and lower the `attack surface on Xen <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt>`__
+- Use `PVH <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__ and :issue:`HVM <2185>` by default to `mitigate Meltdown & Spectre <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__ and lower the `attack surface on Xen <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt>`__
 
 - Create USB VM by default
 
-- `Multiple DisposableVMs templates support <https://github.com/QubesOS/qubes-issues/issues/2253>`__
+- :issue:`Multiple DisposableVMs templates support <2253>`
 
 - New :doc:`backup format </user/how-to-guides/backup-emergency-restore-v4>` using scrypt key-derivation function
 
 - Non-encrypted backups no longer supported
 
-- `split VM packages <https://github.com/QubesOS/qubes-issues/issues/2771>`__, for better support minimal, specialized templates
+- :issue:`split VM packages <2771>`, for better support minimal, specialized templates
 
-- `Qubes Manager decomposition <https://github.com/QubesOS/qubes-issues/issues/2132>`__ - domains and devices widgets instead of full Qubes Manager; devices widget support also USB
+- :issue:`Qubes Manager decomposition <2132>` - domains and devices widgets instead of full Qubes Manager; devices widget support also USB
 
 - :doc:`More flexible firewall interface </developer/debugging/vm-interface>` for ease unikernel integration
 
-- Template VMs do not have network interface by default, `qrexec-based updates proxy <https://github.com/QubesOS/qubes-issues/issues/1854>`__ is used instead
+- Template VMs do not have network interface by default, :issue:`qrexec-based updates proxy <1854>` is used instead
 
-- More flexible IP addressing for VMs - `custom IP <https://github.com/QubesOS/qubes-issues/issues/1477>`__, `hidden from the IP <https://github.com/QubesOS/qubes-issues/issues/1143>`__
+- More flexible IP addressing for VMs - :issue:`custom IP <1477>`, :issue:`hidden from the IP <1143>`
 
-- More flexible Qubes RPC policy - `related ticket <https://github.com/QubesOS/qubes-issues/issues/865>`__, :ref:`documentation <developer/services/qrexec:specifying vms: tags, types, targets, etc.>`
+- More flexible Qubes RPC policy - :issue:`related ticket <865>`, :ref:`documentation <developer/services/qrexec:specifying vms: tags, types, targets, etc.>`
 
-- `New Qubes RPC confirmation window <https://github.com/QubesOS/qubes-issues/issues/910>`__, including option to specify destination VM
+- :issue:`New Qubes RPC confirmation window <910>`, including option to specify destination VM
 
-- `New storage subsystem design <https://github.com/QubesOS/qubes-issues/issues/1842>`__
+- :issue:`New storage subsystem design <1842>`
 
 - Dom0 update to Fedora 25 for better hardware support
 
@@ -55,7 +55,7 @@ Security Notes
 
 - PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see `QSB #37 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__). However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode. These must be set manually.
 
-- The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see `#3737 <https://github.com/QubesOS/qubes-issues/issues/3737>`__).
+- The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see :issue:`3737`).
   Steps for dom0 updates:
 
   1. Open the Qubes Menu by clicking on the “Q” icon in the top-left corner of the screen.
@@ -110,15 +110,15 @@ Known issues
 ------------
 
 
-- Locale using coma as decimal separator `crashes qubesd <https://github.com/QubesOS/qubes-issues/issues/3753>`__. Either install with different locale (English (United States) for example), or manually apply fix explained in that issue.
+- Locale using coma as decimal separator :issue:`crashes qubesd <3753>`. Either install with different locale (English (United States) for example), or manually apply fix explained in that issue.
 
-- In the middle of installation, `keyboard layout reset to US <https://github.com/QubesOS/qubes-issues/issues/3352>`__. Be careful what is the current layout while setting default user password (see upper right screen corner).
+- In the middle of installation, :issue:`keyboard layout reset to US <3352>`. Be careful what is the current layout while setting default user password (see upper right screen corner).
 
 - On some laptops (for example Librem 15v2), touchpad do not work directly after installation. Reboot the system to fix the issue.
 
 - List of USB devices may contain device identifiers instead of name
 
-- With R4.0.1, which ships kernel-4.19, you may never reach the anaconda startup and be block on an idle black screen with blinking cursor. You can try to add ``plymouth.ignore-serial-consoles`` in the grub installer boot menu right after ``quiet rhgb``. With legacy mode, you can do it directly when booting the DVD or USB key. In UEFI mode, follow the same procedure described for :ref:`disabling <user/troubleshooting/uefi-troubleshooting:installation freezes before displaying installer>` ``nouveau`` module (related `solved issue <https://github.com/QubesOS/qubes-issues/issues/3849>`__ in further version of Qubes).
+- With R4.0.1, which ships kernel-4.19, you may never reach the anaconda startup and be block on an idle black screen with blinking cursor. You can try to add ``plymouth.ignore-serial-consoles`` in the grub installer boot menu right after ``quiet rhgb``. With legacy mode, you can do it directly when booting the DVD or USB key. In UEFI mode, follow the same procedure described for :ref:`disabling <user/troubleshooting/uefi-troubleshooting:installation freezes before displaying installer>` ``nouveau`` module (related :issue:`solved issue <3849>` in further version of Qubes).
 
 - For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug>`__
 
@@ -130,7 +130,7 @@ Downloads
 ---------
 
 
-See `Qubes Downloads <https://www.qubes-os.org/downloads/>`__.
+See :website:`Qubes Downloads <downloads/>`.
 
 Installation instructions
 -------------------------

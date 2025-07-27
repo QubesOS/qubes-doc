@@ -81,7 +81,7 @@ If you have a Debian template from an earlier release that you want to use for s
 
 
 
-This is a `known bug <https://github.com/QubesOS/qubes-issues/issues/9129>`__ in Salt which affects version 3006-5.
+This is a :issue:`known bug <9129>` in Salt which affects version 3006-5.
 
 Starting services
 ^^^^^^^^^^^^^^^^^

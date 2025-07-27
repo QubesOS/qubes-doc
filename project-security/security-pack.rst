@@ -5,9 +5,9 @@ Qubes security pack (qubes-secpack)
 
 The **Qubes security pack (qubes-secpack)** is a Git repository that contains:
 
-- `Qubes security bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__
+- :website:`Qubes security bulletins (QSBs) <security/qsb/>`
 
-- `Qubes canaries <https://www.qubes-os.org/security/canary/>`__
+- :website:`Qubes canaries <security/canary/>`
 
 - :ref:`Qubes ISO cryptographic hash values <project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos>`
 

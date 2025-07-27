@@ -3,7 +3,7 @@ Getting started
 ===============
 
 
-After `downloading <https://www.qubes-os.org/downloads/>`__ and :doc:`installing </user/downloading-installing-upgrading/installation-guide>` Qubes OS, it’s time to dive in and get to work! (Already know your way around? Dive right in to :doc:`organizing your qubes </user/how-to-guides/how-to-organize-your-qubes>`.)
+After :website:`downloading <downloads/>` and :doc:`installing </user/downloading-installing-upgrading/installation-guide>` Qubes OS, it’s time to dive in and get to work! (Already know your way around? Dive right in to :doc:`organizing your qubes </user/how-to-guides/how-to-organize-your-qubes>`.)
 
 The Basics
 ----------
@@ -13,9 +13,9 @@ Qubes OS is an operating system built out of securely-isolated compartments, or 
 
 Suppose you want to use your favorite web browser in several different qubes. You’d install the web browser in a template, then every qube based on that template would be able to run the web browser software (while still being forbidden from modifying the template and any other qubes). This way, you only have to install the web browser a single time, and updating the template updates all the qubes based on it. This elegant design saves time and space while enhancing security.
 
-There are also some “helper” qubes in your system. Each qube that connects to the Internet does so through a network-providing :ref:`service qube <user/reference/glossary:service qube>`. If you need to access USB devices, another service qube will do that. There’s also a :ref:`management qube <user/reference/glossary:management qube>` that automatically handles a lot of background housekeeping. For the most part, you won’t have to worry about it, but it’s nice to know that it’s there. As with app qubes, service qubes and management qubes are also based on templates. Templates are usually named after their operating system (often a `Linux distribution <https://en.wikipedia.org/wiki/Linux_distribution>`__) and corresponding version number. There are many ready-to-use :doc:`templates </user/templates/templates>` to choose from, and you can download and have as many as you like.
+There are also some “helper” qubes in your system. Each qube that connects to the Internet does so through a network-providing :ref:`service qube <user/reference/glossary:service qube>`. If you need to access USB devices, another service qube will do that. There’s also a :ref:`management qube <user/reference/glossary:management qube>` that automatically handles a lot of background housekeeping. For the most part, you won’t have to worry about it, but it’s nice to know that it’s there. As with app qubes, service qubes and management qubes are also based on templates. Templates are usually named after their operating system (often a :wikipedia:`Linux distribution <Linux_distribution>`) and corresponding version number. There are many ready-to-use :doc:`templates </user/templates/templates>` to choose from, and you can download and have as many as you like.
 
-Last but not least, there’s a very special :ref:`admin qube <user/reference/glossary:admin qube>` used to administer your entire system. There’s only one admin qube, and it’s called :ref:`dom0 <user/reference/glossary:dom0>`. You can think of it as the master qube, holding ultimate power over everything that happens in Qubes OS. Dom0 is the most trusted one of all qubes. If dom0 were ever to be compromised, it would be “game over”- an effective compromise of the entire system. That’s why everything in Qubes OS is specifically designed to protect dom0 and ensure that doesn’t happen. Due to its overarching importance, dom0 has no network connectivity and is used only for running the `desktop environment <https://en.wikipedia.org/wiki/Desktop_environment>`__ and `window manager <https://en.wikipedia.org/wiki/Window_manager>`__. Dom0 should never be used for anything else. In particular, you should never run user applications in dom0. (That’s what your app qubes are for!) In short, be very careful when interacting with dom0.
+Last but not least, there’s a very special :ref:`admin qube <user/reference/glossary:admin qube>` used to administer your entire system. There’s only one admin qube, and it’s called :ref:`dom0 <user/reference/glossary:dom0>`. You can think of it as the master qube, holding ultimate power over everything that happens in Qubes OS. Dom0 is the most trusted one of all qubes. If dom0 were ever to be compromised, it would be “game over”- an effective compromise of the entire system. That’s why everything in Qubes OS is specifically designed to protect dom0 and ensure that doesn’t happen. Due to its overarching importance, dom0 has no network connectivity and is used only for running the :wikipedia:`desktop environment <Desktop_environment>` and :wikipedia:`window manager <Window_manager>`. Dom0 should never be used for anything else. In particular, you should never run user applications in dom0. (That’s what your app qubes are for!) In short, be very careful when interacting with dom0.
 
 Color & Security
 ^^^^^^^^^^^^^^^^
@@ -41,7 +41,7 @@ The bar at the top of your screen in Qubes 4.2 includes the following XFCE compo
 
 - The **Task Bar** where buttons for open and hidden windows live.
 
-- **Spaces**, an interface for `virtual desktops <https://en.wikipedia.org/wiki/Virtual_desktop>`__. Virtual desktops do not have any inherent security isolation properties, but some users find them useful for organizing things.
+- **Spaces**, an interface for :wikipedia:`virtual desktops <Virtual_desktop>`. Virtual desktops do not have any inherent security isolation properties, but some users find them useful for organizing things.
 
 - The **Tray**, where many functional widgets live.
 
@@ -177,19 +177,19 @@ Compatible Hardware
 -------------------
 
 
-Make sure your hardware satisfies the :doc:`system requirements </user/hardware/system-requirements>`, as Qubes OS cannot run on every type of computer. You may also want to check out :doc:`Qubes-certified Hardware </user/hardware/certified-hardware/certified-hardware>` and take a look at the `Hardware Compatibility List (HCL) <https://www.qubes-os.org/hcl/>`__.
+Make sure your hardware satisfies the :doc:`system requirements </user/hardware/system-requirements>`, as Qubes OS cannot run on every type of computer. You may also want to check out :doc:`Qubes-certified Hardware </user/hardware/certified-hardware/certified-hardware>` and take a look at the :website:`Hardware Compatibility List (HCL) <hcl/>`.
 
 Downloads
 ---------
 
 
-`Download an ISO <https://www.qubes-os.org/downloads/>`__, learn how to :doc:`verify its authenticity </project-security/verifying-signatures>`, and follow our :doc:`guide to install Qubes OS </user/downloading-installing-upgrading/installation-guide>`. Looking for the :doc:`source code </developer/code/source-code>`? You’ll find it `on GitHub <https://github.com/QubesOS>`__.
+:website:`Download an ISO <downloads/>`, learn how to :doc:`verify its authenticity </project-security/verifying-signatures>`, and follow our :doc:`guide to install Qubes OS </user/downloading-installing-upgrading/installation-guide>`. Looking for the :doc:`source code </developer/code/source-code>`? You’ll find it `on GitHub <https://github.com/QubesOS>`__.
 
 Documentation
 -------------
 
 
-Browse our extensive library of :doc:`documentation </index>` for users and developers of Qubes OS. You can even `help us improve it <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__!
+Browse our extensive library of :doc:`documentation </index>` for users and developers of Qubes OS. You can even :website:`help us improve it <doc/how-to-edit-the-documentation/>`!
 
 .. |snapshot_41.png| image:: /attachment/doc/r4.1-snapshot_40.png
    

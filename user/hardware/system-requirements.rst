@@ -13,9 +13,9 @@ Minimum
 
 - **CPU:** 64-bit Intel or AMD processor (also known as ``x86_64``, ``x64``, and ``AMD64``)
 
-  - `Intel VT-x <https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29>`__ with `EPT <https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables>`__ or `AMD-V <https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29>`__ with `RVI <https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing>`__
+  - :wikipedia:`Intel VT-x <X86_virtualization#Intel_virtualization_.28VT-x.29>` with :wikipedia:`EPT <Second_Level_Address_Translation#Extended_Page_Tables>` or :wikipedia:`AMD-V <X86_virtualization#AMD_virtualization_.28AMD-V.29>` with :wikipedia:`RVI <Second_Level_Address_Translation#Rapid_Virtualization_Indexing>`
 
-  - `Intel VT-d <https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d>`__ or `AMD-Vi (also known as AMD IOMMU) <https://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29>`__
+  - :wikipedia:`Intel VT-d <X86_virtualization#Intel-VT-d>` or :wikipedia:`AMD-Vi (also known as AMD IOMMU) <X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_Intel_VT-d.29>`
 
 
 
@@ -31,9 +31,9 @@ Recommended
 
 - **CPU:** 64-bit Intel processor (also known as ``x86_64``, ``x64``, and ``Intel 64``)
 
-  - `Intel VT-x <https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29>`__ with `EPT <https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables>`__
+  - :wikipedia:`Intel VT-x <X86_virtualization#Intel_virtualization_.28VT-x.29>` with :wikipedia:`EPT <Second_Level_Address_Translation#Extended_Page_Tables>`
 
-  - `Intel VT-d <https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d>`__
+  - :wikipedia:`Intel VT-d <X86_virtualization#Intel-VT-d>`
 
   - For security, we recommend processors that are recent enough to still be receiving microcode updates (see `below <#important-notes>`__ for details).
 
@@ -51,7 +51,7 @@ Recommended
 
 - **Graphics:** Intel integrated graphics processor (IGP) strongly recommended
 
-  - Nvidia GPUs may require significant `troubleshooting <https://forum.qubes-os.org/t/18987>`__.
+  - Nvidia GPUs may require significant :topic:`troubleshooting <18987>`.
 
   - AMD GPUs have not been formally tested, but Radeons (especially RX580 and earlier) generally work well.
 
@@ -85,9 +85,9 @@ We recommend consulting these resources when selecting hardware for Qubes OS:
 
 - :doc:`Certified hardware </user/hardware/certified-hardware/certified-hardware>` — Qubes developer certified, officially recommended
 
-- `Community-recommended hardware <https://forum.qubes-os.org/t/5560>`__ — list curated and maintained by the community, unofficially recommended
+- :topic:`Community-recommended hardware <5560>` — list curated and maintained by the community, unofficially recommended
 
-- `Hardware compatibility list (HCL) <https://www.qubes-os.org/hcl/>`__ — community test results, neither recommended nor disrecommended
+- :website:`Hardware compatibility list (HCL) <hcl/>` — community test results, neither recommended nor disrecommended
 
 
 

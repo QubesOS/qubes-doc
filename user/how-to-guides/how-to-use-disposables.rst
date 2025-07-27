@@ -164,7 +164,7 @@ Starting an arbitrary program in a disposable from an app qube
 --------------------------------------------------------------
 
 
-Sometimes it can be useful to start an arbitrary program in a disposable. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details `here <https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009>`__). Starting an arbitrary program can be done from an app qube by running
+Sometimes it can be useful to start an arbitrary program in a disposable. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details :issue:`here <2581#issuecomment-272664009>`). Starting an arbitrary program can be done from an app qube by running
 
 .. code:: bash
 
@@ -178,7 +178,7 @@ Starting an arbitrary application in a disposable via command line from dom0
 ----------------------------------------------------------------------------
 
 
-The Application Launcher has shortcuts for opening a terminal and a web browser in dedicated disposables, since these are very common tasks. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details `here <https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009>`__). It is possible to start an arbitrary application in a disposable directly from dom0 by running:
+The Application Launcher has shortcuts for opening a terminal and a web browser in dedicated disposables, since these are very common tasks. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details :issue:`here <2581#issuecomment-272664009>`). It is possible to start an arbitrary application in a disposable directly from dom0 by running:
 
 .. code:: bash
 

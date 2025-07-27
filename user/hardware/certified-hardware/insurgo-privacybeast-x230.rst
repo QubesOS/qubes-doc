@@ -19,7 +19,7 @@ The `Insurgo PrivacyBeast X230 <https://insurgo.ca/produit/qubesos-certified-pri
 
 - A re-ownership process that allows it to ship pre-installed with Qubes OS, including full-disk encryption already in place, but where the final disk encryption key is regenerated only when the machine is first powered on by the user, so that the OEM doesn’t know it.
 
-- `Heads <https://github.com/osresearch/heads/>`__ provisioned pre-delivery to protect against malicious `interdiction <https://en.wikipedia.org/wiki/Interdiction>`__.
+- `Heads <https://github.com/osresearch/heads/>`__ provisioned pre-delivery to protect against malicious :wikipedia:`interdiction <Interdiction>`.
 
 
 

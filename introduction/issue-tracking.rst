@@ -3,7 +3,7 @@ Issue tracking
 ==============
 
 
-We use `GitHub Issues <https://docs.github.com/en/issues>`__ as our `issue tracking system <https://en.wikipedia.org/wiki/Issue_tracking_system>`__. All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as this website) are tracked in `qubes-issues <https://github.com/QubesOS/qubes-issues/issues>`__.
+We use `GitHub Issues <https://docs.github.com/en/issues>`__ as our :wikipedia:`issue tracking system <Issue_tracking_system>`. All issues pertaining to the Qubes OS Project (including auxiliary infrastructure such as this website) are tracked in `qubes-issues <https://github.com/QubesOS/qubes-issues/issues>`__.
 
 How to open a new issue
 -----------------------
@@ -21,7 +21,7 @@ I see something that should be changed in the documentation.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-We encourage you to submit the change yourself! Please see the `how to edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__ for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
+We encourage you to submit the change yourself! Please see the :website:`how to edit the documentation <doc/how-to-edit-the-documentation/>` for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
 
 I would like to report a security vulnerability.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

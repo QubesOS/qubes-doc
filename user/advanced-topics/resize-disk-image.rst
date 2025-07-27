@@ -25,7 +25,7 @@ There are several disk images which can be easily extended, but pay attention to
 
 
 
-In case of standalone qubes and templates, just change the Disk Storage settings above. If the standalone fails to start, temporarily increase the ``qrexec_timeout``, `as described here <https://github.com/QubesOS/qubes-issues/issues/9251#issuecomment-2121596415>`__.
+In case of standalone qubes and templates, just change the Disk Storage settings above. If the standalone fails to start, temporarily increase the ``qrexec_timeout``, :issue:`as described here <9251#issuecomment-2121596415>`.
 
 In case of template-based qubes, the private storage (the /home directory and user files) can be changed in the qube’s own settings, but the system root image is :doc:`inherited from the template </introduction/getting-started>`, and so it must be changed in the template settings. If you are increasing the disk image size for Linux-based qubes installed from Qubes OS repositories in Qubes 4.0 or later, changing the settings above is all you need to do - in other cases, you may need to do more, according to instructions below. See also the OS-specific follow-up instructions below.
 
@@ -122,4 +122,4 @@ Or you can take the risk of reducing the size of the disk. For example, to reduc
 
 
 
-If you have a SSD see `here <https://forum.qubes-os.org/t/19054>`__ for information on using fstrim.
+If you have a SSD see :topic:`here <19054>` for information on using fstrim.

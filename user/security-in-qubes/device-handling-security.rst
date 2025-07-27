@@ -19,7 +19,7 @@ Some devices do not implement a reset option. In these cases, Qubes by default d
 
 In case device reset is disabled for any reason, detaching the device should be considered a risk. Ideally, devices for which the ``no-strict-reset`` option is set are attached once to a VM which isn’t shut down until the system is shut down.
 
-Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. You’re potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit. This increases the VM’s ability to run a `side channel attack <https://en.wikipedia.org/wiki/Side-channel_attack>`__ and vulnerability to the same. See `Xen PCI Passthrough: PV guests and PCI quirks <https://wiki.xenproject.org/wiki/Xen_PCI_Passthrough#PV_guests_and_PCI_quirks>`__ and `Software Attacks on Intel VT-d <https://invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf>`__ (page 7) for more details.
+Additionally, Qubes restricts the config-space a VM may use to communicate with a PCI device. Only whitelisted registers are accessible. However, some devices or applications require full PCI access. In these cases, the whole config-space may be allowed. You’re potentially weakening the device isolation, especially if your system is not equipped with a VT-d Interrupt Remapping unit. This increases the VM’s ability to run a :wikipedia:`side channel attack <Side-channel_attack>` and vulnerability to the same. See `Xen PCI Passthrough: PV guests and PCI quirks <https://wiki.xenproject.org/wiki/Xen_PCI_Passthrough#PV_guests_and_PCI_quirks>`__ and `Software Attacks on Intel VT-d <https://invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf>`__ (page 7) for more details.
 
 USB Security
 ------------
@@ -43,4 +43,4 @@ If you have only a USB mouse connected to a USB qube, but the keyboard is connec
 
 If your keyboard is also connected to a USB qube, things are much harder. Locking the screen (with a traditional password) does not solve the problem, because the USB qube can simply sniff this password and later easily unlock the screen. One possibility is to set up the screen locker to require an additional step to unlock (i.e., two-factor authentication). One way to achieve this is to use a :doc:`YubiKey </user/security-in-qubes/mfa>`, or some other hardware token, or even to manually enter a one-time password.
 
-Support for `two factor authentication <https://www.qubes-os.org/news/2018/09/11/qubes-u2f-proxy/>`__ was recently added, though there are `issues <https://github.com/QubesOS/qubes-issues/issues/4661>`__.
+Support for :website:`two factor authentication <news/2018/09/11/qubes-u2f-proxy/>` was recently added, though there are :issue:`issues <4661>`.

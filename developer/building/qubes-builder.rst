@@ -9,7 +9,7 @@ Qubes builder
 
 **Note: See** :doc:`ISO building instructions </developer/building/qubes-iso-building>` **for a streamlined overview on how to use the build system.**
 
-We have a fully automated build system for Qubes, that downloads, builds and packages all the Qubes components, and finally should spit out a ready-to-use installation ISO, all in a `secure <https://www.qubes-os.org/news/2016/05/30/build-security/>`__ way.
+We have a fully automated build system for Qubes, that downloads, builds and packages all the Qubes components, and finally should spit out a ready-to-use installation ISO, all in a :website:`secure <news/2016/05/30/build-security/>` way.
 
 In order to use it, you should use an rpm-based distro, like Fedora :), and should ensure the following packages are installed:
 

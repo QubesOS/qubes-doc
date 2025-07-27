@@ -11,7 +11,7 @@ Preparation
 -----------
 
 
-1. Go to `downloads <https://www.qubes-os.org/downloads/>`__ and prepare a USB drive or DVD with the R4.0 installer.
+1. Go to :website:`downloads <downloads/>` and prepare a USB drive or DVD with the R4.0 installer.
 
 2. If this is your only computer, and you do not have a R3.2 installer, you should also create a separate R3.2 USB drive or DVD installer at this time.
 
@@ -73,7 +73,7 @@ Restore from your backup
 
 4. Go to **Qubes menu -> System Tools -> Qubes Manager** to start it.
 
-5. Follow the **Restoring from a Backup** section in the :doc:`Backup, Restoration, and Migration </user/how-to-guides/how-to-back-up-restore-and-migrate>` guide. We recommend that you restore only your :ref:`app qubes <user/reference/glossary:app qube>` and :ref:`standalones <user/reference/glossary:standalone>` from R3.2. Using :doc:`templates </user/templates/templates>` and :ref:`service qubes <user/reference/glossary:service qube>` from R3.2 is not fully supported (see `#3514 <https://github.com/QubesOS/qubes-issues/issues/3514>`__). Instead, we recommend using the templates that were created specifically for R4.0, which you can :doc:`customize </user/how-to-guides/how-to-install-software>` according to your needs. For the template OS versions supported in R4.0, see :ref:`supported releases <user/downloading-installing-upgrading/supported-releases:templates>`. If the restore tool complains about missing templates, you can select the option to restore the app qubes anyway, then change them afterward to use one of the default R4.0 templates.
+5. Follow the **Restoring from a Backup** section in the :doc:`Backup, Restoration, and Migration </user/how-to-guides/how-to-back-up-restore-and-migrate>` guide. We recommend that you restore only your :ref:`app qubes <user/reference/glossary:app qube>` and :ref:`standalones <user/reference/glossary:standalone>` from R3.2. Using :doc:`templates </user/templates/templates>` and :ref:`service qubes <user/reference/glossary:service qube>` from R3.2 is not fully supported (see :issue:`3514`). Instead, we recommend using the templates that were created specifically for R4.0, which you can :doc:`customize </user/how-to-guides/how-to-install-software>` according to your needs. For the template OS versions supported in R4.0, see :ref:`supported releases <user/downloading-installing-upgrading/supported-releases:templates>`. If the restore tool complains about missing templates, you can select the option to restore the app qubes anyway, then change them afterward to use one of the default R4.0 templates.
 
 
 

@@ -89,7 +89,7 @@ Thereby sys-firewall-1 is only needed if you have other client qubes connected t
 
 If you adopt this model, you should be aware that all traffic will arrive at the ``network service qube`` appearing to originate from the IP address of ``sys-firewall-2``.
 
-For the VPN service please also look at the `VPN documentation <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>`__.
+For the VPN service please also look at the :topic:`VPN documentation <configuring-a-proxyvm-vpn-gateway/19061>`.
 
 Enabling networking between two qubes
 -------------------------------------
@@ -311,7 +311,7 @@ As an example we can take the use case of a web server listening on port 443 tha
 
 - **Note:** To have all interfaces available and configured, make sure the 3 qubes are up and running
 
-- **Note:** `Issue #4028 <https://github.com/QubesOS/qubes-issues/issues/4028>`__ discusses adding a command to automate exposing the port.
+- **Note:** :issue:`Issue #4028 <4028>` discusses adding a command to automate exposing the port.
 
 
 
@@ -343,7 +343,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 - If you want to expose the service on multiple interfaces, repeat the steps described in part 1 for each interface.
 
-- In Qubes R4, at the moment (`QubesOS/qubes-issues#3644 <https://github.com/QubesOS/qubes-issues/issues/3644>`__), nftables is also used which imply that additional rules need to be set in a ``qubes-firewall`` nft table with a forward chain.
+- In Qubes R4, at the moment (:issue:`QubesOS/qubes-issues#3644 <3644>`), nftables is also used which imply that additional rules need to be set in a ``qubes-firewall`` nft table with a forward chain.
 
 
 

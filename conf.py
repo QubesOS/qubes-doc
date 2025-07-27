@@ -33,6 +33,7 @@ release = '4.3'
 html_static_path = ['attachment/doc']
 extensions = [
   'sphinx.ext.autosectionlabel',
+  'sphinx.ext.extlinks',
   'sphinxnotes.strike',
   'sphinx_reredirects'
 ]
@@ -45,6 +46,17 @@ redirects = {
   "user/downloading-installing-upgrading/downloads":"https://www.qubes-os.org/downloads/",
   "developer/general/how-to-edit-the-documentation":"https://www.qubes-os.org/doc/how-to-edit-the-documentation/"
 }
+
+extlinks = {'issue': ('https://github.com/QubesOS/qubes-issues/issues/%s',
+                      'issue #%s'),
+            'topic': ('https://forum.qubes-os.org/t/%s',
+                      'forum topic #%s'),
+            'website': ('https://www.qubes-os.org/%s',
+                      None),
+            'wikipedia': ('https://en.wikipedia.org/wiki/%s',
+                          '%s'),
+            }
+extlinks_detect_hardcoded_links = True
 
 autosectionlabel_prefix_document = True
 

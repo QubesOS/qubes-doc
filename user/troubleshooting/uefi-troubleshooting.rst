@@ -43,7 +43,7 @@ Installation freezes before displaying installer
 ------------------------------------------------
 
 
-If you have an Nvidia card, see also `Nvidia Troubleshooting <https://forum.qubes-os.org/t/19021#disabling-nouveau>`__.
+If you have an Nvidia card, see also :topic:`Nvidia Troubleshooting <19021#disabling-nouveau>`.
 
 Installation from USB stick hangs on black screen
 -------------------------------------------------

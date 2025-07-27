@@ -3,7 +3,7 @@ Continuous integration (CI)
 ===========================
 
 
-This page explains the `continuous integration (CI) <https://en.wikipedia.org/wiki/Continuous_integration>`__ infrastructure that the Qubes OS Project uses.
+This page explains the :wikipedia:`continuous integration (CI) <Continuous_integration>` infrastructure that the Qubes OS Project uses.
 
 Website and documentation
 -------------------------

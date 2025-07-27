@@ -7,43 +7,43 @@ New features and improvements since Qubes 4.1
 ---------------------------------------------
 
 
-- Dom0 upgraded to Fedora 37 (`#6982 <https://github.com/QubesOS/qubes-issues/issues/6982>`__)
+- Dom0 upgraded to Fedora 37 (:issue:`6982`)
 
 - Xen upgraded to version 4.17
 
 - Default Debian template upgraded to Debian 12
 
-- Default Fedora and Debian templates use Xfce instead of GNOME (`#7784 <https://github.com/QubesOS/qubes-issues/issues/7784>`__)
+- Default Fedora and Debian templates use Xfce instead of GNOME (:issue:`7784`)
 
-- SELinux support in Fedora templates (`#4239 <https://github.com/QubesOS/qubes-issues/issues/4239>`__)
+- SELinux support in Fedora templates (:issue:`4239`)
 
 - Several GUI applications rewritten (screenshots below), including:
 
-  - Applications Menu (also available as preview in R4.1) (`#6665 <https://github.com/QubesOS/qubes-issues/issues/6665>`__), (`#5677 <https://github.com/QubesOS/qubes-issues/issues/5677>`__)
+  - Applications Menu (also available as preview in R4.1) (:issue:`6665`), (:issue:`5677`)
 
-  - Qubes Global Settings (`#6898 <https://github.com/QubesOS/qubes-issues/issues/6898>`__)
+  - Qubes Global Settings (:issue:`6898`)
 
   - Create New Qube
 
-  - Qubes Update (`#7443 <https://github.com/QubesOS/qubes-issues/issues/7443>`__)
+  - Qubes Update (:issue:`7443`)
 
 
 
-- New ``qubes-vm-update`` tool (`#7443 <https://github.com/QubesOS/qubes-issues/issues/7443>`__)
+- New ``qubes-vm-update`` tool (:issue:`7443`)
 
-- Unified ``grub.cfg`` location for both UEFI and legacy boot (`#7985 <https://github.com/QubesOS/qubes-issues/issues/7985>`__)
+- Unified ``grub.cfg`` location for both UEFI and legacy boot (:issue:`7985`)
 
-- PipeWire support (`#6358 <https://github.com/QubesOS/qubes-issues/issues/6358>`__)
+- PipeWire support (:issue:`6358`)
 
-- fwupd integration for firmware updates (`#4855 <https://github.com/QubesOS/qubes-issues/issues/4855>`__)
+- fwupd integration for firmware updates (:issue:`4855`)
 
-- Optional automatic clipboard clearing (`#3415 <https://github.com/QubesOS/qubes-issues/issues/3415>`__)
+- Optional automatic clipboard clearing (:issue:`3415`)
 
-- Official packages built using Qubes Builder v2 (`#6486 <https://github.com/QubesOS/qubes-issues/issues/6486>`__)
+- Official packages built using Qubes Builder v2 (:issue:`6486`)
 
 - Split GPG management in Qubes Global Settings
 
-- Qrexec services use new qrexec policy format by default (but old format is still supported) (`#8000 <https://github.com/QubesOS/qubes-issues/issues/8000>`__)
+- Qrexec services use new qrexec policy format by default (but old format is still supported) (:issue:`8000`)
 
 - Improved keyboard layout switching
 
@@ -67,9 +67,9 @@ Known issues
 ------------
 
 
-- DomU firewalls have completely switched to nftables. Users should add their custom rules to the ``custom-input`` and ``custom-forward`` chains. (For more information, see issues `#5031 <https://github.com/QubesOS/qubes-issues/issues/5031>`__ and `#6062 <https://github.com/QubesOS/qubes-issues/issues/6062>`__.)
+- DomU firewalls have completely switched to nftables. Users should add their custom rules to the ``custom-input`` and ``custom-forward`` chains. (For more information, see issues :issue:`5031` and :issue:`6062`.)
 
-- Templates restored in 4.2 from a pre-4.2 backup continue to target their original Qubes OS release repos. If you are using fresh templates on a clean 4.2 installation, or if you performed an :ref:`in-place upgrade from 4.1 to 4.2 <user/downloading-installing-upgrading/upgrade/4_2:in-place upgrade>`, then this does not affect you. (For more information, see issue `#8701 <https://github.com/QubesOS/qubes-issues/issues/8701>`__.)
+- Templates restored in 4.2 from a pre-4.2 backup continue to target their original Qubes OS release repos. If you are using fresh templates on a clean 4.2 installation, or if you performed an :ref:`in-place upgrade from 4.1 to 4.2 <user/downloading-installing-upgrading/upgrade/4_2:in-place upgrade>`, then this does not affect you. (For more information, see issue :issue:`8701`.)
 
 
 
@@ -83,7 +83,7 @@ Notes
 
 - Qubes 4.2 does not support Debian 11 templates (see :ref:`supported template releases <user/downloading-installing-upgrading/supported-releases:templates>`). Please :ref:`upgrade your Debian templates <user/templates/debian/debian:upgrading>` to Debian 12.
 
-- Qubes 4.2.2 includes a fix for `#8332: File-copy qrexec service is overly restrictive <https://github.com/QubesOS/qubes-issues/issues/8332>`__. As explained in the issue comments, we introduced a change in Qubes 4.2.0 that caused inter-qube file-copy/move actions to reject filenames containing, e.g., non-Latin characters and certain symbols. The rationale for this change was to mitigate the security risks associated with unusual unicode characters and invalid encoding in filenames, which some software might handle in an unsafe manner and which might cause confusion for users. Such a change represents a trade-off between security and usability.
+- Qubes 4.2.2 includes a fix for :issue:`#8332: File-copy qrexec service is overly restrictive <8332>`. As explained in the issue comments, we introduced a change in Qubes 4.2.0 that caused inter-qube file-copy/move actions to reject filenames containing, e.g., non-Latin characters and certain symbols. The rationale for this change was to mitigate the security risks associated with unusual unicode characters and invalid encoding in filenames, which some software might handle in an unsafe manner and which might cause confusion for users. Such a change represents a trade-off between security and usability.
 
   - After the change went live, we received several user reports indicating more severe usability problems than we had anticipated. Moreover, these problems were prompting users to resort to dangerous workarounds (such as packing files into an archive format prior to copying) that carry far more risk than the original risk posed by the unrestricted filenames. In addition, we realized that this was a backward-incompatible change that should not have been introduced in a minor release in the first place.
 
@@ -109,7 +109,7 @@ Download
 --------
 
 
-All Qubes ISOs and associated :doc:`verification files </project-security/verifying-signatures>` are available on the `downloads <https://www.qubes-os.org/downloads/>`__ page.
+All Qubes ISOs and associated :doc:`verification files </project-security/verifying-signatures>` are available on the :website:`downloads <downloads/>` page.
 
 Installation instructions
 -------------------------

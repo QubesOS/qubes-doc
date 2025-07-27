@@ -78,7 +78,7 @@ Replacing passwordless root access with Dom0 user prompt
 
 An alternative approach is to enable user/root isolation by using a dom0 generated prompt.
 
-A list of steps to do so is provided in the `Qubes community guide, Replacing passwordless root with a dom0 prompt <https://forum.qubes-os.org/t/replacing-passwordless-root-with-a-dom0-prompt/19074>`__ **without any guarantee of safety, accuracy, or completeness. Proceed at your own risk. Do not rely on this for extra security.**
+A list of steps to do so is provided in the :topic:`Qubes community guide, Replacing passwordless root with a dom0 prompt <replacing-passwordless-root-with-a-dom0-prompt/19074>` **without any guarantee of safety, accuracy, or completeness. Proceed at your own risk. Do not rely on this for extra security.**
 
 
 Dom0 passwordless root access

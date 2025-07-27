@@ -3,7 +3,7 @@ How to use the hardware compatibility list (HCL)
 ================================================
 
 
-The `HCL <https://www.qubes-os.org/hcl/>`__ is a compilation of reports generated and submitted by users across various Qubes versions about their hardware’s compatibility with Qubes.
+The :website:`HCL <hcl/>` is a compilation of reports generated and submitted by users across various Qubes versions about their hardware’s compatibility with Qubes.
 
 **Note:** Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports. Please first consult the data sheets (CPU, chipset, motherboard) prior to buying new hardware for Qubes. Make sure it meets the :doc:`System Requirements </user/hardware/system-requirements>` and search in particular for support of:
 

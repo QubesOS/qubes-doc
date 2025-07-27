@@ -39,4 +39,4 @@ This generates the appropriate configuration in ``/etc/X11/xorg.conf.d/00-keyboa
 
 Restarting ``xorg`` is required. The most straightforward way is to reboot the system.
 
-More information in `this discussion <https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion>`__ and `this GitHub issue <https://github.com/QubesOS/qubes-issues/issues/1396>`__.
+More information in `this discussion <https://groups.google.com/d/topic/qubes-devel/d8ZQ_62asKI/discussion>`__ and :issue:`this GitHub issue <1396>`.

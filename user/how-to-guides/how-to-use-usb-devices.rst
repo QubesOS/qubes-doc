@@ -15,13 +15,13 @@ Examples of valid cases for USB-passthrough:
 
 - `microcontroller programming <https://www.arduino.cc/en/Main/Howto>`__
 
-- `external audio devices <https://forum.qubes-os.org/t/18984>`__
+- :topic:`external audio devices <18984>`
 
 - :doc:`optical drives </user/how-to-guides/how-to-use-optical-discs>` for recording
 
 
 
-(If you are thinking to use a two-factor-authentication device, :doc:`there is an app for that </user/security-in-qubes/ctap-proxy>`. But it has some `issues <https://github.com/QubesOS/qubes-issues/issues/4661>`__.)
+(If you are thinking to use a two-factor-authentication device, :doc:`there is an app for that </user/security-in-qubes/ctap-proxy>`. But it has some :issue:`issues <4661>`.)
 
 Attaching and detaching a USB device
 ------------------------------------

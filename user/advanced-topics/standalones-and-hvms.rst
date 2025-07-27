@@ -18,7 +18,7 @@ Meanwhile, a :ref:`Hardware-assisted Virtual Machine (HVM) <user/reference/gloss
 
 HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, ``*BSD``, or any Linux distribution. You can also use HVMs to run “live” distros.
 
-By default, every qube runs in PVH mode (which has security advantages over both PV and HVM), except for those with attached PCI devices, which run in HVM mode. See `here <https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html>`__ for a discussion of the switch from PV to HVM and `here <https://www.qubes-os.org/news/2018/01/11/qsb-37/>`__ for the announcement about the change to using PVH as default.
+By default, every qube runs in PVH mode (which has security advantages over both PV and HVM), except for those with attached PCI devices, which run in HVM mode. See `here <https://blog.invisiblethings.org/2017/07/31/qubes-40-rc1.html>`__ for a discussion of the switch from PV to HVM and :website:`here <news/2018/01/11/qsb-37/>` for the announcement about the change to using PVH as default.
 
 The standalone/template distinction and the HVM/PV/PVH distinctions are orthogonal. The former is about root filesystem inheritance, whereas the latter is about the virtualization mode. In practice, however, it is most common for standalones to be HVMs and for HVMs to be standalones. Hence, this page covers both topics.
 
@@ -477,6 +477,6 @@ Other documents related to HVMs:
 
 - `Windows VMs <https://forum.qubes-os.org/search?q=windows%20hvm%20%23guides>`__
 
-- `Linux HVM Tips <https://forum.qubes-os.org/t/19008>`__
+- :topic:`Linux HVM Tips <19008>`
 
 

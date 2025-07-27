@@ -3,9 +3,9 @@ Xfce templates
 ==============
 
 
-If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes, you can install one of the available Xfce templates for :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, `Gentoo <https://forum.qubes-os.org/t/19007>`__ or `CentOS* <https://forum.qubes-os.org/t/19006>`__.
+If you would like to use Xfce (more lightweight compared to GNOME desktop environment) Linux distribution in your qubes, you can install one of the available Xfce templates for :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, :topic:`Gentoo <19007>` or :topic:`CentOS* <19006>`.
 
-\* *The CentOS version used by this template reached* `End-of-Life in June 2024 <https://en.wikipedia.org/wiki/CentOS_Stream#Release_history>`__ *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* `declined <https://github.com/QubesOS/qubes-issues/issues/9716>`__ *.*
+\* *The CentOS version used by this template reached* :wikipedia:`End-of-Life in June 2024 <CentOS_Stream#Release_history>` *and is no longer receiving updates. Due to a lack of specific interest at this time a proposal to create a new CentOS 10 template was* :issue:`declined <9716>` *.*
 
 Installation
 ------------

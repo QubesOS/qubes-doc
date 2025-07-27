@@ -19,7 +19,7 @@ Is Qubes OS free and open-source software?
 
 There are two distinct senses of the word “free” when it comes to free software. The difference in commonly expressed by the phrases “free as in beer” and “free as in speech.”
 
-The first senses is straightforward. Qubes OS is “free as in beer,” meaning that it is provided at no cost (*gratis*), though `donations <https://www.qubes-os.org/donate/>`__ are greatly appreciated.
+The first senses is straightforward. Qubes OS is “free as in beer,” meaning that it is provided at no cost (*gratis*), though :website:`donations <donate/>` are greatly appreciated.
 
 The second sense is more complicated. Qubes OS is *mostly* “free as in speech,” but not entirely. All the software created by the Qubes OS Project *itself* is `free (or “libre”) <https://www.gnu.org/philosophy/free-sw>`__ and `open-source <https://opensource.org/docs/definition.html>`__ software (`FOSS or FLOSS <https://www.gnu.org/philosophy/floss-and-foss.en.html>`__). This means that everyone is allowed to use, copy, study, and change the software in accordance with its :doc:`license </developer/code/license>`. It also means that the :doc:`source code </developer/code/source-code>` is `publicly available <https://github.com/QubesOS/>`__ so everyone can audit and contribute to it.
 
@@ -155,7 +155,7 @@ Does Qubes use full disk encryption (FDE)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-By default, Qubes OS uses `LUKS <https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup>`__/`dm-crypt <https://en.wikipedia.org/wiki/Dm-crypt>`__ to encrypt everything except the ``/boot`` partition.
+By default, Qubes OS uses :wikipedia:`LUKS <Linux_Unified_Key_Setup>`/:wikipedia:`dm-crypt <Dm-crypt>` to encrypt everything except the ``/boot`` partition.
 
 What do all these terms mean?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -179,7 +179,7 @@ How is Qubes affected by Xen Security Advisories (XSAs)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See the `XSA Tracker <https://www.qubes-os.org/security/xsa/>`__.
+See the :website:`XSA Tracker <security/xsa/>`.
 
 What about this other/new (micro)kernel/hypervisor?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,13 +279,13 @@ Do you recommend coreboot as an alternative to vendor BIOS?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Yes, where it is possible to use it an open source boot firmware ought to be more trustable than a closed source implementation. `coreboot <https://www.coreboot.org/>`__ is as a result a requirement for `Qubes Certified Hardware <https://www.qubes-os.org/news/2016/07/21/new-hw-certification-for-q4/>`__. The number of machines coreboot currently supports is limited and the use of some vendor supplied blobs is generally still required. Where coreboot does support your machine and is not already installed, you will generally need additional hardware to flash it. Please see the coreboot website / their IRC channel for further information.
+Yes, where it is possible to use it an open source boot firmware ought to be more trustable than a closed source implementation. `coreboot <https://www.coreboot.org/>`__ is as a result a requirement for :website:`Qubes Certified Hardware <news/2016/07/21/new-hw-certification-for-q4/>`. The number of machines coreboot currently supports is limited and the use of some vendor supplied blobs is generally still required. Where coreboot does support your machine and is not already installed, you will generally need additional hardware to flash it. Please see the coreboot website / their IRC channel for further information.
 
 How should I report documentation issues?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-If you can fix the problem yourself, please see `how to edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__. If not, please see :doc:`issue tracking </introduction/issue-tracking>`.
+If you can fix the problem yourself, please see :website:`how to edit the documentation <doc/how-to-edit-the-documentation/>`. If not, please see :doc:`issue tracking </introduction/issue-tracking>`.
 
 Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,7 +303,7 @@ Should I trust this website?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone `review <https://www.qubes-os.org/doc/how-to-edit-the-documentation/#security>`__), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was `intentionally written in Markdown so as to be readable as plain text for this very reason <https://www.qubes-os.org/doc/documentation-style-guide/#markdown-conventions>`__. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
+This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone :website:`review <doc/how-to-edit-the-documentation/#security>`), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was :website:`intentionally written in Markdown so as to be readable as plain text for this very reason <doc/documentation-style-guide/#markdown-conventions>`. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 What does it mean to "distrust the infrastructure"?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -321,7 +321,7 @@ Why do you use GitHub?
 
 Three main reasons:
 
-1. We `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__ including GitHub (though there are aspects we’re still `working on <https://github.com/QubesOS/qubes-issues/issues/3958>`__).
+1. We `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__ including GitHub (though there are aspects we’re still :issue:`working on <3958>`).
 
 2. It’s free (as in beer). We’d have to spend either time or money to implement a solution ourselves or pay someone to do so, and we can’t spare either one right now.
 
@@ -391,7 +391,7 @@ Is Qubes a multi-user system?
 
 No. Qubes does not pretend to be a multi-user system. Qubes assumes that the user who controls Dom0 controls the whole system. It is very difficult to **securely** implement multi-user support. See `here <https://groups.google.com/group/qubes-devel/msg/899f6f3efc4d9a06>`__ for details.
 
-However, in Qubes 4.x we will be implementing management functionality. See `Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__ and `Core Stack <https://www.qubes-os.org/news/2017/10/03/core3/>`__ for more details.
+However, in Qubes 4.x we will be implementing management functionality. See :website:`Admin API <news/2017/06/27/qubes-admin-api/>` and :website:`Core Stack <news/2017/10/03/core3/>` for more details.
 
 What are the system requirements for Qubes OS?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -403,7 +403,7 @@ Is there a list of hardware that is compatible with Qubes OS?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See the `Hardware Compatibility List <https://www.qubes-os.org/hcl/>`__.
+See the :website:`Hardware Compatibility List <hcl/>`.
 
 Is there any certified hardware for Qubes OS?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -471,7 +471,7 @@ What is a terminal?
 ^^^^^^^^^^^^^^^^^^^
 
 
-A `terminal emulator <https://en.wikipedia.org/wiki/Terminal_emulator>`__, nowadays often referred to as just a *terminal*, is a program which provides a text window. Inside that window, a `shell <https://en.wikipedia.org/wiki/Shell_(computing)>`__ is typically running in it. A shell provides a `command-line interface <https://en.wikipedia.org/wiki/Command-line_interface>`__ where the user can enter and run `commands <https://en.wikipedia.org/wiki/Command_(computing)>`__.
+A :wikipedia:`terminal emulator <Terminal_emulator>`, nowadays often referred to as just a *terminal*, is a program which provides a text window. Inside that window, a :wikipedia:`shell <Shell_(computing)>` is typically running in it. A shell provides a :wikipedia:`command-line interface <Command-line_interface>` where the user can enter and run :wikipedia:`commands <Command_(computing)>`.
 
 See introductions on Wikibooks: `here <https://en.wikibooks.org/wiki/Fedora_And_Red_Hat_System_Administration/Shell_Basics>`__, `here <https://en.wikibooks.org/wiki/A_Quick_Introduction_to_Unix>`__ and `here <https://en.wikibooks.org/wiki/Bash_Shell_Scripting>`__.
 
@@ -487,7 +487,7 @@ Can I install Qubes OS together with other operating system (dual-boot/multi-boo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-You shouldn’t do that, because it poses a security risk for your Qubes OS installation. But if you understand the risk and accept it, read `documentation on multibooting <https://forum.qubes-os.org/t/18988>`__. It begins with an explanation of the risks with such a setup.
+You shouldn’t do that, because it poses a security risk for your Qubes OS installation. But if you understand the risk and accept it, read :topic:`documentation on multibooting <18988>`. It begins with an explanation of the risks with such a setup.
 
 Which version of Qubes am I running?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -656,7 +656,7 @@ I have weird graphics glitches like the screen turning partially black.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-If it seems like the issue described in `this thread <https://github.com/QubesOS/qubes-issues/issues/2399>`__, try disabling the window compositor:
+If it seems like the issue described in :issue:`this thread <2399>`, try disabling the window compositor:
 
 - Q → System Tools → Window Manager Tweaks → Compositor → uncheck “Enable display compositing”
 
@@ -737,7 +737,7 @@ Yes. In general, the Qubes developers will not use a piece of software unless th
 
 - If PGP signatures are used, the signing key(s) should have well-publicized fingerprint(s) verifiable via multiple independent channels or be accessible to the developers through a web of trust.
 
-- If the software is security-sensitive and requires communication with the outside world, a “split” implementation is highly preferred (for examples, see :doc:`Split GPG </user/security-in-qubes/split-gpg>` and `Split Bitcoin <https://forum.qubes-os.org/t/19017>`__).
+- If the software is security-sensitive and requires communication with the outside world, a “split” implementation is highly preferred (for examples, see :doc:`Split GPG </user/security-in-qubes/split-gpg>` and :topic:`Split Bitcoin <19017>`).
 
 - If the software has dependencies, these should be packaged and available in repos for a :ref:`current, Qubes-supported version <user/downloading-installing-upgrading/supported-releases:templates>` of Fedora (preferred) or Debian (unless all the insecure dependencies can run in an untrusted VM in a “split” implementation).
 
@@ -775,7 +775,7 @@ What is Qubes' attitude toward changing guest distros?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In general, we try to respect each distro’s culture, but we reserve the right to make modifications that we deem appropriate. See the discussion on issue `#1014 <https://github.com/QubesOS/qubes-issues/issues/1014>`__ for an example.
+In general, we try to respect each distro’s culture, but we reserve the right to make modifications that we deem appropriate. See the discussion on issue :issue:`1014` for an example.
 
 The policy is there mostly to ease maintenance, on several levels:
 
@@ -831,7 +831,7 @@ Is there a way to automate tasks for continuous integration or DevOps?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Yes, Qubes natively supports automation via :doc:`Salt (SaltStack) </user/advanced-topics/salt>`. There is also the unofficial `ansible-qubes toolkit <https://github.com/Rudd-O/ansible-qubes>`__. (**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, `allowing it to manage dom0 may be a security risk <https://forum.qubes-os.org/t/19075#dom0-precautions>`__.)
+Yes, Qubes natively supports automation via :doc:`Salt (SaltStack) </user/advanced-topics/salt>`. There is also the unofficial `ansible-qubes toolkit <https://github.com/Rudd-O/ansible-qubes>`__. (**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, :topic:`allowing it to manage dom0 may be a security risk <19075#dom0-precautions>`.)
 
 .. |checkmark| image:: /attachment/doc/checkmark.png
 .. |redx| image:: /attachment/doc/red_x.png

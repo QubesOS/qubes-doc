@@ -90,7 +90,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 
 
-7. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have `reported <https://github.com/QubesOS/qubes-issues/issues/5055>`__ that it makes a difference.)
+7. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have :issue:`reported <5055>` that it makes a difference.)
 
    .. code:: bash
 
@@ -179,7 +179,7 @@ Relevant discussions:
 
 - `Fixing sound in Debian Stretch <https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU>`__
 
-- `User apt commands blocked on startup <https://github.com/QubesOS/qubes-issues/issues/2621>`__
+- :issue:`User apt commands blocked on startup <2621>`
 
 
 
@@ -201,7 +201,7 @@ Additional information
 ----------------------
 
 
-- Please note that, if you installed packages from one of the :doc:`testing </user/downloading-installing-upgrading/testing>` repositories, you must make sure that the repository is enabled in ``/etc/apt/sources.list.d/qubes-r4.list`` before attempting the upgrade. Otherwise, your upgrade will `break <https://github.com/QubesOS/qubes-issues/issues/2418>`__.
+- Please note that, if you installed packages from one of the :doc:`testing </user/downloading-installing-upgrading/testing>` repositories, you must make sure that the repository is enabled in ``/etc/apt/sources.list.d/qubes-r4.list`` before attempting the upgrade. Otherwise, your upgrade will :issue:`break <2418>`.
 
 - By default, Qubes uses code names in the ``apt`` sources files, although the templates are referred to by release number. Check the code names for the templates, and ensure you are aware of any changes you have made in the repository definitions.
 

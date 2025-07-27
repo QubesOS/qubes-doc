@@ -7,9 +7,9 @@ New features and improvements since Qubes 4.0
 ---------------------------------------------
 
 
-- Optional qubes-remote-support package now available from repositories (strictly opt-in, no package installed by default; no new ports or network connections open by default; requires explicit connection initiation by the user, then requires sharing a code word with the remote party before a connection can be established; see `#6364 <https://github.com/QubesOS/qubes-issues/issues/6364>`__ for more information)
+- Optional qubes-remote-support package now available from repositories (strictly opt-in, no package installed by default; no new ports or network connections open by default; requires explicit connection initiation by the user, then requires sharing a code word with the remote party before a connection can be established; see :issue:`6364` for more information)
 
-- Qubes firewall reworked to be more defensive (see `#5540 <https://github.com/QubesOS/qubes-issues/issues/5540>`__ for details)
+- Qubes firewall reworked to be more defensive (see :issue:`5540` for details)
 
 - Xen upgraded to version 4.14
 
@@ -19,7 +19,7 @@ New features and improvements since Qubes 4.0
 
 - Upgraded default template releases
 
-- Experimental support for GUI running outside of dom0 (hybrid mode GUI domain without real GPU passthrough; see `#5662 <https://github.com/QubesOS/qubes-issues/issues/5662>`__ for details)
+- Experimental support for GUI running outside of dom0 (hybrid mode GUI domain without real GPU passthrough; see :issue:`5662` for details)
 
 - Experimental support for audio server running outside of dom0 (“Audio domain”)
 
@@ -27,15 +27,15 @@ New features and improvements since Qubes 4.0
 
 - UEFI boot now loads GRUB, which in turn loads Xen, making the boot path similar to legacy boot and allowing the user to modify boot parameters or choose an alternate boot menu entry
 
-- New qrexec policy format (see `#4370 <https://github.com/QubesOS/qubes-issues/issues/4370>`__ for details)
+- New qrexec policy format (see :issue:`4370` for details)
 
-- qrexec protocol improvements (see `#4909 <https://github.com/QubesOS/qubes-issues/issues/4909>`__ for details)
+- qrexec protocol improvements (see :issue:`4909` for details)
 
 - New qrexec-policy daemon
 
 - Simplified using in-qube kernels
 
-- Windows USB and audio support courtesy of `tabit-pro <https://github.com/tabit-pro>`__ (see `#5802 <https://github.com/QubesOS/qubes-issues/issues/5802>`__ and `#2624 <https://github.com/QubesOS/qubes-issues/issues/2624>`__)
+- Windows USB and audio support courtesy of `tabit-pro <https://github.com/tabit-pro>`__ (see :issue:`5802` and :issue:`2624`)
 
 - Clarified disposable-related terminology and properties
 
@@ -85,7 +85,7 @@ New features and improvements since Qubes 4.0
 
 - ``qvm-run`` tool got ``--no-shell`` option to run a single command without using a shell inside the qube
 
-- MAC Randomization for iwlwifi (see `#938 <https://github.com/QubesOS/qubes-issues/issues/938>`__)
+- MAC Randomization for iwlwifi (see :issue:`938`)
 
 
 
@@ -101,7 +101,7 @@ Download
 --------
 
 
-See `downloads <https://www.qubes-os.org/downloads/>`__.
+See :website:`downloads <downloads/>`.
 
 Installation instructions
 -------------------------

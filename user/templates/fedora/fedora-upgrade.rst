@@ -117,7 +117,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 
 
-5. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have `reported <https://github.com/QubesOS/qubes-issues/issues/5055>`__ that it makes a difference.)
+5. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have :issue:`reported <5055>` that it makes a difference.)
 
    .. code:: bash
 
@@ -192,7 +192,7 @@ Release-specific notes
 ----------------------
 
 
-See the `news <https://www.qubes-os.org/news/>`__ announcement for each specific template release for any important notices about that particular release.
+See the :website:`news <news/>` announcement for each specific template release for any important notices about that particular release.
 
 End-of-life (EOL) releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

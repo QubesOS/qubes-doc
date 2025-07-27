@@ -2,7 +2,7 @@
 Admin API
 =========
 
-*You may also be interested in the article* \ `Introducing the Qubes Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__\ *.*
+*You may also be interested in the article* \ :website:`Introducing the Qubes Admin API <news/2017/06/27/qubes-admin-api/>`\ *.*
 
 Goals
 =====

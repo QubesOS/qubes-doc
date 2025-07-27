@@ -101,7 +101,7 @@ Thereby sys-firewall-1 is only needed if you have other client qubes connected t
 
 If you adopt this model, you should be aware that all traffic will arrive at the ``network service qube`` appearing to originate from the IP address of ``sys-firewall-2``.
 
-For the VPN service please also look at the `VPN documentation <https://forum.qubes-os.org/t/19061>`__.
+For the VPN service please also look at the :topic:`VPN documentation <19061>`.
 
 Enabling networking between two qubes
 -------------------------------------
@@ -321,7 +321,7 @@ As an example we can take the use case of qube QubeDest running a web server lis
 
 - **Note:** To have all interfaces available and configured, make sure the 3 qubes are up and running
 
-- **Note:** `Issue #4028 <https://github.com/QubesOS/qubes-issues/issues/4028>`__ discusses adding a command to automate exposing the port.
+- **Note:** :issue:`Issue #4028 <4028>` discusses adding a command to automate exposing the port.
 
 
 

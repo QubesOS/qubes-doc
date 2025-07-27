@@ -57,10 +57,10 @@ Compartmentalization, Isolation, and Separation
 The Qubes Architecture
 ======================
 
-- `Qubes virtual mini-summit 2021 <https://www.qubes-os.org/news/2021/07/30/minisummit-agenda/>`__ by 3mdeb and the Qubes team, August 2021
-- `Qubes Air: Generalizing the Qubes Architecture <https://www.qubes-os.org/news/2018/01/22/qubes-air/>`__ by Joanna Rutkowska, January 2018
-- `Introducing the Next Generation Qubes Core Stack <https://www.qubes-os.org/news/2017/10/03/core3/>`__ by Joanna Rutkowska, October 2017
-- `Introducing the Qubes Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__ by Joanna Rutkowska, June 2017
-- `Qubes OS Architecture Spec v0.3 <https://www.qubes-os.org/attachment/doc/arch-spec-0.3.pdf>`__ by Joanna Rutkowska and Rafal Wojtczuk, January 2010
+- :website:`Qubes virtual mini-summit 2021 <news/2021/07/30/minisummit-agenda/>` by 3mdeb and the Qubes team, August 2021
+- :website:`Qubes Air: Generalizing the Qubes Architecture <news/2018/01/22/qubes-air/>` by Joanna Rutkowska, January 2018
+- :website:`Introducing the Next Generation Qubes Core Stack <news/2017/10/03/core3/>` by Joanna Rutkowska, October 2017
+- :website:`Introducing the Qubes Admin API <news/2017/06/27/qubes-admin-api/>` by Joanna Rutkowska, June 2017
+- :website:`Qubes OS Architecture Spec v0.3 <attachment/doc/arch-spec-0.3.pdf>` by Joanna Rutkowska and Rafal Wojtczuk, January 2010
 
 

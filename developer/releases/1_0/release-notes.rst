@@ -32,7 +32,7 @@ Downloads
 ---------
 
 
-See `Qubes Downloads <https://www.qubes-os.org/downloads/>`__.
+See :website:`Qubes Downloads <downloads/>`.
 
 Installation instructions
 -------------------------

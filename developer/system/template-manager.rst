@@ -11,11 +11,11 @@ Motivation
 
 This project was originally proposed in the 2020 Google Summer of Code program.
 
-Previously, templates were distributed by RPM packages and managed by ``yum``/``dnf``. However, tracking inherently dynamic VM images with a package manager suited for static files creates some challenges. For example, users may accidentally update the images, overriding local changes (`#996 <https://github.com/QubesOS/qubes-issues/issues/996>`__, `#1647 <https://github.com/QubesOS/qubes-issues/issues/1647>`__). (Or in the case of `#2061 <https://github.com/QubesOS/qubes-issues/issues/2061>`__, want to specifically override the changes.) Other operations that work well on normal VMs are also somewhat inconsistent on RPM-managed templates. This includes actions such as renaming (`#839 <https://github.com/QubesOS/qubes-issues/issues/839>`__), removal (`#5509 <https://web.archive.org/web/20210526123932/https://github.com/QubesOS/qubes-issues/issues/5509>`__) and backup/restore (`#1385 <https://github.com/QubesOS/qubes-issues/issues/1385>`__, `#1453 <https://github.com/QubesOS/qubes-issues/issues/1453>`__, `discussion thread 1 <https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion>`__, `discussion thread 2 <https://groups.google.com/forum/#!topic/qubes-users/uQEUpv4THsY/discussion>`__). In turn, this creates inconveniences and confusion for users (`#1403 <https://github.com/QubesOS/qubes-issues/issues/1403>`__, `#4518 <https://github.com/QubesOS/qubes-issues/issues/4518>`__).
+Previously, templates were distributed by RPM packages and managed by ``yum``/``dnf``. However, tracking inherently dynamic VM images with a package manager suited for static files creates some challenges. For example, users may accidentally update the images, overriding local changes (:issue:`996`, :issue:`1647`). (Or in the case of :issue:`2061`, want to specifically override the changes.) Other operations that work well on normal VMs are also somewhat inconsistent on RPM-managed templates. This includes actions such as renaming (:issue:`839`), removal (`#5509 <https://web.archive.org/web/20210526123932/https://github.com/QubesOS/qubes-issues/issues/5509>`__) and backup/restore (:issue:`1385`, :issue:`1453`, `discussion thread 1 <https://groups.google.com/forum/#!topic/qubes-devel/rwc2_miCNNE/discussion>`__, `discussion thread 2 <https://groups.google.com/forum/#!topic/qubes-users/uQEUpv4THsY/discussion>`__). In turn, this creates inconveniences and confusion for users (:issue:`1403`, :issue:`4518`).
 
 Also, the usage of RPM packages meant that installing a template results in arbitrary code execution, which is not ideal.
 
-Besides distribution, users may also wish to have an integrated template management application (`#2062 <https://github.com/QubesOS/qubes-issues/issues/2062>`__, `#2064 <https://github.com/QubesOS/qubes-issues/issues/2064>`__, `#2534 <https://github.com/QubesOS/qubes-issues/issues/2534>`__, `#3040 <https://github.com/QubesOS/qubes-issues/issues/3040>`__), as opposed to the situation where multiple programs are required for different purposes, e.g., ``qubes-dom0-update``, ``dnf``, ``qvm-remove``, ``qubes-manager``.
+Besides distribution, users may also wish to have an integrated template management application (:issue:`2062`, :issue:`2064`, :issue:`2534`, :issue:`3040`), as opposed to the situation where multiple programs are required for different purposes, e.g., ``qubes-dom0-update``, ``dnf``, ``qvm-remove``, ``qubes-manager``.
 
 To tackle these issues, ``qvm-template`` was created. It strives to provide not only a better mechanism for handling template installation but also a consistent user-facing interface to deal with template management.
 
@@ -61,7 +61,7 @@ Package format
 --------------
 
 
-The RPM package format is still used. However, the contents are manually extracted instead of installing the whole package. This allows us to take advantage of existing tools for things like repository management. We can also avoid the burden of dealing with verification, reducing the risk of issues like `QSB-028 <https://www.qubes-os.org/news/2016/12/19/qsb-28/>`__.
+The RPM package format is still used. However, the contents are manually extracted instead of installing the whole package. This allows us to take advantage of existing tools for things like repository management. We can also avoid the burden of dealing with verification, reducing the risk of issues like :website:`QSB-028 <news/2016/12/19/qsb-28/>`.
 
 The package name should be in the form ``qubes-template-<TEMPLATE_NAME>``.
 

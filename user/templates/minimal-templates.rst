@@ -12,9 +12,9 @@ Important
 ---------
 
 
-1. `The minimal templates are intended only for advanced users. <https://forum.qubes-os.org/t/9717/15>`__ Most things will *not* work out-of-the-box, and you *will* have to fix them yourself. If you are not prepared to do a lot of reading, searching, learning, and troubleshooting, then you should instead stick to the standard templates, which are perfectly suitable for the vast majority of users. In particular, if you are new to Qubes, you should not attempt to use minimal templates until you have gained more experience.
+1. :topic:`The minimal templates are intended only for advanced users. <9717/15>` Most things will *not* work out-of-the-box, and you *will* have to fix them yourself. If you are not prepared to do a lot of reading, searching, learning, and troubleshooting, then you should instead stick to the standard templates, which are perfectly suitable for the vast majority of users. In particular, if you are new to Qubes, you should not attempt to use minimal templates until you have gained more experience.
 
-2. If something works with a standard template but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug. In such cases, please do *not* file a bug report. Instead, please see :doc:`Help, Support, Mailing Lists, and Forum </introduction/support>` for the appropriate place to ask for help. Once you have learned how to solve your problem, please `contribute what you learned to the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__.
+2. If something works with a standard template but not the minimal version, this is most likely due to user error (e.g., a missing package or misconfiguration) rather than a bug. In such cases, please do *not* file a bug report. Instead, please see :doc:`Help, Support, Mailing Lists, and Forum </introduction/support>` for the appropriate place to ask for help. Once you have learned how to solve your problem, please :website:`contribute what you learned to the documentation <doc/how-to-edit-the-documentation/>`.
 
 3. The minimal templates are intentionally *minimal*. :ref:`Do not ask for your favorite package to be added to the minimal template by default. <introduction/faq:could you please make my preference the default?>`
 
@@ -120,13 +120,13 @@ The following list provides an overview of which packages are needed for which p
 
 - :doc:`USB qube </user/advanced-topics/usb-qubes>`, such as the template for ``sys-usb``: ``qubes-usb-proxy`` to provide USB devices to other Qubes and ``qubes-input-proxy-sender`` to provide keyboard or mouse input to dom0.
 
-- `VPN qube <https://forum.qubes-os.org/t/19061>`__: Use the ``dnf search "NetworkManager VPN plugin"`` command to look up the VPN packages you need, based on the VPN technology you’ll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the `VPN instructions <https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager>`__ to configure it.
+- :topic:`VPN qube <19061>`: Use the ``dnf search "NetworkManager VPN plugin"`` command to look up the VPN packages you need, based on the VPN technology you’ll be using, and install them. Some GNOME related packages may be needed as well. After creation of a machine based on this template, follow the :topic:`VPN instructions <19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager>` to configure it.
 
 - ``default-mgmt-dvm``: requires ``qubes-core-agent-passwordless-root`` and ``qubes-mgmt-salt-vm-connector``.
 
 
 
-To manage fedora-39-minimal templates with salt, you may need to install ``python3-urllib3`` in older versions of the template. (This package is already installed in recent builds: see `discussion <https://github.com/QubesOS/qubes-issues/issues/8806>`__.)
+To manage fedora-39-minimal templates with salt, you may need to install ``python3-urllib3`` in older versions of the template. (This package is already installed in recent builds: see :issue:`discussion <8806>`.)
 
 In Qubes 4.0, additional packages from the ``qubes-core-agent`` suite may be needed to make the customized minimal template work properly. These packages are:
 
@@ -172,7 +172,7 @@ Also, there are packages to provide additional services:
 
 You may also wish to consider additional packages from the ``qubes-core-agent`` suite.
 
-See `here <https://forum.qubes-os.org/t/18999>`__ for further information on customizing ``fedora-minimal``.
+See :topic:`here <18999>` for further information on customizing ``fedora-minimal``.
 
 Logging
 ^^^^^^^
@@ -196,7 +196,7 @@ The following list provides an overview of which packages are needed for which p
 
 - Commonly used utilities: ``pciutils`` ``vim-minimal`` ``less`` ``psmisc`` ``gnome-keyring``
 
-- The ``zenity`` package is required for interactive dialogs, e.g., file selection (`#5202 <https://github.com/QubesOS/qubes-issues/issues/5202>`__) and for using the Nautilus menu option to copy some files to other qubes (`#6801 <https://github.com/QubesOS/qubes-issues/issues/6801>`__).
+- The ``zenity`` package is required for interactive dialogs, e.g., file selection (:issue:`5202`) and for using the Nautilus menu option to copy some files to other qubes (:issue:`6801`).
 
 - Audio: ``pulseaudio-qubes``
 
@@ -208,9 +208,9 @@ The following list provides an overview of which packages are needed for which p
 
 - :doc:`USB qube </user/advanced-topics/usb-qubes>`, such as the template for ``sys-usb``: ``qubes-usb-proxy`` to provide USB devices to other Qubes and ``qubes-input-proxy-sender`` to provide keyboard or mouse input to dom0.
 
-- Qubes to which USB devices are attached: ``libpam-systemd`` (Until `#7689 <https://github.com/QubesOS/qubes-issues/issues/7689>`__ is fixed, either pair it with ``qubes-core-agent-passwordless-root`` or manually activate the user session with ``loginctl activate <USER_SESSION_ID>``.)
+- Qubes to which USB devices are attached: ``libpam-systemd`` (Until :issue:`7689` is fixed, either pair it with ``qubes-core-agent-passwordless-root`` or manually activate the user session with ``loginctl activate <USER_SESSION_ID>``.)
 
-- `VPN qube <https://forum.qubes-os.org/t/19061>`__: You may need to install network-manager VPN packages, depending on the VPN technology you’ll be using. After creating a machine based on this template, follow the `VPN howto <https://forum.qubes-os.org/t/19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager>`__ to configure it.
+- :topic:`VPN qube <19061>`: You may need to install network-manager VPN packages, depending on the VPN technology you’ll be using. After creating a machine based on this template, follow the :topic:`VPN howto <19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager>` to configure it.
 
 - ``default-mgmt-dvm``: requires ``qubes-core-agent-passwordless-root`` and ``qubes-mgmt-salt-vm-connector``.
 

@@ -15,7 +15,7 @@ Can't attach a USB device / USB device not showing in qvm-usb
 
 To successfully attach a USB device, you require a VM dedicated to handling the USB input and output. For guidance setting up a USB qube, see the :ref:`USB documentation <user/how-to-guides/how-to-use-usb-devices:creating and using a usb qube>`.
 
-Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/1082>`__ gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. This may be characterized by VM manager crashes and the error message: ``Houston, we have a problem``. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following the instructions at the :ref:`Block Devices documentation <user/how-to-guides/how-to-use-block-storage-devices:what if i removed the device before detaching it from the vm?>`.
+Currently (until issue :issue:`1082` gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. This may be characterized by VM manager crashes and the error message: ``Houston, we have a problem``. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following the instructions at the :ref:`Block Devices documentation <user/how-to-guides/how-to-use-block-storage-devices:what if i removed the device before detaching it from the vm?>`.
 
 "Device attach failed" error
 ----------------------------
@@ -29,7 +29,7 @@ Attaching device to a qube works, but the device disconnects or disappears upon 
 
 After attaching a device to a qube, upon attempting to use the device results in the device disappearing or disconnecting. This may be observed by the device no longer existing in the Devices widget or the application within the attached qube indicating the device is no longer found.
 
-As a first line of defense, increase the amount of memory given to the USB VM (sys-usb). High-bandwidth devices such as webcams have been `observed <https://github.com/QubesOS/qubes-issues/issues/6200>`__ to need more memory in sys-usb. If increasing the amount of memory does not resolve the issue, check kernel logs within sys-usb as well as the attached qube for errors before filing a bug report.
+As a first line of defense, increase the amount of memory given to the USB VM (sys-usb). High-bandwidth devices such as webcams have been :issue:`observed <6200>` to need more memory in sys-usb. If increasing the amount of memory does not resolve the issue, check kernel logs within sys-usb as well as the attached qube for errors before filing a bug report.
 
 USB VM does not boot after creating and assigning USB controllers to it
 -----------------------------------------------------------------------

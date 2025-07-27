@@ -11,7 +11,7 @@ Using the Devices Widget to Attach a Drive
 ------------------------------------------
 
 
-(**Note:** In the present context, the term “USB drive” denotes any `USB mass storage device <https://en.wikipedia.org/wiki/USB_mass_storage_device_class>`__. In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
+(**Note:** In the present context, the term “USB drive” denotes any :wikipedia:`USB mass storage device <USB_mass_storage_device_class>`. In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
 Qubes OS supports the ability to attach a USB drive (or just its partitions) to any qube easily, no matter which qube handles the USB controller.
 
@@ -121,7 +121,7 @@ Recovering From Premature Device Destruction
 --------------------------------------------
 
 
-If you fail to detach the device before it’s destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), `there will be problems <https://github.com/QubesOS/qubes-issues/issues/1082>`__.
+If you fail to detach the device before it’s destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), :issue:`there will be problems <1082>`.
 
 To recover from this error state, in dom0 run
 
@@ -139,7 +139,7 @@ What if I removed the device before detaching it from the VM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/1082>`__ gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following these steps:
+Currently (until issue :issue:`1082` gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following these steps:
 
 1. Physically connect the device back. You can use any device as long as it will be detected under the same name (for example, ``sdb``).
 
@@ -219,7 +219,7 @@ Additional Attach Options
 -------------------------
 
 
-Attaching a block device through the command line offers additional customisation options, specifiable via the ``--option``/``-o`` option. (Yes, confusing wording, there’s an `issue for that <https://github.com/QubesOS/qubes-issues/issues/4530>`__.)
+Attaching a block device through the command line offers additional customisation options, specifiable via the ``--option``/``-o`` option. (Yes, confusing wording, there’s an :issue:`issue for that <4530>`.)
 
 frontend-dev
 ^^^^^^^^^^^^

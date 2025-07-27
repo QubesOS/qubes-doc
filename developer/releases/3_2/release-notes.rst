@@ -21,7 +21,7 @@ New features since 3.1
 
 - Tiling window managers support: awesome, :doc:`i3 </user/advanced-topics/i3>`
 
-- More flexible Qubes RPC services - `related ticket <https://github.com/QubesOS/qubes-issues/issues/1876>`__, :ref:`documentation <developer/services/qrexec:service policies with arguments>`
+- More flexible Qubes RPC services - :issue:`related ticket <1876>`, :ref:`documentation <developer/services/qrexec:service policies with arguments>`
 
 
 
@@ -31,7 +31,7 @@ Known issues
 ------------
 
 
-- `Fedora 23 reached EOL in December 2016 <https://fedoraproject.org/wiki/End_of_life>`__. There is a `manual procedure to upgrade your VMs <https://www.qubes-os.org/news/2018/01/06/fedora-26-upgrade/>`__.
+- `Fedora 23 reached EOL in December 2016 <https://fedoraproject.org/wiki/End_of_life>`__. There is a :website:`manual procedure to upgrade your VMs <news/2018/01/06/fedora-26-upgrade/>`.
 
 - Windows Tools: ``qvm-block`` does not work
 
@@ -47,13 +47,13 @@ Downloads
 ---------
 
 
-See `Qubes Downloads <https://www.qubes-os.org/downloads/>`__.
+See :website:`Qubes Downloads <downloads/>`.
 
 Installation instructions
 -------------------------
 
 
-See :doc:`Installation Guide </user/downloading-installing-upgrading/installation-guide>`. After installation, `manually upgrade to Fedora 26 <https://www.qubes-os.org/news/2018/01/06/fedora-26-upgrade/>`__.
+See :doc:`Installation Guide </user/downloading-installing-upgrading/installation-guide>`. After installation, :website:`manually upgrade to Fedora 26 <news/2018/01/06/fedora-26-upgrade/>`.
 
 Upgrading
 ---------

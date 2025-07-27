@@ -23,7 +23,7 @@ The `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-x230-67>`__ 
 
 - Professional ThinkPad hardware based on the `ThinkPad X230 <https://www.thinkwiki.org/wiki/Category:X230>`__
 
-- Security-conscious shipping to mitigate against third-party `interdiction <https://en.wikipedia.org/wiki/Interdiction>`__
+- Security-conscious shipping to mitigate against third-party :wikipedia:`interdiction <Interdiction>`
 
 
 

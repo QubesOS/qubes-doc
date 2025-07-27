@@ -113,7 +113,7 @@ Continue the build process with:
 
 
 
-When building the Whonix templates, you will often need to add/update the ``WHONIX_TBB_VERSION`` variable in ``builder.conf`` at this stage to specify the currently shipping Tor Browser version. See the related note under `Extra Whonix Build Options <https://forum.qubes-os.org/t/18981>`__.
+When building the Whonix templates, you will often need to add/update the ``WHONIX_TBB_VERSION`` variable in ``builder.conf`` at this stage to specify the currently shipping Tor Browser version. See the related note under :topic:`Extra Whonix Build Options <18981>`.
 
 You may also want to add ``COMPONENTS := $(filter-out gcc,$(COMPONENTS))`` to bypass a multiple hour compile step. See :ref:`QubesBuilder <developer/building/qubes-builder:use pre-built qubes packages>` for more detail.
 
@@ -202,7 +202,7 @@ Continue the build process with:
 
 
 
-When building the Whonix templates, you will often need to add/update the ``WHONIX_TBB_VERSION`` variable at this stage to specify the currently shipping Tor Browser version. See the related note under `Extra Whonix Build Options <https://forum.qubes-os.org/t/18981>`__.
+When building the Whonix templates, you will often need to add/update the ``WHONIX_TBB_VERSION`` variable at this stage to specify the currently shipping Tor Browser version. See the related note under :topic:`Extra Whonix Build Options <18981>`.
 
 Finally, if you are making a test build, use:
 

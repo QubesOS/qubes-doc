@@ -73,11 +73,11 @@ The Qubes mailing lists and forum are open to the public. The contents are crawl
 
 The Qubes community includes people from all walks of life and from around the world. Individuals differ in areas of experience and technical expertise. You will come into contact with others whose views and agendas differ from your own. Everyone is free to write what they please, as long as it doesn’t violate our :doc:`Code of Conduct </introduction/code-of-conduct>`. Be friendly and open, but do not believe everything you read. Use good judgment, and be especially careful when following instructions (e.g., copying commands) given by others on the lists.
 
-It’s always possible that a bad actor could try to impersonate any member of the `Qubes team <https://www.qubes-os.org/team/>`__ anywhere on the Internet. Please don’t assume that someone who claims to be an official Qubes team member really is one without an appropriate form of authentication, such as a :doc:`verified PGP-signed message </project-security/verifying-signatures>`. (But bear in mind that anyone can generate a key with any name on it and use it to PGP-sign a message, so the mere presence of a PGP signature does not indicate authority. Successful :doc:`verification </project-security/verifying-signatures>` is what counts.) All official `news <https://www.qubes-os.org/news/>`__ can be authenticated by :doc:`verifying the signatures </project-security/verifying-signatures>` on the relevant tags or commits in the `qubes-posts <https://github.com/QubesOS/qubes-posts>`__ repository.
+It’s always possible that a bad actor could try to impersonate any member of the :website:`Qubes team <team/>` anywhere on the Internet. Please don’t assume that someone who claims to be an official Qubes team member really is one without an appropriate form of authentication, such as a :doc:`verified PGP-signed message </project-security/verifying-signatures>`. (But bear in mind that anyone can generate a key with any name on it and use it to PGP-sign a message, so the mere presence of a PGP signature does not indicate authority. Successful :doc:`verification </project-security/verifying-signatures>` is what counts.) All official :website:`news <news/>` can be authenticated by :doc:`verifying the signatures </project-security/verifying-signatures>` on the relevant tags or commits in the `qubes-posts <https://github.com/QubesOS/qubes-posts>`__ repository.
 
 Given that there may be impostors and others trying to lead you astray, how should you sort the good advice from the bad? This is up to each individual to decide, but it helps to know that many members of our community have proven themselves knowledgeable through their :doc:`contributions </introduction/contributing>` to the project. Often, these individuals sign their messages with the same key as (or another key authenticated by) the one they use to :doc:`sign their contributions </developer/code/code-signing>`.
 
-For example, you might find it easier to trust advice from someone who has a proven track record of :doc:`contributing software packages </developer/general/package-contributions>` or `contributing to the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__. It’s unlikely that individuals who have worked hard to build good reputations for themselves through their contributions over the years would risk giving malicious advice in signed messages to public mailing lists. Since every contribution to the Qubes OS Project is publicly visible and cryptographically signed, anyone would be in a position to :doc:`verify </project-security/verifying-signatures>` that these came from the same keyholder.
+For example, you might find it easier to trust advice from someone who has a proven track record of :doc:`contributing software packages </developer/general/package-contributions>` or :website:`contributing to the documentation <doc/how-to-edit-the-documentation/>`. It’s unlikely that individuals who have worked hard to build good reputations for themselves through their contributions over the years would risk giving malicious advice in signed messages to public mailing lists. Since every contribution to the Qubes OS Project is publicly visible and cryptographically signed, anyone would be in a position to :doc:`verify </project-security/verifying-signatures>` that these came from the same keyholder.
 
 Discussion guidelines
 ---------------------
@@ -121,7 +121,7 @@ Report issues and submit changes in the right places
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The mailing lists and `forum <#forum>`__ are good places to ask questions and discuss things. However, if you’re submitting a more formal report, we’d prefer that you submit it to our :doc:`issue tracker </introduction/issue-tracking>` so that it doesn’t get overlooked. (However, please remember that :ref:`the issue tracker is not a discussion forum <introduction/issue-tracking:the issue tracker is not a discussion forum>`.) Likewise, if you see that something in the documentation should be changed, don’t simply point it out in a discussion venue. Instead, `submit the change <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__.
+The mailing lists and `forum <#forum>`__ are good places to ask questions and discuss things. However, if you’re submitting a more formal report, we’d prefer that you submit it to our :doc:`issue tracker </introduction/issue-tracking>` so that it doesn’t get overlooked. (However, please remember that :ref:`the issue tracker is not a discussion forum <introduction/issue-tracking:the issue tracker is not a discussion forum>`.) Likewise, if you see that something in the documentation should be changed, don’t simply point it out in a discussion venue. Instead, :website:`submit the change <doc/how-to-edit-the-documentation/>`.
 
 Moderation
 ^^^^^^^^^^
@@ -143,7 +143,7 @@ Do not top-post
 ^^^^^^^^^^^^^^^
 
 
-`Top-posting <https://en.wikipedia.org/wiki/Posting_style#Top-posting>`__ is placing your reply above the quoted message to which you’re replying. Please refrain from doing this. Instead, either `interleave <https://en.wikipedia.org/wiki/Posting_style#Interleaved_style>`__ your reply by placing parts of your message immediately below each quoted portion to which it is replying, or `bottom-post <https://en.wikipedia.org/wiki/Posting_style#Bottom-posting>`__ by placing your entire reply below the quoted message to which you’re replying.
+:wikipedia:`Top-posting <Posting_style#Top-posting>` is placing your reply above the quoted message to which you’re replying. Please refrain from doing this. Instead, either :wikipedia:`interleave <Posting_style#Interleaved_style>` your reply by placing parts of your message immediately below each quoted portion to which it is replying, or :wikipedia:`bottom-post <Posting_style#Bottom-posting>` by placing your entire reply below the quoted message to which you’re replying.
 
 Use proper subject lines
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -185,19 +185,19 @@ Google Groups
 ^^^^^^^^^^^^^
 
 
-While the mailing lists are implemented as Google Group web forums, a Google account is in no way required, expected, or encouraged. Many discussants (including most members of the Qubes team) treat these lists as conventional `mailing lists <https://en.wikipedia.org/wiki/Electronic_mailing_list>`__, interacting with them solely through plain text email with `MUAs <https://en.wikipedia.org/wiki/Email_client>`__ like `Thunderbird <https://www.thunderbird.net/>`__ and `Mutt <https://www.mutt.org/>`__. The Google Groups service is just free infrastructure, and we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. This is why, for example, we encourage discussants to use :doc:`Split GPG </user/security-in-qubes/split-gpg>` to sign all of their messages to the lists, but we do not endorse the use of these Google Groups as web forums. For that, we have a separate, dedicated `forum <#forum>`__.
+While the mailing lists are implemented as Google Group web forums, a Google account is in no way required, expected, or encouraged. Many discussants (including most members of the Qubes team) treat these lists as conventional :wikipedia:`mailing lists <Electronic_mailing_list>`, interacting with them solely through plain text email with :wikipedia:`MUAs <Email_client>` like `Thunderbird <https://www.thunderbird.net/>`__ and `Mutt <https://www.mutt.org/>`__. The Google Groups service is just free infrastructure, and we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. This is why, for example, we encourage discussants to use :doc:`Split GPG </user/security-in-qubes/split-gpg>` to sign all of their messages to the lists, but we do not endorse the use of these Google Groups as web forums. For that, we have a separate, dedicated `forum <#forum>`__.
 
 Mailing lists
 -------------
 
 
-This section covers each of our individual `mailing lists <https://en.wikipedia.org/wiki/Electronic_mailing_list>`__, with details about the purpose of each list and how to use it. A Google account is **not** required for any of these mailing lists.
+This section covers each of our individual :wikipedia:`mailing lists <Electronic_mailing_list>`, with details about the purpose of each list and how to use it. A Google account is **not** required for any of these mailing lists.
 
 qubes-announce
 ^^^^^^^^^^^^^^
 
 
-This is a read-only list for those who wish to receive only very important, infrequent messages. Only the core Qubes team can post to this list. Only `Qubes Security Bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__, new stable Qubes OS releases, and Qubes OS release end-of-life notices are announced here.
+This is a read-only list for those who wish to receive only very important, infrequent messages. Only the core Qubes team can post to this list. Only :website:`Qubes Security Bulletins (QSBs) <security/qsb/>`, new stable Qubes OS releases, and Qubes OS release end-of-life notices are announced here.
 
 To subscribe, send a blank email to ``qubes-announce+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To unsubscribe, send a blank email to ``qubes-announce+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-announce@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/group/qubes-announce>`__.
 
@@ -207,7 +207,7 @@ qubes-users
 
 This list is for helping users solve various daily problems with Qubes OS. Examples of topics or questions suitable for this list include:
 
-- `HCL <https://www.qubes-os.org/hcl/>`__ reports
+- :website:`HCL <hcl/>` reports
 
 - Installation problems
 
@@ -219,7 +219,7 @@ This list is for helping users solve various daily problems with Qubes OS. Examp
 
 Please try searching both the Qubes website and the archives of the mailing lists before sending a question. In addition, please make sure that you have read and understood the following basic documentation prior to posting to the list:
 
-- The :doc:`Installation Guide </user/downloading-installing-upgrading/installation-guide>`, :doc:`System Requirements </user/hardware/system-requirements>`, and `HCL <https://www.qubes-os.org/hcl/>`__ (for problems related to installing Qubes OS)
+- The :doc:`Installation Guide </user/downloading-installing-upgrading/installation-guide>`, :doc:`System Requirements </user/hardware/system-requirements>`, and :website:`HCL <hcl/>` (for problems related to installing Qubes OS)
 
 - The :ref:`User FAQ <introduction/faq:users>`
 
@@ -305,7 +305,7 @@ Why was this forum created?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Previously, the only option for a forum-like experience was to interact with our mailing lists via Google Groups, but we understand all too well that the privacy implications and user experience were unacceptable for many members of our community, especially with the recent addition of a sign-in requirement to view threads. Many of you value the lower barrier to entry, organization, ease-of-use, and modern social features that today’s forums support. Moreover, Discourse `features email integration <https://forum.qubes-os.org/t/using-the-forum-via-email/533>`__ for those who still prefer the traditional mailing list format.
+Previously, the only option for a forum-like experience was to interact with our mailing lists via Google Groups, but we understand all too well that the privacy implications and user experience were unacceptable for many members of our community, especially with the recent addition of a sign-in requirement to view threads. Many of you value the lower barrier to entry, organization, ease-of-use, and modern social features that today’s forums support. Moreover, Discourse :topic:`features email integration <using-the-forum-via-email/533>` for those who still prefer the traditional mailing list format.
 
 How is this different from our mailing lists?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,7 +317,7 @@ Does this split the community?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Many open-source projects (such as Fedora and Debian) have both mailing lists and forums (and additional discussion venues). In fact, the Qubes OS Project already had non-mailing-list discussion venues such as `Reddit <https://www.reddit.com/r/Qubes/>`__ before this forum was introduced. We believe that this additional venue fosters the continued growth of community participation and improves everyone’s experience. In addition, we fully expect that many community members – especially the most active ones – will choose to participate in both venues. (Again, for those who still prefer interacting via email, `Discourse supports that too <https://forum.qubes-os.org/t/using-the-forum-via-email/533>`__!)
+Many open-source projects (such as Fedora and Debian) have both mailing lists and forums (and additional discussion venues). In fact, the Qubes OS Project already had non-mailing-list discussion venues such as `Reddit <https://www.reddit.com/r/Qubes/>`__ before this forum was introduced. We believe that this additional venue fosters the continued growth of community participation and improves everyone’s experience. In addition, we fully expect that many community members – especially the most active ones – will choose to participate in both venues. (Again, for those who still prefer interacting via email, :topic:`Discourse supports that too <using-the-forum-via-email/533>`!)
 
 Social media
 ------------
@@ -337,7 +337,7 @@ The Qubes OS Project has a presence on the following social media platforms:
 
 
 
-Generally speaking, these are not intended to be primary support venues. (Those would be `qubes-users <#qubes-users>`__ and the `forum <#forum>`__.) Rather, these are primarily intended to be a way to more widely disseminate items published on the `news <https://www.qubes-os.org/news/>`__ page. If you use one of these platforms, you may find it convenient to follow the Qubes OS Project there as a way of receiving Qubes news.
+Generally speaking, these are not intended to be primary support venues. (Those would be `qubes-users <#qubes-users>`__ and the `forum <#forum>`__.) Rather, these are primarily intended to be a way to more widely disseminate items published on the :website:`news <news/>` page. If you use one of these platforms, you may find it convenient to follow the Qubes OS Project there as a way of receiving Qubes news.
 
 Chat
 ----

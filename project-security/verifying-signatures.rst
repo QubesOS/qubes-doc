@@ -3,7 +3,7 @@ Verifying signatures
 ====================
 
 
-The Qubes OS Project uses `digital signatures <https://en.wikipedia.org/wiki/Digital_signature>`__ to guarantee the authenticity and integrity of certain important assets. This page explains how to verify those signatures. It is extremely important for your security to understand and apply these practices.
+The Qubes OS Project uses :wikipedia:`digital signatures <Digital_signature>` to guarantee the authenticity and integrity of certain important assets. This page explains how to verify those signatures. It is extremely important for your security to understand and apply these practices.
 
 What digital signatures can and cannot prove
 --------------------------------------------
@@ -27,7 +27,7 @@ OpenPGP software
 ----------------
 
 
-We use `PGP <https://en.wikipedia.org/wiki/Pretty_Good_Privacy>`__ (specifically, the `OpenPGP <https://en.wikipedia.org/wiki/Pretty_Good_Privacy#OpenPGP>`__ standard). Before we begin, you’ll need software that can manage PGP keys and verify PGP signatures. Any program that complies with the OpenPGP standard will do, but here are some examples for popular operating systems:
+We use :wikipedia:`PGP <Pretty_Good_Privacy>` (specifically, the :wikipedia:`OpenPGP <Pretty_Good_Privacy#OpenPGP>` standard). Before we begin, you’ll need software that can manage PGP keys and verify PGP signatures. Any program that complies with the OpenPGP standard will do, but here are some examples for popular operating systems:
 
 **Linux:** `GnuPG <https://gnupg.org/download/index.html>`__ (`documentation <https://www.gnupg.org/documentation/>`__). Open a terminal and use the ``gpg2`` command. If you don’t already have GnuPG installed, install it via your distro’s package manager or from the GnuPG website.
 
@@ -49,7 +49,7 @@ Before we proceed, you must first complete the prerequisite step of `installing 
 
 Once you have appropriate OpenPGP software installed, there are several ways to get the QMSK.
 
-- If you’re on Qubes OS, it’s available in every qube (`except dom0 <https://github.com/QubesOS/qubes-issues/issues/2544>`__):
+- If you’re on Qubes OS, it’s available in every qube (:issue:`except dom0 <2544>`):
 
   .. code:: bash
 
@@ -73,7 +73,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
         $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
 
-- Get it from a public `keyserver <https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples>`__ (specified on first use with ``--keyserver <URI>`` along with keyserver options to include key signatures), e.g.:
+- Get it from a public :wikipedia:`keyserver <Key_server_%28cryptographic%29#Keyserver_examples>` (specified on first use with ``--keyserver <URI>`` along with keyserver options to include key signatures), e.g.:
 
   .. code:: bash
 
@@ -103,7 +103,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
 Once you’ve obtained the QMSK, you must verify that it’s authentic rather than a forgery. Anyone can create a PGP key with the name “Qubes Master Signing Key” and the short key ID ``0x36879494``, so you cannot rely on these alone. You also should not rely on any single website, not even over HTTPS.
 
-So, what *should* you do? One option is to use the PGP `Web of Trust <https://en.wikipedia.org/wiki/Web_of_trust>`__. In addition, some operating systems include the means to acquire the QMSK securely. For example, on Fedora, ``dnf install distribution-gpg-keys`` will get you the QMSK along with several other Qubes keys. On Debian, your keyring may already contain the necessary keys.
+So, what *should* you do? One option is to use the PGP :wikipedia:`Web of Trust <Web_of_trust>`. In addition, some operating systems include the means to acquire the QMSK securely. For example, on Fedora, ``dnf install distribution-gpg-keys`` will get you the QMSK along with several other Qubes keys. On Debian, your keyring may already contain the necessary keys.
 
 Perhaps the most common route is to rely on the key’s fingerprint, which is a string of 40 alphanumeric characters, like this:
 
@@ -143,7 +143,7 @@ The ``0x`` prefix is sometimes used to indicate that the string following it is 
 
 The general idea of “comparing fingerprints” is to go out into the world (whether digitally, physically, or both) and find other 40-character strings purporting to be the QMSK fingerprint, then compare them to your own purported QMSK fingerprint to ensure that the sequence of alphanumeric characters is exactly the same (again, regardless of spaces or capitalization). If any of the characters do not match or are not in the same order, then at least one of the fingerprints is a forgery. Here are some ideas to get you started:
 
-- Check the fingerprint on various websites (e.g., `mailing lists <https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ>`__, `discussion forums <https://forum.qubes-os.org/t/1441/9>`__, `social <https://twitter.com/rootkovska/status/496976187491876864>`__ `media <https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/>`__, `personal websites <https://andrewdavidwong.com/fingerprints.txt>`__).
+- Check the fingerprint on various websites (e.g., `mailing lists <https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ>`__, :topic:`discussion forums <1441/9>`, `social <https://twitter.com/rootkovska/status/496976187491876864>`__ `media <https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/>`__, `personal websites <https://andrewdavidwong.com/fingerprints.txt>`__).
 
 - Check against PDFs, photographs, and videos in which the fingerprint appears (e.g., `slides from a talk <https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf>`__, on a `T-shirt <https://twitter.com/legind/status/813847907858337793/photo/2>`__, or in the `recording of a presentation <https://youtu.be/S0TVw7U3MkE?t=2563>`__).
 
@@ -254,7 +254,7 @@ After you have completed these two prerequisite steps, the next step is to obtai
         $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
 
 
-- Download it as a file. You can find the RSK for your Qubes release on the `downloads <https://www.qubes-os.org/downloads/>`__ page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, import it with GPG:
+- Download it as a file. You can find the RSK for your Qubes release on the :website:`downloads <downloads/>` page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, import it with GPG:
 
   .. code:: bash
 
@@ -313,11 +313,11 @@ Before we proceed, you must first complete the following prerequisite steps:
 
 
 
-Each Qubes ISO is accompanied by a set of **cryptographic hash values** contained in a plain text file ending in ``.DIGESTS``, which can find on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside the ISO. This file contains the output of running several different cryptographic hash functions on the ISO (a process known as “hashing”) to obtain alphanumeric outputs known as “hash values” or “digests.”
+Each Qubes ISO is accompanied by a set of **cryptographic hash values** contained in a plain text file ending in ``.DIGESTS``, which can find on the :website:`downloads <downloads/>` page alongside the ISO. This file contains the output of running several different cryptographic hash functions on the ISO (a process known as “hashing”) to obtain alphanumeric outputs known as “hash values” or “digests.”
 
 One convenient property of hash values is that they can be generated on any computer. This means, for example, that you can download a Qubes ISO on one computer, hash it, then visually compare that hash value to the one you generated or have saved on a different computer.
 
-In addition to the ``.DIGESTS`` files on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside each ISO, and you can always find all the digest files for every Qubes ISO in the :doc:`Qubes security pack </project-security/security-pack>`.
+In addition to the ``.DIGESTS`` files on the :website:`downloads <downloads/>` page alongside each ISO, and you can always find all the digest files for every Qubes ISO in the :doc:`Qubes security pack </project-security/security-pack>`.
 
 If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the digest file for that ISO is ``Qubes-RX-x86_64.iso.DIGESTS``, where ``X`` is a specific release of Qubes. The digest filename is always the same as the ISO filename followed by ``.DIGESTS``. Since the digest file is a plain text file, you can open it with any text editor. Inside, you should find text that looks similar to this:
 
@@ -419,7 +419,7 @@ Before we proceed, you must first complete the following prerequisite steps:
 
 
 
-Every Qubes ISO is released with a **detached PGP signature** file, which you can find on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside the ISO. If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the signature file for that ISO is ``Qubes-RX-x86_64.iso.asc``, where ``X`` is a specific release of Qubes. The signature filename is always the same as the ISO filename followed by ``.asc``.
+Every Qubes ISO is released with a **detached PGP signature** file, which you can find on the :website:`downloads <downloads/>` page alongside the ISO. If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the signature file for that ISO is ``Qubes-RX-x86_64.iso.asc``, where ``X`` is a specific release of Qubes. The signature filename is always the same as the ISO filename followed by ``.asc``.
 
 Download both the ISO and its signature file. Put both of them in the same directory, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files:
 
@@ -470,7 +470,7 @@ Note that your actual SHA-256 hash value and byte number will depend on which Qu
 
 Now, reading the number of bytes directly from the ISO is fine, but you may be concerned that a sufficiently sophisticated adversary may have compromised the machine on which you’re performing this re-verification and may therefore be capable of feeding you a false success result. After all, if your adversary knows the answer you’re looking for — namely, a match to the genuine ISO — and has access to that very ISO in the same re-verification environment, then there is little to prevent him from simply hashing the original ISO and feeding you that result (perhaps while also reading from the USB drive and piping it into ``/dev/null`` so that you see the light on the USB drive blinking to support the illusion that the data is being read from the USB drive).
 
-Therefore, in order to make things a bit more difficult for your hypothetical adversary, you may instead wish to perform the re-verification in an environment that has never seen the original ISO, e.g., a separate offline computer or a fresh VM the storage space of which is too small to hold the ISO. (**Note:** If you’re doing this in Qubes, you can attach the block device from sys-usb to a separate new qube. You don’t have to perform the re-verification directly in sys-usb.) In that case, you’ll have to obtain the size of the ISO in bytes and enter it into the above command manually. You can, of course, obtain the size by simply using the ``stat -c %s /path/to/iso`` command from above on the machine that has the ISO. You can also obtain it from the Qubes website by hovering over any ISO download button on the `downloads page <https://www.qubes-os.org/downloads/>`__. (You can also view these values directly in the downloads page’s `source data <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml>`__.) Once you have the exact size of the ISO in bytes, simply insert it into the same command, for example:
+Therefore, in order to make things a bit more difficult for your hypothetical adversary, you may instead wish to perform the re-verification in an environment that has never seen the original ISO, e.g., a separate offline computer or a fresh VM the storage space of which is too small to hold the ISO. (**Note:** If you’re doing this in Qubes, you can attach the block device from sys-usb to a separate new qube. You don’t have to perform the re-verification directly in sys-usb.) In that case, you’ll have to obtain the size of the ISO in bytes and enter it into the above command manually. You can, of course, obtain the size by simply using the ``stat -c %s /path/to/iso`` command from above on the machine that has the ISO. You can also obtain it from the Qubes website by hovering over any ISO download button on the :website:`downloads page <downloads/>`. (You can also view these values directly in the downloads page’s `source data <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml>`__.) Once you have the exact size of the ISO in bytes, simply insert it into the same command, for example:
 
 .. code:: bash
 

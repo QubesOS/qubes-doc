@@ -19,7 +19,7 @@ Time-based One-time Password (TOTP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-As the name implies, this generates authentication code that is time-dependent. You can save the TOTP secret in a mobile app like `FreeOTP <https://en.wikipedia.org/wiki/FreeOTP>`__ and then use it as an additional factor to login to your Qubes system.
+As the name implies, this generates authentication code that is time-dependent. You can save the TOTP secret in a mobile app like :wikipedia:`FreeOTP <FreeOTP>` and then use it as an additional factor to login to your Qubes system.
 
    **Warning**: remember to keep backup access codes.
 
@@ -134,13 +134,13 @@ Login with a YubiKey / NitroKey3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The YubiKey / NitroKey3 is a hardware authentication device manufactured by Yubico / NitroKey to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor `(U2F) <https://en.wikipedia.org/wiki/Universal_2nd_Factor>`__ and FIDO2 protocols developed by the `FIDO Alliance <https://en.wikipedia.org/wiki/FIDO_Alliance>`__.
+The YubiKey / NitroKey3 is a hardware authentication device manufactured by Yubico / NitroKey to protect access to computers, networks, and online services that supports one-time passwords (OTP), public-key cryptography, and authentication, and the Universal 2nd Factor :wikipedia:`(U2F) <Universal_2nd_Factor>` and FIDO2 protocols developed by the :wikipedia:`FIDO Alliance <FIDO_Alliance>`.
 
 You can use a YubiKey / NitroKey3 to enhance the user authentication in Qubes. The following instructions explain how to setup the YubiKey / NitroKey3 as an *additional* way to login.
 
-After setting it up, you can login by providing both - a password typed in via keyboard *and* the YubiKey / NitroKey3 plugged in. Someone eavesdropping your login attempt would not be able to login by only observing and remembering your password. Stealing your YubiKey / NitroKey3 would not suffice to login either. Only if an attacker has both, the password and the Yubikey / NitroKey3, it would be possible to login (it is thus called `Multi-factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`__).
+After setting it up, you can login by providing both - a password typed in via keyboard *and* the YubiKey / NitroKey3 plugged in. Someone eavesdropping your login attempt would not be able to login by only observing and remembering your password. Stealing your YubiKey / NitroKey3 would not suffice to login either. Only if an attacker has both, the password and the Yubikey / NitroKey3, it would be possible to login (it is thus called :wikipedia:`Multi-factor authentication <Multi-factor_authentication>`).
 
-The following instructions keep your current login password untouched and recommends to define a new, additional password that is used in combination with the YubiKey / NitroKey3 only. This ensures that you a) do not accidentally lock yourself out during setup and b) you do not need to fear `shoulder surfing <https://en.wikipedia.org/wiki/Shoulder_surfing_(computer_security)>`__ so much (i.e. by not using your standard login password in public).
+The following instructions keep your current login password untouched and recommends to define a new, additional password that is used in combination with the YubiKey / NitroKey3 only. This ensures that you a) do not accidentally lock yourself out during setup and b) you do not need to fear :wikipedia:`shoulder surfing <Shoulder_surfing_(computer_security)>` so much (i.e. by not using your standard login password in public).
 
 Setup login with YubiKey / NitroKey3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,7 +150,7 @@ To use the YubiKey / NitroKey3 for multi-factor authentication you need to
 
 - install software for the YubiKey / NitroKey3,
 
-- configure the YubiKey for the `Challenge-Response <https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication>`__ mode or the NitroKey3 for `HOTP <https://en.wikipedia.org/wiki/HMAC-based_one-time_password>`__ mode,
+- configure the YubiKey for the :wikipedia:`Challenge-Response <Challenge%E2%80%93response_authentication>` mode or the NitroKey3 for :wikipedia:`HOTP <HMAC-based_one-time_password>` mode,
 
 - store the password for YubiKey / NitroKey3 Login and the Challenge-Response / HOTP secret in dom0,
 

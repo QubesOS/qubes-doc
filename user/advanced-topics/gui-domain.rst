@@ -6,7 +6,7 @@ GUI domain
 
       This page is intended for advanced users.
 
-On this page, we describe how to set up a `GUI domain <https://www.qubes-os.org/news/2020/03/18/gui-domain/>`__. In all the cases, the base underlying TemplateVM used is ``Fedora`` with ``XFCE`` flavor to match current desktop choice in ``dom0``. That can be adapted very easily for other desktops and templates. By default, the configured GUI domain is a management qube with global admin permissions ``rwx`` but can be adjusted to ``ro`` (see `Introducing the Qubes Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__) in pillar data of the corresponding GUI domain to setup. For example, pillar data for ``sys-gui`` located at ``/srv/pillar/base/qvm/sys-gui.sls``. Please note that each GUI domain has no ``NetVM``.
+On this page, we describe how to set up a :website:`GUI domain <news/2020/03/18/gui-domain/>`. In all the cases, the base underlying TemplateVM used is ``Fedora`` with ``XFCE`` flavor to match current desktop choice in ``dom0``. That can be adapted very easily for other desktops and templates. By default, the configured GUI domain is a management qube with global admin permissions ``rwx`` but can be adjusted to ``ro`` (see :website:`Introducing the Qubes Admin API <news/2017/06/27/qubes-admin-api/>`) in pillar data of the corresponding GUI domain to setup. For example, pillar data for ``sys-gui`` located at ``/srv/pillar/base/qvm/sys-gui.sls``. Please note that each GUI domain has no ``NetVM``.
 
    **Note:** The setup is done using ``SaltStack`` formulas with the ``qubesctl`` tool. When executing it, apply step can take time because it needs to download latest Fedora XFCE TemplateVM and install desktop dependencies.
 
@@ -14,7 +14,7 @@ Hybrid GUI domain (``sys-gui``)
 -------------------------------
 
 
-Here, we describe how to setup ``sys-gui`` that we call *hybrid mode* or referenced as a *compromise solution* in `GUI domain <https://www.qubes-os.org/news/2020/03/18/gui-domain/>`__.
+Here, we describe how to setup ``sys-gui`` that we call *hybrid mode* or referenced as a *compromise solution* in :website:`GUI domain <news/2020/03/18/gui-domain/>`.
 
 |sys-gui|
 
@@ -48,7 +48,7 @@ GPU GUI domain (``sys-gui-gpu``)
 --------------------------------
 
 
-Here, we describe how to setup ``sys-gui-gpu`` which is a GUI domain with *GPU passthrough* in `GUI domain <https://www.qubes-os.org/news/2020/03/18/gui-domain/>`__.
+Here, we describe how to setup ``sys-gui-gpu`` which is a GUI domain with *GPU passthrough* in :website:`GUI domain <news/2020/03/18/gui-domain/>`.
 
    **Note:** the purpose of ``sys-gui-gpu`` is to improve Qubes OS security by detaching the GPU from dom0, this is not intended to improve GPU related performance within qubes, and this will not improve performance.
 
@@ -91,13 +91,13 @@ At this point, you need to reboot your Qubes OS machine in order to boot into ``
 
    **Note:** For some platforms, it can be sufficient to shutdown all the running qubes and starting ``sys-gui-gpu``. Unfortunately, it has been observed that detaching and attaching some GPU cards from ``dom0`` to ``sys-gui-gpu`` can freeze computer. We encourage reboot to prevent any data loss.
 
-Once, ``lightdm`` is started, you can log as ``user`` where ``user`` refers to the first ``dom0`` user in ``qubes`` group and with corresponding ``dom0`` password. A better approach for handling password is currently discussed in `QubesOS/qubes-issues#6740 <https://github.com/QubesOS/qubes-issues/issues/6740>`__.
+Once, ``lightdm`` is started, you can log as ``user`` where ``user`` refers to the first ``dom0`` user in ``qubes`` group and with corresponding ``dom0`` password. A better approach for handling password is currently discussed in :issue:`QubesOS/qubes-issues#6740 <6740>`.
 
 VNC GUI domain (``sys-gui-vnc``)
 --------------------------------
 
 
-Here, we describe how to setup ``sys-gui-vnc`` that we call a *remote* GUI domain or referenced as *with a virtual server* in `GUI domain <https://www.qubes-os.org/news/2020/03/18/gui-domain/>`__.
+Here, we describe how to setup ``sys-gui-vnc`` that we call a *remote* GUI domain or referenced as *with a virtual server* in :website:`GUI domain <news/2020/03/18/gui-domain/>`.
 
 |sys-gui-vnc|
 
@@ -144,31 +144,31 @@ Application menu lacks qubes entries in a fresh GUI domain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See `QubesOS/qubes-issues#5804 <https://github.com/QubesOS/qubes-issues/issues/5804>`__
+See :issue:`QubesOS/qubes-issues#5804 <5804>`
 
 Cannot update dom0 from sys-gui
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See `QubesOS/qubes-issues#8934 <https://github.com/QubesOS/qubes-issues/issues/8934>`__
+See :issue:`QubesOS/qubes-issues#8934 <8934>`
 
 GUI of HVM qubes not visible
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See `QubesOS/qubes-issues#9385 <https://github.com/QubesOS/qubes-issues/issues/9385>`__
+See :issue:`QubesOS/qubes-issues#9385 <9385>`
 
 Power saving/screensaver issues
 -------------------------------
 
 
-See `QubesOS/qubes-issues#9033 <https://github.com/QubesOS/qubes-issues/issues/9033>`__, `QubesOS/qubes-issues#9384 <https://github.com/QubesOS/qubes-issues/issues/9384>`__, `QubesOS/qubes-issues#7989 <https://github.com/QubesOS/qubes-issues/issues/7989>`__
+See :issue:`QubesOS/qubes-issues#9033 <9033>`, :issue:`QubesOS/qubes-issues#9384 <9384>`, :issue:`QubesOS/qubes-issues#7989 <7989>`
 
 Qube startup order (sys-usb and sys-gui)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See `QubesOS/qubes-issues#7954 <https://github.com/QubesOS/qubes-issues/issues/7954>`__
+See :issue:`QubesOS/qubes-issues#7954 <7954>`
 
 Other GUI domain issues
 ^^^^^^^^^^^^^^^^^^^^^^^

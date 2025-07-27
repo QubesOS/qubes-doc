@@ -6,7 +6,7 @@ Testing new releases and updates
 
       This page is intended for advanced users.
 
-Testing new Qubes OS releases and updates is one of the most helpful ways in which you can :doc:`contribute </introduction/contributing>` to the Qubes OS Project. If you’re interested in helping with this, please `join the testing team <https://forum.qubes-os.org/t/joining-the-testing-team/5190>`__. There are several different types of testing, which we’ll cover below.
+Testing new Qubes OS releases and updates is one of the most helpful ways in which you can :doc:`contribute </introduction/contributing>` to the Qubes OS Project. If you’re interested in helping with this, please :topic:`join the testing team <joining-the-testing-team/5190>`. There are several different types of testing, which we’ll cover below.
 
 **Warning:** Software testing is intended for advanced users and developers. You should only attempt to do this if you know what you’re doing. Never rely on code that is in testing for critical work!
 
@@ -16,9 +16,9 @@ Releases
 
 How to test upcoming Qubes OS releases:
 
-- Test the latest release candidate (RC) on the `downloads <https://www.qubes-os.org/downloads/>`__ page, if one is currently available. (Or try an older RC from our `FTP server <https://ftp.qubes-os.org/iso/>`__.)
+- Test the latest release candidate (RC) on the :website:`downloads <downloads/>` page, if one is currently available. (Or try an older RC from our `FTP server <https://ftp.qubes-os.org/iso/>`__.)
 
-- Try the `signed weekly builds <https://qubes.notset.fr/iso/>`__. (`Learn more <https://forum.qubes-os.org/t/16929>`__ and `track their status <https://github.com/fepitre/updates-status-iso/issues>`__.)
+- Try the `signed weekly builds <https://qubes.notset.fr/iso/>`__. (:topic:`Learn more <16929>` and `track their status <https://github.com/fepitre/updates-status-iso/issues>`__.)
 
 - Use :doc:`qubes-builder </developer/building/qubes-builder-v2>` to build the latest release yourself.
 

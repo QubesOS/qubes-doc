@@ -5,7 +5,7 @@ Usability & UX
 
 Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
 
-We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review `our visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>`__ for other design related information.
+We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review :website:`our visual style guide <doc/visual-style-guide/>` for other design related information.
 
 
 ----
@@ -43,7 +43,7 @@ Perhaps the most common cause of mistakes is complexity. If there is a configura
 
 
 
-In making software easy to use, it is crucial to be mindful of `cognitive load <https://en.wikipedia.org/wiki/Cognitive_load>`__ which dictates that *“humans are generally able to hold only seven +/- two units of information in short-term memory.”* Making sure your interfaces don’t pass this short-term memory limit is perhaps the most important factor in helping a user feel comfortable instead of overwhelmed.
+In making software easy to use, it is crucial to be mindful of :wikipedia:`cognitive load <Cognitive_load>` which dictates that *“humans are generally able to hold only seven +/- two units of information in short-term memory.”* Making sure your interfaces don’t pass this short-term memory limit is perhaps the most important factor in helping a user feel comfortable instead of overwhelmed.
 
 
 ----
@@ -269,7 +269,7 @@ The desktop GUIs that QubesOS versions 1 - 4.1 offer are `KDE <https://kde.org>`
 
 This change means you should use `GTK <https://gtk.org/>`__ rather than Qt for new GUIs.
 
-All three of these mentioned desktop environments have their own `human interface guidelines <https://en.wikipedia.org/wiki/Human_interface_guidelines>`__, and we suggest you familiarize yourself with the platform you developing for.
+All three of these mentioned desktop environments have their own :wikipedia:`human interface guidelines <Human_interface_guidelines>`, and we suggest you familiarize yourself with the platform you developing for.
 
 - `GNOME Human Interface Guidelines <https://developer.gnome.org/hig/>`__
 

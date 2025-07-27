@@ -3,7 +3,7 @@ Google Season of Docs (GSoD)
 ============================
 
 
-Thank you for your interest in participating in the `2024 Google Season of Docs <https://developers.google.com/season-of-docs/>`__ program with the `Qubes OS team <https://www.qubes-os.org/team/>`__. This page details our 2024 project idea as well as completed past projects. You can read more about the Google Season of Docs in the official `guides <https://developers.google.com/season-of-docs/docs/>`__ and `FAQ <https://developers.google.com/season-of-docs/docs/faq>`__.
+Thank you for your interest in participating in the `2024 Google Season of Docs <https://developers.google.com/season-of-docs/>`__ program with the :website:`Qubes OS team <team/>`. This page details our 2024 project idea as well as completed past projects. You can read more about the Google Season of Docs in the official `guides <https://developers.google.com/season-of-docs/docs/>`__ and `FAQ <https://developers.google.com/season-of-docs/docs/faq>`__.
 
 Update and Expand How-To Guides – Qubes OS
 ------------------------------------------
@@ -15,7 +15,7 @@ About the Qubes OS Project
 
 Qubes OS is a security-focused operating system that allows you to organize your digital life into compartments called “qubes.” If one qube is compromised, the others remain safe, so a single cyberattack can no longer take down your entire digital life in one fell swoop. You can think of using Qubes OS as having many different computers on your desk for different activities but with the convenience of a single physical machine, a single unified desktop environment, and a set of tools for using qubes together securely as parts of a unified system.
 
-Qubes OS was launched in 2011 and has `received praise from security experts and organizations <https://www.qubes-os.org/endorsements/>`__ like Edward Snowden, the Freedom of the Press Foundation, Micah Lee, and Let’s Encrypt. Qubes has :doc:`over 40,000 active users </introduction/statistics>`. From network-level to software-level protections, as well as protections against firmware and hardware attacks, Qubes OS is trying to protect the user from the most significant attacks they encounter so that they can get their work done safely.
+Qubes OS was launched in 2011 and has :website:`received praise from security experts and organizations <endorsements/>` like Edward Snowden, the Freedom of the Press Foundation, Micah Lee, and Let’s Encrypt. Qubes has :doc:`over 40,000 active users </introduction/statistics>`. From network-level to software-level protections, as well as protections against firmware and hardware attacks, Qubes OS is trying to protect the user from the most significant attacks they encounter so that they can get their work done safely.
 
 The project's problem
 ^^^^^^^^^^^^^^^^^^^^^
@@ -262,7 +262,7 @@ Consolidate troubleshooting guides
 
 
 
-**Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
+**Mentor**: :website:`Marek Marczykowski-Górecki <team/>`
 
 Improve Getting Started page
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -270,7 +270,7 @@ Improve Getting Started page
 
 **Project**: Improve Getting Started page
 
-**Brief explanation**: The :doc:`Getting Started page </introduction/getting-started>` is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the `offline documentation <https://github.com/QubesOS/qubes-issues/issues/1019>`__ or the firstboot guide.
+**Brief explanation**: The :doc:`Getting Started page </introduction/getting-started>` is the place a new user would go to understand better how to use Qubes. It is currently has old screenshots not using the default desktop environment and could have much better flow. In addition, this improved page content may end up being served more directly to the user via the :issue:`offline documentation <1019>` or the firstboot guide.
 
 **Expected results**:
 
@@ -288,7 +288,7 @@ Improve Getting Started page
 
 
 
-**Mentor**: `Michael Carbone <https://www.qubes-os.org/team/>`__
+**Mentor**: :website:`Michael Carbone <team/>`
 
 Rewrite qrexec documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,7 +300,7 @@ Rewrite qrexec documentation
 
 **Expected results**:
 
-- Review existing :doc:`qrexec documentation </developer/services/qrexec>` and an `issue about it <https://github.com/QubesOS/qubes-issues/issues/1392>`__
+- Review existing :doc:`qrexec documentation </developer/services/qrexec>` and an :issue:`issue about it <1392>`
 
 - Propose updated, consolidated admin documentation (policy writing, adding services)
 
@@ -314,4 +314,4 @@ Rewrite qrexec documentation
 
 
 
-**Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
+**Mentor**: :website:`Marek Marczykowski-Górecki <team/>`

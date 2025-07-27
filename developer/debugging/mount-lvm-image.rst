@@ -55,4 +55,4 @@ References
 ----------
 
 
-Please consult this issue’s `comment <https://github.com/QubesOS/qubes-issues/issues/4687#issuecomment-451626625>`__.
+Please consult this issue’s :issue:`comment <4687#issuecomment-451626625>`.
