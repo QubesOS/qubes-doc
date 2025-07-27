@@ -1,3 +1,5 @@
+.. _app-menu-troubleshooting:
+
 =================================
 App menu shortcut troubleshooting
 =================================
