@@ -32,7 +32,7 @@ Create a standalone AppVM from the Fedora template. Set private storage to at le
 
 Once you’ve built the development AppVM, open a Terminal window to it and install the necessary dependencies (see :doc:`QubesBuilder </developer/building/qubes-builder>` for more info):
 
-.. code:: bash
+.. code:: console
 
       $ sudo dnf install git createrepo rpm-build rpm-sign make python3-sh rpmdevtools rpm-sign dialog perl-open python3-pyyaml perl-Digest-MD5 perl-Digest-SHA
 

@@ -31,7 +31,7 @@ There are a variety of other problems that could arise when using a USB installa
 
 This error message is related to the faulty creation of the USB installation medium. If you receive this error message during installation, please make sure you have followed the instructions on :ref:`how to write your ISO to a USB key <user/downloading-installing-upgrading/installation-guide:copying the iso onto the installation medium>`. Specifically, the ``dd`` command listed on that page has been verified to solve this issue on multiple Qubes installation versions.
 
-.. code:: bash
+.. code:: console
 
       $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
 

@@ -17,7 +17,7 @@ The best way to write and contribute code is to create a git repo somewhere (e.g
 
 **Example:**
 
-.. code:: bash
+.. code:: console
 
       $ cd qubes-builder/artifacts/sources/qubes-manager
       $ git remote add abel git@GitHub.com:abeluck/qubes-manager.git
@@ -290,7 +290,7 @@ You will also need to setup qrexec policy in dom0 (``/etc/qubes-rpc/policy/local
 
 Usage:
 
-.. code:: bash
+.. code:: console
 
       [user@source core-agent-linux]$ git remote add testbuilder "ext::git-qrexec testbuilder 3 core-agent-linux"
       [user@source core-agent-linux]$ git push testbuilder master

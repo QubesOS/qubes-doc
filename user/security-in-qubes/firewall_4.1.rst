@@ -131,7 +131,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@sys-firewall ~]$ sudo bash
       [root@sys-firewall user]# echo "iptables -I FORWARD 2 -s 10.137.2.25 -d 10.137.2.6 -j ACCEPT" >> /rw/config/qubes-firewall-user-script
@@ -143,7 +143,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@B ~]$ sudo bash
       [root@B user]# echo "iptables -I INPUT -s 10.137.2.25 -j ACCEPT" >> /rw/config/rc.local
@@ -171,7 +171,7 @@ Consider the following example. ``mytcp-service`` qube has a TCP service running
 
 - In untrusted, use the Qubes tool ``qvm-connect-tcp``:
 
-  .. code:: bash
+  .. code:: console
 
         [user@untrusted #]$ qvm-connect-tcp 444:@default:444
 
@@ -185,7 +185,7 @@ The service of ``mytcp-service`` running on port ``444`` is now accessible in ``
 
 Here ``@default`` is used to hide the destination qube which is specified in the Qubes RPC policy by ``target=mytcp-service``. Equivalent call is to use the tool as follow:
 
-.. code:: bash
+.. code:: console
 
       [user@untrusted #]$ qvm-connect-tcp ::444
 
@@ -205,7 +205,7 @@ Consider now the case where someone prefers to specify the destination qube and 
 
 in ``/etc/qubes/policy.d/30-user-networking.policy`` and in untrusted, use the tool as follow:
 
-.. code:: bash
+.. code:: console
 
       [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
 
@@ -225,7 +225,7 @@ One can go further than the previous examples by redirecting different ports to 
 
 In that case, calling ``qvm-connect-tcp`` like previous examples, will still bind TCP port ``444`` of ``mytcp-service`` to ``untrusted`` but now, calling it with port ``445``
 
-.. code:: bash
+.. code:: console
 
       [user@untrusted #]$ qvm-connect-tcp ::445
 

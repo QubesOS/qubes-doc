@@ -64,7 +64,7 @@ Installing new template
 
 Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commands:
 
-.. code:: bash
+.. code:: console
 
       $ sudo -s
       # mkdir -p /mnt/cdrom

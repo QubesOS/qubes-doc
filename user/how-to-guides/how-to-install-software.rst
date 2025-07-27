@@ -52,7 +52,7 @@ If you are still using the distribution package manager, updates will likely sti
 
 If you are using another installation method fetching remote resources, you might still be able to use the updates proxy by making the tools aware of the proxy. For many tools, it is enough to export the following environment variables in your shell session before proceeding:
 
-.. code:: bash
+.. code:: console
 
       $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
                HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
@@ -300,7 +300,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
 1. In the **template** you must install ``snapd`` and ``qubes-snapd-helper``. Open a terminal in the template and run:
 
-   .. code:: bash
+   .. code:: console
 
          [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
          Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
@@ -346,14 +346,14 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
    This is expected and you can safely continue.
    Shutdown the template:
 
-   .. code:: bash
+   .. code:: console
 
          [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
 
 
 2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
-   .. code:: bash
+   .. code:: console
 
          [user@snap-demo-app qube ~]$ snap install <package>
 
@@ -377,7 +377,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 2. List the names of the available desktop shortcuts by running the command ``ls /usr/share/applications`` and find the exact name of the shortcut to the app you want to autostart:
 
-   .. code:: bash
+   .. code:: console
 
          [user@example-app qube ~]$ ls /usr/share/applications/
          bluetooth-sendto.desktop
@@ -390,7 +390,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 3. Create the autostart directory:
 
-   .. code:: bash
+   .. code:: console
 
          [user@example-app qube ~]$ mkdir -p ~/.config/autostart
 
@@ -398,7 +398,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 4. Make a link to the desktop app file you’d like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
-   .. code:: bash
+   .. code:: console
 
          [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 

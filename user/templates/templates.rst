@@ -103,7 +103,7 @@ You can manage your templates using the ``Qubes Template Manager``, a GUI tool a
 
 At the command line in dom0, ``qvm-template list --available`` will show available templates. To install a template, use:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template install  <template_name>
 
@@ -113,7 +113,7 @@ You can also use ``qvm-template`` to upgrade or reinstall templates.
 
 Repository (repo) definitions are stored in dom0 in ``/etc/qubes/repo-templates`` and associated keys in ``/etc/qubes/repo-templates/keys``. There are additional repos for testing releases and community templates. To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. E.g. :
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 
@@ -164,7 +164,7 @@ To remove a template, the graphical ``Qube Manager`` (Qubes Menu > Qubes Tools >
 
 Alternatively, to remove a template via the command line in dom0:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template remove <TEMPLATE_NAME>
 
@@ -172,7 +172,7 @@ Alternatively, to remove a template via the command line in dom0:
 
 <TEMPLATE_NAME> is the first column from the output of:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template list --installed
 

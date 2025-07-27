@@ -12,7 +12,7 @@ This document explains the basics of RPC policies in Qubes. For more information
 
 Here’s an example of an RPC policy file in dom0:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 user ~]$ cat /etc/qubes-rpc/policy/qubes.FileCopy
       (...)

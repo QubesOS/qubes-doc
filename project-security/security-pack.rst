@@ -79,7 +79,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 
 4. Verify signed Git tags.
 
-   .. code:: bash
+   .. code:: console
 
          $ cd qubes-secpack/
          $ git tag -v `git describe`
@@ -97,7 +97,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 
 5. Verify detached PGP signatures.
 
-   .. code:: bash
+   .. code:: console
 
          $ cd canaries/
          $ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt

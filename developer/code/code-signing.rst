@@ -13,7 +13,7 @@ Generating a Key
 
 Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-perfect-gpg-keypair/>`__ on creating a PGP keypair. Below, we reproduce just the minimum steps in generating a keypair using GnuPG. Please read Cabal’s full guide for further important details.
 
-.. code:: bash
+.. code:: console
 
       $ gpg --gen-key
       gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
@@ -75,7 +75,7 @@ Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID** which i
 
 
 
-.. code:: bash
+.. code:: console
 
       $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
       gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com

@@ -11,7 +11,7 @@ Installing
 
 To :ref:`install <user/templates/templates:installing>` a specific Debian template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template install XX
 

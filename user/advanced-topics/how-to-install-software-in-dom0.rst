@@ -30,7 +30,7 @@ How to install a specific package
 
 To install additional packages in dom0 (usually not recommended):
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubes-dom0-update anti-evil-maid
 

@@ -39,7 +39,7 @@ Our test runner runs mostly the same as the standard one, but it has some nice a
 
 You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ python3 -m qubes.tests.run -h
       usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
@@ -82,7 +82,7 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 
 For instance, to run only the tests for the fedora-21 template, you can use the ``-l`` option, then filter the list:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
       network/VmNetworking_fedora-21/test_000_simple_networking

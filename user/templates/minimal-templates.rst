@@ -44,21 +44,21 @@ Installation
 
 The minimal templates can be installed with the following type of command:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 If your desired version is not found, it may still be in :doc:`testing </user/downloading-installing-upgrading/testing>`. You may wish to try again with the testing repository enabled:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 If you would like to install a community distribution, try the install command by enabling the community repository:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
@@ -71,7 +71,7 @@ Passwordless root
 
 It is an intentional design choice for :doc:`Passwordless Root Access in VMs </user/security-in-qubes/vm-sudo>` to be optional in minimal templates. Since the minimal templates are *minimal*, they are not configured for passwordless root by default. To update or install packages, execute the following command in dom0:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-run -u root <DISTRO_NAME>-<RELEASE_NUMBER>-minimal xterm
 
@@ -102,7 +102,7 @@ Fedora
 
 The following list provides an overview of which packages are needed for which purpose. As usual, the required packages are to be installed in the running template with the following command (replace ``packages`` with a space-delimited list of packages to be installed):
 
-.. code:: bash
+.. code:: console
 
       [user@your-new-clone ~]$ sudo dnf install packages
 
@@ -188,7 +188,7 @@ Debian
 
 The following list provides an overview of which packages are needed for which purpose. As usual, the required packages are to be installed in the running template with the following command (replace ``packages`` with a space-delimited list of packages to be installed):
 
-.. code:: bash
+.. code:: console
 
       [user@your-new-clone ~]$ sudo apt install packages
 

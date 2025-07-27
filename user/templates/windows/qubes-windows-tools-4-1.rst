@@ -136,7 +136,7 @@ The Xen PV Drivers bundled with QWT are signed by a Linux Foundation certificate
 
 **Warning:** it is recommended to increase the default value of Windows VM’s ``qrexec_timeout`` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM’s virtual disk (private.img) and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when ``qrexec`` is not yet running, so timeout may occur with the default value. To change the property use this command in ``dom0``: *(where* ``<VMname>`` *is the name of your Windows VM)*
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~] $ qvm-prefs <VMname> qrexec_timeout 7200
 
@@ -215,14 +215,14 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
 6. Qubes will automatically detect that the tools have been installed in the VM and will set appropriate properties for the VM, such as ``qrexec_installed``, ``guiagent_installed``, and ``default_user``. This can be verified (but is not required) using the ``qvm-prefs`` command *(where* ``<VMname>`` *is the name of your Windows VM)*:
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~] $ qvm-prefs <VMname>
 
 
    It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~] $ qvm-features <VMname> audio-model ich9
          [user@dom0 ~] $ qvm-features <VMname> stubdom-qrexec 1
@@ -231,7 +231,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
    For audio, the parameter ``audio-model`` can be selected as ``ich6`` or ``ich9``; select the value that gives the best audio quality. Audio quality may also be improved by setting the following parameters, but this can depend on the Windows version and on your hardware:
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~] $ qvm-features <VMname> timer-period 1000
          [user@dom0 ~] $ qvm-features <VMname> out.latency 10000
@@ -295,7 +295,7 @@ Using Windows AppVMs in seamless mode
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the ``-a`` switch used here, which will auto-start the VM if it is not running):
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~] $ qvm-run -a my-win-appvm explorer.exe
 
@@ -305,7 +305,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 
 Also, the inter-VM services work as usual – e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~] $ qvm-open-in-vm my-win-appvm roadmap.pptx
       
@@ -554,7 +554,7 @@ Updates
 
 When we publish a new QWT version, it’s usually pushed to the ``current-testing`` or ``unstable`` repository first. To use versions from current-testing, run this in dom0:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~] $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 

@@ -150,7 +150,7 @@ Because of above limitations, you will need to configure some of those manually.
 
 1. Check the VM network parameters, you will need them later:
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-ls -n custom-template
          -------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+

@@ -143,7 +143,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@sys-firewall ~]$ sudo -i
       [root@sys-firewall user]# echo "nft add rule ip qubes custom-forward ip saddr 10.137.2.25 ip daddr 10.137.2.6 ct state new,established,related counter accept" >> /rw/config/qubes-firewall-user-script
@@ -154,7 +154,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@B ~]$ sudo -i
       [root@B user]# echo "nft add rule qubes custom-input ip saddr 10.137.2.25 accept" >> /rw/config/rc.local
@@ -181,7 +181,7 @@ Consider the following example. ``mytcp-service`` qube has a TCP service running
 
 - In untrusted, use the Qubes tool ``qvm-connect-tcp``:
 
-  .. code:: bash
+  .. code:: console
 
         [user@untrusted #]$ qvm-connect-tcp 444:@default:444
 
@@ -195,7 +195,7 @@ The service of ``mytcp-service`` running on port ``444`` is now accessible in ``
 
 Here ``@default`` is used to hide the destination qube which is specified in the Qubes RPC policy by ``target=mytcp-service``. Equivalent call is to use the tool as follow:
 
-.. code:: bash
+.. code:: console
 
       [user@untrusted #]$ qvm-connect-tcp ::444
 
@@ -215,7 +215,7 @@ Consider now the case where someone prefers to specify the destination qube and 
 
 in ``/etc/qubes/policy.d/30-user-networking.policy`` and in untrusted, use the tool as follow:
 
-.. code:: bash
+.. code:: console
 
       [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
 
@@ -235,7 +235,7 @@ One can go further than the previous examples by redirecting different ports to 
 
 In that case, calling ``qvm-connect-tcp`` like previous examples, will still bind TCP port ``444`` of ``mytcp-service`` to ``untrusted`` but now, calling it with port ``445``
 
-.. code:: bash
+.. code:: console
 
       [user@untrusted #]$ qvm-connect-tcp ::445
 
@@ -420,7 +420,7 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 Once you have confirmed that the counters increase, store the commands used in the previous steps in ``/rw/config/qubes-firewall-user-script`` so they get set on sys-net start-up:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net user]$ sudo -i
       [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
@@ -479,7 +479,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 Once you have confirmed that the counters increase, store these commands in the script ``/rw/config/qubes-firewall-user-script``
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net user]$ sudo -i
       [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
@@ -522,7 +522,7 @@ The according rule to allow the traffic is:
 
 To make it persistent, you need to add this command in the script ``/rw/config/rc.local``:
 
-.. code:: bash
+.. code:: console
 
       [user@qubeDEST user]$ sudo -i
       [root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept' >> /rw/config/rc.local

@@ -31,7 +31,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo dnf install $(cat dependencies-fedora.txt)
          $ test -f /usr/share/qubes/marker-vm && sudo dnf install qubes-gpg-split
@@ -43,7 +43,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo apt install $(cat dependencies-debian.txt)
          $ test -f /usr/share/qubes/marker-vm && sudo apt install qubes-gpg-split
@@ -60,7 +60,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 4. If you haven’t previously used docker in the current qube, you need to set up some permissions. In particular, the user has to be added to the ``docker`` group:
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo usermod -aG docker user
 
@@ -68,7 +68,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 5. Finally, you need to generate a docker image:
 
-   .. code:: bash
+   .. code:: console
 
          $ tools/generate-container-image.sh docker
 
@@ -124,7 +124,7 @@ Using Builder v2
 
 To fetch sources - in this example, for the ``core-admin-client`` package, you can use the following command:
 
-.. code:: bash
+.. code:: console
 
       $ ./qb -c core-admin-client package fetch
 
@@ -133,21 +133,21 @@ This will fetch the sources for the listed package and place them in ``artifacts
 
 To build a package (from sources in the ``artifacts/sources`` directory), use:
 
-.. code:: bash
+.. code:: console
 
       $ ./qb -c core-admin-client package fetch prep build
 
 
 or, if you want to build for a specific target (``host-fc37`` is a ``dom0`` using Fedora 37, ``vm-fc40`` would be a qube using Fedora 40 etc.), use:
 
-.. code:: bash
+.. code:: console
 
       $ ./qb -c core-admin-client -d host-fc37 package fetch prep build
 
 
 If you want to fetch the entire Qubes OS source use the following:
 
-.. code:: bash
+.. code:: console
 
       $ ./qb package fetch
 
