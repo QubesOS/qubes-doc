@@ -87,6 +87,14 @@ gettext_compact = False
 
 locale_dirs = ['_translated']
 
+html_context = {
+    "display_github": True,
+    "github_user": "QubesOS",
+    "github_repo": "qubes-doc",
+    "github_version": "main",
+    "conf_py_path": "/",
+}
+
 # from https://gist.github.com/ehles/bed012d78aad5d3cd6c35a49bef32f9f
 def align(argument):
   """Conversion function for the "align" option."""
