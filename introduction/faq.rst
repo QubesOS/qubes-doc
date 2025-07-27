@@ -570,7 +570,7 @@ For Debian:
 
 
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo apt install vlc
 
@@ -589,7 +589,7 @@ For Fedora:
 
 
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo dnf install vlc
 

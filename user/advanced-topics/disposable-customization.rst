@@ -12,14 +12,14 @@ Introduction
 
 A :doc:`disposable </user/how-to-guides/how-to-use-disposables>` can be based on any :ref:`app qube <user/reference/glossary:app qube>`. You can also choose to use different :ref:`disposable templates <user/reference/glossary:disposable template>` for different disposables. To prepare an app qube to be a disposable template, you need to set the ``template_for_dispvms`` property:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
 
 
 Additionally, if you want to have menu entries for starting applications in disposables based on this app qube (instead of in the app qube itself), you can achieve that with the ``appmenus-dispvm`` feature:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
@@ -38,7 +38,7 @@ Creating a new disposable template
 
 In Qubes 4.0, you’re no longer restricted to a single disposable template. Instead, you can create as many as you want. Whenever you start a new disposable, you can choose to base it on whichever disposable template you like. To create a new disposable template:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-create --template <TEMPLATE> --label red <DISPOSABLE_TEMPLATE>
       [user@dom0 ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
@@ -47,7 +47,7 @@ In Qubes 4.0, you’re no longer restricted to a single disposable template. Ins
 
 Optionally, set it as the default disposable template:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qubes-prefs default_dispvm <DISPOSABLE_TEMPLATE>
 
@@ -66,7 +66,7 @@ It is possible to change the settings for each new disposable. This can be done 
 
 1. Start a terminal in the ``<DISPOSABLE_TEMPLATE>`` qube (or another disposable template) by running the following command in a dom0 terminal. (If you enable ``appmenus-dispvm`` feature (as explained at the top), applications menu for this VM (``<DISPOSABLE_TEMPLATE>``) will be “Disposable: ” (instead of “Domain: ”) and entries there will start new disposable based on that VM (``<DISPOSABLE_TEMPLATE>``). Not in that VM (``<DISPOSABLE_TEMPLATE>``) itself).
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-run -a <DISPOSABLE_TEMPLATE> gnome-terminal
 
@@ -173,7 +173,7 @@ Deleting disposables
 
 While working in a disposable, you may want to open a document in another disposable. For this reason, the property ``default_dispvm`` may be set to the name of your disposable in a number of qubes:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-prefs <QUBE> | grep default_dispvm
       default_dispvm        -  <DISPOSABLE_TEMPLATE>
@@ -181,14 +181,14 @@ While working in a disposable, you may want to open a document in another dispos
 
 This will prevent the deletion of the disposable template. In order to fix this, you need to unset the ``default_dispvm`` property:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-prefs <QUBE> default_dispvm ""
 
 
 You can then delete the disposable template:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-remove <DISPOSABLE_TEMPLATE>
       This will completely remove the selected VM(s)
@@ -197,7 +197,7 @@ You can then delete the disposable template:
 
 If you still encounter a problem, you may have forgotten to clean an entry. Looking at the system logs will help you:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ journalctl | tail
 

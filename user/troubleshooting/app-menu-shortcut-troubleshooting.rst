@@ -27,7 +27,7 @@ With the command-line interface
 
 To update the list of available applications, use the ``qvm-sync-appmenus`` command in dom0, replacing ``<QUBE_NAME>`` by the qube name:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-sync-appmenus <QUBE_NAME>
 
@@ -35,7 +35,7 @@ To update the list of available applications, use the ``qvm-sync-appmenus`` comm
 
 When using the *Refresh Applications* button in a qube’s settings, the command ``qvm-sync-appmenus`` is used at least one time. When refreshing an AppVM application, it is also run against the template. So the console equivalent of clicking the *Refresh button* is the following (always in dom0):
 
-.. code:: bash
+.. code:: console
 
       $ qvm-sync-appmenus <APPVM_NAME>
       $ qvm-sync-appmenus <TEMPLATE_NAME>
@@ -44,7 +44,7 @@ When using the *Refresh Applications* button in a qube’s settings, the command
 
 In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available applications (unstable feature), the whitelist of currently show application (unstable feature) and to change this list:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 
@@ -152,7 +152,7 @@ What if a removed application is still in the app menu?
 
 First, try this in dom0:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-appmenus --update --force <QUBE_NAME>
 
@@ -160,7 +160,7 @@ First, try this in dom0:
 
 You can also try:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-appmenus --remove <QUBE_NAME>
 
@@ -186,7 +186,7 @@ The line starting with ``Exec=`` points out the exact command run by dom0 to sta
 
 It’s possible to run the command to check the output, by copying this line without ``Exec=``, and remove ``-q`` (quiet option). But it could be more useful to run it in the qube, with the ``qubes.StartApp`` service:
 
-.. code:: bash
+.. code:: console
 
       $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
 

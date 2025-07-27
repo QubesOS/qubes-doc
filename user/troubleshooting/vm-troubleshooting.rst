@@ -33,7 +33,7 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 
 1. Check the state of ``installed_by_rpm``
 
-   .. code:: bash
+   .. code:: console
 
          $ qvm-prefs template-vm-name
 
@@ -41,7 +41,7 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 
 2. If ``installed_by_rpm - True``, mark the template as not installed by package manager
 
-   .. code:: bash
+   .. code:: console
 
          $ qvm-prefs template-vm-name installed_by_rpm false
 
@@ -53,7 +53,7 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 
 - If ``installed_by_rpm - False``, remove the template like you would a regular qube:
 
-  .. code:: bash
+  .. code:: console
 
         $ qvm-remove template-vm-name
 
@@ -95,7 +95,7 @@ If the error occurs as a result of too little initial memory, increase the initi
 
 For example:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
       Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...

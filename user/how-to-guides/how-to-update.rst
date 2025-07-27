@@ -159,7 +159,7 @@ First, ensure that your UpdateVM contains the ``fwupd-qubes-vm`` package. This p
 
 In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubes-dom0-update fwupd-qubes-dom0
 
@@ -167,7 +167,7 @@ In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 
 Once the package is installed:
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubes-fwupdmgr get-devices
 
@@ -185,7 +185,7 @@ If so, `adjust your BIOS settings <https://github.com/fwupd/fwupd/wiki/PluginFla
 
 Once resolved, in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubes-fwupdmgr get-devices
       $ sudo qubes-fwupdmgr refresh

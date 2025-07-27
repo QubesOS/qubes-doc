@@ -21,7 +21,7 @@ First, determine which kernel module corresponds to your wireless card. There ar
 
 The easiest is via the output of ``lspci -k`` in your sys-net VM:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net ~]$ lspci -k
       00:00.0 Network controller: Intel Corporation Wireless 8260 (rev 3a)
@@ -64,7 +64,7 @@ You can check which drivers are currently loaded with ``lsmod``, and view detail
 
 For example, we list what modules we have loaded:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net ~]$ lsmod
       Module                  Size  Used by
@@ -78,7 +78,7 @@ For example, we list what modules we have loaded:
 
 and check one:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net ~]$ modinfo iwlmvm | grep -E '^(description|author|depends):'
       author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
@@ -91,7 +91,7 @@ Hey, it’s our wireless driver!
 
 Now, check if reloading the module makes wireless work again:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net ~]$ sudo rmmod iwlmvm
       [user@sys-net ~]$ sudo modprobe iwlmvm
@@ -102,7 +102,7 @@ and try reconnecting to a network that is known to work.
 
 If that is successful, see below about having Qubes automatically reload the driver for you. If not, try also reloading some dependent modules, in our example we must also reload iwlwifi:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net ~]$ modinfo iwlwifi | grep -E '^(description|author|depends):'
       author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
@@ -111,7 +111,7 @@ If that is successful, see below about having Qubes automatically reload the dri
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net ~]$ sudo rmmod iwlmvm
       [user@sys-net ~]$ sudo rmmod iwlwifi
@@ -128,7 +128,7 @@ If reloading the driver (which resets the hardware into a known-state) resolves 
 
 In the above example, it would look like this:
 
-.. code:: bash
+.. code:: console
 
       [user@sys-net config]$ cat /rw/config/suspend-module-blacklist
       # You can list here modules you want to be unloaded before going to sleep. This

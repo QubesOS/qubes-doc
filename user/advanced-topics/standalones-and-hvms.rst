@@ -219,7 +219,7 @@ Just like normal app qubes, HVMs can also be cloned either using the command ``q
 
 The cloned qube will get identical root and private images and will essentially be identical to the original qube, except that it will get a different MAC address for the networking interface:
 
-.. code:: bash
+.. code:: console
 
       [joanna@dom0 ~]$ qvm-prefs my-new-vm
       autostart           D  False
@@ -309,7 +309,7 @@ The cloned qube will get identical root and private images and will essentially 
 
 Note that the MAC addresses differ between those two otherwise identical qubes. The IP addresses assigned by Qubes will also be different, of course, to allow networking to function properly:
 
-.. code:: bash
+.. code:: console
 
       [joanna@dom0 ~]$ qvm-ls -n
       
@@ -321,7 +321,7 @@ Note that the MAC addresses differ between those two otherwise identical qubes. 
 
 If, for any reason, you would like to make sure that the two qubes have the same MAC address, you can use ``qvm-prefs`` to set a fixed MAC address:
 
-.. code:: bash
+.. code:: console
 
       [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy -s mac 00:16:3E:5E:6C:05
       [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy

@@ -22,7 +22,7 @@ By default, VMs kernels are provided by dom0. (See :ref:`here <user/advanced-top
 
 To select which kernel a given VM will use, you can either use Qubes Manager (VM settings, advanced tab), or the ``qvm-prefs`` tool:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-prefs -s my-appvm kernel
       Missing kernel version argument!
@@ -40,7 +40,7 @@ To select which kernel a given VM will use, you can either use Qubes Manager (VM
 
 To check/change the default kernel you can either go to “Global settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qubes-prefs
       clockvm           : sys-net
@@ -54,7 +54,7 @@ To check/change the default kernel you can either go to “Global settings” in
 
 To view kernel options, you can use the GUI VM Settings tool; to view and change them, use ``qvm-prefs`` commandline tool:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-prefs -g work kernelopts
       nopat
@@ -67,7 +67,7 @@ Installing different kernel using Qubes kernel package
 
 VM kernels are packaged by the Qubes team in the ``kernel-qubes-vm`` packages. Generally, the system will keep the three newest available versions. You can list them with the ``rpm`` command:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
       kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64
@@ -79,7 +79,7 @@ If you want a more recent version, you can check the ``qubes-dom0-unstable`` rep
 
 To check available versions in the ``qubes-dom0-unstable`` repository:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable --action=list kernel-qubes-vm
       Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
@@ -100,7 +100,7 @@ To check available versions in the ``qubes-dom0-unstable`` repository:
 
 Installing a new version from ``qubes-dom0-unstable`` repository:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel-qubes-vm
       Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
@@ -165,7 +165,7 @@ It is possible to package a kernel installed in dom0 as a VM kernel. This makes 
 
 To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support`` package in dom0 and also have matching kernel headers installed (``kernel-devel`` package in the case of a Fedora kernel package). You can install requirements using ``qubes-dom0-update``:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
       Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
@@ -209,7 +209,7 @@ To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support``
 
 Then you can call the ``qubes-prepare-vm-kernel`` tool to actually package the kernel. The first parameter is kernel version (exactly as seen by the kernel), the second one (optional) is short name. This is visible in Qubes Manager and the ``qvm-prefs`` tool.
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-prepare-vm-kernel 4.1.9-6.pvops.qubes.x86_64 4.1.qubes
       --> Building files for 4.1.9-6.pvops.qubes.x86_64 in /var/lib/qubes/vm-kernels/4.1.qubes
@@ -406,7 +406,7 @@ Update initramfs.
 
 The output should look like this:
 
-.. code:: bash
+.. code:: console
 
       $ sudo dkms autoinstall -k 3.16.0-4-amd64
       

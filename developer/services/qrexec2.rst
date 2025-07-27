@@ -17,7 +17,7 @@ Typically, the first thing that a ``qrexec-client`` instance does is to send a r
 
 E.g., to start a primitive shell in a VM type the following in Dom0 console:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ /usr/lib/qubes/qrexec-client -d <vm name> user:bash
 
@@ -147,7 +147,7 @@ We will show the necessary files to create a simple RPC call that adds two integ
 
 - Policy file in dom0 (``/etc/qubes-rpc/policy/test.Add``)
 
-  .. code:: bash
+  .. code::
 
         $anyvm $anyvm ask
 

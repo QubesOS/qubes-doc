@@ -269,13 +269,13 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 
 Also, the inter-VM services work as usual – e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
-.. code:: bash
+.. code:: console
 
       [user@work ~]$ qvm-open-in-vm work-win7 roadmap.pptx
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@work ~]$ qvm-open-in-vm work-win7 https://invisiblethingslab.com
 

@@ -67,7 +67,7 @@ The above steps applies to old VM disks format. These steps may work on Qubes 4.
 
 For example:
 
-.. code:: bash
+.. code:: console
 
       $ sudo lvs
         LV                                            VG         Attr       LSize   Pool   Origin                                        Data%  Meta%  Move Log Cpy%Sync Convert

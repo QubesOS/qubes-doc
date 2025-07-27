@@ -18,7 +18,7 @@ Qrexec is built on top of *vchan*, a Xen library providing data links between VM
 
 The ``qrexec-client`` command is used to make connections to VMs from dom0. For example, the following command creates an empty file called ``hello-world.txt`` in the home folder of ``someVM``:
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 
@@ -26,7 +26,7 @@ The ``qrexec-client`` command is used to make connections to VMs from dom0. For 
 
 The string before the colon specifies which user will run the command. The ``-e`` flag tells ``qrexec-client`` to exit immediately after sending the execution request and receiving a status code from ``qrexec-agent`` (if the process creation succeeded). With this option, no further data is passed between the domains. The following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client -d someVM user:bash
 
@@ -83,7 +83,7 @@ Making an RPC call
 
 From outside of dom0, RPC calls take the following form:
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
 
@@ -91,7 +91,7 @@ From outside of dom0, RPC calls take the following form:
 
 For example:
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client-vm work qubes.StartApp+firefox
 
@@ -101,7 +101,7 @@ Note that only stdin/stdout is passed between RPC server and client – notably,
 
 It is also possible to call service without specific client program – in which case server stdin/out will be connected with the terminal:
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
@@ -168,7 +168,7 @@ Be very careful when coding and adding a new RPC service. Unless the offered fun
 
 For example, this command will run the ``firefox`` command in a DisposableVM based on ``work``:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-run --dispvm=work firefox
 
@@ -176,7 +176,7 @@ For example, this command will run the ``firefox`` command in a DisposableVM bas
 
 By contrast, consider this command:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-run --dispvm=work --service qubes.StartApp+firefox
 
@@ -204,7 +204,7 @@ The argument is specified in the second column of the policy line, as +ARGUMENT.
 
 When calling a service that takes an argument, just add the argument to the service name separated with ``+``.
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
 
@@ -264,7 +264,7 @@ This will allow our client and server to communicate.
 
 Before we make the call, ensure that the client and server scripts have executable permissions. Finally, invoke the RPC service.
 
-.. code:: bash
+.. code:: console
 
       $ qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
 
@@ -310,7 +310,7 @@ Now we create the policy file in dom0, at ``/etc/qubes/policy.d/30-test.policy``
 
 With this done, we can run some tests. Invoke RPC from ``source_vm1`` via
 
-.. code:: bash
+.. code:: console
 
       [user@source_vm1] $ qrexec-client-vm target_vm test.File+testfile1
 
@@ -318,7 +318,7 @@ With this done, we can run some tests. Invoke RPC from ``source_vm1`` via
 
 We should get the contents of ``/home/user/testfile1`` printed to the terminal. Invoking the service from ``source_vm2`` should result in a denial, but ``testfile2`` should work.
 
-.. code:: bash
+.. code:: console
 
       [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile1
       Request refused
