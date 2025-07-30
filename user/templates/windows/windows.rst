@@ -9,12 +9,10 @@ Qubes Windows Tools (QWT) are then usually installed to provide integration with
 
 For more information about Windows VMs in Qubes OS, please see the following external resources:
 
-- :doc:`Installing and Using Windows-based VMs </user/templates/windows/windows-qubes-4-1>`
+- :doc:`Installing and Using Windows-based VMs </user/templates/windows/windows-qubes>`
 
-- :doc:`Installing and Using Qubes Windows Tools </user/templates/windows/qubes-windows-tools-4-1>`
+- :doc:`Installing and Using Qubes Windows Tools </user/templates/windows/qubes-windows-tools>`
 
 - `Create a Gaming HVM in Qubes <https://forum.qubes-os.org/t/create-a-gaming-hvm/19000>`__
 
-- :doc:`Migrate backups of Windows VMs created under Qubes R4.0 to R4.1 </user/templates/windows/migrate-to-4-1>`
-
-
+- :doc:`Migrate Windows qubes from old Qubes versions </user/templates/windows/qubes-windows-migrate>`
