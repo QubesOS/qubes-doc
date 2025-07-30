@@ -7,7 +7,7 @@ How to upgrade a Fedora template in-place
       This page is intended for advanced users.
 
 .. DANGER::
-      
+
       **Warning:** This page is intended for advanced users only. Most users seeking to upgrade should instead :ref:`install a new Fedora template <user/templates/fedora/fedora:installing>`      . Learn more about the two options :ref:`here <user/templates/fedora/fedora:upgrading>`      .
 
 This page provides instructions for performing an in-place upgrade of an installed :doc:`Fedora Template </user/templates/fedora/fedora>`. If you wish to install a new, unmodified Fedora template instead of upgrading a template that is already installed in your system, please see the :doc:`Fedora Template </user/templates/fedora/fedora>` page instead. (:ref:`Learn more about the two options. <user/templates/fedora/fedora:upgrading>`)
@@ -70,7 +70,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    **Note:** ``dnf`` might ask you to approve importing a new package signing key. For example, you might see a prompt like this one:
 
-   .. code:: bash
+   .. code:: text
 
          warning: /mnt/removable/updates-0b4cc238d1aa4ffe/packages/example-package.fc<new>.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID XXXXXXXX: NOKEY
          Importing GPG key 0xXXXXXXXX:
@@ -206,7 +206,7 @@ Additional information
 
 As mentioned above, you may encounter the following ``dnf`` error:
 
-.. code:: bash
+.. code:: text
 
       At least X MB more space needed on the / filesystem.
 

@@ -231,8 +231,8 @@ Which virtualization modes do VMs use?
 
 Here is an overview of the VM virtualization modes:
 
-.. list-table:: 
-   :widths: 42 42 
+.. list-table::
+   :widths: 42 42
    :align: center
    :header-rows: 1
 
@@ -248,7 +248,7 @@ Here is an overview of the VM virtualization modes:
      - PV
    * - Stub domains - HVMs
      - PV
-   
+
 
 
 What's so special about Qubes' GUI virtualization?
@@ -543,7 +543,7 @@ or
 
 - Go to the sysfs (``/sys/bus/pci``), find the right device, detach it from the pciback driver and attach back to the original driver. Replace ``<BDF>`` with your device, for example ``00:1c.2``:
 
-  .. code:: bash
+  .. code:: console
 
         echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
         MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
@@ -672,7 +672,7 @@ I see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD (edd
 
 From a ``dom0`` prompt, enter:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <HVMname> kernel ""
 
@@ -696,7 +696,7 @@ I see a "Failed to start Load Kernel Modules" message on boot
 
 The full message looks like:
 
-.. code:: bash
+.. code:: text
 
       [FAILED] Failed to start Load Kernel Modules.
       See 'systemctl status systemd-modules-load.service' for details.

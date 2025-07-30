@@ -125,7 +125,7 @@ Qubes 4.0 - importing a Windows VM from R3.2
 
 Importing should work, simply make sure that you are not using Xen’s newer linux stubdomain and that the VM is in HVM mode (these steps should be done automatically when importing the VM):
 
-.. code:: bash
+.. code:: console
 
       qvm-features VMNAME linux-stubdom ''
       qvm-prefs VMNAME virt_mode hvm
@@ -148,7 +148,7 @@ Summary
 ^^^^^^^
 
 
-.. code:: bash
+.. code:: console
 
       qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
       qvm-prefs win7new memory 4096
@@ -188,7 +188,7 @@ MS Windows versions considerations:
 
 Create a VM named win7new in :doc:`HVM </user/advanced-topics/standalones-and-hvms>` mode (Xen’s current PVH limitations precludes from using PVH):
 
-.. code:: bash
+.. code:: console
 
       qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
 
@@ -198,7 +198,7 @@ Windows’ installer requires a significant amount of memory or else the VM will
 
 ``/var/log/xen/console/hypervisor.log``:
 
-.. code:: bash
+.. code:: text
 
       p2m_pod_demand_populate: Dom120 out of PoD memory! (tot=102411 ents=921600 dom120)
       (XEN) domain_crash called from p2m-pod.c:1218
@@ -208,7 +208,7 @@ Windows’ installer requires a significant amount of memory or else the VM will
 
 So, increase the VM’s memory to 4096MB (memory = maxmem because we don’t use memory balancing).
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs win7new memory 4096
       qvm-prefs win7new maxmem 4096
@@ -217,7 +217,7 @@ So, increase the VM’s memory to 4096MB (memory = maxmem because we don’t use
 
 Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs win7new kernel ''
 
@@ -225,7 +225,7 @@ Disable direct boot so that the VM will go through the standard cdrom/HDD boot s
 
 A typical Windows 7 installation requires between 15GB up to 19GB of disk space depending on the version (Home/Professional/…). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to 25GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windows’s disk manager).
 
-.. code:: bash
+.. code:: console
 
       qvm-volume extend win7new:root 25g
 
@@ -233,7 +233,7 @@ A typical Windows 7 installation requires between 15GB up to 19GB of disk space 
 
 Set the debug flag in order to have a graphical console:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs win7new debug true
 
@@ -241,7 +241,7 @@ Set the debug flag in order to have a graphical console:
 
 The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in “transient” mode with the following error in ``guest-win7new-dm.log``:
 
-.. code::
+.. code:: text
 
       qemu: /home/user/qubes-src/vmm-xen-stubdom-linux/build/qemu/exec.c:1187: cpu_physical_memory_snapshot_get_dirty: Assertion `start + length <= snap->end' failed.
 
@@ -249,7 +249,7 @@ The second part of the installation process will crash with the standard VGA vid
 
 To avoid that error we temporarily have to switch the video adapter to ‘cirrus’:
 
-.. code:: bash
+.. code:: console
 
       qvm-features win7new video-model cirrus
 
@@ -257,7 +257,7 @@ To avoid that error we temporarily have to switch the video adapter to ‘cirrus
 
 The VM is now ready to be started; the best practice is to use an installation ISO :ref:`located in a VM <user/advanced-topics/standalones-and-hvms:installing an os in an hvm>`:
 
-.. code:: bash
+.. code:: console
 
       qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 
@@ -267,7 +267,7 @@ Given the higher than usual memory requirements of Windows, you may get a ``Not 
 
 At this point you may open a tab in dom0 for debugging, in case something goes amiss:
 
-.. code:: bash
+.. code:: console
 
       tailf /var/log/qubes/vm-win7new.log \
          /var/log/xen/console/hypervisor.log \
@@ -281,7 +281,7 @@ The second part of Windows’ installer should then be able to complete successf
 
 Decrease the VM’s memory to a more reasonable value (memory balancing on Windows is unstable so keep ``memory`` equal to ``maxmen``).
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs win7new memory 2048
       qvm-prefs win7new maxmem 2048
@@ -290,7 +290,7 @@ Decrease the VM’s memory to a more reasonable value (memory balancing on Windo
 
 Revert to the standard VGA adapter: the ‘cirrus’ adapter will limit the maximum screen resolution to 1024x768 pixels, while the default VGA adapter allows for much higher resolutions (up to 2560x1600 pixels).
 
-.. code:: bash
+.. code:: console
 
       qvm-features --unset win7new video-model
 
@@ -298,7 +298,7 @@ Revert to the standard VGA adapter: the ‘cirrus’ adapter will limit the maxi
 
 Finally, increase the VM’s ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk won’t complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools’ installation.
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs win7new qrexec_timeout 300
 
@@ -312,7 +312,7 @@ Windows as a template
 
 Windows 7 and 10 can be installed as TemplateVM by selecting
 
-.. code:: bash
+.. code:: console
 
       qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-template
 
@@ -330,7 +330,7 @@ For Windows 10, configuration data like those stored in directories like ``AppDa
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
 
-.. code:: bash
+.. code:: console
 
       qvm-create --class=AppVM --template=<VMname>
 

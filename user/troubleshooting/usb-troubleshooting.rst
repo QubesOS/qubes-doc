@@ -41,7 +41,7 @@ A device that does not support reset is not ideal and generally should not be as
 
 Most likely the offending controller is a USB 3.0 device. You can remove this controller from the USB VM, and see if this allows the VM to boot. Alternatively you may be able to disable USB 3.0 in the BIOS. If the BIOS does not have the option to disable USB 3.0, try running the following command in dom0 to force USB 2.0 modes for the USB ports:
 
-.. code:: bash
+.. code:: console
 
       lspci -nn | grep USB | cut -d '[' -f3 | cut -d ']' -f1 | xargs -I@ setpci -H1 -d @ d0.l=0
 
@@ -51,7 +51,7 @@ Errors suggesting this issue:
 
 - in ``xl dmesg`` output:
 
-  .. code::
+  .. code:: text
 
         (XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
         (XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
@@ -60,7 +60,7 @@ Errors suggesting this issue:
 
 - during ``qvm-start sys-usb``:
 
-  .. code::
+  .. code:: text
 
         internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
 
@@ -72,7 +72,7 @@ Another solution would be to set the pci_strictreset option in dom0:
 
 - In Qubes R4.x, when attaching the PCI device to the VM (where ``<BDF>`` can be obtained from running ``qvm-pci``):
 
-  .. code:: bash
+  .. code:: console
 
         qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
 
@@ -80,7 +80,7 @@ Another solution would be to set the pci_strictreset option in dom0:
 
 - In Qubes R3.x, by modifying the VM’s properties:
 
-  .. code:: bash
+  .. code:: console
 
         qvm-prefs usbVM -s pci_strictreset false
 

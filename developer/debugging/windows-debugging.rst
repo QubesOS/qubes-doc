@@ -45,9 +45,9 @@ You will need to create a custom libvirt config for the target VM. See `the docu
 
 
 
-.. code:: bash
+.. code:: xml+jinja
 
-      
+
       {% extends 'libvirt/xen.xml' %}
       {% block network %}
          <interface type='ethernet'>
@@ -58,7 +58,7 @@ You will need to create a custom libvirt config for the target VM. See `the docu
             <model type='e1000' />
          </interface>
       {% endblock %}
-      
+
 
 
 
@@ -98,7 +98,7 @@ Host and target preparation
 
   - ``kdnet`` should show that the NIC is supported, note the busparams:
 
-    .. code:: bash
+    .. code:: text
 
           Network debugging is supported on the following NICs:
           busparams=0.6.0, Intel(R) PRO/1000 MT Network Connection, KDNET is running on this NIC.
@@ -117,7 +117,7 @@ Host and target preparation
 
 - Reboot ``target-vm``, debugging should start:
 
-  .. code:: bash
+  .. code:: text
 
         Waiting to reconnect...
         Connected to target 10.137.0.19 on port 50000 on local IP 10.137.0.20.

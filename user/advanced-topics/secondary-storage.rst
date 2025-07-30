@@ -20,14 +20,14 @@ Qubes 4.0 is more flexible than earlier versions about placing different VMs on 
 
 You can query qvm-pool to list available storage drivers:
 
-.. code:: bash
+.. code:: console
 
       qvm-pool --help-drivers
 
 
 qvm-pool driver explanation:
 
-.. code:: bash
+.. code:: text
 
       <file> refers to using a simple file for image storage and lacks a few features.
       <file-reflink> refers to storing images on a filesystem supporting copy on write.
@@ -48,7 +48,7 @@ These steps assume you have already created a separate `volume group <https://ac
 
 First, collect some information in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
       sudo pvs
       sudo lvs
@@ -56,7 +56,7 @@ First, collect some information in a dom0 terminal:
 
 Take note of the VG and thin pool names for your second drive., then register it with Qubes:
 
-.. code:: bash
+.. code:: console
 
       # <pool_name> is a freely chosen pool name
       # <vg_name> is LVM volume group name
@@ -73,7 +73,7 @@ Theses steps assume you have already created a separate Btrfs filesystem for you
 
 It is possible to use an existing Btrfs storage if it is configured. In dom0, available Btrfs storage can be displayed using:
 
-.. code:: bash
+.. code:: console
 
       mount -t btrfs
       btrfs show filesystem
@@ -81,7 +81,7 @@ It is possible to use an existing Btrfs storage if it is configured. In dom0, av
 
 To register the storage to qubes:
 
-.. code:: bash
+.. code:: console
 
       # <pool_name> is a freely chosen pool name
       # <dir_path> is the mounted path to the second btrfs storage
@@ -94,14 +94,14 @@ Using the new pool
 
 Now, you can create qubes in that pool:
 
-.. code:: bash
+.. code:: console
 
       qvm-create -P <pool_name> --label red <vmname>
 
 
 It isn’t possible to directly migrate an existing qube to the new pool, but you can clone it there, then remove the old one:
 
-.. code:: bash
+.. code:: console
 
       qvm-clone -P <pool_name> <sourceVMname> <cloneVMname>
       qvm-remove <sourceVMname>
@@ -109,7 +109,7 @@ It isn’t possible to directly migrate an existing qube to the new pool, but yo
 
 If that was a template, or other qube referenced elsewhere (netVM or such), you will need to adjust those references manually after moving. For example:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <appvmname_based_on_old_template> template <new_template_name>
 
@@ -120,7 +120,7 @@ Example setup of second drive.
 
 Assuming the secondary hard disk is at /dev/sdb , you can encrypt the drive as follows. Note that the drive contents will be completely erased, In a dom0 terminal run this command - use the same passphrase as the main Qubes disk to avoid a second password prompt at boot:
 
-.. code:: bash
+.. code:: console
 
       sudo cryptsetup luksFormat --sector-size=512 /dev/sdb
       sudo blkid /dev/sdb
@@ -131,7 +131,7 @@ Assuming the secondary hard disk is at /dev/sdb , you can encrypt the drive as f
 
 Note the device’s UUID (in this example “b209…”), we will use it as its luks name for auto-mounting at boot, by editing ``/etc/crypttab``, and adding this line to crypttab (replacing both “b209…” entries with your device’s UUID taken from blkid) :
 
-.. code:: bash
+.. code:: text
 
       luks-b20975aa-8318-433d-8508-6c23982c6cde UUID=b20975aa-8318-433d-8508-6c23982c6cde none
 
@@ -144,28 +144,28 @@ For LVM
 
 First create the physical volume:
 
-.. code:: bash
+.. code:: console
 
       sudo pvcreate /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 
 
 Then create the LVM volume group, we will use for example “qubes” as the :
 
-.. code:: bash
+.. code:: console
 
       sudo vgcreate qubes /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 
 
 And then use “poolhd0” as the (LVM thin pool name):
 
-.. code:: bash
+.. code:: console
 
       sudo lvcreate -T -n poolhd0 -l +100%FREE qubes
 
 
 Finally we will tell Qubes to add a new pool on the just created thin pool:
 
-.. code:: bash
+.. code:: console
 
       qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
 
@@ -176,7 +176,7 @@ For Btrfs
 
 First create the physical volume:
 
-.. code:: bash
+.. code:: console
 
       # <label> Btrfs Label
       sudo mkfs.btrfs -L <label> /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
@@ -184,7 +184,7 @@ First create the physical volume:
 
 Then mount the new Btrfs to a temporary path:
 
-.. code:: bash
+.. code:: console
 
       sudo mkdir -p /mnt/new_qube_storage
       sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /mnt/new_qube_storage
@@ -192,7 +192,7 @@ Then mount the new Btrfs to a temporary path:
 
 Create a subvolume to hold the data:
 
-.. code:: bash
+.. code:: console
 
       sudo btrfs subvolume create /mnt/new_qube_storage/qubes
 
@@ -200,7 +200,7 @@ Create a subvolume to hold the data:
 
 Unmount the temporary Btrfs filesystem:
 
-.. code:: bash
+.. code:: console
 
       sudo umount /mnt/new_qube_storage
       rmdir /mnt/new_qube_storage
@@ -208,7 +208,7 @@ Unmount the temporary Btrfs filesystem:
 
 Mount the subvolume with compression enabled if desired:
 
-.. code:: bash
+.. code:: console
 
       # <compression> zlib|lzo|zstd
       # <subvol> btrfs subvolume "qubes" in this example
@@ -217,14 +217,14 @@ Mount the subvolume with compression enabled if desired:
 
 Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume:
 
-.. code:: bash
+.. code:: console
 
       qvm-pool --add poolhd0_qubes file-reflink -o dir_path=/var/lib/qubes_newpool,revisions_to_keep=2
 
 
 By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary drive do the following on a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
       qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 

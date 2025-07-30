@@ -26,7 +26,7 @@ KDE is very customisable, and there is a range of widgets to use. If you want to
 .. code:: bash
 
       #!/usr/bin/sh
-      
+
       # Use Qubes provided menu instead of default XFCE one
       if [ "$XDG_SESSION_DESKTOP" = "KDE" ]; then
       XDG_MENU_PREFIX="kf5-"
@@ -47,7 +47,7 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
 - first you need to edit the ``/etc/sddm.conf`` to make sure if the custom X parameter is set according to Qubes needs:
 
-  .. code:: bash
+  .. code:: kconfig
 
         [XDisplay]
         ServerArguments=-nolisten tcp -background none
@@ -82,14 +82,14 @@ Window Management
 
 You can set each window’s position and size like this:
 
-.. code:: python
+.. code:: text
 
       Right click title bar --> More actions --> Special window settings...
-      
+
         Window matching tab
           Window class (application): Exact Match: <vm_name>
           Window title: Substring Match: <partial or full program name>
-      
+
         Size & Position tab
           [x] Position: Apply Initially: x,y
           [x] Size: Apply Initially: x,y
@@ -97,7 +97,7 @@ You can set each window’s position and size like this:
 
 You can also use ``kstart`` to control virtual desktop placement like this:
 
-.. code:: bash
+.. code:: console
 
       kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
@@ -115,7 +115,7 @@ If you decide to remove KDE do **not** use ``dnf remove @kde-desktop-qubes``. Yo
 
 The safest way to remove (most of) KDE is:
 
-.. code:: bash
+.. code:: console
 
       sudo dnf remove kdelibs plasma-workspace
 

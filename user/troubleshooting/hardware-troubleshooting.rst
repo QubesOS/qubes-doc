@@ -9,7 +9,7 @@ Audio doesn't work / Troubleshooting newer hardware
 
 By default, the kernel that is installed in dom0 comes from the ``kernel`` package, which is an older Linux LTS kernel. For most cases this works fine since the Linux kernel developers backport fixes to this kernel, but for some newer hardware, you may run into issues. For example, the audio might not work if the sound card is too new for the LTS kernel. To fix this, you can try the ``kernel-latest`` package – though be aware that it’s less tested! (See :ref:`here <user/advanced-topics/how-to-install-software-in-dom0:kernel upgrade>` for more information about upgrading kernels in dom0). In dom0:
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update kernel-latest
 

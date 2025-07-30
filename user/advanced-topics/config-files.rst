@@ -37,7 +37,7 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
 
 - In ProxyVMs (or app qubes with ``qubes-firewall`` service enabled), scripts placed in the following directories will be executed in the listed order followed by ``qubes-firewall-user-script`` at start up. Good place to write custom firewall rules.
 
-  .. code:: bash
+  .. code:: text
 
         /etc/qubes/qubes-firewall.d
         /rw/config/qubes-firewall.d
@@ -52,12 +52,12 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
   .. code:: bash
 
         #!/bin/bash
-        
+
         command="$1"
         vif="$2"
         vif_type="$3"
         ip="$4"
-        
+
         if [ "$ip" == '10.137.0.100' ]; then
             case "$command" in
                 online)
@@ -84,11 +84,11 @@ GUI and audio configuration in dom0
 
 The GUI configuration file ``/etc/qubes/guid.conf`` in one of a few not managed by ``qubes-prefs`` or the Qubes Manager tool. Sample config (included in default installation):
 
-.. code:: bash
+.. code::
 
       # Sample configuration file for Qubes GUI daemon
       #  For syntax go https://www.hyperrealm.com/libconfig/libconfig_manual.html
-      
+
       global: {
         # default values
         #allow_fullscreen = false;
@@ -102,9 +102,9 @@ The GUI configuration file ``/etc/qubes/guid.conf`` in one of a few not managed 
         #trayicon_mode = "border1";
         #startup_timeout = 45;
       };
-      
+
       # most of setting can be set per-VM basis
-      
+
       VM: {
         work: {
           allow_utf8_titles = true;

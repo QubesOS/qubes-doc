@@ -38,7 +38,7 @@ Prepare fresh version of kernel sources, with Qubes-specific patches applied
 
 In ``qubes-builder/artifacts/sources/linux-kernel``:
 
-.. code:: bash
+.. code:: console
 
       make prep
 
@@ -46,14 +46,9 @@ In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 The resulting tree will be in kernel-<VERSION>/linux-<VERSION>:
 
-.. code:: bash
+.. code:: console
 
       ls -ltrd kernel*/linux*
-
-
-
-.. code:: bash
-
       drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
       drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
 
@@ -65,7 +60,7 @@ Go to the kernel tree and update the version
 
 In ``qubes-builder/artifacts/sources/linux-kernel``:
 
-.. code:: bash
+.. code:: console
 
       cd kernel-3.4.18/linux-3.4.18
 
@@ -77,7 +72,7 @@ Changing the config
 
 In ``kernel-3.4.18/linux-3.4.18``:
 
-.. code:: bash
+.. code:: console
 
       cp ../../config .config
       make oldconfig
@@ -86,7 +81,7 @@ In ``kernel-3.4.18/linux-3.4.18``:
 
 Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
-.. code:: bash
+.. code:: console
 
       make menuconfig
 
@@ -94,7 +89,7 @@ Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
 Copy the modified config back into the kernel tree:
 
-.. code:: bash
+.. code:: console
 
       cp .config ../../../config
 
@@ -106,20 +101,20 @@ Patching the code
 
 TODO: describe the workflow for patching the code, below are some random notes, not working well
 
-.. code:: bash
+.. code:: console
 
       ln -s ../../patches.xen
       export QUILT_PATCHES=patches.xen
       export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
       export QUILT_SERIES=../../series-pvops.conf
-      
+
       quilt new patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch
       quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
               drivers/usb/host/xen-usbback/* drivers/usb/host/xen-usbfront.c \
               include/xen/interface/io/usbif.h
-      
+
       *edit something*
-      
+
       quilt refresh
       cd ../..
       vi series.conf
@@ -136,7 +131,7 @@ You might want to take a moment here to review (git diff, git status), commit yo
 
 To actually build RPMs, in qubes-builder:
 
-.. code:: bash
+.. code:: console
 
       ./qb -c linux-kernel package fetch prep build
 
@@ -177,14 +172,14 @@ TODO: edit this script to be more generic
 .. code:: bash
 
       #!/bin/sh
-      
+
       set -x
       set -e
-      
+
       QUBES_PY_DIR=/usr/lib64/python2.6/site-packages/qubes
       QUBES_PY=$QUBES_PY_DIR/qubes.py
       QUBESUTILS_PY=$QUBES_PY_DIR/qubesutils.py
-      
+
       qvm-run -p qubes-devel 'cd qubes-builder/qubes-src/core/dom0; tar c qmemman/qmemman*.py qvm-core/*.py qvm-tools/* misc/vm-template-hvm.conf misc/qubes-start.desktop ../misc/block-snapshot aux-tools ../qrexec' |tar xv
       cp $QUBES_PY qubes.py.bak$$
       cp $QUBESUTILS_PY qubesutils.py.bak$$
@@ -210,7 +205,7 @@ TODO: make it more generic
 .. code:: bash
 
       #!/bin/sh
-      
+
       BAK=qvm-tools.bak$$
       mkdir -p $BAK
       cp -a /usr/bin/qvm-* /usr/bin/qubes-* $BAK/
@@ -231,7 +226,7 @@ Copy from dom0 to an appvm
       domain=$1
       file=$2
       fname=`basename $file`
-      
+
       qvm-run $domain 'mkdir /home/user/incoming/dom0 -p'
       cat $file| qvm-run --pass-io $domain "cat > /home/user/incoming/dom0/$fname"
 
@@ -250,9 +245,9 @@ Service file (save in ``/usr/local/etc/qubes-rpc/local.Git`` in target VM):
 .. code:: bash
 
       #!/bin/sh
-      
+
       exec 2>/tmp/log2
-      
+
       read service rel repo
       echo "Params: $service $rel $repo" >&2
       # Adjust regexps if needed
@@ -279,9 +274,9 @@ Client script (save in ``~/bin/git-qrexec`` in source VM):
 .. code:: bash
 
       #!/bin/sh
-      
+
       VMNAME=$1
-      
+
       (echo $GIT_EXT_SERVICE $2 $3; exec cat) | qrexec-client-vm $VMNAME local.Git
 
 
@@ -302,14 +297,14 @@ You can create ``~/bin/add-remote`` script to ease adding remotes:
 .. code:: bash
 
       #!/bin/sh
-      
+
       [ -n "$1" ] || exit 1
-      
+
       if [ "$1" = "tb" ]; then
           git remote add $1 "ext::git-qrexec testbuilder 3 `basename $PWD`"
           exit $?
       fi
-      
+
       git remote add $1 git@GitHub.com:$1/qubes-`basename $PWD`
 
 
@@ -333,9 +328,9 @@ In source VM, grab `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ re
 .. code:: bash
 
       #!/bin/sh
-      
+
       VMNAME=repo-vm
-      
+
       set -e
       qvm-copy-to-vm $VMNAME $1
       # remove only files, leave directory structure
@@ -347,7 +342,7 @@ In source VM, grab `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ re
 
 In target VM, setup actual yum repository (also based on `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__, this time without modifications). You will also need to setup some gpg key for signing packages (it is possible to force yum to install unsigned packages, but it isn’t possible for ``qubes-dom0-update`` tool). Fill ``~/.rpmmacros`` with key description:
 
-.. code:: bash
+.. code:: text
 
       %_gpg_name Test packages signing key
 
@@ -358,27 +353,27 @@ Then setup ``local.UpdateYum`` qrexec service (``/usr/local/etc/qubes-rpc/local.
 .. code:: bash
 
       #!/bin/sh
-      
+
       if [ -z "$QREXEC_REMOTE_DOMAIN" ]; then
           exit 1
       fi
-      
+
       real_repository=/home/user/linux-yum
       incoming=/home/user/QubesIncoming/$QREXEC_REMOTE_DOMAIN
-      
+
       find $incoming -name '*.rpm' |xargs rpm -K |grep -iv pgp |cut -f1 -d: |xargs -r setsid -w rpm --addsign 2>&1
-      
+
       rsync -lr --remove-source-files $incoming/ $real_repository
       cd $real_repository
       export SKIP_REPO_CHECK=1
       if [ -d $incoming/r3.1 ]; then
           ./update_repo-unstable.sh r3.1
       fi
-      
+
       if [ -d $incoming/r3.0 ]; then
           ./update_repo-unstable.sh r3.0
       fi
-      
+
       if [ -d $incoming/r2 ]; then
           ./update_repo-unstable.sh r2
       fi
@@ -401,7 +396,7 @@ Usage: setup ``builder.conf`` in source VM to use your dummy-uploader repository
 
 Then use ``make update-repo-unstable`` to upload the packages. You can also specify selected components on command line, then build them and upload to the repository:
 
-.. code:: bash
+.. code:: console
 
       make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
 
@@ -409,7 +404,7 @@ Then use ``make update-repo-unstable`` to upload the packages. You can also spec
 
 On the test machine, add yum repository (``/etc/yum.repos.d``) pointing at just configured HTTP server. For example:
 
-.. code:: bash
+.. code:: ini
 
       [local-test]
       name=Test
@@ -440,12 +435,12 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 .. code:: bash
 
       #!/bin/sh
-      
+
       set -e
-      
+
       current_release=$1
       VMNAME=repo-vm
-      
+
       qvm-copy-to-vm $VMNAME $1
       find $current_release -type f -name '*.deb' -delete
       rm -f $current_release/vm/db/*
@@ -458,13 +453,13 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 .. code:: bash
 
       #!/bin/sh
-      
+
       if [ -z "$QREXEC_REMOTE_DOMAIN" ]; then
           exit 1
       fi
-      
+
       incoming=/home/user/QubesIncoming/$QREXEC_REMOTE_DOMAIN
-      
+
       rsync -lr --remove-source-files $incoming/ /home/user/linux-deb/
       cd /home/user/linux-deb
       export SKIP_REPO_CHECK=1
@@ -473,13 +468,13 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
               ./update-local-repo.sh r3.1/vm $dist
           done
       fi
-      
+
       if [ -d $incoming/r3.0 ]; then
           for dist in `ls r3.0/vm/dists`; do
               ./update-local-repo.sh r3.0/vm $dist
           done
       fi
-      
+
       if [ -d $incoming/r2 ]; then
           for dist in `ls r2/vm/dists`; do
               ./update-local-repo.sh r2/vm $dist
@@ -495,17 +490,17 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 .. code:: bash
 
       #!/bin/sh
-      
+
       set -e
-      
+
       # Set this to your local repository signing key
       SIGN_KEY=01ABCDEF
-      
+
       [ -z "$1" ] && { echo "Usage: $0 <repo> <dist>"; exit 1; }
-      
+
       REPO_DIR=$1
       DIST=$2
-      
+
       if [ "$DIST" = "wheezy-unstable" ]; then
           DIST_TAG=deb7
       elif [ "$DIST" = "jessie-unstable" ]; then
@@ -513,7 +508,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
       elif [ "$DIST" = "stretch-unstable" ]; then
           DIST_TAG=deb9
       fi
-      
+
       pushd $REPO_DIR
       mkdir -p dists/$DIST/main/binary-amd64
       dpkg-scanpackages --multiversion --arch "*$DIST_TAG*" . > dists/$DIST/main/binary-amd64/Packages
@@ -535,7 +530,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
           echo $1
       }
       calc_sha1 main/binary-amd64/Packages >> dists/$DIST/Release
-      
+
       rm -f $DIST/Release.gpg
       rm -f $DIST/InRelease
       gpg -abs -u "$SIGN_KEY" \
@@ -543,7 +538,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
       gpg -a -s --clearsign -u "$SIGN_KEY" \
           < dists/$DIST/Release > dists/$DIST/InRelease
       popd
-      
+
       if [ `id -u` -eq 0 ]; then
           chown -R --reference=$REPO_DIR $REPO_DIR
       fi
@@ -552,7 +547,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 
 Usage: add this line to ``/etc/apt/sources.list`` on test machine (adjust host and path):
 
-.. code:: bash
+.. code:: text
 
       deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 

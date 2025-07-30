@@ -63,7 +63,7 @@ Restore from your backup
 
 2. Since patches may have been released since your installation image was created, update Qubes R4.0 by going to the dom0 command line (**Qubes menu -> Terminal Emulator**) then running:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dom0-update
 

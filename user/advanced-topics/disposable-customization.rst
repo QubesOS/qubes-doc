@@ -93,7 +93,7 @@ You can use a :ref:`named disposable <user/reference/glossary:named disposable>`
 
 To create one that has no PCI devices attached, such as for ``sys-firewall``:
 
-.. code:: bash
+.. code:: console
 
       qvm-create -C DispVM -l green <SERVICE_QUBE>
       qvm-prefs <SERVICE_QUBE> autostart true
@@ -109,7 +109,7 @@ To create one with a PCI device attached such as for ``sys-net`` or ``sys-usb``,
 
 **Note:** You can use ``qvm-pci`` to :ref:`determine <user/how-to-guides/how-to-use-pci-devices:\`\`qvm-pci\`\` usage>` the ``<BDF>``. Also, you will often need to include the ``-o no-strict-reset=True`` :ref:`option <user/how-to-guides/how-to-use-pci-devices:no-strict-reset>` with USB controllers.
 
-.. code:: bash
+.. code:: console
 
       qvm-create -C DispVM -l red <SERVICE_QUBE>
       qvm-prefs <SERVICE_QUBE> virt_mode hvm
@@ -123,7 +123,7 @@ To create one with a PCI device attached such as for ``sys-net`` or ``sys-usb``,
 
 Optionally, if this disposable will also provide network access to other qubes:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <SERVICE_QUBE> provides_network true
 
@@ -131,7 +131,7 @@ Optionally, if this disposable will also provide network access to other qubes:
 
 Next, set the old service qube’s autostart to false, and update any references to the old one, e.g.:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs sys-firewall netvm <SERVICE_QUBE>
 
@@ -141,7 +141,7 @@ Also make sure to update any :doc:`RPC policies </user/advanced-topics/rpc-polic
 
 Here is an example of a complete ``sys-net`` replacement:
 
-.. code:: bash
+.. code:: console
 
       qvm-create -C DispVM -l red sys-net2
       qvm-prefs sys-net2 virt_mode hvm

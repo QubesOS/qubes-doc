@@ -36,7 +36,7 @@ Installing software from default repositories
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
    :alt: The Applications tab in Qube Settings
 
- 
+
 
 Installing software from other sources
 --------------------------------------
@@ -91,7 +91,7 @@ This method assumes that you are trying to follow instructions to install some p
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
    :alt: The Applications tab in Qube Settings
 
- 
+
 
 Troubleshooting
 ---------------
@@ -155,7 +155,7 @@ There are three Qubes VM testing repositories (where ``*`` denotes the Release):
 
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
-.. code:: bash
+.. code:: console
 
       sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
       sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
@@ -193,7 +193,7 @@ RPMFusion for Fedora templates
 
 If you would like to enable the `RPM Fusion <https://rpmfusion.org/>`__ repositories, open a Terminal of the template and type the following commands, depending on which RPM Fusion repositories you wish to enable (see `RPM Fusion <https://rpmfusion.org/>`__ for details):
 
-.. code:: bash
+.. code:: console
 
       sudo dnf config-manager setopt rpmfusion-free.enabled=1
       sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
@@ -229,7 +229,7 @@ Root revert
 
 2. In a dom0 terminal:
 
-   .. code:: bash
+   .. code:: console
 
          qvm-volume revert <template>:root
 
@@ -281,12 +281,12 @@ The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in d
 
 Example policy file in R4.1 (with Whonix installed, but not set as default UpdateVM for all templates):
 
-.. code:: bash
+.. code:: console
 
       # any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
       @tag:whonix-updatevm @default allow,target=sys-whonix
       @tag:whonix-updatevm @anyvm deny
-      
+
       # other templates use sys-net
       @type:TemplateVM @default allow,target=sys-net
       @anyvm @anyvm deny
@@ -313,15 +313,15 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
           qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
          Installing dependencies:
          [...]
-         
+
          Transaction Summary
          ========================================================================================================
          Install  19 Packages
-         
+
          Total download size: 27 M
          Installed size: 88 M
          Is this ok [y/N]: y
-         
+
          Downloading Packages:
          [..]
          Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
@@ -329,7 +329,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
          [...]
          Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
          Notifying dom0 about installed applications
-         
+
          Installed:
            snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
          [...]
@@ -337,7 +337,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
    You may see the following message:
 
-   .. code:: bash
+   .. code:: console
 
          Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
          /usr/sbin/semodule:  Failed!

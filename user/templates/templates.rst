@@ -172,13 +172,13 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
 
      In the App Menu, click on Terminal Emulator. Type the command below, substituting ``<SYS_USB_DISPOSABLE_TEMPLATE>`` with the name of the disposable template on which ``sys-usb`` is based, ``<NEW_TEMPLATE>`` with the name of the new template, and ``<USB_QUBE>`` with the name of your USB qube. Other than these substitutions, make sure to enter the command exactly as written.
 
-     .. code:: bash
+     .. code:: console
 
            qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
 
      With substitutions, your command should look similar to this example. (**Warning:** This is just an example. Do not attempt to use it.)
 
-     .. code:: bash
+     .. code:: console
 
            qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
 

@@ -37,7 +37,7 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 **Note:** Due to the security problems described in `QSB-091 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-091-2023.txt>`__, installation of Qubes Windows Tools is currently blocked. Instead, a text file containing a warning is displayed. Currently, it is difficult to estimate the severity of the risks posed by the sources of the Xen drivers used in QWT possibly being compromised, so it was decided not to offer direct QWT installation until this problem could be treated properly. While Windows qubes are, in Qubes, generally not regarded as being very trustworthy, a possible compromise of the Xen drivers used in Qubes Windows Tools might create a risk for Xen or ``dom0`` and thus be dangerous for Qubes itself. This risk may be small or even non-existent, as stated in QSB-091. If you **understand** this risk and are **willing to take it**, you can still install the previous versions of Qubes Windows Tools, using the command
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update qubes-windows-tools-4.1.68
 
@@ -45,7 +45,7 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 for Qubes R4.1.2, or
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update qubes-windows-tools-4.1.69
 
@@ -63,8 +63,8 @@ If you prefer to download the corresponding .rpm files for manual QWT installati
 
 Below is a breakdown of the feature availability depending on the windows version:
 
-.. list-table:: 
-   :widths: 38 38 38 
+.. list-table::
+   :widths: 38 38 38
    :align: center
    :header-rows: 1
 
@@ -101,7 +101,7 @@ Below is a breakdown of the feature availability depending on the windows versio
    * - Audio
      - y
      - y
-   
+
 
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
@@ -160,7 +160,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
 1. First, make sure that ``qubes-windows-tools`` is installed in your system:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dom0-update qubes-windows-tools
 
@@ -168,14 +168,14 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
    (If the above command does not work, it could be that the Qubes Tools are not in the stable repo yet. Try installing from the testing repo instead.)
    You can also install the package from testing repositories, where we usually publish new versions first:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 
 
    If an earlier version of Qubes Windows Tools is already installed, with enabled current-testing repo you need to specify as action to ``upgrade`` the existing package, because the default action is ``install``, which will fail if it detects that QWT is already present in Dom0:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing --action=upgrade qubes-windows-tools
 
@@ -184,7 +184,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
 2. **For Windows 8.1, 10 and 11:** From the Windows command line, disable hibernation in order to avoid incomplete Windows shutdown, which may lead to corruption of the VM’s disk.
 
-   .. code:: bash
+   .. code:: doscon
 
          powercfg -H off
 
@@ -193,7 +193,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
 3. To install the Qubes Windows Tools in a Windows VM one should start the VM passing the additional option ``--install-windows-tools``:
 
-   .. code:: bash
+   .. code:: console
 
          qvm-start <VMname> --install-windows-tools
 
@@ -308,7 +308,7 @@ Also, the inter-VM services work as usual – e.g. to request opening a documen
 .. code:: console
 
       [user@dom0 ~] $ qvm-open-in-vm my-win-appvm roadmap.pptx
-      
+
       [user@dom0 ~]$ qvm-open-in-vm my-win-appvm https://invisiblethingslab.com
 
 
@@ -418,8 +418,8 @@ Configuration
 
 Various aspects of Qubes Windows Tools (QWT) can be configured through the registry. The main configuration key is located in ``HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools``. Configuration values set on this level are global to all QWT components. It’s possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
 
-.. list-table:: 
-   :widths: 14 14 14 14 
+.. list-table::
+   :widths: 14 14 14 14
    :align: center
    :header-rows: 1
 
@@ -439,13 +439,13 @@ Various aspects of Qubes Windows Tools (QWT) can be configured through the regis
      - DWORD
      - Maximum age of log files (in seconds), older logs are automatically deleted
      - 604800 (7 days)
-   
+
 
 
 Possible log levels:
 
-.. list-table:: 
-   :widths: 11 11 11 
+.. list-table::
+   :widths: 11 11 11
    :align: center
    :header-rows: 1
 
@@ -467,7 +467,7 @@ Possible log levels:
    * - 5
      - Verbose
      - Trace most function calls
-   
+
 
 
 Debug and Verbose levels can generate large volume of logs and are intended for development/troubleshooting only.
@@ -476,8 +476,8 @@ To override global settings for a specific component, create a new key under the
 
 Component-specific settings currently available:
 
-.. list-table:: 
-   :widths: 11 11 11 11 11 
+.. list-table::
+   :widths: 11 11 11 11 11
    :align: center
    :header-rows: 1
 
@@ -491,7 +491,7 @@ Component-specific settings currently available:
      - DWORD
      - Disable cursor in the VM. Useful for integration with Qubes desktop so you don’t see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).
      - 1
-   
+
 
 
 Troubleshooting
@@ -514,8 +514,8 @@ Xen logs in dom0 (``/var/log/xen/console/guest-*``) are also useful as they cont
 
 If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
-.. list-table:: 
-   :widths: 32 32 
+.. list-table::
+   :widths: 32 32
    :align: center
    :header-rows: 1
 
@@ -539,7 +539,7 @@ If a specific component is malfunctioning, you can increase its log verbosity as
      - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
    * - relocate-dir
      - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: C:\\move-profiles.log (it can’t use our common logger library so none of the log settings apply).
-   
+
 
 
 If there are network-related issues, the qube doesn’t resolve DNS and has trouble accessing the Internet, this might be an issue with the PV Network Drivers.
@@ -563,22 +563,22 @@ When we publish a new QWT version, it’s usually pushed to the ``current-testin
 That command will download a new QWT ``iso`` file from the testing repository. It goes without saying that you should **backup your VMs** before installing anything from testing repos.
 
 .. |QWT_install_select| image:: /attachment/doc/QWT_install_select.png
-   
+
 
 .. |QWT_install_driver| image:: /attachment/doc/QWT_install_driver.png
-   
+
 
 .. |QWT_install_no_restart| image:: /attachment/doc/QWT_install_no_restart.png
-   
+
 
 .. |windows-seamless-4.png| image:: /attachment/doc/windows-seamless-4.png
-   
+
 
 .. |windows-seamless-1.png| image:: /attachment/doc/windows-seamless-1.png
-   
+
 
 .. |windows-seamless-7.png| image:: /attachment/doc/windows-seamless-7.png
-   
+
 
 .. |QWT_no_PV_network| image:: /attachment/doc/QWT_no_PV_network.png
-   
+

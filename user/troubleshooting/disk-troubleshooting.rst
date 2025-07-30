@@ -9,7 +9,7 @@ Disk troubleshooting
 
 If the disk is completely full, you will get an ``Out of disk space`` error that may crash your system because Dom0 does not have enough disk space to work. So it’s good practice to regularly check disk space usage. Running the ``df -h`` command in dom0 terminal will show some information, but not include all the relevant details. The Qubes user interface provides a disk space widget. If you are unable to access the interface, the command line version is running ``sudo lvs | head`` and looking at top entry for LVM pool. For example:
 
-.. code:: bash
+.. code:: text
 
       LV                                            VG         Attr       LSize   Pool   Origin                                        Data%  Meta%  Move Log Cpy%Sync Convert
        pool00                                        qubes_dom0 twi-aotz-- 453.17g                                                      89.95  69.78
@@ -28,7 +28,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
 1. Clean yum cache.
 
-   .. code:: bash
+   .. code:: console
 
          sudo dnf clean all
 
@@ -36,7 +36,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
 2. Delete ``.img`` files of a less important VM, which can be found in ``/var/lib/qubes/appvms/``. Then, when the system is working again, clean up the rest.
 
-   .. code:: bash
+   .. code:: console
 
          qvm-remove <VMname>
 
@@ -45,7 +45,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
 3. Decrease the filesystem safety margin (5% by default).
 
-   .. code:: bash
+   .. code:: console
 
          sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
 
@@ -96,7 +96,7 @@ For example:
 
 After freeing some initial space, it may be possible to recover more space by deleting files in a userVM after connecting to the userVM terminal:
 
-.. code:: bash
+.. code:: console
 
       qvm-start <VMname>
       qvm-console-dispvm <VMname>
@@ -115,7 +115,7 @@ To fix this issue:
 
 1. In the dom0 terminal get a root console on the vm (eg. sys-usb) with:
 
-   .. code:: bash
+   .. code:: console
 
          qvm-console-dispvm sys-usb
 
@@ -125,7 +125,7 @@ To fix this issue:
 
 3. When you attempt to unmount the ``/home`` directory using the ``umount /home`` command, you will encounter an error because there are processes using the ``/home`` directory. You can view a list of these processes with the ``fuser`` command:
 
-   .. code:: bash
+   .. code:: console
 
          fuser -m /home
 
@@ -137,7 +137,7 @@ Kill these process until they are all gone using ``kill <process ID>``.
 
 4. Finally, run:
 
-   .. code:: bash
+   .. code:: console
 
          umount /home
          fsck /dev/xvdb

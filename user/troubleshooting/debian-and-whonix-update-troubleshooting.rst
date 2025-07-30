@@ -15,7 +15,7 @@ Updating Error Messages
 
 After running the commands to update Debian or Whonix, hopefully everything will complete perfectly.
 
-.. code:: bash
+.. code:: console
 
       sudo apt-get update && sudo apt-get dist-upgrade
 
@@ -23,14 +23,14 @@ After running the commands to update Debian or Whonix, hopefully everything will
 
 However, if you see something like the following, then something went wrong.
 
-.. code:: bash
+.. code:: text
 
       W: Failed to fetch http://ftp.us.debian.org/debian/dist/jessie/contrib/binary-i386/Packages 404 Not Found
-      
+
       W: Failed to fetch http://ftp.us.debian.org/debian/dist/jessie/non-free/binary-i386/Packages 404 Not Found
-      
+
       E: Some index files failed to download. They have been ignored, or old ones used instead.
-      
+
       Err http://ftp.us.debian.org jessie Release.gpg
         Could not resolve 'ftp.us.debian.org'
       Err http://deb.torproject.org jessie Release.gpg
@@ -39,11 +39,11 @@ However, if you see something like the following, then something went wrong.
         Could not resolve 'security.debian.org'
       Reading package lists... Done
       W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
-      
+
       W: Failed to fetch http://ftp.us.debian.org/debian/dists/jessie/Release.gpg  Could not resolve 'ftp.us.debian.org'
-      
+
       W: Failed to fetch http://deb.torproject.org/torproject.org/dists/jessie/Release.gpg  Could not resolve 'deb.torproject.org'
-      
+
       W: Some index files failed to download. They have been ignored, or old ones used instead.
 
 
@@ -60,7 +60,7 @@ This could be a temporary Tor exit relay or server failure that should fix itsel
 
 Sometimes if you see a message such as:
 
-.. code:: bash
+.. code:: text
 
       Could not resolve 'security.debian.org'
 
@@ -68,7 +68,7 @@ Sometimes if you see a message such as:
 
 It helps to run the following command:
 
-.. code:: bash
+.. code:: console
 
       nslookup security.debian.org
 
@@ -76,7 +76,7 @@ It helps to run the following command:
 
 And then trying running the ``update`` and ``upgrade`` commands again.
 
-.. code:: bash
+.. code:: console
 
       sudo apt-get update && sudo apt-get dist-upgrade
 
@@ -90,7 +90,7 @@ Never Install Unsigned Packages
 
 If you see something like this:
 
-.. code::
+.. code:: text
 
       WARNING: The following packages cannot be authenticated!
         icedove
@@ -106,7 +106,7 @@ Signature Verification Warnings
 
 There should be none at the moment. If there was such a warning, it would look like this:
 
-.. code::
+.. code:: text
 
       W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://deb.torproject.org stable Release: The following signatures were invalid: KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681
 
@@ -120,10 +120,10 @@ In past various apt repositories were signed with expired key: `The Tor Projectâ
 
 You saw the following warning:
 
-.. code::
+.. code:: text
 
       W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://deb.torproject.org stable Release: The following signatures were invalid: KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681
-      
+
       W: Failed to fetch http://deb.torproject.org/torproject.org/dists/stable/Release
       W: Some index files failed to download. They have been ignored, or old ones used instead.
 
@@ -139,7 +139,7 @@ Changed Configuration Files
 
 If you see something like the following.
 
-.. code::
+.. code:: text
 
       Setting up ifupdown ...
       Configuration file /etc/network/interfaces

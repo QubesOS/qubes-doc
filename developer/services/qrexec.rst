@@ -65,7 +65,7 @@ Policy files
 
 Policies are defined in lines with the following format:
 
-.. code:: bash
+.. code:: text
 
       service-name|* +argument|* source destination action  [options]
 
@@ -132,7 +132,7 @@ There are severals methods for specifying source/target VMs in RPC policies.
 
 Target VM can be also specified as ``@default``, which matches the case when calling VM didn’t specified any particular target (either by using ``@default`` target, or empty target). For DisposableVMs, ``@dispvm:DISP_VM`` is very similar to ``@dispvm`` but forces using a particular VM (``DISP_VM``) as a base VM to be started as DisposableVM. For example:
 
-.. code:: bash
+.. code:: text
 
       * * anon-whonix @dispvm:anon-whonix-dvm allow
 
@@ -140,7 +140,7 @@ Target VM can be also specified as ``@default``, which matches the case when cal
 
 Adding such policy itself will not force usage of this particular ``DISP_VM`` - it will only allow it when specified by the caller. But ``@dispvm:DISP_VM`` can also be used as target in request redirection, so *it is possible* to force particular ``DISP_VM`` usage, when caller didn’t specify it:
 
-.. code:: bash
+.. code:: text
 
       * * anon-whonix @dispvm allow target=@dispvm:anon-whonix-dvm
 
@@ -150,7 +150,7 @@ Note that without redirection, this rule would allow using default Disposable VM
 
 The policy confirmation dialog (``ask`` action) allows the user to specify target VM. User can choose from VMs that, according to policy, would lead to ``ask`` or ``allow`` actions. It is not possible to select VM that policy would deny. By default no VM is selected, even if the caller provided some, but policy can specify default value using ``default_target=`` parameter. For example:
 
-.. code:: bash
+.. code:: text
 
       * * work-mail work-archive allow
       * * work-mail @tag:work ask default_target=work-files
@@ -194,7 +194,7 @@ For this reason it is possible to specify a service argument, which will be subj
 
 The argument is specified in the second column of the policy line, as +ARGUMENT. If the policy uses “*” as an argument, then it will match any argument (including no argument). As rules are processed in order, any lines with a specific argument below the line with the wildcard argument will be ignored. So for instance, we might have policies which are different depending on the argument:
 
-.. code:: bash
+.. code:: text
 
       Device +device1 * * allow
       Device +device2 * * deny
@@ -246,7 +246,7 @@ Our server will be anotherVM at ``/usr/bin/our_test_add_server``. The code for t
 
 We’ll need to create a service called ``test.Add`` with its own definition and policy file in dom0. Now we need to define what the service does. In this case, it should call our addition script. We define the service with a symlink at ``/etc/qubes-rpc/test.Add`` pointing to our server script (the script can be also placed directly in ``/etc/qubes-rpc/test.Add`` - make sure the file has executable bit set!):
 
-.. code:: bash
+.. code:: console
 
       ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
 
@@ -254,7 +254,7 @@ We’ll need to create a service called ``test.Add`` with its own definition and
 
 The administrative domain will direct traffic based on the current RPC policies. In dom0, create a file at ``/etc/qubes/policy.d/30-test.policy`` containing the following:
 
-.. code:: bash
+.. code:: text
 
       test.Add * * * ask
 
@@ -300,7 +300,7 @@ Make sure the file is executable! (The service argument is already sanitized by 
 
 Now we create the policy file in dom0, at ``/etc/qubes/policy.d/30-test.policy``. The contents of the file are below. Replace “source_vm1” and others with the names of your own chosen domains.
 
-.. code:: bash
+.. code:: text
 
       test.File +testfile1 source_vm1 target_vm allow
       test.File +testfile2 source_vm2 target_vm allow

@@ -9,7 +9,7 @@ HVM pauses on boot, followed by kernel error
 
 The HVM may pause on boot, showing a fixed cursor. After a while a series of warnings may be shown similar to this:
 
-.. code:: bash
+.. code:: text
 
       BUG: soft lockup - CPU#0 stuck for 23s! [systemd-udevd:244]
 
@@ -43,7 +43,7 @@ If this solves the problem then you will want to make the change permanent:
 
 3. Remove this text from that line:
 
-   .. code:: bash
+   .. code:: text
 
          rhgb
 
@@ -51,7 +51,7 @@ If this solves the problem then you will want to make the change permanent:
 
 4. Add this text to that line:
 
-   .. code:: bash
+   .. code:: text
 
          modprobe.blacklist=bochs_drm
 
@@ -59,7 +59,7 @@ If this solves the problem then you will want to make the change permanent:
 
 5. Run this command:
 
-   .. code:: bash
+   .. code:: console
 
          grub2-mkconfig --output=/boot/grub2/grub.cfg
 
@@ -75,7 +75,7 @@ Can't start an OS in an HVM / "Probing EDD (edd=off to disable!… ok" message
 
 If you see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD (edd=off to disable!... ok``, then enter the following command from a ``dom0`` prompt:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <HVMname> kernel ""
 
@@ -90,7 +90,7 @@ You can disable memory-balancing in the settings, under the “Advanced” tab.
 
 To give the VM a RAM of 2GB, open a terminal in ``dom0`` and enter:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <HVMname> memory 2000
 
