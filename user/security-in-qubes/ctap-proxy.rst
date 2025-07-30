@@ -88,7 +88,7 @@ If you are using Qubes 4.0, you can further compartmentalise your CTAP keys by r
 
 To enable this, create a file in dom0 named ``/etc/qubes/policy.d/30-user-ctapproxy.policy`` with the following content:
 
-.. code:: bash
+.. code:: text
 
       policy.RegisterArgument +u2f.Authenticate sys-usb @anyvm allow target=dom0
 
@@ -104,7 +104,7 @@ Non-default USB qube name
 
 If your USB qube is named differently than ``sys-usb``, then do the following in the appropriate template(s):
 
-.. code:: bash
+.. code:: console
 
       systemctl enable qubes-ctapproxy@USB_QUBE.service
       systemctl disable qubes-ctapproxy@sys-usb.service
@@ -122,4 +122,4 @@ Template and browser support
 The large number of possible combinations of template (Fedora 37, 38; Debian 10, 11) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes CTAP Proxy. In some cases, you may be the first person to try a particular combination. Consequently, (and as with any new feature), users will inevitably encounter bugs. We ask for your patience and understanding in this regard. As always, please :doc:`report any bugs you encounter </introduction/issue-tracking>`.
 
 .. |Qubes CTAP Proxy diagram| image:: /attachment/doc/ctap.svg
-   
+

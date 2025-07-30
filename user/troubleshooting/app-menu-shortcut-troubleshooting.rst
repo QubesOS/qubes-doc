@@ -52,7 +52,7 @@ In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available 
 
 To change the whitelist shown in app menu, you need to provide a list of the desktop entries. Each line contains a desktop entry name, with its ``.desktop`` extension, like this:
 
-.. code:: bash
+.. code:: console
 
       qubes-open-file-manager.desktop
       qubes-run-terminal.desktop
@@ -78,7 +78,7 @@ You can manually create new entries in the “available applications” list of 
 
 2. Create a custom ``.desktop`` file in ``/usr/share/applications`` (you may need to first create the subdirectory). Look in ``/usr/share/applications`` for existing examples, or see the full `file specification <https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html>`__. It will be something like:
 
-   .. code:: bash
+   .. code:: desktop
 
          [Desktop Entry]
          Type=Application
@@ -111,7 +111,7 @@ To add a custom menu entry instead:
 
 4. Add a custom menu entry referring to your newly created ``.desktop`` file.
 
-   .. code:: bash
+   .. code:: xml
 
          <Menu>
               <Name>Webmail</Name>
@@ -178,7 +178,7 @@ First, check in the corresponding ``.desktop`` file in ``~/.local/share/qubes-ap
 
 The line starting with ``Exec=`` points out the exact command run by dom0 to start the application. It should be something like:
 
-.. code:: bash
+.. code:: desktop
 
       Exec=qvm-run -q -a --service -- <QUBE_NAME> qubes.StartApp+<APPLICATION_NAME>
 
@@ -206,7 +206,7 @@ The whitelist given to ``qvm-appmenu --set-whitelist`` is stored as a feature ca
 
 Actual command lines for the menu shortcuts involve the ``qvm-run`` command which starts a process in another domain. Examples:
 
-.. code:: bash
+.. code:: console
 
       qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
       qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
@@ -215,7 +215,7 @@ Actual command lines for the menu shortcuts involve the ``qvm-run`` command whic
 
 Note that you can create a shortcut that points to a ``.desktop`` file in your app qube with e.g.:
 
-.. code:: bash
+.. code:: console
 
       qvm-run -q -a --service -- personal qubes.StartApp+firefox
 
@@ -226,7 +226,7 @@ While this works well for standard applications, creating a menu entry for Windo
 **Note:** Applications installed under *wine* are installed in AppVMs, not in the template on which these AppVMs are based, as the file structure used by *wine* is stored under ``~/.wine``, which is part of the persistent data of the AppVM and not inherited from its template.
 
 .. |image1| image:: /attachment/doc/r4.0-dom0-menu.png
-   
+
 
 .. |image2| image:: /attachment/doc/r4.0-dom0-appmenu-select.png
-   
+

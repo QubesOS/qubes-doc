@@ -247,7 +247,7 @@ Input
 
 Both calls accept the following format from standard input:
 
-.. code:: bash
+.. code:: text
 
       arg1
       arg2

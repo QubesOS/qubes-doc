@@ -108,7 +108,7 @@ Installing a new version from ``qubes-dom0-unstable`` repository:
       Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
       Resolving Dependencies
       (...)
-      
+
       ===========================================================================================
        Package             Arch       Version                        Repository             Size
       ===========================================================================================
@@ -116,12 +116,12 @@ Installing a new version from ``qubes-dom0-unstable`` repository:
        kernel-qubes-vm     x86_64     1000:4.1.12-6.pvops.qubes      qubes-dom0-cached      40 M
       Removing:
        kernel-qubes-vm     x86_64     1000:3.18.10-2.pvops.qubes     @anaconda/R3.0        134 M
-      
+
       Transaction Summary
       ===========================================================================================
       Install  1 Package
       Remove   1 Package
-      
+
       Total download size: 40 M
       Is this ok [y/d/N]: y
       Downloading packages:
@@ -136,13 +136,13 @@ Installing a new version from ``qubes-dom0-unstable`` repository:
       Error in PREUN scriptlet in rpm package 1000:kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64
         Verifying  : 1000:kernel-qubes-vm-4.1.12-6.pvops.qubes.x86_64                        1/2
         Verifying  : 1000:kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64                       2/2
-      
+
       Installed:
         kernel-qubes-vm.x86_64 1000:4.1.12-6.pvops.qubes
-      
+
       Failed:
         kernel-qubes-vm.x86_64 1000:3.18.10-2.pvops.qubes
-      
+
       Complete!
       [user@dom0 ~]$
 
@@ -174,17 +174,17 @@ To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support``
       Package 1000:kernel-devel-4.1.9-6.pvops.qubes.x86_64 already installed and latest version
       Resolving Dependencies
       (...)
-      
+
       ================================================================================
        Package                      Arch        Version        Repository        Size
       ================================================================================
       Installing:
        qubes-kernel-vm-support      x86_64      3.1.2-1.fc20   qubes-dom0-cached 9.2 k
-      
+
       Transaction Summary
       ================================================================================
       Install  1 Package
-      
+
       Total download size: 9.2 k
       Installed size: 13 k
       Is this ok [y/d/N]: y
@@ -194,16 +194,16 @@ To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support``
       Transaction test succeeded
       Running transaction (shutdown inhibited)
         Installing : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
-      
+
       Creating symlink /var/lib/dkms/u2mfn/3.1.2/source ->
                        /usr/src/u2mfn-3.1.2
-      
+
       DKMS: add completed.
         Verifying  : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
-      
+
       Installed:
         qubes-kernel-vm-support.x86_64 0:3.1.2-1.fc20
-      
+
       Complete!
 
 
@@ -244,7 +244,7 @@ Using kernel installed in the VM
 
 Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <clonetemplatename> virt_mode hvm
       qvm-prefs <clonetemplatename> kernel ''
@@ -261,7 +261,7 @@ Install whatever kernel you want. You need to also ensure you have the ``kernel-
 
 If you are using a distribution kernel package (``kernel`` package), the initramfs and kernel modules may be handled automatically. If you are using a manually built kernel, you need to handle this on your own. Take a look at the ``dkms`` documentation, especially the ``dkms autoinstall`` command may be useful. If you did not see the ``kernel`` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself. Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
 
-.. code:: bash
+.. code:: console
 
       sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 
@@ -269,7 +269,7 @@ If you are using a distribution kernel package (``kernel`` package), the initram
 
 Once the kernel is installed, you need to setup ``grub2`` by running:
 
-.. code:: bash
+.. code:: console
 
       sudo grub2-install /dev/xvda
 
@@ -277,7 +277,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 Finally, you need to create a GRUB configuration. You may want to adjust some settings in ``/etc/default/grub``; for example, lower ``GRUB_TIMEOUT`` to speed up VM startup. Then, you need to generate the actual configuration. In Fedora it can be done using the ``grub2-mkconfig`` tool:
 
-.. code:: bash
+.. code:: console
 
       sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -285,7 +285,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 You can safely ignore this error message:
 
-.. code:: bash
+.. code:: console
 
       grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
 
@@ -319,7 +319,7 @@ Using a distribution kernel package the initramfs and kernel modules should be h
 
 Install distribution kernel image, kernel headers and the grub.
 
-.. code:: bash
+.. code:: console
 
       sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 
@@ -327,7 +327,7 @@ Install distribution kernel image, kernel headers and the grub.
 
 If you are doing that on a qube based on “Debian Minimal” template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select ``/dev/xvda`` (check the box using the space bar, and validate your choice with “Enter”.) If this popup does not appear during the installation, you must manually setup ``grub2`` by running:
 
-.. code:: bash
+.. code:: console
 
       sudo grub-install /dev/xvda
 
@@ -381,7 +381,7 @@ Run DKMS. Replace this with actual kernel version.
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo dkms autoinstall -k <kernel-version>
 
@@ -390,7 +390,7 @@ For example.
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo dkms autoinstall -k 4.19.0-6-amd64
 
@@ -399,7 +399,7 @@ Update initramfs.
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo update-initramfs -u
 
@@ -409,16 +409,16 @@ The output should look like this:
 .. code:: console
 
       $ sudo dkms autoinstall -k 3.16.0-4-amd64
-      
+
       u2mfn:
       Running module version sanity check.
         - Original module
           - No original module exists within this kernel
         - Installation
           - Installing to /lib/modules/3.16.0-4-amd64/updates/dkms/
-      
+
       depmod....
-      
+
         DKMS: install completed.
       $ sudo update-initramfs -u
       update-initramfs: Generating /boot/initrd.img-3.16.0-4-amd64

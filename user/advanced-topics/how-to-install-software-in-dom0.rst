@@ -46,7 +46,7 @@ How to downgrade a specific package
 
 To downgrade a specific package in dom0:
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update --action=downgrade package-version
 
@@ -58,7 +58,7 @@ How to re-install a package
 
 To re-install a package in dom0:
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update --action=reinstall package
 
@@ -70,7 +70,7 @@ How to uninstall a package
 
 If you’ve installed a package such as anti-evil-maid, you can remove it with the following command:
 
-.. code:: bash
+.. code:: console
 
       sudo dnf remove anti-evil-maid
 
@@ -94,7 +94,7 @@ If you wish to install updates that are still in :doc:`testing </user/downloadin
 
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
       sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
@@ -152,7 +152,7 @@ Example
 
 (Note that the following example enables the unstable repo.)
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 
@@ -166,7 +166,7 @@ EFI
 
 Replace the example version numbers with the one you are upgrading to.
 
-.. code:: bash
+.. code:: console
 
       sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
 
@@ -176,7 +176,7 @@ Grub2
 ^^^^^
 
 
-.. code:: bash
+.. code:: console
 
       sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -192,7 +192,7 @@ Changing default kernel
 
 This section describes changing the default kernel in dom0. It is sometimes needed if you have upgraded to a newer kernel and are having problems booting, for example. On the next kernel update, the default will revert to the newest.
 
-.. code:: bash
+.. code:: console
 
       sudo nano /etc/default/grub
       [update the following two lines, add if needed]
@@ -213,8 +213,6 @@ Requires installed `Whonix <https://forum.qubes-os.org/t/19014>`__.
 
 Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 
-.. code:: bash
-
-      Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix
+:menusettings:`Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix`
 
 

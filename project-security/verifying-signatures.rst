@@ -107,7 +107,7 @@ So, what *should* you do? One option is to use the PGP `Web of Trust <https://en
 
 Perhaps the most common route is to rely on the key’s fingerprint, which is a string of 40 alphanumeric characters, like this:
 
-.. code:: bash
+.. code:: text
 
       427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
 
@@ -119,7 +119,7 @@ But how do you know which fingerprint is the real one? After all, :ref:`this web
 
 For the purpose of convincing yourself that you know the authentic QMSK fingerprint, spaces and capitalization don’t matter. In other words, all of these fingerprints are considered the same:
 
-.. code:: bash
+.. code:: text
 
       427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
       427f 11fd 0faa 4b08 0123  f01c ddfa 1a3e 3687 9494
@@ -132,7 +132,7 @@ Instead, what matters is that *all* the characters are present in *exactly* the 
 
 However, for the purpose of *searching for*, *looking up*, or *entering* keys, spaces and capitalization can matter, depending on the software or tool you’re using. You may need to try different variations (e.g., with and without spaces). You may also sometimes see (or need to enter) the entire fingerprint prefixed with ``0x``, as in:
 
-.. code:: bash
+.. code:: text
 
       0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       0x427f11fd0faa4b080123f01cddfa1a3e36879494
@@ -167,45 +167,45 @@ Once you’ve observed enough matching fingerprints from enough independent sour
 
 Now that you’ve imported the authentic QMSK, set its trust level to “ultimate” so that it can be used to automatically verify all the keys signed by the QMSK (in particular, RSKs).
 
-.. code::
+.. code:: console
 
       $ gpg2 --edit-key 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
       This is free software: you are free to change and redistribute it.
       There is NO WARRANTY, to the extent permitted by law.
-      
+
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
-      
+
       gpg> fpr
       pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
       Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
-      
+
       gpg> trust
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
-      
+
       Please decide how far you trust this user to correctly verify other users' keys
       (by looking at passports, checking fingerprints from different sources, etc.)
-      
+
          1 = I don't know or won't say
          2 = I do NOT trust
          3 = I trust marginally
          4 = I trust fully
          5 = I trust ultimately
          m = back to the main menu
-      
+
       Your decision? 5
       Do you really want to set this key to ultimate trust? (y/N) y
-      
+
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: ultimate      validity: unknown
       [ unknown] (1). Qubes Master Signing Key
       Please note that the shown key validity is not necessarily correct
       unless you restart the program.
-      
+
       gpg> q
 
 
@@ -273,7 +273,7 @@ Now that you have the correct RSK, you simply need to verify that it is signed b
       uid           [  full  ] Qubes OS Release X Signing Key
       sig!3        XXXXXXXXXXXXXXXX YYYY-MM-DD  Qubes OS Release X Signing Key
       sig!         DDFA1A3E36879494 YYYY-MM-DD  Qubes Master Signing Key
-      
+
       gpg: 2 good signatures
 
 
@@ -321,18 +321,18 @@ In addition to the ``.DIGESTS`` files on the `downloads <https://www.qubes-os.or
 
 If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the digest file for that ISO is ``Qubes-RX-x86_64.iso.DIGESTS``, where ``X`` is a specific release of Qubes. The digest filename is always the same as the ISO filename followed by ``.DIGESTS``. Since the digest file is a plain text file, you can open it with any text editor. Inside, you should find text that looks similar to this:
 
-.. code:: bash
+.. code:: text
 
       -----BEGIN PGP SIGNED MESSAGE-----
       Hash: SHA256
-      
+
       3c951138b8b9867d8657f173c1b58b82 *Qubes-RX-x86_64.iso
       1fc9508160d7c4cba6cacc3025165b0f996c843f *Qubes-RX-x86_64.iso
       6b998045a513dcdd45c1c6e61ace4f1b4e7eff799f381dccb9eb0170c80f678a *Qubes-RX-x86_64.iso
       de1eb2e76bdb48559906f6fe344027ece20658d4a7f04ba00d4e40c63723171c62bdcc869375e7a4a4499d7bff484d7a621c3acfe9c2b221baee497d13cd02fe *Qubes-RX-x86_64.iso
       -----BEGIN PGP SIGNATURE-----
       Version: GnuPG v2
-      
+
       iQIcBAEBCAAGBQJX4XO/AAoJEMsRyh0D+lCCL9sP/jlZ26zhvlDEX/eaA/ANa/6b
       Dpsh/sqZEpz1SWoUxdm0gS+anc8nSDoCQSMBxnafuBbmwTChdHI/P7NvNirCULma
       9nw+EYCsCiNZ9+WCeroR8XDFSiDjvfkve0R8nwfma1XDqu1bN2ed4n/zNoGgQ8w0
@@ -458,7 +458,7 @@ Now, our goal is to perform the same verification steps as we did with the origi
 
 This command reads exactly the number of bytes of your Qubes ISO (obtained with ``stat -c %s /path/to/iso``) from the USB drive and pipes them into ``sha256sum``. The output should look something like this:
 
-.. code:: bash
+.. code:: console
 
       0e68dd3347b68618d9e5f3ddb580bf7ecdd2166747630859b3582803f1ca8801  -
       5523+0 records in

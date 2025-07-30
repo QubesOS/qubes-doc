@@ -4,7 +4,7 @@ Qubes ISO building
 
 
 .. warning::
-      
+
       **Note:** These instructions concern the older Qubes builder (v1). It supports only building Qubes 4.2 or earlier.The build process has been completely rewritten in `qubes-builder v2 <https://github.com/QubesOS/qubes-builderv2/>`__      . This can be used for building Qubes R4.2 and later versions, and all related components.
 
 Build Environment
@@ -15,14 +15,14 @@ Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below
 
 **Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced by default and is blocking the build system. You would get error like “can’t create transaction lock on /…/rpm/.rpm.lock (Permission denied)”. You can set SeLinux to permissive mode with
 
-.. code:: bash
+.. code:: console
 
       sudo setenforce 0
 
 
 In ``dom0``, install the Fedora 36 (or 37) template if you don’t already have it.
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update qubes-template-fedora-36
 
@@ -40,17 +40,17 @@ Once you’ve built the development AppVM, open a Terminal window to it and inst
 
 Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
 
-.. code:: bash
+.. code:: console
 
-      wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
-      gpg --import qubes-master-signing-key.asc
-      gpg --edit-key 36879494
-      fpr
-      # Verify fingerprint! See Note below!
-      # Once verified, set trust to *ultimate*
-      # (Typical sequence is trust, 5, Y, q)
-      wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
-      gpg --import qubes-developers-keys.asc
+      $ wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
+      $ gpg --import qubes-master-signing-key.asc
+      $ gpg --edit-key 36879494
+      $ fpr
+      $ # Verify fingerprint! See Note below!
+      $ # Once verified, set trust to *ultimate*
+      $ # (Typical sequence is trust, 5, Y, q)
+      $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
+      $ gpg --import qubes-developers-keys.asc
 
 
 
@@ -58,7 +58,7 @@ Get the necessary keys to verify the sources (run these and other commands below
 
 Now let’s bootstrap the builder. Unfortunately, the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 
-.. code:: bash
+.. code:: console
 
       git clone https://github.com/QubesOS/qubes-builder.git
       cd qubes-builder
@@ -76,37 +76,37 @@ Build using setup script
 
 Let’s configure the builder first (see :ref:`procedure <developer/building/qubes-iso-building:build using manual steps>` at bottom if you would prefer to manually configure):
 
-.. code:: bash
+.. code:: console
 
-      cd ~/qubes-builder
-      ./setup
-      # Select Yes to add Qubes Master Signing Key
-      # Select Yes to add Qubes OS Signing Key
-      # Select 4.1 for version
-      # Stable
-      # Select Yes for fast Git cloning
-      # Select Current (if you want the option to use pre-built packages)
-      # Select No (we want a full build)
-      # Select fc36 and bullseye (for the currently shipping templates)
-      # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
-      # Select Yes to add adrelanos's third party key
-      # Select Yes (to download)
+      $ cd ~/qubes-builder
+      $ ./setup
+      $ # Select Yes to add Qubes Master Signing Key
+      $ # Select Yes to add Qubes OS Signing Key
+      $ # Select 4.1 for version
+      $ # Stable
+      $ # Select Yes for fast Git cloning
+      $ # Select Current (if you want the option to use pre-built packages)
+      $ # Select No (we want a full build)
+      $ # Select fc36 and bullseye (for the currently shipping templates)
+      $ # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
+      $ # Select Yes to add adrelanos's third party key
+      $ # Select Yes (to download)
 
 
 
 Once it completes downloading, re-run ``setup`` to add the Whonix templates:
 
-.. code:: bash
+.. code:: console
 
-      ./setup
-      # Choose the same options as above, except at templates select:
-      # fc36, bullseye, whonix-gateway-16, whonix-workstation-16
+      $ ./setup
+      $ # Choose the same options as above, except at templates select:
+      $ # fc36, bullseye, whonix-gateway-16, whonix-workstation-16
 
 
 
 Continue the build process with:
 
-.. code:: bash
+.. code:: console
 
       make install-deps
       make get-sources
@@ -119,7 +119,7 @@ You may also want to add ``COMPONENTS := $(filter-out gcc,$(COMPONENTS))`` to by
 
 Finally, if you are making a test build, use:
 
-.. code:: bash
+.. code:: console
 
       make qubes
       make iso
@@ -128,7 +128,7 @@ Finally, if you are making a test build, use:
 
 Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.conf``):
 
-.. code:: bash
+.. code:: console
 
       make qubes
       make sign-all
@@ -146,7 +146,7 @@ Instead of using ``./setup``, you can manually configure the build. The script t
 
 If you will be building Whonix templates:
 
-.. code:: bash
+.. code:: console
 
       cd ~
       gpg --keyserver pgp.mit.edu --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
@@ -156,7 +156,7 @@ If you will be building Whonix templates:
 
 **Note:** It’s very important to check the fingerprint displayed against multiple sources such as the `Whonix web site <https://www.whonix.org/wiki/Whonix_Signing_Key>`__, etc. It should look something like this:
 
-.. code:: bash
+.. code:: text
 
       pub   rsa4096 2014-01-16 [SC] [expires: 2026-01-23]
             Key fingerprint = 916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA
@@ -171,7 +171,7 @@ If you will be building Whonix templates:
 
 Next, prepare the Git keyring directory and copy them in:
 
-.. code:: bash
+.. code:: console
 
       export GNUPGHOME=~/qubes-builder/keyrings/git
       mkdir --parents "$GNUPGHOME"
@@ -183,7 +183,7 @@ Next, prepare the Git keyring directory and copy them in:
 
 Copy one of the example configurations:
 
-.. code:: bash
+.. code:: console
 
       cd ~/qubes-builder
       cp example-configs/qubes-os-master.conf builder.conf
@@ -194,7 +194,7 @@ Edit ``builder.conf``, referring to ``doc/Configuration.md`` for a description o
 
 Continue the build process with:
 
-.. code:: bash
+.. code:: console
 
       make install-deps
       make get-sources
@@ -206,7 +206,7 @@ When building the Whonix templates, you will often need to add/update the ``WHON
 
 Finally, if you are making a test build, use:
 
-.. code:: bash
+.. code:: console
 
       make qubes
       make iso
@@ -215,7 +215,7 @@ Finally, if you are making a test build, use:
 
 Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.conf``):
 
-.. code:: bash
+.. code:: console
 
       make qubes
       make sign-all

@@ -52,7 +52,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 3. Clone the qubes-builder v2 repository into a location of your choice:
 
-   .. code:: bash
+   .. code:: console
 
          git clone https://github.com/QubesOS/qubes-builderv2
          cd qubes-builderv2/
@@ -88,28 +88,28 @@ Configuration
 
 To use Qubes OS Builder v2, you need to have a ``builder.yml`` configuration file. You can use one of the sample files from the ``example-configs/`` directory; for a more readable ``builder.yml``, you can also include one of the files from that directory in your ``builder.yml``. An example ``builder.yml`` is:
 
-.. code:: bash
+.. code:: yaml
 
       # include configuration relevant for the current release
       include:
       - example-configs/qubes-os-r4.2.yml
-      
+
       # which repository to use to fetch sources
       use-qubes-repo:
         version: 4.2
         testing: true
-      
+
       # each package built will have local build number appended to package release
       # number. It makes it easier to update in testing environment
       increment-devel-versions: true
-      
+
       # reduce output
       debug: false
-      
+
       # this can be set to true if you do not want sources to be automatically
       # fetched from git
       skip-git-fetch: false
-      
+
       # executor configuration
       executor:
         type: docker

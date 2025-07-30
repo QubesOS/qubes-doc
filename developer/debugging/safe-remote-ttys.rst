@@ -68,7 +68,7 @@ A note on serial consoles
 
 If your machine has a serial console, you may with to use that, but note that a similar split-I/O model should be used to ensure Dom0 integrity. If you use the serial console as normal (via e.g. getty on ttyX, and logging in as normal), then the machine at the end of the serial cable could compromise your machine! Ideally, you would take input from your trusted keyboard, and only send the output over the serial cable via e.g. disabling getty and using:
 
-.. code:: bash
+.. code:: console
 
       script -f /dev/ttyS0
 

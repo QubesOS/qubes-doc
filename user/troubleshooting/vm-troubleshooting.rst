@@ -73,7 +73,7 @@ Some packages will throw an error on installation in this situation. For example
 
 One solution is to add a dummy interface to allow the package to install correctly:
 
-.. code:: bash
+.. code:: console
 
       ip link add d0 type dummy
       ip addr add 192.168.0.1/24 dev d0

@@ -53,7 +53,7 @@ The ``qvm-pci`` tool allows PCI attachment and detachment. It’s a shortcut for
 
 To figure out what device to attach, first list the available PCI devices by running (as user) in dom0:
 
-.. code:: bash
+.. code:: console
 
       qvm-pci
 
@@ -61,7 +61,7 @@ To figure out what device to attach, first list the available PCI devices by run
 
 This will show you the ``backend:BDF`` (Bus_Device.Function) address of each PCI device. It will look something like ``dom0:00_1a.0``. Once you’ve found the address of the device you want to attach, then attach it like this:
 
-.. code:: bash
+.. code:: console
 
       qvm-pci attach targetVM sourceVM:[BDF] --persistent
 
@@ -71,7 +71,7 @@ Since PCI devices have to be attached on bootup, attaching has to happen with th
 
 For example, if ``00_1a.0`` is the BDF of the device you want to attach to the “work” domain, you would do this:
 
-.. code:: bash
+.. code:: console
 
       qvm-pci attach work dom0:00_1a.0 --persistent
 
@@ -99,7 +99,7 @@ Do not require PCI device to be reset before attaching it to another VM. This ma
 
 usage example:
 
-.. code:: bash
+.. code:: console
 
       qvm-pci a work dom0:00_1a.0 --persistent -o no-strict-reset=true
 
@@ -113,7 +113,7 @@ Allow write access to full PCI config space instead of whitelisted registers. Th
 
 usage example:
 
-.. code:: bash
+.. code:: console
 
       qvm-pci a work dom0:00_1a.0 --persistent -o permissive=true
 
@@ -139,7 +139,7 @@ or
 
 - Go to the sysfs (``/sys/bus/pci``), find the right device, detach it from the pciback driver, and attach it back to the original driver. Replace ``<BDF>`` with your full device, for example ``0000:00:1c.2``:
 
-  .. code:: bash
+  .. code:: console
 
         echo <BDF> > /sys/bus/pci/drivers/pciback/unbind
         MODALIAS=`cat /sys/bus/pci/devices/<BDF>/modalias`

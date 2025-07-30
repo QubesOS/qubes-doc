@@ -87,7 +87,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
          type commit
          tag joanna_sec_2bb7f0b9
          tagger Joanna Rutkowska <joanna@invisiblethingslab.com> 1468335706 +0000
-         
+
          Tag for commit 2bb7f0b966593d8ed74e140a04d60c68b96b164e
          gpg: Signature made 2016-07-12T08:01:46 PDT
          gpg:                using RSA key 0x4E6829BC92C7B3DC
@@ -129,91 +129,91 @@ History and rationale
 
 On 2013-01-05, Joanna Rutkowska announced the qubes-secpack and explained its rationale in an `email <https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ>`__ to the Qubes mailing lists:
 
-.. code:: bash
+.. code:: console
 
       Hello,
-      
+
       A new Qubes Security Bulletin has been just released and is available here:
-      
+
       https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-013-2015.txt
-      
+
       As per the previous discussions about recent problems with verifying
       digital signatures on messages sent to Google Groups (thanks to
       automatic footer addition by Google), we have decided to change the way
       we publish Qubes Security Bulletins, as well as other security-related
       info pertinent to the Qubes Project.
-      
+
       Starting today, we will be maintain a Git repository -- "Qubes Security
       Pack" -- which will contain all the QSBs released so far, all the keys,
       warrant canaries [1], and potentially some additional info or
       announcements (e.g. key revocations). The whole repo can be found here:
-      
+
       https://github.com/QubesOS/qubes-secpack
-      
+
       Note that all the keys distributed there should be signed by Qubes
       Master Key. The Master Key is also attached in the repo, but should
       really be obtained/verified using a different channel.
-      
+
       Additionally, most of the files are signed by core Qubes
       developers (currently by Marek and myself) via detached signatures as
       well as git tag signatures.
-      
+
       The are several advantages of using Git to distribute all these information:
-      
+
       1) Git repo is a collection of files, some of which can be detached GPG
       signatures for other files and we can ensure all these files are
       distributed together.
-      
+
       2) Git makes it easy for people to clone and redistribute these
       collection of files, as well as to easily host them and view on the Web.
-      
+
       3) Git provides for signed tags mechanisms which is another mean we
       utilize to ensure integrity of the distributed files.
-      
+
       A few words about the Warrant Canary which we've just introduced today,
       and which can be seen here:
-      
+
       https://github.com/QubesOS/qubes-secpack/blob/master/canaries/canary-001-2015.txt
-      
+
       Even though we're not providing any kind of services (such as e.g. email
       hosting), that could be searched or tapped by authorities, there are
       other possibilities that worry us [2], in the light of various recent
       law "developments", such as those that might be coercing people to hand
       over their private keys to authorities.
-      
+
       Until we fully decentralize the root of trust for Qubes, something that
       requires the move to deterministic builds [3], and so won't happen
       very soon, the possibility of having to disclose any of the Qubes
       signing keys to anybody might have pretty serious consequences for those
       who decided to entrust Qubes with anything serious. And we would like to
       somehow minimize these consequences with this canary thing.
-      
+
       Additionally the canary is a nice way of ensuring "freshness" of our
       messaging to the community.
-      
+
       Of course the canary doesn't solve all the problems. E.g. if my signing
       keys were somehow stolen without our knowledge, it wouldn't help.
       Neither it could help in case me being or becoming a miscreant. And
       probably it doesn't address many other potential problems, which could
       only be solved one day with a multi-signature scheme. But anyway, until
       that time, this is the best we can do, I think.
-      
+
       And congrats to Jann for the very interesting clipboard attack (even
       though mostly theoretical, still very cool)!
-      
+
       Thanks,
       joanna.
-      
+
       --
       The Qubes Security Team
       https://www.qubes-os.org/doc/SecurityPage
-      
-      
+
+
       [1] http://en.wikipedia.org/wiki/Warrant_canary
-      
+
       [2] Especially myself, because I'm currently the Root Of Trust for all
       Qubes binaries :/
-      
+
       [3] Deterministic builds are required because it's the only way we can
       implement multiple signature scheme for distributed binaries.
 

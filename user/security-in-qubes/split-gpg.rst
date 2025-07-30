@@ -4,7 +4,7 @@ Split GPG
 
 
 .. warning::
-      
+
       **Note:** This information concerns split-gpg. The implementation has been updated to provide more features in split-gpg-2. Some incomplete information on split-gpg-2 is available :doc:`here </user/security-in-qubes/split-gpg-2>`.
 
 Split GPG implements a concept similar to having a smart card with your private GPG keys, except that the role of the “smart card” is played by another Qubes app qube. This way one not-so-trusted domain, e.g. the one where Thunderbird is running, can delegate all crypto operations – such as encryption/decryption and signing – to another, more trusted, network-isolated domain. This way the compromise of your domain where Thunderbird or another client app is running – arguably a not-so-unthinkable scenario – does not allow the attacker to automatically also steal all your keys. (We should make a rather obvious comment here that the so-often-used passphrases on private keys are pretty meaningless because the attacker can easily set up a simple backdoor which would wait until the user enters the passphrase and steal the key then.)
@@ -99,7 +99,7 @@ Normally it should be enough to set the ``QUBES_GPG_DOMAIN`` to the GPG backend 
       uid                  Qubes OS Security Team <security@qubes-os.org>
       ssb   4096R/30498E2A 2012-11-15
       (...)
-      
+
       [user@work-email ~]$ qubes-gpg-client secret_message.txt.asc
       (...)
 
@@ -124,7 +124,7 @@ The ``qubes-gpg-client-wrapper`` script sets the ``QUBES_GPG_DOMAIN`` variable a
 
 Split GPG’s default qrexec policy requires the user to enter the name of the app qube containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in ``dom0`` place the following line at the top of the file ``/etc/qubes-rpc/policy/qubes.Gpg``:
 
-.. code:: bash
+.. code:: text
 
       work-email  work-gpg  allow
 
@@ -134,7 +134,7 @@ where ``work-email`` is the Thunderbird + Enigmail app qube and ``work-gpg`` con
 
 You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append ``default_target=<vmname>`` to ``ask`` in ``/etc/qubes-rpc/policy/qubes.Gpg``. For the examples given on this page:
 
-.. code:: bash
+.. code:: text
 
       @anyvm  @anyvm  ask default_target=work-gpg
 
@@ -232,13 +232,13 @@ Using Git with Split GPG
 
 Git can be configured to utilize Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed. The most basic ``~/.gitconfig`` file enabling Split GPG looks something like this.
 
-.. code:: bash
+.. code:: ini
 
       [user]
           name = <YOUR_NAME>
           email = <YOUR_EMAIL_ADDRESS>
           signingKey = <YOUR_KEY_ID>
-      
+
       [gpg]
           program = qubes-gpg-client-wrapper
 
@@ -261,7 +261,7 @@ Your key id is the public id of your signing key, which can be found by running 
 
 To sign commits, you now add the “-S” flag to your commit command, which should prompt for Split GPG usage. If you would like to automatically sign all commits, you can add the following snippet to ``~/.gitconfig``.
 
-.. code:: bash
+.. code:: ini
 
       [commit]
           gpgSign = true
@@ -300,8 +300,8 @@ Setup Description
 
 In this example, the following keys are stored in the following locations (see below for definitions of these terms):
 
-.. list-table:: 
-   :widths: 10 10 
+.. list-table::
+   :widths: 10 10
    :align: center
    :header-rows: 1
 
@@ -313,7 +313,7 @@ In this example, the following keys are stored in the following locations (see b
      - ``work-gpg``
    * - ``pub``
      - ``work-email``
-   
+
 
 
 - ``sec`` (master secret key)
@@ -395,50 +395,50 @@ Current limitations
 - The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase. It will give an ``Inappropriate ioctl for device`` error. Do not set passphrases for the private keys in the GPG backend domain. Doing so won’t provide any extra security anyway, as explained in the introduction and in `using Split GPG with subkeys <#advanced-using-split-gpg-with-subkeys>`__. If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use ``gpg2 --edit-key <key_id>`` then ``passwd`` to set an empty passphrase. Note that ``pinentry`` might show an error when you try to set an empty passphrase, but it will still make the change. (See `this StackExchange answer <https://unix.stackexchange.com/a/379373>`__ for more information.) **Note:** The error shows only if you **do not** have graphical pinentry installed.
 
 
-.. [1] 
+.. [1]
    In order to gain access to the ``vault`` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a :ref:`signed, compromised package which is already installed in the template <user/templates/templates:trusting your templates>` upon which the ``vault`` VM is based.
 
 .. |split-gpg-diagram.png| image:: /attachment/doc/split-gpg-diagram.png
-   
+
 
 .. |r2-split-gpg-1.png| image:: /attachment/doc/r2-split-gpg-1.png
-   
+
 
 .. |r2-split-gpg-3.png| image:: /attachment/doc/r2-split-gpg-3.png
-   
+
 
 .. |tb78-1.png| image:: /attachment/doc/tb78-1.png
-   
+
 
 .. |tb78-2.png| image:: /attachment/doc/tb78-2.png
-   
+
 
 .. |tb78-3.png| image:: /attachment/doc/tb78-3.png
-   
+
 
 .. |tb78-4.png| image:: /attachment/doc/tb78-4.png
-   
+
 
 .. |tb78-5.png| image:: /attachment/doc/tb78-5.png
-   
+
 
 .. |tb78-6.png| image:: /attachment/doc/tb78-6.png
-   
+
 
 .. |tb78-7.png| image:: /attachment/doc/tb78-7.png
-   
+
 
 .. |tb78-8.png| image:: /attachment/doc/tb78-8.png
-   
+
 
 .. |tb78-9.png| image:: /attachment/doc/tb78-9.png
-   
+
 
 .. |tb78-10.png| image:: /attachment/doc/tb78-10.png
-   
+
 
 .. |tb-enigmail-split-gpg-settings-2.png| image:: /attachment/doc/tb-enigmail-split-gpg-settings-2.png
-   
+
 
 .. |r2-split-gpg-5.png| image:: /attachment/doc/r2-split-gpg-5.png
-   
+

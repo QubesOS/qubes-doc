@@ -36,7 +36,7 @@ By default, the **Qubes Update** tool will appear as an icon in the Notification
 However, you can also start the tool manually by selecting it in the Applications Menu under “Qubes Tools.” Even if no updates have been detected, you can use this tool to check for updates manually at any time by selecting all desired items from the list and clicking “Update”.
 
 .. note::
-      
+
       For information about how templates download updates, please see :ref:`Why don’t templates have normal network access? <user/how-to-guides/how-to-install-software:why don't templates have normal network access?>`       and the :ref:`Updates proxy <user/how-to-guides/how-to-install-software:updates proxy>`      .
 
 By default, most qubes that are connected to the internet will periodically check for updates for their parent templates. You can check the date of the last update check in the “last checked” column. If updates are available for any qube, you will receive a notification as described above, and in the “Updates available” column you will see “YES” for that qube(s). If the update check did not find any new updates, “NO” will appear in the column. Respectively, for qubes that are no longer supported, “OBSOLETE” will be displayed. However, if you have any templates that do *not* have any online child qubes, you will *not* receive update notifications for them. By default, after a week, if updates for a given qube have not been checked, the value in the “Updates available” column will be set to “MAYBE”.
@@ -82,7 +82,7 @@ Command-line interface
 
 
 .. DANGER::
-      
+
       **Warning:** Updating with direct commands such as dnf update and apt update is not recommended, since these bypass built-in Qubes OS update security measures. Instead, we strongly recommend using the **Qubes Update** tool or its command-line equivalents, as described below. (By contrast, :doc:`installing </user/how-to-guides/how-to-install-software>`       packages using direct package manager commands is fine.)
 
 Advanced users may wish to perform updates via the command-line interface. There are two ways to do this:
@@ -175,7 +175,7 @@ Once the package is installed:
 
 Examine the terminal output for warnings or errors. You may see the following warning:
 
-.. code:: bash
+.. code:: text
 
       WARNING: UEFI capsule updates not available or enabled
 
@@ -212,7 +212,7 @@ Computers without fwupd support
 For computers that do not have firmware update support via ``fwupd``, follow the firmware update instructions on the manufacturer’s website. Verify the authenticity of any firmware updates you apply.
 
 .. |Qube Updates Available| image:: /attachment/doc/r4.2-qube-updates-available.png
-   
+
 
 .. |Qubes Update| image:: /attachment/doc/r4.2-software-update.png
-   
+

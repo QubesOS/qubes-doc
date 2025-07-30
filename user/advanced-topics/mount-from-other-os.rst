@@ -26,7 +26,7 @@ Decrypting the Disk
 
    1. Open a Linux terminal in either dom0 or the app qube the disk was passed through to and enter ``lsblk``, which will result in an output similar to the following. In this example, the currently booted Qubes system is installed on ``sda`` and the qubes system to be accessed is on ``nvme0n1p2``.
 
-      .. code:: bash
+      .. code:: text
 
             sda                                                                   8:0    0 111.8G  0 disk
             ├─sda1                                                                8:1    0   200M  0 part  /boot/efi
@@ -90,8 +90,8 @@ Mounting the disk
 
 
 
-.. list-table:: 
-   :widths: 28 28 28 
+.. list-table::
+   :widths: 28 28 28
    :align: center
    :header-rows: 1
 
@@ -110,7 +110,7 @@ Mounting the disk
    * - other_install/pool00_tmeta
      - LVM Metadata
      - The metadata LV of this disk.
-   
+
 
 
 6. Mount the disk using the command ``mount /dev/other_install/<lv name> <mountpoint>``. *Note:* Any compromised data which exists in the volume to be mounted will be accessible here. Do not mount untrusted partitions in dom0.

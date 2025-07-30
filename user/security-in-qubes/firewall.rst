@@ -45,7 +45,7 @@ Instead of using the firewall GUI, you can use the ``qvm-firewall`` command in D
 
 The firewall rules for each qube are saved in an XML file in that qube’s directory in dom0:
 
-.. code:: bash
+.. code:: text
 
       /var/lib/qubes/appvms/<vm-name>/firewall.xml
 
@@ -61,7 +61,7 @@ Reconnecting qubes after a NetVM reboot
 
 Normally Qubes doesn’t let the user stop a NetVM if there are other qubes running which use it as their own NetVM. But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.x will often automatically repair the connection. If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <vm> netvm <netvm>
 
@@ -69,7 +69,7 @@ Normally Qubes doesn’t let the user stop a NetVM if there are other qubes runn
 
 Normally qubes do not connect directly to the actual NetVM (sys-net by default) which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs sys-firewall netvm sys-net
 
@@ -83,7 +83,7 @@ Qubes does not support running any networking services (e.g. VPN, local DNS ser
 
 Instead, you should deploy a network infrastructure such as
 
-.. code:: bash
+.. code:: text
 
       sys-net <--> sys-firewall-1 <--> network service qube <--> sys-firewall-2 <--> [client qubes]
 
@@ -121,7 +121,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> ct state new,established,related counter accept
 
@@ -131,7 +131,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo nft add rule qubes custom-input ip saddr <IP address of A> ct state new,established,related counter accept
 
@@ -173,7 +173,7 @@ Consider the following example. ``mytcp-service`` qube has a TCP service running
 
 - In dom0, add the following to ``/etc/qubes/policy.d/30-user-networking.policy``: (it could be ``another-other-name.policy`` – just remember to keep it consistent)
 
-  .. code:: bash
+  .. code:: text
 
         qubes.ConnectTCP * untrusted @default allow target=mytcp-service
 
@@ -207,7 +207,7 @@ which means to use default local port of ``unstrusted`` as the same of the remot
 
 Consider now the case where someone prefers to specify the destination qube and use another port in untrusted, for example ``10044``. Instead of previous case, add
 
-.. code:: bash
+.. code:: text
 
       qubes.ConnectTCP * untrusted mytcp-service allow
 
@@ -227,7 +227,7 @@ The service of ``mytcp-service`` running on port ``444`` is now accessible in ``
 
 One can go further than the previous examples by redirecting different ports to different qubes. For example, let assume that another qube ``mytcp-service-bis`` with a TCP service is running on port ``445``. If someone wants ``untrusted`` to be able to reach this service but port ``445`` is reserved to ``mytcp-service-bis`` then, in dom0, add the following to ``/etc/qubes/policy.d/30-user-networking.policy``:
 
-.. code:: bash
+.. code:: text
 
       qubes.ConnectTCP +445 untrusted @default allow target=mytcp-service-bis
 
@@ -247,15 +247,15 @@ will restrict the binding to only the corresponding TCP port of ``mytcp-service-
 
 For creating a permanent port bind between two qubes, ``systemd`` can be used. We use the case of the first example. In ``/rw/config`` (or any place you find suitable) of qube ``untrusted``, create ``my-tcp-service.socket`` with content:
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       Description=my-tcp-service
-      
+
       [Socket]
       ListenStream=127.0.0.1:444
       Accept=true
-      
+
       [Install]
       WantedBy=sockets.target
 
@@ -263,11 +263,11 @@ For creating a permanent port bind between two qubes, ``systemd`` can be used. W
 
 and ``my-tcp-service@.service`` with content:
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       Description=my-tcp-service
-      
+
       [Service]
       ExecStart=qrexec-client-vm '' qubes.ConnectTCP+444
       StandardInput=socket
@@ -353,7 +353,7 @@ When writing rules in sys-net, you can use ``iif`` or ``iifname``. ``iif`` is fa
 
 In the sys-net VM’s Terminal, the first step is to define an nftables chain that will receive DNAT rules to relay the network traffic on a given port to the qube NetVM, we recommend to define a new chain for each destination qube to ease rules management:
 
-.. code:: bash
+.. code:: console
 
       nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
@@ -367,7 +367,7 @@ In the sys-net VM’s Terminal, the first step is to define an nftables chain th
 
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
-.. code:: bash
+.. code:: console
 
       nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
@@ -375,7 +375,7 @@ Second step, code a natting firewall rule to route traffic on the outside interf
 
 Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
-.. code:: bash
+.. code:: console
 
       nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 
@@ -389,7 +389,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 Verify the rules on the sys-net firewall correctly match the packets you want by looking at the counters: check for the counter lines in the chains ``custom-forward`` and ``custom-dnat-qubeDEST``:
 
-.. code:: bash
+.. code:: console
 
       nft list table ip qubes
 
@@ -397,12 +397,12 @@ Verify the rules on the sys-net firewall correctly match the packets you want by
 
 In this example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
 
-.. code:: bash
+.. code:: console
 
       chain custom-forward {
         iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept
       }
-      
+
       chain custom-dnat-qubeDEST {
         type nat hook prerouting priority filter + 1; policy accept;
         iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter packets 3 bytes 192 dnat to 10.138.33.59
@@ -412,7 +412,7 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 (Optional) You can send a test packet by trying to connect to the service from an external device using the following command:
 
-.. code:: bash
+.. code:: console
 
       telnet 192.168.x.n 443
 
@@ -432,13 +432,13 @@ Content of ``/rw/config/qubes-firewall-user-script`` in ``sys-net``:
 .. code:: bash
 
       #!/bin/sh
-      
+
       # create the dnat chain for qubeDEST if it doesn't already exist
       if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
       then
         # create the dnat rule
         nft add rule qubes custom-dnat-qubeDEST iifname ens6 saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
-      
+
         # allow forwarded traffic
         nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
       fi
@@ -451,7 +451,7 @@ For the following example, we use the fact that the interface of sys-firewall fa
 
 In the sys-firewall Terminal, add a DNAT chain that will contain routing rules:
 
-.. code:: bash
+.. code:: console
 
       nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
@@ -459,7 +459,7 @@ In the sys-firewall Terminal, add a DNAT chain that will contain routing rules:
 
 Second step, code a natting firewall rule to route traffic on the outside interface for the service to the destination qube
 
-.. code:: bash
+.. code:: console
 
       nft add rule qubes custom-dnat-qubeDEST iifgroup 1 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 
@@ -467,7 +467,7 @@ Second step, code a natting firewall rule to route traffic on the outside interf
 
 Third step, code the appropriate new filtering firewall rule to allow new connections for the service
 
-.. code:: bash
+.. code:: console
 
       nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 
@@ -491,13 +491,13 @@ Content of ``/rw/config/qubes-firewall-user-script`` in ``sys-firewall``:
 .. code:: bash
 
       #!/bin/sh
-      
+
       # create the dnat chain for qubeDEST if it doesn't already exist
       if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
       then
         # create the dnat rule
         nft add rule qubes custom-dnat-qubeDEST iifgroup 1 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
-      
+
         # allow forwarded traffic
         nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
       fi
@@ -514,7 +514,7 @@ For the following example, we assume that the target VM running the web server h
 
 The according rule to allow the traffic is:
 
-.. code:: bash
+.. code:: console
 
       nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
 
@@ -547,7 +547,7 @@ An effective console utility to troubleshoot network is `tcpdump <https://www.tc
 
 For instance, if you want to check if your network interface ``eth0`` is receiving packets on port TCP 443 from the network 192.168.x.y, you can run this command:
 
-.. code:: bash
+.. code:: console
 
       tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
 
@@ -565,7 +565,7 @@ By adding ``flush ruleset`` at the top of the file, you can achieve atomic updat
 
 You can dump the ruleset in two files using the following command:
 
-.. code:: bash
+.. code:: console
 
       nft list ruleset | tee nft_backup | tee nft_new_ruleset
 
@@ -575,7 +575,7 @@ Then, edit ``nft_new_ruleset``, add ``flush ruleset`` on top and make changes, l
 
 You can revert to the original ruleset with the following commands:
 
-.. code:: bash
+.. code:: console
 
       nft flush ruleset && nft -f nft_backup
 

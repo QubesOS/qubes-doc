@@ -203,14 +203,14 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
    - If your only keyboard or mouse *are* connected through a USB qube, and that USB qube *is* a disposable, then you will have to enter a special command that shuts down all of your qubes, switches the USB qube’s disposable template to the new template, then starts the USB qube again. In order to avoid being locked out of your system, you must be very careful to enter this command without typos and with the correct substitutions.
      In the App Menu, click on Terminal Emulator. Type the command below, substituting ``<SYS_USB_DISPOSABLE_TEMPLATE>`` with the name of the disposable template on which ``sys-usb`` is based, ``<NEW_TEMPLATE>`` with the name of the new template, and ``<USB_QUBE>`` with the name of your USB qube. Other than these substitutions, make sure to enter the command exactly as written.
 
-     .. code:: bash
+     .. code:: console
 
            qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
 
 
      With substitutions, your command should look similar to this example. (**Warning:** This is just an example. Do not attempt to use it.)
 
-     .. code:: bash
+     .. code:: console
 
            qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
 
@@ -238,8 +238,8 @@ Whenever an app qube is created, the contents of the ``/home`` directory of its 
 
 Once an app qube has been created, any changes in its ``/home``, ``/usr/local``, or ``/rw/config`` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the app qube. No changes in any other directories in app qubes persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent template.
 
-.. list-table:: 
-   :widths: 44 44 44 
+.. list-table::
+   :widths: 44 44 44
    :align: center
    :header-rows: 1
 
@@ -255,7 +255,7 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
    * - :ref:`disposable <user/reference/glossary:disposable>`
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
      - nothing
-   
+
 
 | :superscript:`1` Upon creation
 | :superscript:`2` Following shutdown

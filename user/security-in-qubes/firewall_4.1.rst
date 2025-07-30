@@ -45,7 +45,7 @@ Instead of using the firewall GUI, you can use the ``qvm-firewall`` command in D
 
 The firewall rules for each qube are saved in an XML file in that qube’s directory in dom0:
 
-.. code:: bash
+.. code:: text
 
       /var/lib/qubes/appvms/<vm-name>/firewall.xml
 
@@ -71,7 +71,7 @@ Qubes does not support running any networking services (e.g. VPN, local DNS ser
 
 Instead, you should deploy a network infrastructure such as
 
-.. code:: bash
+.. code:: text
 
       sys-net <--> sys-firewall-1 <--> network service qube <--> sys-firewall-2 <--> [client qubes]
 
@@ -109,7 +109,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 
@@ -119,7 +119,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 
@@ -163,7 +163,7 @@ Consider the following example. ``mytcp-service`` qube has a TCP service running
 
 - In dom0, add the following to ``/etc/qubes/policy.d/30-user-networking.policy``: (it could be ``another-other-name.policy`` – just remember to keep it consistent)
 
-  .. code:: bash
+  .. code:: text
 
         qubes.ConnectTCP * untrusted @default allow target=mytcp-service
 
@@ -197,7 +197,7 @@ which means to use default local port of ``unstrusted`` as the same of the remot
 
 Consider now the case where someone prefers to specify the destination qube and use another port in untrusted, for example ``10044``. Instead of previous case, add
 
-.. code:: bash
+.. code:: text
 
       qubes.ConnectTCP * untrusted mytcp-service allow
 
@@ -217,7 +217,7 @@ The service of ``mytcp-service`` running on port ``444`` is now accessible in ``
 
 One can go further than the previous examples by redirecting different ports to different qubes. For example, let assume that another qube ``mytcp-service-bis`` with a TCP service is running on port ``445``. If someone wants ``untrusted`` to be able to reach this service but port ``445`` is reserved to ``mytcp-service-bis`` then, in dom0, add the following to ``/etc/qubes/policy.d/30-user-networking.policy``:
 
-.. code:: bash
+.. code:: text
 
       qubes.ConnectTCP +445 untrusted @default allow target=mytcp-service-bis
 
@@ -237,15 +237,15 @@ will restrict the binding to only the corresponding TCP port of ``mytcp-service-
 
 For creating a permanent port bind between two qubes, ``systemd`` can be used. We use the case of the first example. In ``/rw/config`` (or any place you find suitable) of qube ``untrusted``, create ``my-tcp-service.socket`` with content:
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       Description=my-tcp-service
-      
+
       [Socket]
       ListenStream=127.0.0.1:444
       Accept=true
-      
+
       [Install]
       WantedBy=sockets.target
 
@@ -253,11 +253,11 @@ For creating a permanent port bind between two qubes, ``systemd`` can be used. W
 
 and ``my-tcp-service@.service`` with content:
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       Description=my-tcp-service
-      
+
       [Service]
       ExecStart=qrexec-client-vm '' qubes.ConnectTCP+444
       StandardInput=socket
@@ -327,7 +327,7 @@ For the following example, we assume that the physical interface eth0 in sys-net
 
 In the sys-net VM’s Terminal, code a natting firewall rule to route traffic on the outside interface for the service to the sys-firewall VM
 
-.. code:: bash
+.. code:: console
 
       iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j DNAT --to-destination 10.137.1.z
 
@@ -335,7 +335,7 @@ In the sys-net VM’s Terminal, code a natting firewall rule to route traffic on
 
 Code the appropriate new filtering firewall rule to allow new connections for the service
 
-.. code:: bash
+.. code:: console
 
       iptables -I FORWARD 2 -i eth0 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 
@@ -351,7 +351,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 Verify you are cutting through the sys-net VM firewall by looking at its counters (column 2)
 
-.. code:: bash
+.. code:: console
 
       iptables -t nat -L -v -n
       iptables -L -v -n
@@ -362,7 +362,7 @@ Verify you are cutting through the sys-net VM firewall by looking at its counter
 
 
 
-.. code:: bash
+.. code:: console
 
       nft list table ip qubes-firewall
 
@@ -370,7 +370,7 @@ Verify you are cutting through the sys-net VM firewall by looking at its counter
 
 Send a test packet by trying to connect to the service from an external device
 
-.. code:: bash
+.. code:: console
 
       telnet 192.168.x.y 443
 
@@ -378,7 +378,7 @@ Send a test packet by trying to connect to the service from an external device
 
 Once you have confirmed that the counters increase, store these command in ``/rw/config/rc.local`` so they get set on sys-net start-up
 
-.. code:: bash
+.. code:: console
 
       sudo nano /rw/config/rc.local
 
@@ -387,45 +387,45 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 .. code:: bash
 
       #!/bin/sh
-      
-      
+
+
       ####################
       # My service routing
-      
+
       # Create a new firewall natting chain for my service
       if iptables -w -t nat -N MY-HTTPS; then
-      
+
       # Add a natting rule if it did not exist (to avoid clutter if script executed multiple times)
         iptables -w -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.1.z
-      
+
       fi
-      
-      
+
+
       # If no prerouting rule exist for my service
       if ! iptables -w -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
-      
+
       # add a natting rule for the traffic (same reason)
         iptables -w -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j MY-HTTPS
       fi
-      
-      
+
+
       ######################
       # My service filtering
-      
+
       # Create a new firewall filtering chain for my service
       if iptables -w -N MY-HTTPS; then
-      
+
       # Add a filtering rule if it did not exist (to avoid clutter if script executed multiple times)
         iptables -w -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
-      
+
       fi
-      
+
       # If no forward rule exist for my service
       if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
-      
+
       # add a forward rule for the traffic (same reason)
         iptables -w -I FORWARD 2 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
-      
+
       fi
 
 
@@ -438,13 +438,13 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 
       #############
       # In Qubes R4
-      
+
       # If not already present
       if nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
-      
+
       # Add a filtering rule
         nft add rule ip qubes-firewall forward meta iifname eth0 ip daddr 10.137.1.z tcp dport 443 ct state new counter accept
-      
+
       fi
 
 
@@ -455,7 +455,7 @@ For the following example, we use the fact that the physical interface of sys-fi
 
 In the sys-firewall VM’s Terminal, code a natting firewall rule to route traffic on its outside interface for the service to the qube
 
-.. code:: bash
+.. code:: console
 
       iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.z -j DNAT --to-destination 10.137.0.xx
 
@@ -463,7 +463,7 @@ In the sys-firewall VM’s Terminal, code a natting firewall rule to route traff
 
 Code the appropriate new filtering firewall rule to allow new connections for the service
 
-.. code:: bash
+.. code:: console
 
       iptables -I FORWARD 2 -i eth0 -s 192.168.x.0/24 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 
@@ -475,7 +475,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 
 
-.. code:: bash
+.. code:: console
 
       nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept
 
@@ -483,7 +483,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 Once you have confirmed that the counters increase, store these command in ``/rw/config/qubes-firewall-user-script``
 
-.. code:: bash
+.. code:: console
 
       sudo nano /rw/config/qubes-firewall-user-script
 
@@ -492,63 +492,63 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 .. code:: bash
 
       #!/bin/sh
-      
-      
+
+
       ####################
       # My service routing
-      
+
       # Create a new firewall natting chain for my service
       if iptables -w -t nat -N MY-HTTPS; then
-      
+
       # Add a natting rule if it did not exist (to avoid clutter if script executed multiple times)
         iptables -w -t nat -A MY-HTTPS -j DNAT --to-destination 10.137.0.xx
-      
+
       fi
-      
-      
+
+
       # If no prerouting rule exist for my service
       if ! iptables -w -t nat -n -L PREROUTING | grep --quiet MY-HTTPS; then
-      
+
       # add a natting rule for the traffic (same reason)
         iptables -w -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.z -j MY-HTTPS
       fi
-      
-      
+
+
       ######################
       # My service filtering
-      
+
       # Create a new firewall filtering chain for my service
       if iptables -w -N MY-HTTPS; then
-      
+
       # Add a filtering rule if it did not exist (to avoid clutter if script executed multiple times)
         iptables -w -A MY-HTTPS -s 192.168.x.0/24 -j ACCEPT
-      
+
       fi
-      
+
       # If no forward rule exist for my service
       if ! iptables -w -n -L FORWARD | grep --quiet MY-HTTPS; then
-      
+
       # add a forward rule for the traffic (same reason)
         iptables -w -I FORWARD 4 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
-      
+
       fi
-      
+
       ################
       # In Qubes OS R4
-      
+
       # If not already present
       if ! nft -nn list table ip qubes-firewall | grep "tcp dport 443 ct state new"; then
-      
+
       # Add a filtering rule
         nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept
-      
+
       fi
 
 
 
 Finally make this file executable (so it runs at every Firewall VM update)
 
-.. code:: bash
+.. code:: console
 
       sudo chmod +x /rw/config/qubes-firewall-user-script
 
@@ -560,7 +560,7 @@ If the service should be available to other VMs on the same system, do not forge
 
 Here no routing is required, only filtering. Proceed in the same way as above but store the filtering rule in the ``/rw/config/rc.local`` script. For the following example, we assume that the target VM running the web server has the IP address 10.137.0.xx
 
-.. code:: bash
+.. code:: console
 
       sudo nano /rw/config/rc.local
 
@@ -570,21 +570,21 @@ Here no routing is required, only filtering. Proceed in the same way as above bu
 
       ######################
       # My service filtering
-      
+
       # Create a new firewall filtering chain for my service
       if iptables -w -N MY-HTTPS; then
-      
+
       # Add a filtering rule if it did not exist (to avoid clutter if script executed multiple times)
         iptables -w -A MY-HTTPS -j ACCEPT
-      
+
       fi
-      
+
       # If no input rule exists for my service
       if ! iptables -w -n -L INPUT | grep --quiet MY-HTTPS; then
-      
+
       # add a forward rule for the traffic (same reason)
         iptables -w -I INPUT 5 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j MY-HTTPS
-      
+
       fi
 
 

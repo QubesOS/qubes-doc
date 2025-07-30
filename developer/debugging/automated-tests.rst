@@ -46,11 +46,11 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
                     [--do-not-clean] [--do-clean] [--loglevel LEVEL]
                     [--logfile FILE] [--syslog] [--no-syslog] [--kmsg] [--no-kmsg]
                     [TESTNAME [TESTNAME ...]]
-      
+
       positional arguments:
         TESTNAME              list of tests to run named like in description
                               (default: run all tests)
-      
+
       optional arguments:
         -h, --help            show this help message and exit
         --verbose, -v         increase console verbosity level
@@ -74,7 +74,7 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
                               allow running in parallel with qubesd; this is
                               DANGEROUS and WILL RESULT IN INCONSISTENT SYSTEM STATE
         --break-to-repl       break to REPL after tests
-      
+
       When running only specific tests, write their names like in log, in format:
       MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
       Example: basic/TC_00_Basic/test_000_create
@@ -117,7 +117,7 @@ Example test run:
 
 Tests are also compatible with nose2 test runner, so you can use this instead:
 
-.. code:: bash
+.. code:: console
 
       sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
@@ -138,7 +138,7 @@ The below example however will assume that you set up a build environment as des
 
 Assuming you cloned the ``qubes-builder`` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
 
-.. code:: bash
+.. code:: console
 
       cd ~
       sudo dnf install python3-pip lvm2 python35 python3-virtualenv
@@ -213,37 +213,37 @@ When testing (Py)QT applications, it’s useful to create a separate QApplicatio
       import quamash
       import unittest
       import gc
-      
+
       class SomeTestCase(unittest.TestCase):
           def setUp(self):
               [...]
-      
+
               # force "cleanlooks" style, the default one on Xfce (GtkStyle) use
               # static variable internally and caches pointers to later destroyed
               # objects (result: SEGV)
               self.qtapp = QtGui.QApplication(["test", "-style", "cleanlooks"])
-      
+
               # construct event loop even if this particular test doesn't use it,
               # otherwise events with qtapp references will be queued there anyway and the
               # first test that actually use event loop will try to dereference (already
               # destroyed) objects, resulting in SEGV
               self.loop = quamash.QEventLoop(self.qtapp)
-      
+
           def tearDown(self):
               [...]
               # process any pending events before destroying the object
               self.qtapp.processEvents()
-      
+
               # queue destroying the QApplication object, do that for any other QT
               # related objects here too
               self.qtapp.deleteLater()
-      
+
               # process any pending events (other than just queued destroy), just in case
               self.qtapp.processEvents()
-      
+
               # execute main loop, which will process all events, _including just queued destroy_
               self.loop.run_until_complete(asyncio.sleep(0))
-      
+
               # at this point it QT objects are destroyed, cleanup all remaining references;
               # del other QT object here too
               self.loop.close()
