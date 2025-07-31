@@ -96,7 +96,7 @@ Qubes are template-based (i.e., :ref:`app qubes <user/reference/glossary:app qub
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
 
-.. code:: w
+.. code:: output
 
       libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64
 
