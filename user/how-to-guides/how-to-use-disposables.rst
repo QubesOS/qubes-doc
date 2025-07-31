@@ -27,7 +27,7 @@ How to create disposable templates
 
 First, you need to create an app qube. You can run it normally, set up any necessary settings (like browser settings) you wish to be applied to every disposable qube ran from this template. Next, go to ‘Qube Settings’ of the app qube, set it as a *Disposable template* in the *Advanced* section and apply the change.
 
-In Qubes 4.1, the entry in the Application menu is split into ‘Disposable’ and ‘Template (disp)’. The settings for the disposable can be changed under **’Application Menu -> Template (disp) -> Template: Qubes Settings**
+In Qubes 4.1, the entry in the Application menu is split into ‘Disposable’ and ‘Template (disp)’. The settings for the disposable can be changed under :menuselection:`Application Menu --> Template (disp) --> Template: Qubes Settings`
 
 In Qubes 4.2, the qube will now appear in the menu as a disposable template (in the Apps section), from which you can launch new disposable qubes. To change the settings of the template itself or run programs in it, use the menu item for the disposable template located in the Templates section.
 
@@ -35,9 +35,9 @@ How to create named disposables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In Qubes 4.1: named disposables can be created under **Application Menu -> Create Qubes VM**, set the qube type to be *DisposableVM*.
+In Qubes 4.1: named disposables can be created under :menuselection:`Application Menu --> Create Qubes VM`, set the qube type to be *DisposableVM*.
 
-In Qubes 4.2: named disposables can be created by **Application Menu -> Settings -> Qubes Settings -> Create New Qube**. Set the qube type to **Named disposable**.
+In Qubes 4.2: named disposables can be created by :menuselection:`Application Menu --> Settings --> Qubes Settings --> Create New Qube`. Set the qube type to **Named disposable**.
 
 Security
 --------
@@ -123,7 +123,7 @@ Opening a fresh web browser instance in a new disposable
 --------------------------------------------------------
 
 
-Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to **Application Menu -> Disposable -> Disposable: Firefox web browser**. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
+Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to :menuselection:`Application Menu --> Disposable --> Disposable: Firefox web browser`. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
 
 .. figure:: /attachment/doc/r4.0-open-in-dispvm-3.png
    :alt: r4.0-open-in-dispvm-3.png

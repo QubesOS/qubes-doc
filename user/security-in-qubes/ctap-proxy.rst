@@ -60,7 +60,7 @@ In dom0:
 
 
 
-The above assumes a ``work`` qube in which you would like to enable ctap. Repeat the ``qvm-service`` command for all qubes that should have the client proxy enabled. Alternatively, you can add ``qubes-ctap-proxy`` in VM settings -> Services in the Qube Manager of each qube you would like to enable the service. Attempting to start the ``qubes-ctap-proxy`` service in the device-hosting qube (``sys-usb``) will fail.
+The above assumes a ``work`` qube in which you would like to enable ctap. Repeat the ``qvm-service`` command for all qubes that should have the client proxy enabled. Alternatively, you can add ``qubes-ctap-proxy`` in :menuselection:`VM settings -> Services` in the Qube Manager of each qube you would like to enable the service. Attempting to start the ``qubes-ctap-proxy`` service in the device-hosting qube (``sys-usb``) will fail.
 
 In Fedora templates:
 

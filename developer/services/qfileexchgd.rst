@@ -33,7 +33,7 @@ Copying files between AppVMs
 ----------------------------
 
 
-1. AppVM1 user runs *qvm-copy-to-vm* script (accessible from Dolphin file manager by right click on a “file(s)->Actions->Send to VM” menu). It calls */usr/lib/qubes/qubes_penctl new*, and it writes “new” request to its ``device/qpen`` xenstore key. *qfilexchgd* creates a new 1G file, makes vfat fs on it, and does block-attach so that this file is attached as ``/dev/xvdg`` in AppVM1.
+1. AppVM1 user runs *qvm-copy-to-vm* script (accessible from Dolphin file manager by right click on a file(s): :menuselection:`Actions->Send to VM`). It calls */usr/lib/qubes/qubes_penctl new*, and it writes “new” request to its ``device/qpen`` xenstore key. *qfilexchgd* creates a new 1G file, makes vfat fs on it, and does block-attach so that this file is attached as ``/dev/xvdg`` in AppVM1.
 
 2. AppVM1 mounts ``/dev/xvdg`` on ``/mnt/outgoing`` and copies requested files there, then unmounts it.
 
@@ -49,7 +49,7 @@ Copying a single file between AppVM and a DisposableVM
 
 In order to minimize attack surface presented by necessity to process virtual pendrive metadata sent by (potentially compromised and malicious) DisposableVM, AppVM<->DisposableVM file exchange protocol does not use any filesystem.
 
-1. User in AppVM1 runs *qvm-open-in-dvm* (accessible from Dolphin file manager by right click on a “file->Actions->Open in DisposableVM” menu). *qvm-open-in-dvm*
+1. User in AppVM1 runs *qvm-open-in-dvm* (accessible from Dolphin file manager by right click on a file: :menuselection:`Actions->Open in DisposableVM` menu). *qvm-open-in-dvm*
 
    1. gets a new ``/dev/xvdg`` (just as described in previous paragraph)
 
