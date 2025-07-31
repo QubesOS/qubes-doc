@@ -16,8 +16,6 @@ Qrexec is built on top of *vchan*, a Xen library providing data links between VM
 .. figure:: /attachment/doc/qrexec3-basics.png
    :alt: qrexec basics diagram
 
-   qrexec basics diagram
-
 The ``qrexec-client`` command is used to make connections to VMs from dom0. For example, the following command creates an empty file called ``hello-world.txt`` in the home folder of ``someVM``:
 
 .. code:: bash

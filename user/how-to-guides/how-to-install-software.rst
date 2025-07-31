@@ -34,7 +34,7 @@ Installing software from default repositories
 
 
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
-   :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   :alt: The Applications tab in Qube Settings
 
  
 
@@ -89,7 +89,7 @@ This method assumes that you are trying to follow instructions to install some p
 
 
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
-   :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   :alt: The Applications tab in Qube Settings
 
  
 
