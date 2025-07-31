@@ -167,7 +167,7 @@ These parameters are set for the following reasons:
 
 - The Windows’ installer requires a significant amount of memory or else the VM will crash with such errors:
 
-  .. code:: text
+  .. code:: output
 
         /var/log/xen/console/hypervisor.log:
 

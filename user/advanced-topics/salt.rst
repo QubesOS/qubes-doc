@@ -193,7 +193,7 @@ Configuring a qube's System from Dom0
 
 Salt can be used to configure qubes from dom0. Simply set the qube name as the target minion name in the top file. You can also use the ``qubes`` pillar module to select qubes with a particular property (see below). If you do so, then you need to pass additional arguments to the ``qubesctl`` tool:
 
-.. code:: text
+.. code:: output
 
       usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
                       [--targets TARGETS | --templates | --app | --all]

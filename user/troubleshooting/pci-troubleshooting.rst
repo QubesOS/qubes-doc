@@ -55,7 +55,7 @@ Using the command line
 
 1. To see all the PCI available devices, enter the ``lspci`` command into the dom0 terminal. Each device will be listed on a line, for example:
 
-   .. code:: text
+   .. code:: output
 
          0000:03:00.0 Audio device: Intel Corporation Haswell-ULT HD Audio Controller (rev 0b)
 
@@ -64,7 +64,7 @@ Using the command line
 
 2. Now that you can see all the PCI devices and their BDFs, you can decide which to remove and which to keep. Imagine we faced the following error message:
 
-   .. code:: text
+   .. code:: output
 
          libvirt.libvirtError: internal error: Unable to reset PCI device 0000:03:00.1: internal error: Active 0000:03:00.0 devices on bus with 0000:03:00.1, not doing bus reset
 

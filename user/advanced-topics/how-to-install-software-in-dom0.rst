@@ -213,6 +213,6 @@ Requires installed `Whonix <https://forum.qubes-os.org/t/19014>`__.
 
 Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 
-:menusettings:`Qubes VM Manager -> System -> Global Settings -> UpdateVM -> sys-whonix`
+:menuselection:`Qubes VM Manager --> System --> Global Settings --> UpdateVM --> sys-whonix`
 
 

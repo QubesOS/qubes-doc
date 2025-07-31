@@ -9,7 +9,7 @@ Disk troubleshooting
 
 If the disk is completely full, you will get an ``Out of disk space`` error that may crash your system because Dom0 does not have enough disk space to work. So it’s good practice to regularly check disk space usage. Running the ``df -h`` command in dom0 terminal will show some information, but not include all the relevant details. The Qubes user interface provides a disk space widget. If you are unable to access the interface, the command line version is running ``sudo lvs | head`` and looking at top entry for LVM pool. For example:
 
-.. code:: text
+.. code:: output
 
       LV                                            VG         Attr       LSize   Pool   Origin                                        Data%  Meta%  Move Log Cpy%Sync Convert
        pool00                                        qubes_dom0 twi-aotz-- 453.17g                                                      89.95  69.78

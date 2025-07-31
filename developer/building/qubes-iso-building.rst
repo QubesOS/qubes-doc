@@ -46,9 +46,15 @@ Get the necessary keys to verify the sources (run these and other commands below
       $ gpg --import qubes-master-signing-key.asc
       $ gpg --edit-key 36879494
       $ fpr
-      $ # Verify fingerprint! See Note below!
-      $ # Once verified, set trust to *ultimate*
-      $ # (Typical sequence is trust, 5, Y, q)
+
+.. code:: output
+
+      # Verify fingerprint! See Note below!
+      # Once verified, set trust to *ultimate*
+      # (Typical sequence is trust, 5, Y, q)
+
+.. code:: console
+
       $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
       $ gpg --import qubes-developers-keys.asc
 
@@ -80,17 +86,20 @@ Let’s configure the builder first (see :ref:`procedure <developer/building/qub
 
       $ cd ~/qubes-builder
       $ ./setup
-      $ # Select Yes to add Qubes Master Signing Key
-      $ # Select Yes to add Qubes OS Signing Key
-      $ # Select 4.1 for version
-      $ # Stable
-      $ # Select Yes for fast Git cloning
-      $ # Select Current (if you want the option to use pre-built packages)
-      $ # Select No (we want a full build)
-      $ # Select fc36 and bullseye (for the currently shipping templates)
-      $ # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
-      $ # Select Yes to add adrelanos's third party key
-      $ # Select Yes (to download)
+
+.. code:: output
+
+      # Select Yes to add Qubes Master Signing Key
+      # Select Yes to add Qubes OS Signing Key
+      # Select 4.1 for version
+      # Stable
+      # Select Yes for fast Git cloning
+      # Select Current (if you want the option to use pre-built packages)
+      # Select No (we want a full build)
+      # Select fc36 and bullseye (for the currently shipping templates)
+      # Select builder-rpm, builder-debian, template-whonix, mgmt-salt
+      # Select Yes to add adrelanos's third party key
+      # Select Yes (to download)
 
 
 
@@ -99,8 +108,11 @@ Once it completes downloading, re-run ``setup`` to add the Whonix templates:
 .. code:: console
 
       $ ./setup
-      $ # Choose the same options as above, except at templates select:
-      $ # fc36, bullseye, whonix-gateway-16, whonix-workstation-16
+
+.. code:: output
+
+      # Choose the same options as above, except at templates select:
+      # fc36, bullseye, whonix-gateway-16, whonix-workstation-16
 
 
 
@@ -156,7 +168,7 @@ If you will be building Whonix templates:
 
 **Note:** It’s very important to check the fingerprint displayed against multiple sources such as the `Whonix web site <https://www.whonix.org/wiki/Whonix_Signing_Key>`__, etc. It should look something like this:
 
-.. code:: text
+.. code:: output
 
       pub   rsa4096 2014-01-16 [SC] [expires: 2026-01-23]
             Key fingerprint = 916B 8D99 C38E AF5E 8ADC  7A2A 8D66 066A 2EEA CCDA

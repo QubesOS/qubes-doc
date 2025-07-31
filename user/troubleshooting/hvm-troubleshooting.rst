@@ -9,7 +9,7 @@ HVM pauses on boot, followed by kernel error
 
 The HVM may pause on boot, showing a fixed cursor. After a while a series of warnings may be shown similar to this:
 
-.. code:: text
+.. code:: output
 
       BUG: soft lockup - CPU#0 stuck for 23s! [systemd-udevd:244]
 

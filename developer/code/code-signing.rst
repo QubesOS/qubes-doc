@@ -68,7 +68,7 @@ In the example below, we will use ``keyserver.ubuntu.com``.
 
 Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID** which is the last 16 hex digits of the long number in the second line of the output above:
 
-.. code:: text
+.. code:: output
 
       pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
             87975838063F97A968D503266E2F4E7AF50A5827

@@ -144,7 +144,7 @@ First, find out which USB bus the device is connected to (note that these steps 
 
 For example, I want to attach a broadband modem to the NetVM. In the output of ``lsusb`` it may be listed as something like:
 
-.. code:: text
+.. code:: output
 
       Bus 003 Device 003: ID 413c:818d Dell Computer Corp.
 
@@ -164,7 +164,7 @@ To find the right controller, follow the usb bus:
 
 This should output something like:
 
-.. code:: text
+.. code:: output
 
       ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
 
@@ -180,7 +180,7 @@ Now you see the path: the text between ``/pci0000:00/0000:`` and ``/usb3`` i.e.Â
 
 It is possible that on some system configurations the readlink method produces output which is different from the example above, For example, you might see output like this:
 
-.. code:: text
+.. code:: output
 
       ../../../devices/pci0000:00/0000:00:1c.0/0000:01:00.0/usb1
 
