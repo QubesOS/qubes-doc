@@ -70,7 +70,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    **Note:** ``dnf`` might ask you to approve importing a new package signing key. For example, you might see a prompt like this one:
 
-   .. code:: text
+   .. code:: output
 
          warning: /mnt/removable/updates-0b4cc238d1aa4ffe/packages/example-package.fc<new>.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID XXXXXXXX: NOKEY
          Importing GPG key 0xXXXXXXXX:
@@ -206,7 +206,7 @@ Additional information
 
 As mentioned above, you may encounter the following ``dnf`` error:
 
-.. code:: text
+.. code:: output
 
       At least X MB more space needed on the / filesystem.
 

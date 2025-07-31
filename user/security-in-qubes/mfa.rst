@@ -41,7 +41,7 @@ As the name implies, this generates authentication code that is time-dependent. 
 
 3. Walk through the setup instructions which will also generate your QR code for your auth app of choice:
 
-   .. code:: text
+   .. code:: output
 
          Do you want me to update your “/home/user/.google_authenticator” file (y/n) y
 

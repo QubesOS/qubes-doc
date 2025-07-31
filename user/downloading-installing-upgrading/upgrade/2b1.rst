@@ -34,7 +34,7 @@ By default, in Qubes R1, there is only one template, however users are free to c
 
    The installer (yum) will prompt to accept the new Qubes R2 signing key:
 
-   .. code:: text
+   .. code:: output
 
          Importing GPG key 0x0A40E458:
           Userid     : "Qubes OS Release 2 Signing Key"

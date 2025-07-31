@@ -175,7 +175,7 @@ Once the package is installed:
 
 Examine the terminal output for warnings or errors. You may see the following warning:
 
-.. code:: text
+.. code:: output
 
       WARNING: UEFI capsule updates not available or enabled
 

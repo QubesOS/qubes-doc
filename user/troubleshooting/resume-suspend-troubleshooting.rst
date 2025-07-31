@@ -39,7 +39,7 @@ Checking logs for relevant messages
 
 View the output of ``dmesg`` in sys-net, and check if you see a bunch of wireless related errors. Depending on your hardware, they may look like the following (or not):
 
-.. code:: text
+.. code:: output
 
       iwlwifi 0000:00:00.0: loaded firmware version 16.242414.0 op_mode iwlmvm
       iwlwifi 0000:00:00.0: Detected Intel(R) Dual Band Wireless AC 8260, REV=0x208

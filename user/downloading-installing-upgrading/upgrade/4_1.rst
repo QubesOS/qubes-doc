@@ -47,7 +47,7 @@ The upgrade consists of seven stages — six before restarting the system — la
 
 Full list of options can be obtained with ``qubes-dist-upgrade --help``:
 
-.. code:: text
+.. code:: output
 
       Usage: qubes-dist-upgrade [OPTIONS]...
 
