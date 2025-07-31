@@ -172,8 +172,6 @@ Every guest operating system has its own way of handling networking, and the use
 .. figure:: /attachment/doc/EndeavourOS_Network.png
    :alt: Image of Qube Settings
 
-   Image of Qube Settings
-
 In this example, Network Manager on KDE, the network had the following values:
 
 1. IPv4 networking
@@ -190,8 +188,6 @@ In this example, Network Manager on KDE, the network had the following values:
 
 .. figure:: /attachment/doc/Network_Manager.png
    :alt: Image of Network Manager, annotated by numbers for reference below
-
-   Image of Network Manager, annotated by numbers for reference below
 
 The network was set up by entering Network Manager, selecting the Wi-Fi & Networking tab, clicking on the Wired Ethernet item, and selecting tab IPv4 (1). The Manual method was selected (2), which revealed areas for data entry. The DNS Servers section takes a comma-separated list, here 10.139.1.1,10.1.139.2 (3). At the bottom of the tab (4), the ‘+ Add’ button was selected, and the IP address of 10.137.0.17 entered in the ‘Address’ column, the Netmask of 255.255.255.0 entered in the ‘Netmask’ column, and the Gateway of 10.138.24.248 under ‘Gateway’. Selecting the “Apply” button stored these changes
 
