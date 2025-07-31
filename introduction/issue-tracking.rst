@@ -47,13 +47,15 @@ Great! Thank you for taking the time and effort to help improve Qubes! To ensure
 
 6. Do not delete the provided issue template. Fill out every applicable section.
 
-7. Make sure to mention any relevant documentation and other issues you’ve already seen. We don’t know what you’ve seen unless you tell us. If you don’t list it, we’ll assume you haven’t seen it.
+7. Please note that AIs often `hallucinate <https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)>`__ about Qubes OS. If you're using an AI to assist you, please check its conclusions against the `official documentation <https://doc.qubes-os.org/>`__.
 
-8. If any sections of the issue template are *truly* not applicable, you may remove them.
+8. Make sure to mention any relevant documentation and other issues you’ve already seen. We don’t know what you’ve seen unless you tell us. If you don’t list it, we’ll assume you haven’t seen it.
 
-9. Submit your issue.
+9. If any sections of the issue template are *truly* not applicable, you may remove them.
 
-10. Respond to any questions the official team asks. For example, you may be asked to provide specific logs or other additional information.
+10. Submit your issue.
+
+11. Respond to any questions the official team asks. For example, you may be asked to provide specific logs or other additional information.
 
 
 
