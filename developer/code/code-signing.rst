@@ -19,26 +19,26 @@ Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-p
       gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
       This is free software: you are free to change and redistribute it.
       There is NO WARRANTY, to the extent permitted by law.
-      
+
       gpg: directory '/home/user/.gnupg' created
       gpg: keybox '/home/user/.gnupg/pubring.kbx' created
       **Note:** Use "gpg --full-generate-key" for a full featured key generation dialog.
-      
+
       GnuPG needs to construct a user ID to identify your key.
-      
+
       Real name: Bilbo Baggins
       Email address: bilbo@shire.org
       You selected this USER-ID:
           "Bilbo Baggins <bilbo@shire.org>"
-      
+
       Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
       We need to generate a lot of random bytes. It is a good idea to perform
       some other action (type on the keyboard, move the mouse, utilize the
       disks) during the prime generation; this gives the random number
       generator a better chance to gain enough entropy.
-      
+
       <type your passphrase>
-      
+
       We need to generate a lot of random bytes. It is a good idea to perform
       some other action (type on the keyboard, move the mouse, utilize the
       disks) during the prime generation; this gives the random number
@@ -48,7 +48,7 @@ Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-p
       gpg: directory '/home/user/.gnupg/openpgp-revocs.d' created
       gpg: revocation certificate stored as '/home/user/.gnupg/openpgp-revocs.d/87975838063F97A968D503266E2F4E7AF50A5827.rev'
       public and secret key created and signed.
-      
+
       pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
             87975838063F97A968D503266E2F4E7AF50A5827
       uid                      Bilbo Baggins <bilbo@shire.org>
@@ -111,6 +111,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
 
 3. (Optional) Create signed tags. Signed commits are totally sufficient to contribute to Qubes OS. However, if you have commits which are not signed and you do not want to change them, you can create a signed tag for the commit and push it before the check.
+
    This is useful for example, if you have a commit back in the git history which you like to sign now without rewriting the history.
 
    .. code:: bash
