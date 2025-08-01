@@ -113,7 +113,10 @@ Answering an RPC call
 ^^^^^^^^^^^^^^^^^^^^^
 
 
-In other for a RPC call to be answered in the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself – in which case it must have executable permission set (``chmod +x``): - ``/etc/qubes-rpc/RPC_ACTION_NAME`` when you make it in the template qube; - ``/usr/local/etc/qubes-rpc/RPC_ACTION_NAME`` for making it only in an app qube.
+In other for a RPC call to be answered in the target VM, a file in either of the following locations must exist, containing the file name of the program that will be invoked, or being that program itself – in which case it must have executable permission set (``chmod +x``):
+
+- ``/etc/qubes-rpc/RPC_ACTION_NAME`` when you make it in the template qube;
+- ``/usr/local/etc/qubes-rpc/RPC_ACTION_NAME`` for making it only in an app qube.
 
 The source VM name can then be accessed in the server process via ``QREXEC_REMOTE_DOMAIN`` environment variable. (Note the source VM has *no* control over the name provided in this variable–the name of the VM is provided by dom0, and so is trusted.)
 
