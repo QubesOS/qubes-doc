@@ -28,4 +28,6 @@ These guides are for upgrading from one version of Qubes to another. If you’re
 
    Upgrade from 4.1 to 4.2 </user/downloading-installing-upgrading/upgrade/4_2>
 
+   Upgrade from 4.2 to 4.3 </user/downloading-installing-upgrading/upgrade/4_3>
+
 

@@ -18,4 +18,6 @@ Release schedules
 
    Qubes R4.2 release schedule </developer/releases/4_2/schedule>
 
+   Qubes R4.3 release schedule </developer/releases/4_3/schedule>
+
 
