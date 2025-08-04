@@ -87,6 +87,10 @@ html_static_path = ['attachment/doc']
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
+# -- -- Options for the linkcheck builder ------------------------------------
+
+linkcheck_anchors = False
+linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 
 # -- Extensions configuration ------------------------------------------------
 
