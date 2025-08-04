@@ -137,7 +137,7 @@ This will _not_ override the internal handling of PDF documents in Web browsers.
 Sometimes it can be useful to start an arbitrary program in a disposable. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details [here](https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009)). Starting an arbitrary program can be done from an app qube by running
 
 ~~~
-[user@vault ~]$ qvm-run '@dispvm' xterm
+[user@vault ~]$ qvm-run-vm '@dispvm' xterm
 ~~~
 
 The created disposable can be accessed via other tools (such as `qvm-copy-to-vm`) using its `disp####` name as shown in the Qubes Manager or `qvm-ls`.
