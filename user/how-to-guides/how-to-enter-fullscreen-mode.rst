@@ -15,7 +15,12 @@ What is fullscreen mode?
 
 Normally, the Qubes GUI virtualization daemon restricts any qube from ”owning” the full screen, ensuring that there are always clearly marked decorations drawn by the trusted Window Manager around each of the qubes windows. This allows the user to easily realize to which domain a specific window belongs.
 
-.. image:: /attachment/doc/r4.0-xfce-three-domains-at-work.png
+.. figure:: /attachment/doc/how-to-enter-fullscreen-mode/fullscreen-from-disposable-fail.png
+   :alt:
+
+   Trying to enter fullscreen mode from a qube fails
+
+   While browsing the page :doc:`/introduction/video-tours` in a disposable qube (*disp5596*), the user tries to enter fullscreen mode from the qube itself. Even if fullscreen mode is selected, the top bar of dom0 is still present. The window is decorated in red, providing the name of the qube.
 
 Why is fullscreen mode potentially dangerous?
 ---------------------------------------------
@@ -38,6 +43,9 @@ Safely enabling fullscreen mode for a selected window
 
 You can always put a window into fullscreen mode in Xfce4 using the trusted window manager by right-clicking on a window’s title bar and selecting :guilabel:`Fullscreen` or pressing :kbd:`Alt` + :kbd:`F11`. This functionality should still be considered safe, since a qube window still can’t voluntarily enter fullscreen mode. The user must select this option from the trusted window manager in dom0. To exit fullscreen mode from here, press :kbd:`Alt` + :kbd:`Space` to bring up the title bar menu again, then select :guilabel:`Leave Fullscreen` or simply press :kbd:`Alt` + :kbd:`F11`. For :ref:`standalone HVMs <user/reference/glossary:HVM>`, you should set the screen resolution in the qube to that of the host, (or larger), *before* setting fullscreen mode in Xfce4.
 
+.. image:: /attachment/doc/how-to-enter-fullscreen-mode/fullscreen-from-dom0-dropdown.png
+   :alt:
+
 Enabling fullscreen mode from a selected qube
 ---------------------------------------------
 
@@ -51,6 +59,9 @@ With the qube's settings
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the qube's settings, go to the second tab, called :guilabel:`Advanced`. Under :guilabel:`Window options`, change the value of :guilabel:`Allow fullscreen`, from :guilabel:`(use system default) (current)` to :guilabel:`disallow`.
+
+.. image:: /attachment/doc/how-to-enter-fullscreen-mode/personal-settings-allow-fullscreen.png
+   :alt:
 
 With the command-line, targeting the qube
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,6 +81,9 @@ With Qubes Global Config
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Open :guilabel:`Qubes Global Config`. In the first tab (called :guilabel:`General settings`), under the :guilabel:`Window management`: section, change the value of :guilabel:`Fullscreen mode`, from :guilabel:`default (disallow)` to :guilabel:`allow`.
+
+.. image:: /attachment/doc/how-to-enter-fullscreen-mode/qubes-global-config-allow-fullscreen.png
+   :alt:
 
 With the command-line, on dom0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
