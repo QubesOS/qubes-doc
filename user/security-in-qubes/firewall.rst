@@ -397,7 +397,7 @@ Verify the rules on the sys-net firewall correctly match the packets you want by
 
 In this example, we can see 7 packets in the forward rule, and 3 packets in the dnat rule:
 
-.. code:: console
+.. code:: output
 
       chain custom-forward {
         iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter packets 7 bytes 448 accept

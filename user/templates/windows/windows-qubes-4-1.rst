@@ -340,7 +340,7 @@ These parameters are set for the following reasons:
 - Given the higher than usual memory requirements of Windows, you may get a ``Not enough memory to start domain 'WindowsNew'`` error. In that case try to shutdown unneeded VMs to free memory before starting the Windows VM.
   At this point you may open a tab in dom0 for debugging, in case something goes amiss:
 
-  .. code:: doscon
+  .. code:: console
 
         tailf /var/log/qubes/vm-WindowsNew.log \
            /var/log/xen/console/hypervisor.log \

@@ -130,7 +130,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    You may also find it convenient to have an alias for verifying the tag on the latest commit:
 
-   .. code:: console
+   .. code:: ini
 
          vtag = !git tag -v `git describe`
 

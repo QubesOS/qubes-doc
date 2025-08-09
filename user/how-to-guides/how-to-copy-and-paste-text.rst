@@ -43,7 +43,7 @@ Clipboard automatic policy enforcement
 
 The Qubes clipboard :doc:`RPC policy </user/advanced-topics/rpc-policy>` is configurable in:
 
-.. code:: console
+.. code:: text
 
       /etc/qubes-rpc/policy/qubes.ClipboardPaste
 

@@ -31,7 +31,7 @@ You can always put a window into fullscreen mode in Xfce4 using the trusted wind
 
 As an alternative to the Xfce4 method, you can enable fullscreen mode for select VMs by creating the following entry in the ``/etc/qubes/guid.conf`` file in dom0:
 
-.. code:: console
+.. code:: text
 
       VM: {
         personal: {
