@@ -321,7 +321,7 @@ it easy to set the policy using current mechanism.
      - `-` 
      - `-`
      - ``<rule>\n``
-     - rules syntax as in :doc:`firewall interface </developer/debugging/vm-interface>` (Firewall Rules in 4x) with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
+     - rules syntax as in :ref:`firewall interface <developer/debugging/vm-interface:firewall rules in 4.x>` with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
    * - ``admin.vm.firewall.Set``
      - vm
      - `-`
