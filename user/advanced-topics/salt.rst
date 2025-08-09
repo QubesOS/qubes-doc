@@ -402,7 +402,7 @@ Virtual Machine Formulae
 
 You can use these formulae to download, install, and configure qubes in Qubes. These formulae use pillar data to define default qube names and configuration details. The default settings can be overridden in the pillar data located in:
 
-.. code:: yaml
+.. code:: text
 
       /srv/pillar/base/qvm/init.sls
 

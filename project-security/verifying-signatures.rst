@@ -458,7 +458,7 @@ Now, our goal is to perform the same verification steps as we did with the origi
 
 This command reads exactly the number of bytes of your Qubes ISO (obtained with ``stat -c %s /path/to/iso``) from the USB drive and pipes them into ``sha256sum``. The output should look something like this:
 
-.. code:: console
+.. code:: output
 
       0e68dd3347b68618d9e5f3ddb580bf7ecdd2166747630859b3582803f1ca8801  -
       5523+0 records in

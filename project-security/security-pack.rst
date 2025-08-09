@@ -129,7 +129,7 @@ History and rationale
 
 On 2013-01-05, Joanna Rutkowska announced the qubes-secpack and explained its rationale in an `email <https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ>`__ to the Qubes mailing lists:
 
-.. code:: console
+.. code:: text
 
       Hello,
 

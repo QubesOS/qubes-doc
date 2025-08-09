@@ -52,7 +52,7 @@ In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available 
 
 To change the whitelist shown in app menu, you need to provide a list of the desktop entries. Each line contains a desktop entry name, with its ``.desktop`` extension, like this:
 
-.. code:: console
+.. code:: text
 
       qubes-open-file-manager.desktop
       qubes-run-terminal.desktop

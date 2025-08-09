@@ -220,7 +220,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 
 ``qtb-iterate``:
 
-.. code:: console
+.. code:: bash
 
       #!/bin/sh
 
@@ -247,7 +247,7 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 
 ``core-admin/.git/hooks/pre-commit``: (you may retain also the default hook, here omitted for readability)
 
-.. code:: console
+.. code:: bash
 
       #!/bin/sh
 
@@ -258,7 +258,7 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 
 ``core-admin/.git/hooks/pre-push``:
 
-.. code:: console
+.. code:: bash
 
       #!/bin/sh
 
