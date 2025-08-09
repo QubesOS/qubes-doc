@@ -321,6 +321,7 @@ The header is followed by message-specific data:
 
         * - MSG_BUTTON
           - .. code:: c
+
                    struct msg_button {
                      uint32_t type;
                      uint32_t x;
