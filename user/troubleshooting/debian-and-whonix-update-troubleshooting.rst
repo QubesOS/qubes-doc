@@ -106,7 +106,7 @@ Signature Verification Warnings
 
 There should be none at the moment. If there was such a warning, it would look like this:
 
-.. code::
+.. code:: text
 
       W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://deb.torproject.org stable Release: The following signatures were invalid: KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681
 
@@ -120,7 +120,7 @@ In past various apt repositories were signed with expired key: `The Tor Projectâ
 
 You saw the following warning:
 
-.. code::
+.. code:: text
 
       W: A error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://deb.torproject.org stable Release: The following signatures were invalid: KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681 KEYEXPIRED 1409325681
       
@@ -139,7 +139,7 @@ Changed Configuration Files
 
 If you see something like the following.
 
-.. code::
+.. code:: text
 
       Setting up ifupdown ...
       Configuration file /etc/network/interfaces

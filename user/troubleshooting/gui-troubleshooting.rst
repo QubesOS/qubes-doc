@@ -13,7 +13,7 @@ When a qube starts, a fixed amount of RAM is allocated to the graphics buffer ca
 
 To determine if this is the problem affecting you, look at the Xorg log inside the Qube at ``/home/user/.local/share/xorg/Xorg.0.log`` for lines like the following:
 
-.. code:: bash
+.. code:: text
 
       [  1623.988] (EE) DUMMYQBS(0): Unable to set up a virtual screen size of 3440x1440 with 17101 Kb of video memory available.  Please increase the video memory size.
 

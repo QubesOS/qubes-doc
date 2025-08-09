@@ -225,13 +225,13 @@ There are many cases where a user wants to perform an action on more than one fi
 
 
 
-- Click Folder One
+  - Click Folder One
 
-- Click Folder Two
+  - Click Folder Two
 
-- Click Folder Three
+  - Click Folder Three
 
-- Click Folder Four
+  - Click Folder Four
 
 
 

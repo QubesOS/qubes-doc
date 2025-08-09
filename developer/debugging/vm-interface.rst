@@ -199,11 +199,11 @@ Services called by dom0 to provide some VM configuration:
 
 
 
-  - ``xdgicon:NAME`` - search for NAME in standard icons theme
+    - ``xdgicon:NAME`` - search for NAME in standard icons theme
 
-  - ``-`` - get icon data from stdin (the caller), can be prefixed with format name, for example ``png:-``
+    - ``-`` - get icon data from stdin (the caller), can be prefixed with format name, for example ``png:-``
 
-  - file name
+    - file name
 
 
 

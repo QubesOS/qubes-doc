@@ -22,7 +22,7 @@ By default, VMs kernels are provided by dom0. (See :ref:`here <user/advanced-top
 
 To select which kernel a given VM will use, you can either use Qubes Manager (VM settings, advanced tab), or the ``qvm-prefs`` tool:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ qvm-prefs -s my-appvm kernel
       Missing kernel version argument!
@@ -40,7 +40,7 @@ To select which kernel a given VM will use, you can either use Qubes Manager (VM
 
 To check/change the default kernel you can either go to “Global settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ qubes-prefs
       clockvm           : sys-net
@@ -54,7 +54,7 @@ To check/change the default kernel you can either go to “Global settings” in
 
 To view kernel options, you can use the GUI VM Settings tool; to view and change them, use ``qvm-prefs`` commandline tool:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ qvm-prefs -g work kernelopts
       nopat
@@ -67,7 +67,7 @@ Installing different kernel using Qubes kernel package
 
 VM kernels are packaged by the Qubes team in the ``kernel-qubes-vm`` packages. Generally, the system will keep the three newest available versions. You can list them with the ``rpm`` command:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
       kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64
@@ -79,7 +79,7 @@ If you want a more recent version, you can check the ``qubes-dom0-unstable`` rep
 
 To check available versions in the ``qubes-dom0-unstable`` repository:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable --action=list kernel-qubes-vm
       Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
@@ -100,7 +100,7 @@ To check available versions in the ``qubes-dom0-unstable`` repository:
 
 Installing a new version from ``qubes-dom0-unstable`` repository:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel-qubes-vm
       Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
@@ -165,7 +165,7 @@ It is possible to package a kernel installed in dom0 as a VM kernel. This makes 
 
 To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support`` package in dom0 and also have matching kernel headers installed (``kernel-devel`` package in the case of a Fedora kernel package). You can install requirements using ``qubes-dom0-update``:
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
       Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
@@ -209,7 +209,7 @@ To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support``
 
 Then you can call the ``qubes-prepare-vm-kernel`` tool to actually package the kernel. The first parameter is kernel version (exactly as seen by the kernel), the second one (optional) is short name. This is visible in Qubes Manager and the ``qvm-prefs`` tool.
 
-.. code:: bash
+.. code:: text
 
       [user@dom0 ~]$ sudo qubes-prepare-vm-kernel 4.1.9-6.pvops.qubes.x86_64 4.1.qubes
       --> Building files for 4.1.9-6.pvops.qubes.x86_64 in /var/lib/qubes/vm-kernels/4.1.qubes
@@ -244,7 +244,7 @@ Using kernel installed in the VM
 
 Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
 
-.. code:: bash
+.. code:: console
 
       qvm-prefs <clonetemplatename> virt_mode hvm
       qvm-prefs <clonetemplatename> kernel ''
@@ -261,7 +261,7 @@ Install whatever kernel you want. You need to also ensure you have the ``kernel-
 
 If you are using a distribution kernel package (``kernel`` package), the initramfs and kernel modules may be handled automatically. If you are using a manually built kernel, you need to handle this on your own. Take a look at the ``dkms`` documentation, especially the ``dkms autoinstall`` command may be useful. If you did not see the ``kernel`` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself. Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
 
-.. code:: bash
+.. code:: console
 
       sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 
@@ -269,7 +269,7 @@ If you are using a distribution kernel package (``kernel`` package), the initram
 
 Once the kernel is installed, you need to setup ``grub2`` by running:
 
-.. code:: bash
+.. code:: console
 
       sudo grub2-install /dev/xvda
 
@@ -277,7 +277,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 Finally, you need to create a GRUB configuration. You may want to adjust some settings in ``/etc/default/grub``; for example, lower ``GRUB_TIMEOUT`` to speed up VM startup. Then, you need to generate the actual configuration. In Fedora it can be done using the ``grub2-mkconfig`` tool:
 
-.. code:: bash
+.. code:: console
 
       sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -285,7 +285,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 You can safely ignore this error message:
 
-.. code:: bash
+.. code:: output
 
       grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
 
@@ -319,7 +319,7 @@ Using a distribution kernel package the initramfs and kernel modules should be h
 
 Install distribution kernel image, kernel headers and the grub.
 
-.. code:: bash
+.. code:: console
 
       sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 
@@ -327,7 +327,7 @@ Install distribution kernel image, kernel headers and the grub.
 
 If you are doing that on a qube based on “Debian Minimal” template, a grub gui will popup during the installation, asking you where you want to install the grub loader. You must select ``/dev/xvda`` (check the box using the space bar, and validate your choice with “Enter”.) If this popup does not appear during the installation, you must manually setup ``grub2`` by running:
 
-.. code:: bash
+.. code:: console
 
       sudo grub-install /dev/xvda
 
@@ -381,7 +381,7 @@ Run DKMS. Replace this with actual kernel version.
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo dkms autoinstall -k <kernel-version>
 
@@ -390,7 +390,7 @@ For example.
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo dkms autoinstall -k 4.19.0-6-amd64
 
@@ -399,14 +399,14 @@ Update initramfs.
 
 
 
-.. code:: bash
+.. code:: console
 
       sudo update-initramfs -u
 
 
 The output should look like this:
 
-.. code:: bash
+.. code:: text
 
       $ sudo dkms autoinstall -k 3.16.0-4-amd64
       

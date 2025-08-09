@@ -82,7 +82,7 @@ Window Management
 
 You can set each window’s position and size like this:
 
-.. code:: python
+.. code:: text
 
       Right click title bar --> More actions --> Special window settings...
       

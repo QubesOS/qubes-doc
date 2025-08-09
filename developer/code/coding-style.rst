@@ -49,7 +49,7 @@ General typographic conventions
 
 - **Maintain a decent amount of horizontal spacing**, e.g. add a space after ``if`` or before ``{`` in C, and similar in other languages. Whether and where to also use spaces within expressions, such as (x*2+5) vs. (x * 2 + 5) is left to the developer’s judgment. Do not put spaces immediately after or before the brackets in expressions, so avoid constructs like this: ``if ( condition )`` and use ones like this: ``if (condition)`` instead.
 
-- **Use single new lines** (‘\n’ aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings (–). This will allow the source code to be easily viewable in various Windows-based programs.
+- **Use single new lines** (‘\\n’ aka LF) in any non-Windows source code. On Windows, exceptionally, use the CRLF line endings (–). This will allow the source code to be easily viewable in various Windows-based programs.
 
 - **Use descriptive names for variables and functions**! Really, at a time when most editors have auto-completion features, there is no excuse for using short variable names.
 

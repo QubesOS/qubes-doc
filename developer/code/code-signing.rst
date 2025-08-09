@@ -111,6 +111,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
 
 3. (Optional) Create signed tags. Signed commits are totally sufficient to contribute to Qubes OS. However, if you have commits which are not signed and you do not want to change them, you can create a signed tag for the commit and push it before the check.
+
    This is useful for example, if you have a commit back in the git history which you like to sign now without rewriting the history.
 
    .. code:: bash

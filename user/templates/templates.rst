@@ -201,6 +201,7 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
    - If your only keyboard and mouse are *not* connected through a :doc:`USB qube </user/advanced-topics/usb-qubes>`, or that USB qube is *not* a disposable, then shut down all disposables. In the App Menu, go to Qubes Tools, then click on Qube Manager. In the Qube Manager, find your disposable template(s). (By default, they end in ``-dvm``.) Right click, hover over Template, then click on the new template. Repeat for each disposable template.
 
    - If your only keyboard or mouse *are* connected through a USB qube, and that USB qube *is* a disposable, then you will have to enter a special command that shuts down all of your qubes, switches the USB qube’s disposable template to the new template, then starts the USB qube again. In order to avoid being locked out of your system, you must be very careful to enter this command without typos and with the correct substitutions.
+
      In the App Menu, click on Terminal Emulator. Type the command below, substituting ``<SYS_USB_DISPOSABLE_TEMPLATE>`` with the name of the disposable template on which ``sys-usb`` is based, ``<NEW_TEMPLATE>`` with the name of the new template, and ``<USB_QUBE>`` with the name of your USB qube. Other than these substitutions, make sure to enter the command exactly as written.
 
      .. code:: bash
@@ -249,7 +250,7 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
    * - :ref:`template <user/reference/glossary:template>`
      - N/A (templates cannot be based on templates)
      - everything
-   * - :ref:`app qubes <user/reference/glossary:app qube>`:superscript:`3`
+   * - :ref:`app qube <user/reference/glossary:app qube>`:superscript:`3`
      - ``/etc/skel`` to ``/home``; ``/usr/local.orig`` to ``/usr/local``
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
    * - :ref:`disposable <user/reference/glossary:disposable>`

@@ -349,7 +349,7 @@ As in the example above, it creates a qube and sets its properties.
 
 You can set properties of an existing qube:
 
-.. code:: bash
+.. code:: text
 
       my preferences:
         qvm.prefs:
@@ -364,7 +364,7 @@ You can set properties of an existing qube:
 ^^^^^^^^^^^^^^^
 
 
-.. code:: bash
+.. code:: text
 
       services in my qube:
         qvm.service:
@@ -388,7 +388,7 @@ This enables, disables, or sets to default, services as in ``qvm-service``.
 
 Ensures the specified qube is running:
 
-.. code:: bash
+.. code:: text
 
       qube is running:
         qvm.running:

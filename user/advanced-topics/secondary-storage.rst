@@ -20,14 +20,14 @@ Qubes 4.0 is more flexible than earlier versions about placing different VMs on 
 
 You can query qvm-pool to list available storage drivers:
 
-.. code:: bash
+.. code:: console
 
       qvm-pool --help-drivers
 
 
 qvm-pool driver explanation:
 
-.. code:: bash
+.. code:: text
 
       <file> refers to using a simple file for image storage and lacks a few features.
       <file-reflink> refers to storing images on a filesystem supporting copy on write.

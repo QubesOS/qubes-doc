@@ -152,11 +152,11 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - `-`
      - `-`
-     - ``<property-name> <full-value-as-in-property.Get>``
+     - ``<property-name> <full-value-as-in-property.Get>\n``
      - Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal ``\n`` and literal ``\`` are encoded as ``\\``.
    * - ``admin.property.GetDefault``
      - ``dom0``
-     - propety
+     - property
      - `-`
      - ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Values are of type ``str`` and each entry is suffixed with newline character.
@@ -339,13 +339,7 @@ it easy to set the policy using current mechanism.
      - device
      - assignment-serialization
      - `-`
-     -  ``device`` is in form ``<backend-name>+<device-ident>`` optional options given in ``key=value`` format, separated with spaces; options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
-   * - ``admin.vm.device.<class>.Detach``
-     - vm
-     - device
-     - `-`
-     - `-`
-     - ``device`` is in form ``<backend-name>+<device-ident>``
+     -  ``device`` is in form ``<backend-name>+<device-ident>``; optional options given in ``key=value`` format, separated with spaces; options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
    * - ``admin.vm.device.<class>.Detach``
      - vm
      - device
@@ -355,9 +349,9 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.device.<class>.Assign``
      - vm
      - device
-     - assignement-serialization
+     - assignment-serialization
      - `-`
-     - ``device`` is in form ``<backend-name>+<device-ident>`` ``assignment-serialization`` is specified in the section Device Serialization.
+     - ``device`` is in form ``<backend-name>+<device-ident>``; ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Unassign``
      - vm
      - device
@@ -371,7 +365,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
    * - ``admin.vm.deviceclass.List``
-     - `dom0`
+     - ``dom0``
      - `-`
      - `-`
      - ``<deviceclass>\n``
@@ -387,7 +381,7 @@ it easy to set the policy using current mechanism.
      - device-ident
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``assignement-serialization`` is specified in the section Device Serialization.
+     - optional service argument may be used to get info about a single device, ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Attached``
      - vm
      - device-ident
@@ -410,7 +404,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - pool
      - `-`
-     - ``<property>=<value>``
+     - ``<property>=<value>\n``
      -
    * - ``admin.pool.Add``
      - ``dom0``
@@ -566,7 +560,7 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-`
-     - ``<state-property>=<value>``
+     - ``<state-property>=<value>\n``
      - state properties: ``power_state``, ``mem``, ``mem_static_max``, ``cputime``
    * - ``admin.vm.Start``
      - vm
