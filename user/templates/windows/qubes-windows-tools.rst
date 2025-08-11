@@ -3,8 +3,7 @@ Qubes Windows Tools (QWT)
 =========================
 
 
-..  Note::
-	As there is currently no officially supported version of Qubes Windows Tools, the following instructions describe a workaround to get QWT functionality using an old and a preliminary version of QWT.  When a new officially supported version is made available, the following description has to be updated accordingly.
+**Note:** *As there is currently no officially supported version of Qubes Windows Tools, the following instructions describe a workaround to get QWT functionality using an old and a preliminary version of QWT.  When a new officially supported version is made available, the following description has to be updated accordingly.*
 
 Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 10, and 11 Standalone, TemplateVMs, and AppVMs with the rest of the Qubes system. They contain several components that can be enabled or disabled during installation, and rely on specific functions of Qubes, which support this integration:
 
@@ -142,9 +141,9 @@ If script execution is blocked, it must be allowed using the following PowerShel
 
 **Warning:** It is recommended to increase the default value of the Windows VM’s ``qrexec_timeout`` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation, Windows user profiles are moved onto the private VM’s virtual disk (private.img), and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when ``qrexec`` is not yet running, so a timeout may occur with the default value. To change the property use this command in ``dom0``: *(where* ``<VMname>`` *is the name of your Windows VM)*
 
-.. code:: bash
+.. code:: console
 
-      [user@dom0 ~] $ qvm-prefs <VMname> qrexec_timeout 7200
+      [user@dom0 ~]$ qvm-prefs <VMNAME> qrexec_timeout 7200
 
 **For Windows 10 and 11:** From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which may lead to corruption of the VM's disk.
 
@@ -157,9 +156,15 @@ If script execution is blocked, it must be allowed using the following PowerShel
 
 Additionally, these versions of Windows will not display the CD-ROM drive after starting the qube with
 
-.. code:: bash
+.. code:: console
 
-      [user@dom0 ~] qvm-start vm --cdrom ...` or `qvm-start VMNAME --install-windows-tools
+      [user@dom0 ~]$ qvm-start <VMNAME> --cdrom ...
+
+or
+
+.. code:: console
+
+      [user@dom0 ~]$ qvm-start <VMNAME> --install-windows-tools
 
 The solution is to disable hibernation in Windows with this command. (That command is included in QWT’s setup, but it’s necessary to run it manually in order to be able to open QWT’s setup ISO/CD-ROM in Windows).
 
@@ -171,7 +176,7 @@ Installing Windows OS as a Qubes VM
 
 Please refer to :doc:`this page </user/templates/windows/windows-qubes>` for instructions on how to install Windows in a Qubes VM.
 
-**Warning:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run the ``netplwiz`` command from the ``Win+R``/Start menu and uncheck the *Users must enter a user name and password to use this computer* option.
+**Warning:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run the ``netplwiz`` command from the :kbd:`Win-R` start menu¸ and uncheck the *Users must enter a user name and password to use this computer* option.
 
 
 
@@ -187,9 +192,9 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - For use with **Windows 7**, install the previous version of Qubes Windows Tools:
 
-     .. code:: bash
+     .. code:: console
 
-     	[user@dom0 ~] sudo qubes-dom0-update qubes-windows-tools-4.1.69
+     	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools-4.1.69
 
 
      This will provide the .iso file to be presented as an installation drive to the Windows qube in step 2 of the QWT installation.
@@ -208,10 +213,9 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 2. To install the Qubes Windows Tools in a Windows VM, one should start the VM passing the additional option ``--install-windows-tools``:
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-start <VMname> --install-windows-tools
-
+      [user@dom0 ~]$ qvm-start <VMNAME> --install-windows-tools
 
    Once the Windows VM boots, a CDROM should appear in the ‘My Computer’ menu (typically as ``D:`` or ``E:``) with the setup program with the setup program ``qubes-tools-x64.msi`` for Windows 7 or ``qubes-tools-4.2.1.exe`` for Windows 10 and 11 in its main directory.
 
@@ -259,36 +263,36 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 5. Qubes will automatically detect that the tools have been installed in the VM and will set appropriate properties for the VM, such as ``qrexec_installed``, ``guiagent_installed``, and ``default_user``. This can be verified (but is not required) using the ``qvm-prefs`` command (where ``<VMname>`` is the name of your Windows VM):
 
-   .. code:: bash
+   .. code:: console
 
-         [user@dom0 ~] $ qvm-prefs <VMname>
+         [user@dom0 ~]$ qvm-prefs <VMNAME>
 
 
    To enable file copy operations to a Windows VM, the ``default_user`` property of this VM should be set to the ``<username>`` that you use to log in to the Windows VM. This can be done via the following command on a ``dom0`` terminal  (where ``<VMname>`` is the name of your Windows VM):
 
-   .. code:: bash
+   .. code:: console
 
-	    [user@dom0 ~] $ qvm-prefs <VMname> default_user <username>
+	    [user@dom0 ~]$ qvm-prefs <VMNAME> default_user <username>
   
 	
    **Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder ``C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>``. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 6. It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
 
-   .. code:: bash
+   .. code:: console
 
-         [user@dom0 ~] $ qvm-features <VMname> audio-model ich9
-         [user@dom0 ~] $ qvm-features <VMname> stubdom-qrexec 1
-         [user@dom0 ~] $ qvm-features <VMname> timezone localtime
+         [user@dom0 ~]$ qvm-features <VMname> audio-model ich9
+         [user@dom0 ~]$ qvm-features <VMname> stubdom-qrexec 1
+         [user@dom0 ~]$ qvm-features <VMname> timezone localtime
 
 
    For audio, the parameter ``audio-model`` can be selected as ``ich6`` or ``ich9``; select the value that gives the best audio quality. Audio quality may also be improved by setting the following parameters, but this can depend on the Windows version and on your hardware:
 
-   .. code:: bash
+   .. code:: console
 
-         [user@dom0 ~] $ qvm-features <VMname> timer-period 1000
-         [user@dom0 ~] $ qvm-features <VMname> out.latency 10000
-         [user@dom0 ~] $ qvm-features <VMname> out.buffer-length 4000
+         [user@dom0 ~]$ qvm-features <VMname> timer-period 1000
+         [user@dom0 ~]$ qvm-features <VMname> out.latency 10000
+         [user@dom0 ~]$ qvm-features <VMname> out.buffer-length 4000
 
 
    With the value ``localtime`` the dom0 ``timezone`` will be provided to virtual hardware, effectively setting the Windows clock to that of Qubes. With a digit value (negative or positive) the guest clock will have an offset (in seconds) applied relative to UTC.
@@ -343,9 +347,9 @@ Windows Apps can be started using the Qubes menu. Alternatively, you can open th
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the ``-a`` switch used here, which will auto-start the VM if it is not running):
 
-.. code:: bash
+.. code:: console
 
-      [user@dom0 ~] $ qvm-run -a my-win-appvm explorer.exe
+      [user@dom0 ~]$ qvm-run -a my-win-appvm explorer.exe
 
 
 
@@ -353,9 +357,9 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 
 Also, the inter-VM services work as usual – e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
-.. code:: bash
+.. code:: console
 
-      [user@dom0 ~] $ qvm-open-in-vm my-win-appvm roadmap.pptx
+      [user@dom0 ~]$ qvm-open-in-vm my-win-appvm roadmap.pptx
       
       [user@dom0 ~]$ qvm-open-in-vm my-win-appvm https://invisiblethingslab.com
 
@@ -364,7 +368,7 @@ Also, the inter-VM services work as usual – e.g. to request opening a documen
 
 Inter-VM file copy and clipboard works for Windows AppVMs the same way as for Linux AppVM (except that we don’t provide a command line wrapper, ``qvm-copy-to-vm`` in Windows VMs) – to copy files from Windows AppVMs just right-click on the file in Explorer, and choose: Send To-> Other AppVM.
 
-To simulate Ctrl-Alt-Delete in the HVM (SAS, Secure Attention Sequence), press Ctrl-Alt-Home while having any window of this VM in the foreground.
+To simulate :kbd:`Ctrl-Alt-Delete` in the HVM (SAS, Secure Attention Sequence), press Ctrl-Alt-Home while having any window of this VM in the foreground.
 
 |windows-seamless-7.png|
 
@@ -395,6 +399,7 @@ It also makes sense to disable Automatic Updates for all the template-based AppV
 
 Once the template has been created and installed, it is easy to create AppVMs based on it by selecting the type “AppVM” and a suitable template.
 
+
 Using Windows disposables
 -------------------------
 
@@ -414,7 +419,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 
   - **For Windows 10 or 11:**
 
-    - Type Win+R to open the execution Prompt.
+    - Type :kbd:`Win+R` to open the execution Prompt.
 
     - Type ``shell:startup``.
 
@@ -432,13 +437,24 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
   - Shut down this AppVM.
 
 
-- In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command ``qvm-sync-appmenus <VMname>``, where ``<VMname>`` is the name of your windows qube.
+- In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command 
 
-- In the Qube Manager, go to the “Advanced” tab and enable the option ``Disposable template`` for your Windows qube. Alternatively, in dom0 execute the commands ``qvm-prefs <VMname> template_for_dispvms True`` and ``qvm-features <VMname> appmenus-dispvm 1``.
+.. code:: console
+
+		[user@dom0 ~]$ qvm-sync-appmenus <VMNAME>
+
+where ``<VMNAME>`` is the name of your windows qube.
+
+- In the Qube Manager, go to the “Advanced” tab and enable the option ``Disposable template`` for your Windows qube. Alternatively, in dom0 execute the commands 
+
+.. code:: console
+
+		[user@dom0 ~]$ qvm-prefs <VMNAME> template_for_dispvms True
+		[user@dom0 ~]$ qvm-features <VMNAME> appmenus-dispvm 1``.
 
 - Click ``Apply``.
 
-- Still in the Advanced tab, select your Windows qube as its own ``Default disposable template``. Alternatively, in dom0 execute the command ``qvm-prefs <VMname> default_dispvm <VMname>``.
+- Still in the Advanced tab, select your Windows qube as its own ``Default disposable template``. Alternatively, in dom0 execute the command ``qvm-prefs <VMNAME> default_dispvm <VMNAME>``.
 
 - Close the Qube Manager by clicking ``OK``.
 
@@ -543,7 +559,10 @@ Troubleshooting
 
 If the VM is inaccessible (doesn’t respond to qrexec commands, gui is not functioning), try to boot it in safe mode:
 
-- ``[user@dom0 ~] $ qvm-start --debug <VMname>``
+- 
+   .. code:: console
+
+		[user@dom0 ~]$ qvm-start --debug <VMNAME>
 
 - Enable boot options and select Safe Mode (method depends on the Windows version; optionally with networking)
 
@@ -595,9 +614,9 @@ Updates
 
 When we publish a new QWT version, it’s usually pushed to the ``current-testing`` or ``unstable`` repository first. To use versions from current-testing, run this in dom0:
 
-.. code:: bash
+.. code:: console
 
-      [user@dom0 ~] $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
+      [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 
 
 That command will download a new QWT ``iso`` file from the testing repository. It goes without saying that you should **backup your VMs** before installing anything from testing repos.
