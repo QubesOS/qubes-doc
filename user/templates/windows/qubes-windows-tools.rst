@@ -148,9 +148,7 @@ If script execution is blocked, it must be allowed using the following PowerShel
 
 **For Windows 10 and 11:** From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which may lead to corruption of the VM's disk.
 
-1. Start the command prompt as Administrator, i.e., right-click on the Command Prompt icon
-:menuselection:`All Programs --> Accessories`
-:guilabel:`Run as administrator`
+1. Start the command prompt as Administrator, i.e., right-click on the Command Prompt icon :menuselection:`All Programs --> Accessories` and select :guilabel:`Run as administrator`
  
 2. In the command prompt, type ``powercfg -H off``
  
@@ -243,7 +241,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - Reboot the VM.
 
-   - Now, using the  appropriate Windows system management function, change the QWT installation, adding the Qubes graphics driver, but **do not** click on the “Finish” button in order to complete the installation.
+   - Now, using the  appropriate Windows system management function, change the QWT installation, adding the Qubes graphics driver, but **do not** click on the “Finish” button to complete the installation.
 
    - In the device manager, you will find a new display called “Qubes Video Driver”. Deactivate this device.
 
@@ -251,7 +249,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - Reboot the VM.
 
-   - It may be necessary to start the GUI manually, by typing `qvm-start-gui VMNAME` in dom0.
+   - It may be necessary to start the GUI manually, by typing `qvm-start-gui VMNAME``` in dom0.
 
    - The device “Qubes Video Driver” may show up as deactivated. In this case, you can now activate it again.
 
@@ -572,22 +570,22 @@ If a specific component is malfunctioning, you can increase its log verbosity as
    * - qrexec-client-vm
      - Used for communications by the qrexec protocol.
    * - qga
-     - Gui agent.
+     - GUI agent.
    * - QgaWatchdog
      - Service that monitors session/desktop changes (logon/logoff/locking/UAC…) and simulates SAS sequence (Ctrl-Alt-Del).
    * - qubesdb-daemon
-     - Service for accessing Qubes configuration database.
+     - Service for accessing the Qubes configuration database.
    * - network-setup
-     - Service that sets up network parameters according to VM’s configuration.
+     - Service that sets up network parameters according to the VM’s configuration.
    * - prepare-volume
-     - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
+     - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on the next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It, in turn, registers "move profiles" (see below) to run at early boot.
    * - relocate-dir
-     - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: C:\\move-profiles.log (it can’t use our common logger library so none of the log settings apply).
+     - Utility that moves the user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk), so it can run before any profile files are opened by some other process. Its log is in a fixed location: C:\\move-profiles.log (it can’t use our common logger library, so none of the log settings apply).
    
 
 If there are network-related issues, the qube doesn’t resolve DNS and has trouble accessing the Internet, this might be an issue with the PV Network Drivers.
 
-In this case it’s recommended that the PV Network Drivers be unchecked during installation of Qubes Windows Tools as seen in the screenshot below.
+In this case, it’s recommended that the PV Network Drivers be unchecked during installation of Qubes Windows Tools as seen in the screenshot below.
 
 |QWT_no_PV_network|
 
@@ -614,11 +612,11 @@ Windows 7
 
 - Uninstall QWT 4.1.69-1, using the standard procedure from the system control panel of Windows. This will most likely result in a crash with the error INACCESSIBLE BOOT DEVICE, especially if the PV drivers were installed with QWT.
 
-- Restart Windows again, hitting the F8 key, select the restart menu, and then select a start in safe mode.
+- Restart Windows again, hitting the :kbd:`F8` key, select the restart menu, and then select a start in safe mode.
 
 - The system will start again, but in a rather useless way. Just shut it down and reboot again.
 
-- Now Windows will start normally. Check in the control panel, if there are any Xen drivers left. If so, uninstall them.
+- Now Windows will start normally. Check within the control panel if there are any Xen drivers left. If so, uninstall them.
 
 - In the Windows device manager, check if there is still a (probably non-working) Xen PV disk device. If so, uninstall it.
 
