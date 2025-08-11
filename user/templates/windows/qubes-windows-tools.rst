@@ -3,7 +3,8 @@ Qubes Windows Tools (QWT)
 =========================
 
 
-**Note:** *As there is currently no officially supported version of Qubes Windows Tools, the following instructions describe a workaround to get QWT functionality using an old and a preliminary version of QWT.  When a new officially supported version is made available, the following description has to be updated accordingly.*
+..  Note::
+	As there is currently no officially supported version of Qubes Windows Tools, the following instructions describe a workaround to get QWT functionality using an old and a preliminary version of QWT.  When a new officially supported version is made available, the following description has to be updated accordingly.
 
 Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 10, and 11 Standalone, TemplateVMs, and AppVMs with the rest of the Qubes system. They contain several components that can be enabled or disabled during installation, and rely on specific functions of Qubes, which support this integration:
 
@@ -129,13 +130,13 @@ Maybe in the future, this step will not be necessary anymore, because we will si
 
 QWT relies on PowerShell scripts. If the execution policy defined for PowerShell is set to `Restricted`, execution of these scripts is blocked. Before QWT installation, this should be checked using the PowerShell command
 
-.. code:: bash
+.. code:: powershell
 
  	PS C:\> Get-ExecutionPolicy
  
 If script execution is blocked, it must be allowed using the following PowerShell command with administrator privileges:
 
-.. code:: bash
+.. code:: powershell
 
 	PS C:\> Set-ExecutionPolicy Unrestricted
 
@@ -147,7 +148,9 @@ If script execution is blocked, it must be allowed using the following PowerShel
 
 **For Windows 10 and 11:** From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which may lead to corruption of the VM's disk.
 
-1. Start the command prompt as Administrator, i.e., right-click on the Command Prompt icon (All Programs -> Accessories) and choose "Run as administrator".
+1. Start the command prompt as Administrator, i.e., right-click on the Command Prompt icon
+:menuselection:`All Programs --> Accessories`
+:guilabel:`Run as administrator`
  
 2. In the command prompt, type ``powercfg -H off``
  
