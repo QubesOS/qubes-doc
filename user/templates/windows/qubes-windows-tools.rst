@@ -275,7 +275,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 	    [user@dom0 ~]$ qvm-prefs <VMNAME> default_user <username>
   
 	
-   **Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder ``C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>``. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+   **Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder :file:`C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\{<source_VM>}`. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 6. It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
 
