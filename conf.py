@@ -32,7 +32,7 @@ extensions = [
   'sphinx.ext.autosectionlabel',
   'sphinxnotes.strike',
   'sphinx_reredirects',
-  'videos',
+  'youtube_frame',
 ]
 
 redirects = {
@@ -72,12 +72,10 @@ exclude_patterns = [
 
 html_theme = 'sphinx_rtd_theme'
 
-html_title = f'{project} {release} Documentation'
+html_title = f'{project} Documentation'
 
 html_theme_options = {
   'style_external_links': True,
-  'body_min_width': '50%',
-  'body_max_width': '90%',
   'collapse_navigation': True,
 }
 
