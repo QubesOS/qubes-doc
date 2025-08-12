@@ -9,7 +9,7 @@ Qubes Windows Tools (QWT) are then usually installed to provide integration with
 
 For more information about Windows VMs in Qubes OS, please see the following external resources:
 
-- :doc:`Installing and Using Windows-based VMs </user/templates/windows/windows-qubes>`
+- :doc:`Installing and Using Windows-based VMs </user/templates/windows/qubes-windows>`
 
 - :doc:`Installing and Using Qubes Windows Tools </user/templates/windows/qubes-windows-tools>`
 
