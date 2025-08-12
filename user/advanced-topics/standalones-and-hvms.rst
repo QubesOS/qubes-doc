@@ -478,5 +478,3 @@ Other documents related to HVMs:
 - `Windows VMs <https://forum.qubes-os.org/search?q=windows%20hvm%20%23guides>`__
 
 - `Linux HVM Tips <https://forum.qubes-os.org/t/19008>`__
-
-
