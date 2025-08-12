@@ -190,4 +190,3 @@ presentation.
 - If you’re a developer, there’s dedicated :ref:`developer documentation <index:developer documentation>` and a :ref:`developer FAQ <introduction/faq:developers>` just for you.
 - Ready to give Qubes a try? Head on over to the `downloads page <https://www.qubes-os.org/downloads/>`__, and read the :doc:`installation guide </user/downloading-installing-upgrading/installation-guide>`.
 - Need help, or just want to join the conversation? Learn more about :doc:`help, support, the mailing lists, and the forum </introduction/support>`.
-
