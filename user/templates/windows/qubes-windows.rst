@@ -5,7 +5,7 @@ How to install Windows qubes in Qubes OS
 
 You can install Windows just like any other OS as an :doc:`HVM </user/advanced-topics/standalones-and-hvms>`, if you just want something simple and you can live without some features. This works for Windows XP, 7, 8, 8.1, 10, and 11.
 
-Please keep in mind that Qubes Windows Tools are not supported on Windows XP. Windows 8 1 may work comparable to Windows 10, but this has not been tested, as this system in no longer supported and probably has no significance anymore.
+Please keep in mind that Qubes Windows Tools are not supported on Windows XP. Windows 8.1 may work comparable to Windows 10, but this has not been tested, as this system is no longer supported and probably has no significance anymore.
 
 You will get an environment in which basic functions are supported, but integration into the Qubes environment is rather restricted. The following functions will work right out of the box:
 
@@ -19,7 +19,7 @@ You will get an environment in which basic functions are supported, but integrat
 
 
 
-For better integration, a set of drivers and services, called Qubes Windows Tools (QWT) is available. Installation of these tools is straightforward and is described in a :doc:`separate document </user/templates/windows/qubes-windows-tools-4-1>`. QWT’s main features are:
+For better integration, a set of drivers and services, called Qubes Windows Tools (QWT), is available. Installation of these tools is straightforward and is described in a :doc:`separate document </user/templates/windows/qubes-windows-tools-4-1>`. QWT’s main features are:
 
 - Copy/paste between qubes
 
@@ -37,7 +37,7 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 
 - Optional user migration from ``C:`` to the qubes’ private volume (to be able use the qubes as a TemplateVM).
 
-- Seamless mode (Windows 7 and 11 only for now)
+- Seamless mode (Windows 7 and 10 only for now)
 
 - Propagating keyboard layout?
 
@@ -65,7 +65,7 @@ However, if you are an expert or want to do it manually, you may continue below.
 
 **Notes:**
 
-- The instructions may work on other versions than Windows 7, 10, and 11 x64 but haven’t been tested.
+- The instructions may work on other versions than Windows 7, 10, and 11 x64, but haven’t been tested.
 
 - Qubes Windows Tools (QWT) only supports Windows 7, 10, and 11 x64. For installation, see :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools>`.
 
@@ -126,28 +126,28 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
   - This can also be done via the following CLI commands in dom0, for a standalone qube:
 
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
+        [user@dom0 ~]$ qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
 
 
   and for a template:
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
+        [user@dom0 ~]$ qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
 
 
 - After creation, set the following parameters via CLI in a dom0 terminal:
 
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-volume extend WindowsNew:root 60g
-        qvm-prefs WindowsNew memory 4096
-        qvm-prefs WindowsNew maxmem 4096
-        qvm-prefs WindowsNew kernel ''
-        qvm-prefs WindowsNew qrexec_timeout 7200
+        [user@dom0 ~]$ qvm-volume extend WindowsNew:root 60g
+        [user@dom0 ~]$ qvm-prefs WindowsNew memory 4096
+        [user@dom0 ~]$ qvm-prefs WindowsNew maxmem 4096
+        [user@dom0 ~]$ qvm-prefs WindowsNew kernel ''
+        [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 These parameters are set for the following reasons:
@@ -156,7 +156,7 @@ These parameters are set for the following reasons:
 
 - Setting memory to 4096 MB may work in most cases, but using 6144 MB (or even 819 2MB) may reduce the likelihood of crashes during installation, especially for Windows 10 or 11. This is important as Windows qubes have to be created without memory balancing, as requested by the parameter settings described above.
 
-- The Windows’ installer requires a significant amount of memory or else the VM will crash with such errors:
+- The Windows installer requires a significant amount of memory, or else the VM will crash with such errors:
 
   .. code:: bash
 
@@ -173,9 +173,9 @@ These parameters are set for the following reasons:
 
 - After creating the new qube, increase the VM’s ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like ``chkdsk`` won’t complete on restart before ``qrexec_timeout`` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher ``qrexec_timeout``, ``chkdsk`` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools’ installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-prefs WindowsNew qrexec_timeout 7200
+        [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 Start Windows VM
@@ -202,9 +202,9 @@ Start Windows VM
 
   This can also be done via the following CLI command in dom0 (assuming that the Windows installer ISO is stored in the directory ``/home/user/`` in the AppVM ``untrusted``):
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
+        [user@dom0 ~]$ qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
 
 
 
@@ -232,7 +232,7 @@ Start Windows VM
 
     - You will then return to the setup, which will continue normally and install Windows 11 without TPM 2.0.
 
-      **Caution:** This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
+      **Caution:** This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2, it is still working.
 
     - The installation of **Windows 11** may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
 
@@ -293,16 +293,16 @@ After Windows installation
 
 - From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which could lead to corruption of the VM’s disk.
 
-  .. code:: bash
+  .. code:: console
 
-        powercfg -H off
+        C:\> powercfg -H off
 
 
   Also, recent versions of Windows won’t show the CD-ROM drive after starting the qube with ``qvm-start vm --cdrom ...`` (or using the GUI). The solution is to disable hibernation in Windows with this command. (That command is included in QWT’s setup, but it’s necessary to run it manually in order to be able to open QWT’s setup ISO/CD-ROM in Windows).
 
 - In case you switch from ``sys-firewall`` to ``sys-whonix``, you’ll need a static IP network configuration; DHCP won’t work for ``sys-whonix``. Sometimes this may also happen if you keep using ``sys-firewall``. In both cases, proceed as follows:
 
-  - Check the IP address allocated to the qube - either from GUI Manager, or via ``qvm-ls -n WindowsNew`` from a dom0 terminal (E.g. 10.137.0.x with gateway 10.138.y.z).
+  - Check the IP address allocated to the qube - either from GUI Manager, or via ``qvm-ls -n WindowsNew`` from a dom0 terminal (e.g., 10.137.0.x with gateway 10.138.y.z).
 
   - In the Windows qube, open the Network Manager and change the IPv4 configuration of the network interface from “Automatic” to “Manual”.
 
@@ -335,7 +335,7 @@ Installing Qubes Windows Tools
 ==============================
 
 
-To install Qubes Windows Tools, follow instructions in :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools>`, but don’t forget to ``qvm-clone`` your qube before you install Qubes Windows Tools (QWT) in case something goes south.
+To install Qubes Windows Tools, follow the instructions in :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools>`, but don’t forget to ``qvm-clone`` your qube before you install Qubes Windows Tools (QWT) in case something goes south.
 
 
 Post-install best practices
@@ -372,9 +372,9 @@ Moving the user data is not directly possible under Windows, because the directo
 
 AppVMs based on these templates can be created in the normal way by using the Qube Manager or by specifying
 
-.. code:: bash
+.. code:: console
 
-      qvm-create --class=AppVM --template=<VMname>
+      [user@dom0 ~]$ qvm-create --class=AppVM --template=<VMname>
 
 
 
@@ -384,9 +384,9 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 
 Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to be changed to that of the template (e.g., 10.137.0.x) so that the AppVM can access the network, via the CLI command in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs WindowsNew ip 10.137.0.x
+      [user@dom0 ~]$ qvm-prefs WindowsNew ip 10.137.0.x
 
 
 
@@ -394,18 +394,18 @@ Windows 10 and 11 Usage According to GDPR
 -----------------------------------------
 
 
-If Windows 10 or 11 is used in the EU to process personal data, according to GDPR no automatic data transfer to countries outside the EU is allowed without explicit consent of the person(s) concerned, or other legal consent, as applicable. Since no reliable way has been found to completely control the sending of telemetry from Windows 10 or 11, the system containing personal data must be completely shielded from the internet.
+If Windows 10 or 11 is used in the EU to process personal data, according to GDPR no automatic data transfer to countries outside the EU is allowed without the explicit consent of the person(s) concerned, or other legal consent, as applicable. Since no reliable way has been found to completely control the sending of telemetry from Windows 10 or 11, the system containing personal data must be completely shielded from the internet.
 
-This can be achieved by installing Windows 10 or 11 in a TemplateVM with the user data directory moved to a separate drive (usually ``Q:``). Personal data must not be stored within the TemplateVM, but only in AppVMs depending on this TemplateVM. Network access by these AppVMs must be restricted to the local network and perhaps additional selected servers within the EU. Any data exchange of the AppVMs must be restricted to file and clipboard operations to and from other VMs in the same Qubes system. It may be necessary to connect the Template VM to the internet from time to time in order to keep the system and its licenses updated, but this is not problematic in such a configuration, as any user data is stored in AppVMs and not in the Template VM itself.
+This can be achieved by installing Windows 10 or 11 in a TemplateVM with the user data directory moved to a separate drive (usually ``Q:``). Personal data must not be stored within the TemplateVM, but only in AppVMs depending on this TemplateVM. Network access for these AppVMs must be restricted to the local network and perhaps additional selected servers within the EU. Any data exchange of the AppVMs must be restricted to file and clipboard operations to and from other VMs in the same Qubes system. It may be necessary to connect the Template VM to the internet from time to time in order to keep the system and its licenses updated, but this is not problematic in such a configuration, as any user data is stored in AppVMs and not in the Template VM itself.
 
 
 Windows update
 --------------
 
 
-Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn’t specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at `WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion) <https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe>`__. At your own risk you may use such an installation image with bundled updates, but generally we do not recommend this way for security reasons - so, if you do it anyhow, check that you get this image from a source that you trust, which may be quite different from that one named here!
+Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn’t specific to Xen/Qubes), so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at `WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion) <https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe>`__. At your own risk you may use such an installation image with bundled updates, but generally we do not recommend this way for security reasons - so, if you do it anyhow, check that you get this image from a source that you trust, which may be quite different from that one named here!
 
-**Note:** if you already have Qubes Windows Tools installed the video adapter in Windows will be “Qubes video driver”, and you won’t be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with the domains widget in the task bar, or with ``xentop`` - usually indicates that the VM hasn’t crashed).
+**Note:** If you already have Qubes Windows Tools installed the video adapter in Windows will be “Qubes video driver”, and you won’t be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with the domains widget in the task bar, or with ``xentop`` - usually indicates that the VM hasn’t crashed).
 
 To avoid guessing the VM’s state, enable debugging (``qvm-prefs -s WindowsNew debug true``) and in Windows’ device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable “Qubes video driver”. You can disable debugging and revert to Qubes’ display once the VM is updated.
 
@@ -418,6 +418,6 @@ Troubleshooting
 
 After Qubes Windows Tools have been installed on your Windows 7 system, please install the `Chipset_Driver_X2NF0_WN_2.1.39.0_A03.EXE driver <https://web.archive.org/web/20221007093126/https://dl.dell.com/FOLDER01557883M/3/Chipset_Driver_X2NF0_WN_2.1.39.0_A03.EXE>`__. Then shut down your domain.
 
-From now on you should be able to attach your USB drive by passing it from your *Qubes Devices* menu as a *USB device* rather than *Data (Block) Device*
+From now on, you should be able to attach your USB drive by passing it from your *Qubes Devices* menu as a *USB device* rather than a *Data (Block) Device*
 
 This procedure has been tested on Windows 7 installed as a TemplateVM. Different combinations (such as StandaloneVM or different Windows versions) have not been tested.
