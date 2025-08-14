@@ -1,3 +1,5 @@
+:og:image: https://doc.qubes-os.org/en/latest/_images/qubes-trust-level-architecture.png
+
 ============
 Introduction
 ============
