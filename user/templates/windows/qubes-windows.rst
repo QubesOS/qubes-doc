@@ -37,7 +37,7 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 
 - Optional user migration from ``C:`` to the qubes’ private volume (to be able use the qubes as a TemplateVM).
 
-- Seamless mode (Windows 7 and 10 only for now)
+- Seamless mode (Windows 7 only for now, Windows 10 and 11 in an experimental way that may work or not)
 
 - Propagating keyboard layout?
 
