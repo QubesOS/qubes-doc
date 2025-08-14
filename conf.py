@@ -34,7 +34,8 @@ html_static_path = ['attachment/doc']
 extensions = [
   'sphinx.ext.autosectionlabel',
   'sphinxnotes.strike',
-  'sphinx_reredirects'
+  'sphinx_reredirects',
+  'sphinxext.opengraph',
 ]
 
 redirects = {
