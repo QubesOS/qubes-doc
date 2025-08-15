@@ -71,7 +71,7 @@ Why Qubes OS?
 
 
 Physical isolation is a given safeguard that the digital world lacks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Throughout our lives, we engage in various activities, such as going to
 school, working, voting, taking care of our families, and visiting with
@@ -159,20 +159,20 @@ open-source in order to be trustworthy.
 
 
 Video Tours
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 Want to see Qubes OS in action? Sit back and watch a guided :doc:`tour! </introduction/video-tours/>`
 
 
 Screenshots
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 See what using Qubes actually looks like with these :doc:`screenshots </introduction/screenshots/>` of various
 applications running in Qubes.
 
 
 Getting Started
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Ready to get started with Qubes? :doc:`Here's </introduction/getting-started>` what you need to know after installing.
 

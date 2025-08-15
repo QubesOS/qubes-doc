@@ -55,6 +55,7 @@ redirects = {
 
 highlight_language = 'none'
 
+pygments_style = 'sphinx'
 
 # -- -- Options for source files ---------------------------------------------
 

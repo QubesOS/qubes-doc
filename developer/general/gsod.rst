@@ -258,7 +258,7 @@ Consolidate troubleshooting guides
 
 **Knowledge prerequisite**:
 
-- `Markdown <https://daringfireball.net/projects/markdown/>`__
+- `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 
 
 
@@ -284,7 +284,7 @@ Improve Getting Started page
 
 - basic Qubes OS knowledge
 
-- `Markdown <https://daringfireball.net/projects/markdown/>`__
+- `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 
 
 
@@ -310,7 +310,7 @@ Rewrite qrexec documentation
 
 **Knowledge prerequisite**:
 
-- `Markdown <https://daringfireball.net/projects/markdown/>`__
+- `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 
 
 
