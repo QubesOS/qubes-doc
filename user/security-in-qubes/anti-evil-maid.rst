@@ -23,7 +23,7 @@ Installing
 
 In Dom0 install ``anti-evil-maid``:
 
-.. code:: bash
+.. code:: console
 
       sudo qubes-dom0-update anti-evil-maid
 

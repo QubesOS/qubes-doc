@@ -11,7 +11,7 @@ Installing
 
 To :ref:`install <user/templates/templates:installing>` a specific Debian template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template install XX
 
@@ -73,7 +73,7 @@ The Debian-12 templates that ship with release 4.2.4 cannot be used for salting 
 
 If you have a Debian template from an earlier release that you want to use for salting Qubes, you **must** stop the salt-common and salt-ssh packages from being upgraded. Do this by marking these packages on hold *before* updating the template.
 
-.. code:: bash
+.. code:: console
 
       sudo apt-mark hold salt-common salt-ssh
       sudo apt update

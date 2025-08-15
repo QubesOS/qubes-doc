@@ -9,7 +9,7 @@ Tips
 
 - If using qubes-vpn, check the VPN service’s log in the VPN VM by running:
 
-  .. code:: bash
+  .. code:: console
 
         sudo journalctl -u qubes-vpn-handler
 
@@ -45,7 +45,7 @@ To figure out the root of the problem, check the VPN logs in ``/var/log/syslog``
 
 `Some VPN guides <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>`__ use complex scripts that include a call to ``notify-send``, yet some images may not contain this tool or may not have it working properly. For instance calling ``notify-send`` on a ``fedora-36`` template VM gives:
 
-.. code:: bash
+.. code:: output
 
       Failed to execute child process “dbus-launch” (No such file or directory)
 
@@ -53,7 +53,7 @@ To figure out the root of the problem, check the VPN logs in ``/var/log/syslog``
 
 To check this tool is working properly run:
 
-.. code:: bash
+.. code:: console
 
       sudo notify-send "$(hostname): Test notify-send OK" --icon=network-idle
 

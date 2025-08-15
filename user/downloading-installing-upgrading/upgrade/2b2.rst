@@ -17,7 +17,7 @@ By default, in Qubes R1, there is only one template, however users are free to c
 
 2. Install ``qubes-upgrade-vm`` package (this package brings in R2 repo definitions and R2 keys)
 
-   .. code:: bash
+   .. code:: console
 
          sudo yum install qubes-upgrade-vm
 
@@ -25,14 +25,14 @@ By default, in Qubes R1, there is only one template, however users are free to c
 
 3. Proceed with normal update in the template (this should bring in also the R2 packages for the VMs):
 
-   .. code:: bash
+   .. code:: console
 
          sudo yum update
 
 
    The installer (yum) will prompt to accept the new Qubes R2 signing key:
 
-   .. code:: bash
+   .. code:: output
 
          Importing GPG key 0x0A40E458:
           Userid     : "Qubes OS Release 2 Signing Key"
@@ -64,7 +64,7 @@ Installing new template
 
 Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commands:
 
-.. code:: bash
+.. code:: console
 
       $ sudo -s
       # mkdir -p /mnt/cdrom
@@ -86,7 +86,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
 2. Upgrade the ``qubes-release`` package to the latest version which brings in new repo definitions and R2 signing keys:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dom0-update qubes-release
 
@@ -95,7 +95,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
 3. Install R2 upgrade package:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dom0-update --releasever=1 qubes-dist-upgrade
 
@@ -103,7 +103,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
 4. Start upgrade process:
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dist-upgrade
 
@@ -115,7 +115,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
 7. When system starts up, login and start start
 
-   .. code:: bash
+   .. code:: console
 
          sudo qubes-dist-upgrade
 

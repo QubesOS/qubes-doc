@@ -11,7 +11,7 @@ VMs with attached PCI devices in Qubes have allocated a small buffer for DMA ope
 
 To change this allocation, edit VM’s kernel parameters (this is expressed in 512B chunks) by running the following in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
       # qvm-prefs netvm |grep kernelopts
       kernelopts       : iommu=soft swiotlb=2048 (default)
@@ -55,7 +55,7 @@ Using the command line
 
 1. To see all the PCI available devices, enter the ``lspci`` command into the dom0 terminal. Each device will be listed on a line, for example:
 
-   .. code:: bash
+   .. code:: output
 
          0000:03:00.0 Audio device: Intel Corporation Haswell-ULT HD Audio Controller (rev 0b)
 
@@ -64,14 +64,14 @@ Using the command line
 
 2. Now that you can see all the PCI devices and their BDFs, you can decide which to remove and which to keep. Imagine we faced the following error message:
 
-   .. code:: bash
+   .. code:: output
 
          libvirt.libvirtError: internal error: Unable to reset PCI device 0000:03:00.1: internal error: Active 0000:03:00.0 devices on bus with 0000:03:00.1, not doing bus reset
 
 
    In the above case, the device ``0000:03:00.1`` is the device which we want to use. But we are facing the ``Unable to reset PCI device`` error because another device, ``0000:03:00.0``, is active. To fix this error and get device ``0000:03:00.1`` to work, we must first remove the offending device ``0000:03:00.0``.
 
-   .. code:: bash
+   .. code:: console
 
          sudo su
          echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove
@@ -80,17 +80,17 @@ Using the command line
 
 3. In order to make this change persistent, create a file ``/etc/systemd/system/qubes-pre-netvm.service`` and add the following:
 
-   .. code:: bash
+   .. code:: systemd
 
          [Unit]
          Description=Netvm fixup
          Before=qubes-netvm.service
-         
+
          [Service]
          ExecStart=/bin/sh -c 'echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove'
          Type=oneshot
          RemainAfterExit=yes
-         
+
          [Install]
          WantedBy=multi-user.target
 
@@ -107,7 +107,7 @@ This is a :ref:`PCI passthrough issue <user/troubleshooting/pci-troubleshooting:
 
 NOTE: The ``permissive`` flag increases attack surface and possibility of `side channel attacks <https://en.wikipedia.org/wiki/Side-channel_attack>`__. While using the ``no-strict-reset`` flag, do not require PCI device to be reset before attaching it to another VM. This may leak usage data even without malicious intent. Both ``permissive`` and ``no-strict-reset`` options may not be necessary and you should try one first, then the other, before using both.
 
-.. code:: bash
+.. code:: console
 
       qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
 

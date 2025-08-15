@@ -15,7 +15,7 @@ Backing up changes to dom0
 
 When backing up dom0 using the Qubes backup tool (explained below), only the home directory is backed up. Therefore, if there are files outside of the home directory you wish to save, you should copy them into the home directory prior to creating a backup. Here is an example of how to back up Qubes config files and RPC policies:
 
-.. code:: bash
+.. code:: console
 
       $ mkdir -p ~/backup/etc/qubes/
       $ cp -a /etc/qubes/* ~/backup/etc/qubes/

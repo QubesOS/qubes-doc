@@ -28,7 +28,7 @@ If you’re reading this section, it’s likely because the installer did not al
 
 First, make sure you have the latest ``qubes-mgmt-salt-dom0-virtual-machines`` package by :ref:`updating dom0 <user/advanced-topics/how-to-install-software-in-dom0:how to update dom0>`. Then, enter the following command in dom0:
 
-.. code:: bash
+.. code:: console
 
       sudo qubesctl state.sls qvm.usb-keyboard
 
@@ -46,7 +46,7 @@ Manual setup for USB keyboards
 
 In order to use a USB keyboard, you must first attach it to a USB qube, then give that qube permission to pass keyboard input to dom0. Edit the ``qubes.InputKeyboard`` policy file in dom0, which is located here:
 
-.. code:: bash
+.. code:: text
 
       /etc/qubes-rpc/policy/qubes.InputKeyboard
 
@@ -54,7 +54,7 @@ In order to use a USB keyboard, you must first attach it to a USB qube, then giv
 
 Add a line like this one to the top of the file:
 
-.. code:: bash
+.. code:: text
 
       sys-usb dom0 allow
 
@@ -66,7 +66,7 @@ You can now use your USB keyboard to log in to your dom0 user account (after LUK
 
 You can set up your system so that there’s a confirmation prompt each time the USB keyboard is connected. However, this will effectively disable your USB keyboard for dom0 user account login and the screen locker, so **don’t do this if you want to log into and unlock your device with a USB keyboard!** If you’re sure you wish to proceed, change the previous line to:
 
-.. code:: bash
+.. code:: text
 
       sys-usb dom0 ask,default_target=dom0
 
@@ -110,7 +110,7 @@ Handling a USB mouse isn’t as critical as handling a keyboard, since you can l
 
 If you want to attach the USB mouse automatically anyway, you have to edit the ``qubes.InputMouse`` policy file in dom0, located at:
 
-.. code:: bash
+.. code:: text
 
       /etc/qubes-rpc/policy/qubes.InputMouse
 
@@ -118,7 +118,7 @@ If you want to attach the USB mouse automatically anyway, you have to edit the `
 
 The first line should read similar to:
 
-.. code:: bash
+.. code:: text
 
       sys-usb dom0 ask,default_target=dom0
 
@@ -130,7 +130,7 @@ If the file is empty or does not exist, something might have gone wrong during s
 
 In case you are absolutely sure you do not want to confirm mouse access from ``sys-usb`` to ``dom0``, you may add the following line to the top of the file:
 
-.. code:: bash
+.. code:: text
 
       sys-usb dom0 allow
 
@@ -146,7 +146,7 @@ If `automatically creating a USB qube for use with a USB keyboard <#how-to-creat
 
 You can create a USB qube using the management stack by executing the following command as root in dom0:
 
-.. code:: bash
+.. code:: console
 
       sudo qubesctl state.sls qvm.sys-usb
 

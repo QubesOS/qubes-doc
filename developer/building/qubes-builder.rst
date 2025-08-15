@@ -4,7 +4,7 @@ Qubes builder
 
 
 .. warning::
-      
+
       **Note:** These instructions concern the older Qubes builder (v1). It supports only building Qubes 4.2 or earlier.The build process has been completely rewritten in `qubes-builder v2 <https://github.com/QubesOS/qubes-builderv2/>`__      . This can be used for building Qubes R4.2 and later, and all related components.
 
 **Note: See** :doc:`ISO building instructions </developer/building/qubes-iso-building>` **for a streamlined overview on how to use the build system.**
@@ -53,7 +53,7 @@ In order to use it, you should use an rpm-based distro, like Fedora :), and shou
 
 Usually you can install those packages by just issuing:
 
-.. code:: bash
+.. code:: console
 
       sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap python3-pyyaml devscripts perl-Digest-MD5 perl-Digest-SHA
 
@@ -62,7 +62,7 @@ The build system creates build environments in chroots and so no other packages 
 
 The build system is configured via builder.conf file. You can use the setup.sh script to create and modify this file. Alternatively, you can copy the provided default builder.conf, and modify it as needed, e.g.:
 
-.. code:: bash
+.. code:: console
 
       cp example-configs/qubes-os-master.conf builder.conf
       # edit the builder.conf file and set the following variables:
@@ -73,7 +73,7 @@ One additional useful requirement is that ‘sudo root’ must work without any 
 
 Additionally, if building with signing enabled (NO_SIGN is not set), you must adjust ``\~/.rpmmacros`` file so that it points to the GPG key used for package signing, e.g.:
 
-.. code:: bash
+.. code:: text
 
       %_signature gpg
       %_gpg_path /home/user/.gnupg
@@ -84,38 +84,38 @@ It is also recommended that you use an empty passphrase for the private key used
 
 So, to build Qubes you would do:
 
-.. code:: bash
+.. code:: console
 
       # Import the Qubes master key
       gpg --recv-keys 0xDDFA1A3E36879494
-      
+
       # Verify its fingerprint, set as 'trusted'.
       # This is described here:
       # https://www.qubes-os.org/doc/VerifyingSignatures
-      
+
       wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
       gpg --import qubes-developers-keys.asc
-      
+
       git clone https://github.com/QubesOS/qubes-builder.git qubes-builder
       cd qubes-builder
-      
+
       # Verify its integrity:
       git tag -v `git describe`
-      
+
       cp example-configs/qubes-os-master.conf builder.conf
       # edit the builder.conf file and set the following variables:
       # NO_SIGN="1"
-      
+
       # Download all components:
-      
+
       make get-sources
-      
+
       # And now to build all Qubes RPMs (this will take a few hours):
-      
+
       make qubes
-      
+
       # ... and then to build the ISO
-      
+
       make iso
 
 
@@ -123,7 +123,7 @@ And this should produce a shiny new ISO.
 
 You can also build selected component separately. Eg. to compile only gui virtualization agent/daemon:
 
-.. code:: bash
+.. code:: console
 
       make gui-daemon
 
@@ -152,7 +152,7 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 3. Download unmodified sources
 
-   .. code:: bash
+   .. code:: console
 
          make get-sources
 
@@ -163,14 +163,14 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 6. ``get-sources`` is already done, so continue with the next one. You can skip ``sign-all`` if you’ve disabled signing
 
-   .. code:: bash
+   .. code:: console
 
          make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-qubes-os manager linux-dom0-updates
 
 
 7. build iso installation image
 
-   .. code:: bash
+   .. code:: console
 
          make iso
 

@@ -64,7 +64,7 @@ Security Notes
 
   3. In the window that opens, enter this command:
 
-     .. code:: bash
+     .. code:: console
 
            sudo nano /etc/yum.repos.d/qubes-dom0.repo
 
@@ -85,10 +85,10 @@ Security Notes
 
   3. In the window that opens, enter the command for your version:
 
-     .. code:: bash
+     .. code:: console
 
-           [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
-           [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
+           [Qubes 3.2] $ sudo gedit /etc/yum.repos.d/qubes-r3.repo
+           [Qubes 4.0] $ sudo gedit /etc/yum.repos.d/qubes-r4.repo
 
 
 
