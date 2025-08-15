@@ -106,8 +106,8 @@ If your USB qube is named differently than ``sys-usb``, then do the following in
 
 .. code:: console
 
-      systemctl enable qubes-ctapproxy@USB_QUBE.service
-      systemctl disable qubes-ctapproxy@sys-usb.service
+      $ systemctl enable qubes-ctapproxy@USB_QUBE.service
+      $ systemctl disable qubes-ctapproxy@sys-usb.service
 
 
 

@@ -30,13 +30,13 @@ The same operations are also available via these command-line tools:
 
 .. code:: console
 
-      qvm-copy [--without-progress] file [file]+
+      $ qvm-copy [--without-progress] file [file]+
 
 
 
 .. code:: console
 
-      qvm-move [--without-progress] file [file]+
+      $ qvm-move [--without-progress] file [file]+
 
 
 

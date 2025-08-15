@@ -27,7 +27,7 @@ As the name implies, this generates authentication code that is time-dependent. 
 
    .. code:: console
 
-         sudo qubes-dom0-update google-authenticator
+         $ sudo qubes-dom0-update google-authenticator
 
 
 
@@ -86,7 +86,7 @@ Now we are going to add the authenticator as a login requirement:
 
    .. code:: console
 
-         sudo authselect select custom/mfa
+         $ sudo authselect select custom/mfa
 
 
 
@@ -110,7 +110,7 @@ The following assumes you haven’t restarted your computer since setting up TOT
 
    .. code:: console
 
-         sudo authselect select sssd
+         $ sudo authselect select sssd
 
 
 
@@ -170,7 +170,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
      .. code:: console
 
-           sudo dnf install ykpers
+           $ sudo dnf install ykpers
 
 
 
@@ -180,7 +180,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
      .. code:: console
 
-           sudo apt-get install yubikey-personalization
+           $ sudo apt-get install yubikey-personalization
 
 
 
@@ -204,7 +204,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
    .. code:: console
 
-         sudo qubes-dom0-update qubes-yubikey-dom0
+         $ sudo qubes-dom0-update qubes-yubikey-dom0
 
 
 
@@ -291,7 +291,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
      .. code:: console
 
-           echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
+           $ echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
 
 
 
@@ -363,7 +363,7 @@ In dom0:
 
    .. code:: console
 
-         sudo chmod +x /etc/qubes-rpc/custom.LockScreen
+         $ sudo chmod +x /etc/qubes-rpc/custom.LockScreen
 
 
 
@@ -400,7 +400,7 @@ In your USB VM:
 
    .. code:: console
 
-         sudo chmod +x /rw/config/rc.local
+         $ sudo chmod +x /rw/config/rc.local
 
 
 
@@ -408,7 +408,7 @@ In your USB VM:
 
    .. code:: console
 
-         sudo /rw/config/rc.local
+         $ sudo /rw/config/rc.local
 
 
 

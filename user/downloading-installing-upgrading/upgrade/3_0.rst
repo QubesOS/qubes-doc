@@ -29,7 +29,7 @@ Upgrade Fedora template:
 
    .. code:: console
 
-         sudo yum install qubes-upgrade-vm
+         $ sudo yum install qubes-upgrade-vm
 
 
 
@@ -37,7 +37,7 @@ Upgrade Fedora template:
 
    .. code:: console
 
-         sudo yum update
+         $ sudo yum update
 
 
    You’ll need to accept “Qubes Release 3 Signing Key” - it is delivered by signed qubes-upgrade-vm package (verify that the message is about local file), so you don’t need to manually verify it.
@@ -56,9 +56,8 @@ Upgrade Debian template:
 
    .. code:: console
 
-         sudo cp /etc/apt/sources.list.d/qubes-r2.list
-         /etc/apt/sources.list.d/qubes-r3-upgrade.list
-         sudo sed -i 's/r2/r3.0/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo cp /etc/apt/sources.list.d/qubes-r2.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo sed -i 's/r2/r3.0/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
@@ -66,8 +65,8 @@ Upgrade Debian template:
 
    .. code:: console
 
-         sudo apt-get update
-         sudo apt-get dist-upgrade
+         $ sudo apt-get update
+         $ sudo apt-get dist-upgrade
 
 
    There will be some error messages during the process, but our tests does not revealed any negative consequences. Update of ``qubesdb-vm`` package will restart the service, which will fail (after 3min timeout), but you can ignore this problem for now. After completing the whole upgrade the service will be properly restarted.
@@ -88,7 +87,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo qubes-dom0-update qubes-release
+         $ sudo qubes-dom0-update qubes-release
 
 
    This should install ``qubes-release-2-12`` in your Dom0.
@@ -97,7 +96,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo qubes-dom0-update --releasever=3.0
+         $ sudo qubes-dom0-update --releasever=3.0
 
 
    After this step, until you reboot the system, most of the qvm-* tools will not work.
@@ -108,7 +107,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo systemctl enable xenconsoled.service xenstored.service
+         $ sudo systemctl enable xenconsoled.service xenstored.service
 
 
 
@@ -126,7 +125,7 @@ Now, when you have dom0 upgraded, you can install new templates from Qubes R3.0 
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-template-fedora-21
+      $ sudo qubes-dom0-update qubes-template-fedora-21
 
 
 
@@ -186,10 +185,10 @@ Because of above limitations, you will need to configure some of those manually.
 
    .. code:: console
 
-         ip addr add 10.137.1.53/32 dev eth0
-         ip route add 10.137.1.1/32 dev eth0
-         ip route add via 10.137.1.1
-         echo nameserver 10.137.1.1 > /etc/resolv.conf
+         $ ip addr add 10.137.1.53/32 dev eth0
+         $ ip route add 10.137.1.1/32 dev eth0
+         $ ip route add via 10.137.1.1
+         $ echo nameserver 10.137.1.1 > /etc/resolv.conf
 
 
 

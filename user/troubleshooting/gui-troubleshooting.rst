@@ -56,15 +56,15 @@ If you can start your VM, but can’t launch any applications, then you need to 
 
 .. code:: console
 
-      qvm-start <VMname> # Make sure the VM is started
-      qvm-console-dispvm <VMname>
+      $ qvm-start <VMname> # Make sure the VM is started
+      $ qvm-console-dispvm <VMname>
 
 
 After launching a VM console using ``qvm-console-dispvm``, you may look at the ``qubes-gui-agent`` service state with:
 
 .. code:: console
 
-      systemctl status -l qubes-gui-agent
+      $ systemctl status -l qubes-gui-agent
 
 
 
@@ -80,8 +80,8 @@ During troubleshooting, you may be getting a lot of ‘audit’ messages which m
 
 .. code:: console
 
-      previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
-      qvm-prefs --set <VMname> kernelopts "<previous_kernel_parameters> audit=0"
+      $ previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
+      $ qvm-prefs --set <VMname> kernelopts "<previous_kernel_parameters> audit=0"
 
 
 Then, restart your VM.

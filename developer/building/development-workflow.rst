@@ -40,7 +40,7 @@ In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 .. code:: console
 
-      make prep
+      $ make prep
 
 
 
@@ -48,7 +48,7 @@ The resulting tree will be in kernel-<VERSION>/linux-<VERSION>:
 
 .. code:: console
 
-      ls -ltrd kernel*/linux*
+      $ ls -ltrd kernel*/linux*
       drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
       drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
 
@@ -62,7 +62,7 @@ In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 .. code:: console
 
-      cd kernel-3.4.18/linux-3.4.18
+      $ cd kernel-3.4.18/linux-3.4.18
 
 
 
@@ -74,8 +74,8 @@ In ``kernel-3.4.18/linux-3.4.18``:
 
 .. code:: console
 
-      cp ../../config .config
-      make oldconfig
+      $ cp ../../config .config
+      $ make oldconfig
 
 
 
@@ -83,7 +83,7 @@ Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
 .. code:: console
 
-      make menuconfig
+      $ make menuconfig
 
 
 
@@ -91,7 +91,7 @@ Copy the modified config back into the kernel tree:
 
 .. code:: console
 
-      cp .config ../../../config
+      $ cp .config ../../../config
 
 
 
@@ -103,20 +103,20 @@ TODO: describe the workflow for patching the code, below are some random notes, 
 
 .. code:: console
 
-      ln -s ../../patches.xen
-      export QUILT_PATCHES=patches.xen
-      export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
-      export QUILT_SERIES=../../series-pvops.conf
+      $ ln -s ../../patches.xen
+      $ export QUILT_PATCHES=patches.xen
+      $ export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
+      $ export QUILT_SERIES=../../series-pvops.conf
 
-      quilt new patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch
-      quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
+      $ quilt new patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch
+      $ quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
               drivers/usb/host/xen-usbback/* drivers/usb/host/xen-usbfront.c \
               include/xen/interface/io/usbif.h
 
       *edit something*
 
-      quilt refresh
-      cd ../..
+      $ quilt refresh
+      $ cd ../..
       vi series.conf
 
 
@@ -133,7 +133,7 @@ To actually build RPMs, in qubes-builder:
 
 .. code:: console
 
-      ./qb -c linux-kernel package fetch prep build
+      $ ./qb -c linux-kernel package fetch prep build
 
 
 
@@ -398,7 +398,7 @@ Then use ``make update-repo-unstable`` to upload the packages. You can also spec
 
 .. code:: console
 
-      make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
+      $ make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
 
 
 

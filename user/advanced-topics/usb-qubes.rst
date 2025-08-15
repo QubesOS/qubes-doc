@@ -30,7 +30,7 @@ First, make sure you have the latest ``qubes-mgmt-salt-dom0-virtual-machines`` p
 
 .. code:: console
 
-      sudo qubesctl state.sls qvm.usb-keyboard
+      $ sudo qubesctl state.sls qvm.usb-keyboard
 
 
 
@@ -148,7 +148,7 @@ You can create a USB qube using the management stack by executing the following 
 
 .. code:: console
 
-      sudo qubesctl state.sls qvm.sys-usb
+      $ sudo qubesctl state.sls qvm.sys-usb
 
 
 

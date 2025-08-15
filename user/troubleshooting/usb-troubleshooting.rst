@@ -43,7 +43,7 @@ Most likely the offending controller is a USB 3.0 device. You can remove this co
 
 .. code:: console
 
-      lspci -nn | grep USB | cut -d '[' -f3 | cut -d ']' -f1 | xargs -I@ setpci -H1 -d @ d0.l=0
+      $ lspci -nn | grep USB | cut -d '[' -f3 | cut -d ']' -f1 | xargs -I@ setpci -H1 -d @ d0.l=0
 
 
 
@@ -74,7 +74,7 @@ Another solution would be to set the pci_strictreset option in dom0:
 
   .. code:: console
 
-        qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
+        $ qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
 
 
 
@@ -82,7 +82,7 @@ Another solution would be to set the pci_strictreset option in dom0:
 
   .. code:: console
 
-        qvm-prefs usbVM -s pci_strictreset false
+        $ qvm-prefs usbVM -s pci_strictreset false
 
 
 

@@ -208,8 +208,8 @@ Actual command lines for the menu shortcuts involve the ``qvm-run`` command whic
 
 .. code:: console
 
-      qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
-      qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
+      $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
+      $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
 
 
 
@@ -217,7 +217,7 @@ Note that you can create a shortcut that points to a ``.desktop`` file in your a
 
 .. code:: console
 
-      qvm-run -q -a --service -- personal qubes.StartApp+firefox
+      $ qvm-run -q -a --service -- personal qubes.StartApp+firefox
 
 
 

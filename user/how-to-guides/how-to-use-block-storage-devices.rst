@@ -29,9 +29,9 @@ If not specified otherwise, block devices will show up as ``/dev/xvdi*`` in a li
 
 .. code:: console
 
-      cd ~
-      mkdir mnt
-      sudo mount /dev/xvdi2 mnt
+      $ cd ~
+      $ mkdir mnt
+      $ sudo mount /dev/xvdi2 mnt
 
 
 
@@ -57,7 +57,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         qvm-block
+         $ qvm-block
 
 
    This will list all available block devices in your system across all VMs. The name of the qube hosting the block device is displayed before the colon in the device ID. The string after the colon is the ID of the device used within the qube, like so:
@@ -73,7 +73,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         qvm-block attach work sys-usb:sdb
+         $ qvm-block attach work sys-usb:sdb
 
 
 
@@ -87,9 +87,9 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         cd ~
-         mkdir mnt
-         sudo mount /dev/xvdi mnt
+         $ cd ~
+         $ mkdir mnt
+         $ sudo mount /dev/xvdi mnt
 
 
 
@@ -101,7 +101,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         sudo umount mnt
+         $ sudo umount mnt
 
 
 
@@ -109,7 +109,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         qvm-block detach work sys-usb:sdb
+         $ qvm-block detach work sys-usb:sdb
 
 
 
@@ -177,7 +177,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
    .. code:: console
 
-         sudo losetup -f --show /path/to/file
+         $ sudo losetup -f --show /path/to/file
 
 
    `This command <https://linux.die.net/man/8/losetup>`__ will create the device node ``/dev/loop0`` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
@@ -201,7 +201,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
    .. code:: console
 
-         qvm-block a targetVM sourceVM:loop0
+         $ qvm-block a targetVM sourceVM:loop0
 
 
 
@@ -209,7 +209,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
    .. code:: console
 
-         sudo losetup -d /dev/loop0
+         $ sudo losetup -d /dev/loop0
 
 
 
@@ -231,7 +231,7 @@ usage example:
 
 .. code:: console
 
-      qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
+      $ qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
 
 
 
@@ -249,7 +249,7 @@ usage example:
 
 .. code:: console
 
-      qvm-block a work sys-usb:sda1 -o read-only=true
+      $ qvm-block a work sys-usb:sda1 -o read-only=true
 
 
 
@@ -257,7 +257,7 @@ There exists a shortcut to set read-only ``true``, ``--ro``:
 
 .. code:: console
 
-      qvm-block a work sys-usb:sda1 --ro
+      $ qvm-block a work sys-usb:sda1 --ro
 
 
 
@@ -273,7 +273,7 @@ usage example:
 
 .. code:: console
 
-      qvm-block a work sys-usb:sda1 -o devtype=cdrom
+      $ qvm-block a work sys-usb:sda1 -o devtype=cdrom
 
 
 

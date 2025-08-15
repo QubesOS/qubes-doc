@@ -73,8 +73,8 @@ Using the command line
 
    .. code:: console
 
-         sudo su
-         echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove
+         $ sudo su
+         $ echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove
 
 
 
@@ -109,7 +109,7 @@ NOTE: The ``permissive`` flag increases attack surface and possibility of `side 
 
 .. code:: console
 
-      qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
+      $ qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
 
 
 
