@@ -178,11 +178,11 @@ Now that you’ve imported the authentic QMSK, set its trust level to “ultimat
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
 
-      gpg> fpr
+      $ gpg> fpr
       pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
       Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
 
-      gpg> trust
+      $ gpg> trust
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
@@ -206,7 +206,7 @@ Now that you’ve imported the authentic QMSK, set its trust level to “ultimat
       Please note that the shown key validity is not necessarily correct
       unless you restart the program.
 
-      gpg> q
+      $ gpg> q
 
 
 Now, when you import any of the release signing keys and many Qubes team member keys, they will already be trusted in virtue of being signed by the QMSK.
@@ -426,11 +426,11 @@ Download both the ISO and its signature file. Put both of them in the same direc
 .. code:: console
 
       $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
-      gpg: armor header: Version: GnuPG v1
-      gpg: Signature made <TIME> using RSA key ID 03FA5082
-      gpg: using PGP trust model
-      gpg: Good signature from "Qubes OS Release X Signing Key"
-      gpg: binary signature, digest algorithm SHA256
+      $ gpg: armor header: Version: GnuPG v1
+      $ gpg: Signature made <TIME> using RSA key ID 03FA5082
+      $ gpg: using PGP trust model
+      $ gpg: Good signature from "Qubes OS Release X Signing Key"
+      $ gpg: binary signature, digest algorithm SHA256
 
 
 This is just an example, so the output you receive will not look exactly the same. What matters is the line that says ``Good signature from "Qubes OS Release X Signing Key"``. This confirms that the signature on the ISO is good.

@@ -68,7 +68,7 @@ To enable automatic wiping of the clipboard after a minute use ``qvm-service``:
 
 .. code:: console
 
-      qvm-service --enable VMNAME gui-agent-clipboard-wipe
+      $ qvm-service --enable VMNAME gui-agent-clipboard-wipe
 
 
 
@@ -80,8 +80,8 @@ The copy/paste shortcuts are configurable via ``qvm-features``, e.g.
 
 .. code:: console
 
-      qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
-      qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
+      $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
+      $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
 
 
 

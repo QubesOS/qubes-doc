@@ -122,8 +122,8 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
    .. code:: console
 
-         qvm-features <VMname> gui 1
-         qvm-prefs <VMname> qrexec_timeout 300
+         $ qvm-features <VMname> gui 1
+         $ qvm-prefs <VMname> qrexec_timeout 300
 
 
 
@@ -135,7 +135,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
     .. code:: console
 
-          qvm-prefs <VMname> default_user <username>
+          $ qvm-prefs <VMname> default_user <username>
 
 
 
@@ -159,7 +159,7 @@ First, make sure that ``qubes-windows-tools`` is installed in your system:
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-windows-tools
+      $ sudo qubes-dom0-update qubes-windows-tools
 
 
 
@@ -169,7 +169,7 @@ You can also install the package from testing repositories, where we usually pub
 
 .. code:: console
 
-      sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
+      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 
 
 
@@ -191,7 +191,7 @@ To install the Qubes Windows Tools in a Windows VM one should start the VM passi
 
 .. code:: console
 
-      qvm-start lab-win7 --install-windows-tools
+      $ qvm-start lab-win7 --install-windows-tools
 
 
 
@@ -203,7 +203,7 @@ Qubes will automatically detect the tools has been installed in the VM and will 
 
 .. code:: console
 
-      qvm-prefs <your-appvm-name>
+      $ qvm-prefs <your-appvm-name>
 
 
 
@@ -211,7 +211,7 @@ Qubes will automatically detect the tools has been installed in the VM and will 
 
 .. code:: console
 
-      qvm-prefs <vm-name> qrexec_timeout 300
+      $ qvm-prefs <vm-name> qrexec_timeout 300
 
 
 
@@ -247,7 +247,7 @@ With Qubes Windows Tools installed the early graphical console provided in debug
 
 .. code:: console
 
-      qvm-prefs -s win7new debug false
+      $ qvm-prefs -s win7new debug false
 
 
 
@@ -261,7 +261,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 
 .. code:: console
 
-      qvm-run -a my-win7-appvm explorer.exe
+      $ qvm-run -a my-win7-appvm explorer.exe
 
 
 
@@ -305,7 +305,7 @@ In order to create a HVM TemplateVM one can use the following command, suitably 
 
 .. code:: console
 
-      qvm-create --class TemplateVM win-template --property virt_mode=HVM --property kernel=''  -l green
+      $ qvm-create --class TemplateVM win-template --property virt_mode=HVM --property kernel=''  -l green
 
 
 
@@ -335,7 +335,7 @@ Once the template has been created and installed it is easy to create AppVMs bas
 
 .. code:: console
 
-      qvm-create --property virt_mode=hvm <new windows appvm name> --template <name of template vm> --label <label color>
+      $ qvm-create --property virt_mode=hvm <new windows appvm name> --template <name of template vm> --label <label color>
 
 
 

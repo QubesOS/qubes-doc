@@ -122,8 +122,8 @@ Start the socket using ``systemctl --user start``. Enable it using ``systemctl -
 
 .. code:: console
 
-      systemctl --user start qubes-qrexec-policy-agent.socket
-      systemctl --user enable qubes-qrexec-policy-agent.socket
+      $ systemctl --user start qubes-qrexec-policy-agent.socket
+      $ systemctl --user enable qubes-qrexec-policy-agent.socket
 
 
 
@@ -131,7 +131,7 @@ Alternatively, you can enable the service by creating a symlink:
 
 .. code:: console
 
-      sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
+      $ sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
 
 
 
@@ -143,7 +143,7 @@ Link in qubes-rpc
 
 .. code:: console
 
-      sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
+      $ sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
 
 
 
@@ -157,7 +157,7 @@ Install the Python systemd library:
 
 .. code:: console
 
-      sudo dnf install python3-systemd
+      $ sudo dnf install python3-systemd
 
 
 
@@ -240,7 +240,7 @@ The service is invoked in the same way as a standard Qubes RPC service:
 
 .. code:: console
 
-      echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
+      $ echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
 
 
 
@@ -248,7 +248,7 @@ You can also connect to it locally, but remember to include the service descript
 
 .. code:: console
 
-      echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
+      $ echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
 
 
 

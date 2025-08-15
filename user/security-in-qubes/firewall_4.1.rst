@@ -111,7 +111,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 .. code:: console
 
-      sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
+      $ sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 
 
 
@@ -121,7 +121,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 .. code:: console
 
-      sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
+      $ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 
 
 
@@ -380,7 +380,7 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 
 .. code:: console
 
-      sudo nano /rw/config/rc.local
+      $ sudo nano /rw/config/rc.local
 
 
 
@@ -485,7 +485,7 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 
 .. code:: console
 
-      sudo nano /rw/config/qubes-firewall-user-script
+      $ sudo nano /rw/config/qubes-firewall-user-script
 
 
 
@@ -550,7 +550,7 @@ Finally make this file executable (so it runs at every Firewall VM update)
 
 .. code:: console
 
-      sudo chmod +x /rw/config/qubes-firewall-user-script
+      $ sudo chmod +x /rw/config/qubes-firewall-user-script
 
 
 
@@ -562,7 +562,7 @@ Here no routing is required, only filtering. Proceed in the same way as above bu
 
 .. code:: console
 
-      sudo nano /rw/config/rc.local
+      $ sudo nano /rw/config/rc.local
 
 
 

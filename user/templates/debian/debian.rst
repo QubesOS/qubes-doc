@@ -75,9 +75,9 @@ If you have a Debian template from an earlier release that you want to use for s
 
 .. code:: console
 
-      sudo apt-mark hold salt-common salt-ssh
-      sudo apt update
-      sudo apt upgrade
+      $ sudo apt-mark hold salt-common salt-ssh
+      $ sudo apt update
+      $ sudo apt upgrade
 
 
 

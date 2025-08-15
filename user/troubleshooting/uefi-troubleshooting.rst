@@ -113,7 +113,7 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
    .. code:: console
 
-         cp /mnt/sysimage/boot/efi/EFI/qubes/grubx64.efi /mnt/sysimage/boot/efi/EFI/BOOT/bootx64.efi
+         $ cp /mnt/sysimage/boot/efi/EFI/qubes/grubx64.efi /mnt/sysimage/boot/efi/EFI/BOOT/bootx64.efi
 
 
 

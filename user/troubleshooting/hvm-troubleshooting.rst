@@ -77,7 +77,7 @@ If you see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD
 
 .. code:: console
 
-      qvm-prefs <HVMname> kernel ""
+      $ qvm-prefs <HVMname> kernel ""
 
 
 HVM crashes when booting from ISO
@@ -92,7 +92,7 @@ To give the VM a RAM of 2GB, open a terminal in ``dom0`` and enter:
 
 .. code:: console
 
-      qvm-prefs <HVMname> memory 2000
+      $ qvm-prefs <HVMname> memory 2000
 
 
 Attached devices in Windows HVM stop working on suspend/resume

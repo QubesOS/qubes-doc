@@ -95,11 +95,11 @@ To create one that has no PCI devices attached, such as for ``sys-firewall``:
 
 .. code:: console
 
-      qvm-create -C DispVM -l green <SERVICE_QUBE>
-      qvm-prefs <SERVICE_QUBE> autostart true
-      qvm-prefs <SERVICE_QUBE> netvm <NET_QUBE>
-      qvm-prefs <SERVICE_QUBE> provides_network true
-      qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+      $ qvm-create -C DispVM -l green <SERVICE_QUBE>
+      $ qvm-prefs <SERVICE_QUBE> autostart true
+      $ qvm-prefs <SERVICE_QUBE> netvm <NET_QUBE>
+      $ qvm-prefs <SERVICE_QUBE> provides_network true
+      $ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 
 
 
@@ -111,13 +111,13 @@ To create one with a PCI device attached such as for ``sys-net`` or ``sys-usb``,
 
 .. code:: console
 
-      qvm-create -C DispVM -l red <SERVICE_QUBE>
-      qvm-prefs <SERVICE_QUBE> virt_mode hvm
-      qvm-service <SERVICE_QUBE> meminfo-writer off
-      qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
-      qvm-prefs <SERVICE_QUBE> autostart true
-      qvm-prefs <SERVICE_QUBE> netvm ''
-      qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+      $ qvm-create -C DispVM -l red <SERVICE_QUBE>
+      $ qvm-prefs <SERVICE_QUBE> virt_mode hvm
+      $ qvm-service <SERVICE_QUBE> meminfo-writer off
+      $ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
+      $ qvm-prefs <SERVICE_QUBE> autostart true
+      $ qvm-prefs <SERVICE_QUBE> netvm ''
+      $ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 
 
 
@@ -125,7 +125,7 @@ Optionally, if this disposable will also provide network access to other qubes:
 
 .. code:: console
 
-      qvm-prefs <SERVICE_QUBE> provides_network true
+      $ qvm-prefs <SERVICE_QUBE> provides_network true
 
 
 
@@ -133,7 +133,7 @@ Next, set the old service qube’s autostart to false, and update any references
 
 .. code:: console
 
-      qvm-prefs sys-firewall netvm <SERVICE_QUBE>
+      $ qvm-prefs sys-firewall netvm <SERVICE_QUBE>
 
 
 
@@ -143,17 +143,17 @@ Here is an example of a complete ``sys-net`` replacement:
 
 .. code:: console
 
-      qvm-create -C DispVM -l red sys-net2
-      qvm-prefs sys-net2 virt_mode hvm
-      qvm-service sys-net2 meminfo-writer off
-      qvm-pci attach --persistent sys-net2 dom0:00_1a.0
-      qvm-prefs sys-net2 autostart true
-      qvm-prefs sys-net2 netvm ''
-      qvm-features sys-net2 appmenus-dispvm ''
-      qvm-prefs sys-net2 provides_network true
-      qvm-prefs sys-net autostart false
-      qvm-prefs sys-firewall netvm sys-net2
-      qubes-prefs clockvm sys-net2
+      $ qvm-create -C DispVM -l red sys-net2
+      $ qvm-prefs sys-net2 virt_mode hvm
+      $ qvm-service sys-net2 meminfo-writer off
+      $ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
+      $ qvm-prefs sys-net2 autostart true
+      $ qvm-prefs sys-net2 netvm ''
+      $ qvm-features sys-net2 appmenus-dispvm ''
+      $ qvm-prefs sys-net2 provides_network true
+      $ qvm-prefs sys-net autostart false
+      $ qvm-prefs sys-firewall netvm sys-net2
+      $ qubes-prefs clockvm sys-net2
 
 
 

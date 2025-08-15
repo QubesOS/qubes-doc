@@ -21,7 +21,7 @@ To clone a repository:
 
 .. code:: console
 
-      git clone https://github.com/QubesOS/qubes-<repo_name>.git <repo_name>
+      $ git clone https://github.com/QubesOS/qubes-<repo_name>.git <repo_name>
 
 
 
@@ -29,7 +29,7 @@ e.g.:
 
 .. code:: console
 
-      git clone https://github.com/QubesOS/qubes-core-admin.git core-admin
+      $ git clone https://github.com/QubesOS/qubes-core-admin.git core-admin
 
 
 
@@ -39,8 +39,8 @@ If you really do want to clone **all** of the repositories, you can use these co
 
 .. code:: console
 
-      curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
-      curl "https://api.github.com/orgs/QubesOS/repos?page=2&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
+      $ curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
+      $ curl "https://api.github.com/orgs/QubesOS/repos?page=2&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
 
 
 

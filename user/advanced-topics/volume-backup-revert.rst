@@ -14,7 +14,7 @@ For the private volume associated with a VM named *vmname*, you may inspect the 
 
 .. code:: console
 
-      qvm-volume info vmname:private
+      $ qvm-volume info vmname:private
 
 
 
@@ -22,7 +22,7 @@ The output of the above command will also display the “Available revisions (fo
 
 .. code:: console
 
-      qvm-volume config vmname:private revisions_to_keep 2
+      $ qvm-volume config vmname:private revisions_to_keep 2
 
 
 
@@ -30,6 +30,6 @@ With the VM stopped, you may revert to an older snapshot of the private volume f
 
 .. code:: console
 
-      qvm-volume revert vmname:private <revision>
+      $ qvm-volume revert vmname:private <revision>
 
 

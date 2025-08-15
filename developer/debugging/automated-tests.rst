@@ -119,7 +119,7 @@ Tests are also compatible with nose2 test runner, so you can use this instead:
 
 .. code:: console
 
-      sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
+      $ sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
 
 This may be especially useful together with various nose2 plugins to store tests results (for example ``nose2.plugins.junitxml``), to ease presenting results. This is what we use on `OpenQA <https://open.qa/>`__.
@@ -140,15 +140,15 @@ Assuming you cloned the ``qubes-builder`` repository to your home directory insi
 
 .. code:: console
 
-      cd ~
-      sudo dnf install python3-pip lvm2 python35 python3-virtualenv
-      virtualenv -p /usr/bin/python35 python35
-      source python35/bin/activate
-      python3 -V
-      cd ~/qubes-builder/qubes-src/core-admin
-      pip3 install -r ci/requirements.txt
-      export PYTHONPATH=../core-qrexec:test-packages
-      ./run-tests
+      $ cd ~
+      $ sudo dnf install python3-pip lvm2 python35 python3-virtualenv
+      $ virtualenv -p /usr/bin/python35 python35
+      $ source python35/bin/activate
+      $ python3 -V
+      $ cd ~/qubes-builder/qubes-src/core-admin
+      $ pip3 install -r ci/requirements.txt
+      $ export PYTHONPATH=../core-qrexec:test-packages
+      $ ./run-tests
 
 
 To run only the tests related to e.g. ``lvm``, you may use:

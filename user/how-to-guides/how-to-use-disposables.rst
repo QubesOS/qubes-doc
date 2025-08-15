@@ -65,7 +65,7 @@ You can set any app qube to have the ability to act as a disposable template wit
 
 .. code:: console
 
-      qvm-prefs <APP_QUBE> template_for_dispvms True
+      $ qvm-prefs <APP_QUBE> template_for_dispvms True
 
 
 
@@ -75,7 +75,7 @@ You can change this behavior for individual qubes: in the Application Menu, open
 
 .. code:: console
 
-      qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
+      $ qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
 
 
 
@@ -91,7 +91,7 @@ A disposable launched from the app menu inherits the net qube and firewall setti
 
 .. code:: console
 
-      qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
+      $ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
 
 
@@ -99,7 +99,7 @@ To launch a disposable template from the command line, execute the following com
 
 .. code:: console
 
-      qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
+      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
 
 
 

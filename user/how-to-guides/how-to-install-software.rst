@@ -157,9 +157,9 @@ To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` o
 
 .. code:: console
 
-      sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
-      sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
-      sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+      $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
+      $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
+      $ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 
 
@@ -195,11 +195,11 @@ If you would like to enable the `RPM Fusion <https://rpmfusion.org/>`__ reposito
 
 .. code:: console
 
-      sudo dnf config-manager setopt rpmfusion-free.enabled=1
-      sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
-      sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
-      sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
-      sudo dnf upgrade --refresh
+      $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
+      $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
+      $ sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
+      $ sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
+      $ sudo dnf upgrade --refresh
 
 
 
@@ -231,7 +231,7 @@ Root revert
 
    .. code:: console
 
-         qvm-volume revert <template>:root
+         $ qvm-volume revert <template>:root
 
 
 

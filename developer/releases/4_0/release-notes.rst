@@ -66,7 +66,7 @@ Security Notes
 
      .. code:: console
 
-           sudo nano /etc/yum.repos.d/qubes-dom0.repo
+           $ sudo nano /etc/yum.repos.d/qubes-dom0.repo
 
 
 

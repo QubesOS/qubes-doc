@@ -63,7 +63,7 @@ Normally Qubes doesn’t let the user stop a NetVM if there are other qubes runn
 
 .. code:: console
 
-      qvm-prefs <vm> netvm <netvm>
+      $ qvm-prefs <vm> netvm <netvm>
 
 
 
@@ -71,7 +71,7 @@ Normally qubes do not connect directly to the actual NetVM (sys-net by default) 
 
 .. code:: console
 
-      qvm-prefs sys-firewall netvm sys-net
+      $ qvm-prefs sys-firewall netvm sys-net
 
 
 
@@ -123,7 +123,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 .. code:: console
 
-      sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> ct state new,established,related counter accept
+      $ sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> ct state new,established,related counter accept
 
 
 
@@ -133,7 +133,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 .. code:: console
 
-      sudo nft add rule qubes custom-input ip saddr <IP address of A> ct state new,established,related counter accept
+      $ sudo nft add rule qubes custom-input ip saddr <IP address of A> ct state new,established,related counter accept
 
 
 

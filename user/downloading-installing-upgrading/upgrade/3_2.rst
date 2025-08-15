@@ -19,7 +19,7 @@ Upgrading dom0
 
    .. code:: console
 
-         sudo qubes-dom0-update --releasever=3.2 qubes-release
+         $ sudo qubes-dom0-update --releasever=3.2 qubes-release
 
 
 
@@ -31,7 +31,7 @@ Upgrading dom0
 
    .. code:: console
 
-         sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
+         $ sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
          (...)
          Transaction Summary
          ===============================================================
@@ -50,7 +50,7 @@ Upgrading dom0
 
    .. code:: console
 
-         sudo qubes-dom0-update
+         $ sudo qubes-dom0-update
 
 
 
@@ -118,7 +118,7 @@ Upgrade Fedora templates:
 
    .. code:: console
 
-         sudo dnf install --refresh qubes-upgrade-vm
+         $ sudo dnf install --refresh qubes-upgrade-vm
 
 
 
@@ -126,7 +126,7 @@ Upgrade Fedora templates:
 
    .. code:: console
 
-         sudo dnf upgrade --refresh
+         $ sudo dnf upgrade --refresh
 
 
 
@@ -134,7 +134,7 @@ Upgrade Fedora templates:
 
    .. code:: console
 
-         sudo dnf install qubes-mgmt-salt-vm-connector
+         $ sudo dnf install qubes-mgmt-salt-vm-connector
 
 
 
@@ -152,8 +152,8 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
-         sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
@@ -161,8 +161,8 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo apt-get update
-         sudo apt-get dist-upgrade
+         $ sudo apt-get update
+         $ sudo apt-get dist-upgrade
 
 
 
@@ -170,7 +170,7 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo apt-get install qubes-mgmt-salt-vm-connector
+         $ sudo apt-get install qubes-mgmt-salt-vm-connector
 
 
 
@@ -178,7 +178,7 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
