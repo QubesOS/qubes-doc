@@ -97,6 +97,17 @@ autosectionlabel_prefix_document = True
 
 # -- HTML configuration ------------------------------------------------------
 
+
+# -- -- Add 'Edit on GitHub' Link --------------------------------------------
+
+html_context = {
+    "display_github": True,
+    "github_user": "QubesOs",
+    "github_repo": "qubes-doc",
+    "github_version": "rst",
+    "conf_py_path": "/",
+}
+
 # -- -- Options for internationalisation -------------------------------------
 
 locale_dirs = ['_translated']
