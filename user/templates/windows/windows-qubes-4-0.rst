@@ -144,7 +144,6 @@ An unofficial, third-party tool for automating this process is available `here <
 Summary
 ^^^^^^^
 
-
 .. code:: console
 
       $ qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
@@ -155,14 +154,29 @@ Summary
       $ qvm-prefs win7new debug true
       $ qvm-features win7new video-model cirrus
       $ qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
-      # restart after the first part of the windows installation process ends
+
+
+Restart after the first part of the windows installation process ends:
+
+.. code:: console
+
       $ qvm-start win7new
-      # once Windows is installed and working
+
+
+Once Windows is installed and working:
+
+.. code:: console
+
       $ qvm-prefs win7new memory 2048
       $ qvm-prefs win7new maxmem 2048
       $ qvm-features --unset win7new video-model
       $ qvm-prefs win7new qrexec_timeout 300
-      # with Qubes Windows Tools installed:
+
+
+With Qubes Windows Tools installed:
+
+.. code:: console
+
       $ qvm-prefs win7new debug false
 
 

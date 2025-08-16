@@ -54,13 +54,10 @@ First, collect some information in a dom0 terminal:
       $ sudo lvs
 
 
-Take note of the VG and thin pool names for your second drive., then register it with Qubes:
+Take note of the VG and thin pool names for your second drive, then register it with Qubes, where ``<pool_name>`` is a freely chosen pool name, ``<vg_name>`` is LVM volume group name and ``<thin_pool_name>`` is LVM thin pool name:
 
 .. code:: console
 
-      # <pool_name> is a freely chosen pool name
-      # <vg_name> is LVM volume group name
-      # <thin_pool_name> is LVM thin pool name
       $ qvm-pool --add <pool_name> lvm_thin -o volume_group=<vg_name>,thin_pool=<thin_pool_name>,revisions_to_keep=2
 
 
@@ -79,12 +76,10 @@ It is possible to use an existing Btrfs storage if it is configured. In dom0, av
       btrfs show filesystem
 
 
-To register the storage to qubes:
+To register the storage to qubes use the following command where ``<pool_name>`` is a freely chosen pool name adn ``<dir_path>`` is the mounted path to the second btrfs storage:
 
 .. code:: console
 
-      # <pool_name> is a freely chosen pool name
-      # <dir_path> is the mounted path to the second btrfs storage
       $ qvm-pool --add <pool_name> file-reflink -o dir_path=<dir_path>,revisions_to_keep=2
 
 
@@ -206,12 +201,10 @@ Unmount the temporary Btrfs filesystem:
       $ rmdir /mnt/new_qube_storage
 
 
-Mount the subvolume with compression enabled if desired:
+Mount the subvolume with compression enabled if desired, where ``<compression>`` can take the values ``zlib|lzo|zstd``. ``<subvol>`` is a btrfs subvolume "qubes" in this example.
 
 .. code:: console
 
-      # <compression> zlib|lzo|zstd
-      # <subvol> btrfs subvolume "qubes" in this example
       $ sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /var/lib/qubes_newpool -o compress=<compression>,subvol=qubes
 
 
