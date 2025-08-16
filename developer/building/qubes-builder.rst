@@ -90,14 +90,16 @@ It is also recommended that you use an empty passphrase for the private key used
 
 So, to build Qubes you would do:
 
+Import the Qubes master key:
+
 .. code:: console
 
-      # Import the Qubes master key
       $ gpg --recv-keys 0xDDFA1A3E36879494
 
-      # Verify its fingerprint, set as 'trusted'.
-      # This is described here:
-      # https://www.qubes-os.org/doc/VerifyingSignatures
+
+Verify its fingerprint, set as 'trusted'. This is described :doc:`here </project-security/verifying-signatures>`.
+
+.. code:: console
 
       $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
       $ gpg --import qubes-developers-keys.asc
@@ -105,22 +107,45 @@ So, to build Qubes you would do:
       $ git clone https://github.com/QubesOS/qubes-builder.git qubes-builder
       $ cd qubes-builder
 
-      # Verify its integrity:
+
+Verify its integrity:
+
+.. code:: console
+
       $ git tag -v `git describe`
 
+
+Copy the example ``builder.conf``:
+
+.. code:: console
+
       $ cp example-configs/qubes-os-master.conf builder.conf
-      # edit the builder.conf file and set the following variables:
+
+
+Edit the builder.conf file and set the following variables:
+
+.. code:: bash
+
       # NO_SIGN="1"
 
-      # Download all components:
+
+Download all components:
+
+.. code:: console
 
       $ make get-sources
 
-      # And now to build all Qubes RPMs (this will take a few hours):
+
+And now to build all Qubes RPMs (this will take a few hours):
+
+.. code:: console
 
       $ make qubes
 
-      # ... and then to build the ISO
+
+... and then to build the ISO
+
+.. code:: console
 
       $ make iso
 
