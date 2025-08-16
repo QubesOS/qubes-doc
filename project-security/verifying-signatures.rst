@@ -51,14 +51,14 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
 - If you’re on Qubes OS, it’s available in every qube (`except dom0 <https://github.com/QubesOS/qubes-issues/issues/2544>`__):
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
 
 - If you’re on Fedora, you can get it in the `distribution-gpg-keys <https://github.com/xsuchy/distribution-gpg-keys>`__ package:
 
-  .. code:: bash
+  .. code:: console
 
         $ dnf install distribution-gpg-keys
         $ gpg2 --import /usr/share/distribution-gpg-keys/qubes/*
@@ -68,14 +68,14 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
 - Fetch it with GPG:
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
 
 - Get it from a public `keyserver <https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples>`__ (specified on first use with ``--keyserver <URI>`` along with keyserver options to include key signatures), e.g.:
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
@@ -94,7 +94,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
   Once you have the key as a file, import it:
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --import /<PATH_TO_FILE>/qubes-master-signing-key.asc
 
@@ -107,7 +107,7 @@ So, what *should* you do? One option is to use the PGP `Web of Trust <https://en
 
 Perhaps the most common route is to rely on the key’s fingerprint, which is a string of 40 alphanumeric characters, like this:
 
-.. code:: bash
+.. code:: text
 
       427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
 
@@ -119,7 +119,7 @@ But how do you know which fingerprint is the real one? After all, :ref:`this web
 
 For the purpose of convincing yourself that you know the authentic QMSK fingerprint, spaces and capitalization don’t matter. In other words, all of these fingerprints are considered the same:
 
-.. code:: bash
+.. code:: text
 
       427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
       427f 11fd 0faa 4b08 0123  f01c ddfa 1a3e 3687 9494
@@ -132,7 +132,7 @@ Instead, what matters is that *all* the characters are present in *exactly* the 
 
 However, for the purpose of *searching for*, *looking up*, or *entering* keys, spaces and capitalization can matter, depending on the software or tool you’re using. You may need to try different variations (e.g., with and without spaces). You may also sometimes see (or need to enter) the entire fingerprint prefixed with ``0x``, as in:
 
-.. code:: bash
+.. code:: text
 
       0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       0x427f11fd0faa4b080123f01cddfa1a3e36879494
@@ -167,45 +167,45 @@ Once you’ve observed enough matching fingerprints from enough independent sour
 
 Now that you’ve imported the authentic QMSK, set its trust level to “ultimate” so that it can be used to automatically verify all the keys signed by the QMSK (in particular, RSKs).
 
-.. code::
+.. code:: console
 
       $ gpg2 --edit-key 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
       This is free software: you are free to change and redistribute it.
       There is NO WARRANTY, to the extent permitted by law.
-      
+
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
-      
+
       gpg> fpr
       pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
       Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
-      
+
       gpg> trust
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
-      
+
       Please decide how far you trust this user to correctly verify other users' keys
       (by looking at passports, checking fingerprints from different sources, etc.)
-      
+
          1 = I don't know or won't say
          2 = I do NOT trust
          3 = I trust marginally
          4 = I trust fully
          5 = I trust ultimately
          m = back to the main menu
-      
+
       Your decision? 5
       Do you really want to set this key to ultimate trust? (y/N) y
-      
+
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: ultimate      validity: unknown
       [ unknown] (1). Qubes Master Signing Key
       Please note that the shown key validity is not necessarily correct
       unless you restart the program.
-      
+
       gpg> q
 
 
@@ -213,7 +213,7 @@ Now, when you import any of the release signing keys and many Qubes team member 
 
 As a final sanity check, make sure the QMSK is in your keyring with the correct trust level.
 
-.. code:: bash
+.. code:: console
 
       $ gpg2 -k "Qubes Master Signing Key"
       pub   rsa4096 2010-04-01 [SC]
@@ -242,21 +242,21 @@ After you have completed these two prerequisite steps, the next step is to obtai
 
 - If you have access to an existing Qubes installation, the release keys are available in dom0 in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. These can be :ref:`copied <user/how-to-guides/how-to-copy-from-dom0:copying *from* dom0>` into other qubes for further use. In addition, every other qube contains the release key corresponding to that installation’s release in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. If you wish to use one of these keys, make sure to import it into your keyring, e.g.:
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*
 
 
 - Fetch it with GPG:
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
 
 
 - Download it as a file. You can find the RSK for your Qubes release on the `downloads <https://www.qubes-os.org/downloads/>`__ page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, import it with GPG:
 
-  .. code:: bash
+  .. code:: console
 
         $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc
 
@@ -265,7 +265,7 @@ After you have completed these two prerequisite steps, the next step is to obtai
 
 Now that you have the correct RSK, you simply need to verify that it is signed by the QMSK:
 
-.. code:: bash
+.. code:: console
 
       $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
       pub   rsa4096 YYYY-MM-DD [SC]
@@ -273,7 +273,7 @@ Now that you have the correct RSK, you simply need to verify that it is signed b
       uid           [  full  ] Qubes OS Release X Signing Key
       sig!3        XXXXXXXXXXXXXXXX YYYY-MM-DD  Qubes OS Release X Signing Key
       sig!         DDFA1A3E36879494 YYYY-MM-DD  Qubes Master Signing Key
-      
+
       gpg: 2 good signatures
 
 
@@ -281,7 +281,7 @@ This is just an example, so the output you receive may not look exactly the same
 
 As a final sanity check, make sure the RSK is in your keyring with the correct trust level:
 
-.. code:: bash
+.. code:: console
 
       $ gpg2 -k "Qubes OS Release X Signing Key"
       pub   rsa4096 YYYY-MM-DD [SC]
@@ -321,18 +321,18 @@ In addition to the ``.DIGESTS`` files on the `downloads <https://www.qubes-os.or
 
 If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the digest file for that ISO is ``Qubes-RX-x86_64.iso.DIGESTS``, where ``X`` is a specific release of Qubes. The digest filename is always the same as the ISO filename followed by ``.DIGESTS``. Since the digest file is a plain text file, you can open it with any text editor. Inside, you should find text that looks similar to this:
 
-.. code:: bash
+.. code:: text
 
       -----BEGIN PGP SIGNED MESSAGE-----
       Hash: SHA256
-      
+
       3c951138b8b9867d8657f173c1b58b82 *Qubes-RX-x86_64.iso
       1fc9508160d7c4cba6cacc3025165b0f996c843f *Qubes-RX-x86_64.iso
       6b998045a513dcdd45c1c6e61ace4f1b4e7eff799f381dccb9eb0170c80f678a *Qubes-RX-x86_64.iso
       de1eb2e76bdb48559906f6fe344027ece20658d4a7f04ba00d4e40c63723171c62bdcc869375e7a4a4499d7bff484d7a621c3acfe9c2b221baee497d13cd02fe *Qubes-RX-x86_64.iso
       -----BEGIN PGP SIGNATURE-----
       Version: GnuPG v2
-      
+
       iQIcBAEBCAAGBQJX4XO/AAoJEMsRyh0D+lCCL9sP/jlZ26zhvlDEX/eaA/ANa/6b
       Dpsh/sqZEpz1SWoUxdm0gS+anc8nSDoCQSMBxnafuBbmwTChdHI/P7NvNirCULma
       9nw+EYCsCiNZ9+WCeroR8XDFSiDjvfkve0R8nwfma1XDqu1bN2ed4n/zNoGgQ8w0
@@ -351,7 +351,7 @@ If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the dig
 
 Four digests have been computed for this ISO. The hash functions used, in order from top to bottom, are MD5, SHA-1, SHA-256, and SHA-512. One way to verify that the ISO you downloaded matches any of these hash values is by using the respective ``*sum`` command:
 
-.. code:: bash
+.. code:: console
 
       $ md5sum -c Qubes-RX-x86_64.iso.DIGESTS
        Qubes-RX-x86_64.iso: OK
@@ -371,7 +371,7 @@ The ``OK`` response tells us that the hash value for that particular hash functi
 
 Another way is to use ``openssl`` to compute each hash value, then compare them to the contents of the digest file:
 
-.. code:: bash
+.. code:: console
 
       $ openssl dgst -md5 Qubes-RX-x86_64.iso
       MD5(Qubes-RX-x86_64.iso)= 3c951138b8b9867d8657f173c1b58b82
@@ -387,7 +387,7 @@ Another way is to use ``openssl`` to compute each hash value, then compare them 
 
 However, it is possible that an attacker replaced ``Qubes-RX-x86_64.iso`` with a malicious ISO, computed the hash values for that malicious ISO, and replaced the values in ``Qubes-RX-x86_64.iso.DIGESTS`` with his own set of values. Therefore, we should also verify the authenticity of the listed hash values. Since ``Qubes-RX-x86_64.iso.DIGESTS`` is a clearsigned PGP file, we can use GPG to verify the signature in the digest file:
 
-.. code:: bash
+.. code:: console
 
       $ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS
       gpg: armor header: Hash: SHA256
@@ -423,7 +423,7 @@ Every Qubes ISO is released with a **detached PGP signature** file, which you ca
 
 Download both the ISO and its signature file. Put both of them in the same directory, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files:
 
-.. code:: bash
+.. code:: console
 
       $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
       gpg: armor header: Version: GnuPG v1
@@ -449,7 +449,7 @@ This section will walk through an example of re-verifying the installer on such 
 
 Now, our goal is to perform the same verification steps as we did with the original ISO, except, this time, we’ll be reading the installer data directly from the write-protected USB drive instead of from the original ISO file. First, let’s compute the SHA-256 hash value of the data on the drive. (This assumes you’re already familiar with `how to verify the cryptographic hash values of Qubes ISOs <#how-to-verify-the-cryptographic-hash-values-of-qubes-isos>`__.) In order to do this, we have to know the exact size, in bytes, of the original ISO. There are two ways to get this information: from the ISO itself and from the Qubes website. Here’s an example of the first way:
 
-.. code:: bash
+.. code:: console
 
       $ dd if=/dev/sdX bs=1M count=$(stat -c %s /path/to/iso) iflag=count_bytes | sha256sum
 
@@ -458,7 +458,7 @@ Now, our goal is to perform the same verification steps as we did with the origi
 
 This command reads exactly the number of bytes of your Qubes ISO (obtained with ``stat -c %s /path/to/iso``) from the USB drive and pipes them into ``sha256sum``. The output should look something like this:
 
-.. code:: bash
+.. code:: output
 
       0e68dd3347b68618d9e5f3ddb580bf7ecdd2166747630859b3582803f1ca8801  -
       5523+0 records in
@@ -472,7 +472,7 @@ Now, reading the number of bytes directly from the ISO is fine, but you may be c
 
 Therefore, in order to make things a bit more difficult for your hypothetical adversary, you may instead wish to perform the re-verification in an environment that has never seen the original ISO, e.g., a separate offline computer or a fresh VM the storage space of which is too small to hold the ISO. (**Note:** If you’re doing this in Qubes, you can attach the block device from sys-usb to a separate new qube. You don’t have to perform the re-verification directly in sys-usb.) In that case, you’ll have to obtain the size of the ISO in bytes and enter it into the above command manually. You can, of course, obtain the size by simply using the ``stat -c %s /path/to/iso`` command from above on the machine that has the ISO. You can also obtain it from the Qubes website by hovering over any ISO download button on the `downloads page <https://www.qubes-os.org/downloads/>`__. (You can also view these values directly in the downloads page’s `source data <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml>`__.) Once you have the exact size of the ISO in bytes, simply insert it into the same command, for example:
 
-.. code:: bash
+.. code:: console
 
       $ dd if=/dev/sdX bs=1M count=5791285248 iflag=count_bytes | sha256sum
 
@@ -481,7 +481,7 @@ If you wish to compute the values of other hash functions, you can replace ``sha
 
 In addition to checking hash values, you can also use GnuPG to verify the detached PGP signature directly against the data on the USB drive. (This assumes you’re already familiar with `how to verify detached PGP signatures on Qubes ISOs <#how-to-verify-detached-pgp-signatures-on-qubes-isos>`__.)
 
-.. code:: bash
+.. code:: console
 
       $ dd if=/dev/sdX bs=1M count=<ISO_SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
       gpg: Signature made <TIME>
@@ -520,14 +520,14 @@ How to verify a signature on a Git tag
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. code:: bash
+.. code:: console
 
       $ git tag -v <tag name>
 
 
 or
 
-.. code:: bash
+.. code:: console
 
       $ git verify-tag <tag name>
 
@@ -536,14 +536,14 @@ How to verify a signature on a Git commit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. code:: bash
+.. code:: console
 
       $ git log --show-signature <commit ID>
 
 
 or
 
-.. code:: bash
+.. code:: console
 
       $ git verify-commit <commit ID>
 

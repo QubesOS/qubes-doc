@@ -26,12 +26,12 @@ Reporting security issues in Qubes OS
 
 
 .. warning::
-      
+
       **Please note:** The Qubes security team email address is intended for **responsible disclosure** by security researchers and others who discover legitimate security vulnerabilities. It is **not** intended for everyone who suspects they’ve been hacked. Please do not attempt to contact the Qubes security team unless you can **demonstrate** an actual security vulnerability or unless the team will be able to take reasonable steps to verify your claims.
 
 If you’ve discovered a security issue affecting Qubes OS, either directly or indirectly (e.g., the issue affects Xen in a configuration that is used in Qubes OS), then we would be more than happy to hear from you! We promise to take all reported issues seriously. If our investigation confirms that an issue affects Qubes, we will patch it within a reasonable time and release a public `Qubes security bulletin (QSB) <https://www.qubes-os.org/security/qsb/>`__ that describes the issue, discusses the potential impact of the vulnerability, references applicable patches or workarounds, and credits the discoverer. Please use the `Qubes security team PGP key <https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc>`__ to encrypt your email to this address:
 
-.. code:: bash
+.. code:: console
 
       security at qubes-os dot org
 

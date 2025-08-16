@@ -17,7 +17,7 @@ Typically, the first thing that a ``qrexec-client`` instance does is to send a r
 
 E.g., to start a primitive shell in a VM type the following in Dom0 console:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ /usr/lib/qubes/qrexec-client -d <vm name> user:bash
 
@@ -54,7 +54,7 @@ Besides each VM needing to provide explicit programs to serve each supported ser
 
 In dom0, there is a bunch of files in ``/etc/qubes-rpc/policy/`` directory, whose names describe the available RPC actions; their content is the RPC access policy database. Some example of the default services in Qubes are:
 
-.. code:: bash
+.. code:: text
 
       qubes.Filecopy
       qubes.OpenInVM
@@ -70,7 +70,7 @@ In dom0, there is a bunch of files in ``/etc/qubes-rpc/policy/`` directory, whos
 
 These files contain lines with the following format:
 
-.. code:: bash
+.. code:: text
 
       srcvm destvm (allow|deny|ask)[,user=user_to_run_as][,target=VM_to_redirect_to]
 
@@ -88,7 +88,7 @@ Requesting VM-VM (and VM-Dom0) services execution
 
 In a src VM, one should invoke the qrexec client via the following command:
 
-.. code:: bash
+.. code:: console
 
       /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
 
@@ -112,7 +112,7 @@ Qubes RPC policy supports an “ask” action, that will prompt the user whether
 
 In order to remove such authorization, issue this command from a Dom0 terminal (example below for ``qubes.Filecopy`` service):
 
-.. code:: bash
+.. code:: console
 
       sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
 
@@ -147,14 +147,14 @@ We will show the necessary files to create a simple RPC call that adds two integ
 
 - Policy file in dom0 (``/etc/qubes-rpc/policy/test.Add``)
 
-  .. code:: bash
+  .. code:: text
 
         $anyvm $anyvm ask
 
 
 - Server path definition on target VM (``/etc/qubes-rpc/test.Add``)
 
-  .. code:: bash
+  .. code:: text
 
         /usr/bin/our_test_add_server
 
@@ -162,7 +162,7 @@ We will show the necessary files to create a simple RPC call that adds two integ
 
 - To test this service, run the following in the source VM:
 
-  .. code:: bash
+  .. code:: console
 
         /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
 

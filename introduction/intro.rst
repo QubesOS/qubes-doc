@@ -8,11 +8,11 @@ What is Qubes OS?
 -----------------
 
 Qubes OS is a free and open-source, security-oriented operating system for
-single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :ref:`qubes <user/reference/glossary:qube>`.
+single-user desktop computing. Qubes OS leverages `Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :ref:`qubes <user/reference/glossary:qube>`.
 
 
 These qubes, which are implemented as :ref:`virtual machines (VMs)<user/reference/glossary:vm>`, have specific:
-               
+
 - **Purposes:** with a predefined set of one or many isolated
   applications, for personal or professional projects, to manage the
   :doc:`network stack </developer/system/networking>`, :doc:`the firewall </user/security-in-qubes/firewall>`, or to fulfill other
@@ -22,7 +22,7 @@ These qubes, which are implemented as :ref:`virtual machines (VMs)<user/referenc
   :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems,
   such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and
   `Windows <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md>`__.
-               
+
 - **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with
   :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
 
@@ -49,7 +49,7 @@ Features
 - **Multiple operating systems** Use multiple operating systems at the same time, including
   :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and
   `Windows <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows.md>`__
-         
+
 - **Disposables** Create :doc:`disposables </user/how-to-guides/how-to-use-disposables>` on the fly that self-destruct when shut down.
 
 - **Whonix integration** Run `Tor <https://www.torproject.org/>`__ securely system-wide using `Whonix with Qubes <https://www.whonix.org/wiki/Qubes>`__.
@@ -100,10 +100,6 @@ and data across these compartments.
 Qubes allows you to compartmentalize your digital life
 ------------------------------------------------------
 
-.. figure:: /attachment/site/qubes-partition-data-flows.jpg
-   :alt: Compartmentalization example
-
-
 Many of us are initially surprised to learn that our devices do not
 support the kind of secure compartmentalization that our lives demand, and
 we're disappointed that software vendors rely on generic defenses that
@@ -127,6 +123,8 @@ physical computer without having to worry about a single successful
 cyberattack taking down your entire digital life in one fell swoop. In
 fact, Qubes has `distinct advantages over physical air gaps <https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf>`__.
 
+.. figure:: /attachment/site/qubes-partition-data-flows.jpg
+   :alt: Compartmentalization example
 
 Made to support vulnerable users and power users alike
 ------------------------------------------------------
@@ -141,7 +139,7 @@ plug in devices, and install software free from worry. It's a place where
 **you** have control over your software, not the other way around.
 (See some :doc:`examples of how different types of users organize their qubes </user/how-to-guides/how-to-organize-your-qubes>`.)
 
-Qubes is also powerful. Organizations like the `Freedom of the Press Foundation <https://securedrop.org/news/piloting-securedrop-workstation-qubes-os>`__, 
+Qubes is also powerful. Organizations like the `Freedom of the Press Foundation <https://securedrop.org/news/piloting-securedrop-workstation-qubes-os>`__,
 `Mullvad <https://twitter.com/mullvadnet/status/631010362083643392>`__,
 and `Let's Encrypt <https://twitter.com/letsencrypt/status/1239934557710737410>`__
 rely on Qubes as they build and maintain critical privacy and

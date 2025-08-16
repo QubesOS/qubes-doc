@@ -207,13 +207,13 @@ Use collapsible sections for long, nonessential content
 
 On GitHub, create collapsible sections in Markdown like so:
 
-.. code:: bash
+.. code:: html
 
       <details>
       <summary>Summary goes here. This line is optional.</summary>
-      
+
       Long, nonessential content goes here. You can put a code block here, but make sure to leave empty lines before and after the fence lines (```).
-      
+
       </details>
 
 
