@@ -426,11 +426,11 @@ Download both the ISO and its signature file. Put both of them in the same direc
 .. code:: console
 
       $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
-      $ gpg: armor header: Version: GnuPG v1
-      $ gpg: Signature made <TIME> using RSA key ID 03FA5082
-      $ gpg: using PGP trust model
-      $ gpg: Good signature from "Qubes OS Release X Signing Key"
-      $ gpg: binary signature, digest algorithm SHA256
+      gpg: armor header: Version: GnuPG v1
+      gpg: Signature made <TIME> using RSA key ID 03FA5082
+      gpg: using PGP trust model
+      gpg: Good signature from "Qubes OS Release X Signing Key"
+      gpg: binary signature, digest algorithm SHA256
 
 
 This is just an example, so the output you receive will not look exactly the same. What matters is the line that says ``Good signature from "Qubes OS Release X Signing Key"``. This confirms that the signature on the ISO is good.
