@@ -23,7 +23,7 @@ Configuration
 
 Create/Edit ``/etc/qubes/policy.d/30-user-gpg2.policy`` in dom0, and add a line like this:
 
-.. code:: bash
+.. code:: console
 
       qubes.Gpg2 + gpg-client-vm @default allow target=gpg-server-vm
 
@@ -31,7 +31,7 @@ Create/Edit ``/etc/qubes/policy.d/30-user-gpg2.policy`` in dom0, and add a line 
 
 Import/Generate your secret keys in the server domain. For example:
 
-.. code:: bash
+.. code:: console
 
       gpg-server-vm$ gpg --import /path/to/my/secret-keys-export
       gpg-server-vm$ gpg --import-ownertrust /path/to/my/ownertrust-export
@@ -40,7 +40,7 @@ Import/Generate your secret keys in the server domain. For example:
 
 or
 
-.. code:: bash
+.. code:: console
 
       gpg-server-vm$ gpg --gen-key
 
@@ -48,21 +48,21 @@ or
 
 In dom0 enable the ``split-gpg2-client`` service in the client domain, for example via the command-line:
 
-.. code:: bash
+.. code:: console
 
       dom0$ qvm-service <SPLIT_GPG2_CLIENT_DOMAIN_NAME> split-gpg2-client on
 
 
 To verify if this was done correctly:
 
-.. code:: bash
+.. code:: console
 
       dom0$ qvm-service <SPLIT_GPG2_CLIENT_DOMAIN_NAME>
 
 
 Output should be:
 
-.. code:: bash
+.. code:: console
 
       split-gpg2-client on
 
@@ -71,12 +71,12 @@ Restart the client domain.
 
 Export the **public** part of your keys and import them in the client domain. Also import/set proper “ownertrust” values. For example:
 
-.. code:: bash
+.. code:: console
 
       gpg-server-vm$ gpg --export > public-keys-export
       gpg-server-vm$ gpg --export-ownertrust > ownertrust-export
       gpg-server-vm$ qvm-copy public-keys-export ownertrust-export
-      
+
       gpg-client-vm$ gpg --import ~/QubesIncoming/gpg-server-vm/public-keys-export
       gpg-client-vm$ gpg --import-ownertrust ~/QubesIncoming/gpg-server-vm/ownertrust-export
 
@@ -84,7 +84,7 @@ Export the **public** part of your keys and import them in the client domain. Al
 
 This should be enough to have it running:
 
-.. code:: bash
+.. code:: console
 
       gpg-client-vm$ gpg -K
       /home/user/.gnupg/pubring.kbx
@@ -140,4 +140,4 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 .. |split-gpg-diagram.png| image:: /attachment/doc/split-gpg-diagram.png
-   
+

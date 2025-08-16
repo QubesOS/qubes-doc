@@ -13,32 +13,32 @@ Generating a Key
 
 Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-perfect-gpg-keypair/>`__ on creating a PGP keypair. Below, we reproduce just the minimum steps in generating a keypair using GnuPG. Please read Cabal’s full guide for further important details.
 
-.. code:: bash
+.. code:: console
 
       $ gpg --gen-key
       gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
       This is free software: you are free to change and redistribute it.
       There is NO WARRANTY, to the extent permitted by law.
-      
+
       gpg: directory '/home/user/.gnupg' created
       gpg: keybox '/home/user/.gnupg/pubring.kbx' created
       **Note:** Use "gpg --full-generate-key" for a full featured key generation dialog.
-      
+
       GnuPG needs to construct a user ID to identify your key.
-      
+
       Real name: Bilbo Baggins
       Email address: bilbo@shire.org
       You selected this USER-ID:
           "Bilbo Baggins <bilbo@shire.org>"
-      
+
       Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
       We need to generate a lot of random bytes. It is a good idea to perform
       some other action (type on the keyboard, move the mouse, utilize the
       disks) during the prime generation; this gives the random number
       generator a better chance to gain enough entropy.
-      
+
       <type your passphrase>
-      
+
       We need to generate a lot of random bytes. It is a good idea to perform
       some other action (type on the keyboard, move the mouse, utilize the
       disks) during the prime generation; this gives the random number
@@ -48,7 +48,7 @@ Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-p
       gpg: directory '/home/user/.gnupg/openpgp-revocs.d' created
       gpg: revocation certificate stored as '/home/user/.gnupg/openpgp-revocs.d/87975838063F97A968D503266E2F4E7AF50A5827.rev'
       public and secret key created and signed.
-      
+
       pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
             87975838063F97A968D503266E2F4E7AF50A5827
       uid                      Bilbo Baggins <bilbo@shire.org>
@@ -68,14 +68,14 @@ In the example below, we will use ``keyserver.ubuntu.com``.
 
 Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID** which is the last 16 hex digits of the long number in the second line of the output above:
 
-.. code:: bash
+.. code:: output
 
       pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
             87975838063F97A968D503266E2F4E7AF50A5827
 
 
 
-.. code:: bash
+.. code:: console
 
       $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
       gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
@@ -89,24 +89,24 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
 1. Set up Git to use your key:
 
-   .. code:: bash
+   .. code:: console
 
-         git config --global user.signingkey <KEYID>
+         $ git config --global user.signingkey <KEYID>
 
 
 
 2. Set up Git to sign your commits with your key:
 
-   .. code:: bash
+   .. code:: console
 
-         git config --global commit.gpgsign true
+         $ git config --global commit.gpgsign true
 
 
    Alternatively, manually specify when a commit is to be signed:
 
-   .. code:: bash
+   .. code:: console
 
-         git commit -S
+         $ git commit -S
 
 
 
@@ -114,14 +114,14 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    This is useful for example, if you have a commit back in the git history which you like to sign now without rewriting the history.
 
-   .. code:: bash
+   .. code:: console
 
-         git tag -s <tag_name> -m "<tag_message>"
+         $ git tag -s <tag_name> -m "<tag_message>"
 
 
    You can also create an alias to make this easier. Edit your ``~/.gitconfig`` file. In the ``[alias]`` section, add ``stag`` to create signed tags and ``spush`` to create signed tags and push them.
 
-   .. code:: bash
+   .. code:: ini
 
          [alias]
          stag = "!bash -c 'id=\"`git rev-parse --verify HEAD`\"; tag_name="signed_tag_for_${id:0:8}"; git tag -s "$tag_name" -m \"Tag for commit $id\"; echo \"$tag_name\"'"
@@ -130,7 +130,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    You may also find it convenient to have an alias for verifying the tag on the latest commit:
 
-   .. code:: bash
+   .. code:: ini
 
          vtag = !git tag -v `git describe`
 
@@ -170,25 +170,25 @@ In this case, you have several options to sign the commit:
 
 1. Amend the commit and replace it with a signed commit. You can use this command to create a new signed commit:
 
-   .. code:: bash
+   .. code:: console
 
-         git commit --amend -S
+         $ git commit --amend -S
 
 
    This also rewrites the commit so you need to push it forcefully:
 
-   .. code:: bash
+   .. code:: console
 
-         git push -f
+         $ git push -f
 
 
 
 2. Create a signed tag for the unsigned commit. If the commit is back in history and you do not want to change it, you can create a signed tag for this commit and push the signature. You can use the alias from above:
 
-   .. code:: bash
+   .. code:: console
 
-         git checkout <commit>
-         git spush
+         $ git checkout <commit>
+         $ git spush
 
 
    Now, the signature checker needs to re-check the signature. Please comment on the pull request that you would like to have the signatures checked again.

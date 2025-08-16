@@ -39,7 +39,7 @@ In place upgrade is a complex operation. For this reason, we provide a ``qubes-d
 
 .. code:: console
 
-      sudo qubes-dom0-update -y qubes-dist-upgrade
+      $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
@@ -50,9 +50,9 @@ Full list of options can be obtained with ``qubes-dist-upgrade --help``:
 .. code:: output
 
       Usage: qubes-dist-upgrade [OPTIONS]...
-      
+
       This script is used for updating current QubesOS R4.0 to R4.1.
-      
+
       Options:
           --double-metadata-size, -d         (STAGE 0) Double current LVM thin pool metadata size.
           --update, -t                       (STAGE 1) Update of dom0, TemplatesVM and StandaloneVM.
@@ -61,7 +61,7 @@ Full list of options can be obtained with ``qubes-dist-upgrade --help``:
           --dist-upgrade, -s                 (STAGE 4) Upgrade to Qubes R4.1 and Fedora 32 repositories.
           --setup-efi-grub, -g               (STAGE 5) Setup EFI Grub.
           --all, -a                          Execute all the above stages in one call.
-      
+
           --assumeyes, -y                    Automatically answer yes for all questions.
           --usbvm, -u                        Current UsbVM defined (default 'sys-usb').
           --netvm, -n                        Current NetVM defined (default 'sys-net').
@@ -74,7 +74,7 @@ Full list of options can be obtained with ``qubes-dist-upgrade --help``:
                                              Can be useful if multiple updates proxy VMs are configured.
           --max-concurrency                  How many TemplateVM/StandaloneVM to update in parallel in STAGE 1
                                              (default 4).
-      
+
           --resync-appmenus-features         Resync applications and features. To be ran individually
                                              after reboot.
 
@@ -84,7 +84,7 @@ After installing the tool, upgrade can be performed all at once with:
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --all
+      $ sudo qubes-dist-upgrade --all
 
 
 
@@ -96,7 +96,7 @@ After completing “STAGE 0” through “STAGE 5”, restart the system. Then p
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --resync-appmenus-features
+      $ sudo qubes-dist-upgrade --resync-appmenus-features
 
 
 

@@ -50,7 +50,7 @@ States
 
 The smallest unit of configuration is a state. A state is written in YAML and looks like this:
 
-.. code:: bash
+.. code:: yaml
 
       stateid:
         cmd.run:  #this is the execution module. in this case it will execute a command on the shell
@@ -74,7 +74,7 @@ With these three states you can define most of the configuration of a VM.
 
 You can also `order the execution <https://docs.saltproject.io/en/latest/ref/states/ordering.html>`__ of your states:
 
-.. code:: bash
+.. code:: yaml
 
       D:
         cmd.run:
@@ -111,7 +111,7 @@ Top Files
 
 After you have several state files, you need something to assign them to a qube. This is done by ``*.top`` files (`official documentation <https://docs.saltproject.io/en/latest/ref/states/top.html>`__). Their structure looks like this:
 
-.. code:: bash
+.. code:: yaml
 
       environment:
         target_matching_clause:
@@ -122,7 +122,7 @@ After you have several state files, you need something to assign them to a qube.
 
 In most cases, the environment will be called ``base``. The ``target_matching_clause`` will be used to select your minions (Templates or qubes). It can be either the name of a qube or a regular expression. If you are using a regular expressions, you need to give Salt a hint you are doing so:
 
-.. code:: bash
+.. code:: yaml
 
       environment:
         ^app-(work|(?!mail).*)$:
@@ -139,7 +139,7 @@ Enabling Top Files and Applying the States
 
 Now, because we use custom extensions to manage top files (instead of just enabling them all), to enable a particular top file you should issue command:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl top.enable my-new-vm
 
@@ -147,7 +147,7 @@ Now, because we use custom extensions to manage top files (instead of just enabl
 
 To list all enabled top files:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl top.enabled
 
@@ -155,7 +155,7 @@ To list all enabled top files:
 
 And to disable one:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl top.disable my-new-vm
 
@@ -163,7 +163,7 @@ And to disable one:
 
 To apply the states to dom0 and all VMs:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl --all state.apply
 
@@ -193,15 +193,15 @@ Configuring a qube's System from Dom0
 
 Salt can be used to configure qubes from dom0. Simply set the qube name as the target minion name in the top file. You can also use the ``qubes`` pillar module to select qubes with a particular property (see below). If you do so, then you need to pass additional arguments to the ``qubesctl`` tool:
 
-.. code:: bash
+.. code:: output
 
       usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
                       [--targets TARGETS | --templates | --app | --all]
                       ...
-      
+
       positional arguments:
         command            Salt command to execute (e.g., state.apply)
-      
+
       optional arguments:
         -h, --help         show this help message and exit
         --show-output      Show output of management commands
@@ -233,7 +233,7 @@ Writing Your Own Configurations
 
 Let’s start with a quick example:
 
-.. code:: bash
+.. code:: yaml
 
       my new and shiny VM:
         qvm.present:
@@ -267,7 +267,7 @@ As you will notice, the options are the same (or very similar) to those used in 
 
 This should be put in ``/srv/salt/my-new-vm.sls`` or another ``.sls`` file. A separate ``*.top`` file should be also written:
 
-.. code:: bash
+.. code:: yaml
 
       base:
         dom0:
@@ -279,7 +279,7 @@ This should be put in ``/srv/salt/my-new-vm.sls`` or another ``.sls`` file. A se
 
 To enable the particular top file you should issue the command:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl top.enable my-new-vm
 
@@ -287,7 +287,7 @@ To enable the particular top file you should issue the command:
 
 To apply the state:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl state.apply
 
@@ -299,7 +299,7 @@ Example of Configuring Templates from Dom0
 
 Lets make sure that the ``mc`` package is installed in all templates. Similar to the previous example, you need to create a state file (``/srv/salt/mc-everywhere.sls``):
 
-.. code:: bash
+.. code:: yaml
 
       mc:
         pkg.installed: []
@@ -308,7 +308,7 @@ Lets make sure that the ``mc`` package is installed in all templates. Similar to
 
 Then the appropriate top file (``/srv/salt/mc-everywhere.top``):
 
-.. code:: bash
+.. code:: yaml
 
       base:
        qubes:type:template:
@@ -319,7 +319,7 @@ Then the appropriate top file (``/srv/salt/mc-everywhere.top``):
 
 Now you need to enable the top file:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl top.enable mc-everywhere
 
@@ -327,7 +327,7 @@ Now you need to enable the top file:
 
 And apply the configuration:
 
-.. code:: bash
+.. code:: console
 
       $ qubesctl --all state.apply
 
@@ -349,7 +349,7 @@ As in the example above, it creates a qube and sets its properties.
 
 You can set properties of an existing qube:
 
-.. code:: text
+.. code:: yaml
 
       my preferences:
         qvm.prefs:
@@ -364,7 +364,7 @@ You can set properties of an existing qube:
 ^^^^^^^^^^^^^^^
 
 
-.. code:: text
+.. code:: yaml
 
       services in my qube:
         qvm.service:
@@ -388,7 +388,7 @@ This enables, disables, or sets to default, services as in ``qvm-service``.
 
 Ensures the specified qube is running:
 
-.. code:: text
+.. code:: yaml
 
       qube is running:
         qvm.running:
@@ -402,7 +402,7 @@ Virtual Machine Formulae
 
 You can use these formulae to download, install, and configure qubes in Qubes. These formulae use pillar data to define default qube names and configuration details. The default settings can be overridden in the pillar data located in:
 
-.. code:: bash
+.. code:: text
 
       /srv/pillar/base/qvm/init.sls
 
@@ -540,7 +540,7 @@ Whonix Workstation template
 
 Updates dom0. Example (executed in dom0):
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubesctl --show-output state.sls update.qubes-dom0
 
@@ -552,7 +552,7 @@ Updates dom0. Example (executed in dom0):
 
 Updates domUs. Example to update all templates (executed in dom0):
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
 
@@ -644,7 +644,7 @@ If the log does not contain useful information:
 
 
 
-.. code:: bash
+.. code:: console
 
       $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
       $ salt-ssh "$target_vm" $salt_command
@@ -668,7 +668,7 @@ Using fedora-24-minimal
 
 The fedora-24-minimal package is missing the ``sudo`` package. You can install it via:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
 
@@ -681,7 +681,7 @@ Disk Quota Exceeded (When Installing Templates)
 
 If you install multiple templates you may encounter this error. The solution is to shut down the updateVM between each install:
 
-.. code:: bash
+.. code:: yaml
 
       install template and shutdown updateVM:
         cmd.run:

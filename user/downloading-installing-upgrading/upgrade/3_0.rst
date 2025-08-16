@@ -27,17 +27,17 @@ Upgrade Fedora template:
 
 2. Install ``qubes-upgrade-vm`` package:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo yum install qubes-upgrade-vm
+         $ sudo yum install qubes-upgrade-vm
 
 
 
 3. Proceed with normal update in the template:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo yum update
+         $ sudo yum update
 
 
    You’ll need to accept “Qubes Release 3 Signing Key” - it is delivered by signed qubes-upgrade-vm package (verify that the message is about local file), so you don’t need to manually verify it.
@@ -54,20 +54,19 @@ Upgrade Debian template:
 
 2. Update repository definition:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo cp /etc/apt/sources.list.d/qubes-r2.list
-         /etc/apt/sources.list.d/qubes-r3-upgrade.list
-         sudo sed -i 's/r2/r3.0/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo cp /etc/apt/sources.list.d/qubes-r2.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo sed -i 's/r2/r3.0/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
 3. Proceed with normal update in the template:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo apt-get update
-         sudo apt-get dist-upgrade
+         $ sudo apt-get update
+         $ sudo apt-get dist-upgrade
 
 
    There will be some error messages during the process, but our tests does not revealed any negative consequences. Update of ``qubesdb-vm`` package will restart the service, which will fail (after 3min timeout), but you can ignore this problem for now. After completing the whole upgrade the service will be properly restarted.
@@ -86,18 +85,18 @@ Be sure to do steps described in this section after *all* your template and stan
 
 2. Upgrade the ``qubes-release`` package to the latest version which brings in new repo definitions and R2 signing keys:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update qubes-release
+         $ sudo qubes-dom0-update qubes-release
 
 
    This should install ``qubes-release-2-12`` in your Dom0.
 
 3. Upgrade dom0 to R3.0:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update --releasever=3.0
+         $ sudo qubes-dom0-update --releasever=3.0
 
 
    After this step, until you reboot the system, most of the qvm-* tools will not work.
@@ -106,9 +105,9 @@ Be sure to do steps described in this section after *all* your template and stan
 
 5. Enable Xen services:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo systemctl enable xenconsoled.service xenstored.service
+         $ sudo systemctl enable xenconsoled.service xenstored.service
 
 
 
@@ -124,9 +123,9 @@ Please note that if you use Anti Evil Maid, then it won’t be able to unseal th
 
 Now, when you have dom0 upgraded, you can install new templates from Qubes R3.0 repositories. Especially Fedora 21 - default Qubes R3.0 template:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dom0-update qubes-template-fedora-21
+      $ sudo qubes-dom0-update qubes-template-fedora-21
 
 
 
@@ -150,7 +149,7 @@ Because of above limitations, you will need to configure some of those manually.
 
 1. Check the VM network parameters, you will need them later:
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-ls -n custom-template
          -------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
@@ -161,7 +160,7 @@ Because of above limitations, you will need to configure some of those manually.
 
 2. Start the VM from command line:
 
-   .. code::
+   .. code:: console
 
          [user@dom0 ~]$ qvm-start custom-template
          --> Loading the VM (type = template)...
@@ -177,19 +176,19 @@ Because of above limitations, you will need to configure some of those manually.
 
 3. Access VM console:
 
-   .. code::
+   .. code:: console
 
          [user@dom0 ~]$ virsh -c xen:/// console custom-template
 
 
 4. Configure network according to parameters retrieved in first step:
 
-   .. code:: bash
+   .. code:: console
 
-         ip addr add 10.137.1.53/32 dev eth0
-         ip route add 10.137.1.1/32 dev eth0
-         ip route add via 10.137.1.1
-         echo nameserver 10.137.1.1 > /etc/resolv.conf
+         $ ip addr add 10.137.1.53/32 dev eth0
+         $ ip route add 10.137.1.1/32 dev eth0
+         $ ip route add via 10.137.1.1
+         $ echo nameserver 10.137.1.1 > /etc/resolv.conf
 
 
 

@@ -39,7 +39,7 @@ Post installation, screen goes black and freezes following LUKS decryption
 
 After installing Qubes, you may experience a black screen after entering your LUKS decryption password. To fix the problem, use your preferred text editor (``nano`` works) to edit ``/mnt/sysimage/boot/efi/EFI/qubes/xen.cfg``, adding the ``efi=no-rs`` option to the end of the ``options= line``. For example:
 
-.. code:: bash
+.. code:: text
 
       [4.14.18-1.pvops.qubes.x86_64]
       options=loglvl=all dom0_mem=min:1024M dom0_mem=max:4096M iommu=no-igfx ucode=scan efi=no-rs
@@ -54,17 +54,17 @@ Can start VM, but can't launch any applications
 
 If you can start your VM, but can’t launch any applications, then you need to fix the issues from the ``VM console``, accessible from xen through:
 
-.. code:: bash
+.. code:: console
 
-      qvm-start <VMname> # Make sure the VM is started
-      qvm-console-dispvm <VMname>
+      $ qvm-start <VMname> # Make sure the VM is started
+      $ qvm-console-dispvm <VMname>
 
 
 After launching a VM console using ``qvm-console-dispvm``, you may look at the ``qubes-gui-agent`` service state with:
 
-.. code:: bash
+.. code:: console
 
-      systemctl status -l qubes-gui-agent
+      $ systemctl status -l qubes-gui-agent
 
 
 
@@ -78,10 +78,10 @@ Disable audited messages
 
 During troubleshooting, you may be getting a lot of ‘audit’ messages which make the log very noisy. To disable audited messages, you need to edit your VM kernel parameters:
 
-.. code:: bash
+.. code:: console
 
-      previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
-      qvm-prefs --set <VMname> kernelopts "<previous_kernel_parameters> audit=0"
+      $ previous_kernel_parameters=$(qvm-prefs --get <VMname> kernelopts) # Get current kernel parameters
+      $ qvm-prefs --set <VMname> kernelopts "<previous_kernel_parameters> audit=0"
 
 
 Then, restart your VM.

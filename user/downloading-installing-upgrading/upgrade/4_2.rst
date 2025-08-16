@@ -21,15 +21,15 @@ If you would prefer to perform a clean installation rather than upgrading in-pla
 
 2. Install the ``qubes-dist-upgrade`` tool. This is the inplace upgrade tool, which is not what we’re doing. However it will be needed in order to prepare the templates for the 4.2 version. You install it with the following command in the dom0 terminal:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update -y qubes-dist-upgrade
+         $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
 3. Change your templates to use the 4.2 repositories instead of the 4.1 ones. You do this with the following command in the dom0 terminal:
 
-   .. code:: bash
+   .. code:: console
 
          qubes-dist-upgrade --template-standalone-upgrade
 
@@ -58,7 +58,7 @@ In place upgrade is a complex operation. For this reason, we provide a ``qubes-d
 
 .. code:: console
 
-      sudo qubes-dom0-update -y qubes-dist-upgrade
+      $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
@@ -69,9 +69,9 @@ Full list of options can be obtained with ``qubes-dist-upgrade --help``:
 .. code:: output
 
       Usage: qubes-dist-upgrade [OPTIONS]...
-      
+
       This script is used for updating current QubesOS R4.1 to R4.2.
-      
+
       Options:
           --update, -t                       (STAGE 1) Update of dom0, TemplatesVM and StandaloneVM.
           --release-upgrade, -r              (STAGE 2) Update 'qubes-release' for Qubes R4.2.
@@ -84,7 +84,7 @@ Full list of options can be obtained with ``qubes-dist-upgrade --help``:
                                              to the new format in /etc/qubes/policy.d.
           --all-pre-reboot                   Execute stages 1 to 3
           --all-post-reboot                  Execute stages 4 to 6
-      
+
           --assumeyes, -y                    Automatically answer yes for all questions.
           --usbvm, -u                        Current UsbVM defined (default 'sys-usb').
           --netvm, -n                        Current NetVM defined (default 'sys-net').
@@ -104,7 +104,7 @@ After installing the tool, before-reboot stages can be performed at once with:
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --all-pre-reboot
+      $ sudo qubes-dist-upgrade --all-pre-reboot
 
 
 
@@ -116,7 +116,7 @@ After completing “STAGE 1” through “STAGE 3”, restart the system. Then p
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --all-post-reboot
+      $ sudo qubes-dist-upgrade --all-post-reboot
 
 
 

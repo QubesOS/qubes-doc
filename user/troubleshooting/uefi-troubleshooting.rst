@@ -15,7 +15,7 @@ Successfully installed in legacy mode, but had to change some xen parameters
 
 2. Open a terminal and enter the command ``sudo su -``. Use your preferred text editor (e.g ``vi``) to edit your xen config (``EFI/BOOT/grub.cfg``):
 
-   .. code:: bash
+   .. code:: console
 
          vi EFI/BOOT/grub.cfg
 
@@ -63,7 +63,7 @@ Some Dell systems and probably others have `another bug in UEFI firmware <https:
 
 3. Execute:
 
-   .. code:: bash
+   .. code:: console
 
          sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
 
@@ -102,7 +102,7 @@ Or if you have already rebooted after the first stage install and have encounter
 
 4. Execute:
 
-   .. code:: bash
+   .. code:: console
 
          sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
 
@@ -145,9 +145,9 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
 4. Copy ``grubx64.efi`` to the fallback path:
 
-   .. code:: bash
+   .. code:: console
 
-         cp /mnt/sysimage/boot/efi/EFI/qubes/grubx64.efi /mnt/sysimage/boot/efi/EFI/BOOT/bootx64.efi
+         $ cp /mnt/sysimage/boot/efi/EFI/qubes/grubx64.efi /mnt/sysimage/boot/efi/EFI/BOOT/bootx64.efi
 
 
 
@@ -165,7 +165,7 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
 3. Create boot entry in EFI firmware (replace ``/dev/sda`` with your disk name and ``-p 1`` with ``/boot/efi`` partition number):
 
-   .. code:: bash
+   .. code:: console
 
          efibootmgr -v -c -u -L Qubes -l /EFI/qubes/grubx64.efi -d /dev/sda -p 1
 
