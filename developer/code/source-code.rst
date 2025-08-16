@@ -61,6 +61,7 @@ How to Send Patches
 If you want to :ref:`contribute code <introduction/contributing:contributing code>` to the project, there are two ways. Whichever method you choose, you must :doc:`sign your code </developer/code/code-signing>` before it can be accepted.
 
 - **Preferred**: Use GitHub’s `fork & pull requests <https://guides.github.com/activities/forking/>`__.
+
   Opening a pull request on GitHub greatly eases the code review and tracking process. In addition, especially for bigger changes, it’s a good idea to send a message to the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` in order to notify people who do not receive GitHub notifications.
 
 - Send a patch to the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` (``git format-patch``).

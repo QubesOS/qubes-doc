@@ -99,9 +99,12 @@ Installation procedure:
 
   - Install on first disk.
 
-  - Windows license may be read from flash via root in dom0:
-    ``strings < /sys/firmware/acpi/tables/MSDM``
+  - Windows license may be read from flash via root in dom0::
+
+        strings < /sys/firmware/acpi/tables/MSDM
+
     Alternatively, you can also try a Windows 7 license key (as of 2018/11 they are still accepted for a free upgrade).
+
     I first installed Windows and all updates, then entered the license key.
 
 

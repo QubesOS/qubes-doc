@@ -25,30 +25,14 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
    - If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory, and you can install them easily in the following ways:
 
+      - for Fedora, use:
 
+         .. code:: console
 
-   1. for Fedora, use:
+               $ sudo apt install $(cat dependencies-debian.txt)
+               $ test -f /usr/share/qubes/marker-vm && sudo apt install qubes-gpg-split
 
-
-
-   .. code:: console
-
-         $ sudo dnf install $(cat dependencies-fedora.txt)
-         $ test -f /usr/share/qubes/marker-vm && sudo dnf install qubes-gpg-split
-
-
-   2. for Debian (note: some Debian packages require Debian version 13 or later), use:
-
-
-
-
-
-   .. code:: console
-
-         $ sudo apt install $(cat dependencies-debian.txt)
-         $ test -f /usr/share/qubes/marker-vm && sudo apt install qubes-gpg-split
-
-   If you have installed dependencies in the template, close it, and (re)start the development qube.
+   - If you have installed dependencies in the template, close it, and (re)start the development qube.
 
 3. Clone the qubes-builder v2 repository into a location of your choice:
 
@@ -93,23 +77,23 @@ To use Qubes OS Builder v2, you need to have a ``builder.yml`` configuration fil
       # include configuration relevant for the current release
       include:
       - example-configs/qubes-os-r4.2.yml
-
+      
       # which repository to use to fetch sources
       use-qubes-repo:
         version: 4.2
         testing: true
-
+      
       # each package built will have local build number appended to package release
       # number. It makes it easier to update in testing environment
       increment-devel-versions: true
-
+      
       # reduce output
       debug: false
-
+      
       # this can be set to true if you do not want sources to be automatically
       # fetched from git
       skip-git-fetch: false
-
+      
       # executor configuration
       executor:
         type: docker
