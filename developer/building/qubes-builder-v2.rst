@@ -77,23 +77,23 @@ To use Qubes OS Builder v2, you need to have a ``builder.yml`` configuration fil
       # include configuration relevant for the current release
       include:
       - example-configs/qubes-os-r4.2.yml
-      
+
       # which repository to use to fetch sources
       use-qubes-repo:
         version: 4.2
         testing: true
-      
+
       # each package built will have local build number appended to package release
       # number. It makes it easier to update in testing environment
       increment-devel-versions: true
-      
+
       # reduce output
       debug: false
-      
+
       # this can be set to true if you do not want sources to be automatically
       # fetched from git
       skip-git-fetch: false
-      
+
       # executor configuration
       executor:
         type: docker
