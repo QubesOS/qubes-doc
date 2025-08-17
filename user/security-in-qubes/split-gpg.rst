@@ -28,7 +28,7 @@ Configuring Split GPG
 
 In dom0, make sure the ``qubes-gpg-split-dom0`` package is installed.
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update qubes-gpg-split-dom0
 
@@ -37,7 +37,7 @@ Make sure you have the ``qubes-gpg-split`` package installed in the template you
 
 For Debian or Whonix:
 
-.. code:: bash
+.. code:: console
 
       [user@debian-10 ~]$ sudo apt install qubes-gpg-split
 
@@ -45,7 +45,7 @@ For Debian or Whonix:
 
 For Fedora:
 
-.. code:: bash
+.. code:: console
 
       [user@fedora-32 ~]$ sudo dnf install qubes-gpg-split
 
@@ -59,7 +59,7 @@ First, create a dedicated app qube for storing your keys (we will be calling it 
 
 Make sure that gpg is installed there. At this stage you can add the private keys you want to store there, or you can now set up Split GPG and add the keys later. To check which private keys are in your GPG keyring, use:
 
-.. code:: bash
+.. code:: console
 
       [user@work-gpg ~]$ gpg -K
       /home/user/.gnupg/secring.gpg
@@ -72,7 +72,7 @@ Make sure that gpg is installed there. At this stage you can add the private key
 
 This is pretty much all that is required. However, you might want to modify the default timeout: this tells the backend for how long the user’s approval for key access should be valid. (The default is 5 minutes.) You can change this via the ``QUBES_GPG_AUTOACCEPT`` environment variable. You can override it e.g. in ``~/.profile``:
 
-.. code:: bash
+.. code:: console
 
       [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.profile
 
@@ -87,7 +87,7 @@ Configuring the client apps to use Split GPG backend
 
 Normally it should be enough to set the ``QUBES_GPG_DOMAIN`` to the GPG backend domain name and use ``qubes-gpg-client`` in place of ``gpg``, e.g.:
 
-.. code:: bash
+.. code:: console
 
       [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg
       [user@work-email ~]$ gpg -K
@@ -98,7 +98,7 @@ Normally it should be enough to set the ``QUBES_GPG_DOMAIN`` to the GPG backend 
       uid                  Qubes OS Security Team <security@qubes-os.org>
       ssb   4096R/30498E2A 2012-11-15
       (...)
-      
+
       [user@work-email ~]$ qubes-gpg-client secret_message.txt.asc
       (...)
 
@@ -115,7 +115,7 @@ Advanced Configuration
 
 The ``qubes-gpg-client-wrapper`` script sets the ``QUBES_GPG_DOMAIN`` variable automatically based on the content of the file ``/rw/config/gpg-split-domain``, which should be set to the name of the GPG backend VM. This file survives the app qube reboot, of course.
 
-.. code:: bash
+.. code:: console
 
       [user@work-email ~]$ sudo bash
       [root@work-email ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
@@ -123,7 +123,7 @@ The ``qubes-gpg-client-wrapper`` script sets the ``QUBES_GPG_DOMAIN`` variable a
 
 Split GPG’s default qrexec policy requires the user to enter the name of the app qube containing GPG keys on each invocation. To improve usability for applications like Thunderbird with Enigmail, in ``dom0`` place the following line at the top of the file ``/etc/qubes-rpc/policy/qubes.Gpg``:
 
-.. code:: bash
+.. code:: text
 
       work-email  work-gpg  allow
 
@@ -133,7 +133,7 @@ where ``work-email`` is the Thunderbird + Enigmail app qube and ``work-gpg`` con
 
 You may also edit the qrexec policy file for Split GPG in order to tell Qubes your default gpg vm (qrexec prompts will appear with the gpg vm preselected as the target, instead of the user needing to type a name in manually). To do this, append ``default_target=<vmname>`` to ``ask`` in ``/etc/qubes-rpc/policy/qubes.Gpg``. For the examples given on this page:
 
-.. code:: bash
+.. code:: text
 
       @anyvm  @anyvm  ask default_target=work-gpg
 
@@ -157,7 +157,7 @@ In ``work-email``, use the Thunderbird config editor (found at the bottom of pre
 
 You need to obtain your key ID which should be **exactly 16 characters**. Enter the command ``qubes-gpg-client-wrapper -K --keyid-format long``:
 
-.. code:: bash
+.. code:: console
 
       [user@work-email ~]$ qubes-gpg-client-wrapper -K --keyid-format long
       /home/user/.gnupg/pubring.kbx
@@ -169,7 +169,7 @@ You need to obtain your key ID which should be **exactly 16 characters**. Enter 
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@work-email ~]$ qubes-gpg-client-wrapper --armor --export 777402E6D301615C > 777402E6D301615C.asc
 
@@ -217,7 +217,7 @@ The Keybase service does not preserve/pass the ``QUBES_GPG_DOMAIN`` environment 
 
 The following command will configure Keybase to use ``/usr/bin/qubes-gpg-client-wrapper`` instead of its built-in GPG client:
 
-.. code:: bash
+.. code:: console
 
       $ keybase config set gpg.command /usr/bin/qubes-gpg-client-wrapper
 
@@ -231,13 +231,13 @@ Using Git with Split GPG
 
 Git can be configured to utilize Split GPG, something useful if you would like to contribute to the Qubes OS Project as every commit is required to be signed. The most basic ``~/.gitconfig`` file enabling Split GPG looks something like this.
 
-.. code:: bash
+.. code:: ini
 
       [user]
           name = <YOUR_NAME>
           email = <YOUR_EMAIL_ADDRESS>
           signingKey = <YOUR_KEY_ID>
-      
+
       [gpg]
           program = qubes-gpg-client-wrapper
 
@@ -245,7 +245,7 @@ Git can be configured to utilize Split GPG, something useful if you would like t
 
 Your key id is the public id of your signing key, which can be found by running ``qubes-gpg-client --list-keys``. In this instance, the key id is E142F75A6B1B610E0E8F874FB45589245791CACB.
 
-.. code:: bash
+.. code:: console
 
       [user@work-email ~]$ qubes-gpg-client --list-keys
       /home/user/.gnupg/pubring.kbx
@@ -260,7 +260,7 @@ Your key id is the public id of your signing key, which can be found by running 
 
 To sign commits, you now add the “-S” flag to your commit command, which should prompt for Split GPG usage. If you would like to automatically sign all commits, you can add the following snippet to ``~/.gitconfig``.
 
-.. code:: bash
+.. code:: ini
 
       [commit]
           gpgSign = true
@@ -275,7 +275,7 @@ Importing public keys
 
 Use ``qubes-gpg-import-key`` in the client app qube to import the key into the GPG backend VM.
 
-.. code:: bash
+.. code:: console
 
       [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg
       [user@work-email ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc
@@ -299,8 +299,8 @@ Setup Description
 
 In this example, the following keys are stored in the following locations (see below for definitions of these terms):
 
-.. list-table:: 
-   :widths: 10 10 
+.. list-table::
+   :widths: 10 10
    :align: center
    :header-rows: 1
 
@@ -312,7 +312,7 @@ In this example, the following keys are stored in the following locations (see b
      - ``work-gpg``
    * - ``pub``
      - ``work-email``
-   
+
 
 
 - ``sec`` (master secret key)
@@ -394,50 +394,50 @@ Current limitations
 - The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase. It will give an ``Inappropriate ioctl for device`` error. Do not set passphrases for the private keys in the GPG backend domain. Doing so won’t provide any extra security anyway, as explained in the introduction and in `using Split GPG with subkeys <#advanced-using-split-gpg-with-subkeys>`__. If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use ``gpg2 --edit-key <key_id>`` then ``passwd`` to set an empty passphrase. Note that ``pinentry`` might show an error when you try to set an empty passphrase, but it will still make the change. (See `this StackExchange answer <https://unix.stackexchange.com/a/379373>`__ for more information.) **Note:** The error shows only if you **do not** have graphical pinentry installed.
 
 
-.. [1] 
+.. [1]
    In order to gain access to the ``vault`` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a :ref:`signed, compromised package which is already installed in the template <user/templates/templates:trusting your templates>` upon which the ``vault`` VM is based.
 
 .. |split-gpg-diagram.png| image:: /attachment/doc/split-gpg-diagram.png
-   
+
 
 .. |r2-split-gpg-1.png| image:: /attachment/doc/r2-split-gpg-1.png
-   
+
 
 .. |r2-split-gpg-3.png| image:: /attachment/doc/r2-split-gpg-3.png
-   
+
 
 .. |tb78-1.png| image:: /attachment/doc/tb78-1.png
-   
+
 
 .. |tb78-2.png| image:: /attachment/doc/tb78-2.png
-   
+
 
 .. |tb78-3.png| image:: /attachment/doc/tb78-3.png
-   
+
 
 .. |tb78-4.png| image:: /attachment/doc/tb78-4.png
-   
+
 
 .. |tb78-5.png| image:: /attachment/doc/tb78-5.png
-   
+
 
 .. |tb78-6.png| image:: /attachment/doc/tb78-6.png
-   
+
 
 .. |tb78-7.png| image:: /attachment/doc/tb78-7.png
-   
+
 
 .. |tb78-8.png| image:: /attachment/doc/tb78-8.png
-   
+
 
 .. |tb78-9.png| image:: /attachment/doc/tb78-9.png
-   
+
 
 .. |tb78-10.png| image:: /attachment/doc/tb78-10.png
-   
+
 
 .. |tb-enigmail-split-gpg-settings-2.png| image:: /attachment/doc/tb-enigmail-split-gpg-settings-2.png
-   
+
 
 .. |r2-split-gpg-5.png| image:: /attachment/doc/r2-split-gpg-5.png
-   
+

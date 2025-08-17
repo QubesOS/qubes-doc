@@ -15,7 +15,7 @@ Alice, the software developer
 
 Alice is a freelance dev who works on several projects for different clients simultaneously. The projects have varying requirements and often different build environments. She has a separate set of qubes for each project. She keeps them organized by coming up with a naming scheme, such as:
 
-.. code:: bash
+.. code:: text
 
       clientA-code
       clientA-build
@@ -89,7 +89,7 @@ Carol, the investor
 Carol works hard and lives below her means so that she can save money and invest it for her future. She hopes to become financially independent and maybe even retire early someday, and she’s decided that her best bet for achieving this is by investing for the long term and allow compounding to do its work. However, after doing some research into her country’s consumer financial protection laws, she learned that there’s no legal guarantee that customers will be made whole in the event of theft or fraud. The various insurance and protection organizations only guarantee recovery in the case of a financial institution *failing*, which is quite different from an individual customer being hacked. Moreover, even though many financial institutions have their own cybercrime policies, rarely, if ever, do they explicitly guarantee reimbursement in the event that a *customer* gets hacked (rather than the institution itself).
 
 .. warning::
-      
+
       Carol looked into how thieves might actually try to steal her hard-earned wealth and was surprised to learn that they have all sorts of ploys that she had never even considered. For example, she had assumed that any theft would, at the bare minimum, have to involve transferring money out of her account. That seems like a safe assumption. But then she read about “pump and dump” attacks, where thieves buy up some penny stock, hack into innocent people’s brokerage accounts, then use the victims’ funds to buy that same penny stock, “pumping” up its price so that the thieves can “dump” their shares on the market, leaving the victims with worthless shares. No money is ever transferred into or out of the victims’ account; it’s just used to buy and sell securities. So, all the safeguards preventing new bank accounts from being added or requiring extra approval for outbound transfers do nothing to protect victims’ funds in cases like these. And this is just one example! Carol realized that she couldn’t assume that existing safeguards against specific, known attacks were enough. She had to think about security at a more fundamental level and design it into her digital life from the ground up.
 
 After learning about all this, Carol decided that it was ultimately up to her to take care of her own cybersecurity. She couldn’t rely on anyone else to do it for her. Sure, most people just use regular consumer tech and will probably end up fine, but, she reminded herself, most people also don’t have as much to lose. It’s not a risk that she was willing to take with her future, especially knowing that there’s probably no government bailout waiting for her and that all the brokerage firms’ vaguely reassuring marketing language about cybersecurity isn’t legally binding. So, Carol started reading more about computer security and eventually stumbled upon Qubes OS after searching the web for “most secure operating system.” She read about how it’s designed and why. Although she didn’t immediately understand all of the technical details, the fundamental principle of :doc:`security-by-compartmentalization </developer/system/architecture>` made intuitive sense to her, and the more she learned about the technical aspects, the more she realized that this is what she’d been looking for. Today, her setup looks like this:
@@ -119,7 +119,7 @@ Bonus: Carol explores new financial technology
 The vast majority of Carol’s assets are in broad-based, low-cost, passively-managed indexed funds. Lately, however, she’s started getting interested in cryptocurrency. She’s still committed to staying the course with her tried-and-true investments, and she’s always been skeptical of new asset classes, especially those that don’t generate cash flows or that often seem to be associated with scams or wild speculation. However, she finds the ability to self-custody a portion of her assets appealing from a long-term risk management perspective, particularly as a hedge against certain types of political risk.
 
 .. DANGER::
-      
+
       Some of Carol’s friends warned her that cryptocurrency is extremely volatile and that hacking and theft are common occurrences. Carol agreed and reassured them that she’s educated herself about the risks and will make sure she never invests more than she can afford to lose.
 
 Carol has added the following to her Qubes setup:
@@ -169,7 +169,7 @@ Conclusion
 The characters we’ve met today may be fictional, but they represent the needs of real users like you. You may find that your own needs overlap with more than one of them, in which case you may find it useful to model certain subsets of your overall Qubes system on different examples. You probably also noticed that there are commonalities among them. Most people need to use email, for example, so most people will need at least one email qube and a suitable template to base it on. But not everyone will need :doc:`Split GPG </user/security-in-qubes/split-gpg>`, and not everyone will want to use the same email client. On the other hand, almost everyone will need a password manager, and it pretty much always makes sense to keep it in an offline, network-isolated vault.
 
 .. note::
-      
+
       As you gain experience with Qubes, you may find yourself disagreeing with some of the decisions our fictional friends made. That’s okay! There are many different ways to organize a Qubes system, and the most important criterion is that it serves the needs of its owner. Since everyone’s needs are different, it’s perfectly normal to find yourself doing things a bit differently. Nonetheless, there are some general principles that almost all users find helpful, especially when they’re first starting out.
 
 As you’re designing your own Qubes system, keep in mind some of the following lessons from our case studies:
@@ -189,16 +189,16 @@ As you’re designing your own Qubes system, keep in mind some of the following 
 
 
 .. |Alice’s system: diagram 1| image:: /attachment/doc/howto_use_qubes_alice_1.png
-   
+
 
 .. |Alice’s system: diagram 2| image:: /attachment/doc/howto_use_qubes_alice_2.png
-   
+
 
 .. |A diagram of Bob’s system| image:: /attachment/doc/howto_use_qubes_bob.png
-   
+
 
 .. |A diagram of Carol’s system| image:: /attachment/doc/howto_use_qubes_carol.png
-   
+
 
 .. |Simple VM setup| image:: /attachment/doc/Simple_Setup.png
-   
+

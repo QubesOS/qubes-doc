@@ -31,7 +31,7 @@ There are a variety of other problems that could arise when using a USB installa
 
 This error message is related to the faulty creation of the USB installation medium. If you receive this error message during installation, please make sure you have followed the instructions on :ref:`how to write your ISO to a USB key <user/downloading-installing-upgrading/installation-guide:copying the iso onto the installation medium>`. Specifically, the ``dd`` command listed on that page has been verified to solve this issue on multiple Qubes installation versions.
 
-.. code:: bash
+.. code:: console
 
       $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
 
@@ -65,14 +65,14 @@ These errors may also occur due to an incompatible Nvidia graphics card. If you 
 
 
 
-.. code:: bash
+.. code:: text
 
       nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off
 
 
 If the above code doesn’t fix the problem, replace it with:
 
-.. code:: bash
+.. code:: text
 
       noexitboot=1 modprobe.blacklist=nouveau rd.driver.blacklist=nouveau --- intitrd.img
 
@@ -105,7 +105,7 @@ In Qubes 4.0, the default installation won’t function properly without IOMMU, 
 
 In Qubes 4.1, the default sys-net and sys-usb qubes need additional configuration to be usable without an IOMMU. Otherwise they will fail to start with this error message:
 
-.. code:: bash
+.. code:: text
 
       Start failed: internal error: libxenlight failed to create new domain 'sys-net', see /var/log/libvirt/libxl/libxl-driver.log for details
 
@@ -113,7 +113,7 @@ In Qubes 4.1, the default sys-net and sys-usb qubes need additional configuratio
 
 To confirm that a missing IOMMU is causing this problem, check for the following error message in ``/var/log/libvirt/libxl/libxl-driver.log``:
 
-.. code:: bash
+.. code:: text
 
       2022-03-01 13:27:17.117+0000: libxl: libxl_create.c:1146:libxl__domain_config_setdefault: passthrough not supported on this platform
 

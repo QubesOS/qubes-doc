@@ -15,7 +15,7 @@ For simplicity, these instructions will refer to copying/moving a single file, b
 
 3. If the target qube is not already running, it will be started automatically, and the file will be copied there. It will show up in this directory (which will automatically be created if it does not already exist):
 
-   .. code:: bash
+   .. code:: text
 
          /home/user/QubesIncoming/<source_qube>/<filename>
 
@@ -28,15 +28,15 @@ For simplicity, these instructions will refer to copying/moving a single file, b
 
 The same operations are also available via these command-line tools:
 
-.. code:: bash
+.. code:: console
 
-      qvm-copy [--without-progress] file [file]+
+      $ qvm-copy [--without-progress] file [file]+
 
 
 
-.. code:: bash
+.. code:: console
 
-      qvm-move [--without-progress] file [file]+
+      $ qvm-move [--without-progress] file [file]+
 
 
 

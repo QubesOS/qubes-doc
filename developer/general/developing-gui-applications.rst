@@ -20,19 +20,19 @@ For example, the following code can be used to run the ``qui-domains`` tool usin
           # qapp = qubesadmin.Qubes()
           # dispatcher = qubesadmin.events.EventsDispatcher(qapp)
           # stats_dispatcher = qubesadmin.events.EventsDispatcher(qapp, api_method='admin.vm.Stats')
-      
+
           import qubesadmin.tests.mock_app as mock_app
           qapp = mock_app.MockQubesComplete()
           dispatcher = mock_app.MockDispatcher(qapp)
           stats_dispatcher = mock_app.MockDispatcher(
               qapp, api_method='admin.vm.Stats')
-      
+
           # continue as normal
 
 
 To run a mocked program without installing it in a qube, remember to extend PYTHONPATH appropriately, for example:
 
-.. code:: bash
+.. code:: console
 
       ~/qubes-sources/manager $ PYTHONPATH=../core-admin-client:. python3 qui/tray/domains.py
 
@@ -103,7 +103,7 @@ The same mock Qubes can also be used to write tests. You can use the wrappers ab
 
       # this is an excerpt from tests for Qubes Global Config tool
           clockvm_combo.set_active_id('test-blue')
-      
+
           mock_qapp.expected_calls[('dom0', 'admin.property.Set',
                                     'clockvm', b'test-blue')] = b'0\x00'
           basics_handler.save()
@@ -114,4 +114,4 @@ If the call is made correctly, the test will continue successfully; if an unexpe
 Caution: the mock Qubes object does not react to changes like a normal Qubes object does. Further queries to the test object will continue to return initial values.
 
 .. |Qubes Manager running MockQubesComplete| image:: /attachment/doc/doc-mock-app-ex1.png
-   
+
