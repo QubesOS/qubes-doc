@@ -19,7 +19,7 @@ Here are instructions for obtaining a compiled ``scrypt`` binary. This example u
 
 1. If you’re not on Qubes 4.X, :ref:`import and authenticate the Release 4 Signing Key <project-security/verifying-signatures:how to import and authenticate release signing keys>`.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ sudo rpm --import qubes-release-4-signing-key.asc
 
@@ -27,14 +27,14 @@ Here are instructions for obtaining a compiled ``scrypt`` binary. This example u
 
 2. Download the ``scrypt`` RPM.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ dnf download scrypt
 
 
    Or, if that doesn’t work:
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ curl -O https://yum.qubes-os.org/r4.0/current/vm/fc28/rpm/scrypt-1.2.1-1.fc28.x86_64.rpm
 
@@ -42,7 +42,7 @@ Here are instructions for obtaining a compiled ``scrypt`` binary. This example u
 
 3. Verify the signature on the ``scrypt`` RPM.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ rpm -K scrypt-*.rpm
          scrypt-*.rpm: digests signatures OK
@@ -52,7 +52,7 @@ Here are instructions for obtaining a compiled ``scrypt`` binary. This example u
 
 4. Install ``rpmdevtools``.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ sudo dnf install rpmdevtools
 
@@ -60,7 +60,7 @@ Here are instructions for obtaining a compiled ``scrypt`` binary. This example u
 
 5. Extract the ``scrypt`` binary from the RPM and make it conveniently available.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ rpmdev-extract scrypt-*.rpm
          [user@restore ~]$ alias scrypt="$PWD/scrypt-*/usr/bin/scrypt"
@@ -77,7 +77,7 @@ Emergency recovery instructions
 
 1. Untar the backup metadata from the main backup file.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ tar -i -xvf qubes-backup-2023-04-05T123456 \
              backup-header backup-header.hmac qubes.xml.000.enc
@@ -89,7 +89,7 @@ Emergency recovery instructions
 
 2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ read -r backup_pass
 
@@ -98,7 +98,7 @@ Emergency recovery instructions
 
 3. Verify the integrity of ``backup-header`` using ``backup-header.hmac`` (an encrypted *and integrity protected* version of ``backup-header``).
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ set +H
          [user@restore ~]$ echo "backup-header!$backup_pass" |\
@@ -117,7 +117,7 @@ Emergency recovery instructions
 
 4. Read ``backup-header``.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ cat backup-header
          version=4
@@ -131,7 +131,7 @@ Emergency recovery instructions
 
 5. Set ``backup_id`` to the value in the last line of ``backup-header``. (Note that there is a hyphen in ``backup-id`` in the file, whereas there is an underscore in ``backup_id`` in the variable you’re setting.)
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ backup_id=20230405T123455-1234
 
@@ -139,7 +139,7 @@ Emergency recovery instructions
 
 6. Verify and decrypt, decompress, and extract the ``qubes.xml`` file.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ echo "$backup_id!qubes.xml.000!$backup_pass" |\
              scrypt dec -P qubes.xml.000.enc | gzip -d | tar -xv
@@ -155,7 +155,7 @@ Emergency recovery instructions
 
 7. Search inside of the ``qubes.xml`` file for the ``backup-path`` of the qube whose data you wish to restore. If you install the ``xmlstarlet`` package, the following command will convert ``qubes.xml`` to a friendlier listing for this purpose:
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ xmlstarlet sel -T -t -m //domain \
              -v 'concat(.//property[@name="name"], " ", .//feature[@name="backup-path"])' \
@@ -182,7 +182,7 @@ Emergency recovery instructions
 
    The example output above shows that the backup file includes a qube named ``personal`` and a qube named ``vault``, with ``backup-path`` values of ``vm123/`` and ``vm321/`` respectively. (Every other listed qube was not selected to be included in the backup file.) Use the corresponding value to untar the necessary data files of the qube:
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ tar -i -xvf qubes-backup-2023-04-05T123456 vm123/
 
@@ -190,7 +190,7 @@ Emergency recovery instructions
 
 8. Verify and decrypt the backed up data, decompress it, and extract it.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ find vm123/ -name 'private.img.*.enc' | sort -V | while read f_enc; do \
              f_dec=${f_enc%.enc}; \
@@ -204,7 +204,7 @@ Emergency recovery instructions
 
 9. Mount ``private.img`` and access your data.
 
-   .. code:: bash
+   .. code:: console
 
          [user@restore ~]$ sudo mkdir /mnt/img
          [user@restore ~]$ sudo mount -o loop vm123/private.img /mnt/img/

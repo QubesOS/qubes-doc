@@ -27,7 +27,7 @@ With the command-line interface
 
 To update the list of available applications, use the ``qvm-sync-appmenus`` command in dom0, replacing ``<QUBE_NAME>`` by the qube name:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-sync-appmenus <QUBE_NAME>
 
@@ -35,7 +35,7 @@ To update the list of available applications, use the ``qvm-sync-appmenus`` comm
 
 When using the *Refresh Applications* button in a qube’s settings, the command ``qvm-sync-appmenus`` is used at least one time. When refreshing an AppVM application, it is also run against the template. So the console equivalent of clicking the *Refresh button* is the following (always in dom0):
 
-.. code:: bash
+.. code:: console
 
       $ qvm-sync-appmenus <APPVM_NAME>
       $ qvm-sync-appmenus <TEMPLATE_NAME>
@@ -44,7 +44,7 @@ When using the *Refresh Applications* button in a qube’s settings, the command
 
 In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available applications (unstable feature), the whitelist of currently show application (unstable feature) and to change this list:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 
@@ -52,7 +52,7 @@ In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available 
 
 To change the whitelist shown in app menu, you need to provide a list of the desktop entries. Each line contains a desktop entry name, with its ``.desktop`` extension, like this:
 
-.. code:: bash
+.. code:: text
 
       qubes-open-file-manager.desktop
       qubes-run-terminal.desktop
@@ -78,7 +78,7 @@ You can manually create new entries in the “available applications” list of 
 
 2. Create a custom ``.desktop`` file in ``/usr/share/applications`` (you may need to first create the subdirectory). Look in ``/usr/share/applications`` for existing examples, or see the full `file specification <https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html>`__. It will be something like:
 
-   .. code:: bash
+   .. code:: desktop
 
          [Desktop Entry]
          Type=Application
@@ -111,7 +111,7 @@ To add a custom menu entry instead:
 
 4. Add a custom menu entry referring to your newly created ``.desktop`` file.
 
-   .. code:: bash
+   .. code:: xml
 
          <Menu>
               <Name>Webmail</Name>
@@ -152,7 +152,7 @@ What if a removed application is still in the app menu?
 
 First, try this in dom0:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-appmenus --update --force <QUBE_NAME>
 
@@ -160,7 +160,7 @@ First, try this in dom0:
 
 You can also try:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-appmenus --remove <QUBE_NAME>
 
@@ -178,7 +178,7 @@ First, check in the corresponding ``.desktop`` file in ``~/.local/share/qubes-ap
 
 The line starting with ``Exec=`` points out the exact command run by dom0 to start the application. It should be something like:
 
-.. code:: bash
+.. code:: desktop
 
       Exec=qvm-run -q -a --service -- <QUBE_NAME> qubes.StartApp+<APPLICATION_NAME>
 
@@ -186,7 +186,7 @@ The line starting with ``Exec=`` points out the exact command run by dom0 to sta
 
 It’s possible to run the command to check the output, by copying this line without ``Exec=``, and remove ``-q`` (quiet option). But it could be more useful to run it in the qube, with the ``qubes.StartApp`` service:
 
-.. code:: bash
+.. code:: console
 
       $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
 
@@ -206,18 +206,18 @@ The whitelist given to ``qvm-appmenu --set-whitelist`` is stored as a feature ca
 
 Actual command lines for the menu shortcuts involve the ``qvm-run`` command which starts a process in another domain. Examples:
 
-.. code:: bash
+.. code:: console
 
-      qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
-      qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
+      $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
+      $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
 
 
 
 Note that you can create a shortcut that points to a ``.desktop`` file in your app qube with e.g.:
 
-.. code:: bash
+.. code:: console
 
-      qvm-run -q -a --service -- personal qubes.StartApp+firefox
+      $ qvm-run -q -a --service -- personal qubes.StartApp+firefox
 
 
 
@@ -226,7 +226,7 @@ While this works well for standard applications, creating a menu entry for Windo
 **Note:** Applications installed under *wine* are installed in AppVMs, not in the template on which these AppVMs are based, as the file structure used by *wine* is stored under ``~/.wine``, which is part of the persistent data of the AppVM and not inherited from its template.
 
 .. |image1| image:: /attachment/doc/r4.0-dom0-menu.png
-   
+
 
 .. |image2| image:: /attachment/doc/r4.0-dom0-appmenu-select.png
-   
+
