@@ -176,7 +176,7 @@ Qubes Windows Tools (QWT)
 
 A set of programs and drivers that provide integration of Windows qubes with the rest of the Qubes OS system.
 
-See :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools-4-0>` and :doc:`Windows </user/templates/windows/windows>`.
+See :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools>` and :doc:`Windows </user/templates/windows/windows>`.
 
 service qube
 ------------
