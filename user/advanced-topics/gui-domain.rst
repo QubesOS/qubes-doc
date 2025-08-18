@@ -20,24 +20,24 @@ Here, we describe how to setup ``sys-gui`` that we call *hybrid mode* or referen
 
 In ``dom0``, enable the formula for ``sys-gui`` with pillar data:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl top.enable qvm.sys-gui
-      sudo qubesctl top.enable qvm.sys-gui pillar=True
+      $ sudo qubesctl top.enable qvm.sys-gui
+      $ sudo qubesctl top.enable qvm.sys-gui pillar=True
 
 
 then, execute it:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl --all state.highstate
+      $ sudo qubesctl --all state.highstate
 
 
 You can now disable the ``sys-gui`` formula:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl top.disable qvm.sys-gui
+      $ sudo qubesctl top.disable qvm.sys-gui
 
 
 At this point, you need to shutdown all your running qubes as the ``default_guivm`` qubes global property has been set to ``sys-gui``. In order to use ``sys-gui`` as GUI domain, you need to logout and, in the top right corner, select ``lightdm`` session type to **GUI domain (sys-gui)**. Once logged, you are running ``sys-gui`` as fullscreen window and you can perform any operation as if you would be in ``dom0`` desktop.
@@ -56,31 +56,31 @@ Here, we describe how to setup ``sys-gui-gpu`` which is a GUI domain with *GPU p
 
 In ``dom0``, enable the formula for ``sys-gui-gpu`` with pillar data:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl top.enable qvm.sys-gui-gpu
-      sudo qubesctl top.enable qvm.sys-gui-gpu pillar=True
+      $ sudo qubesctl top.enable qvm.sys-gui-gpu
+      $ sudo qubesctl top.enable qvm.sys-gui-gpu pillar=True
 
 
 then, execute it:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl --all state.highstate
+      $ sudo qubesctl --all state.highstate
 
 
 You can now disable the ``sys-gui-gpu`` formula:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl top.disable qvm.sys-gui-gpu
+      $ sudo qubesctl top.disable qvm.sys-gui-gpu
 
 
 One more step is needed: attaching the actual GPU to ``sys-gui-gpu``. This can be done either manually via ``qvm-pci`` (remember to enable permissive option), or via:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu
+      $ sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu
 
 
 The latter option assumes Intel graphics card (it has hardcoded PCI address). If you don’t have Intel graphics card, please use the former method with ``qvm-pci`` (see :doc:`How to use PCI devices </user/how-to-guides/how-to-use-pci-devices>`).
@@ -103,31 +103,31 @@ Here, we describe how to setup ``sys-gui-vnc`` that we call a *remote* GUI domai
 
 In ``dom0``, enable the formula for ``sys-gui-vnc`` with pillar data:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl top.enable qvm.sys-gui-vnc
-      sudo qubesctl top.enable qvm.sys-gui-vnc pillar=True
+      $ sudo qubesctl top.enable qvm.sys-gui-vnc
+      $ sudo qubesctl top.enable qvm.sys-gui-vnc pillar=True
 
 
 then, execute it:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl --all state.highstate
+      $ sudo qubesctl --all state.highstate
 
 
 You can now disable the ``sys-gui-vnc`` formula:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubesctl top.disable qvm.sys-gui-vnc
+      $ sudo qubesctl top.disable qvm.sys-gui-vnc
 
 
 At this point, you need to shutdown all your running qubes as the ``default_guivm`` qubes global property has been set to ``sys-gui-vnc``. Then, you can start ``sys-gui-vnc``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-start sys-gui-vnc
+      $ qvm-start sys-gui-vnc
 
 
 A VNC server session is running on ``localhost:5900`` in ``sys-gui-vnc``. In order to reach the ``VNC`` server, we encourage to not connect ``sys-gui-vnc`` to a ``NetVM`` but rather to use another qube for remote access, say ``sys-remote``. First, you need to bind port 5900 of ``sys-gui-vnc`` into a ``sys-remote`` local port (you may want to use another port than 5900 to reach ``sys-remote`` from the outside). For that, use ``qubes.ConnectTCP`` RPC service (see :doc:`Firewall </user/security-in-qubes/firewall>`. Then, you can use any ``VNC`` client to connect to you ``sys-remote`` on the chosen local port (5900 if you kept the default one). For the first connection, you will reach ``lightdm`` for which you can log as ``user`` where ``user`` refers to the first ``dom0`` user in ``qubes`` group and with corresponding ``dom0`` password.
@@ -186,30 +186,30 @@ The following commands have to be run in ``dom0``.
 
 Set ``default_guivm`` as ``dom0``:
 
-.. code:: bash
+.. code:: console
 
       qubes-prefs default_guivm dom0
 
 
 and for every selected qubes not using default value for GUI domain property, for example with a qube ``personal``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs personal guivm dom0
+      $ qvm-prefs personal guivm dom0
 
 
 You are now able to delete the GUI domain, for example ``sys-gui-gpu``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-remove -f sys-gui-gpu
+      $ qvm-remove -f sys-gui-gpu
 
 
 .. |sys-gui| image:: /attachment/posts/guivm-hybrid.png
-   
+
 
 .. |sys-gui-gpu| image:: /attachment/posts/guivm-gpu.png
-   
+
 
 .. |sys-gui-vnc| image:: /attachment/posts/guivm-vnc.png
-   
+

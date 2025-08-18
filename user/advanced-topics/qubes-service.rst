@@ -12,7 +12,7 @@ Under the hood, an enabled service in a VM is signaled by a file in ``/var/run/q
 
 Adding support for systemd services is pretty simple. In the VM, create the following file (and directory, if needed): ``/etc/systemd/system/<service name>.service.d/30_qubes.conf``. It should contain the following:
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       ConditionPathExists=/var/run/qubes-service/<service name>

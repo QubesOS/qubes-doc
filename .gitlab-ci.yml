@@ -1,6 +1,0 @@
-include:
-  - project: 'QubesOS/qubes-continuous-integration'
-    file: '/gitlab-website.yml'
-
-build:doc:
-  extends: .website

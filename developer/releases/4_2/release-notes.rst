@@ -91,7 +91,7 @@ Notes
 
   - Users who wish to opt for the more restrictive 4.2.0 and 4.2.1 behavior can do so by modifying their RPC policy rules. To switch a single rule to the more restrictive behavior, change ``*`` in the argument column to ``+`` (i.e., change “any argument” to “only empty”). To use the more restrictive behavior globally, add the following “deny” rule before all other relevant rules:
 
-    .. code:: bash
+    .. code:: text
 
           qubes.Filecopy    +allow-all-names    @anyvm    @anyvm    deny
 
@@ -124,13 +124,13 @@ Upgrading
 Please see :doc:`how to upgrade to Qubes 4.2 </user/downloading-installing-upgrading/upgrade/4_2>`.
 
 .. |Screenshot of the Qubes OS Update tool| image:: /attachment/site/4-2_update.png
-   
+
 
 .. |Screenshot of the Qubes OS Global Config tool| image:: /attachment/site/4-2_global-config_1.png
-   
+
 
 .. |image1| image:: /attachment/site/4-2_global-config_2.png
-   
+
 
 .. |Screenshot of the Qubes OS Policy Editor tool| image:: /attachment/site/4-2_policy-editor.png
-   
+

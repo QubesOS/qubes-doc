@@ -43,7 +43,7 @@ Clipboard automatic policy enforcement
 
 The Qubes clipboard :doc:`RPC policy </user/advanced-topics/rpc-policy>` is configurable in:
 
-.. code:: bash
+.. code:: text
 
       /etc/qubes-rpc/policy/qubes.ClipboardPaste
 
@@ -51,7 +51,7 @@ The Qubes clipboard :doc:`RPC policy </user/advanced-topics/rpc-policy>` is conf
 
 You may wish to configure this policy in order to prevent user error. For example, if you are certain that you never wish to paste *into* your “vault” app qube (and it is highly recommended that you do not), then you should edit the policy as follows:
 
-.. code:: bash
+.. code:: text
 
       @anyvm  vault   deny
       @anyvm  @anyvm  ask
@@ -66,9 +66,9 @@ By default data pasted into a qube will remain there until user copies something
 
 To enable automatic wiping of the clipboard after a minute use ``qvm-service``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-service --enable VMNAME gui-agent-clipboard-wipe
+      $ qvm-service --enable VMNAME gui-agent-clipboard-wipe
 
 
 
@@ -78,10 +78,10 @@ Shortcut configuration
 
 The copy/paste shortcuts are configurable via ``qvm-features``, e.g.
 
-.. code:: bash
+.. code:: console
 
-      qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
-      qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
+      $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
+      $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
 
 
 

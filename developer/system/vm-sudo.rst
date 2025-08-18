@@ -9,11 +9,11 @@ This page sets out the configuration changes made, with (not necessary complete)
 
 1. sudo (``/etc/sudoers.d/qubes``):
 
-   .. code:: bash
+   .. code:: text
 
          Defaults !requiretty
          %qubes ALL=(ALL) ROLE=unconfined_r TYPE=unconfined_t NOPASSWD: ALL
-         
+
          (...)
 
 
@@ -26,7 +26,7 @@ This page sets out the configuration changes made, with (not necessary complete)
 
 2. PolicyKit (``/etc/polkit-1/rules.d/00-qubes-allow-all.rules``):
 
-   .. code:: bash
+   .. code:: text
 
          //allow any action, detailed reasoning in sudoers.d/qubes
          polkit.addRule(function(action,subject) { if (subject.isInGroup("qubes")) return polkit.Result.YES; });

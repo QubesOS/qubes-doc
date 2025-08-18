@@ -21,15 +21,15 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 
 2. Proceed with normal update in the template:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo yum update
+         $ sudo yum update
 
 
 
 3. Ensure that you’ve got qubes-core-vm package version 2.1.13-3.fc18:
 
-   .. code:: bash
+   .. code:: console
 
          rpm -q qubes-core-vm
 
@@ -37,9 +37,9 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 
 4. Update the system to R2 beta3 packages:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo yum --enablerepo=qubes-vm-r2b3-current update
+         $ sudo yum --enablerepo=qubes-vm-r2b3-current update
 
 
 
@@ -57,18 +57,18 @@ Be sure to do steps described in this section after *all* your template and stan
 
 2. Upgrade the ``qubes-release`` package to the latest version which brings in new repo definitions and R2 signing keys:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update qubes-release
+         $ sudo qubes-dom0-update qubes-release
 
 
    This should install ``qubes-release-2-3.1`` in your Dom0.
 
 3. Upgrade dom0 to R2 beta3:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current
+         $ sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current
 
 
 
@@ -76,9 +76,9 @@ Be sure to do steps described in this section after *all* your template and stan
 
 5. Now is the time to shutdown all the VMs:
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-shutdown --all --wait
+         $ qvm-shutdown --all --wait
 
 
 
