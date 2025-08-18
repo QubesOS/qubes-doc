@@ -17,10 +17,10 @@ Known issues
 
 - On systems with more than 8GB of RAM there is problem with DisposableVM. To fix it, limit maximum memory allocation for DispVM to 3GB
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-prefs -s fedora-17-x64-dvm maxmem 3072
-        qvm-create-default-dvm --default-template --default-script
+        $ qvm-prefs -s fedora-17-x64-dvm maxmem 3072
+        $ qvm-create-default-dvm --default-template --default-script
 
 
 
@@ -56,8 +56,8 @@ From Qubes 1.0 Beta 3
 
 If you have Qubes Beta 3 currently installed on your system, you must reinstall from scratch, as we offer no direct upgrade option in the installer (sorry). However, we do offer tools for smooth migration of your AppVMs. In order to do that, please backup your AppVMs using the ``qvm-backup`` tool :doc:`as usual </user/how-to-guides/how-to-back-up-restore-and-migrate>`. Then, after you install Qubes 1.0 rc1, you can restore them using ``qvm-backup-restore`` tool. However, because we have changed the default template in RC1, you should tell qvm-back-restore about that by passing ``--replace-template`` option:
 
-.. code:: bash
+.. code:: console
 
-      qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64
+      $ qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64
 
 

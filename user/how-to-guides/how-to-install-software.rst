@@ -34,9 +34,9 @@ Installing software from default repositories
 
 
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
-   :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   :alt: The Applications tab in Qube Settings
 
- 
+
 
 Installing software from other sources
 --------------------------------------
@@ -52,7 +52,7 @@ If you are still using the distribution package manager, updates will likely sti
 
 If you are using another installation method fetching remote resources, you might still be able to use the updates proxy by making the tools aware of the proxy. For many tools, it is enough to export the following environment variables in your shell session before proceeding:
 
-.. code:: bash
+.. code:: console
 
       $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
                HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
@@ -89,9 +89,9 @@ This method assumes that you are trying to follow instructions to install some p
 
 
 .. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
-   :alt: `The Applications tab in Qube Settings </attachment/doc/r4.1-dom0-appmenu-select.png>`__
+   :alt: The Applications tab in Qube Settings
 
- 
+
 
 Troubleshooting
 ---------------
@@ -155,11 +155,11 @@ There are three Qubes VM testing repositories (where ``*`` denotes the Release):
 
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
-.. code:: bash
+.. code:: console
 
-      sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
-      sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
-      sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+      $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
+      $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
+      $ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 
 
@@ -193,13 +193,13 @@ RPMFusion for Fedora templates
 
 If you would like to enable the `RPM Fusion <https://rpmfusion.org/>`__ repositories, open a Terminal of the template and type the following commands, depending on which RPM Fusion repositories you wish to enable (see `RPM Fusion <https://rpmfusion.org/>`__ for details):
 
-.. code:: bash
+.. code:: console
 
-      sudo dnf config-manager setopt rpmfusion-free.enabled=1
-      sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
-      sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
-      sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
-      sudo dnf upgrade --refresh
+      $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
+      $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
+      $ sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
+      $ sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
+      $ sudo dnf upgrade --refresh
 
 
 
@@ -229,9 +229,9 @@ Root revert
 
 2. In a dom0 terminal:
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-volume revert <template>:root
+         $ qvm-volume revert <template>:root
 
 
 
@@ -281,12 +281,12 @@ The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in d
 
 Example policy file in R4.1 (with Whonix installed, but not set as default UpdateVM for all templates):
 
-.. code:: bash
+.. code:: console
 
       # any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
       @tag:whonix-updatevm @default allow,target=sys-whonix
       @tag:whonix-updatevm @anyvm deny
-      
+
       # other templates use sys-net
       @type:TemplateVM @default allow,target=sys-net
       @anyvm @anyvm deny
@@ -300,7 +300,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
 1. In the **template** you must install ``snapd`` and ``qubes-snapd-helper``. Open a terminal in the template and run:
 
-   .. code:: bash
+   .. code:: console
 
          [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
          Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
@@ -313,15 +313,15 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
           qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
          Installing dependencies:
          [...]
-         
+
          Transaction Summary
          ========================================================================================================
          Install  19 Packages
-         
+
          Total download size: 27 M
          Installed size: 88 M
          Is this ok [y/N]: y
-         
+
          Downloading Packages:
          [..]
          Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
@@ -329,7 +329,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
          [...]
          Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
          Notifying dom0 about installed applications
-         
+
          Installed:
            snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
          [...]
@@ -337,7 +337,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
    You may see the following message:
 
-   .. code:: bash
+   .. code:: console
 
          Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
          /usr/sbin/semodule:  Failed!
@@ -346,14 +346,14 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
    This is expected and you can safely continue.
    Shutdown the template:
 
-   .. code:: bash
+   .. code:: console
 
          [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
 
 
 2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
-   .. code:: bash
+   .. code:: console
 
          [user@snap-demo-app qube ~]$ snap install <package>
 
@@ -377,7 +377,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 2. List the names of the available desktop shortcuts by running the command ``ls /usr/share/applications`` and find the exact name of the shortcut to the app you want to autostart:
 
-   .. code:: bash
+   .. code:: console
 
          [user@example-app qube ~]$ ls /usr/share/applications/
          bluetooth-sendto.desktop
@@ -390,7 +390,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 3. Create the autostart directory:
 
-   .. code:: bash
+   .. code:: console
 
          [user@example-app qube ~]$ mkdir -p ~/.config/autostart
 
@@ -398,7 +398,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 4. Make a link to the desktop app file you’d like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
-   .. code:: bash
+   .. code:: console
 
          [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 

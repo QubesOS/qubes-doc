@@ -44,21 +44,21 @@ Installation
 
 The minimal templates can be installed with the following type of command:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 If your desired version is not found, it may still be in :doc:`testing </user/downloading-installing-upgrading/testing>`. You may wish to try again with the testing repository enabled:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 If you would like to install a community distribution, try the install command by enabling the community repository:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
@@ -71,7 +71,7 @@ Passwordless root
 
 It is an intentional design choice for :doc:`Passwordless Root Access in VMs </user/security-in-qubes/vm-sudo>` to be optional in minimal templates. Since the minimal templates are *minimal*, they are not configured for passwordless root by default. To update or install packages, execute the following command in dom0:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-run -u root <DISTRO_NAME>-<RELEASE_NUMBER>-minimal xterm
 
@@ -102,7 +102,7 @@ Fedora
 
 The following list provides an overview of which packages are needed for which purpose. As usual, the required packages are to be installed in the running template with the following command (replace ``packages`` with a space-delimited list of packages to be installed):
 
-.. code:: bash
+.. code:: console
 
       [user@your-new-clone ~]$ sudo dnf install packages
 
@@ -188,7 +188,7 @@ Debian
 
 The following list provides an overview of which packages are needed for which purpose. As usual, the required packages are to be installed in the running template with the following command (replace ``packages`` with a space-delimited list of packages to be installed):
 
-.. code:: bash
+.. code:: console
 
       [user@your-new-clone ~]$ sudo apt install packages
 
@@ -196,7 +196,7 @@ The following list provides an overview of which packages are needed for which p
 
 - Commonly used utilities: ``pciutils`` ``vim-minimal`` ``less`` ``psmisc`` ``gnome-keyring``
 
-- The ``zenity`` package is required for interactive dialogs, e.g., file selection (:issue:`5202`) and for using the Nautilus menu option to copy some files to other qubes (:issue:`6801`).
+- The ``zenity`` package is required for interactive dialogs, e.g., file selection (:issue:`#5202 <5202>`) and for using the Nautilus menu option to copy some files to other qubes (:issue:`#6801 <6801>`).
 
 - Audio: ``pulseaudio-qubes``
 
@@ -208,7 +208,7 @@ The following list provides an overview of which packages are needed for which p
 
 - :doc:`USB qube </user/advanced-topics/usb-qubes>`, such as the template for ``sys-usb``: ``qubes-usb-proxy`` to provide USB devices to other Qubes and ``qubes-input-proxy-sender`` to provide keyboard or mouse input to dom0.
 
-- Qubes to which USB devices are attached: ``libpam-systemd`` (Until :issue:`7689` is fixed, either pair it with ``qubes-core-agent-passwordless-root`` or manually activate the user session with ``loginctl activate <USER_SESSION_ID>``.)
+- Qubes to which USB devices are attached: ``libpam-systemd`` (Until :issue:`#7689 <7689>` is fixed, either pair it with ``qubes-core-agent-passwordless-root`` or manually activate the user session with ``loginctl activate <USER_SESSION_ID>``.)
 
 - :topic:`VPN qube <19061>`: You may need to install network-manager VPN packages, depending on the VPN technology you’ll be using. After creating a machine based on this template, follow the :topic:`VPN howto <19061#set-up-a-proxyvm-as-a-vpn-gateway-using-networkmanager>` to configure it.
 

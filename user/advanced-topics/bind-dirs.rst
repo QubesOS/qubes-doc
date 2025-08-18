@@ -10,7 +10,7 @@ What are bind-dirs?
 -------------------
 
 
-With `bind-dirs <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh>`__ any arbitrary files or folders can be made persistent in app qubes.
+With :github:`bind-dirs <QubesOS/qubes-core-agent-linux/blob/master/vm-systemd/bind-dirs.sh>` any arbitrary files or folders can be made persistent in app qubes.
 
 What is it useful for?
 ----------------------
@@ -18,7 +18,7 @@ What is it useful for?
 
 In an app qube all of the file system comes from the template except ``/home``, ``/usr/local``, and ``/rw``. This means that changes in the rest of the filesystem are lost when the app qube is shutdown. bind-dirs provides a mechanism whereby files usually taken from the template can be persisted across reboots.
 
-For example, in Whonix, Tor’s data dir ``/var/lib/tor`` `has been made persistent in the TemplateBased ProxyVM sys-whonix <https://github.com/Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5>`__. In this way sys-whonix can benefit from the Tor anonymity feature ‘persistent Tor entry guards’ but does not have to be a standalone.
+For example, in Whonix, Tor’s data dir ``/var/lib/tor`` :github:`has been made persistent in the TemplateBased ProxyVM sys-whonix <Whonix/qubes-whonix/blob/8438d13d75822e9ea800b9eb6024063f476636ff/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf#L5>`. In this way sys-whonix can benefit from the Tor anonymity feature ‘persistent Tor entry guards’ but does not have to be a standalone.
 
 How to use bind-dirs.sh?
 ------------------------
@@ -28,17 +28,17 @@ In this example, we want to make ``/var/lib/tor`` persistent. Enter all of the f
 
 1. Make sure the directory ``/rw/config/qubes-bind-dirs.d`` exists.
 
-   .. code:: bash
+   .. code:: console
 
-         sudo mkdir -p /rw/config/qubes-bind-dirs.d
+         $ sudo mkdir -p /rw/config/qubes-bind-dirs.d
 
 
 
 2. Create the file ``/rw/config/qubes-bind-dirs.d/50_user.conf`` with root permissions, if it doesn’t already exist.
 
-   .. code:: bash
+   .. code:: console
 
-         sudo touch /rw/config/qubes-bind-dirs.d/50_user.conf
+         $ sudo touch /rw/config/qubes-bind-dirs.d/50_user.conf
 
 
 
@@ -54,9 +54,9 @@ In this example, we want to make ``/var/lib/tor`` persistent. Enter all of the f
 
 5. If the directory you wish to make persistent doesn’t exist in the template on which the app qube is based, you’ll need to create the directory (with its full path) under ``/rw/bind-dirs`` in the app qube. For example, if ``/var/lib/tor`` didn’t exist in the template, then you would execute the following command in your app qube:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo mkdir -p /rw/bind-dirs/var/lib/tor
+         $ sudo mkdir -p /rw/bind-dirs/var/lib/tor
 
 
 
@@ -155,26 +155,26 @@ Bind dirs are obviously still supported but this must be configured either in th
 
 To use this feature, first, enable it:
 
-.. code:: bash
+.. code:: console
 
-      qvm-service -e my-app-vm custom-persist
+      $ qvm-service -e my-app-vm custom-persist
 
 
 
 Then, configure a persistent directory with ``qvm-features``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-features my-app-vm custom-persist.my_persistent_dir /var/my_persistent_dir
+      $ qvm-features my-app-vm custom-persist.my_persistent_dir /var/my_persistent_dir
 
 
 
 To re-enable ``/home`` and ``/usr/local`` persistence, just add them to the list:
 
-.. code:: bash
+.. code:: console
 
-      qvm-features my-app-vm custom-persist.home /home
-      qvm-features my-app-vm custom-persist.usrlocal /usr/local
+      $ qvm-features my-app-vm custom-persist.home /home
+      $ qvm-features my-app-vm custom-persist.usrlocal /usr/local
 
 
 
@@ -182,10 +182,10 @@ When starting the VM, declared custom-persist bind dirs are automatically added 
 
 A user may want their bind-dirs to be automatically pre-created in ``/rw/bind-dirs``. Custom persist can do this for you by providing the type of the resource to create (file or dir), owner, group and mode. For example:
 
-.. code:: bash
+.. code:: console
 
-      qvm-features my-app-vm custom-persist.downloads dir:user:user:0755:/home/user/Downloads
-      qvm-features my-app-vm custom-persist.my_ssh_known_hosts_file file:user:user:0600:/home/user/.ssh/known_hosts
+      $ qvm-features my-app-vm custom-persist.downloads dir:user:user:0755:/home/user/Downloads
+      $ qvm-features my-app-vm custom-persist.my_ssh_known_hosts_file file:user:user:0600:/home/user/.ssh/known_hosts
 
 
 

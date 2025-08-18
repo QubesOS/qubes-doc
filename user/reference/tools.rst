@@ -17,18 +17,18 @@ DomU
 ----
 
 
-- `qrexec-client-vm <https://github.com/QubesOS/qubes-core-qrexec/blob/master/agent/qrexec-client-vm.rst>`__
+- :github:`qrexec-client-vm <QubesOS/qubes-core-qrexec/blob/master/agent/qrexec-client-vm.rst>`
 
-- `qvm-copy <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-copy.rst>`__
+- :github:`qvm-copy <QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-copy.rst>`
 
-- `qvm-open-in-dvm <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-dvm.rst>`__
+- :github:`qvm-open-in-dvm <QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-dvm.rst>`
 
-- `qvm-open-in-vm <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-vm.rst>`__
+- :github:`qvm-open-in-vm <QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-vm.rst>`
 
-- `qvm-run-vm <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-run-vm.rst>`__
+- :github:`qvm-run-vm <QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-run-vm.rst>`
 
-- `qvm-convert-pdf <https://github.com/QubesOS/qubes-app-linux-pdf-converter/blob/master/README.md>`__
+- :github:`qvm-convert-pdf <QubesOS/qubes-app-linux-pdf-converter/blob/master/README.md>`
 
-- `qvm-convert-img <https://github.com/QubesOS/qubes-app-linux-img-converter/blob/master/README.md>`__
+- :github:`qvm-convert-img <QubesOS/qubes-app-linux-img-converter/blob/master/README.md>`
 
 

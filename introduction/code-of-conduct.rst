@@ -7,7 +7,7 @@ Introduction
 ------------
 
 
-This Code of Conduct is a collaborative, evolving document that attempts to transparently set out a public set of standards regarding appropriate conduct in the Qubes OS Project. It is *not* intended to be a statement or endorsement, whether implicit or explicit, of any particular political or philosophical attitude, belief, or way of living. Rather, it is an attempt to find a reasonable middle ground among the inevitable disagreements regarding free expression that arise in a large, diverse community of people from around the world. It is intended to be a practical means of serving the best interests of our users, contributors, and the project itself. We welcome you to view the `history of changes <https://github.com/QubesOS/qubes-doc/commits/master/about/code-of-conduct.md>`__ to this document and the :issue:`discussion <2163>` leading to its creation.
+This Code of Conduct is a collaborative, evolving document that attempts to transparently set out a public set of standards regarding appropriate conduct in the Qubes OS Project. It is *not* intended to be a statement or endorsement, whether implicit or explicit, of any particular political or philosophical attitude, belief, or way of living. Rather, it is an attempt to find a reasonable middle ground among the inevitable disagreements regarding free expression that arise in a large, diverse community of people from around the world. It is intended to be a practical means of serving the best interests of our users, contributors, and the project itself. We welcome you to view the :github:`history of changes <QubesOS/qubes-doc/commits/master/about/code-of-conduct.md>` to this document and the :issue:`discussion <2163>` leading to its creation.
 
 Our Pledge
 ----------
@@ -41,7 +41,7 @@ Examples of unacceptable behavior by participants include:
 
 - Reinforcing stereotypical models for illustration of non-technical users (e.g. our mothers/grandmothers, etc.)
 
-- Public or private harassment, as defined by the `Citizen Code of Conduct <https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md>`__
+- Public or private harassment, as defined by the :github:`Citizen Code of Conduct <stumpsyn/policies/blob/master/citizen_code_of_conduct.md>`
 
 - Publishing others’ private information, such as a physical or electronic address, without explicit permission
 

@@ -103,7 +103,7 @@ You can manage your templates using the ``Qubes Template Manager``, a GUI tool a
 
 At the command line in dom0, ``qvm-template list --available`` will show available templates. To install a template, use:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template install  <template_name>
 
@@ -113,7 +113,7 @@ You can also use ``qvm-template`` to upgrade or reinstall templates.
 
 Repository (repo) definitions are stored in dom0 in ``/etc/qubes/repo-templates`` and associated keys in ``/etc/qubes/repo-templates/keys``. There are additional repos for testing releases and community templates. To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. E.g. :
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 
@@ -164,7 +164,7 @@ To remove a template, the graphical ``Qube Manager`` (Qubes Menu > Qubes Tools >
 
 Alternatively, to remove a template via the command line in dom0:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template remove <TEMPLATE_NAME>
 
@@ -172,7 +172,7 @@ Alternatively, to remove a template via the command line in dom0:
 
 <TEMPLATE_NAME> is the first column from the output of:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-template list --installed
 
@@ -203,16 +203,16 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
    - If your only keyboard or mouse *are* connected through a USB qube, and that USB qube *is* a disposable, then you will have to enter a special command that shuts down all of your qubes, switches the USB qube’s disposable template to the new template, then starts the USB qube again. In order to avoid being locked out of your system, you must be very careful to enter this command without typos and with the correct substitutions.
      In the App Menu, click on Terminal Emulator. Type the command below, substituting ``<SYS_USB_DISPOSABLE_TEMPLATE>`` with the name of the disposable template on which ``sys-usb`` is based, ``<NEW_TEMPLATE>`` with the name of the new template, and ``<USB_QUBE>`` with the name of your USB qube. Other than these substitutions, make sure to enter the command exactly as written.
 
-     .. code:: bash
+     .. code:: console
 
-           qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
+           $ qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
 
 
      With substitutions, your command should look similar to this example. (**Warning:** This is just an example. Do not attempt to use it.)
 
-     .. code:: bash
+     .. code:: console
 
-           qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
+           $ qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
 
 
 
@@ -238,8 +238,8 @@ Whenever an app qube is created, the contents of the ``/home`` directory of its 
 
 Once an app qube has been created, any changes in its ``/home``, ``/usr/local``, or ``/rw/config`` directories will be persistent across reboots, which means that any files stored there will still be available after restarting the app qube. No changes in any other directories in app qubes persist in this manner. If you would like to make changes in other directories which *do* persist in this manner, you must make those changes in the parent template.
 
-.. list-table:: 
-   :widths: 44 44 44 
+.. list-table::
+   :widths: 44 44 44
    :align: center
    :header-rows: 1
 
@@ -255,7 +255,7 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
    * - :ref:`disposable <user/reference/glossary:disposable>`
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
      - nothing
-   
+
 
 | :superscript:`1` Upon creation
 | :superscript:`2` Following shutdown
@@ -312,6 +312,6 @@ Important Notes
 
 - RPM-installed templates are “system managed” and therefore cannot be backed up using Qubes’ built-in backup function. In order to ensure the preservation of your custom settings and the availability of a “known-good” backup template, you may wish to clone the default system template and use your clone as the default template for your app qubes.
 
-- Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the `Qubes Builder <https://github.com/QubesOS/qubes-builderv2/>`__. In particular, some template “flavors” are available in source code form only. For the technical details of the template system, please see :doc:`Template Implementation </developer/system/template-implementation>`. Take a look at the :doc:`Qubes Builder </developer/building/qubes-builder-v2>` documentation for instructions on how to compile them.
+- Some templates are available in ready-to-use binary form, but some of them are available only as source code, which can be built using the :github:`Qubes Builder <QubesOS/qubes-builderv2/>`. In particular, some template “flavors” are available in source code form only. For the technical details of the template system, please see :doc:`Template Implementation </developer/system/template-implementation>`. Take a look at the :doc:`Qubes Builder </developer/building/qubes-builder-v2>` documentation for instructions on how to compile them.
 
 

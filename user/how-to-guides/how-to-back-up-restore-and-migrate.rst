@@ -15,7 +15,7 @@ Backing up changes to dom0
 
 When backing up dom0 using the Qubes backup tool (explained below), only the home directory is backed up. Therefore, if there are files outside of the home directory you wish to save, you should copy them into the home directory prior to creating a backup. Here is an example of how to back up Qubes config files and RPC policies:
 
-.. code:: bash
+.. code:: console
 
       $ mkdir -p ~/backup/etc/qubes/
       $ cp -a /etc/qubes/* ~/backup/etc/qubes/
@@ -85,7 +85,7 @@ Restoring from a backup
 
    2. **ignore username mismatch**: This option applies only to the restoration of dom0’s home directory. If your backup was created on a Qubes system which had a different dom0 username than the dom0 username of the current system, then checking this box will ignore the mismatch between the two usernames and proceed to restore the home directory anyway.
 
-   3. **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See :issue:`3498` for more details.
+   3. **Verify backup integrity, do not restore the data**: This will scan the backup file for corrupted data. However, it does not currently detect if it is missing data as long as it is a correctly structured, non-corrupted backup file. See :issue:`issue #3498 <3498>` for more details.
 
 
 

@@ -21,7 +21,7 @@ Thank you for your interest in contributing to Qubes! Here are some of the many 
 
 - Record :doc:`video tours </introduction/video-tours>`
 
-- Create `artwork <https://github.com/QubesOS/qubes-artwork>`__ (plymouth themes, installer themes, wallpapers, etc.)
+- Create :github:`artwork <QubesOS/qubes-artwork>` (plymouth themes, installer themes, wallpapers, etc.)
 
 - :website:`Write and edit the documentation <doc/how-to-edit-the-documentation/>`
 
@@ -53,19 +53,19 @@ Contributing Code
 -----------------
 
 
-If you’re interested in contributing code, the best starting point is to have a look at our `GitHub issues <https://github.com/QubesOS/qubes-issues/issues>`__ to see which tasks are the most urgent. You can filter issues depending on your interest and experience. For example, here are some common issue labels:
+If you’re interested in contributing code, the best starting point is to have a look at our :github:`GitHub issues <QubesOS/qubes-issues/issues>` to see which tasks are the most urgent. You can filter issues depending on your interest and experience. For example, here are some common issue labels:
 
-- `Help wanted <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93>`__
+- :github:`Help wanted <QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93>`
 
-- `UX and usability <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX>`__
+- :github:`UX and usability <QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX>`
 
-- `Windows tools <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows-tools%22>`__
+- :github:`Windows tools <QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows-tools%22>`
 
-- `Documentation <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22>`__
+- :github:`Documentation <QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22>`
 
-- `Privacy <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20>`__
+- :github:`Privacy <QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20>`
 
-- `Debian/Ubuntu <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%2FUbuntu%22>`__
+- :github:`Debian/Ubuntu <QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%2FUbuntu%22>`
 
 
 

@@ -8,7 +8,7 @@ i3 (window manager)
 
 i3 is part of the stable repository (as of Qubes R3.1) and can be installed by using the :doc:`dom0 update mechanism </user/advanced-topics/how-to-install-software-in-dom0>`. To install the i3 window manager and the its Qubes specific configuration:
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubes-dom0-update i3 i3-settings-qubes
 
@@ -29,7 +29,7 @@ Customization
 
 - `terminal_start_script <https://gist.github.com/SietsevanderMolen/7c6f2b5773dbc0c08e1509e49abd1e96>`__
 
-- `i3 config with dmenu-i3-window-jumper <https://github.com/anadahz/qubes-i3-config/blob/master/config>`__
+- :github:`i3 config with dmenu-i3-window-jumper <anadahz/qubes-i3-config/blob/master/config>`
 
 - `dmenu script to open a terminal in a chosen VM <https://gist.github.com/dmoerner/65528941dd20b05c98ee79e92d7e0183>`__
 
@@ -47,7 +47,7 @@ Getting the code
 
 Clone the i3-qubes repository here:
 
-.. code:: bash
+.. code:: console
 
       $ git clone https://github.com/QubesOS/qubes-desktop-linux-i3
 
@@ -62,14 +62,14 @@ Building
 
 You’ll need to install the build dependencies, which are listed in build-deps.list. You can verify them and then install them with:
 
-.. code:: bash
+.. code:: console
 
       $ sudo dnf install -y $(cat build-deps.list)
 
 
 This used to be more complicated, but I finally redid this and use the same buildsystem that’s used by Qubes OS for XFCE. It’s just a Makefile that helps you get the sources and start off the build:
 
-.. code:: bash
+.. code:: console
 
       $ make get-sources
       $ make verify-sources
@@ -86,14 +86,14 @@ You should now have your i3 rpm in ``./rpm/x86_64/i3-4.8-3.fc20.x86_64.rpm``. Pr
 
 Now in dom0, copy in the rpm:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-run --pass-io <src_domain> 'cat </path/to/rpm_in_src_domain>' > i3.rpm
 
 
 Now that the rpm is in dom0 we can proceed with installing it. i3 has some dependencies that we can easily install with:
 
-.. code:: bash
+.. code:: console
 
       $ sudo qubes-dom0-update perl-AnyEvent-I3 xorg-x11-apps \\
           rxvt-unicode xcb-util-wm perl-JSON-XS xcb-util-cursor \\
@@ -102,7 +102,7 @@ Now that the rpm is in dom0 we can proceed with installing it. i3 has some depen
 
 After that you can just install the generated rpm like any other local package:
 
-.. code:: bash
+.. code:: console
 
       $ sudo yum localinstall i3.rpm
 

@@ -5,7 +5,7 @@ Qubes builder details
 
 .. warning::
       
-      **Note:** This information concerns the old Qubes builder (v1). It supports only building Qubes 4.1 or earlier.The build process has been completely rewritten in `qubes-builder v2 <https://github.com/QubesOS/qubes-builderv2/>`__      . This can be used for building Qubes R4.1 and later, and all related components.
+      **Note:** This information concerns the old Qubes builder (v1). It supports only building Qubes 4.1 or earlier.The build process has been completely rewritten in :github:`qubes-builder v2 <QubesOS/qubes-builderv2/>`      . This can be used for building Qubes R4.1 and later, and all related components.
 
 Components Makefile.builder file
 --------------------------------

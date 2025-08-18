@@ -9,7 +9,7 @@ Trusting your hardware
 ----------------------
 
 
-No operating system, not even Qubes, can help you if you’re installing it on hardware that is already compromised. This includes CPUs, GPUs, SSDs, HDDs, the motherboard, BIOS/EFI/UEFI, and all relevant firmware. Unfortunately, in today’s world of undetectable supply chain attacks, there are no easy solutions. (Tools like :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>` can help with *maintaining* the trustworthiness of your hardware, but not with establishing it in the first place.) Some users have chosen to use tools like `Coreboot <https://www.coreboot.org/>`__, `Heads <https://osresearch.net/>`__, and `Skulls <https://github.com/merge/skulls>`__.
+No operating system, not even Qubes, can help you if you’re installing it on hardware that is already compromised. This includes CPUs, GPUs, SSDs, HDDs, the motherboard, BIOS/EFI/UEFI, and all relevant firmware. Unfortunately, in today’s world of undetectable supply chain attacks, there are no easy solutions. (Tools like :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>` can help with *maintaining* the trustworthiness of your hardware, but not with establishing it in the first place.) Some users have chosen to use tools like `Coreboot <https://www.coreboot.org/>`__, `Heads <https://osresearch.net/>`__, and :github:`Skulls <merge/skulls>`.
 
 Verifying the Qubes ISO
 -----------------------

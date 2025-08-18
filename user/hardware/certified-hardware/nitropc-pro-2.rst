@@ -51,7 +51,7 @@ The NitroPC Pro 2 also comes with a “Dasharo Entry Subscription,” which incl
 
 - Special updates, including early access to updates enhancing privacy, security, performance, and compatibility
 
-- Early access to new firmware releases for `newly-supported desktop platforms <https://docs.dasharo.com/variants/overview/#desktop>`__ (please see the `roadmap <https://github.com/Dasharo/presentations/blob/main/dasharo_roadmap.md#dasharo-desktop-roadmap>`__)
+- Early access to new firmware releases for `newly-supported desktop platforms <https://docs.dasharo.com/variants/overview/#desktop>`__ (please see the :github:`roadmap <Dasharo/presentations/blob/main/dasharo_roadmap.md#dasharo-desktop-roadmap>`)
 
 - Access to the Dasharo Premier Support invite-only live chat channel on the Matrix network, allowing direct access to the Dasharo Team and fellow subscribers with personalized and priority assistance
 

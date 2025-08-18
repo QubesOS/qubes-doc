@@ -15,7 +15,7 @@ New features since 3.2
 
 - Renaming VM directly is prohibited, there is GUI to clone under new name and remove old VM
 
-- Use `PVH <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__ and :issue:`HVM <2185>` by default to `mitigate Meltdown & Spectre <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__ and lower the `attack surface on Xen <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt>`__
+- Use :github:`PVH <QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>` and :issue:`HVM <2185>` by default to :github:`mitigate Meltdown & Spectre <QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>` and lower the :github:`attack surface on Xen <QubesOS/qubes-secpack/blob/master/QSBs/qsb-024-2016.txt>`
 
 - Create USB VM by default
 
@@ -47,13 +47,13 @@ New features since 3.2
 
 
 
-You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.0%22+label%3Arelease-notes+is%3Aclosed>`__
+You can get detailed description in :github:`completed github issues <QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.0%22+label%3Arelease-notes+is%3Aclosed>`
 
 Security Notes
 --------------
 
 
-- PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see `QSB #37 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__). However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode. These must be set manually.
+- PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see :github:`QSB #37 <QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`). However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode. These must be set manually.
 
 - The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see :issue:`3737`).
   Steps for dom0 updates:
@@ -64,9 +64,9 @@ Security Notes
 
   3. In the window that opens, enter this command:
 
-     .. code:: bash
+     .. code:: console
 
-           sudo nano /etc/yum.repos.d/qubes-dom0.repo
+           $ sudo nano /etc/yum.repos.d/qubes-dom0.repo
 
 
 
@@ -85,10 +85,10 @@ Security Notes
 
   3. In the window that opens, enter the command for your version:
 
-     .. code:: bash
+     .. code:: console
 
-           [Qubes 3.2] sudo gedit /etc/yum.repos.d/qubes-r3.repo
-           [Qubes 4.0] sudo gedit /etc/yum.repos.d/qubes-r4.repo
+           [Qubes 3.2] $ sudo gedit /etc/yum.repos.d/qubes-r3.repo
+           [Qubes 4.0] $ sudo gedit /etc/yum.repos.d/qubes-r4.repo
 
 
 
@@ -120,7 +120,7 @@ Known issues
 
 - With R4.0.1, which ships kernel-4.19, you may never reach the anaconda startup and be block on an idle black screen with blinking cursor. You can try to add ``plymouth.ignore-serial-consoles`` in the grub installer boot menu right after ``quiet rhgb``. With legacy mode, you can do it directly when booting the DVD or USB key. In UEFI mode, follow the same procedure described for :ref:`disabling <user/troubleshooting/uefi-troubleshooting:installation freezes before displaying installer>` ``nouveau`` module (related :issue:`solved issue <3849>` in further version of Qubes).
 
-- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug>`__
+- For other known issues take a look at :github:`our tickets <QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug>`
 
 
 

@@ -57,7 +57,7 @@ Windows VM installation
 -----------------------
 
 
-**qvm-create-windows-qube**: An unofficial, third-party tool for automating this process is available `here <https://github.com/elliotkillick/qvm-create-windows-qube>`__. (Please note that this tool has not been reviewed by the Qubes OS Project. Use it at your own risk.)
+**qvm-create-windows-qube**: An unofficial, third-party tool for automating this process is available :github:`here <elliotkillick/qvm-create-windows-qube>`. (Please note that this tool has not been reviewed by the Qubes OS Project. Use it at your own risk.)
 
 However, if you are an expert or want to do it manually you may continue below.
 
@@ -130,16 +130,16 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
 
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
+        $ qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
 
 
   and for a template:
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
+        $ qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
 
 
 
@@ -147,13 +147,13 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
 
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-volume extend WindowsNew:root 60g
-        qvm-prefs WindowsNew memory 4096
-        qvm-prefs WindowsNew maxmem 4096
-        qvm-prefs WindowsNew kernel ''
-        qvm-prefs WindowsNew qrexec_timeout 7200
+        $ qvm-volume extend WindowsNew:root 60g
+        $ qvm-prefs WindowsNew memory 4096
+        $ qvm-prefs WindowsNew maxmem 4096
+        $ qvm-prefs WindowsNew kernel ''
+        $ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 
@@ -167,10 +167,10 @@ These parameters are set for the following reasons:
 
 - The Windows’ installer requires a significant amount of memory or else the VM will crash with such errors:
 
-  .. code:: bash
+  .. code:: output
 
         /var/log/xen/console/hypervisor.log:
-        
+
         p2m_pod_demand_populate: Dom120 out of PoD memory! (tot=102411 ents=921600 dom120)
         (XEN) domain_crash called from p2m-pod.c:1218
         (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
@@ -182,9 +182,9 @@ These parameters are set for the following reasons:
 
 - After creating the new qube, increase the VM’s ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like ``chkdsk`` won’t complete on restart before ``qrexec_timeout`` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher ``qrexec_timeout``, ``chkdsk`` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools’ installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-prefs WindowsNew qrexec_timeout 7200
+        $ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 
@@ -213,9 +213,9 @@ These parameters are set for the following reasons:
 
   This can also be done via the following CLI command in dom0 (assuming that the Windows installer ISO is stored in the directory ``/home/user/`` in the AppVM ``untrusted``):
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
+        $ qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
 
 
 
@@ -244,7 +244,7 @@ These parameters are set for the following reasons:
     - You will then return to the setup, which will continue normally and install Windows 11 without TPM 2.0.
 
       .. warning::
-            
+
             Caution: This temporary patch may cease to work if it so pleases Microsoft sometime. With version 24H2 it is still working.
 
     - The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
@@ -310,7 +310,7 @@ These parameters are set for the following reasons:
 
 - From the Windows command line, disable hibernation in order to avoid incomplete Windows shutdown, which could lead to corruption of the VM’s disk.
 
-  .. code:: bash
+  .. code:: doscon
 
         powercfg -H off
 
@@ -340,7 +340,7 @@ These parameters are set for the following reasons:
 - Given the higher than usual memory requirements of Windows, you may get a ``Not enough memory to start domain 'WindowsNew'`` error. In that case try to shutdown unneeded VMs to free memory before starting the Windows VM.
   At this point you may open a tab in dom0 for debugging, in case something goes amiss:
 
-  .. code:: bash
+  .. code:: console
 
         tailf /var/log/qubes/vm-WindowsNew.log \
            /var/log/xen/console/hypervisor.log \
@@ -394,9 +394,9 @@ If the user data have been moved to ``Q:``, be sure not to user the option ``Mov
 
 AppVMs based on these templates can be created the normal way by using the Qube Manager or by specifying
 
-.. code:: bash
+.. code:: console
 
-      qvm-create --class=AppVM --template=<VMname>
+      $ qvm-create --class=AppVM --template=<VMname>
 
 
 
@@ -406,9 +406,9 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 
 Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to be changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, via the CLI command in a dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs WindowsNew ip 10.137.0.x
+      $ qvm-prefs WindowsNew ip 10.137.0.x
 
 
 

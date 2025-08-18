@@ -153,7 +153,7 @@ By using the same term throughout an interface, a user can create a mental model
 
 It is easy to add words like ``Domain`` before items in a list or menu in an attempt to be descriptive, such as:
 
-.. code:: bash
+.. code:: text
 
       Menu
       - Domain: work
@@ -168,7 +168,7 @@ The repeated use of the word ``Domain`` requires a user to read it for each item
 
 It is more efficient to group things under headings instead as this allows the eye to easily scan the uniqueness of the items. (As per our previous example:)
 
-.. code:: bash
+.. code:: text
 
       Domains
       - Work

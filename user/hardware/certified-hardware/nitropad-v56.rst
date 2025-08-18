@@ -141,7 +141,7 @@ Disclaimers
 
 - Currently requires ``kernel-latest``: If you install Qubes OS yourself, you must select the ``Install Qubes OS RX using kernel-latest`` option on the GRUB menu when booting the installer. This non-default kernel option is currently required for the NitroPad V56 to function properly.
 
-- Due to a `known bug <https://github.com/Dasharo/dasharo-issues/issues/976>`__, the bottom-right USB-C port is currently limited to USB 2.0 speeds.
+- Due to a :github:`known bug <Dasharo/dasharo-issues/issues/976>`, the bottom-right USB-C port is currently limited to USB 2.0 speeds.
 
 
 

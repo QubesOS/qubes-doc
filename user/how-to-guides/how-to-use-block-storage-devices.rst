@@ -27,11 +27,11 @@ Block Devices in VMs
 
 If not specified otherwise, block devices will show up as ``/dev/xvdi*`` in a linux VM, where ``*`` may be the partition-number. If a block device isn’t automatically mounted after attaching, open a terminal in the VM and execute:
 
-.. code:: bash
+.. code:: console
 
-      cd ~
-      mkdir mnt
-      sudo mount /dev/xvdi2 mnt
+      $ cd ~
+      $ mkdir mnt
+      $ sudo mount /dev/xvdi2 mnt
 
 
 
@@ -55,14 +55,14 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 
 1. In a dom0 console (running as a normal user), list all available block devices:
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-block
+         $ qvm-block
 
 
    This will list all available block devices in your system across all VMs. The name of the qube hosting the block device is displayed before the colon in the device ID. The string after the colon is the ID of the device used within the qube, like so:
 
-   .. code:: bash
+   .. code:: console
 
          sourceVM:sdb     Cruzer () 4GiB
          sourceVM:sdb1    Disk () 2GiB
@@ -71,9 +71,9 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 
 2. Assuming your block device is attached to ``sys-usb`` and its device node is ``sdb``, we attach the device to a qube with the name ``work`` like so:
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-block attach work sys-usb:sdb
+         $ qvm-block attach work sys-usb:sdb
 
 
 
@@ -85,11 +85,11 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 
 3. The block device is now attached to the qube. If using a default qube, you may open the Nautilus file manager in the qube, and your drive should be visible in the **Devices** panel on the left. If you’ve attached a single partition (e.g. ``sdb2`` instead of ``sdb`` in our example), you may need to manually mount before it becomes visible:
 
-   .. code:: bash
+   .. code:: console
 
-         cd ~
-         mkdir mnt
-         sudo mount /dev/xvdi mnt
+         $ cd ~
+         $ mkdir mnt
+         $ sudo mount /dev/xvdi mnt
 
 
 
@@ -99,17 +99,17 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 
 
 
-   .. code:: bash
+   .. code:: console
 
-         sudo umount mnt
+         $ sudo umount mnt
 
 
 
 5. In a dom0 console, detach the device
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-block detach work sys-usb:sdb
+         $ qvm-block detach work sys-usb:sdb
 
 
 
@@ -125,7 +125,7 @@ If you fail to detach the device before it’s destroyed in the sourceVM (e.g. 
 
 To recover from this error state, in dom0 run
 
-.. code:: bash
+.. code:: console
 
       virsh detach-disk targetVM xvdi
 
@@ -139,13 +139,13 @@ What if I removed the device before detaching it from the VM?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Currently (until issue :issue:`1082` gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following these steps:
+Currently (until issue :issue:`1082 <1082>` gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following these steps:
 
 1. Physically connect the device back. You can use any device as long as it will be detected under the same name (for example, ``sdb``).
 
 2. Attach the device manually to the same VM using the ``xl block-attach`` command. It is important to use the same “frontend” device name (by default, ``xvdi``). You can get it from the ``qvm-block`` listing:
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-block
          sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
@@ -175,9 +175,9 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
 1. In the linux sourceVM run
 
-   .. code:: bash
+   .. code:: console
 
-         sudo losetup -f --show /path/to/file
+         $ sudo losetup -f --show /path/to/file
 
 
    `This command <https://linux.die.net/man/8/losetup>`__ will create the device node ``/dev/loop0`` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
@@ -190,7 +190,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
 
 
-   .. code:: bash
+   .. code:: console
 
          ~]$ qvm-block
          BACKEND:DEVID  DESCRIPTION  USED BY
@@ -199,17 +199,17 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
 3. Attach the ``loop0``-device using qvm-block as usual:
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-block a targetVM sourceVM:loop0
+         $ qvm-block a targetVM sourceVM:loop0
 
 
 
 4. After detaching, destroy the loop-device inside the sourceVM as follows:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo losetup -d /dev/loop0
+         $ sudo losetup -d /dev/loop0
 
 
 
@@ -229,9 +229,9 @@ This option allows you to specify the name of the device node made available in 
 
 usage example:
 
-.. code:: bash
+.. code:: console
 
-      qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
+      $ qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
 
 
 
@@ -247,17 +247,17 @@ If the device is a read-only device, this option is forced true.
 
 usage example:
 
-.. code:: bash
+.. code:: console
 
-      qvm-block a work sys-usb:sda1 -o read-only=true
+      $ qvm-block a work sys-usb:sda1 -o read-only=true
 
 
 
 There exists a shortcut to set read-only ``true``, ``--ro``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-block a work sys-usb:sda1 --ro
+      $ qvm-block a work sys-usb:sda1 --ro
 
 
 
@@ -271,9 +271,9 @@ Usually, a block device is attached as disk. In case you need to attach a block 
 
 usage example:
 
-.. code:: bash
+.. code:: console
 
-      qvm-block a work sys-usb:sda1 -o devtype=cdrom
+      $ qvm-block a work sys-usb:sda1 -o devtype=cdrom
 
 
 

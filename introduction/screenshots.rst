@@ -29,7 +29,7 @@ In this example, the word processor runs in the “work” domain, which has bee
 
 |r2b3-windows-seamless-1.png|
 
-Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires `Qubes Windows Tools <https://github.com/Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md>`__ to be installed in the Windows VMs first.
+Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto the common Qubes trusted desktop, just like Linux AppVMs! The seamless GUI integration has been introduced in Qubes R2 Beta 3. This requires :github:`Qubes Windows Tools <Qubes-Community/Contents/blob/master/docs/os/windows/windows-tools.md>` to be installed in the Windows VMs first.
 
 
 ----

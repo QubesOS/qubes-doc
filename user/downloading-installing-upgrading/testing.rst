@@ -18,7 +18,7 @@ How to test upcoming Qubes OS releases:
 
 - Test the latest release candidate (RC) on the :website:`downloads <downloads/>` page, if one is currently available. (Or try an older RC from our `FTP server <https://ftp.qubes-os.org/iso/>`__.)
 
-- Try the `signed weekly builds <https://qubes.notset.fr/iso/>`__. (:topic:`Learn more <16929>` and `track their status <https://github.com/fepitre/updates-status-iso/issues>`__.)
+- Try the `signed weekly builds <https://qubes.notset.fr/iso/>`__. (:topic:`Learn more <16929>` and :github:`track their status <fepitre/updates-status-iso/issues>`.)
 
 - Use :doc:`qubes-builder </developer/building/qubes-builder-v2>` to build the latest release yourself.
 
@@ -62,10 +62,10 @@ How to test :doc:`templates </user/templates/templates>`:
 
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
-.. code:: bash
+.. code:: console
 
-      qvm-template --enablerepo=qubes-templates-itl-testing list --available
-      qvm-template --enablerepo=qubes-templates-itl-testing install <template_name>
+      $ qvm-template --enablerepo=qubes-templates-itl-testing list --available
+      $ qvm-template --enablerepo=qubes-templates-itl-testing install <template_name>
 
 
 
@@ -75,7 +75,7 @@ Providing feedback
 ------------------
 
 
-Since the whole point of testing software is to discover and fix bugs, your feedback is an essential part of this process. We use an `automated build process <https://github.com/QubesOS/qubes-infrastructure/blob/master/README.md>`__. For every package that is uploaded to a testing repository, a GitHub issue is created in the `updates-status <https://github.com/QubesOS/updates-status/issues>`__ repository for tracking purposes. We welcome any kind of feedback on any package in any testing repository. Even a simple |thumbsup| “thumbs up” or |thumbsdown| “thumbs down” reaction on the package’s associated issue would help us to decide whether the package is ready to be migrated to a stable repository. If you :doc:`report a bug </introduction/issue-tracking>` in a package that is in a testing repository, please reference the appropriate issue in `updates-status <https://github.com/QubesOS/updates-status/issues>`__.
+Since the whole point of testing software is to discover and fix bugs, your feedback is an essential part of this process. We use an :github:`automated build process <QubesOS/qubes-infrastructure/blob/master/README.md>`. For every package that is uploaded to a testing repository, a GitHub issue is created in the :github:`updates-status <QubesOS/updates-status/issues>` repository for tracking purposes. We welcome any kind of feedback on any package in any testing repository. Even a simple |thumbsup| “thumbs up” or |thumbsdown| “thumbs down” reaction on the package’s associated issue would help us to decide whether the package is ready to be migrated to a stable repository. If you :doc:`report a bug </introduction/issue-tracking>` in a package that is in a testing repository, please reference the appropriate issue in :github:`updates-status <QubesOS/updates-status/issues>`.
 
 .. |thumbsup| image:: /attachment/doc/like.png
 .. |thumbsdown| image:: /attachment/doc/dislike.png

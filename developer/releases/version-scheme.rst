@@ -17,7 +17,7 @@ Qubes distributions and products
 --------------------------------
 
 
-We intend to make it easy to make a remix of Qubes, targeting another hypervisor or isolation provider. We may also create commercial products intended for specific circumstances. There is one distinguished distribution called **Qubes OS**. All source code for it is available for download under a :doc:`free and open-source license </developer/code/license>` and is openly developed on `GitHub <https://github.com/QubesOS>`__ and our :doc:`mailing lists </introduction/support>`. The rest of this document discusses Qubes OS. Another remix may have its own version series.
+We intend to make it easy to make a remix of Qubes, targeting another hypervisor or isolation provider. We may also create commercial products intended for specific circumstances. There is one distinguished distribution called **Qubes OS**. All source code for it is available for download under a :doc:`free and open-source license </developer/code/license>` and is openly developed on :github:`GitHub <QubesOS>` and our :doc:`mailing lists </introduction/support>`. The rest of this document discusses Qubes OS. Another remix may have its own version series.
 
 Release versioning
 ------------------

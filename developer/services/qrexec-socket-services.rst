@@ -15,7 +15,7 @@ When a Qubes RPC service is invoked, qrexec searches for a file that handles it 
 
 Before passing user input, the socket service will receive a null-terminated service descriptor, i.e. the part after ``QUBESRPC``. When running in a VM, this is:
 
-.. code:: bash
+.. code:: text
 
       <service_name> <source>\0
 
@@ -23,7 +23,7 @@ Before passing user input, the socket service will receive a null-terminated ser
 
 When running in dom0, it is:
 
-.. code:: bash
+.. code:: text
 
       <service_name> <source> <target_type> <target>\0
 
@@ -73,7 +73,7 @@ Example: ``qrexec-policy-agent``
 
 
 
-See the `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository for details.
+See the :github:`qubes-core-qrexec <QubesOS/qubes-core-qrexec/>` repository for details.
 
 Systemd unit files
 ^^^^^^^^^^^^^^^^^^
@@ -81,18 +81,18 @@ Systemd unit files
 
 **/lib/systemd/user/qubes-qrexec-policy-agent.service**: This is the service configuration.
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       Description=Qubes remote exec policy agent
       ConditionUser=!root
       ConditionGroup=qubes
       Requires=qubes-qrexec-policy-agent.socket
-      
+
       [Service]
       Type=simple
       ExecStart=/usr/bin/qrexec-policy-agent
-      
+
       [Install]
       WantedBy=default.target
 
@@ -100,17 +100,17 @@ Systemd unit files
 
 **/lib/systemd/user/qubes-qrexec-policy-agent.socket**: This is the socket file that will activate the service.
 
-.. code:: bash
+.. code:: systemd
 
       [Unit]
       Description=Qubes remote exec policy agent socket
       ConditionUser=!root
       ConditionGroup=qubes
       PartOf=qubes-qrexec-policy-agent.service
-      
+
       [Socket]
       ListenStream=/var/run/qubes/policy-agent.sock
-      
+
       [Install]
       WantedBy=sockets.target
 
@@ -120,18 +120,18 @@ Note the ``ConditionUser`` and ``ConditionGroup`` that ensure that the socket an
 
 Start the socket using ``systemctl --user start``. Enable it using ``systemctl --user enable``, so that it starts automatically.
 
-.. code:: bash
+.. code:: console
 
-      systemctl --user start qubes-qrexec-policy-agent.socket
-      systemctl --user enable qubes-qrexec-policy-agent.socket
+      $ systemctl --user start qubes-qrexec-policy-agent.socket
+      $ systemctl --user enable qubes-qrexec-policy-agent.socket
 
 
 
 Alternatively, you can enable the service by creating a symlink:
 
-.. code:: bash
+.. code:: console
 
-      sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
+      $ sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
 
 
 
@@ -141,9 +141,9 @@ Link in qubes-rpc
 
 ``qrexec-policy-agent`` will handle a Qubes RPC service called ``policy.Ask``, so we add a link:
 
-.. code:: bash
+.. code:: console
 
-      sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
+      $ sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
 
 
 
@@ -155,9 +155,9 @@ Socket activation in systemd works by starting our program with the socket file 
 
 Install the Python systemd library:
 
-.. code:: bash
+.. code:: console
 
-      sudo dnf install python3-systemd
+      $ sudo dnf install python3-systemd
 
 
 
@@ -168,20 +168,20 @@ Here is the server code:
       import os
       import asyncio
       import socket
-      
+
       from systemd.daemon import listen_fds
-      
-      
+
+
       class SocketService:
           def __init__(self, socket_path, socket_activated=False):
               self._socket_path = socket_path
               self._socket_activated = socket_activated
-      
+
           async def run(self):
               server = await self.start()
               async with server:
                   await server.serve_forever()
-      
+
           async def start(self):
               if self._socket_activated:
                   fds = listen_fds()
@@ -191,46 +191,46 @@ Here is the server code:
                       sock = socket.socket(fileno=fds[0])
                       return await asyncio.start_unix_server(self._client_connected,
                                                              sock=sock)
-      
+
               if os.path.exists(self._socket_path):
                   os.unlink(self._socket_path)
               return await asyncio.start_unix_server(self._client_connected,
                                                      path=self._socket_path)
-      
+
           async def _client_connected(self, reader, writer):
               try:
                   data = await reader.read()
                   assert b'\0' in data, data
-      
+
                   service_descriptor, data = data.split(b'\0', 1)
-      
+
                   response = await self.handle_request(service_descriptor, data)
-      
+
                   writer.write(response)
                   await writer.drain()
               finally:
                   writer.close()
                   await writer.wait_closed()
-      
+
           async def handle_request(self, service_descriptor, data):
               # process params, return response
-      
+
               return response
-      
-      
+
+
       def main():
           socket_path = '/var/run/qubes/policy-agent.sock'
           service = SocketService(socket_path)
-      
+
           loop = asyncio.get_event_loop()
           loop.run_until_complete(service.run())
-      
-      
+
+
       if __name__ == '__main__':
           main()
 
 
-You can also use ``qrexec/server.py`` from `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository, which is a variant of the above code - but note that currently it’s somewhat more specific (JSON requests and ASCII responses; no target handling in service descriptors).
+You can also use ``qrexec/server.py`` from :github:`qubes-core-qrexec <QubesOS/qubes-core-qrexec/>` repository, which is a variant of the above code - but note that currently it’s somewhat more specific (JSON requests and ASCII responses; no target handling in service descriptors).
 
 Using the service
 ^^^^^^^^^^^^^^^^^
@@ -238,17 +238,17 @@ Using the service
 
 The service is invoked in the same way as a standard Qubes RPC service:
 
-.. code:: bash
+.. code:: console
 
-      echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
+      $ echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
 
 
 
 You can also connect to it locally, but remember to include the service descriptor:
 
-.. code:: bash
+.. code:: console
 
-      echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
+      $ echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
 
 
 
@@ -260,7 +260,7 @@ Further reading
 
 - :doc:`Qrexec internals </developer/services/qrexec-internals>`
 
-- `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository - contains the above example
+- :github:`qubes-core-qrexec <QubesOS/qubes-core-qrexec/>` repository - contains the above example
 
 - `systemd.socket <https://www.freedesktop.org/software/systemd/man/systemd.socket.html>`__ - socket unit configuration
 

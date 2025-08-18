@@ -12,7 +12,7 @@ This document explains the basics of RPC policies in Qubes. For more information
 
 Here’s an example of an RPC policy file in dom0:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 user ~]$ cat /etc/qubes-rpc/policy/qubes.FileCopy
       (...)
@@ -38,4 +38,4 @@ All together, the four rules we added say that all VMs tagged with “work” ar
 
 Further details about how this system works can be found in :doc:`Qrexec: command execution in VMs </developer/services/qrexec>`.
 
-(**Note** *: the* ``$`` *character is deprecated in qrexec keywords – please use* ``@`` *instead (e.g.* ``@anyvm`` *). For more information, see the bulletin* `here <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt>`__ *.*)
+(**Note** *: the* ``$`` *character is deprecated in qrexec keywords – please use* ``@`` *instead (e.g.* ``@anyvm`` *). For more information, see the bulletin* :github:`here <QubesOS/qubes-secpack/blob/master/QSBs/qsb-038-2018.txt>` *.*)

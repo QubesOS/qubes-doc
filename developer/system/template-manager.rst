@@ -219,7 +219,7 @@ Repository management
 ---------------------
 
 
-For UpdateVMs to access the repository configuration, the package `qubes-repo-templates <https://github.com/WillyPillow/qubes-repo-templates>`__ is created with the following contents:
+For UpdateVMs to access the repository configuration, the package :github:`qubes-repo-templates <WillyPillow/qubes-repo-templates>` is created with the following contents:
 
 - ``/etc/qubes/repo-templates/*.repo``: repository configuration
 
@@ -247,7 +247,7 @@ Input
 
 Both calls accept the following format from standard input:
 
-.. code:: bash
+.. code:: text
 
       arg1
       arg2

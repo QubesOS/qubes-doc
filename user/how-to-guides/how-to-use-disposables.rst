@@ -63,9 +63,9 @@ On a fresh installation of Qubes, the default disposable template is called ``fe
 
 You can set any app qube to have the ability to act as a disposable template with:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs <APP_QUBE> template_for_dispvms True
+      $ qvm-prefs <APP_QUBE> template_for_dispvms True
 
 
 
@@ -73,9 +73,9 @@ The default system wide disposable template can be changed with ``qubes-prefs de
 
 You can change this behavior for individual qubes: in the Application Menu, open Qube Settings for the qube in question and go to the “Advanced” tab. Here you can edit the “Default disposable” setting to specify which disposable template will be used to launch disposables from that qube. This can also be changed from the command line with:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
+      $ qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
 
 
 
@@ -89,17 +89,17 @@ A disposable launched from the app menu inherits the net qube and firewall setti
 
 **Important Notes:** Some disposable templates will automatically create a menu item to launch a disposable. If you do not see an entry and want to add one, please use the command:
 
-.. code:: bash
+.. code:: console
 
-      qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
+      $ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
 
 
 To launch a disposable template from the command line, execute the following command in dom0:
 
-.. code:: bash
+.. code:: console
 
-      qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
+      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
 
 
 
@@ -136,7 +136,7 @@ Opening a file in a disposable via command line (from app qube)
 
 Use the ``qvm-open-in-dvm`` command from a terminal in your app qube:
 
-.. code:: bash
+.. code:: console
 
       [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
 
@@ -166,7 +166,7 @@ Starting an arbitrary program in a disposable from an app qube
 
 Sometimes it can be useful to start an arbitrary program in a disposable. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details :issue:`here <2581#issuecomment-272664009>`). Starting an arbitrary program can be done from an app qube by running
 
-.. code:: bash
+.. code:: console
 
       [user@vault ~]$ qvm-run '@dispvm' xterm
 
@@ -180,7 +180,7 @@ Starting an arbitrary application in a disposable via command line from dom0
 
 The Application Launcher has shortcuts for opening a terminal and a web browser in dedicated disposables, since these are very common tasks. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details :issue:`here <2581#issuecomment-272664009>`). It is possible to start an arbitrary application in a disposable directly from dom0 by running:
 
-.. code:: bash
+.. code:: console
 
       $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
 
@@ -194,7 +194,7 @@ Opening a link in a disposable based on a non-default disposable template from a
 
 Suppose that the default disposable template for your ``email`` qube has no networking (e.g., so that untrusted attachments can’t phone home). However, sometimes you want to open email links in disposables. Obviously, you can’t use the default disposable template, since it has no networking, so you need to be able to specify a different disposable template. You can do that with this command from the ``email`` qube (as long as your RPC policies allow it):
 
-.. code:: bash
+.. code:: console
 
       $ qvm-open-in-vm @dispvm:<ONLINE_DISPOSABLE_TEMPLATE> https://www.qubes-os.org
 
@@ -208,7 +208,7 @@ Example of RPC policies to allow this behavior
 
 In dom0, add the following line at the beginning of the file ``/etc/qubes-rpc/policy/qubes.OpenURL``
 
-.. code:: bash
+.. code:: text
 
       @anyvm @dispvm:<ONLINE_DISPOSABLE_TEMPLATE> allow
 
@@ -235,4 +235,4 @@ Customizing disposables
 You can change the template used to generate the disposables, and change settings used in the disposable savefile. These changes will be reflected in every new disposable based on that template. Full instructions can be found :doc:`here </user/advanced-topics/disposable-customization>`.
 
 .. |disposablevm-example.png| image:: /attachment/doc/disposablevm-example.png
-   
+

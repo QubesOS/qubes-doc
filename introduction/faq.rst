@@ -21,7 +21,7 @@ There are two distinct senses of the word “free” when it comes to free softw
 
 The first senses is straightforward. Qubes OS is “free as in beer,” meaning that it is provided at no cost (*gratis*), though :website:`donations <donate/>` are greatly appreciated.
 
-The second sense is more complicated. Qubes OS is *mostly* “free as in speech,” but not entirely. All the software created by the Qubes OS Project *itself* is `free (or “libre”) <https://www.gnu.org/philosophy/free-sw>`__ and `open-source <https://opensource.org/docs/definition.html>`__ software (`FOSS or FLOSS <https://www.gnu.org/philosophy/floss-and-foss.en.html>`__). This means that everyone is allowed to use, copy, study, and change the software in accordance with its :doc:`license </developer/code/license>`. It also means that the :doc:`source code </developer/code/source-code>` is `publicly available <https://github.com/QubesOS/>`__ so everyone can audit and contribute to it.
+The second sense is more complicated. Qubes OS is *mostly* “free as in speech,” but not entirely. All the software created by the Qubes OS Project *itself* is `free (or “libre”) <https://www.gnu.org/philosophy/free-sw>`__ and `open-source <https://opensource.org/docs/definition.html>`__ software (`FOSS or FLOSS <https://www.gnu.org/philosophy/floss-and-foss.en.html>`__). This means that everyone is allowed to use, copy, study, and change the software in accordance with its :doc:`license </developer/code/license>`. It also means that the :doc:`source code </developer/code/source-code>` is :github:`publicly available <QubesOS/>` so everyone can audit and contribute to it.
 
 However, since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities. Moreover, the :doc:`architecture </developer/system/architecture>` of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own. In order to make the installation process easier for a wide range of users across many different devices, standard Qubes :doc:`templates </user/templates/templates>` also include some non-free firmware and drivers.
 
@@ -231,8 +231,8 @@ Which virtualization modes do VMs use?
 
 Here is an overview of the VM virtualization modes:
 
-.. list-table:: 
-   :widths: 42 42 
+.. list-table::
+   :widths: 42 42
    :align: center
    :header-rows: 1
 
@@ -248,7 +248,7 @@ Here is an overview of the VM virtualization modes:
      - PV
    * - Stub domains - HVMs
      - PV
-   
+
 
 
 What's so special about Qubes' GUI virtualization?
@@ -303,7 +303,7 @@ Should I trust this website?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone :website:`review <doc/how-to-edit-the-documentation/#security>`), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was :website:`intentionally written in Markdown so as to be readable as plain text for this very reason <doc/documentation-style-guide/#markdown-conventions>`. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
+This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our :github:`website repo <QubesOS/qubesos.github.io>`, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the :github:`doc-signing keys <QubesOS/qubes-secpack/tree/master/keys/doc-signing>` (which indicates that the content has undergone :website:`review <doc/how-to-edit-the-documentation/#security>`), then either :github:`render the site on your local machine <QubesOS/qubesos.github.io/blob/master/README.md#instructions>` or simply read the source, the vast majority of which was :website:`intentionally written in Markdown so as to be readable as plain text for this very reason <doc/documentation-style-guide/#markdown-conventions>`. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 What does it mean to "distrust the infrastructure"?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -543,12 +543,12 @@ or
 
 - Go to the sysfs (``/sys/bus/pci``), find the right device, detach it from the pciback driver and attach back to the original driver. Replace ``<BDF>`` with your device, for example ``00:1c.2``:
 
-  .. code:: bash
+  .. code:: console
 
-        echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
-        MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
-        MOD=`modprobe -R $MODALIAS | head -n 1`
-        echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
+        $ echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
+        $ MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
+        $ MOD=`modprobe -R $MODALIAS | head -n 1`
+        $ echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
 
 
 
@@ -570,7 +570,7 @@ For Debian:
 
 
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo apt install vlc
 
@@ -589,7 +589,7 @@ For Fedora:
 
 
 
-   .. code:: bash
+   .. code:: console
 
          $ sudo dnf install vlc
 
@@ -672,9 +672,9 @@ I see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD (edd
 
 From a ``dom0`` prompt, enter:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs <HVMname> kernel ""
+      $ qvm-prefs <HVMname> kernel ""
 
 
 
@@ -696,7 +696,7 @@ I see a "Failed to start Load Kernel Modules" message on boot
 
 The full message looks like:
 
-.. code:: bash
+.. code:: text
 
       [FAILED] Failed to start Load Kernel Modules.
       See 'systemctl status systemd-modules-load.service' for details.
@@ -775,7 +775,7 @@ What is Qubes' attitude toward changing guest distros?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In general, we try to respect each distro’s culture, but we reserve the right to make modifications that we deem appropriate. See the discussion on issue :issue:`1014` for an example.
+In general, we try to respect each distro’s culture, but we reserve the right to make modifications that we deem appropriate. See the discussion on issue :issue:`#1014 <1014>` for an example.
 
 The policy is there mostly to ease maintenance, on several levels:
 
@@ -831,7 +831,7 @@ Is there a way to automate tasks for continuous integration or DevOps?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Yes, Qubes natively supports automation via :doc:`Salt (SaltStack) </user/advanced-topics/salt>`. There is also the unofficial `ansible-qubes toolkit <https://github.com/Rudd-O/ansible-qubes>`__. (**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, :topic:`allowing it to manage dom0 may be a security risk <19075#dom0-precautions>`.)
+Yes, Qubes natively supports automation via :doc:`Salt (SaltStack) </user/advanced-topics/salt>`. There is also the unofficial :github:`ansible-qubes toolkit <Rudd-O/ansible-qubes>`. (**Warning:** Since this is an external project that has not been reviewed or endorsed by the Qubes team, :topic:`allowing it to manage dom0 may be a security risk <19075#dom0-precautions>`.)
 
 .. |checkmark| image:: /attachment/doc/checkmark.png
 .. |redx| image:: /attachment/doc/red_x.png

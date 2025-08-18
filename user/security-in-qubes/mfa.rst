@@ -25,15 +25,15 @@ As the name implies, this generates authentication code that is time-dependent. 
 
 1. Download ``google-authenticator`` in dom0:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update google-authenticator
+         $ sudo qubes-dom0-update google-authenticator
 
 
 
 2. Run google authenticator:
 
-   .. code:: bash
+   .. code:: console
 
          google-authenticator
 
@@ -41,14 +41,14 @@ As the name implies, this generates authentication code that is time-dependent. 
 
 3. Walk through the setup instructions which will also generate your QR code for your auth app of choice:
 
-   .. code:: bash
+   .. code:: output
 
          Do you want me to update your “/home/user/.google_authenticator” file (y/n) y
-         
+
          Do you want to disallow multiple uses of the same authentication token? This restricts you to one login about every 30s, but it increases your chances to notice or even prevent man-in-the-middle attacks (y/n)
-         
+
          By default, tokens are good for 30 seconds, and to compensate for possible time-skew between the client and the server, we allow an extra token before and after the current time. If you experience problems with poor time synchronization, you can increase the window from its default size of 1:30min to about 4min. Do you want to do so (y/n)
-         
+
          If the computer that you are logging into isn’t hardened against brute-force login attempts, you can enable rate-limiting for the authentication module. By default, this limits attackers to no more than 3 login attempts every 30s. Do you want to enable rate-limiting (y/n)
 
 
@@ -66,14 +66,14 @@ Now we are going to add the authenticator as a login requirement:
 2. Edit the custom system authentication template in ``/etc/authselect/custom/mfa/system-auth``.
    Add the following line right after ``auth required pam_faildelay.so delay=2000000``:
 
-   .. code:: bash
+   .. code:: text
 
          auth required pam_google_authenticator.so
 
 
    After the change, the top of the file should look like this:
 
-   .. code:: bash
+   .. code:: text
 
          {imply "with-smartcard" if "with-smartcard-required"}
          auth required pam_env.so
@@ -84,9 +84,9 @@ Now we are going to add the authenticator as a login requirement:
 
 3. Lastly, activate this authentication method with:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo authselect select custom/mfa
+         $ sudo authselect select custom/mfa
 
 
 
@@ -108,9 +108,9 @@ The following assumes you haven’t restarted your computer since setting up TOT
 
 2. Revert to the original policy with:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo authselect select sssd
+         $ sudo authselect select sssd
 
 
 
@@ -168,9 +168,9 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
 
 
-     .. code:: bash
+     .. code:: console
 
-           sudo dnf install ykpers
+           $ sudo dnf install ykpers
 
 
 
@@ -178,9 +178,9 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
 
 
-     .. code:: bash
+     .. code:: console
 
-           sudo apt-get install yubikey-personalization
+           $ sudo apt-get install yubikey-personalization
 
 
 
@@ -188,7 +188,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
      - Follow the installation instructions on the official `NitroKey website <https://docs.nitrokey.com/software/nitropy/all-platforms/installation>`__.
 
-     - **WARNING**: *as of April 2024 the official instructions involve using pipx to install the pynitrokey package and its dependencies without any GPG verification! This is not a recommended practice, but will soon be fixed by NitroKey when they start providing release artifacts with detached signatures on* `their GitHub <https://github.com/Nitrokey/pynitrokey/releases>`__ *. Proper packaging and distribution for Debian and perhaps Fedora is also planned for the mid-long term.* **Installing packages using pip or pipx is not recommended!**
+     - **WARNING**: *as of April 2024 the official instructions involve using pipx to install the pynitrokey package and its dependencies without any GPG verification! This is not a recommended practice, but will soon be fixed by NitroKey when they start providing release artifacts with detached signatures on* :github:`their GitHub <Nitrokey/pynitrokey/releases>` *. Proper packaging and distribution for Debian and perhaps Fedora is also planned for the mid-long term.* **Installing packages using pip or pipx is not recommended!**
 
 
 
@@ -200,11 +200,11 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
 
 
-2. Install `qubes-app-yubikey <https://github.com/QubesOS/qubes-app-yubikey>`__ in dom0. This provides the program to authenticate with password and YubiKey / NitroKey3.
+2. Install :github:`qubes-app-yubikey <QubesOS/qubes-app-yubikey>` in dom0. This provides the program to authenticate with password and YubiKey / NitroKey3.
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update qubes-yubikey-dom0
+         $ sudo qubes-dom0-update qubes-yubikey-dom0
 
 
 
@@ -236,7 +236,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
      - Set up a new NK3 Secrets App HOTP secret by attaching the NitroKey to your USB qube and running the following commands in it:
 
-       .. code:: bash
+       .. code:: console
 
              AESKEY=$(echo -n "your-20-digit-secret" | base32)
              nitropy nk3 secrets register --kind hotp --hash sha256 --digits-str 8 --counter-start 1 --touch-button loginxs $AESKEY
@@ -281,7 +281,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
    - You can calculate your hashed password using the following two commands. First run the following command to store your password in a temporary variable ``password``. (This way your password will not leak to the terminal command history file.)
 
-     .. code:: bash
+     .. code:: console
 
            read -r password
 
@@ -289,9 +289,9 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
    - Now run the following command to calculate your hashed password.
 
-     .. code:: bash
+     .. code:: console
 
-           echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
+           $ echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
 
 
 
@@ -299,7 +299,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
 6. To enable multi-factor authentication for a service, you need to add
 
-   .. code:: bash
+   .. code:: text
 
          auth include yubikey
 
@@ -337,7 +337,7 @@ Optional: Enforce YubiKey / NitroKey3 Login
 
 Edit ``/etc/pam.d/yubikey`` (or appropriate file if you are using other screen locker program) and remove ``default=ignore`` so the line looks like this.
 
-.. code:: bash
+.. code:: text
 
       auth [success=done] pam_exec.so expose_authtok quiet /usr/bin/yk-auth
 
@@ -353,7 +353,7 @@ In dom0:
 
 1. First configure the qrexec service. Create ``/etc/qubes-rpc/custom.LockScreen`` with a simple command to lock the screen. In the case of xscreensaver (used in Xfce) it would be:
 
-   .. code:: bash
+   .. code:: text
 
          DISPLAY=:0 xscreensaver-command -lock
 
@@ -361,15 +361,15 @@ In dom0:
 
 2. Then make ``/etc/qubes-rpc/custom.LockScreen`` executable.
 
-   .. code:: bash
+   .. code:: console
 
-         sudo chmod +x /etc/qubes-rpc/custom.LockScreen
+         $ sudo chmod +x /etc/qubes-rpc/custom.LockScreen
 
 
 
 3. Allow your USB VM to call that service. Assuming that it’s named ``sys-usb`` it would require creating ``/etc/qubes-rpc/policy/custom.LockScreen`` with:
 
-   .. code:: bash
+   .. code:: text
 
          sys-usb dom0 allow
 
@@ -381,7 +381,7 @@ In your USB VM:
 
 1. Create udev hook. Store it in ``/rw/config`` to have it persist across VM restarts. For example name the file ``/rw/config/yubikey.rules``. Add the following line:
 
-   .. code:: bash
+   .. code:: text
 
          ACTION=="remove", SUBSYSTEM=="usb", ENV{ID_SECURITY_TOKEN}=="1", RUN+="/usr/bin/qrexec-client-vm dom0 custom.LockScreen"
 
@@ -398,17 +398,17 @@ In your USB VM:
 
 3. Then make ``/rw/config/rc.local`` executable.
 
-   .. code:: bash
+   .. code:: console
 
-         sudo chmod +x /rw/config/rc.local
+         $ sudo chmod +x /rw/config/rc.local
 
 
 
 4. For changes to take effect, you need to call this script manually for the first time.
 
-   .. code:: bash
+   .. code:: console
 
-         sudo /rw/config/rc.local
+         $ sudo /rw/config/rc.local
 
 
 
@@ -416,7 +416,7 @@ In your USB VM:
 
 If you use KDE, the command(s) in first step would be different:
 
-.. code:: bash
+.. code:: console
 
       # In the case of USB VM being autostarted, it will not have direct access to D-Bus
       # session bus, so find its address manually:

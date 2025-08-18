@@ -15,7 +15,7 @@ Can't attach a USB device / USB device not showing in qvm-usb
 
 To successfully attach a USB device, you require a VM dedicated to handling the USB input and output. For guidance setting up a USB qube, see the :ref:`USB documentation <user/how-to-guides/how-to-use-usb-devices:creating and using a usb qube>`.
 
-Currently (until issue :issue:`1082` gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. This may be characterized by VM manager crashes and the error message: ``Houston, we have a problem``. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following the instructions at the :ref:`Block Devices documentation <user/how-to-guides/how-to-use-block-storage-devices:what if i removed the device before detaching it from the vm?>`.
+Currently (until issue :issue:`1082 <1082>` gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. This may be characterized by VM manager crashes and the error message: ``Houston, we have a problem``. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following the instructions at the :ref:`Block Devices documentation <user/how-to-guides/how-to-use-block-storage-devices:what if i removed the device before detaching it from the vm?>`.
 
 "Device attach failed" error
 ----------------------------
@@ -41,9 +41,9 @@ A device that does not support reset is not ideal and generally should not be as
 
 Most likely the offending controller is a USB 3.0 device. You can remove this controller from the USB VM, and see if this allows the VM to boot. Alternatively you may be able to disable USB 3.0 in the BIOS. If the BIOS does not have the option to disable USB 3.0, try running the following command in dom0 to force USB 2.0 modes for the USB ports:
 
-.. code:: bash
+.. code:: console
 
-      lspci -nn | grep USB | cut -d '[' -f3 | cut -d ']' -f1 | xargs -I@ setpci -H1 -d @ d0.l=0
+      $ lspci -nn | grep USB | cut -d '[' -f3 | cut -d ']' -f1 | xargs -I@ setpci -H1 -d @ d0.l=0
 
 
 
@@ -51,7 +51,7 @@ Errors suggesting this issue:
 
 - in ``xl dmesg`` output:
 
-  .. code::
+  .. code:: output
 
         (XEN) [VT-D] It's disallowed to assign 0000:00:1a.0 with shared RMRR at dbe9a000 for Dom19.
         (XEN) XEN_DOMCTL_assign_device: assign 0000:00:1a.0 to dom19 failed (-1)
@@ -60,7 +60,7 @@ Errors suggesting this issue:
 
 - during ``qvm-start sys-usb``:
 
-  .. code::
+  .. code:: output
 
         internal error: Unable to reset PCI device [...]  no FLR, PM reset or bus reset available.
 
@@ -72,17 +72,17 @@ Another solution would be to set the pci_strictreset option in dom0:
 
 - In Qubes R4.x, when attaching the PCI device to the VM (where ``<BDF>`` can be obtained from running ``qvm-pci``):
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
+        $ qvm-pci attach --persistent --option no-strict-reset=true usbVM dom0:<BDF>
 
 
 
 - In Qubes R3.x, by modifying the VM’s properties:
 
-  .. code:: bash
+  .. code:: console
 
-        qvm-prefs usbVM -s pci_strictreset false
+        $ qvm-prefs usbVM -s pci_strictreset false
 
 
 

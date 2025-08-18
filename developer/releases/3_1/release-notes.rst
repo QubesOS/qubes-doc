@@ -21,7 +21,7 @@ New features since 3.0
 
 - PV Grub support (:doc:`documentation </user/advanced-topics/managing-vm-kernels>`)
 
-- Out of the box USB VM setup, including `handling USB mouse <https://github.com/QubesOS/qubes-app-linux-input-proxy/blob/master/README.md>`__
+- Out of the box USB VM setup, including :github:`handling USB mouse <QubesOS/qubes-app-linux-input-proxy/blob/master/README.md>`
 
 - Xen upgraded to 4.6, for better hardware support (especially Skylake platform)
 
@@ -29,7 +29,7 @@ New features since 3.0
 
 
 
-You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.1%22+label%3Arelease-notes+is%3Aclosed>`__
+You can get detailed description in :github:`completed github issues <QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.1%22+label%3Arelease-notes+is%3Aclosed>`
 
 Known issues
 ------------
@@ -43,7 +43,7 @@ Known issues
 
 - USB mouse (in the case of USB VM) does not work at first system startup (just after completing firstboot). Workaround: restart the system.
 
-- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+3.1%22+label%3Abug>`__
+- For other known issues take a look at :github:`our tickets <QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+3.1%22+label%3Abug>`
 
 
 

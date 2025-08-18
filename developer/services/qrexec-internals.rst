@@ -7,7 +7,7 @@ Qrexec: Qubes RPC internals
 
 The qrexec framework consists of a number of processes communicating with each other using a common IPC protocol, described in detail below.
 
-Components residing in the same domain (``qrexec-client-vm`` to ``qrexec-agent``, ``qrexec-client`` to ``qrexec-daemon``) use local sockets as the underlying transport medium. Components in separate domains (``qrexec-daemon`` to ``qrexec-agent``, data channel between ``qrexec-agent(s)``) use vchan links. Because of `vchan limitation <https://github.com/qubesos/qubes-issues/issues/951>`__, it is not possible to establish qrexec connection back to the source domain.
+Components residing in the same domain (``qrexec-client-vm`` to ``qrexec-agent``, ``qrexec-client`` to ``qrexec-daemon``) use local sockets as the underlying transport medium. Components in separate domains (``qrexec-daemon`` to ``qrexec-agent``, data channel between ``qrexec-agent(s)``) use vchan links. Because of :github:`vchan limitation <qubesos/qubes-issues/issues/951>`, it is not possible to establish qrexec connection back to the source domain.
 
 Dom0 tools implementation
 -------------------------
@@ -142,9 +142,9 @@ dom0: request execution of ``cmd`` in domX
 
 - **dom0**: ``qrexec-client`` is invoked in **dom0** as follows:
 
-  .. code:: bash
+  .. code:: console
 
-        qrexec-client -d domX [-l local_program] user:cmd
+        $ qrexec-client -d domX [-l local_program] user:cmd
 
 
 
@@ -189,9 +189,9 @@ domX: request execution of service ``admin.Service`` in dom0
 
 - **domX**: ``qrexec-client-vm`` is invoked as follows:
 
-  .. code:: bash
+  .. code:: console
 
-        qrexec-client-vm dom0 admin.Service [local_program] [params]
+        $ qrexec-client-vm dom0 admin.Service [local_program] [params]
 
 
 
@@ -215,9 +215,9 @@ domX: request execution of service ``admin.Service`` in dom0
 
 - **dom0**: If the RPC is allowed, ``qrexec-policy`` will launch a ``qrexec-client`` with the right command:
 
-  .. code:: bash
+  .. code:: console
 
-        qrexec-client -d dom0 -c domX,X,SOCKET11 "QUBESRPC admin.Service domX name dom0"
+        $ qrexec-client -d dom0 -c domX,X,SOCKET11 "QUBESRPC admin.Service domX name dom0"
 
 
 
@@ -258,9 +258,9 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 
 - **domX**: ``qrexec-client-vm`` is invoked as follows:
 
-  .. code:: bash
+  .. code:: console
 
-        qrexec-client-vm domY qubes.Service [local_program] [params]
+        $ qrexec-client-vm domY qubes.Service [local_program] [params]
 
 
 
@@ -276,9 +276,9 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 
 - **dom0**: If the RPC is allowed, ``qrexec-policy`` will launch a ``qrexec-client`` with the right command:
 
-  .. code:: bash
+  .. code:: console
 
-        qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:QUBESRPC qubes.Service domX"
+        $ qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:QUBESRPC qubes.Service domX"
 
 
 
@@ -326,7 +326,7 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 
 This is a service running in dom0. It is called by ``qrexec-daemon`` and is responsible for evaluating the request and possibly launching an action.
 
-The daemon listens on a socket (``/var/run/qubes/policy.sock``). It accepts requests in the format described in `qrexec-policy-daemon.rst <https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-daemon.rst>`__ and replies with ``result=allow/deny``.
+The daemon listens on a socket (``/var/run/qubes/policy.sock``). It accepts requests in the format described in :github:`qrexec-policy-daemon.rst <QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-daemon.rst>` and replies with ``result=allow/deny``.
 
 A standalone version is called ``qrexec-policy-exec`` and is available as a fallback.
 
@@ -346,4 +346,4 @@ There are two endpoints:
 
 
 
-See `qrexec-policy-agent.md <https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-agent.md>`__ for protocol details.
+See :github:`qrexec-policy-agent.md <QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-agent.md>` for protocol details.

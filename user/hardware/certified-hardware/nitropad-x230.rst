@@ -13,7 +13,7 @@ The `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-x230-67>`__ 
 
 The `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-x230-67>`__ offers users unprecedented control over the security of their hardware. Key features include:
 
-- Tamper detection through measured boot with `coreboot <https://www.coreboot.org/>`__, `Heads <https://github.com/osresearch/heads/>`__, and Nitrokey USB hardware, including support for :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>`
+- Tamper detection through measured boot with `coreboot <https://www.coreboot.org/>`__, :github:`Heads <osresearch/heads/>`, and Nitrokey USB hardware, including support for :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>`
 
 - Deactivated `Intel Management Engine <https://libreboot.org/faq.html#intelme>`__
 

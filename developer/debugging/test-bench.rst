@@ -38,15 +38,15 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
    .. code:: bash
 
          #!/bin/sh
-         
+
          # adjust this for your NIC (run lspci)
          BDF=0000:02:00.0
-         
+
          # adjust this for your network driver
          DRIVER=e1000e
-         
+
          prog=$(basename $0)
-         
+
          pciunbind() {
              local path
              path=/sys/bus/pci/devices/${1}/driver/unbind
@@ -56,7 +56,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
              fi
              echo -n ${1} >${path}
          }
-         
+
          pcibind() {
              local path
              path=/sys/bus/pci/drivers/${2}/bind
@@ -66,10 +66,10 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
              fi
              echo ${1} >${path}
          }
-         
+
          pciunbind ${BDF}
          pcibind ${BDF} ${DRIVER}
-         
+
          sleep 1
          dhclient
 
@@ -78,15 +78,15 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 6. You’ll need to run the above script on every startup. To automate this save the following systemd service ``/etc/systemd/system/dom0-network-direct.service``
 
-   .. code:: bash
+   .. code:: systemd
 
          [Unit]
          Description=Connect network to dom0
-         
+
          [Service]
          Type=oneshot
          ExecStart=/home/user/bin/dom0_network.sh
-         
+
          [Install]
          WantedBy=multi-user.target
 
@@ -94,13 +94,13 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 7. Then, enable and start the SSH Server and the script on boot:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo systemctl enable sshd
-         sudo systemctl start sshd
-         
-         sudo systemctl enable dom0-network-direct
-         sudo systemctl start dom0-network-direct
+         $ sudo systemctl enable sshd
+         $ sudo systemctl start sshd
+
+         $ sudo systemctl enable dom0-network-direct
+         $ sudo systemctl start dom0-network-direct
 
 
 
@@ -111,38 +111,38 @@ Install Tests and Their Dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-A regular Qubes installation isn’t ready to run the full suite of tests. For example, in order to run the `Split GPG tests <https://github.com/QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py>`__ you need to have the ``qubes-gpg-split-tests`` package installed in your app qubes.
+A regular Qubes installation isn’t ready to run the full suite of tests. For example, in order to run the :github:`Split GPG tests <QubesOS/qubes-app-linux-split-gpg/blob/4bc201bb70c011119eed19df25dc5b46120d04ed/tests/splitgpg/tests.py>` you need to have the ``qubes-gpg-split-tests`` package installed in your app qubes.
 
 Because of the above reason, some additional configurations need to be done to your testing environment. This can be done in an automated manner with the help of the :doc:`Salt </user/advanced-topics/salt>` configuration that provisions the :doc:`automated testing environment </developer/debugging/automated-tests>`.
 
 The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific local testing system. Run the following in ``dom0``:
 
-.. code:: bash
+.. code:: console
 
       # For future reference the following commands are an adaptation of
       # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
-      
+
       # Install git
-      sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
-      
+      $ sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
+
       # Download the openQA automated testing environment Salt configuration
-      git clone https://github.com/marmarek/openqa-tests-qubesos/
-      cd openqa-tests-qubesos/extra-files
-      sudo cp -a system-tests/ /srv/salt/
-      sudo qubesctl top.enable system-tests
-      
+      $ git clone https://github.com/marmarek/openqa-tests-qubesos/
+      $ cd openqa-tests-qubesos/extra-files
+      $ sudo cp -a system-tests/ /srv/salt/
+      $ sudo qubesctl top.enable system-tests
+
       # Install the same configuration as the one in openQA
-      QUBES_VERSION=4.1
-      PILLAR_DIR=/srv/pillar/base/update
-      sudo mkdir -p $PILLAR_DIR
-      printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
-      printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
-      sudo qubesctl top.enable update pillar=True
-      
+      $ QUBES_VERSION=4.1
+      $ PILLAR_DIR=/srv/pillar/base/update
+      $ sudo mkdir -p $PILLAR_DIR
+      $ printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
+      $ printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
+      $ sudo qubesctl top.enable update pillar=True
+
       # Apply states to dom0 and VMs
       # NOTE: These commands can take several minutes (if not more) without showing output
-      sudo qubesctl --show-output state.highstate
-      sudo qubesctl --max-concurrency=2 --skip-dom0 --templates --show-output state.highstate
+      $ sudo qubesctl --show-output state.highstate
+      $ sudo qubesctl --max-concurrency=2 --skip-dom0 --templates --show-output state.highstate
 
 
 Development VM
@@ -155,7 +155,7 @@ SSH
 
 Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Generate SSH key in ``qubes-dev``:
 
-.. code:: bash
+.. code:: console
 
       ssh-keygen -t ecdsa -b 521
 
@@ -163,7 +163,7 @@ Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Gene
 
 Add the following section in ``.ssh/config`` in ``qubes-dev``:
 
-.. code:: bash
+.. code:: text
 
       Host testbench
           # substitute username in testbench
@@ -190,7 +190,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 .. code:: bash
 
       #!/bin/sh
-      
+
       ssh testbench python -m qubes.tests.run
 
 
@@ -199,19 +199,19 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 .. code:: bash
 
       #!/bin/sh
-      
+
       TMPDIR=/tmp/qtb-rpms
-      
+
       if [ $# -eq 0 ]; then
               echo "usage: $(basename $0) <rpmfile> ..."
               exit 2
       fi
-      
+
       set -e
-      
+
       ssh testbench mkdir -p "${TMPDIR}"
       scp "${@}" testbench:"${TMPDIR}" || echo "check if you have 'scp' installed on your testbench"
-      
+
       while [ $# -gt 0 ]; do
               ssh testbench sudo rpm -i --replacepkgs --replacefiles "${TMPDIR}/$(basename ${1})"
               shift
@@ -223,16 +223,16 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 .. code:: bash
 
       #!/bin/sh
-      
+
       set -e
-      
+
       # substitute path to your builder installation
       pushd ${HOME}/builder >/dev/null
-      
+
       # the following are needed only if you have sources outside builder
       #rm -rf qubes-src/core-admin
       #qb -c core-admin package fetch
-      
+
       qb -c core-admin -d host-fc41 prep build
       # update your dom0 fedora distribution as appropriate
       qtb-install qubes-src/core-admin/rpm/x86_64/qubes-core-dom0-*.rpm
@@ -250,9 +250,9 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 .. code:: bash
 
       #!/bin/sh
-      
+
       set -e
-      
+
       python -c "import sys, qubes.tests.run; sys.exit(not qubes.tests.run.main())"
 
 
@@ -261,6 +261,6 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 .. code:: bash
 
       #!/bin/sh
-      
+
       exec qtb-iterate
 

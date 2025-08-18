@@ -5,10 +5,10 @@ Passwordless root access in qubes
 
 The background to passswordless root access is summarised in this statement, that used to be found at ``/etc/sudoers.d/qubes`` in each qube:
 
-.. code:: bash
+.. code:: text
 
       user ALL=(ALL) NOPASSWD: ALL
-      
+
       # WTF?! Have you lost your mind?!
       #
       # In Qubes VMs there is no point in isolating the root account from

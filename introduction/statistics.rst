@@ -36,7 +36,7 @@ How are Tor users counted?
 
 We estimate the number of Tor users as a proportion of the total number of *requests* from Tor exit nodes on the assumption that the proportion of users to requests is roughly the same for both clearnet and Tor users. To be precise, the formula is:
 
-.. code:: bash
+.. code:: text
 
       tor_users = tor_requests * (plain_users / plain_requests)
 
@@ -66,4 +66,4 @@ Where can I find the raw data and source code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The raw data is available `here <https://tools.qubes-os.org/counter/stats.json>`__. (This does not include any personally-identifying user data.) Please note that the format of this data is not documented and may change any time if the developers feel the need to include something else. The source code is available `here <https://github.com/woju/qubes-stats>`__.
+The raw data is available `here <https://tools.qubes-os.org/counter/stats.json>`__. (This does not include any personally-identifying user data.) Please note that the format of this data is not documented and may change any time if the developers feel the need to include something else. The source code is available :github:`here <woju/qubes-stats>`.

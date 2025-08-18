@@ -183,7 +183,7 @@ Downloads
 ---------
 
 
-:website:`Download an ISO <downloads/>`, learn how to :doc:`verify its authenticity </project-security/verifying-signatures>`, and follow our :doc:`guide to install Qubes OS </user/downloading-installing-upgrading/installation-guide>`. Looking for the :doc:`source code </developer/code/source-code>`? You’ll find it `on GitHub <https://github.com/QubesOS>`__.
+:website:`Download an ISO <downloads/>`, learn how to :doc:`verify its authenticity </project-security/verifying-signatures>`, and follow our :doc:`guide to install Qubes OS </user/downloading-installing-upgrading/installation-guide>`. Looking for the :doc:`source code </developer/code/source-code>`? You’ll find it :github:`on GitHub <QubesOS>`.
 
 Documentation
 -------------

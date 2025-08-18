@@ -1,54 +1,103 @@
-"""
-  ReST directive for embedding Youtube and Vimeo videos.
-  There are two directives added: ``youtube`` and ``vimeo``. The only
-  argument is the video id of the video to include.
-  Both directives have three optional arguments: ``height``, ``width``
-  and ``align``. Default height is 281 and default width is 500.
-  Example::
-    .. youtube:: anwy2MPT5RE
-      :height: 315
-      :width: 560
-      :align: left
-  :copyright: (c) 2012 by Danilo Bargen.
-  :license: BSD 3-clause
-"""
-from __future__ import absolute_import
-from docutils import nodes
-from docutils.parsers.rst import Directive, directives
+"""qubes-doc configuration file"""
+
+import os
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path('_ext').resolve()))
+
+# For the full list of options, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
 
 # -- Project information -----------------------------------------------------
 
 project = 'Qubes OS'
-copyright = '2025, Qubes OS Project'
 author = 'Qubes OS Project'
+copyright = f'%Y, {author}'
 
-title = "Qubes Docs"
-html_title = "Qubes Docs"
+# Warning: Sphinx's version and release differ from Qubes OS !
+
+# The major project version, used as the replacement for the |version| default
+# substitution. i.e. '4.3'
+version = '4.2'
 
 # The full version, including alpha/beta/rc tags
-release = '4.3'
+release = '4.2.4'
+
 
 # -- General configuration ---------------------------------------------------
 
-html_static_path = ['attachment/doc']
 extensions = [
   'sphinx.ext.autosectionlabel',
   'sphinx.ext.extlinks',
   'sphinxnotes.strike',
-  'sphinx_reredirects'
+  'sphinx_reredirects',
+  'youtube_frame',
 ]
 
 redirects = {
-  "user/hardware/hcl": "https://www.qubes-os.org/hcl/",
-  "user/downloading-installing-upgrading/downloads:mirrors":"https://www.qubes-os.org/downloads/mirrors/",
-  "developer/general/visual-style-guide": "https://www.qubes-os.org/doc/visual-style-guide/",
-  "developer/general/website-style-guide":"https://www.qubes-os.org/doc/website-style-guide/",
-  "user/downloading-installing-upgrading/downloads":"https://www.qubes-os.org/downloads/",
-  "developer/general/how-to-edit-the-documentation":"https://www.qubes-os.org/doc/how-to-edit-the-documentation/"
+    "user/hardware/hcl":
+        "https://www.qubes-os.org/hcl/",
+    "user/downloading-installing-upgrading/downloads:mirrors":
+        "https://www.qubes-os.org/downloads/mirrors/",
+    "developer/general/visual-style-guide":
+        "https://www.qubes-os.org/doc/visual-style-guide/",
+    "developer/general/website-style-guide":
+        "https://www.qubes-os.org/doc/website-style-guide/",
+    "user/downloading-installing-upgrading/downloads":
+        "https://www.qubes-os.org/downloads/",
+    "developer/general/how-to-edit-the-documentation":
+        "https://www.qubes-os.org/doc/how-to-edit-the-documentation/",
 }
+
+
+# -- -- Options for highlighting ---------------------------------------------
+
+highlight_language = 'none'
+
+
+# -- -- Options for source files ---------------------------------------------
+
+exclude_patterns = [
+  '_*',
+  '**/.*',
+  '**/*.txt'
+  'attachment',
+]
+
+
+# -- Builder options ---------------------------------------------------------
+
+# -- -- Options for HTML output ----------------------------------------------
+
+html_theme = 'sphinx_rtd_theme'
+
+html_title = f'{project} Documentation'
+
+html_theme_options = {
+  'style_external_links': True,
+}
+
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
+
+html_static_path = ['attachment/doc']
+
+html_use_opensearch = "https://doc.qubes-os.org"
+
+# -- -- Options for the linkcheck builder ------------------------------------
+
+linkcheck_anchors = False
+linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
+
+# -- Extensions configuration ------------------------------------------------
+
+autosectionlabel_prefix_document = True
 
 extlinks = {'issue': ('https://github.com/QubesOS/qubes-issues/issues/%s',
                       'issue #%s'),
+            'github': ('https://github.com/%s',
+                      None),
             'topic': ('https://forum.qubes-os.org/t/%s',
                       'forum topic #%s'),
             'website': ('https://www.qubes-os.org/%s',
@@ -58,88 +107,24 @@ extlinks = {'issue': ('https://github.com/QubesOS/qubes-issues/issues/%s',
             }
 extlinks_detect_hardcoded_links = True
 
-autosectionlabel_prefix_document = True
 
-source_suffix = {
-  '.rst': 'restructuredtext',
-}
-templates_path = ['_templates']
+# -- HTML configuration ------------------------------------------------------
 
-root_doc = "index"
-exclude_patterns = [
-  '_dev/*',
-  'attachment/*',
-  '**/*.txt'
-]
 
-html_theme = 'sphinx_rtd_theme'
-# html_theme = 'default'
-# html_theme = 'classic'
+# -- -- Add 'Edit on GitHub' Link --------------------------------------------
 
-html_theme_options = {
-  'externalrefs': True,
-  'bgcolor': 'white',
-  'linkcolor': '#99bfff',
-  'textcolor': '#000000',
-  'visitedlinkcolor': '#7b7b7b',
-  'bodyfont': '"Open Sans", Arial, sans-serif',
-  'codebgcolor': '$color-qube-light',
-  'codebgcolor': 'grey',
-  'body_min_width': '50%',
-  'body_max_width': '90%',
-  'collapse_navigation': True,
+html_context = {
+    "display_github": True,
+    "github_user": "QubesOs",
+    "github_repo": "qubes-doc",
+    "github_version": "rst",
+    "conf_py_path": "/",
 }
 
-gettext_uuid = True
-gettext_compact = False
-
-# epub_show_urls = 'footnote'
-# latex_show_urls ='footnote'
-
+# -- -- Options for internationalisation -------------------------------------
 
 locale_dirs = ['_translated']
 
-# from https://gist.github.com/ehles/bed012d78aad5d3cd6c35a49bef32f9f
-def align(argument):
-  """Conversion function for the "align" option."""
-  return directives.choice(argument, ('left', 'center', 'right'))
+gettext_compact = False
 
-
-class IframeVideo(Directive):
-  has_content = False
-  required_arguments = 1
-  optional_arguments = 0
-  final_argument_whitespace = False
-  option_spec = {
-    'height': directives.nonnegative_int,
-    'width': directives.nonnegative_int,
-    'align': align,
-  }
-  default_width = 500
-  default_height = 281
-
-  def run(self):
-    self.options['video_id'] = directives.uri(self.arguments[0])
-    if not self.options.get('width'):
-      self.options['width'] = self.default_width
-    if not self.options.get('height'):
-      self.options['height'] = self.default_height
-    if not self.options.get('align'):
-      self.options['align'] = 'left'
-    return [nodes.raw('', self.html % self.options, format='html')]
-
-
-class GeneralVid(IframeVideo):
-  html = '<iframe src="%(video_id)s" width="%(width)u" height="%(height)u" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen class="responsive" referrerpolicy="no-referrer" scrolling="no"></iframe>'
-
-
-class Youtube(IframeVideo):
-  html = '<iframe src="https://www.youtube-nocookie.com/embed/%(video_id)s" \
-  width="%(width)u" height="%(height)u" frameborder="0" \
-  webkitAllowFullScreen mozallowfullscreen allowfullscreen \
-  class="responsive" referrerpolicy="no-referrer" scrolling="no"></iframe>'
-
-
-def setup(builder):
-  directives.register_directive('youtube', Youtube)
-  directives.register_directive('generalvid', GeneralVid)
+gettext_uuid = True

@@ -39,7 +39,7 @@ Overview of Steps
 
 Coming up with an interesting idea that you can realistically achieve in the time available to you (one summer) is probably the most difficult part. We strongly recommend getting involved in advance of the beginning of GSoC, and we will look favorably on applications from prospective contributors who have already started to act like free and open source developers.
 
-Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren’t already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from `qubes-issues <https://github.com/QubesOS/qubes-issues/issues>`__ (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags `“help wanted” and “P: minor” <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22>`__ (although more significant things are also welcome, of course). Doing this will get you some practice with :doc:`qubes-builder </developer/building/qubes-builder-v2>`, our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
+Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren’t already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from :github:`qubes-issues <QubesOS/qubes-issues/issues>` (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags :github:`“help wanted” and “P: minor” <QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22>` (although more significant things are also welcome, of course). Doing this will get you some practice with :doc:`qubes-builder </developer/building/qubes-builder-v2>`, our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
 
 Contributor proposal guidelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,34 +49,34 @@ A project proposal is what you will be judged upon. Write a clear proposal on wh
 
 Below is the application template:
 
-.. code:: bash
+.. code:: markdown
 
       # Introduction
-      
+
       Every software project should solve a problem. Before offering the solution (your Google Summer of Code project), you should first define the problem. What’s the current state of things? What’s the issue you wish to solve and why? Then you should conclude with a sentence or two about your solution. Include links to discussions, features, or bugs that describe the problem further if necessary.
-      
+
       # Project goals
-      
+
       Be short and to the point, and perhaps format it as a list. Propose a clear list of deliverables, explaining exactly what you promise to do and what you do not plan to do. “Future developments” can be mentioned, but your promise for the Google Summer of Code term is what counts.
-      
+
       # Implementation
-      
+
       Be detailed. Describe what you plan to do as a solution for the problem you defined above. Include technical details, showing that you understand the technology. Illustrate key technical elements of your proposed solution in reasonable detail.
-      
+
       # Timeline
-      
+
       Show that you understand the problem, have a solution, have also broken it down into manageable parts, and that you have a realistic plan on how to accomplish your goal. Here you set expectations, so don’t make promises you can’t keep. A modest, realistic and detailed timeline is better than promising the impossible.
-      
+
       If you have other commitments during GSoC, such as a job, vacation, exams, internship, seminars, or papers to write, disclose them here. GSoC should be treated like a full-time job, and we will expect approximately 40 hours of work per week. If you have conflicts, explain how you will work around them. If you are found to have conflicts which you did not disclose, you may be failed.
-      
+
       Open and clear communication is of utmost importance. Include your plans for communication in your proposal; daily if possible. You will need to initiate weekly formal communications such as a detailed email to the qubes-devel mailing list. Lack of communication will result in you being failed.
-      
+
       # About me
-      
+
       Provide your contact information and write a few sentences about you and why you think you are the best for this job. Prior contributions to Qubes are helpful; list your commits. Name people (other developers, students, professors) who can act as a reference for you. Mention your field of study if necessary. Now is the time to join the relevant mailing lists. We want you to be a part of our community, not just contribute your code.
-      
+
       Tell us if you are submitting proposals to other organizations, and whether or not you would choose Qubes if given the choice.
-      
+
       Other things to think about:
       * Are you comfortable working independently under a supervisor or mentor who is several thousand miles away, and perhaps 12 time zones away? How will you work with your mentor to track your work? Have you worked in this style before?
       * If your native language is not English, are you comfortable working closely with a supervisor whose native language is English? What is your native language, as that may help us find a mentor who has the same native language?
@@ -90,23 +90,23 @@ Project Ideas
 
 These project ideas were contributed by our developers and may be incomplete. If you are interested in submitting a proposal based on these ideas, you should contact the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` and associated GitHub issue to learn more about the idea.
 
-.. code::
+.. code:: markdown
 
       ### Adding a Proposal
-      
+
       **Project**: Something that you're totally excited about
-      
+
       **Brief explanation**: What is the project, where does the code live?
-      
+
       **Expected results**: What is the expected result in the timeframe given
-      
+
       **Difficulty**: easy / medium / hard
-      
+
       **Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
       If applicable, links to more information or discussions
-      
+
       **Size of the project**: either 175 hours (medium) or 350 hours (large)
-      
+
       **Mentor**: Name and email address.
 
 
@@ -315,9 +315,9 @@ Whonix IPv6 and nftables support
 
 - Work at upstream Tor: An older version of `TransparentProxy <https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy>`__ page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. `here <https://trac.torproject.org/projects/tor/ticket/21397>`__
 
-- implement corridor feature request add IPv6 support / port to nftables - `issue <https://github.com/rustybird/corridor/issues/39>`__
+- implement corridor feature request add IPv6 support / port to nftables - :github:`issue <rustybird/corridor/issues/39>`
 
-- port `whonix-firewall <https://github.com/Whonix/whonix-firewall>`__ to nftables
+- port :github:`whonix-firewall <Whonix/whonix-firewall>` to nftables
 
 - make connections to IPv6 Tor relays work
 
@@ -381,7 +381,7 @@ GNOME support in dom0 / GUI VM
 
 - Review existing support for other desktop environments (KDE, Xfce4, i3, awesome).
 
-- Patch window manager to draw colorful borders (we use only server-side decorations), there is already very similar patch in `Cappsule project <https://github.com/cappsule/cappsule-gui>`__.
+- Patch window manager to draw colorful borders (we use only server-side decorations), there is already very similar patch in :github:`Cappsule project <cappsule/cappsule-gui>`.
 
 - Configure GNOME to not make use of dom0 user home in visible way (no search in files there, no file manager, etc).
 
@@ -451,7 +451,7 @@ for more information and qubes-specific background.
 
 **Difficulty**: medium
 
-**Knowledge prerequisite**: qubes-builder :doc:`[1] </developer/building/qubes-builder-v2>` `[2] <https://github.com/QubesOS/qubes-builderv2>`__, and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
+**Knowledge prerequisite**: qubes-builder :doc:`[1] </developer/building/qubes-builder-v2>` :github:`[2] <QubesOS/qubes-builderv2>`, and efficient at introspecting complex systems: comfortable with tracing and debugging tools, ability to quickly identify and locate issues within a large codebase (upstream build tools), etc.
 
 **Size of the project**: 350 hours
 
@@ -553,7 +553,7 @@ Since the Admin API is continuously growing and changing, continuous security as
 
 - basic Python understanding
 
-- some knowledge about fuzzing & existing fuzzing frameworks (e.g. `oss-fuzz <https://github.com/google/oss-fuzz/tree/master/projects/qubes-os>`__)
+- some knowledge about fuzzing & existing fuzzing frameworks (e.g. :github:`oss-fuzz <google/oss-fuzz/tree/master/projects/qubes-os>`)
 
 - a hacker’s curiosity
 
@@ -661,7 +661,7 @@ Template manager, new template distribution mechanism
 
 
 
-- If new “package” format is developed, add support for it into `linux-template-builder <https://github.com/QubesOS/qubes-linux-template-builder>`__.
+- If new “package” format is developed, add support for it into :github:`linux-template-builder <QubesOS/qubes-linux-template-builder>`.
 
 - Document the mechanism.
 

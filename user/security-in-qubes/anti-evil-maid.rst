@@ -13,7 +13,7 @@ Requirements
 ------------
 
 
-The current package requires a TPM 1.2 interface and a working Intel TXT engine. If you cleaned your Intel Management Engine with e.g. `me_cleaner <https://github.com/corna/me_cleaner>`__ while installing `CoreBoot <https://www.coreboot.org/>`__ then you are out of luck. For now you have to choose between cleaning your BIOS and deploying Anti Evil Maid.
+The current package requires a TPM 1.2 interface and a working Intel TXT engine. If you cleaned your Intel Management Engine with e.g. :github:`me_cleaner <corna/me_cleaner>` while installing `CoreBoot <https://www.coreboot.org/>`__ then you are out of luck. For now you have to choose between cleaning your BIOS and deploying Anti Evil Maid.
 
 `Discussion <https://groups.google.com/d/msg/qubes-users/sEmZfOZqYXM/j5rHeex1BAAJ>`__
 
@@ -23,13 +23,13 @@ Installing
 
 In Dom0 install ``anti-evil-maid``:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dom0-update anti-evil-maid
+      $ sudo qubes-dom0-update anti-evil-maid
 
 
 
-For more information, see the `qubes-antievilmaid <https://github.com/QubesOS/qubes-antievilmaid>`__ repository, which includes a ``README``.
+For more information, see the :github:`qubes-antievilmaid <QubesOS/qubes-antievilmaid>` repository, which includes a ``README``.
 
 Security Considerations
 -----------------------

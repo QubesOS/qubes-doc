@@ -39,18 +39,18 @@ Our test runner runs mostly the same as the standard one, but it has some nice a
 
 You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ python3 -m qubes.tests.run -h
       usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
                     [--do-not-clean] [--do-clean] [--loglevel LEVEL]
                     [--logfile FILE] [--syslog] [--no-syslog] [--kmsg] [--no-kmsg]
                     [TESTNAME [TESTNAME ...]]
-      
+
       positional arguments:
         TESTNAME              list of tests to run named like in description
                               (default: run all tests)
-      
+
       optional arguments:
         -h, --help            show this help message and exit
         --verbose, -v         increase console verbosity level
@@ -74,7 +74,7 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
                               allow running in parallel with qubesd; this is
                               DANGEROUS and WILL RESULT IN INCONSISTENT SYSTEM STATE
         --break-to-repl       break to REPL after tests
-      
+
       When running only specific tests, write their names like in log, in format:
       MODULE+"/"+CLASS+"/"+FUNCTION. MODULE should omit initial "qubes.tests.".
       Example: basic/TC_00_Basic/test_000_create
@@ -82,7 +82,7 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 
 For instance, to run only the tests for the fedora-21 template, you can use the ``-l`` option, then filter the list:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
       network/VmNetworking_fedora-21/test_000_simple_networking
@@ -117,9 +117,9 @@ Example test run:
 
 Tests are also compatible with nose2 test runner, so you can use this instead:
 
-.. code:: bash
+.. code:: console
 
-      sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
+      $ sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
 
 This may be especially useful together with various nose2 plugins to store tests results (for example ``nose2.plugins.junitxml``), to ease presenting results. This is what we use on `OpenQA <https://open.qa/>`__.
@@ -130,25 +130,25 @@ Unit testing inside a VM
 
 Many unit tests will also work inside a VM. However all of the tests requiring a dedicated VM to be run (mostly the integration tests) will be skipped.
 
-Whereas integration tests are mostly stored in the `qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__ repository, unit tests can be found in each of the Qubes OS repositories.
+Whereas integration tests are mostly stored in the :github:`qubes-core-admin <QubesOS/qubes-core-admin>` repository, unit tests can be found in each of the Qubes OS repositories.
 
-To for example run the ``qubes-core-admin`` unit tests, you currently have to clone at least `qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__ and its dependency `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec>`__ repository in the branches that you want to test.
+To for example run the ``qubes-core-admin`` unit tests, you currently have to clone at least :github:`qubes-core-admin <QubesOS/qubes-core-admin>` and its dependency :github:`qubes-core-qrexec <QubesOS/qubes-core-qrexec>` repository in the branches that you want to test.
 
 The below example however will assume that you set up a build environment as described in the :doc:`Qubes Builder documentation </developer/building/qubes-builder-v2>`.
 
 Assuming you cloned the ``qubes-builder`` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
 
-.. code:: bash
+.. code:: console
 
-      cd ~
-      sudo dnf install python3-pip lvm2 python35 python3-virtualenv
-      virtualenv -p /usr/bin/python35 python35
-      source python35/bin/activate
-      python3 -V
-      cd ~/qubes-builder/qubes-src/core-admin
-      pip3 install -r ci/requirements.txt
-      export PYTHONPATH=../core-qrexec:test-packages
-      ./run-tests
+      $ cd ~
+      $ sudo dnf install python3-pip lvm2 python35 python3-virtualenv
+      $ virtualenv -p /usr/bin/python35 python35
+      $ source python35/bin/activate
+      $ python3 -V
+      $ cd ~/qubes-builder/qubes-src/core-admin
+      $ pip3 install -r ci/requirements.txt
+      $ export PYTHONPATH=../core-qrexec:test-packages
+      $ ./run-tests
 
 
 To run only the tests related to e.g. ``lvm``, you may use:
@@ -179,7 +179,7 @@ Adding a new test to core-admin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-After adding a new unit test to `core-admin/qubes/tests <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests>`__ you’ll have to include it in `core-admin/qubes/tests/__init__.py <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py>`__
+After adding a new unit test to :github:`core-admin/qubes/tests <QubesOS/qubes-core-admin/tree/master/qubes/tests>` you’ll have to include it in :github:`core-admin/qubes/tests/__init__.py <QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py>`
 
 Editing ``__init__.py``
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -213,37 +213,37 @@ When testing (Py)QT applications, it’s useful to create a separate QApplicatio
       import quamash
       import unittest
       import gc
-      
+
       class SomeTestCase(unittest.TestCase):
           def setUp(self):
               [...]
-      
+
               # force "cleanlooks" style, the default one on Xfce (GtkStyle) use
               # static variable internally and caches pointers to later destroyed
               # objects (result: SEGV)
               self.qtapp = QtGui.QApplication(["test", "-style", "cleanlooks"])
-      
+
               # construct event loop even if this particular test doesn't use it,
               # otherwise events with qtapp references will be queued there anyway and the
               # first test that actually use event loop will try to dereference (already
               # destroyed) objects, resulting in SEGV
               self.loop = quamash.QEventLoop(self.qtapp)
-      
+
           def tearDown(self):
               [...]
               # process any pending events before destroying the object
               self.qtapp.processEvents()
-      
+
               # queue destroying the QApplication object, do that for any other QT
               # related objects here too
               self.qtapp.deleteLater()
-      
+
               # process any pending events (other than just queued destroy), just in case
               self.qtapp.processEvents()
-      
+
               # execute main loop, which will process all events, _including just queued destroy_
               self.loop.run_until_complete(asyncio.sleep(0))
-      
+
               # at this point it QT objects are destroyed, cleanup all remaining references;
               # del other QT object here too
               self.loop.close()
@@ -268,7 +268,7 @@ Looking for patterns in tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In order to better visualize patterns in tests the `openqa_investigator <https://github.com/QubesOS/openqa-tests-qubesos/blob/master/utils/openqa_investigator.py>`__ script can be used. It feeds off of the openQA test data to make graph plots. Here is an example:
+In order to better visualize patterns in tests the :github:`openqa_investigator <QubesOS/openqa-tests-qubesos/blob/master/utils/openqa_investigator.py>` script can be used. It feeds off of the openQA test data to make graph plots. Here is an example:
 
 .. figure:: /attachment/doc/openqa-investigator-splitgpg-example.png
    :alt: openqa-investigator-splitgpg-example.png

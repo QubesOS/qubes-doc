@@ -21,8 +21,8 @@ Qubes Windows Tools are a set of programs and drivers that provide integration o
 
 Below is a breakdown of the feature availability depending on the windows version:
 
-.. list-table:: 
-   :widths: 39 39 39 
+.. list-table::
+   :widths: 39 39 39
    :align: center
    :header-rows: 1
 
@@ -59,7 +59,7 @@ Below is a breakdown of the feature availability depending on the windows versio
    * - Audio
      - n
      - n
-   
+
 
 
 Qubes Windows Tools are open source and are distributed under a GPL license.
@@ -70,7 +70,7 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
 
 - Currently only 64-bit versions of Windows 7 and Windows 10 are supported by Qubes Windows Tools. Only emulated SVGA GPU is supported (although `there has been reports <https://groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA>`__ on working GPU passthrough).
 
-- **This page documents the process of installing Qubes Windows Tools on versions up to R3.2.**. Installation on Qubes R4.0 is possible but is a work in progress and there are limitations/bugs (see :issue:`3585`).
+- **This page documents the process of installing Qubes Windows Tools on versions up to R3.2.**. Installation on Qubes R4.0 is possible but is a work in progress and there are limitations/bugs (see :issue:`issue #3585 <3585>`).
 
 
 
@@ -102,7 +102,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
 6. Check the integrity of the file ``qubes-tools-4.0.1.3.exe``by comparing its hash checksum. This can be done using the Windows command ``certutil`` on the windows command prompt (``cmd.exe``) and specifying an appropriate hash algorithm like:
 
-   .. code:: bash
+   .. code:: doscon
 
          certutil -hashfile C:\qubes-tools-4.0.1.3.exe SHA256
 
@@ -120,10 +120,10 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
 9. On a ``dom0`` terminal write: *(where* ``<VMname>`` *is the name of your Windows 10 VM)*
 
-   .. code:: bash
+   .. code:: console
 
-         qvm-features <VMname> gui 1
-         qvm-prefs <VMname> qrexec_timeout 300
+         $ qvm-features <VMname> gui 1
+         $ qvm-prefs <VMname> qrexec_timeout 300
 
 
 
@@ -133,9 +133,9 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
 12. Lastly to enable file copy operations to a Windows 10 VM the ``default_user`` property should be set the ``<username>`` that you use to login to the Windows VM. This can be done via the following command on a ``dom0`` terminal: *(where* ``<VMname>`` *is the name of your Windows 10 VM)*
 
-    .. code:: bash
+    .. code:: console
 
-          qvm-prefs <VMname> default_user <username>
+          $ qvm-prefs <VMname> default_user <username>
 
 
 
@@ -143,7 +143,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
 **Note:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder
 
-.. code:: bash
+.. code:: text
 
       C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\<source_VM>
 
@@ -157,9 +157,9 @@ Installing Qubes guest tools in Windows 7 VMs
 
 First, make sure that ``qubes-windows-tools`` is installed in your system:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dom0-update qubes-windows-tools
+      $ sudo qubes-dom0-update qubes-windows-tools
 
 
 
@@ -167,9 +167,9 @@ First, make sure that ``qubes-windows-tools`` is installed in your system:
 
 You can also install the package from testing repositories, where we usually publish new versions first:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
+      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 
 
 
@@ -189,9 +189,9 @@ In the future this step will not be necessary anymore, because we will sign our 
 
 To install the Qubes Windows Tools in a Windows VM one should start the VM passing the additional option ``--install-windows-tools``:
 
-.. code:: bash
+.. code:: console
 
-      qvm-start lab-win7 --install-windows-tools
+      $ qvm-start lab-win7 --install-windows-tools
 
 
 
@@ -201,17 +201,17 @@ After successful installation, the Windows VM must be shut down and started agai
 
 Qubes will automatically detect the tools has been installed in the VM and will set appropriate properties for the VM, such as ``qrexec_installed``, ``guiagent_installed``, and ``default_user``. This can be verified (but is not required) using qvm-prefs command:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs <your-appvm-name>
+      $ qvm-prefs <your-appvm-name>
 
 
 
 **Note:** it is recommended to increase the default value of Windows VM’s ``qrexec_timeout`` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation Windows user profiles are moved onto the private VM’s virtual disk (private.img) and this operation can take some time. Moving profiles is performed in an early boot phase when qrexec is not yet running, so timeout may occur with the default value. To change the property use this command in dom0:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs <vm-name> qrexec_timeout 300
+      $ qvm-prefs <vm-name> qrexec_timeout 300
 
 
 
@@ -245,9 +245,9 @@ Notes about using Xen’s VBD (storage) PV driver:
 
 With Qubes Windows Tools installed the early graphical console provided in debugging mode isn’t needed anymore since Qubes’ display driver will be used instead of the default VGA driver:
 
-.. code:: bash
+.. code:: console
 
-      qvm-prefs -s win7new debug false
+      $ qvm-prefs -s win7new debug false
 
 
 
@@ -259,9 +259,9 @@ Using Windows AppVMs in seamless mode
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the ``-a`` switch used here, which will auto-start the VM if it is not running):
 
-.. code:: bash
+.. code:: console
 
-      qvm-run -a my-win7-appvm explorer.exe
+      $ qvm-run -a my-win7-appvm explorer.exe
 
 
 
@@ -269,13 +269,13 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 
 Also, the inter-VM services work as usual – e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
-.. code:: bash
+.. code:: console
 
       [user@work ~]$ qvm-open-in-vm work-win7 roadmap.pptx
 
 
 
-.. code:: bash
+.. code:: console
 
       [user@work ~]$ qvm-open-in-vm work-win7 https://invisiblethingslab.com
 
@@ -303,9 +303,9 @@ Qubes allows HVM VMs to share a common root filesystem from a select Template VM
 
 In order to create a HVM TemplateVM one can use the following command, suitably adapted:
 
-.. code:: bash
+.. code:: console
 
-      qvm-create --class TemplateVM win-template --property virt_mode=HVM --property kernel=''  -l green
+      $ qvm-create --class TemplateVM win-template --property virt_mode=HVM --property kernel=''  -l green
 
 
 
@@ -333,9 +333,9 @@ It also makes sense to disable Automatic Updates for all the template-based AppV
 
 Once the template has been created and installed it is easy to create AppVMs based on it:
 
-.. code:: bash
+.. code:: console
 
-      qvm-create --property virt_mode=hvm <new windows appvm name> --template <name of template vm> --label <label color>
+      $ qvm-create --property virt_mode=hvm <new windows appvm name> --template <name of template vm> --label <label color>
 
 
 
@@ -389,8 +389,8 @@ Configuration
 
 Starting from version 2.2.* various aspects of Qubes Windows Tools can be configured through registry. Main configuration key is located in ``HKEY_LOCAL_MACHINE\SOFTWARE\Invisible Things Lab\Qubes Tools``. Configuration values set on this level are global to all QWT components. It’s possible to override global values with component-specific keys, this is useful mainly for setting log verbosity for troubleshooting. Possible configuration values are:
 
-.. list-table:: 
-   :widths: 14 14 14 14 
+.. list-table::
+   :widths: 14 14 14 14
    :align: center
    :header-rows: 1
 
@@ -410,13 +410,13 @@ Starting from version 2.2.* various aspects of Qubes Windows Tools can be config
      - DWORD
      - Maximum age of log files (in seconds), older logs are automatically deleted
      - 604800 (7 days)
-   
+
 
 
 Possible log levels:
 
-.. list-table:: 
-   :widths: 11 11 11 
+.. list-table::
+   :widths: 11 11 11
    :align: center
    :header-rows: 1
 
@@ -438,7 +438,7 @@ Possible log levels:
    * - 5
      - Verbose
      - Trace most function calls
-   
+
 
 
 Debug and Verbose levels can generate large volume of logs and are intended for development/troubleshooting only.
@@ -449,8 +449,8 @@ To override global settings for a specific component, create a new key under the
 
 Component-specific settings currently available:
 
-.. list-table:: 
-   :widths: 11 11 11 11 11 
+.. list-table::
+   :widths: 11 11 11 11 11
    :align: center
    :header-rows: 1
 
@@ -464,7 +464,7 @@ Component-specific settings currently available:
      - DWORD
      - Disable cursor in the VM. Useful for integration with Qubes desktop so you don’t see two cursors. Can be disabled if you plan to use the VM through a remote desktop connection of some sort. Needs gui agent restart to apply change (locking OS/logoff should be enough since qga is restarted on desktop change).
      - 1
-   
+
 
 
 Troubleshooting
@@ -485,8 +485,8 @@ Safe Mode should at least give you access to logs (see above).
 
 If a specific component is malfunctioning, you can increase its log verbosity as explained above to get more troubleshooting information. Below is a list of components:
 
-.. list-table:: 
-   :widths: 18 18 
+.. list-table::
+   :widths: 18 18
    :align: center
    :header-rows: 1
 
@@ -510,7 +510,7 @@ If a specific component is malfunctioning, you can increase its log verbosity as
      - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
    * - relocate-dir
      - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: c:\move-profiles.log (it can’t use our common logger library so none of the log settings apply).
-   
+
 
 
 Updates
@@ -524,13 +524,13 @@ When we publish new QWT version, it’s usually pushed to the ``current-testing`
 That command will download a new QWT .iso from the testing repository. It goes without saying that you should **backup your VMs** before installing anything from testing repos.
 
 .. |windows-seamless-4.png| image:: /attachment/doc/windows-seamless-4.png
-   
+
 
 .. |windows-seamless-1.png| image:: /attachment/doc/windows-seamless-1.png
-   
+
 
 .. |windows-seamless-7.png| image:: /attachment/doc/windows-seamless-7.png
-   
+
 
 .. |qtw-log-level.png| image:: /attachment/doc/qtw-log-level.png
-   
+

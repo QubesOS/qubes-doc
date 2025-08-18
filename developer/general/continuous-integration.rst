@@ -9,7 +9,7 @@ Website and documentation
 -------------------------
 
 
-The following commands may be useful as a way to interact with our CI infrastructure on website (`qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__) and documentation (`qubes-doc <https://github.com/QubesOS/qubes-doc>`__) pull requests (PRs). Note that special permissions may be required to use some of these commands. These commands are generally issued by adding a comment to a PR containing only the command.
+The following commands may be useful as a way to interact with our CI infrastructure on website (:github:`QubesOS/qubesos.github.io`_) and documentation (:github:`QubesOS/qubes-doc`) pull requests (PRs). Note that special permissions may be required to use some of these commands. These commands are generally issued by adding a comment to a PR containing only the command.
 
 - ``PipelineRetry``: Attempts to run the entire build pipeline over again. This can be useful if CI incorrectly uses a stale branch instead of testing the PR as if it were merged into ``master``.
 

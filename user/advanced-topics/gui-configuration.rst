@@ -14,19 +14,19 @@ When a qube starts, a fixed amount of RAM is allocated to the graphics buffer ca
 
 To increase the minimum size of the video RAM buffer:
 
-.. code:: bash
+.. code:: console
 
-      qvm-features dom0 gui-videoram-min $(($WIDTH * $HEIGHT * 4 / 1024))
-      qvm-features dom0 gui-videoram-overhead 0
+      $ qvm-features dom0 gui-videoram-min $(($WIDTH * $HEIGHT * 4 / 1024))
+      $ qvm-features dom0 gui-videoram-overhead 0
 
 
 Where ``$WIDTH`` × ``$HEIGHT`` is the maximum desktop size that you anticipate needing. For example, if you expect to use a 1080p display and a 4k display side-by-side, that is ``(1920 + 3840) × 2160 × 4 / 1024 = 48600``, or slightly more than 48 MiB per qube. After making these adjustments, the qubes need to be restarted.
 
 In the case of multiple display with different orientations or if you plug/unplug displays, the following code will set correct memory size using xrandr.
 
-.. code:: bash
+.. code:: console
 
-      qvm-features dom0 gui-videoram-min $(xrandr --verbose | grep "Screen 0" | sed -e 's/.*current //' -e 's/\,.*//' | awk '{print $1*$3*4/1024}')
+      $ qvm-features dom0 gui-videoram-min $(xrandr --verbose | grep "Screen 0" | sed -e 's/.*current //' -e 's/\,.*//' | awk '{print $1*$3*4/1024}')
 
 
 The amount of memory allocated per qube is the maximum of:
@@ -41,7 +41,7 @@ Default overhead is about 8 MiB, which is enough for a 1080p display (see above)
 
 You might face issues when playing video, if the video is choppy instead of smooth display this could be because the X server doesn’t work. You can use the Linux terminal (Ctrl-Alt-F2) after starting the virtual machine, login. You can look at the Xorg logs file. As an option you can have the below config as well present in ``/etc/X11/xorg.conf.d/90-intel.conf`` (depends on HD graphics though).
 
-.. code:: bash
+.. code:: xorg.conf
 
       Section "Device"
               Identifier "Intel Graphics"

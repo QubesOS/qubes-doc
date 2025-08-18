@@ -3,7 +3,7 @@ Migrating Windows qubes to Qubes OS 4.1
 =======================================
 
 
-For Windows 7, 10 and 11, there is a way to migrate backups created under Qubes R4.0 to R4.1. For this, the version of Qubes Windows Tools (QWT) 4.1-68, available from `tabit-pro/qubes-windows-tools-cross <https://github.com/tabit-pro/qubes-windows-tools-cross/releases>`__, has to be installed under Qubes R4.0, selecting the option to install the Xen PV disk driver, which emulates SCSI disks. For template VMs, the option to move user profiles may be selected, too. Then, the backup may be created, and this backup can be restored under Qubes R4.1, resulting in a VM well integrated into Qubes R4.1. If ``qvm-features <VMname> audio-model ich6`` is set, Windows even will have audio, although for Windows 10 and 11 somewhat scratchy.
+For Windows 7, 10 and 11, there is a way to migrate backups created under Qubes R4.0 to R4.1. For this, the version of Qubes Windows Tools (QWT) 4.1-68, available from :github:`tabit-pro/qubes-windows-tools-cross <tabit-pro/qubes-windows-tools-cross/releases>`, has to be installed under Qubes R4.0, selecting the option to install the Xen PV disk driver, which emulates SCSI disks. For template VMs, the option to move user profiles may be selected, too. Then, the backup may be created, and this backup can be restored under Qubes R4.1, resulting in a VM well integrated into Qubes R4.1. If ``qvm-features <VMname> audio-model ich6`` is set, Windows even will have audio, although for Windows 10 and 11 somewhat scratchy.
 
 While this is somewhat straightforward, things get difficult if QWT 4.0.1.3 was installed in the VM. Prior to installing version 4.1-68, the old version has to be removed, which can be quite tricky for Windows 10 and 11.
 

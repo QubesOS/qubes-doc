@@ -73,7 +73,7 @@ The Qubes mailing lists and forum are open to the public. The contents are crawl
 
 The Qubes community includes people from all walks of life and from around the world. Individuals differ in areas of experience and technical expertise. You will come into contact with others whose views and agendas differ from your own. Everyone is free to write what they please, as long as it doesn’t violate our :doc:`Code of Conduct </introduction/code-of-conduct>`. Be friendly and open, but do not believe everything you read. Use good judgment, and be especially careful when following instructions (e.g., copying commands) given by others on the lists.
 
-It’s always possible that a bad actor could try to impersonate any member of the :website:`Qubes team <team/>` anywhere on the Internet. Please don’t assume that someone who claims to be an official Qubes team member really is one without an appropriate form of authentication, such as a :doc:`verified PGP-signed message </project-security/verifying-signatures>`. (But bear in mind that anyone can generate a key with any name on it and use it to PGP-sign a message, so the mere presence of a PGP signature does not indicate authority. Successful :doc:`verification </project-security/verifying-signatures>` is what counts.) All official :website:`news <news/>` can be authenticated by :doc:`verifying the signatures </project-security/verifying-signatures>` on the relevant tags or commits in the `qubes-posts <https://github.com/QubesOS/qubes-posts>`__ repository.
+It’s always possible that a bad actor could try to impersonate any member of the :website:`Qubes team <team/>` anywhere on the Internet. Please don’t assume that someone who claims to be an official Qubes team member really is one without an appropriate form of authentication, such as a :doc:`verified PGP-signed message </project-security/verifying-signatures>`. (But bear in mind that anyone can generate a key with any name on it and use it to PGP-sign a message, so the mere presence of a PGP signature does not indicate authority. Successful :doc:`verification </project-security/verifying-signatures>` is what counts.) All official :website:`news <news/>` can be authenticated by :doc:`verifying the signatures </project-security/verifying-signatures>` on the relevant tags or commits in the :github:`qubes-posts <QubesOS/qubes-posts>` repository.
 
 Given that there may be impostors and others trying to lead you astray, how should you sort the good advice from the bad? This is up to each individual to decide, but it helps to know that many members of our community have proven themselves knowledgeable through their :doc:`contributions </introduction/contributing>` to the project. Often, these individuals sign their messages with the same key as (or another key authenticated by) the one they use to :doc:`sign their contributions </developer/code/code-signing>`.
 
@@ -179,7 +179,7 @@ Suggestions
 ^^^^^^^^^^^
 
 
-While we’re generally open to hearing suggestions for new features, please note that we already have a pretty well defined `roadmap <https://github.com/QubesOS/qubes-issues/milestones>`__, and it’s rather unlikely that we will change our schedule in order to accommodate your request. If there’s a particular feature you’d like to see in Qubes, a much more effective way to make it happen is to contribute a patch that implements it. We happily accept such contributions, provided they meet our standards. Please note, however, that it’s always a good idea to field a discussion of your idea on the ``qubes-devel`` list before putting in a lot of hard work on something that we may not be able or willing to accept.
+While we’re generally open to hearing suggestions for new features, please note that we already have a pretty well defined :github:`roadmap <QubesOS/qubes-issues/milestones>`, and it’s rather unlikely that we will change our schedule in order to accommodate your request. If there’s a particular feature you’d like to see in Qubes, a much more effective way to make it happen is to contribute a patch that implements it. We happily accept such contributions, provided they meet our standards. Please note, however, that it’s always a good idea to field a discussion of your idea on the ``qubes-devel`` list before putting in a lot of hard work on something that we may not be able or willing to accept.
 
 Google Groups
 ^^^^^^^^^^^^^
@@ -271,7 +271,7 @@ Examples of topics or questions suitable for this list include:
 
 - FOSS governance discussions
 
-- Most Github issues tagged `business <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3Abusiness>`__ or `project management <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22project+management%22>`__
+- Most Github issues tagged :github:`business <QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3Abusiness>` or :github:`project management <QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22project+management%22>`
 
 
 
@@ -289,7 +289,7 @@ Examples of topics or questions suitable for this list include:
 
 - Who is managing localization for a given language
 
-- Most Github issues tagged `localization <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization>`__
+- Most Github issues tagged :github:`localization <QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Alocalization>`
 
 
 

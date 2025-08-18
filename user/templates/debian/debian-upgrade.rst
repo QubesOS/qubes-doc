@@ -18,7 +18,7 @@ Summary instructions for Debian templates
 
 **Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See `release-specific notes <#release-specific-notes>`__ for any instructions specific to your particular release.
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
       [user@dom0 ~]$ qvm-run -a debian-<new> gnome-terminal
@@ -42,14 +42,14 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 1. Ensure the existing template is not running.
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-shutdown debian-<old>
 
 
 2. Clone the existing template and start a terminal in the new template.
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
          [user@dom0 ~]$ qvm-run -a debian-<new> gnome-terminal
@@ -57,7 +57,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 3. Update your ``apt`` repositories to use the new release’s code name instead of the old release’s code name. (This can be done manually with a text editor, but ``sed`` can be used to automatically update the files.)
 
-   .. code:: bash
+   .. code:: console
 
          [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list
          [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/qubes-r4.list
@@ -66,7 +66,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 4. Update the package lists and upgrade. During the process, it may prompt you to overwrite the file ``qubes-r4.list``. You should overwrite this file.
 
-   .. code:: bash
+   .. code:: console
 
          [user@debian-<new> ~]$ sudo apt update
          [user@debian-<new> ~]$ sudo apt upgrade
@@ -76,7 +76,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 5. (Optional) Remove unnecessary packages that were previously installed.
 
-   .. code:: bash
+   .. code:: console
 
          [user@debian-<new> ~]$ sudo apt-get autoremove
 
@@ -84,7 +84,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 6. (Optional) Clean cached packages from ``/var/cache/apt``.
 
-   .. code:: bash
+   .. code:: console
 
          [user@debian-<new> ~]$ sudo apt-get clean
 
@@ -92,7 +92,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 7. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have :issue:`reported <5055>` that it makes a difference.)
 
-   .. code:: bash
+   .. code:: console
 
          [user@debian-<new> ~]$ sudo fstrim -av
          [user@dom0 ~]$ qvm-shutdown debian-<new>
@@ -102,7 +102,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 8. Shut down the new template.
 
-   .. code:: bash
+   .. code:: console
 
          [user@dom0 ~]$ qvm-shutdown debian-<new>
 
@@ -111,7 +111,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 10. (Optional) Make the new template the global default.
 
-    .. code:: bash
+    .. code:: console
 
           [user@dom0 ~]$ qubes-prefs --set default_template debian-<new>
 
@@ -140,7 +140,7 @@ Please see `Debian’s Bullseye upgrade instructions <https://www.debian.org/rel
 
 This means that, when upgrading from Buster to Bullseye, an additional ``sed`` command is required:
 
-.. code:: bash
+.. code:: console
 
       [user@dom0 ~]$ qvm-clone debian-10 debian-11
       [user@dom0 ~]$ qvm-run -a debian-11 gnome-terminal

@@ -17,7 +17,7 @@ The `NitroPad T430 <https://shop.nitrokey.com/shop/product/nitropad-t430-119>`__
 
 Key features of the `NitroPad T430 <https://shop.nitrokey.com/shop/product/nitropad-t430-119>`__ include:
 
-- Tamper detection through measured boot with `coreboot <https://www.coreboot.org/>`__, `Heads <https://github.com/osresearch/heads/>`__, and Nitrokey USB hardware, including support for :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>`
+- Tamper detection through measured boot with `coreboot <https://www.coreboot.org/>`__, :github:`Heads <osresearch/heads/>`, and Nitrokey USB hardware, including support for :doc:`Anti Evil Maid (AEM) </user/security-in-qubes/anti-evil-maid>`
 
 - Deactivated `Intel Management Engine <https://libreboot.org/faq.html#intelme>`__
 

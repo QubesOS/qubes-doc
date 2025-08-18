@@ -49,7 +49,7 @@ New features and improvements since Qubes 4.1
 
 
 
-For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed>`__. Below are some screenshots of the new and improved Qubes GUI tools.
+For a full list, including more detailed descriptions, please see :github:`here <QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed>`. Below are some screenshots of the new and improved Qubes GUI tools.
 
 The new Qubes OS Update tool:
 
@@ -73,7 +73,7 @@ Known issues
 
 
 
-Also see the `full list of open bug reports affecting Qubes 4.2 <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.2+label%3A%22T%3A+bug%22+is%3Aopen>`__.
+Also see the :github:`full list of open bug reports affecting Qubes 4.2 <QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.2+label%3A%22T%3A+bug%22+is%3Aopen>`.
 
 We strongly recommend :doc:`updating Qubes OS </user/how-to-guides/how-to-update>` immediately after installation in order to apply all available bug fixes.
 
@@ -91,7 +91,7 @@ Notes
 
   - Users who wish to opt for the more restrictive 4.2.0 and 4.2.1 behavior can do so by modifying their RPC policy rules. To switch a single rule to the more restrictive behavior, change ``*`` in the argument column to ``+`` (i.e., change “any argument” to “only empty”). To use the more restrictive behavior globally, add the following “deny” rule before all other relevant rules:
 
-    .. code:: bash
+    .. code:: text
 
           qubes.Filecopy    +allow-all-names    @anyvm    @anyvm    deny
 
@@ -124,13 +124,13 @@ Upgrading
 Please see :doc:`how to upgrade to Qubes 4.2 </user/downloading-installing-upgrading/upgrade/4_2>`.
 
 .. |Screenshot of the Qubes OS Update tool| image:: /attachment/site/4-2_update.png
-   
+
 
 .. |Screenshot of the Qubes OS Global Config tool| image:: /attachment/site/4-2_global-config_1.png
-   
+
 
 .. |image1| image:: /attachment/site/4-2_global-config_2.png
-   
+
 
 .. |Screenshot of the Qubes OS Policy Editor tool| image:: /attachment/site/4-2_policy-editor.png
-   
+
