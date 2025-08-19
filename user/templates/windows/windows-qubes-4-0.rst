@@ -1,6 +1,6 @@
-============================================
-How to install Windows qubes in Qubes OS 4.0
-============================================
+=======================================================
+How to install Windows qubes in Qubes OS 4.0 - outdated
+=======================================================
 
 
 **Warning:** *The content below describes Windows installation in Qubes R4.0. The text has been updated to reflect the newer R4.1 release and QWT recent development. Please see* :doc:`this updated document </user/templates/windows/windows-qubes-4-1>` *for instructions for Qubes R4.1.*
@@ -15,7 +15,7 @@ Works:
 
 - display (1440x900 or 1280x1024 are a nice fit onto FHD hw display)
 
-- keyboard (incl.†correct mapping), pointing device
+- keyboard (incl.¬†correct mapping), pointing device
 
 - network (emulated Realtek NIC)
 
@@ -51,7 +51,7 @@ Installation procedure:
 
   - Launch settings after creation: check
 
-  - Click ìOKî.
+  - Click ‚ÄúOK‚Äù.
 
 
 
@@ -75,19 +75,19 @@ Installation procedure:
 
 
 
-  - Click ìApplyî.
+  - Click ‚ÄúApply‚Äù.
 
-  - Click ìBoot from CDROMî:
+  - Click ‚ÄúBoot from CDROM‚Äù:
 
-    - ìfrom file in qubeî:
+    - ‚Äúfrom file in qube‚Äù:
 
       - Select the qube that has the ISO.
 
-      - Select ISO by clicking ìÖî.
+      - Select ISO by clicking ‚Äú‚Ä¶‚Äù.
 
 
 
-    - Click ìOKî to boot into the windows installer.
+    - Click ‚ÄúOK‚Äù to boot into the windows installer.
 
 
 
@@ -108,7 +108,7 @@ Installation procedure:
 
 - Afterwards:
 
-  - In case you switch from ``sys-network`` to ``sys-whonix``, youíll need a static IP network configuration, DHCP wonít work for ``sys-whonix``.
+  - In case you switch from ``sys-network`` to ``sys-whonix``, you‚Äôll need a static IP network configuration, DHCP won‚Äôt work for ``sys-whonix``.
 
   - Use ``powercfg -H off`` and ``disk cleanup`` to save some disk space.
 
@@ -120,7 +120,7 @@ Qubes 4.0 - importing a Windows VM from R3.2
 --------------------------------------------
 
 
-Importing should work, simply make sure that you are not using Xenís newer linux stubdomain and that the VM is in HVM mode (these steps should be done automatically when importing the VM):
+Importing should work, simply make sure that you are not using Xen‚Äôs newer linux stubdomain and that the VM is in HVM mode (these steps should be done automatically when importing the VM):
 
 .. code:: console
 
@@ -129,7 +129,7 @@ Importing should work, simply make sure that you are not using Xenís newer linux
 
 
 
-Note however that you are better off creating a new Windows VM to benefit from the more recent emulated hardware: R3.2 uses a MiniOS based stubdomain with an old and mostly unmaintained ëqemu-traditionalí while R4.0 uses a Linux based stubdomain with a recent version of upstream qemu (see `this post <https://groups.google.com/d/msg/qubes-devel/tBqwJmOAJ94/xmFCGJnuAwAJ>`__).
+Note however that you are better off creating a new Windows VM to benefit from the more recent emulated hardware: R3.2 uses a MiniOS based stubdomain with an old and mostly unmaintained ‚Äòqemu-traditional‚Äô while R4.0 uses a Linux based stubdomain with a recent version of upstream qemu (see `this post <https://groups.google.com/d/msg/qubes-devel/tBqwJmOAJ94/xmFCGJnuAwAJ>`__).
 
 Windows qube installation
 -------------------------
@@ -189,7 +189,7 @@ Detailed instructions
 
 MS Windows versions considerations:
 
-- The instructions *may* work on other versions than Windows 7 x64 but havenít been tested.
+- The instructions *may* work on other versions than Windows 7 x64 but haven‚Äôt been tested.
 
 - Qubes Windows Tools (QWT) only supports Windows 7 x64. Note that there are `known issues <https://github.com/QubesOS/qubes-issues/issues/3585>`__ with QWT on Qubes 4.x
 
@@ -197,7 +197,7 @@ MS Windows versions considerations:
 
 
 
-Create a VM named win7new in :doc:`HVM </user/advanced-topics/standalones-and-hvms>` mode (Xenís current PVH limitations precludes from using PVH):
+Create a VM named win7new in :doc:`HVM </user/advanced-topics/standalones-and-hvms>` mode (Xen‚Äôs current PVH limitations precludes from using PVH):
 
 .. code:: console
 
@@ -205,7 +205,7 @@ Create a VM named win7new in :doc:`HVM </user/advanced-topics/standalones-and-hv
 
 
 
-Windowsí installer requires a significant amount of memory or else the VM will crash with such errors:
+Windows‚Äô installer requires a significant amount of memory or else the VM will crash with such errors:
 
 ``/var/log/xen/console/hypervisor.log``:
 
@@ -217,7 +217,7 @@ Windowsí installer requires a significant amount of memory or else the VM will c
 
 
 
-So, increase the VMís memory to 4096MB (memory = maxmem because we donít use memory balancing).
+So, increase the VM‚Äôs memory to 4096MB (memory = maxmem because we don‚Äôt use memory balancing).
 
 .. code:: console
 
@@ -234,7 +234,7 @@ Disable direct boot so that the VM will go through the standard cdrom/HDD boot s
 
 
 
-A typical Windows 7 installation requires between 15GB up to 19GB of disk space depending on the version (Home/Professional/Ö). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to 25GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windowsís disk manager).
+A typical Windows 7 installation requires between 15GB up to 19GB of disk space depending on the version (Home/Professional/‚Ä¶). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to 25GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windows‚Äôs disk manager).
 
 .. code:: console
 
@@ -250,7 +250,7 @@ Set the debug flag in order to have a graphical console:
 
 
 
-The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in ìtransientî mode with the following error in ``guest-win7new-dm.log``:
+The second part of the installation process will crash with the standard VGA video adapter and the VM will stay in ‚Äútransient‚Äù mode with the following error in ``guest-win7new-dm.log``:
 
 .. code:: text
 
@@ -258,7 +258,7 @@ The second part of the installation process will crash with the standard VGA vid
 
 
 
-To avoid that error we temporarily have to switch the video adapter to ëcirrusí:
+To avoid that error we temporarily have to switch the video adapter to ‚Äòcirrus‚Äô:
 
 .. code:: console
 
@@ -286,11 +286,11 @@ At this point you may open a tab in dom0 for debugging, in case something goes a
 
 
 
-The VM will shutdown after the installer completes the extraction of Windows installation files. Itís a good idea to clone the VM now (eg. ``qvm-clone win7new win7newbkp1``). Then, (re)start the VM with ``qvm-start win7new``.
+The VM will shutdown after the installer completes the extraction of Windows installation files. It‚Äôs a good idea to clone the VM now (eg. ``qvm-clone win7new win7newbkp1``). Then, (re)start the VM with ``qvm-start win7new``.
 
-The second part of Windowsí installer should then be able to complete successfully. You may then perform the following post-install steps:
+The second part of Windows‚Äô installer should then be able to complete successfully. You may then perform the following post-install steps:
 
-Decrease the VMís memory to a more reasonable value (memory balancing on Windows is unstable so keep ``memory`` equal to ``maxmen``).
+Decrease the VM‚Äôs memory to a more reasonable value (memory balancing on Windows is unstable so keep ``memory`` equal to ``maxmen``).
 
 .. code:: console
 
@@ -299,7 +299,7 @@ Decrease the VMís memory to a more reasonable value (memory balancing on Windows
 
 
 
-Revert to the standard VGA adapter: the ëcirrusí adapter will limit the maximum screen resolution to 1024x768 pixels, while the default VGA adapter allows for much higher resolutions (up to 2560x1600 pixels).
+Revert to the standard VGA adapter: the ‚Äòcirrus‚Äô adapter will limit the maximum screen resolution to 1024x768 pixels, while the default VGA adapter allows for much higher resolutions (up to 2560x1600 pixels).
 
 .. code:: console
 
@@ -307,7 +307,7 @@ Revert to the standard VGA adapter: the ëcirrusí adapter will limit the maximum 
 
 
 
-Finally, increase the VMís ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk wonít complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the toolsí installation.
+Finally, increase the VM‚Äôs ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like chkdsk won‚Äôt complete on restart before qrexec_timeout automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher qrexec_timeout, chkdsk or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools‚Äô installation.
 
 .. code:: console
 
@@ -315,7 +315,7 @@ Finally, increase the VMís ``qrexec_timeout``: in case you happen to get a BSOD 
 
 
 
-At that point you should have a functional and stable Windows VM, although without updates, Xenís PV drivers nor Qubes integration (see sections :ref:`Windows Update <user/templates/windows/windows-qubes-4-0:windows update>` and :ref:`Xen PV drivers and Qubes Windows Tools <user/templates/windows/qubes-windows-tools-4-0:xen pv drivers and qubes windows tools>`). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen‚Äôs PV drivers nor Qubes integration (see sections :ref:`Windows Update <user/templates/windows/windows-qubes-4-0:windows update>` and :ref:`Xen PV drivers and Qubes Windows Tools <user/templates/windows/qubes-windows-tools-4-0:xen pv drivers and qubes windows tools>`). It is a good time to clone the VM again.
 
 Windows as a template
 ---------------------
@@ -347,9 +347,9 @@ AppVMs based on these templates can be created the normal way by using the Qube 
 
 
 
-On starting the AppVM, sometimes a message is displayed that the Xen PV Network Class needs to restart the system. This message can be safely ignored and closed by selecting ìNoî.
+On starting the AppVM, sometimes a message is displayed that the Xen PV Network Class needs to restart the system. This message can be safely ignored and closed by selecting ‚ÄúNo‚Äù.
 
-**Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVMís license data. Even if this could work sometimes, it would be a violation of the license terms.
+**Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM‚Äôs license data. Even if this could work sometimes, it would be a violation of the license terms.
 
 Windows 10 Usage According to GDPR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -363,12 +363,13 @@ Windows update
 --------------
 
 
-Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isnít specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. This `comment <https://github.com/QubesOS/qubes-issues/issues/3585#issuecomment-366471111>`__ provides useful links on updating a Windows 7 SP1 VM.
+Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn‚Äôt specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. This `comment <https://github.com/QubesOS/qubes-issues/issues/3585#issuecomment-366471111>`__ provides useful links on updating a Windows 7 SP1 VM.
 
-**Note:** if you already have Qubes Windows Tools installed the video adapter in Windows will be ìQubes video driverî and you wonít be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with ``xentop`` - usually indicates that the VM hasnít crashed). To avoid guessing the VMís state enable debugging (``qvm-prefs -s win7new debug true``) and in Windowsí device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable ìQubes video driverî. You can disable debugging and revert to Qubesí display once the VM is updated.
+**Note:** if you already have Qubes Windows Tools installed the video adapter in Windows will be ‚ÄúQubes video driver‚Äù and you won‚Äôt be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with ``xentop`` - usually indicates that the VM hasn‚Äôt crashed). To avoid guessing the VM‚Äôs state enable debugging (``qvm-prefs -s win7new debug true``) and in Windows‚Äô device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable ‚ÄúQubes video driver‚Äù. You can disable debugging and revert to Qubes‚Äô display once the VM is updated.
 
 Further customization
 ---------------------
+
 
 
 Please see the `Customizing Windows 7 templates <https://forum.qubes-os.org/t/19005>`__ page (despite the focus on preparing the VM for use as a template, most of the instructions are independent from how the VM will be used - ie. TemplateVM or StandaloneVM).windows-qubes-4-0.rst
