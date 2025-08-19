@@ -1,6 +1,6 @@
-========================================
-How to install Windows qubes in Qubes OS
-========================================
+===================================================
+How to install Windows qubes in Qubes OS - outdated
+===================================================
 
 
 You can install Windows just like any other OS as an :doc:`HVM </user/advanced-topics/standalones-and-hvms>`, if you just want something simple and you can live without some features. This works for Windows XP, 7, 8.1, 10 and 11.
@@ -19,7 +19,7 @@ You will get an environment in which basic functions are supported, but integrat
 
 
 
-For better integration, a set of drivers and services, called Qubes Windows Tools (QWT) is available. Installation of these tools is straightforward and is described in a :doc:`separate document </user/templates/windows/qubes-windows-tools-4-1>`. QWTís main features are:
+For better integration, a set of drivers and services, called Qubes Windows Tools (QWT) is available. Installation of these tools is straightforward and is described in a :doc:`separate document </user/templates/windows/qubes-windows-tools-4-1>`. QWT‚Äôs main features are:
 
 - copy/paste between qubes
 
@@ -35,7 +35,7 @@ For better integration, a set of drivers and services, called Qubes Windows Tool
 
 - XEN PV drivers (some of them optional)
 
-- optional user migration from ``C:`` to the qubesí private volume (to be able use the qubes as a TemplateVM).
+- optional user migration from ``C:`` to the qubes‚Äô private volume (to be able use the qubes as a TemplateVM).
 
 - seamless mode (Windows 7 only for now)
 
@@ -47,7 +47,7 @@ Importing a Windows VM from an earlier version of Qubes
 -------------------------------------------------------
 
 
-- Importing from R3.2 or earlier will not work, because Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise wonít boot).
+- Importing from R3.2 or earlier will not work, because Qubes R3.2 has the old stubdomain by default and this is preserved over backup and restore (as Windows otherwise won‚Äôt boot).
 
 - Importing from R4.0 should work, see :doc:`Migrate backups of Windows VMs created under Qubes R4.0 to R4.1 </user/templates/windows/migrate-to-4-1>`.
 
@@ -63,7 +63,7 @@ However, if you are an expert or want to do it manually you may continue below.
 
 **Notes:**
 
-- The instructions may work on other versions than Windows 7, 8.1, 10 and 11 x64 but havenít been tested.
+- The instructions may work on other versions than Windows 7, 8.1, 10 and 11 x64 but haven‚Äôt been tested.
 
 - Qubes Windows Tools (QWT) only supports Windows 7, 8.1, 10 and 11 x64. For installation, see :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools-4-1>`.
 
@@ -75,11 +75,11 @@ Have the Windows ISO image (preferrably the 64-bit version) downloaded in some q
 
 Windows ISOs can be downloaded directly from Microsoft (eg. `here <https://www.microsoft.com/en-us/software-download/windows10ISO>`__ for Win10), or selected and downloaded via the `Windows Media Creation Tool <https://go.microsoft.com/fwlink/?LinkId=691209>`__. You should, however, regard the downloaded image to be untrustworthy, since there is no reliable way to check that the download was not somehow compromised (see the discussion in issue `Simplify Qubes Windows Tools Installation for R4.1 #7240 <https://github.com/QubesOS/qubes-issues/issues/7240>`__).
 
-Unofficial ìdebloatedî ISOs from projects like reviOS 18 or ameliorated 10 can be found on the net, although obviously you should consider them even ìunsaferî than MS provided ISOs. Alternatively, one could download an official ISO and run scripts/apply patches before installation. Some of the ìtweaksî might end up being too much depending on the qubeís planned usage though (eg. no appx functionality in ameliorated windows - so the installation of Windows Store apps is impossible, even with powershell).
+Unofficial ‚Äúdebloated‚Äù ISOs from projects like reviOS 18 or ameliorated 10 can be found on the net, although obviously you should consider them even ‚Äúunsafer‚Äù than MS provided ISOs. Alternatively, one could download an official ISO and run scripts/apply patches before installation. Some of the ‚Äútweaks‚Äù might end up being too much depending on the qube‚Äôs planned usage though (eg. no appx functionality in ameliorated windows - so the installation of Windows Store apps is impossible, even with powershell).
 
 **Create Windows VM**
 
-Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and-hvms>` mode (Xenís current PVH limitations precludes from using PVH). This can be done in either of two ways:
+Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and-hvms>` mode (Xen‚Äôs current PVH limitations precludes from using PVH). This can be done in either of two ways:
 
 - Using Qube Manager: In order to create the new qube, select the command Qube -> New Qube in the Qube Manager:
 
@@ -93,7 +93,7 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
   - Launch settings after creation: check
 
-  - Click ìOKî.
+  - Click ‚ÄúOK‚Äù.
 
     - Settings:
 
@@ -115,7 +115,7 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
 
 
-      - Click ìApplyî.
+      - Click ‚ÄúApply‚Äù.
 
 
 
@@ -161,11 +161,11 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
 These parameters are set for the following reasons:
 
-- A typical Windows installation requires between 25GB up to 60GB of disk space depending on the version (Home/Professional/Ö). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to at least 60GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windowsís disk manager).
+- A typical Windows installation requires between 25GB up to 60GB of disk space depending on the version (Home/Professional/‚Ä¶). Windows updates also end up using significant space. So, extend the root volume from the default 10GB to at least 60GB (note: it is straightforward to increase the root volume size after Windows is installed: simply extend the volume again in dom0 and then extend the system partition with Windows‚Äôs disk manager).
 
 - Setting memory to 4096MB may work in most cases, but using 6144MB (or even 8192MB) may reduce the likelihood of crashes during installation, especially for Windows 10 or 11. This is important as Windows qubes have to be created without memory balancing, as requested by the parameter settings described above.
 
-- The Windowsí installer requires a significant amount of memory or else the VM will crash with such errors:
+- The Windows‚Äô installer requires a significant amount of memory or else the VM will crash with such errors:
 
   .. code:: output
 
@@ -176,11 +176,11 @@ These parameters are set for the following reasons:
         (XEN) Domain 120 (vcpu#0) crashed on cpu#3:
 
 
-  So, increase the VMís memory to 4096MB (memory = maxmem because we donít use memory balancing), or 6144MB / 8192MB, as recommended above.
+  So, increase the VM‚Äôs memory to 4096MB (memory = maxmem because we don‚Äôt use memory balancing), or 6144MB / 8192MB, as recommended above.
 
-- Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence. This is done by setting the qubeís kernel to an empty value.
+- Disable direct boot so that the VM will go through the standard cdrom/HDD boot sequence. This is done by setting the qube‚Äôs kernel to an empty value.
 
-- After creating the new qube, increase the VMís ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like ``chkdsk`` wonít complete on restart before ``qrexec_timeout`` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher ``qrexec_timeout``, ``chkdsk`` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the toolsí installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
+- After creating the new qube, increase the VM‚Äôs ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like ``chkdsk`` won‚Äôt complete on restart before ``qrexec_timeout`` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher ``qrexec_timeout``, ``chkdsk`` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools‚Äô installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
 
   .. code:: console
 
@@ -194,19 +194,19 @@ These parameters are set for the following reasons:
 
 - The VM is now ready to be started; the best practice is to use an installation ISO :ref:`located in a VM <user/advanced-topics/standalones-and-hvms:installing an os in an hvm>`. Now boot the newly created qube from the Windows installation media. In the Qubes Manager:
 
-  - Select the new qube, in this example ìWindowsNewî.
+  - Select the new qube, in this example ‚ÄúWindowsNew‚Äù.
 
-  - Switch to the ìAdvancedî tab.
+  - Switch to the ‚ÄúAdvanced‚Äù tab.
 
-  - Click ìBoot from CDROMî:
+  - Click ‚ÄúBoot from CDROM‚Äù:
 
-  - ìfrom file in qubeî:
+  - ‚Äúfrom file in qube‚Äù:
 
     - Select the qube that has the ISO.
 
-    - Select ISO by clicking ìÖî.
+    - Select ISO by clicking ‚Äú‚Ä¶‚Äù.
 
-    - Click ìOKî to boot into the windows installer.
+    - Click ‚ÄúOK‚Äù to boot into the windows installer.
 
 
 
@@ -249,13 +249,13 @@ These parameters are set for the following reasons:
 
     - The installation of Windows 11 may require an internet connection to grab a Microsoft ID. Previously, this was true only for the home edition, but since version 24H2, it extends to the Pro edition, too. A workaround to bypass the internet connection requirements of the Windows 11 setup has been published that works for version 21H2 but may be blocked for newer versions:
 
-      - When you reach the ìLetís Connect You To A Networkî page, type Shift-F10 to open a console window.
+      - When you reach the ‚ÄúLet‚Äôs Connect You To A Network‚Äù page, type Shift-F10 to open a console window.
 
       - Here you type ``taskmgr`` to start the Task Manager window so you can see all running processes.
 
-      - Expand the Task Manager by clicking the ìMore Detailsî button, and then find ìNetwork Connection Flow.î
+      - Expand the Task Manager by clicking the ‚ÄúMore Details‚Äù button, and then find ‚ÄúNetwork Connection Flow.‚Äù
 
-      - Select this process and then hit the ìEnd Taskî button.
+      - Select this process and then hit the ‚ÄúEnd Task‚Äù button.
 
       - Now you can close these newly opened windows and return to the Windows 11 setup, where you will enter local account information.
 
@@ -265,13 +265,13 @@ These parameters are set for the following reasons:
 
       - Enter ``no@thankyou.com`` (or some other senseless address) as the email address and click ``Next`` when Windows 11 setup prompts you to log into your Microsoft account.
 
-      - Enter any text you want in the password field and click ``Sign in``. If this method works, youíll get a message saying ìOops, something went wrong.î
+      - Enter any text you want in the password field and click ``Sign in``. If this method works, you‚Äôll get a message saying ‚ÄúOops, something went wrong.‚Äù
 
-      - Click ``Next``. A screen appears saying ìWhoís going to use this device?î This is the local account creation screen.
+      - Click ``Next``. A screen appears saying ‚ÄúWho‚Äôs going to use this device?‚Äù This is the local account creation screen.
 
       - Enter the username you want to use and click ``Next``.
 
-      - Enter a password and click ``Next``. You can leave the field blank but itís not recommended.
+      - Enter a password and click ``Next``. You can leave the field blank but it‚Äôs not recommended.
 
 
 
@@ -279,17 +279,17 @@ These parameters are set for the following reasons:
 
       - After some reboots, the VM will show a window allowing the selection of an installation country. In this window, type Shift-F10 to open a console window.
 
-      - In this window, type ``oobe\bypassnro``. The VM will then reboot and return to the country selection window. The network connection window will now show an option ìI donít have internetî, allowing you to define a local account.
+      - In this window, type ``oobe\bypassnro``. The VM will then reboot and return to the country selection window. The network connection window will now show an option ‚ÄúI don‚Äôt have internet‚Äù, allowing you to define a local account.
 
 
 
-    - In new preview builds of Windows (26120 and beyond, and eventually the next release version), the ``oobe\bypassnro`` command has been erased and no longer works. Instead, thereís a new command called start ``ms-chx:localonly`` that does something similar. In this case, proceed as follows:
+    - In new preview builds of Windows (26120 and beyond, and eventually the next release version), the ``oobe\bypassnro`` command has been erased and no longer works. Instead, there‚Äôs a new command called start ``ms-chx:localonly`` that does something similar. In this case, proceed as follows:
 
       - Follow the Windows 11 install process until you get to the Sign in screen. Here, type Shift-F10 to open a console window.
 
       - Enter start ``ms-cxh:localonly`` at the command prompt.
 
-      - A ìCreate a user for this PCî dialog window appears, allowing you to define a local account.
+      - A ‚ÄúCreate a user for this PC‚Äù dialog window appears, allowing you to define a local account.
 
 
 
@@ -301,27 +301,27 @@ These parameters are set for the following reasons:
   ``strings < /sys/firmware/acpi/tables/MSDM``
   Alternatively, you can also try a Windows 7 license key (as of 2018/11 they are still accepted for a free upgrade to Windows 10).
 
-- The VM will shutdown after the installer completes the extraction of Windows installation files. Itís a good idea to clone the VM now (eg. ``qvm-clone WindowsNew WindowsNewbkp1``). Then, (re)start the VM via the Qubes Manager or with ``qvm-start WindowsNew`` from a dom0 terminal (without the ``--cdrom`` parameter!).
-  The second part of Windowsí installer should then be able to complete successfully.
+- The VM will shutdown after the installer completes the extraction of Windows installation files. It‚Äôs a good idea to clone the VM now (eg. ``qvm-clone WindowsNew WindowsNewbkp1``). Then, (re)start the VM via the Qubes Manager or with ``qvm-start WindowsNew`` from a dom0 terminal (without the ``--cdrom`` parameter!).
+  The second part of Windows‚Äô installer should then be able to complete successfully.
 
 
 
 **After Windows installation**
 
-- From the Windows command line, disable hibernation in order to avoid incomplete Windows shutdown, which could lead to corruption of the VMís disk.
+- From the Windows command line, disable hibernation in order to avoid incomplete Windows shutdown, which could lead to corruption of the VM‚Äôs disk.
 
   .. code:: doscon
 
         powercfg -H off
 
 
-  Also, recent versions of Windows wonít show the CD-ROM drive after starting the qube with ``qvm-start vm --cdrom ...`` (or using the GUI). The solution is to disable hibernation in Windows with this command. (That command is included in QWTís setup but itís necessary to run it manually in order to be able to open QWTís setup ISO/CD-ROM in Windows).
+  Also, recent versions of Windows won‚Äôt show the CD-ROM drive after starting the qube with ``qvm-start vm --cdrom ...`` (or using the GUI). The solution is to disable hibernation in Windows with this command. (That command is included in QWT‚Äôs setup but it‚Äôs necessary to run it manually in order to be able to open QWT‚Äôs setup ISO/CD-ROM in Windows).
 
-- In case you switch from ``sys-firewall`` to ``sys-whonix``, youíll need a static IP network configuration, DHCP wonít work for ``sys-whonix``. Sometimes this may also happen if you keep using ``sys-firewall``. In both cases, proceed as follows:
+- In case you switch from ``sys-firewall`` to ``sys-whonix``, you‚Äôll need a static IP network configuration, DHCP won‚Äôt work for ``sys-whonix``. Sometimes this may also happen if you keep using ``sys-firewall``. In both cases, proceed as follows:
 
   - Check the IP address allocated to the qube - either from GUI Manager, or via ``qvm-ls -n WindowsNew`` from a dom0 terminal (E.g. 10.137.0.x with gateway 10.138.y.z).
 
-  - In the Windows qube, open the Network manager and change the IPv4 configuration of the network interfacefrom ìAutomaticî to ìManualî.
+  - In the Windows qube, open the Network manager and change the IPv4 configuration of the network interfacefrom ‚ÄúAutomatic‚Äù to ‚ÄúManual‚Äù.
 
     - Enter the Address: 10.137.0.x in our example.
 
@@ -333,7 +333,7 @@ These parameters are set for the following reasons:
 
 
 
-  - Click ìApplyî. You should now see ìConnectedî.
+  - Click ‚ÄúApply‚Äù. You should now see ‚ÄúConnected‚Äù.
 
 
 
@@ -350,27 +350,27 @@ These parameters are set for the following reasons:
 
 
 
-At that point you should have a functional and stable Windows VM, although without updates, Xenís PV drivers nor Qubes integration (see sections :ref:`Windows Update <user/templates/windows/windows-qubes-4-1:windows update>` and :ref:`Xen PV drivers and Qubes Windows Tools <user/templates/windows/qubes-windows-tools-4-1:xen pv drivers and qubes windows tools>`). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen‚Äôs PV drivers nor Qubes integration (see sections :ref:`Windows Update <user/templates/windows/windows-qubes-4-1:windows update>` and :ref:`Xen PV drivers and Qubes Windows Tools <user/templates/windows/qubes-windows-tools-4-1:xen pv drivers and qubes windows tools>`). It is a good time to clone the VM again.
 
 **Installing Qubes Windows Tools**
 
-To install Qubes Windows Tools, follow instructions in :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools-4-1>`, but donít forget to ``qvm-clone`` your qube before you install Qubes Windows Tools (QWT) in case something goes south.
+To install Qubes Windows Tools, follow instructions in :doc:`Qubes Windows Tools </user/templates/windows/qubes-windows-tools-4-1>`, but don‚Äôt forget to ``qvm-clone`` your qube before you install Qubes Windows Tools (QWT) in case something goes south.
 
 **Post-install best practices**
 
-Optimize resources for use in virtual machine as ìvanillaî version of Windows are bloated; e.g.:
+Optimize resources for use in virtual machine as ‚Äúvanilla‚Äù version of Windows are bloated; e.g.:
 
-- set up Windows for best performance (this pc ? advanced settings ? Ö)
+- set up Windows for best performance (this pc ? advanced settings ? ‚Ä¶)
 
-- think about Windowsí page file: is it needed ? should you set it with a fixed size ? maybe on the private volume ?
+- think about Windows‚Äô page file: is it needed ? should you set it with a fixed size ? maybe on the private volume ?
 
-- disable services you donít need
+- disable services you don‚Äôt need
 
-- disable networking stuff in the network adapterís setting (eg. link discovery, file and print server, Ö)
+- disable networking stuff in the network adapter‚Äôs setting (eg. link discovery, file and print server, ‚Ä¶)
 
 - background: set a solid color
 
-- Ö
+- ‚Ä¶
 
 
 
@@ -380,7 +380,7 @@ Windows as a template
 ---------------------
 
 
-As described above Windows 7, 8.1, 10, and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the user data have to be stored on a private disk named ``Q:``. If there is already a disk for user data, possibly called ``D:``, it has to be renamed to ``Q:``. Otherwise, this disk has to be created via the Windows ``diskpart`` utility, or the Disk Management administrative function by formatting the qubeís private volume and associating the letter ``Q:`` with it. The volume name is of no importance.
+As described above Windows 7, 8.1, 10, and 11 can be installed as TemplateVM. To have the user data stored in AppVMs depending on this template, the user data have to be stored on a private disk named ``Q:``. If there is already a disk for user data, possibly called ``D:``, it has to be renamed to ``Q:``. Otherwise, this disk has to be created via the Windows ``diskpart`` utility, or the Disk Management administrative function by formatting the qube‚Äôs private volume and associating the letter ``Q:`` with it. The volume name is of no importance.
 
 Moving the user data is not directly possible under Windows, because the directory ``C:\Users`` is permanently open and thus locked. Qubes Windows Tools provides a function to move these data on Windows reboot when the directory is not yet locked. To use this function, a working version of QWT has to be used (see the documentation on QWT installation). For Qubes R4.2, this is currently the version 4.1.69. There are two possibilities to move the user data to this volume ``Q:``.
 
@@ -400,9 +400,9 @@ AppVMs based on these templates can be created the normal way by using the Qube 
 
 
 
-On starting the AppVM, sometimes a message is displayed that the Xen PV Network Class needs to restart the system. This message can be safely ignored and closed by selecting ìNoî.
+On starting the AppVM, sometimes a message is displayed that the Xen PV Network Class needs to restart the system. This message can be safely ignored and closed by selecting ‚ÄúNo‚Äù.
 
-**Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVMís license data. Even if this could work sometimes, it would be a violation of the license terms.
+**Caution:** These AppVMs must not be started while the corresponding TemplateVM is running, because they share the TemplateVM‚Äôs license data. Even if this could work sometimes, it would be a violation of the license terms.
 
 Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to be changed to that of the template (e.g. 10.137.0.x) so that the AppVM can access the network, via the CLI command in a dom0 terminal:
 
@@ -424,11 +424,11 @@ Windows update
 --------------
 
 
-Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isnít specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at `WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion) <https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe>`__. At your own risk you may use such an installation image with bundled updates, but generally we do not recommend this way for security reasons - so, if you do it anyhow, check that you get this image from a source that you trust, which may be quite different from that one named here!
+Depending on how old your installation media is, fully updating your Windows VM may take *hours* (this isn‚Äôt specific to Xen/Qubes) so make sure you clone your VM between the mandatory reboots in case something goes wrong. For Windows 7, you may find the necessary updates bundled at `WinFuture Windows 7 SP1 Update Pack 2.107 (Vollversion) <https://10gbit.winfuture.de/9Y6Lemoxl-I1_901xOu6Hg/1648348889/2671/Update%20Packs/2020_01/WinFuture_7SP1_x64_UpdatePack_2.107_Januar_2020-Vollversion.exe>`__. At your own risk you may use such an installation image with bundled updates, but generally we do not recommend this way for security reasons - so, if you do it anyhow, check that you get this image from a source that you trust, which may be quite different from that one named here!
 
-**Note:** if you already have Qubes Windows Tools installed the video adapter in Windows will be ìQubes video driverî and you wonít be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with the domains widget in the task bar, or with ``xentop`` - usually indicates that the VM hasnít crashed).
+**Note:** if you already have Qubes Windows Tools installed the video adapter in Windows will be ‚ÄúQubes video driver‚Äù and you won‚Äôt be able to see the Windows Update process when the VM is being powered off because Qubes services would have been stopped by then. Depending on the size of the Windows update packs it may take a bit of time until the VM shutdowns by itself, leaving one wondering if the VM has crashed or still finalizing the updates (in dom0 a changing CPU usage - eg. shown with the domains widget in the task bar, or with ``xentop`` - usually indicates that the VM hasn‚Äôt crashed).
 
-To avoid guessing the VMís state enable debugging (``qvm-prefs -s WindowsNew debug true``) and in Windowsí device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable ìQubes video driverî. You can disable debugging and revert to Qubesí display once the VM is updated.
+To avoid guessing the VM‚Äôs state enable debugging (``qvm-prefs -s WindowsNew debug true``) and in Windows‚Äô device manager (My computer -> Manage / Device manager / Display adapters) temporarily re-enable the standard VGA adapter and disable ‚ÄúQubes video driver‚Äù. You can disable debugging and revert to Qubes‚Äô display once the VM is updated.
 
 Troubleshooting
 ---------------
@@ -441,3 +441,4 @@ After Qubes Windows Tools have been installed on your Windows 7 system, please i
 From now on you should be able to attach your USB drive by passing it from your *Qubes Devices* menu as a *USB device* rather than *Data (Block) Device*
 
 This procedure has been tested on Windows 7 installed as a TemplateVM. Different combinations (such as StandaloneVM or different Windows versions) have not been tested.
+
