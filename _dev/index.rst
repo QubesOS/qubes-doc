@@ -18,6 +18,9 @@ This is documentation for the source code. Please choose specific repostitory:
 
 
 
+   qubes-core-qrexec <>
+.. _qubes-core-qrexec: /projects/qubes-core-qrexec
+
 
 
 Or see the main Qubes OS documentation <https://www.qubes-os.org/doc/>
