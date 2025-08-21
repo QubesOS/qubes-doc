@@ -2,7 +2,7 @@
 How to edit a policy
 ====================
 
-There are three ways to edit a policy:
+There are three ways to edit a :ref:`policy <user/reference/glossary:policies>`:
 
 * with :program:`Qubes OS Global Config`, the **recommended way** for the most common policies
 
@@ -20,7 +20,7 @@ Edit a policy with :program:`Qubes OS Global Config`
 
 2. Under :guilabel:`Custom policy`, select :guilabel:`Add`
 
-3. Change the dropdown items to get this: ":guilabel:`untrusted` will :guilabel:`never` be allowed to paste into the clipboard of :guilabel:`vault`"
+3. Change the drop-down items to get this: ":guilabel:`untrusted` will :guilabel:`never` be allowed to paste into the clipboard of :guilabel:`vault`"
 
    .. note:: if there is any inconsistency, a pop-up will warn you about that
 
@@ -46,10 +46,10 @@ Edit a policy with :program:`Qubes Policy Editor`
 3. Add a line to the file. In order to prevent the *untrusted* qube from pasting to the *vault* qube, the line should be:
 
    .. code: text
-        
+
       qubes.ClipboardPaste *       untrusted       vault   deny
 
-4. If you have made any edits and if the format is correct, you will be able to select :guilabel:`Save Changes` and :guilabel:`Save and Exit`, or to press :kbd:`Ctrl` + :kbd:`S`. 
+4. If you have made any edits and if the format is correct, you will be able to select :guilabel:`Save Changes` and :guilabel:`Save and Exit`, or to press :kbd:`Ctrl` + :kbd:`S`.
 
 Edit a policy with :program:`qubes-policy-editor`
 -------------------------------------------------
