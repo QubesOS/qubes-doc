@@ -20,7 +20,7 @@ please :doc:`edit the documentation </developer/general/how-to-edit-the-rst-docu
 
 This page explains the standards we follow for writing, formatting, and organizing the documentation.
 Please follow these guidelines and conventions when editing the rST documentation.
-For the standards governing the website (as a opposed to the rST documentation hosted on RTD),
+For the standards governing the website (as opposed to the rST documentation hosted on RTD),
 please see the `website style guide <https://www.qubes-os.org/doc/website-style-guide/>`__.
 If you wish to submit a PR regarding markdown content hosted on the website, please refer to
 `how to edit the Markdown pages <https://www.qubes-os.org/doc/doc/how-to-edit-the-website/>`__.
@@ -38,7 +38,7 @@ Directives
 ^^^^^^^^^^
 
 A `directive <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`__ is a generic block of explicit markup,
-provided by Docutils and extended by Sphinx.
+provided by `Docutils <https://www.docutils.org/>`__ and extended by `Sphinx <https://www.sphinx-doc.org/>`__.
 
 Directives are used to insert non-paragraph content, such as images, tables, and code blocks.
 
@@ -46,7 +46,9 @@ Example directives are:
 
 .. code-block :: rst
 
-   .. image::, .. code-block::, etc. (Start with .., followed by directive name, arguments, options, and indented content).
+   .. image::, .. code-block::, etc.
+
+Directives start with ``..``, followed by directive name, arguments, options, and indented content.
 
 
 
@@ -66,12 +68,11 @@ In Qubes OS documentation the `doc <https://www.sphinx-doc.org/en/master/usage/r
 as described :ref:`here <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
 
 
-
-Blocks: Literal blocks, code blocks, block quotes, code blocks (with syntax highlighting), doctest blocks, footnotes, citations, tables (simple and complex), admonitions (note, warning, danger).
-
+TODO Blocks: Literal blocks, code blocks, block quotes, code blocks (with syntax highlighting), doctest blocks, footnotes, citations, tables (simple and complex), admonitions (note, warning, danger).
 
 
 Cross referencing:
+^^^^^^^^^^^^^^^^^^
 
 Use the `:doc:` role with a path
 
@@ -110,6 +111,7 @@ Do *not* use reference-style links like
 This facilitates the localization process.
 
 Take a look also :ref:`here <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
+
 
 Relative vs. absolute links
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

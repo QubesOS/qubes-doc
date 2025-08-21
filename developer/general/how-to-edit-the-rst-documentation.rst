@@ -8,7 +8,10 @@ We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
 `Read The Docs <https://readsthedocs.com/>`__ for hosting.
 
 .. figure:: /attachment/doc/rst-rtd-workflow.png
-    :alt: Qubes OS Documentation Workflow
+    :alt: Qubes OS Documentation Workflow - TODO description
+    :scale: 15 %
+    :align: center
+
 
 By cloning and regularly pulling from this repo, users can maintain their
 own up-to-date offline copy of the Qubes documentation rather than
@@ -56,11 +59,17 @@ Ok, let’s begin. Every documentation page has a “Edit on GitHub” link.
 |page-source-button|
 
 When you click on it, you’ll be taken to the source file — a reStructuredText (``.rst``) file — on GitHub. On this page, there will be a
-button to edit the file.
+button to edit the file (if you are already logged in in).
 
-|github-edit| (TODO will provide screenshot whenever main branch is rst)
+TODO screenshot
 
-You’ll be prompted to sign in with your GitHub username and password (if
+
+
+If you are not logged in you can click on login 
+
+|github-edit| 
+
+and you’ll be prompted to sign in with your GitHub username and password (if
 you aren’t already logged in). You can also create a free account from
 here.
 
@@ -71,7 +80,13 @@ If this is your first contribution to the documentation, you need to
 big green button on the next page. This step is only needed the first
 time you make a contribution.
 
-|fork|
+TODO
+
+|fork1|
+
+|fork2|
+
+|fork3|
 
 Now you can make your modifications. You can also preview the changes to
 see how they’ll be formatted by clicking the “Preview changes” tab. If
@@ -79,7 +94,9 @@ you want to add images, please see :ref:`How to add images <developer/general/ho
 Please see :ref:`how to render the documentation on your local machine <building-the-rst-documentation-locally>`
 if you want to locally verify that everything looks correct before submitting any changes.
 
+
 |edit|
+
 
 Once you’re finished, describe your changes at the bottom and click
 “Propose file change”.
@@ -93,11 +110,15 @@ the “Create pull request” button.
 
 |pull-request|
 
+|draft-pull-request-confirm|
+
 You will be able to adjust the pull request message and title there. In
 most cases, the defaults are ok, so you can just confirm by pressing the
 “Create pull request” button again. However, if you’re not ready for
 your PR to be reviewed or merged yet, please
 `make a draft PR instead <https://github.blog/2019-02-14-introducing-draft-pull-requests/>`__.
+
+TODO file:///home/user/QubesIncoming/qubes-os/rst-cycle.drawio
 
 |pull-request-confirm|
 
@@ -113,6 +134,41 @@ can’t accept your pull request, we’ll post a comment explaining why we
 can’t.
 
 |done|
+
+TODO copied
+
+
+Tips & Tricks
+-------------
+
+- Pull upstream changes into your fork regularly. Diverging too far from main can be cumbersome to update at a later stage.
+
+- To pull in upstream changes:
+
+
+.. code:: console
+
+   $ git remote add upstream https://github.com/QubesOS/qubes-doc.git
+   $ git fetch upstream
+
+- Check the log and the current changes, before merging:
+
+.. code:: console
+   $ git log upstream/main
+
+Then merge the changes that you fetched:
+
+.. code:: console
+   $ git merge upstream/main
+
+
+TODO 
+1. sphinx-build
+2. logs
+Any pull request that fails the sphinx-build can be seen at 
+
+Keep your pull requests limited to a single issue, pull requests should be as atomic as possible. 
+
 
 
 How to edit the documentation index
@@ -197,7 +253,17 @@ which will refer to :ref:`this section <introduction/faq:what does it mean to "d
 Viewing your pull request on RTD
 ======================================
 
-To view your pull request, just head to the following url ``https://qubes-doc--<PR-NUMBER>.org.readthedocs.build/en/<PR-NUMBER>/``.
+diagram TODO add the PR automatical build on RTD section later on as 
+To view your pull request on RTD you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__.
+
+
+|pull-request-builds|
+
+|pull-request-build|
+
+TODO
+
+You can also just head to the following url ``https://qubes-doc--<PR-NUMBER>.org.readthedocs.build/en/<PR-NUMBER>/``.
 
 Building the rST documentation locally
 ======================================
@@ -377,7 +443,7 @@ An editor you can use is `ReText <https://github.com/retext-project/retext>`__ b
 Security
 ========
 
-Also see: :ref:`Should I trust this website? <introduction/faq:should i trust this website?>`.
+Also see: :ref:`FAQ: Why is the documentation hosted on ReadTheDocs as opposed to the website? <introduction/faq:why is the documentation hosted on readthedocs as opposed to the website?>`.
 
 All pull requests (PRs) against `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ must pass review
 prior to be merged, except in the case of :ref:`external documentation <index:external documentation>`
@@ -416,12 +482,17 @@ request for it, unless there is a clear indication in your report that
 you are not willing or able to do so.)
 
 
-.. |page-source-button| image:: /attachment/doc/doc-pr_01_page-source-buttonrtd.png
-.. |github-edit| image:: /attachment/doc/doc-pr_02_github-editrtd.png
-.. |github-sign-in| image:: /attachment/doc/doc-pr_03_sign-in.png
-.. |fork| image:: /attachment/doc/doc-pr_04_fork.png
-.. |edit| image:: /attachment/doc/doc-pr_05_edit.png
-.. |commit| image:: /attachment/doc/doc-pr_06_commit-msg.png
+.. |page-source-button| image:: /attachment/doc/doc-pr_01_page-source-button-rtd.png
+.. |github-edit| image:: /attachment/doc/doc-pr_02_github-edit-rts.png
+.. |github-sign-in| image:: /attachment/doc/doc-pr_03_sign-in-rts.png
+.. |fork1| image:: /attachment/doc/doc-pr_04_fork-rts1.png
+.. |fork2| image:: /attachment/doc/doc-pr_04_fork-rts2.png
+.. |fork3| image:: /attachment/doc/doc-pr_04_fork-rts3.png
+.. |edit| image:: /attachment/doc/doc-pr_05_edit-rst.png
+.. |commit| image:: /attachment/doc/doc-pr_06_commit-msg-rst.png
 .. |pull-request| image:: /attachment/doc/doc-pr_07_review-changes.png
-.. |pull-request-confirm| image:: /attachment/doc/doc-pr_08_create-pull-request.png
+.. |pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-pr-rts.png
+.. |draft-pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-dpr-rts.png
+.. |pull-request-builds| image:: /attachment/doc/doc-pr_10_view-pr-rtd.png
+.. |pull-request-build| image:: /attachment/doc/doc-pr_11_view-pr-rtd.png
 .. |done| image:: /attachment/doc/doc-pr_09_done.png
