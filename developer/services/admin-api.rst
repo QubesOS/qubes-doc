@@ -91,9 +91,11 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.CreateInPool.<class>``
      - ``dom0``
      - template
-     - ``name=<name> label=<label>``, ``pool=<pool> pool:<volume>=<pool>``
+     - | ``name=<name> label=<label>``
+       | ``pool=<pool> pool:<volume>=<pool>``
      - `-`
-     - either use ``pool=`` to put all volumes there, or ``pool:<volume>=`` for individual volumes - both forms are not allowed at the same time
+     - | either use ``pool=`` to put all volumes there,
+       | or ``pool:<volume>=`` for individual volumes - both forms are not allowed at the same time
    * - ``admin.vm.CreateDisposable``
      - template
      - `-`
@@ -146,7 +148,8 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - property
      - `-`
-     - ``default={True|False}`` ``type={str|int|bool|vm|label|list} <value>``
+     - | ``default={True|False}``
+       | ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Values are of type ``str`` and each entry is suffixed with newline character.
    * - ``admin.property.GetAll``
      - ``dom0``
@@ -194,7 +197,8 @@ it easy to set the policy using current mechanism.
      - vm
      - property
      - `-`
-     - ``default={True|False}`` ``type={str|int|bool|vm|label|list} <value>``
+     - | ``default={True|False}``
+       | ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Each list entry is suffixed with a newline character.
    * - ``admin.vm.property.GetAll``
      - vm
@@ -339,7 +343,9 @@ it easy to set the policy using current mechanism.
      - device
      - assignment-serialization
      - `-`
-     -  ``device`` is in form ``<backend-name>+<device-ident>``; optional options given in ``key=value`` format, separated with spaces; options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
+     - | ``device`` is in form ``<backend-name>+<device-ident>``
+       | optional options given in ``key=value`` format, separated with spaces;
+       | options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
    * - ``admin.vm.device.<class>.Detach``
      - vm
      - device
@@ -351,7 +357,8 @@ it easy to set the policy using current mechanism.
      - device
      - assignment-serialization
      - `-`
-     - ``device`` is in form ``<backend-name>+<device-ident>``; ``assignment-serialization`` is specified in the section Device Serialization.
+     - | ``device`` is in form ``<backend-name>+<device-ident>``
+       | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Unassign``
      - vm
      - device
@@ -375,19 +382,22 @@ it easy to set the policy using current mechanism.
      - device-ident
      - `-`
      - ``<device-ident> <device-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``device-serialization`` is specified in the section Device Serialization.
+     - | optional service argument may be used to get info about a single device,
+       | ``device-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Assigned``
      - vm
      - device-ident
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``assignment-serialization`` is specified in the section Device Serialization.
+     - | optional service argument may be used to get info about a single device,
+       | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Attached``
      - vm
      - device-ident
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``assignment-serialization`` is specified in the section Device Serialization.
+     - | optional service argument may be used to get info about a single device,
+       | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.pool.List``
      - ``dom0``
      - `-`
@@ -477,7 +487,8 @@ it easy to set the policy using current mechanism.
      - pool
      - vid
      - token, to be used in ``admin.pool.volume.CloneTo``
-     - obtain a token to copy volume ``vid`` in ``pool``; the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails 
+     - | obtain a token to copy volume ``vid`` in ``pool``;
+       | the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails 
    * - ``admin.pool.volume.CloneTo``
      - ``dom0``
      - pool
@@ -549,7 +560,8 @@ it easy to set the policy using current mechanism.
      - volume
      - `-`
      - token, to be used in ``admin.vm.volume.CloneTo``
-     - obtain a token to copy ``volume`` of ``vm``; the token is one time use only, it's invalidated by ``admin.vm.volume.CloneTo``, even if the operation fails
+     - | obtain a token to copy ``volume`` of ``vm``;
+       | the token is one time use only, it's invalidated by ``admin.vm.volume.CloneTo``, even if the operation fails
    * - ``admin.vm.volume.CloneTo``
      - vm
      - volume
