@@ -158,7 +158,7 @@ To find the right controller, follow the usb bus:
 
 .. code:: console
 
-      readlink /sys/bus/usb/devices/usb3
+      $ readlink /sys/bus/usb/devices/usb3
 
 
 

@@ -285,7 +285,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 You can safely ignore this error message:
 
-.. code:: console
+.. code:: output
 
       grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
 

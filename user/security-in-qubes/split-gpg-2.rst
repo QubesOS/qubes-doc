@@ -25,7 +25,7 @@ Create/Edit ``/etc/qubes/policy.d/30-user-gpg2.policy`` in dom0, and add a line 
 
 .. code:: console
 
-      qubes.Gpg2 + gpg-client-vm @default allow target=gpg-server-vm
+      $ qubes.Gpg2 + gpg-client-vm @default allow target=gpg-server-vm
 
 
 
@@ -33,8 +33,8 @@ Import/Generate your secret keys in the server domain. For example:
 
 .. code:: console
 
-      gpg-server-vm$ gpg --import /path/to/my/secret-keys-export
-      gpg-server-vm$ gpg --import-ownertrust /path/to/my/ownertrust-export
+      $ gpg-server-vm$ gpg --import /path/to/my/secret-keys-export
+      $ gpg-server-vm$ gpg --import-ownertrust /path/to/my/ownertrust-export
 
 
 
@@ -42,7 +42,7 @@ or
 
 .. code:: console
 
-      gpg-server-vm$ gpg --gen-key
+      $ gpg-server-vm$ gpg --gen-key
 
 
 
@@ -64,7 +64,7 @@ Output should be:
 
 .. code:: console
 
-      split-gpg2-client on
+      $ split-gpg2-client on
 
 
 Restart the client domain.
@@ -73,12 +73,12 @@ Export the **public** part of your keys and import them in the client domain. Al
 
 .. code:: console
 
-      gpg-server-vm$ gpg --export > public-keys-export
-      gpg-server-vm$ gpg --export-ownertrust > ownertrust-export
-      gpg-server-vm$ qvm-copy public-keys-export ownertrust-export
+      $ gpg-server-vm$ gpg --export > public-keys-export
+      $ gpg-server-vm$ gpg --export-ownertrust > ownertrust-export
+      $ gpg-server-vm$ qvm-copy public-keys-export ownertrust-export
 
-      gpg-client-vm$ gpg --import ~/QubesIncoming/gpg-server-vm/public-keys-export
-      gpg-client-vm$ gpg --import-ownertrust ~/QubesIncoming/gpg-server-vm/ownertrust-export
+      $ gpg-client-vm$ gpg --import ~/QubesIncoming/gpg-server-vm/public-keys-export
+      $ gpg-client-vm$ gpg --import-ownertrust ~/QubesIncoming/gpg-server-vm/ownertrust-export
 
 
 
@@ -86,7 +86,7 @@ This should be enough to have it running:
 
 .. code:: console
 
-      gpg-client-vm$ gpg -K
+      $ gpg-client-vm$ gpg -K
       /home/user/.gnupg/pubring.kbx
       -----------------------------
       sec#  rsa2048 2019-12-18 [SC] [expires: 2021-12-17]

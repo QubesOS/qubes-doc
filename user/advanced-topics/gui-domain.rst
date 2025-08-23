@@ -188,7 +188,7 @@ Set ``default_guivm`` as ``dom0``:
 
 .. code:: console
 
-      qubes-prefs default_guivm dom0
+      $ qubes-prefs default_guivm dom0
 
 
 and for every selected qubes not using default value for GUI domain property, for example with a qube ``personal``:
