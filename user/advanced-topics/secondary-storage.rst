@@ -72,8 +72,8 @@ It is possible to use an existing Btrfs storage if it is configured. In dom0, av
 
 .. code:: console
 
-      mount -t btrfs
-      btrfs show filesystem
+      $ mount -t btrfs
+      $ btrfs show filesystem
 
 
 To register the storage to qubes use the following command where ``<pool_name>`` is a freely chosen pool name adn ``<dir_path>`` is the mounted path to the second btrfs storage:

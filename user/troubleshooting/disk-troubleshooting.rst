@@ -127,7 +127,7 @@ To fix this issue:
 
    .. code:: console
 
-         fuser -m /home
+         $ fuser -m /home
 
 
 
@@ -139,9 +139,9 @@ Kill these process until they are all gone using ``kill <process ID>``.
 
    .. code:: console
 
-         umount /home
-         fsck /dev/xvdb
-         resize2fs /dev/xvdb
+         $ umount /home
+         $ fsck /dev/xvdb
+         $ resize2fs /dev/xvdb
 
 
 

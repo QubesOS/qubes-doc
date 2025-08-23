@@ -17,7 +17,7 @@ Successfully installed in legacy mode, but had to change some xen parameters
 
    .. code:: console
 
-         vi EFI/BOOT/grub.cfg
+         $ vi EFI/BOOT/grub.cfg
 
 
 
@@ -65,7 +65,7 @@ Some Dell systems and probably others have `another bug in UEFI firmware <https:
 
    .. code:: console
 
-         sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
+         $ sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
 
 
 
@@ -85,7 +85,7 @@ Or if you have already rebooted after the first stage install and have encounter
 
    .. code:: console
 
-         fdisk -l /dev/sda | grep EFI
+         $ fdisk -l /dev/sda | grep EFI
 
    The output should look like this:
 
@@ -97,14 +97,14 @@ Or if you have already rebooted after the first stage install and have encounter
 
    .. code:: console
 
-         mkdir -p /mnt/sysimage/boot/efi
-         mount /dev/sda1 /mnt/sysimage/boot/efi
+         $ mkdir -p /mnt/sysimage/boot/efi
+         $ mount /dev/sda1 /mnt/sysimage/boot/efi
 
 4. Execute:
 
    .. code:: console
 
-         sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
+         $ sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
 
 
 
@@ -128,7 +128,7 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
    .. code:: console
 
-         fdisk -l /dev/sda | grep EFI
+         $ fdisk -l /dev/sda | grep EFI
 
    The output should look like this:
 
@@ -140,8 +140,8 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
    .. code:: console
 
-         mkdir -p /mnt/sysimage/boot/efi
-         mount /dev/sda1 /mnt/sysimage/boot/efi
+         $ mkdir -p /mnt/sysimage/boot/efi
+         $ mount /dev/sda1 /mnt/sysimage/boot/efi
 
 4. Copy ``grubx64.efi`` to the fallback path:
 
@@ -167,7 +167,7 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
    .. code:: console
 
-         efibootmgr -v -c -u -L Qubes -l /EFI/qubes/grubx64.efi -d /dev/sda -p 1
+         $ efibootmgr -v -c -u -L Qubes -l /EFI/qubes/grubx64.efi -d /dev/sda -p 1
 
 
 

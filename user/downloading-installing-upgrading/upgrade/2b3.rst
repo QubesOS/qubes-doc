@@ -31,7 +31,7 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 
    .. code:: console
 
-         rpm -q qubes-core-vm
+         $ rpm -q qubes-core-vm
 
 
 

@@ -35,7 +35,7 @@ As the name implies, this generates authentication code that is time-dependent. 
 
    .. code:: console
 
-         google-authenticator
+         $ google-authenticator
 
 
 
@@ -238,8 +238,8 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
        .. code:: console
 
-             AESKEY=$(echo -n "your-20-digit-secret" | base32)
-             nitropy nk3 secrets register --kind hotp --hash sha256 --digits-str 8 --counter-start 1 --touch-button loginxs $AESKEY
+             $ AESKEY=$(echo -n "your-20-digit-secret" | base32)
+             $ nitropy nk3 secrets register --kind hotp --hash sha256 --digits-str 8 --counter-start 1 --touch-button loginxs $AESKEY
 
 
 
@@ -283,7 +283,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
      .. code:: console
 
-           read -r password
+           $ read -r password
 
 
 
@@ -420,8 +420,8 @@ If you use KDE, the command(s) in first step would be different:
 
       # In the case of USB VM being autostarted, it will not have direct access to D-Bus
       # session bus, so find its address manually:
-      kde_pid=`pidof kdeinit4`
-      export `cat /proc/$kde_pid/environ|grep -ao 'DBUS_SESSION_BUS_ADDRESS=[[:graph:]]*'`
-      qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
+      $ kde_pid=`pidof kdeinit4`
+      $ export `cat /proc/$kde_pid/environ|grep -ao 'DBUS_SESSION_BUS_ADDRESS=[[:graph:]]*'`
+      $ qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock
 
 

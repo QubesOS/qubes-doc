@@ -281,7 +281,7 @@ The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in d
 
 Example policy file in R4.1 (with Whonix installed, but not set as default UpdateVM for all templates):
 
-.. code:: console
+.. code:: text
 
       # any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
       @tag:whonix-updatevm @default allow,target=sys-whonix

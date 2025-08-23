@@ -29,16 +29,16 @@ If you would prefer to perform a clean installation rather than upgrading in-pla
 
 6. Install the ``qubes-dist-upgrade`` tool. This is the inplace upgrade tool, which is not what we’re doing. However it will be needed in order to upgrade the templates to the 4.3 version. You install it with the following command in the dom0 terminal:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dom0-update -y qubes-dist-upgrade
+         $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 7. Change your templates to use the 4.3 repositories instead of the 4.2 ones. You do this with the following command in the dom0 terminal:
 
-   .. code:: bash
+   .. code:: console
 
-         sudo qubes-dist-upgrade --releasever=4.3 --template-standalone-upgrade
+         $ sudo qubes-dist-upgrade --releasever=4.3 --template-standalone-upgrade
 
 
    **Note**: This step is critical to ensure the templates will receive updates once Qubes 4.2 reaches end-of-life (EOL).
@@ -54,9 +54,9 @@ The upgrade may take several hours, and will download several gigabytes of data.
 
 In place upgrade is a complex operation. For this reason, we provide a ``qubes-dist-upgrade`` tool to handle all the necessary steps automatically. You can install it with the following command in the dom0 terminal:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dom0-update -y qubes-dist-upgrade
+      $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
@@ -114,9 +114,9 @@ Full list of options can be obtained with ``qubes-dist-upgrade --releasever=4.3 
 
 After installing the tool, before-reboot stages can be performed at once with:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dist-upgrade --all-pre-reboot
+      $ sudo qubes-dist-upgrade --all-pre-reboot
 
 
 
@@ -126,9 +126,9 @@ Alternatively, each upgrade stage can be started separately (see the list of opt
 
 After completing “STAGE 1” through “STAGE 3”, restart the system. Then perform the final steps:
 
-.. code:: bash
+.. code:: console
 
-      sudo qubes-dist-upgrade --all-post-reboot
+      $ sudo qubes-dist-upgrade --all-post-reboot
 
 
 

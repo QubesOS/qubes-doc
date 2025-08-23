@@ -157,7 +157,7 @@ Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Gene
 
 .. code:: console
 
-      ssh-keygen -t ecdsa -b 521
+      $ ssh-keygen -t ecdsa -b 521
 
 
 

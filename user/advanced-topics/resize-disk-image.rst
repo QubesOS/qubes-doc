@@ -92,10 +92,10 @@ FreeBSD
 
 .. code:: console
 
-      gpart recover ada0
-      sysctl kern.geom.debugflags=0x10
-      gpart resize -i index ada0
-      zpool online -e poolname ada0
+      $ gpart recover ada0
+      $ sysctl kern.geom.debugflags=0x10
+      $ gpart resize -i index ada0
+      $ zpool online -e poolname ada0
 
 
 

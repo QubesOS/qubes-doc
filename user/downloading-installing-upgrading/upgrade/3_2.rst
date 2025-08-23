@@ -78,13 +78,13 @@ Upgrading dom0
 
    .. code:: console
 
-         rm -f /etc/group.rpmnew
-         rm -f /etc/shadow.rpmnew
-         rm -f /etc/qubes/guid.conf.rpmnew
-         mv -f /etc/nsswitch.conf{.rpmnew,}
-         mv -f /etc/pam.d/postlogin{.rpmnew,}
-         mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
-         mv -f /etc/dracut.conf{.rpmnew,}
+         $ rm -f /etc/group.rpmnew
+         $ rm -f /etc/shadow.rpmnew
+         $ rm -f /etc/qubes/guid.conf.rpmnew
+         $ mv -f /etc/nsswitch.conf{.rpmnew,}
+         $ mv -f /etc/pam.d/postlogin{.rpmnew,}
+         $ mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
+         $ mv -f /etc/dracut.conf{.rpmnew,}
 
 
 

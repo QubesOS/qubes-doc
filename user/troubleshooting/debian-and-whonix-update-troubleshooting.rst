@@ -70,7 +70,7 @@ It helps to run the following command:
 
 .. code:: console
 
-      nslookup security.debian.org
+      $ nslookup security.debian.org
 
 
 
