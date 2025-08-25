@@ -14,7 +14,7 @@ In the second generation of Qubes OS builder, container or disposable qube isola
 Setup
 -----
 
-This is a simple setup using a docker executor. This is a good default choice; if you don’t know which executor to use, use docker.
+This is a simple setup using a docker or podman executor. This is a good default choice; if you don’t know which executor to use, use docker.
 
 1. First, decide what qube you are going to use when working with Qubes Builder v2. It can be an AppVM or a Standalone qube, with some steps different between the two.
 
@@ -27,7 +27,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 3. Installing dependencies
 
-   If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory, and you can install them easily in the following ways:
+   If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory (you will also find dependency lists for ``podman`` and ``qubes`` executors if you choose to use thsose), and you can install them easily in the following ways:
 
    - for Fedora, use:
 
@@ -45,7 +45,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
    If you have installed dependencies in the template, close it, and (re)start the development qube.
 
-4. If you haven’t previously used docker in the current qube, you need to set up some permissions. In particular, the user has to be added to the ``docker`` group:
+4. If you haven’t previously used docker in the current qube, you need to set up some permissions (nothing needs to be done here if you're using `podman`). In particular, the user has to be added to the ``docker`` group:
 
    .. code:: console
 
@@ -55,15 +55,23 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 5. Finally, you need to generate a docker image:
 
+   Depending on your choice of a container runtime, run one of:
+
    .. code:: console
 
          $ tools/generate-container-image.sh docker
 
-   In an app qube, as ``/var/lib/docker`` is not persistent by default, you also need to use :doc:`bind-dirs </user/advanced-topics/bind-dirs>` to avoid repeating this step after reboot, adding the following to the ``/rw/config/qubes-bind-dirs.d/docker.conf`` file in this qube:
+   .. code:: console
+
+         $ tools/generate-container-image.sh podman
+
+   If you are using ``docker`` and an app qube, as ``/var/lib/docker`` is not persistent by default, you also need to use :doc:`bind-dirs </user/advanced-topics/bind-dirs>` to avoid repeating this step after reboot, adding the following to the ``/rw/config/qubes-bind-dirs.d/docker.conf`` file in this qube:
 
    .. code:: bash
 
          binds+=( '/var/lib/docker' )
+
+   If you are using ``podman`` this is not necessary, as the container images are stored in ``~/.local/share/containers/``.
 
 Configuration
 -------------
@@ -97,6 +105,13 @@ To use Qubes OS Builder v2, you need to have a ``builder.yml`` configuration fil
         type: docker
         options:
           image: "qubes-builder-fedora:latest"
+
+If you want use the ``podman`` executor, you have to enable socket activation, with:
+
+
+   .. code:: console
+
+         # systemctl --user enable --now podman.socket
 
 Using Builder v2
 ----------------
