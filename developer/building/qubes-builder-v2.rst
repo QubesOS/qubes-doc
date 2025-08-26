@@ -18,7 +18,7 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
 1. First, decide what qube you are going to use when working with Qubes Builder v2. It can be an AppVM or a Standalone qube, with some steps different between the two.
 
-2. **Installing dependencies**
+2. Installing dependencies
 
    If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory, and you can install them easily in the following ways:
 

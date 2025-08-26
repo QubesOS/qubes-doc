@@ -118,6 +118,10 @@ Each message starts with the following header:
 This header is followed by message-specific data:
 
 .. list-table::
+        :widths: 10 10 80
+        :align: center
+        :header-rows: 1
+
 
         * - Message name
           - Structure after header
@@ -301,6 +305,9 @@ Each message starts with the following header
 The header is followed by message-specific data:
 
 .. list-table::
+        :widths: auto
+        :align: center
+        :header-rows: 1
 
         * - Message name
           - Structure after header
