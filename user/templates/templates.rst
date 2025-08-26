@@ -209,7 +209,7 @@ Once an app qube has been created, any changes in its ``/home``, ``/usr/local``,
    * - :ref:`template <user/reference/glossary:template>`
      - N/A (templates cannot be based on templates)
      - everything
-   * - :ref:`app qubes <user/reference/glossary:app qube>`:superscript:`3`
+   * - :ref:`app qube <user/reference/glossary:app qube>`:superscript:`3`
      - ``/etc/skel`` to ``/home``; ``/usr/local.orig`` to ``/usr/local``
      - ``/rw`` (includes ``/home``, ``/usr/local``, and ``bind-dirs``)
    * - :ref:`disposable <user/reference/glossary:disposable>`

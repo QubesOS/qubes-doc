@@ -35,7 +35,7 @@ The current Qubes-certified models are listed below in reverse chronological ord
      - :doc:`Certification details </user/hardware/certified-hardware/nitropad-v56/>`
    * - `NovaCustom <https://novacustom.com/>`__
      - `V56 Series <https://novacustom.com/product/v56-series/>`__ 
-     - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v54-series/>`
+     - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v56-series/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
      - `NitroPC Pro 2 <https://shop.nitrokey.com/shop/nitropc-pro-2-523>`__ 
      - :doc:`Certification details </user/hardware/certified-hardware/nitropc-pro-2/>`
@@ -55,7 +55,7 @@ The current Qubes-certified models are listed below in reverse chronological ord
      - `NitroPad T430 <https://shop.nitrokey.com/shop/nitropad-t430-119>`__ 
      - :doc:`Certification details </user/hardware/certified-hardware/nitropad-t430/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
-     - `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-t430-119>`__ 
+     - `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-x230-67>`__ 
      - :doc:`Certification details </user/hardware/certified-hardware/nitropad-x230/>`
    * - `Insurgo <https://insurgo.ca/>`__
      - `PrivacyBeast X230 <https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/>`__ 

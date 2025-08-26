@@ -66,26 +66,24 @@ Or if you have already rebooted after the first stage install and have encounter
 
 2. Press ‘3’ to go to the shell
 
-3. Find and mount the EFI system partition. (replace ``/dev/sda`` with your disk
-   name. If unsure, use the  ``lsblk`` command to display a list of disks): 
+3. Find and mount the EFI system partition. (replace ``/dev/sda`` with your disk name. If unsure, use the ``lsblk`` command to display a list of disks):
 
    .. code:: console
 
-      fdisk -l /dev/sda | grep EFI
+         fdisk -l /dev/sda | grep EFI
 
-   The output should look like this: 
+   The output should look like this:
 
    .. code:: output
 
-      /dev/sda1   2048    1230847 1228800 600M EFI System
+         /dev/sda1   2048    1230847 1228800 600M EFI System
 
-   Then mount it: 
+   Then mount it:
 
    .. code:: console
 
-      mkdir -p /mnt/sysimage/boot/efi     mount /dev/sda1 /mnt/sysimage/boot/efi
-
-   
+         mkdir -p /mnt/sysimage/boot/efi
+         mount /dev/sda1 /mnt/sysimage/boot/efi
 
 4. Execute:
 
@@ -106,25 +104,24 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 
 2. Press ‘3’ to go to the shell
 
-3. Find and mount the EFI system partition. (replace ``/dev/sda`` with your disk name. If unsure, use the ``lsblk`` command to display a list of disks): 
+3. Find and mount the EFI system partition. (replace ``/dev/sda`` with your disk name. If unsure, use the ``lsblk`` command to display a list of disks):
 
    .. code:: console
 
-      fdisk -l /dev/sda | grep EFI
+         fdisk -l /dev/sda | grep EFI
 
-   The output should look like this: 
+   The output should look like this:
 
    .. code:: output
 
-      /dev/sda1   2048    1230847 1228800 600M EFI System
+         /dev/sda1   2048    1230847 1228800 600M EFI System
 
-   Then mount it: 
+   Then mount it:
 
    .. code:: console
 
-      mkdir -p /mnt/sysimage/boot/efi     mount /dev/sda1 /mnt/sysimage/boot/efi
-
-   
+         mkdir -p /mnt/sysimage/boot/efi
+         mount /dev/sda1 /mnt/sysimage/boot/efi
 
 4. Copy ``grubx64.efi`` to the fallback path:
 

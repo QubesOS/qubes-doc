@@ -536,10 +536,10 @@ If a specific component is malfunctioning, you can increase its log verbosity as
    * - network-setup
      - Service that sets up network parameters according to VM’s configuration.
    * - prepare-volume
-     - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
+     - Utility that initializes and formats the disk backed by ``private.img`` file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
    * - relocate-dir
-     - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: C:\\move-profiles.log (it can’t use our common logger library so none of the log settings apply).
-
+     - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: ``C:\move-profiles.log`` (it can’t use our common logger library so none of the log settings apply).
+   
 
 
 If there are network-related issues, the qube doesn’t resolve DNS and has trouble accessing the Internet, this might be an issue with the PV Network Drivers.

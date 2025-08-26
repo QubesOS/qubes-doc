@@ -98,7 +98,6 @@ Installation procedure:
   - Mostly as usual, but automatic reboots will halt the qube - just restart it again and again until the installation is finished.
 
   - Install on first disk.
-
   - Windows license may be read from flash via root in dom0::
 
         strings < /sys/firmware/acpi/tables/MSDM

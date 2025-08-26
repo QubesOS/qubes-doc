@@ -91,9 +91,11 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.CreateInPool.<class>``
      - ``dom0``
      - template
-     - ``name=<name> label=<label>``, ``pool=<pool> pool:<volume>=<pool>``
+     - | ``name=<name> label=<label>``
+       | ``pool=<pool> pool:<volume>=<pool>``
      - `-`
-     - either use ``pool=`` to put all volumes there, or ``pool:<volume>=`` for individual volumes - both forms are not allowed at the same time
+     - | either use ``pool=`` to put all volumes there,
+       | or ``pool:<volume>=`` for individual volumes - both forms are not allowed at the same time
    * - ``admin.vm.CreateDisposable``
      - template
      - `-`
@@ -146,17 +148,18 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - property
      - `-`
-     - ``default={True|False}`` ``type={str|int|bool|vm|label|list} <value>``
+     - | ``default={True|False}``
+       | ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Values are of type ``str`` and each entry is suffixed with newline character.
    * - ``admin.property.GetAll``
      - ``dom0``
      - `-`
      - `-`
-     - ``<property-name> <full-value-as-in-property.Get>``
+     - ``<property-name> <full-value-as-in-property.Get>\n``
      - Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal ``\n`` and literal ``\`` are encoded as ``\\``.
    * - ``admin.property.GetDefault``
      - ``dom0``
-     - propety
+     - property
      - `-`
      - ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Values are of type ``str`` and each entry is suffixed with newline character.
@@ -194,7 +197,8 @@ it easy to set the policy using current mechanism.
      - vm
      - property
      - `-`
-     - ``default={True|False}`` ``type={str|int|bool|vm|label|list} <value>``
+     - | ``default={True|False}``
+       | ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Each list entry is suffixed with a newline character.
    * - ``admin.vm.property.GetAll``
      - vm
@@ -321,7 +325,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      - ``<rule>\n``
-     - rules syntax as in :doc:`firewall interface </developer/debugging/vm-interface>` (Firewall Rules in 4x) with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
+     - rules syntax as in :ref:`firewall interface <developer/debugging/vm-interface:firewall rules in 4.x>` with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
    * - ``admin.vm.firewall.Set``
      - vm
      - `-`
@@ -339,13 +343,9 @@ it easy to set the policy using current mechanism.
      - device
      - assignment-serialization
      - `-`
-     -  ``device`` is in form ``<backend-name>+<device-ident>`` optional options given in ``key=value`` format, separated with spaces; options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
-   * - ``admin.vm.device.<class>.Detach``
-     - vm
-     - device
-     - `-`
-     - `-`
-     - ``device`` is in form ``<backend-name>+<device-ident>``
+     - | ``device`` is in form ``<backend-name>+<device-ident>``
+       | optional options given in ``key=value`` format, separated with spaces;
+       | options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
    * - ``admin.vm.device.<class>.Detach``
      - vm
      - device
@@ -355,9 +355,10 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.device.<class>.Assign``
      - vm
      - device
-     - assignement-serialization
+     - assignment-serialization
      - `-`
-     - ``device`` is in form ``<backend-name>+<device-ident>`` ``assignment-serialization`` is specified in the section Device Serialization.
+     - | ``device`` is in form ``<backend-name>+<device-ident>``
+       | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Unassign``
      - vm
      - device
@@ -371,7 +372,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
    * - ``admin.vm.deviceclass.List``
-     - `dom0`
+     - ``dom0``
      - `-`
      - `-`
      - ``<deviceclass>\n``
@@ -381,19 +382,22 @@ it easy to set the policy using current mechanism.
      - device-ident
      - `-`
      - ``<device-ident> <device-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``device-serialization`` is specified in the section Device Serialization.
+     - | optional service argument may be used to get info about a single device,
+       | ``device-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Assigned``
      - vm
      - device-ident
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``assignement-serialization`` is specified in the section Device Serialization.
+     - | optional service argument may be used to get info about a single device,
+       | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Attached``
      - vm
      - device-ident
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
-     - optional service argument may be used to get info about a single device, ``assignment-serialization`` is specified in the section Device Serialization.
+     - | optional service argument may be used to get info about a single device,
+       | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.pool.List``
      - ``dom0``
      - `-`
@@ -410,7 +414,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - pool
      - `-`
-     - ``<property>=<value>``
+     - ``<property>=<value>\n``
      -
    * - ``admin.pool.Add``
      - ``dom0``
@@ -483,7 +487,8 @@ it easy to set the policy using current mechanism.
      - pool
      - vid
      - token, to be used in ``admin.pool.volume.CloneTo``
-     - obtain a token to copy volume ``vid`` in ``pool``; the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails
+     - | obtain a token to copy volume ``vid`` in ``pool``;
+       | the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails 
    * - ``admin.pool.volume.CloneTo``
      - ``dom0``
      - pool
@@ -555,7 +560,8 @@ it easy to set the policy using current mechanism.
      - volume
      - `-`
      - token, to be used in ``admin.vm.volume.CloneTo``
-     - obtain a token to copy ``volume`` of ``vm``; the token is one time use only, it's invalidated by ``admin.vm.volume.CloneTo``, even if the operation fails
+     - | obtain a token to copy ``volume`` of ``vm``;
+       | the token is one time use only, it's invalidated by ``admin.vm.volume.CloneTo``, even if the operation fails
    * - ``admin.vm.volume.CloneTo``
      - vm
      - volume
@@ -566,7 +572,7 @@ it easy to set the policy using current mechanism.
      - vm
      - `-`
      - `-`
-     - ``<state-property>=<value>``
+     - ``<state-property>=<value>\n``
      - state properties: ``power_state``, ``mem``, ``mem_static_max``, ``cputime``
    * - ``admin.vm.Start``
      - vm

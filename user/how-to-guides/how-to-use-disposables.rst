@@ -168,7 +168,7 @@ Sometimes it can be useful to start an arbitrary program in a disposable. The di
 
 .. code:: console
 
-      [user@vault ~]$ qvm-run '@dispvm' xterm
+      [user@vault ~]$ qvm-run-vm '@dispvm' xterm
 
 
 
