@@ -132,14 +132,14 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
   .. code:: console
 
-        qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
+        $ qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
 
 
   and for a template:
 
   .. code:: console
 
-        qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
+        $ qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
 
 
 
@@ -149,11 +149,11 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
   .. code:: console
 
-        qvm-volume extend WindowsNew:root 60g
-        qvm-prefs WindowsNew memory 4096
-        qvm-prefs WindowsNew maxmem 4096
-        qvm-prefs WindowsNew kernel ''
-        qvm-prefs WindowsNew qrexec_timeout 7200
+        $ qvm-volume extend WindowsNew:root 60g
+        $ qvm-prefs WindowsNew memory 4096
+        $ qvm-prefs WindowsNew maxmem 4096
+        $ qvm-prefs WindowsNew kernel ''
+        $ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 
@@ -184,7 +184,7 @@ These parameters are set for the following reasons:
 
   .. code:: console
 
-        qvm-prefs WindowsNew qrexec_timeout 7200
+        $ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 
@@ -215,7 +215,7 @@ These parameters are set for the following reasons:
 
   .. code:: console
 
-        qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
+        $ qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
 
 
 
@@ -396,7 +396,7 @@ AppVMs based on these templates can be created the normal way by using the Qube 
 
 .. code:: console
 
-      qvm-create --class=AppVM --template=<VMname>
+      $ qvm-create --class=AppVM --template=<VMname>
 
 
 
@@ -408,7 +408,7 @@ Furthermore, if manual IP setup was used for the template, the IP address select
 
 .. code:: console
 
-      qvm-prefs WindowsNew ip 10.137.0.x
+      $ qvm-prefs WindowsNew ip 10.137.0.x
 
 
 

@@ -54,8 +54,8 @@ This is a simple setup using a docker executor. This is a good default choice; i
 
    .. code:: console
 
-         git clone https://github.com/QubesOS/qubes-builderv2
-         cd qubes-builderv2/
+         $ git clone https://github.com/QubesOS/qubes-builderv2
+         $ cd qubes-builderv2/
 
 
 4. If you haven’t previously used docker in the current qube, you need to set up some permissions. In particular, the user has to be added to the ``docker`` group:

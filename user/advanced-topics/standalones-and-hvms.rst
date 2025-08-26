@@ -46,7 +46,7 @@ Alternatively, to create an empty standalone from the dom0 command line:
 
 .. code:: console
 
-      qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
+      $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
 
 
 
@@ -54,7 +54,7 @@ Or to create a standalone copied from a template:
 
 .. code:: console
 
-      qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
+      $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
 
 
 
@@ -90,7 +90,7 @@ Qubes are template-based (i.e., :ref:`app qubes <user/reference/glossary:app qub
 
 .. code:: console
 
-      qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
+      $ qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
 
 
 
@@ -114,7 +114,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
+         $ qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
 
 
 
@@ -122,7 +122,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
+         $ qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
 
 
 
@@ -130,7 +130,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
+         $ qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
 
 
 
@@ -201,7 +201,7 @@ In order to create an HVM template, you use the following command, suitably adap
 
 .. code:: console
 
-      qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
+      $ qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
 
 
 
@@ -377,7 +377,7 @@ In a Debian app qube, install ``qemu-utils`` and ``unzip``:
 
 .. code:: console
 
-      sudo apt install qemu-utils unzip
+      $ sudo apt install qemu-utils unzip
 
 
 
@@ -385,7 +385,7 @@ In a Fedora app qube:
 
 .. code:: console
 
-      sudo dnf install qemu-img
+      $ sudo dnf install qemu-img
 
 
 
@@ -417,7 +417,7 @@ Copy the root image file from the originating qube (here called ``untrusted``) t
 
 .. code:: console
 
-      qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
+      $ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 
 
 
@@ -425,7 +425,7 @@ From within dom0, create a new HVM (here called ``win10``) with the root image w
 
 .. code:: console
 
-      qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
+      $ qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
 
 
 
@@ -433,7 +433,7 @@ Start ``win10``:
 
 .. code:: console
 
-      qvm-start win10
+      $ qvm-start win10
 
 
 

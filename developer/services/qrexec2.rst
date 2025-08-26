@@ -114,7 +114,7 @@ In order to remove such authorization, issue this command from a Dom0 terminal (
 
 .. code:: console
 
-      sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
+      $ sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
 
 
 and then remove any line(s) ending in “allow” (before the first ``##`` comment) which are the “Yes to All” results.

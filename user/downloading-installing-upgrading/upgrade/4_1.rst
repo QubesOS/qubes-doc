@@ -39,7 +39,7 @@ In place upgrade is a complex operation. For this reason, we provide a ``qubes-d
 
 .. code:: console
 
-      sudo qubes-dom0-update -y qubes-dist-upgrade
+      $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
@@ -84,7 +84,7 @@ After installing the tool, upgrade can be performed all at once with:
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --all
+      $ sudo qubes-dist-upgrade --all
 
 
 
@@ -96,7 +96,7 @@ After completing “STAGE 0” through “STAGE 5”, restart the system. Then p
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --resync-appmenus-features
+      $ sudo qubes-dist-upgrade --resync-appmenus-features
 
 
 

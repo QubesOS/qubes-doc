@@ -11,7 +11,7 @@ Tips
 
   .. code:: console
 
-        sudo journalctl -u qubes-vpn-handler
+        $ sudo journalctl -u qubes-vpn-handler
 
 
 
@@ -55,7 +55,7 @@ To check this tool is working properly run:
 
 .. code:: console
 
-      sudo notify-send "$(hostname): Test notify-send OK" --icon=network-idle
+      $ sudo notify-send "$(hostname): Test notify-send OK" --icon=network-idle
 
 
 You should see the ``info`` message appear on the top of your screen. If that is the case then ``notify-send`` is not the issue. If it is not, and you have an error of some sort you can:

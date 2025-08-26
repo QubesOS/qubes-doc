@@ -23,7 +23,7 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 
    .. code:: console
 
-         sudo yum update
+         $ sudo yum update
 
 
 
@@ -39,7 +39,7 @@ It is critical to complete this step **before** proceeding to dom0 upgrade. Othe
 
    .. code:: console
 
-         sudo yum --enablerepo=qubes-vm-r2b3-current update
+         $ sudo yum --enablerepo=qubes-vm-r2b3-current update
 
 
 
@@ -59,7 +59,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo qubes-dom0-update qubes-release
+         $ sudo qubes-dom0-update qubes-release
 
 
    This should install ``qubes-release-2-3.1`` in your Dom0.
@@ -68,7 +68,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current
+         $ sudo qubes-dom0-update --enablerepo=qubes-dom0-r2b3-current
 
 
 
@@ -78,7 +78,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         qvm-shutdown --all --wait
+         $ qvm-shutdown --all --wait
 
 
 

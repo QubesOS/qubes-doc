@@ -23,7 +23,7 @@ Upgrade Fedora templates:
 
    .. code:: console
 
-         sudo yum install qubes-upgrade-vm
+         $ sudo yum install qubes-upgrade-vm
 
 
 
@@ -31,7 +31,7 @@ Upgrade Fedora templates:
 
    .. code:: console
 
-         sudo yum upgrade
+         $ sudo yum upgrade
 
 
 
@@ -49,8 +49,8 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
-         sudo sed -i 's/r3.0/r3.1/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo sed -i 's/r3.0/r3.1/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
@@ -58,8 +58,8 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo apt-get update
-         sudo apt-get dist-upgrade
+         $ sudo apt-get update
+         $ sudo apt-get dist-upgrade
 
 
 
@@ -67,7 +67,7 @@ Upgrade Debian (and Whonix) templates:
 
    .. code:: console
 
-         sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+         $ sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
@@ -87,7 +87,7 @@ Upgrading dom0
 
    .. code:: console
 
-         sudo qubes-dom0-update --releasever=3.1
+         $ sudo qubes-dom0-update --releasever=3.1
 
 
    At this point, most of the ``qvm-*`` tools will stop working until after you reboot the system.
@@ -110,6 +110,6 @@ Once you have upgraded dom0, you can install new templates from Qubes R3.1 repos
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-template-fedora-23
+      $ sudo qubes-dom0-update qubes-template-fedora-23
 
 

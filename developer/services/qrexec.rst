@@ -245,7 +245,7 @@ We’ll need to create a service called ``test.Add`` with its own definition and
 
 .. code:: console
 
-      ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
+      $ ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
 
 
 

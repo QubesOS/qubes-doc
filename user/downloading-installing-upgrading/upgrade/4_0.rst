@@ -65,7 +65,7 @@ Restore from your backup
 
    .. code:: console
 
-         sudo qubes-dom0-update
+         $ sudo qubes-dom0-update
 
 
 

@@ -205,14 +205,14 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
 
      .. code:: console
 
-           qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
+           $ qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
 
 
      With substitutions, your command should look similar to this example. (**Warning:** This is just an example. Do not attempt to use it.)
 
      .. code:: console
 
-           qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
+           $ qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
 
 
 

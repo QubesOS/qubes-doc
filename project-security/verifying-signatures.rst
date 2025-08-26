@@ -178,11 +178,11 @@ Now that you’ve imported the authentic QMSK, set its trust level to “ultimat
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
 
-      gpg> fpr
+      $ gpg> fpr
       pub   4096R/36879494 2010-04-01 Qubes Master Signing Key
       Primary key fingerprint: 427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
 
-      gpg> trust
+      $ gpg> trust
       pub  4096R/36879494  created: 2010-04-01  expires: never       usage: SC
                            trust: unknown       validity: unknown
       [ unknown] (1). Qubes Master Signing Key
@@ -206,7 +206,7 @@ Now that you’ve imported the authentic QMSK, set its trust level to “ultimat
       Please note that the shown key validity is not necessarily correct
       unless you restart the program.
 
-      gpg> q
+      $ gpg> q
 
 
 Now, when you import any of the release signing keys and many Qubes team member keys, they will already be trusted in virtue of being signed by the QMSK.

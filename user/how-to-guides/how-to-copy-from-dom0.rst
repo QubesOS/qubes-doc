@@ -17,7 +17,7 @@ To copy a file from dom0 to a VM, simply use ``qvm-copy-to-vm``:
 
 .. code:: console
 
-      qvm-copy-to-vm <target_vm> <file>
+      $ qvm-copy-to-vm <target_vm> <file>
 
 
 
@@ -73,7 +73,7 @@ If you are determined to copy some files to dom0 anyway, you can use the followi
 
 .. code:: console
 
-      qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
+      $ qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
 
 
 
