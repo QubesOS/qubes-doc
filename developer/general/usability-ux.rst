@@ -2,18 +2,14 @@
 Usability & UX
 ==============
 
-
 Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
 
 We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review `our visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>`__ for other design related information.
 
-
 ----
-
 
 Easy To Use
 -----------
-
 
 An ideal user experience is friendly, and it beckons a new user to explore the interface. In this process, they can naturally discover how to use the software. Below are some guidelines that will help you design a user interface that accomplishes this goal.
 
@@ -27,8 +23,6 @@ An ideal user experience is friendly, and it beckons a new user to explore the i
 
 - Overwhelm the user with too much information and cognitive load
 
-
-
 Perhaps the most common cause of mistakes is complexity. If there is a configuration setting that will significantly affect the user’s experience, choose a safe and smart default then tuck this setting in an ``Advanced Settings`` panel.
 
 |checkmark| **Interfaces Should**
@@ -41,17 +35,12 @@ Perhaps the most common cause of mistakes is complexity. If there is a configura
 
 - Choose intelligent defaults for settings
 
-
-
 In making software easy to use, it is crucial to be mindful of `cognitive load <https://en.wikipedia.org/wiki/Cognitive_load>`__ which dictates that *“humans are generally able to hold only seven +/- two units of information in short-term memory.”* Making sure your interfaces don’t pass this short-term memory limit is perhaps the most important factor in helping a user feel comfortable instead of overwhelmed.
-
 
 ----
 
-
 Easy to Understand
 ------------------
-
 
 There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple guides to help achieve this - none of these are absolute maxims!
 
@@ -67,8 +56,6 @@ Acronyms are compact and make good names for command line tools. They do not mak
 
 - ``NetVM`` - Networking Virtual Machine
 
-
-
 Despite this rule, some acronyms like ``USB`` are widely used and understood due to being in common use for over a decade. It is good to use these acronyms when the full words like ``Universal Serial Bus`` are more likely to confuse users.
 
 |checkmark| **Use Simple Words**
@@ -83,11 +70,7 @@ Use the minimum amount of words needed to be descriptive, but also informative. 
 
 - Use ``Networking`` or ``Networking Qube`` instead of ``NetVM`` given context
 
-
-
-
 ----
-
 
 |redx| **Avoid Technical Words**
 
@@ -98,8 +81,6 @@ Technical words are usually more accurate, but they often *only* make sense to t
 - ``savefile``
 
 - ``qrexec-daemon``
-
-
 
 These are all terms that have at some point showed up in users’ notification messages. Each term is very specific, but requires the user to understand virtualization to interpret.
 
@@ -113,13 +94,9 @@ Large amounts of the global population have been using computers for one or two 
 
 - Use ``Qubes`` instead of ``qrexec-daemon`` as it gives better context on what is happening
 
-
-
 These words are more abstract and user relevant- they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (Qubes).
 
-
 ----
-
 
 |redx| **Avoid Inconsistencies**
 
@@ -131,8 +108,6 @@ It is easy to start abbreviating (or making acronyms) of long terms like ``Dispo
 
 - ``DisposableVM``
 
-
-
 This variation in terms can cause new users to question or second guess what the three different variations mean, which can lead to inaction or mistakes.
 
 |checkmark| **Make Things Consistent**
@@ -141,13 +116,9 @@ Always strive to keep things consistent in the interfaces as well as documentati
 
 - Use ``Disposable Qube`` at all times as it meets other criteria as well.
 
-
-
 By using the same term throughout an interface, a user can create a mental model and relationship with that term allowing them to feel empowered.
 
-
 ----
-
 
 |redx| **Avoid Duplicate Words**
 
@@ -159,8 +130,6 @@ It is easy to add words like ``Domain`` before items in a list or menu in an att
       - Domain: work
       - Domain: banking
       - Domain: personal
-
-
 
 The repeated use of the word ``Domain`` requires a user to read it for each item in the list, which makes extra work for the eye in parsing out the relevant word like ``work, banking, or personal``. This also affects horizontal space on fixed width lines.
 
@@ -175,15 +144,10 @@ It is more efficient to group things under headings instead as this allows the e
       - Banking
       - Personal
 
-
-
-
 ----
-
 
 Easy To Complete
 ----------------
-
 
 Lastly, expected (and unexpected) situations often require user actions or input. Make resolving these occurences as easy as possible to complete the action.
 
@@ -195,8 +159,6 @@ Consider the following notifications:
 
 - ``There was an error saving Qube "Personal"``
 
-
-
 Instead of displaying solvable errors like these and neglecting to provide a fix:
 
 |checkmark| **Offer Actionable Solutions**
@@ -207,13 +169,9 @@ Error messages and limits such as those in the previous example can be greatly i
 
 - Add a link to a documentation page called ``Troubleshoot saving data``
 
-
-
 In adhering to these principles, you’ll make undesirable situations more manageable for users instead of feeling stranded.
 
-
 ----
-
 
 |checkmark| **Minimize Repetitive Steps**
 
@@ -223,25 +181,17 @@ There are many cases where a user wants to perform an action on more than one fi
 
 2. Navigate through file system
 
+   - Click Folder One
 
+   - Click Folder Two
 
-  - Click Folder One
+   - Click Folder Three
 
-  - Click Folder Two
-
-  - Click Folder Three
-
-  - Click Folder Four
-
-
+   - Click Folder Four
 
 3. Select proper file
 
 4. Complete task on file
-
-
-
-
 
 That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couple files in the same directory. We can alleviate some of the work by changing the process:
 
@@ -253,17 +203,12 @@ That subtle act of clicking through a file system can prove to be significant if
 
 4. Complete task
 
-
-
 Clearly, cutting out something as simple as navigating through the file system can save a user quite a bit of time. Alternatively, adding a button or menu item like ``Open Multiple Files`` might be even better, because remembering and using relevant hotkeys is often something only power users know how to do!
-
 
 ----
 
-
 GNOME, KDE, and Xfce
 --------------------
-
 
 The desktop GUIs that QubesOS versions 1 - 4.1 offer are `KDE <https://kde.org>`__ and `Xfce <https://xfce.org>`__. We are currently migrating towards using `GNOME <https://www.gnome.org>`__. We know some people prefer KDE, but we believe Gnome is easier to use for average non-technical users. Xfce will always be supported, and technical users will always have the choice to use KDE or other desktop environments.
 
@@ -277,15 +222,10 @@ All three of these mentioned desktop environments have their own `human interfac
 
 - `Xfce UI Guidlines <https://wiki.xfce.org/dev/hig/general>`__
 
-
-
-
 ----
-
 
 Further Learning & Inspiration
 ------------------------------
-
 
 Learning to make well designing intuitive interfaces and software is specialized skillset that can take years to cultivate, but if you are interested in furthering your understanding, we suggest the following resources:
 
@@ -300,8 +240,6 @@ Learning to make well designing intuitive interfaces and software is specialized
 - `10 Usability Heuristics for User Interface Design <https://www.nngroup.com/articles/ten-usability-heuristics/>`__ by Jakob Nielsen
 
 - `Hack Design <https://hackdesign.org/>`__ - online learning program
-
-
 
 .. |checkmark| image:: /attachment/doc/checkmark.png
 .. |redx| image:: /attachment/doc/red_x.png
