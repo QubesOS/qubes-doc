@@ -138,7 +138,8 @@ Core documentation for Qubes users.
    user/security-in-qubes/vm-sudo
    user/security-in-qubes/device-handling-security
    user/security-in-qubes/anti-evil-maid
-   user/security-in-qubes/split-gpg
+   Split GPG-1 <user/security-in-qubes/split-gpg>
+   user/security-in-qubes/split-gpg-2
    user/security-in-qubes/mfa
    user/security-in-qubes/ctap-proxy
 
