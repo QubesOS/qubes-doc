@@ -1,4 +1,7 @@
 :og:image: https://doc.qubes-os.org/en/latest/_images/qubes-trust-level-architecture.png
+:og:image:alt: An overview of the security features of Qubes OS, including strong isolation, templating system,...
+:og:image:width: 778
+:og:image:height: 591
 
 ============
 Introduction

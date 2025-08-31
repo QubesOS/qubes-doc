@@ -95,6 +95,8 @@ linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 
 autosectionlabel_prefix_document = True
 
+ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
+ogp_image_alt = False
 
 # -- HTML configuration ------------------------------------------------------
 
