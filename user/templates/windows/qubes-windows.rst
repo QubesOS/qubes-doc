@@ -19,7 +19,7 @@ You will get an environment in which basic functions are supported, but integrat
 
 
 
-For better integration, a set of drivers and services, called Qubes Windows Tools (QWT), is available. Installation of these tools is straightforward and is described in a :doc:`separate document </user/templates/windows/qubes-windows-tools-4-1>`. QWT’s main features are:
+For better integration, a set of drivers and services, called Qubes Windows Tools (QWT), is available. Installation of these tools is straightforward and is described in a :doc:`separate document </user/templates/windows/qubes-windows-tools>`. QWT’s main features are:
 
 - Copy/paste between qubes
 
@@ -328,7 +328,7 @@ After Windows installation
            /var/log/xen/console/guest-WindowsNew-dm.log
 
 
-At that point you should have a functional and stable Windows VM, although without updates, Xen’s PV drivers nor Qubes integration (see sections :ref:`Windows Update <user/templates/windows/windows-qubes-4-1:windows update>` and :ref:`Xen PV drivers and Qubes Windows Tools <user/templates/windows/qubes-windows-tools-4-1:xen pv drivers and qubes windows tools>`). It is a good time to clone the VM again.
+At that point you should have a functional and stable Windows VM, although without updates, Xen’s PV drivers nor Qubes integration (see sections :ref:`Windows Update <user/templates/windows/qubes-windows:windows update>` and :ref:`Xen PV drivers and Qubes Windows Tools <user/templates/windows/qubes-windows-tools:xen pv drivers and qubes windows tools>`). It is a good time to clone the VM again.
 
 
 Installing Qubes Windows Tools
