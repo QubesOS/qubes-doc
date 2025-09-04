@@ -1,6 +1,6 @@
-=======================================
-Migrating Windows qubes to Qubes OS 4.2
-=======================================
+=============================================
+Migrate Windows qubes from old Qubes versions
+=============================================
 
 
 For Windows 7, 10, and 11, there is a way to migrate backups created under Qubes R4.1 to R4.2. For this, a backup must be created under R4.1, and this backup has to be restored under Qubes R4.2, resulting in a VM well integrated into Qubes R4.2. If ``qvm-features <VMname> audio-model ich6`` is set, Windows will even have audio, although for Windows 10 and 11, it is somewhat scratchy.
@@ -12,7 +12,7 @@ Preparation
 
 While this is somewhat straightforward, things get difficult if QWT 4.1.68-1 (or earlier) was installed in the VM. Prior to creating the backup, this old version has to be removed, which can be quite tricky for Windows 10 and 11. Otherwise, the restored backup will probably not start or run under Qubes R4.2, because this QWT version is incompatible with R4.2.
 
-To uninstall the installed QWT version, proceed as described in the :doc:`QWT installation documentation for R4.2 </user/templates/windows/qubes-windows-tools>`.
+To uninstall the installed QWT version, proceed as described in the :doc:`QWT installation documentation for R4.2 </user/templates/windows/qubes-windows-tools#Uninstalling Qubes Windows Tools (QWT) in a Windows VM>>`.
 To uninstall the installed QWT version, proceed as described in the :doc:`QWT installation documentation for R4.2 </user/templates/windows/qubes-windows-tools#Uninstalling Qubes Windows Tools (QWT) in a Windows VM>`.
 
 
