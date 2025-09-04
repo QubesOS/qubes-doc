@@ -629,8 +629,8 @@ When we publish a new QWT version, it’s usually pushed to the ``current-testin
 That command will download a new QWT ``iso`` file from the testing repository. It goes without saying that you should **backup your VMs** before installing anything from testing repos.
 
 
-Uninstalling Qubes Windows Tools (QWT) in a Windows VM
-------------------------------------------------------
+Uninstalling Qubes Windows Tools in a Windows VM
+------------------------------------------------
 
 Windows 7
 =========
