@@ -12,7 +12,7 @@ Preparation
 
 While this is somewhat straightforward, things get difficult if QWT 4.1.68-1 (or earlier) was installed in the VM. Prior to creating the backup, this old version has to be removed, which can be quite tricky for Windows 10 and 11. Otherwise, the restored backup will probably not start or run under Qubes R4.2, because this QWT version is incompatible with R4.2.
 
-To uninstall the installed QWT version, proceed as described in the :doc:`QWT installation documentation for R4.2 </user/templates/windows/qubes-windows-tool>`.
+To uninstall the installed QWT version, proceed as described in the :doc:`QWT installation documentation for R4.2 </user/templates/windows/qubes-windows-tools>`.
 
 
 Transferring the Windows Qube
