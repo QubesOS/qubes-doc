@@ -37,7 +37,7 @@ KDE is very customisable, and there is a range of widgets to use. If you want to
 
 
 
-This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under “Edit->Restore to System Menu”*
+This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under* :menuselection:`Edit --> Restore to System Menu`
 
 Login manager
 ^^^^^^^^^^^^^

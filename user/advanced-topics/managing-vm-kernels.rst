@@ -339,7 +339,7 @@ You may want to adjust some settings in ``/etc/default/grub`` (or better ``/etc/
 
 Then shutdown the VM.
 
-Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced
+Go to dom0: :menuselection:`Qubes VM Manager --> right click on the VM --> Qube settings --> Advanced`
 
 Depends on ``Virtualization`` mode setting:
 

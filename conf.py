@@ -121,3 +121,10 @@ locale_dirs = ['_translated']
 gettext_compact = False
 
 gettext_uuid = True
+
+# -- -- Options for markup ---------------------------------------------------
+
+rst_epilog = """
+.. |debian-codename| replace:: bookworm
+.. |debian-version| replace:: 12
+"""
