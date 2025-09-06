@@ -344,7 +344,7 @@ These parameters are set for the following reasons:
 
   .. code:: console
 
-        tailf /var/log/qubes/vm-WindowsNew.log \
+        $ tailf /var/log/qubes/vm-WindowsNew.log \
            /var/log/xen/console/hypervisor.log \
            /var/log/xen/console/guest-WindowsNew-dm.log
 

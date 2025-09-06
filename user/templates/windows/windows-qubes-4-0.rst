@@ -284,7 +284,7 @@ At this point you may open a tab in dom0 for debugging, in case something goes a
 
 .. code:: console
 
-      tailf /var/log/qubes/vm-win7new.log \
+      $ tailf /var/log/qubes/vm-win7new.log \
          /var/log/xen/console/hypervisor.log \
          /var/log/xen/console/guest-win7new-dm.log
 

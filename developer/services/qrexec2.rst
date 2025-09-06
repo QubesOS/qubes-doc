@@ -90,7 +90,7 @@ In a src VM, one should invoke the qrexec client via the following command:
 
 .. code:: console
 
-      /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
+      $ /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
 
 
 
@@ -164,7 +164,7 @@ We will show the necessary files to create a simple RPC call that adds two integ
 
   .. code:: console
 
-        /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
+        $ /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
 
 
 

@@ -99,7 +99,7 @@ You can also use ``kstart`` to control virtual desktop placement like this:
 
 .. code:: console
 
-      kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
+      $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
 
 

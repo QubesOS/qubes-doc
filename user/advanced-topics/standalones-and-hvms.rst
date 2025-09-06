@@ -393,7 +393,7 @@ Unzip VirtualBox zip file:
 
 .. code:: console
 
-      unzip *.zip
+      $ unzip *.zip
 
 
 
@@ -401,7 +401,7 @@ Extract OVA tar archive:
 
 .. code:: console
 
-      tar -xvf *.ova
+      $ tar -xvf *.ova
 
 
 
@@ -409,7 +409,7 @@ Convert vmdk to raw:
 
 .. code:: console
 
-      qemu-img convert -O raw *.vmdk win10.raw
+      $ qemu-img convert -O raw *.vmdk win10.raw
 
 
 
@@ -445,7 +445,7 @@ Filetype of OVA file:
 
 .. code:: console
 
-      file *.ova
+      $ file *.ova
 
 
 
@@ -453,7 +453,7 @@ List files of OVA tar archive:
 
 .. code:: console
 
-      tar -tf *.ova
+      $ tar -tf *.ova
 
 
 
@@ -461,7 +461,7 @@ List filetypes supported by qemu-img:
 
 .. code:: console
 
-      qemu-img -h | tail -n1
+      $ qemu-img -h | tail -n1
 
 
 

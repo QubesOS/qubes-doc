@@ -48,7 +48,7 @@ To update (git fetch) **all** of these repositories :
 
 .. code:: console
 
-      find . -mindepth 1 -maxdepth 1 -type d -exec git -C {} fetch --tags --recurse-submodules=on-demand --all \;
+      $ find . -mindepth 1 -maxdepth 1 -type d -exec git -C {} fetch --tags --recurse-submodules=on-demand --all \;
 
 
 

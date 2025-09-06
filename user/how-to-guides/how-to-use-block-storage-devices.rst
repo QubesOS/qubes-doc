@@ -62,7 +62,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    This will list all available block devices in your system across all VMs. The name of the qube hosting the block device is displayed before the colon in the device ID. The string after the colon is the ID of the device used within the qube, like so:
 
-   .. code:: console
+   .. code:: output
 
          sourceVM:sdb     Cruzer () 4GiB
          sourceVM:sdb1    Disk () 2GiB
@@ -127,7 +127,7 @@ To recover from this error state, in dom0 run
 
 .. code:: console
 
-      virsh detach-disk targetVM xvdi
+      $ virsh detach-disk targetVM xvdi
 
 
 

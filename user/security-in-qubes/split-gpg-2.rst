@@ -25,7 +25,7 @@ Configuration
 
 Create/Edit ``/etc/qubes/policy.d/30-user-gpg2.policy`` in dom0, and add a line like this:
 
-.. code:: console
+.. code:: text
 
       qubes.Gpg2 + gpg-client-vm @default allow target=gpg-server-vm
 
@@ -64,7 +64,7 @@ To verify if this was done correctly:
 
 Output should be:
 
-.. code:: console
+.. code:: output
 
       split-gpg2-client on
 
