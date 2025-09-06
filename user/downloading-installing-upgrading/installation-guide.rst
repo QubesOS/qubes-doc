@@ -261,7 +261,7 @@ Let’s briefly go over the options:
 
 - **Templates Configuration:** Here you can decide which :doc:`templates </user/templates/templates>` you want to have installed, and which will be the default template.
 
-- **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as :ref:`disposables <user/reference/glossary:disposable>`.
+- **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as :term:`disposables <disposable>`.
 
 - **Create default application qubes:** These are how you compartmentalize your digital life. There’s nothing special about the ones the installer creates. They’re just suggestions that apply to most people. If you decide you don’t want them, you can always delete them later, and you can always create your own.
 

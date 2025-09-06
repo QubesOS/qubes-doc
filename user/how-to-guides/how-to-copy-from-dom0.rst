@@ -3,7 +3,7 @@ How to copy from dom0
 =====================
 
 
-This page covers copying files and clipboard text between :ref:`dom0 <user/reference/glossary:dom0>` and :ref:`domUs <user/reference/glossary:domu>`. Since dom0 is special, the processes are different from :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` and :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>`.
+This page covers copying files and clipboard text between :term:`dom0` and :term:`domUs <domu>`. Since dom0 is special, the processes are different from :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` and :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>`.
 
 Copying *from* dom0
 -------------------

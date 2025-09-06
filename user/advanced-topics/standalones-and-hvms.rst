@@ -6,7 +6,7 @@ Standalones and HVMs
 
       This page is intended for advanced users.
 
-A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that is created by cloning a :ref:`template <user/reference/glossary:template>`. Unlike templates, however, standalones do not supply their root filesystems to other qubes. Examples of situations in which standalones can be useful include:
+A :term:`standalone` is a type of qube that is created by cloning a :term:`template`. Unlike templates, however, standalones do not supply their root filesystems to other qubes. Examples of situations in which standalones can be useful include:
 
 - Qubes used for development (dev environments often require a lot of specific packages and tools)
 
@@ -14,7 +14,7 @@ A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that 
 
 
 
-Meanwhile, a :ref:`Hardware-assisted Virtual Machine (HVM) <user/reference/glossary:hvm>`, also known as a “Fully-Virtualized Virtual Machine,” utilizes the virtualization extensions of the host CPU. These are typically contrasted with Paravirtualized (PV) VMs.
+Meanwhile, a :term:`Hardware-assisted Virtual Machine (HVM)  <hvm>`, also known as a “Fully-Virtualized Virtual Machine,” utilizes the virtualization extensions of the host CPU. These are typically contrasted with Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, ``*BSD``, or any Linux distribution. You can also use HVMs to run “live” distros.
 
@@ -86,7 +86,7 @@ Command line
 ^^^^^^^^^^^^
 
 
-Qubes are template-based (i.e., :ref:`app qubes <user/reference/glossary:app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
+Qubes are template-based (i.e., :term:`app qubes  <app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
 
 .. code:: console
 
@@ -148,7 +148,7 @@ Just like standard app qubes, an HVM gets a fixed IP addresses centrally assigne
 
 A generic HVM such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by Qubes.
 
-Even though we do have a small DHCP server that runs inside the HVM’s untrusted stub domain to make the manual network configuration unnecessary for many qubes, this won’t work for most modern Linux distributions, which contain Xen networking PV drivers (but not Qubes tools), which bypass the stub-domain networking. (Their net frontends connect directly to the net backend in the :ref:`net qube <user/reference/glossary:net qube>`.) In this instance, our DHCP server is not useful.
+Even though we do have a small DHCP server that runs inside the HVM’s untrusted stub domain to make the manual network configuration unnecessary for many qubes, this won’t work for most modern Linux distributions, which contain Xen networking PV drivers (but not Qubes tools), which bypass the stub-domain networking. (Their net frontends connect directly to the net backend in the :term:`net qube  <net qube>`.) In this instance, our DHCP server is not useful.
 
 In order to manually configure networking in a qube, one should first find out the IP/netmask/gateway assigned to the particular qube by Qubes. This can be seen, e.g., in the Qube Manager in the qube’s properties:
 
