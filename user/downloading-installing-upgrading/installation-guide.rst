@@ -219,11 +219,10 @@ The new user you create has full administrator privileges and is protected by a 
 
 |Account name and password creation window.|
 
-.. _installation-1:
 
 
-Installation
-^^^^^^^^^^^^
+Begin Installation
+^^^^^^^^^^^^^^^^^^
 
 
 

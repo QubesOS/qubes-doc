@@ -77,8 +77,8 @@ Device Classes
 
 
 
-Actions
-^^^^^^^
+``qvm-device`` Actions
+^^^^^^^^^^^^^^^^^^^^^^
 
 
 ``qvm-device`` supports three actions:

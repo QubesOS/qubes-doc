@@ -1,3 +1,5 @@
+:orphan:
+
 =========================================
 Qubes Windows Tools (QWT) in Qubes OS 4.0
 =========================================
@@ -100,7 +102,7 @@ This will allow you to install the Qubes Windows Tools on Windows 10 both as a S
 
 5. Download the Qubes Windows Tools (``qubes-tools-4.0.1.3.exe``) from `the qubes FTP server <https://ftp.qubes-os.org/qubes-windows-tools/>`__ and move it to ``C:\``.
 
-6. Check the integrity of the file ``qubes-tools-4.0.1.3.exe``by comparing its hash checksum. This can be done using the Windows command ``certutil`` on the windows command prompt (``cmd.exe``) and specifying an appropriate hash algorithm like:
+6. Check the integrity of the file ``qubes-tools-4.0.1.3.exe`` by comparing its hash checksum. This can be done using the Windows command ``certutil`` on the windows command prompt (``cmd.exe``) and specifying an appropriate hash algorithm like:
 
    .. code:: doscon
 
