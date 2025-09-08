@@ -208,9 +208,9 @@ Core documentation for Qubes developers and advanced users.
    developer/general/package-contributions
    developer/general/gsoc
    developer/general/gsod
-   How to edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>
-   Documentation style guide <https://www.qubes-os.org/doc/documentation-style-guide/>
-   Website style guide <https://www.qubes-os.org/doc/website-style-guide/>
+   developer/general/how-to-edit-the-documentation
+   developer/general/documentation-style-guide
+   developer/general/website-style-guide
    developer/general/continuous-integration
    developer/general/usability-ux
    developer/general/developing-gui-applications

@@ -77,7 +77,7 @@ It’s always possible that a bad actor could try to impersonate any member of t
 
 Given that there may be impostors and others trying to lead you astray, how should you sort the good advice from the bad? This is up to each individual to decide, but it helps to know that many members of our community have proven themselves knowledgeable through their :doc:`contributions </introduction/contributing>` to the project. Often, these individuals sign their messages with the same key as (or another key authenticated by) the one they use to :doc:`sign their contributions </developer/code/code-signing>`.
 
-For example, you might find it easier to trust advice from someone who has a proven track record of :doc:`contributing software packages </developer/general/package-contributions>` or `contributing to the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__. It’s unlikely that individuals who have worked hard to build good reputations for themselves through their contributions over the years would risk giving malicious advice in signed messages to public mailing lists. Since every contribution to the Qubes OS Project is publicly visible and cryptographically signed, anyone would be in a position to :doc:`verify </project-security/verifying-signatures>` that these came from the same keyholder.
+For example, you might find it easier to trust advice from someone who has a proven track record of :doc:`contributing software packages </developer/general/package-contributions>` or :doc:`contributing to the documentation </developer/general/how-to-edit-the-documentation>`. It’s unlikely that individuals who have worked hard to build good reputations for themselves through their contributions over the years would risk giving malicious advice in signed messages to public mailing lists. Since every contribution to the Qubes OS Project is publicly visible and cryptographically signed, anyone would be in a position to :doc:`verify </project-security/verifying-signatures>` that these came from the same keyholder.
 
 Discussion guidelines
 ---------------------
@@ -121,7 +121,7 @@ Report issues and submit changes in the right places
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The mailing lists and `forum <#forum>`__ are good places to ask questions and discuss things. However, if you’re submitting a more formal report, we’d prefer that you submit it to our :doc:`issue tracker </introduction/issue-tracking>` so that it doesn’t get overlooked. (However, please remember that :ref:`the issue tracker is not a discussion forum <introduction/issue-tracking:the issue tracker is not a discussion forum>`.) Likewise, if you see that something in the documentation should be changed, don’t simply point it out in a discussion venue. Instead, `submit the change <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__.
+The mailing lists and `forum <#forum>`__ are good places to ask questions and discuss things. However, if you’re submitting a more formal report, we’d prefer that you submit it to our :doc:`issue tracker </introduction/issue-tracking>` so that it doesn’t get overlooked. (However, please remember that :ref:`the issue tracker is not a discussion forum <introduction/issue-tracking:the issue tracker is not a discussion forum>`.) Likewise, if you see that something in the documentation should be changed, don’t simply point it out in a discussion venue. Instead, :doc:`submit the change </developer/general/how-to-edit-the-documentation>`.
 
 Moderation
 ^^^^^^^^^^
