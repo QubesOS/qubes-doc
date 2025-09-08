@@ -23,7 +23,7 @@ Thank you for your interest in contributing to Qubes! Here are some of the many 
 
 - Create `artwork <https://github.com/QubesOS/qubes-artwork>`__ (plymouth themes, installer themes, wallpapers, etc.)
 
-- `Write and edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__
+- :doc:`Write and edit the documentation </developer/general/how-to-edit-the-documentation>`
 
 - `Donate <https://www.qubes-os.org/donate/>`__ to the project
 

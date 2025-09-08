@@ -320,7 +320,7 @@ Should I trust this website?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone `review <https://www.qubes-os.org/doc/how-to-edit-the-documentation/#security>`__), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was `intentionally written in Markdown so as to be readable as plain text for this very reason <https://www.qubes-os.org/doc/documentation-style-guide/#markdown-conventions>`__. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
+This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone :ref:`review <developer/general/how-to-edit-the-documentation:security>`), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was :ref:`intentionally written in Markdown so as to be readable as plain text for this very reason <developer/general/documentation-style-guide:markdown conventions>`. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 
 What does it mean to "distrust the infrastructure"?
@@ -563,10 +563,10 @@ or
 
   .. code:: bash
 
-        echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
-        MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
-        MOD=`modprobe -R $MODALIAS | head -n 1`
-        echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
+        $ echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
+        $ MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
+        $ MOD=`modprobe -R $MODALIAS | head -n 1`
+        $ echo 0000:<BDF> > /sys/bus/pci/drivers/$MOD/bind
 
 
 
@@ -692,7 +692,7 @@ From a ``dom0`` prompt, enter:
 
 .. code:: bash
 
-      qvm-prefs <HVMname> kernel ""
+      $ qvm-prefs <HVMname> kernel ""
 
 
 

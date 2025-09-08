@@ -17,7 +17,7 @@ After running the commands to update Debian or Whonix, hopefully everything will
 
 .. code:: console
 
-      sudo apt-get update && sudo apt-get dist-upgrade
+      $ sudo apt-get update && sudo apt-get dist-upgrade
 
 
 
@@ -70,7 +70,7 @@ It helps to run the following command:
 
 .. code:: console
 
-      nslookup security.debian.org
+      $ nslookup security.debian.org
 
 
 
@@ -78,7 +78,7 @@ And then trying running the ``update`` and ``upgrade`` commands again.
 
 .. code:: console
 
-      sudo apt-get update && sudo apt-get dist-upgrade
+      $ sudo apt-get update && sudo apt-get dist-upgrade
 
 
 

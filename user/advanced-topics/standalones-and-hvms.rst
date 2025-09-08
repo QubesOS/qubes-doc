@@ -6,7 +6,7 @@ Standalones and HVMs
 
       This page is intended for advanced users.
 
-A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that is created by cloning a :ref:`template <user/reference/glossary:template>`. Unlike templates, however, standalones do not supply their root filesystems to other qubes. Examples of situations in which standalones can be useful include:
+A :term:`standalone` is a type of qube that is created by cloning a :term:`template`. Unlike templates, however, standalones do not supply their root filesystems to other qubes. Examples of situations in which standalones can be useful include:
 
 - Qubes used for development (dev environments often require a lot of specific packages and tools)
 
@@ -14,7 +14,7 @@ A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that 
 
 
 
-Meanwhile, a :ref:`Hardware-assisted Virtual Machine (HVM) <user/reference/glossary:hvm>`, also known as a “Fully-Virtualized Virtual Machine,” utilizes the virtualization extensions of the host CPU. These are typically contrasted with Paravirtualized (PV) VMs.
+Meanwhile, a :term:`Hardware-assisted Virtual Machine (HVM)  <hvm>`, also known as a “Fully-Virtualized Virtual Machine,” utilizes the virtualization extensions of the host CPU. These are typically contrasted with Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, ``*BSD``, or any Linux distribution. You can also use HVMs to run “live” distros.
 
@@ -46,7 +46,7 @@ Alternatively, to create an empty standalone from the dom0 command line:
 
 .. code:: console
 
-      qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
+      $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
 
 
 
@@ -54,7 +54,7 @@ Or to create a standalone copied from a template:
 
 .. code:: console
 
-      qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
+      $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
 
 
 
@@ -86,11 +86,11 @@ Command line
 ^^^^^^^^^^^^
 
 
-Qubes are template-based (i.e., :ref:`app qubes <user/reference/glossary:app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
+Qubes are template-based (i.e., :term:`app qubes  <app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
 
 .. code:: console
 
-      qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
+      $ qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
 
 
 
@@ -114,7 +114,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
+         $ qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
 
 
 
@@ -122,7 +122,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
+         $ qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
 
 
 
@@ -130,7 +130,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
+         $ qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
 
 
 
@@ -148,7 +148,7 @@ Just like standard app qubes, an HVM gets a fixed IP addresses centrally assigne
 
 A generic HVM such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by Qubes.
 
-Even though we do have a small DHCP server that runs inside the HVM’s untrusted stub domain to make the manual network configuration unnecessary for many qubes, this won’t work for most modern Linux distributions, which contain Xen networking PV drivers (but not Qubes tools), which bypass the stub-domain networking. (Their net frontends connect directly to the net backend in the :ref:`net qube <user/reference/glossary:net qube>`.) In this instance, our DHCP server is not useful.
+Even though we do have a small DHCP server that runs inside the HVM’s untrusted stub domain to make the manual network configuration unnecessary for many qubes, this won’t work for most modern Linux distributions, which contain Xen networking PV drivers (but not Qubes tools), which bypass the stub-domain networking. (Their net frontends connect directly to the net backend in the :term:`net qube  <net qube>`.) In this instance, our DHCP server is not useful.
 
 In order to manually configure networking in a qube, one should first find out the IP/netmask/gateway assigned to the particular qube by Qubes. This can be seen, e.g., in the Qube Manager in the qube’s properties:
 
@@ -201,7 +201,7 @@ In order to create an HVM template, you use the following command, suitably adap
 
 .. code:: console
 
-      qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
+      $ qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
 
 
 
@@ -377,7 +377,7 @@ In a Debian app qube, install ``qemu-utils`` and ``unzip``:
 
 .. code:: console
 
-      sudo apt install qemu-utils unzip
+      $ sudo apt install qemu-utils unzip
 
 
 
@@ -385,7 +385,7 @@ In a Fedora app qube:
 
 .. code:: console
 
-      sudo dnf install qemu-img
+      $ sudo dnf install qemu-img
 
 
 
@@ -393,7 +393,7 @@ Unzip VirtualBox zip file:
 
 .. code:: console
 
-      unzip *.zip
+      $ unzip *.zip
 
 
 
@@ -401,7 +401,7 @@ Extract OVA tar archive:
 
 .. code:: console
 
-      tar -xvf *.ova
+      $ tar -xvf *.ova
 
 
 
@@ -409,7 +409,7 @@ Convert vmdk to raw:
 
 .. code:: console
 
-      qemu-img convert -O raw *.vmdk win10.raw
+      $ qemu-img convert -O raw *.vmdk win10.raw
 
 
 
@@ -417,7 +417,7 @@ Copy the root image file from the originating qube (here called ``untrusted``) t
 
 .. code:: console
 
-      qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
+      $ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 
 
 
@@ -425,7 +425,7 @@ From within dom0, create a new HVM (here called ``win10``) with the root image w
 
 .. code:: console
 
-      qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
+      $ qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
 
 
 
@@ -433,7 +433,7 @@ Start ``win10``:
 
 .. code:: console
 
-      qvm-start win10
+      $ qvm-start win10
 
 
 
@@ -445,7 +445,7 @@ Filetype of OVA file:
 
 .. code:: console
 
-      file *.ova
+      $ file *.ova
 
 
 
@@ -453,7 +453,7 @@ List files of OVA tar archive:
 
 .. code:: console
 
-      tar -tf *.ova
+      $ tar -tf *.ova
 
 
 
@@ -461,7 +461,7 @@ List filetypes supported by qemu-img:
 
 .. code:: console
 
-      qemu-img -h | tail -n1
+      $ qemu-img -h | tail -n1
 
 
 

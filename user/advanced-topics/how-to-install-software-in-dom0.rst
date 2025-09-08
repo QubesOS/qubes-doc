@@ -48,7 +48,7 @@ To downgrade a specific package in dom0:
 
 .. code:: console
 
-      sudo qubes-dom0-update --action=downgrade package-version
+      $ sudo qubes-dom0-update --action=downgrade package-version
 
 
 
@@ -60,7 +60,7 @@ To re-install a package in dom0:
 
 .. code:: console
 
-      sudo qubes-dom0-update --action=reinstall package
+      $ sudo qubes-dom0-update --action=reinstall package
 
 
 
@@ -72,7 +72,7 @@ If you’ve installed a package such as anti-evil-maid, you can remove it with t
 
 .. code:: console
 
-      sudo dnf remove anti-evil-maid
+      $ sudo dnf remove anti-evil-maid
 
 
 
@@ -96,9 +96,9 @@ To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` o
 
 .. code:: console
 
-      sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
-      sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
-      sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
+      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
+      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
+      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
 
 
 
@@ -154,7 +154,7 @@ Example
 
 .. code:: console
 
-      sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
+      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 
 
 
@@ -168,7 +168,7 @@ Replace the example version numbers with the one you are upgrading to.
 
 .. code:: console
 
-      sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
+      $ sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
 
 
 
@@ -178,7 +178,7 @@ Grub2
 
 .. code:: console
 
-      sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+      $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
@@ -192,14 +192,25 @@ Changing default kernel
 
 This section describes changing the default kernel in dom0. It is sometimes needed if you have upgraded to a newer kernel and are having problems booting, for example. On the next kernel update, the default will revert to the newest.
 
+
 .. code:: console
 
-      sudo nano /etc/default/grub
-      [update the following two lines, add if needed]
+      $ sudo nano /etc/default/grub
+
+
+Update the following two lines, add if needed:
+
+.. code:: bash
+
       GRUB_DISABLE_SUBMENU=false
       GRUB_SAVEDEFAULT=true
-      [save and exit nano]
-      sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+Save and exit nano. Regenerate the GRUB 2 configuration. 
+
+.. code:: console
+
+      $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
@@ -211,7 +222,7 @@ Updating over Tor
 
 Requires installed `Whonix <https://forum.qubes-os.org/t/19014>`__.
 
-Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
+Go to :menuselection:`Qubes VM Manager --> System --> Global Settings`. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 
 :menuselection:`Qubes VM Manager --> System --> Global Settings --> UpdateVM --> sys-whonix`
 

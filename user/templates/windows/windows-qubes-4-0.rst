@@ -1,3 +1,5 @@
+:orphan:
+
 ============================================
 How to install Windows qubes in Qubes OS 4.0
 ============================================
@@ -98,10 +100,12 @@ Installation procedure:
   - Mostly as usual, but automatic reboots will halt the qube - just restart it again and again until the installation is finished.
 
   - Install on first disk.
+  - Windows license may be read from flash via root in dom0::
 
-  - Windows license may be read from flash via root in dom0:
-    ``strings < /sys/firmware/acpi/tables/MSDM``
+        strings < /sys/firmware/acpi/tables/MSDM
+
     Alternatively, you can also try a Windows 7 license key (as of 2018/11 they are still accepted for a free upgrade).
+
     I first installed Windows and all updates, then entered the license key.
 
 
@@ -124,8 +128,8 @@ Importing should work, simply make sure that you are not using Xen’s newer lin
 
 .. code:: console
 
-      qvm-features VMNAME linux-stubdom ''
-      qvm-prefs VMNAME virt_mode hvm
+      $ qvm-features VMNAME linux-stubdom ''
+      $ qvm-prefs VMNAME virt_mode hvm
 
 
 
@@ -144,26 +148,40 @@ An unofficial, third-party tool for automating this process is available `here <
 Summary
 ^^^^^^^
 
+.. code:: console
+
+      $ qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
+      $ qvm-prefs win7new memory 4096
+      $ qvm-prefs win7new maxmem 4096
+      $ qvm-prefs win7new kernel ''
+      $ qvm-volume extend win7new:root 25g
+      $ qvm-prefs win7new debug true
+      $ qvm-features win7new video-model cirrus
+      $ qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
+
+
+Restart after the first part of the windows installation process ends:
 
 .. code:: console
 
-      qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
-      qvm-prefs win7new memory 4096
-      qvm-prefs win7new maxmem 4096
-      qvm-prefs win7new kernel ''
-      qvm-volume extend win7new:root 25g
-      qvm-prefs win7new debug true
-      qvm-features win7new video-model cirrus
-      qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
-      # restart after the first part of the windows installation process ends
-      qvm-start win7new
-      # once Windows is installed and working
-      qvm-prefs win7new memory 2048
-      qvm-prefs win7new maxmem 2048
-      qvm-features --unset win7new video-model
-      qvm-prefs win7new qrexec_timeout 300
-      # with Qubes Windows Tools installed:
-      qvm-prefs win7new debug false
+      $ qvm-start win7new
+
+
+Once Windows is installed and working:
+
+.. code:: console
+
+      $ qvm-prefs win7new memory 2048
+      $ qvm-prefs win7new maxmem 2048
+      $ qvm-features --unset win7new video-model
+      $ qvm-prefs win7new qrexec_timeout 300
+
+
+With Qubes Windows Tools installed:
+
+.. code:: console
+
+      $ qvm-prefs win7new debug false
 
 
 
@@ -187,7 +205,7 @@ Create a VM named win7new in :doc:`HVM </user/advanced-topics/standalones-and-hv
 
 .. code:: console
 
-      qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
+      $ qvm-create --class StandaloneVM --label red --property virt_mode=hvm win7new
 
 
 
@@ -207,8 +225,8 @@ So, increase the VM’s memory to 4096MB (memory = maxmem because we don’t use
 
 .. code:: console
 
-      qvm-prefs win7new memory 4096
-      qvm-prefs win7new maxmem 4096
+      $ qvm-prefs win7new memory 4096
+      $ qvm-prefs win7new maxmem 4096
 
 
 
@@ -216,7 +234,7 @@ Disable direct boot so that the VM will go through the standard cdrom/HDD boot s
 
 .. code:: console
 
-      qvm-prefs win7new kernel ''
+      $ qvm-prefs win7new kernel ''
 
 
 
@@ -224,7 +242,7 @@ A typical Windows 7 installation requires between 15GB up to 19GB of disk space 
 
 .. code:: console
 
-      qvm-volume extend win7new:root 25g
+      $ qvm-volume extend win7new:root 25g
 
 
 
@@ -232,7 +250,7 @@ Set the debug flag in order to have a graphical console:
 
 .. code:: console
 
-      qvm-prefs win7new debug true
+      $ qvm-prefs win7new debug true
 
 
 
@@ -248,7 +266,7 @@ To avoid that error we temporarily have to switch the video adapter to ‘cirrus
 
 .. code:: console
 
-      qvm-features win7new video-model cirrus
+      $ qvm-features win7new video-model cirrus
 
 
 
@@ -256,7 +274,7 @@ The VM is now ready to be started; the best practice is to use an installation I
 
 .. code:: console
 
-      qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
+      $ qvm-start --cdrom=untrusted:/home/user/windows_install.iso win7new
 
 
 
@@ -266,7 +284,7 @@ At this point you may open a tab in dom0 for debugging, in case something goes a
 
 .. code:: console
 
-      tailf /var/log/qubes/vm-win7new.log \
+      $ tailf /var/log/qubes/vm-win7new.log \
          /var/log/xen/console/hypervisor.log \
          /var/log/xen/console/guest-win7new-dm.log
 
@@ -280,8 +298,8 @@ Decrease the VM’s memory to a more reasonable value (memory balancing on Windo
 
 .. code:: console
 
-      qvm-prefs win7new memory 2048
-      qvm-prefs win7new maxmem 2048
+      $ qvm-prefs win7new memory 2048
+      $ qvm-prefs win7new maxmem 2048
 
 
 
@@ -289,7 +307,7 @@ Revert to the standard VGA adapter: the ‘cirrus’ adapter will limit the maxi
 
 .. code:: console
 
-      qvm-features --unset win7new video-model
+      $ qvm-features --unset win7new video-model
 
 
 
@@ -297,7 +315,7 @@ Finally, increase the VM’s ``qrexec_timeout``: in case you happen to get a BSO
 
 .. code:: console
 
-      qvm-prefs win7new qrexec_timeout 300
+      $ qvm-prefs win7new qrexec_timeout 300
 
 
 
@@ -311,7 +329,7 @@ Windows 7 and 10 can be installed as TemplateVM by selecting
 
 .. code:: console
 
-      qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-template
+      $ qvm-create --class TemplateVM --property virt_mode=HVM --property kernel='' --label black Windows-template
 
 
 
@@ -329,7 +347,7 @@ AppVMs based on these templates can be created the normal way by using the Qube 
 
 .. code:: console
 
-      qvm-create --class=AppVM --template=<VMname>
+      $ qvm-create --class=AppVM --template=<VMname>
 
 
 

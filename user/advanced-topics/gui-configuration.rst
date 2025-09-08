@@ -16,8 +16,8 @@ To increase the minimum size of the video RAM buffer:
 
 .. code:: console
 
-      qvm-features dom0 gui-videoram-min $(($WIDTH * $HEIGHT * 4 / 1024))
-      qvm-features dom0 gui-videoram-overhead 0
+      $ qvm-features dom0 gui-videoram-min $(($WIDTH * $HEIGHT * 4 / 1024))
+      $ qvm-features dom0 gui-videoram-overhead 0
 
 
 Where ``$WIDTH`` × ``$HEIGHT`` is the maximum desktop size that you anticipate needing. For example, if you expect to use a 1080p display and a 4k display side-by-side, that is ``(1920 + 3840) × 2160 × 4 / 1024 = 48600``, or slightly more than 48 MiB per qube. After making these adjustments, the qubes need to be restarted.
@@ -26,7 +26,7 @@ In the case of multiple display with different orientations or if you plug/unplu
 
 .. code:: console
 
-      qvm-features dom0 gui-videoram-min $(xrandr --verbose | grep "Screen 0" | sed -e 's/.*current //' -e 's/\,.*//' | awk '{print $1*$3*4/1024}')
+      $ qvm-features dom0 gui-videoram-min $(xrandr --verbose | grep "Screen 0" | sed -e 's/.*current //' -e 's/\,.*//' | awk '{print $1*$3*4/1024}')
 
 
 The amount of memory allocated per qube is the maximum of:

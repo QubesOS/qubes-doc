@@ -70,7 +70,7 @@ If your machine has a serial console, you may with to use that, but note that a 
 
 .. code:: console
 
-      script -f /dev/ttyS0
+      $ script -f /dev/ttyS0
 
 
 

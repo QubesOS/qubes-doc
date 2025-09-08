@@ -3,7 +3,7 @@ How to use disposables
 ======================
 
 
-A :ref:`disposable <user/reference/glossary:disposable>` is a lightweight :ref:`qube <user/reference/glossary:qube>` that can be created quickly and will self-destruct when closed. Disposables are usually created in order to host a single application, like a viewer, editor, or web browser.
+A :term:`disposable` is a lightweight :term:`qube` that can be created quickly and will self-destruct when closed. Disposables are usually created in order to host a single application, like a viewer, editor, or web browser.
 
 From inside an app qube, choosing the ``Open in disposable`` option on a file will launch a disposable for just that file. Changes made to a file opened in a disposable are passed back to the originating qube. This means that you can safely work with untrusted files without risk of compromising your other qubes. Disposables can be launched either directly from dom0’s app menu or terminal window, or from within app qubes. Disposables are generated with names like ``disp####``, where ``####`` is random number.
 
@@ -15,7 +15,7 @@ Named disposables and disposable templates
 ------------------------------------------
 
 
-There is a difference between :ref:`named disposable qubes <user/reference/glossary:named disposable>` and :ref:`disposable templates <user/reference/glossary:disposable template>`.
+There is a difference between :term:`named disposable qubes <named disposable>` and :term:`disposable templates <disposable template>`.
 
 In a default QubesOS Installation, you would probably use the ‘whonix-ws-16-dvm’ disposable template to, for example, browse the Tor network with an disposable qube. Every time you start an application using this disposable template, a new disposable qube - named ``dispX`` (where X is a random number) starts. If you close the application window, the ``dispX`` qube shuts down and vanishes from your system. That is how disposable templates are used.
 
@@ -27,7 +27,7 @@ How to create disposable templates
 
 First, you need to create an app qube. You can run it normally, set up any necessary settings (like browser settings) you wish to be applied to every disposable qube ran from this template. Next, go to ‘Qube Settings’ of the app qube, set it as a *Disposable template* in the *Advanced* section and apply the change.
 
-In Qubes 4.1, the entry in the Application menu is split into ‘Disposable’ and ‘Template (disp)’. The settings for the disposable can be changed under **’Application Menu -> Template (disp) -> Template: Qubes Settings**
+In Qubes 4.1, the entry in the Application menu is split into ‘Disposable’ and ‘Template (disp)’. The settings for the disposable can be changed under :menuselection:`Application Menu --> Template (disp) --> Template: Qubes Settings`
 
 In Qubes 4.2, the qube will now appear in the menu as a disposable template (in the Apps section), from which you can launch new disposable qubes. To change the settings of the template itself or run programs in it, use the menu item for the disposable template located in the Templates section.
 
@@ -35,15 +35,15 @@ How to create named disposables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In Qubes 4.1: named disposables can be created under **Application Menu -> Create Qubes VM**, set the qube type to be *DisposableVM*.
+In Qubes 4.1: named disposables can be created under :menuselection:`Application Menu --> Create Qubes VM`, set the qube type to be *DisposableVM*.
 
-In Qubes 4.2: named disposables can be created by **Application Menu -> Settings -> Qubes Settings -> Create New Qube**. Set the qube type to **Named disposable**.
+In Qubes 4.2: named disposables can be created by :menuselection:`Application Menu --> Settings --> Qubes Settings --> Create New Qube`. Set the qube type to **Named disposable**.
 
 Security
 --------
 
 
-If a :ref:`disposable template <user/reference/glossary:disposable template>` becomes compromised, then any disposable based on that disposable template could be compromised. In particular, the *default* disposable template is important because it is used by the “Open in disposable” feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
+If a :term:`disposable template` becomes compromised, then any disposable based on that disposable template could be compromised. In particular, the *default* disposable template is important because it is used by the “Open in disposable” feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
 
 Disposables and Local Forensics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ Disposables and Networking
 --------------------------
 
 
-Similarly to how app qubes are based on their underlying :ref:`template <user/reference/glossary:template>`, disposables are based on their underlying :ref:`disposable template <user/reference/glossary:disposable template>`. R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
+Similarly to how app qubes are based on their underlying :term:`template`, disposables are based on their underlying :term:`disposable template`. R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
 
 On a fresh installation of Qubes, the default disposable template is called ``fedora-X-dvm`` or ``debian-X-dvm`` (where ``X`` is a release number). If you have included the Whonix option in your install, there will also be a ``whonix-ws-dvm`` disposable template available for your use.
 
@@ -65,7 +65,7 @@ You can set any app qube to have the ability to act as a disposable template wit
 
 .. code:: console
 
-      qvm-prefs <APP_QUBE> template_for_dispvms True
+      $ qvm-prefs <APP_QUBE> template_for_dispvms True
 
 
 
@@ -75,7 +75,7 @@ You can change this behavior for individual qubes: in the Application Menu, open
 
 .. code:: console
 
-      qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
+      $ qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
 
 
 
@@ -91,7 +91,7 @@ A disposable launched from the app menu inherits the net qube and firewall setti
 
 .. code:: console
 
-      qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
+      $ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
 
 
@@ -99,7 +99,7 @@ To launch a disposable template from the command line, execute the following com
 
 .. code:: console
 
-      qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
+      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
 
 
 
@@ -123,7 +123,7 @@ Opening a fresh web browser instance in a new disposable
 --------------------------------------------------------
 
 
-Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to **Application Menu -> Disposable -> Disposable: Firefox web browser**. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
+Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to :menuselection:`Application Menu --> Disposable --> Disposable: Firefox web browser`. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
 
 .. figure:: /attachment/doc/r4.0-open-in-dispvm-3.png
    :alt: r4.0-open-in-dispvm-3.png
@@ -168,7 +168,7 @@ Sometimes it can be useful to start an arbitrary program in a disposable. The di
 
 .. code:: console
 
-      [user@vault ~]$ qvm-run '@dispvm' xterm
+      [user@vault ~]$ qvm-run-vm '@dispvm' xterm
 
 
 

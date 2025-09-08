@@ -104,7 +104,7 @@ If you receive this error: ``ERROR: qubes-usb-proxy not installed in the qube``,
 
   .. code:: console
 
-        sudo dnf install qubes-usb-proxy
+        $ sudo dnf install qubes-usb-proxy
 
 
 
@@ -112,7 +112,7 @@ If you receive this error: ``ERROR: qubes-usb-proxy not installed in the qube``,
 
   .. code:: console
 
-        sudo apt-get install qubes-usb-proxy
+        $ sudo apt-get install qubes-usb-proxy
 
 
 
@@ -138,7 +138,7 @@ First, find out which USB bus the device is connected to (note that these steps 
 
 .. code:: console
 
-      lsusb
+      $ lsusb
 
 
 
@@ -158,7 +158,7 @@ To find the right controller, follow the usb bus:
 
 .. code:: console
 
-      readlink /sys/bus/usb/devices/usb3
+      $ readlink /sys/bus/usb/devices/usb3
 
 
 
@@ -174,7 +174,7 @@ Now you see the path: the text between ``/pci0000:00/0000:`` and ``/usb3`` i.e.Â
 
 .. code:: console
 
-      qvm-pci attach --persistent personal dom0:00_1a.0
+      $ qvm-pci attach --persistent personal dom0:00_1a.0
 
 
 

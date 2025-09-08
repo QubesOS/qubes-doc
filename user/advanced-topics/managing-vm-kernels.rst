@@ -246,8 +246,8 @@ Both debian-9 and fedora-26 templates already have grub and related tools preins
 
 .. code:: console
 
-      qvm-prefs <clonetemplatename> virt_mode hvm
-      qvm-prefs <clonetemplatename> kernel ''
+      $ qvm-prefs <clonetemplatename> virt_mode hvm
+      $ qvm-prefs <clonetemplatename> kernel ''
 
 
 
@@ -263,7 +263,7 @@ If you are using a distribution kernel package (``kernel`` package), the initram
 
 .. code:: console
 
-      sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
+      $ sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 
 
 
@@ -271,7 +271,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 .. code:: console
 
-      sudo grub2-install /dev/xvda
+      $ sudo grub2-install /dev/xvda
 
 
 
@@ -279,13 +279,13 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 .. code:: console
 
-      sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+      $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
 You can safely ignore this error message:
 
-.. code:: console
+.. code:: output
 
       grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
 
@@ -321,7 +321,7 @@ Install distribution kernel image, kernel headers and the grub.
 
 .. code:: console
 
-      sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
+      $ sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 
 
 
@@ -329,7 +329,7 @@ If you are doing that on a qube based on “Debian Minimal” template, a grub g
 
 .. code:: console
 
-      sudo grub-install /dev/xvda
+      $ sudo grub-install /dev/xvda
 
 
 
@@ -339,7 +339,7 @@ You may want to adjust some settings in ``/etc/default/grub`` (or better ``/etc/
 
 Then shutdown the VM.
 
-Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced
+Go to dom0: :menuselection:`Qubes VM Manager --> right click on the VM --> Qube settings --> Advanced`
 
 Depends on ``Virtualization`` mode setting:
 
@@ -383,7 +383,7 @@ Run DKMS. Replace this with actual kernel version.
 
 .. code:: console
 
-      sudo dkms autoinstall -k <kernel-version>
+      $ sudo dkms autoinstall -k <kernel-version>
 
 
 For example.
@@ -392,7 +392,7 @@ For example.
 
 .. code:: console
 
-      sudo dkms autoinstall -k 4.19.0-6-amd64
+      $ sudo dkms autoinstall -k 4.19.0-6-amd64
 
 
 Update initramfs.
@@ -401,7 +401,7 @@ Update initramfs.
 
 .. code:: console
 
-      sudo update-initramfs -u
+      $ sudo update-initramfs -u
 
 
 The output should look like this:

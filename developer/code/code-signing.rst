@@ -91,7 +91,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    .. code:: console
 
-         git config --global user.signingkey <KEYID>
+         $ git config --global user.signingkey <KEYID>
 
 
 
@@ -99,23 +99,24 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    .. code:: console
 
-         git config --global commit.gpgsign true
+         $ git config --global commit.gpgsign true
 
 
    Alternatively, manually specify when a commit is to be signed:
 
    .. code:: console
 
-         git commit -S
+         $ git commit -S
 
 
 
 3. (Optional) Create signed tags. Signed commits are totally sufficient to contribute to Qubes OS. However, if you have commits which are not signed and you do not want to change them, you can create a signed tag for the commit and push it before the check.
+
    This is useful for example, if you have a commit back in the git history which you like to sign now without rewriting the history.
 
    .. code:: console
 
-         git tag -s <tag_name> -m "<tag_message>"
+         $ git tag -s <tag_name> -m "<tag_message>"
 
 
    You can also create an alias to make this easier. Edit your ``~/.gitconfig`` file. In the ``[alias]`` section, add ``stag`` to create signed tags and ``spush`` to create signed tags and push them.
@@ -171,14 +172,14 @@ In this case, you have several options to sign the commit:
 
    .. code:: console
 
-         git commit --amend -S
+         $ git commit --amend -S
 
 
    This also rewrites the commit so you need to push it forcefully:
 
    .. code:: console
 
-         git push -f
+         $ git push -f
 
 
 
@@ -186,8 +187,8 @@ In this case, you have several options to sign the commit:
 
    .. code:: console
 
-         git checkout <commit>
-         git spush
+         $ git checkout <commit>
+         $ git spush
 
 
    Now, the signature checker needs to re-check the signature. Please comment on the pull request that you would like to have the signatures checked again.

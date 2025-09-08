@@ -56,6 +56,7 @@ Security Notes
 - PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see `QSB #37 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__). However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode. These must be set manually.
 
 - The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see `#3737 <https://github.com/QubesOS/qubes-issues/issues/3737>`__).
+
   Steps for dom0 updates:
 
   1. Open the Qubes Menu by clicking on the “Q” icon in the top-left corner of the screen.
@@ -66,7 +67,7 @@ Security Notes
 
      .. code:: console
 
-           sudo nano /etc/yum.repos.d/qubes-dom0.repo
+           $ sudo nano /etc/yum.repos.d/qubes-dom0.repo
 
 
 

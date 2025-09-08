@@ -19,8 +19,8 @@ Known issues
 
   .. code:: console
 
-        qvm-prefs -s fedora-17-x64-dvm maxmem 3072
-        qvm-create-default-dvm --default-template --default-script
+        $ qvm-prefs -s fedora-17-x64-dvm maxmem 3072
+        $ qvm-create-default-dvm --default-template --default-script
 
 
 
@@ -58,6 +58,6 @@ If you have Qubes Beta 3 currently installed on your system, you must reinstall 
 
 .. code:: console
 
-      qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64
+      $ qvm-backup-restore <backup_dir> --replace-template=fedora-15-x64:fedora-17-x64
 
 

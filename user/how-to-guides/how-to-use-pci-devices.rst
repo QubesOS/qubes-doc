@@ -55,7 +55,7 @@ To figure out what device to attach, first list the available PCI devices by run
 
 .. code:: console
 
-      qvm-pci
+      $ qvm-pci
 
 
 
@@ -63,7 +63,7 @@ This will show you the ``backend:BDF`` (Bus_Device.Function) address of each PCI
 
 .. code:: console
 
-      qvm-pci attach targetVM sourceVM:[BDF] --persistent
+      $ qvm-pci attach targetVM sourceVM:[BDF] --persistent
 
 
 
@@ -73,7 +73,7 @@ For example, if ``00_1a.0`` is the BDF of the device you want to attach to the â
 
 .. code:: console
 
-      qvm-pci attach work dom0:00_1a.0 --persistent
+      $ qvm-pci attach work dom0:00_1a.0 --persistent
 
 
 
@@ -101,7 +101,7 @@ usage example:
 
 .. code:: console
 
-      qvm-pci a work dom0:00_1a.0 --persistent -o no-strict-reset=true
+      $ qvm-pci a work dom0:00_1a.0 --persistent -o no-strict-reset=true
 
 
 
@@ -115,7 +115,7 @@ usage example:
 
 .. code:: console
 
-      qvm-pci a work dom0:00_1a.0 --persistent -o permissive=true
+      $ qvm-pci a work dom0:00_1a.0 --persistent -o permissive=true
 
 
 
@@ -141,10 +141,10 @@ or
 
   .. code:: console
 
-        echo <BDF> > /sys/bus/pci/drivers/pciback/unbind
-        MODALIAS=`cat /sys/bus/pci/devices/<BDF>/modalias`
-        MOD=`modprobe -R $MODALIAS | head -n 1`
-        echo <BDF> > /sys/bus/pci/drivers/$MOD/bind
+        $ echo <BDF> > /sys/bus/pci/drivers/pciback/unbind
+        $ MODALIAS=`cat /sys/bus/pci/devices/<BDF>/modalias`
+        $ MOD=`modprobe -R $MODALIAS | head -n 1`
+        $ echo <BDF> > /sys/bus/pci/drivers/$MOD/bind
 
 
 

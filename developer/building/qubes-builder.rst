@@ -1,3 +1,5 @@
+:orphan:
+
 =============
 Qubes builder
 =============
@@ -55,17 +57,23 @@ Usually you can install those packages by just issuing:
 
 .. code:: console
 
-      sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap python3-pyyaml devscripts perl-Digest-MD5 perl-Digest-SHA
+      $ sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap python3-pyyaml devscripts perl-Digest-MD5 perl-Digest-SHA
 
 
 The build system creates build environments in chroots and so no other packages are needed on the host. All files created by the build system are contained within the qubes-builder directory. The full build requires some 25GB of free space, so keep that in mind when deciding where to place this directory.
 
 The build system is configured via builder.conf file. You can use the setup.sh script to create and modify this file. Alternatively, you can copy the provided default builder.conf, and modify it as needed, e.g.:
 
+
 .. code:: console
 
-      cp example-configs/qubes-os-master.conf builder.conf
-      # edit the builder.conf file and set the following variables:
+      $ cp example-configs/qubes-os-master.conf builder.conf
+
+
+Edit the builder.conf file and set the following variables:
+
+.. code:: bash
+
       NO_SIGN=1
 
 
@@ -84,39 +92,64 @@ It is also recommended that you use an empty passphrase for the private key used
 
 So, to build Qubes you would do:
 
+Import the Qubes master key:
+
 .. code:: console
 
-      # Import the Qubes master key
-      gpg --recv-keys 0xDDFA1A3E36879494
+      $ gpg --recv-keys 0xDDFA1A3E36879494
 
-      # Verify its fingerprint, set as 'trusted'.
-      # This is described here:
-      # https://www.qubes-os.org/doc/VerifyingSignatures
 
-      wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
-      gpg --import qubes-developers-keys.asc
+Verify its fingerprint, set as 'trusted'. This is described :doc:`here </project-security/verifying-signatures>`.
 
-      git clone https://github.com/QubesOS/qubes-builder.git qubes-builder
-      cd qubes-builder
+.. code:: console
 
-      # Verify its integrity:
-      git tag -v `git describe`
+      $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
+      $ gpg --import qubes-developers-keys.asc
 
-      cp example-configs/qubes-os-master.conf builder.conf
-      # edit the builder.conf file and set the following variables:
+      $ git clone https://github.com/QubesOS/qubes-builder.git qubes-builder
+      $ cd qubes-builder
+
+
+Verify its integrity:
+
+.. code:: console
+
+      $ git tag -v `git describe`
+
+
+Copy the example ``builder.conf``:
+
+.. code:: console
+
+      $ cp example-configs/qubes-os-master.conf builder.conf
+
+
+Edit the builder.conf file and set the following variables:
+
+.. code:: bash
+
       # NO_SIGN="1"
 
-      # Download all components:
 
-      make get-sources
+Download all components:
 
-      # And now to build all Qubes RPMs (this will take a few hours):
+.. code:: console
 
-      make qubes
+      $ make get-sources
 
-      # ... and then to build the ISO
 
-      make iso
+And now to build all Qubes RPMs (this will take a few hours):
+
+.. code:: console
+
+      $ make qubes
+
+
+... and then to build the ISO
+
+.. code:: console
+
+      $ make iso
 
 
 And this should produce a shiny new ISO.
@@ -125,7 +158,7 @@ You can also build selected component separately. Eg. to compile only gui virtua
 
 .. code:: console
 
-      make gui-daemon
+      $ make gui-daemon
 
 
 You can get a full list from make help.
@@ -146,7 +179,7 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 
 
-- You can also set GIT_PREFIX=“marmarek/qubes-” to use marmarek’s repo instead of “mainstream” - it contains newer (but less tested) versions
+  - You can also set GIT_PREFIX=“marmarek/qubes-” to use marmarek’s repo instead of “mainstream” - it contains newer (but less tested) versions
 
 
 
@@ -154,7 +187,7 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
    .. code:: console
 
-         make get-sources
+         $ make get-sources
 
 
 4. **Make your modifications here**
@@ -165,14 +198,14 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
    .. code:: console
 
-         make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-qubes-os manager linux-dom0-updates
+         $ make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-qubes-os manager linux-dom0-updates
 
 
 7. build iso installation image
 
    .. code:: console
 
-         make iso
+         $ make iso
 
 
 

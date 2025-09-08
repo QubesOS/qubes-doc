@@ -1,0 +1,143 @@
+===========================
+How to upgrade to Qubes 4.3
+===========================
+
+
+This page explains how to upgrade from Qubes 4.2 to Qubes 4.3. There are two ways to upgrade: a clean installation or an in-place upgrade. In general, a clean installation is simpler and less error-prone, but an in-place upgrade allows you to preserve your customizations.
+
+Back up
+-------
+
+
+Before attempting either an in-place upgrade or a clean installation, we strongly recommend that you first :doc:`back up your system </user/how-to-guides/how-to-back-up-restore-and-migrate>` so that you don’t lose any data.
+
+Clean installation
+------------------
+
+
+If you would prefer to perform a clean installation rather than upgrading in-place:
+
+1. (optional) Run the updater to ensure all of your qubes are in their latest version.
+
+2. Create a :ref:`backup <user/how-to-guides/how-to-back-up-restore-and-migrate:creating a backup>` of your current installation.
+
+3. `Download <https://www.qubes-os.org/downloads/>`__ the latest 4.3 release.
+
+4. Follow the :doc:`installation guide </user/downloading-installing-upgrading/installation-guide>` to install Qubes 4.3.
+
+5. :ref:`Restore from your backup <user/how-to-guides/how-to-back-up-restore-and-migrate:restoring from a backup>` on your new 4.3 installation.
+
+6. Install the ``qubes-dist-upgrade`` tool. This is the inplace upgrade tool, which is not what we’re doing. However it will be needed in order to upgrade the templates to the 4.3 version. You install it with the following command in the dom0 terminal:
+
+   .. code:: console
+
+         $ sudo qubes-dom0-update -y qubes-dist-upgrade
+
+
+7. Change your templates to use the 4.3 repositories instead of the 4.2 ones. You do this with the following command in the dom0 terminal:
+
+   .. code:: console
+
+         $ sudo qubes-dist-upgrade --releasever=4.3 --template-standalone-upgrade
+
+
+   **Note**: This step is critical to ensure the templates will receive updates once Qubes 4.2 reaches end-of-life (EOL).
+
+
+In-place upgrade
+----------------
+
+
+**Warning:** It is not possible to upgrade directly from releases earlier than 4.2. If you’re still on an earlier release, please either perform a `clean installation of 4.3 <#clean-installation>`__ or :doc:`upgrade to 4.2 </user/downloading-installing-upgrading/upgrade/4_2>` first.
+
+The upgrade may take several hours, and will download several gigabytes of data.
+
+In place upgrade is a complex operation. For this reason, we provide a ``qubes-dist-upgrade`` tool to handle all the necessary steps automatically. You can install it with the following command in the dom0 terminal:
+
+.. code:: console
+
+      $ sudo qubes-dom0-update -y qubes-dist-upgrade
+
+
+
+The upgrade consists of six stages — three before restarting the system — labeled “STAGE 1” through “STAGE 3” in the options list below, and three after restarting the system — labeled as “STAGE 4” through “STAGE 6” below.
+
+Full list of options can be obtained with ``qubes-dist-upgrade --releasever=4.3 --help``:
+
+.. code:: bash
+
+      Usage: qubes-dist-upgrade --releasever=VERSION [OPTIONS]...
+      
+      This script is used for updating QubesOS to the next release.
+      
+      Options:
+          --releasever=VERSION               Specify target release, for example 4.3 or 4.2.
+      
+      Usage: /usr/lib/qubes/qubes-dist-upgrade-r4.3.sh [OPTIONS]...
+      
+      This script is used for updating current QubesOS R4.2 to R4.3.
+      
+      Options:
+          --update, -t                       (STAGE 1) Update of dom0, TemplatesVM and StandaloneVM.
+          --release-upgrade, -r              (STAGE 2) Update 'qubes-release' for Qubes R4.3.
+          --dist-upgrade, -s                 (STAGE 3) Upgrade to Qubes R4.3 and Fedora 41 repositories.
+          --template-standalone-upgrade, -l  (STAGE 4) Upgrade templates and standalone VMs to R4.3 repository.
+          --finalize, -x                     (STAGE 5) Finalize upgrade. It does:
+                                               - resync applications and features
+                                               - create LVM devices cache
+                                               - update PCI device IDs
+                                               - enable minimal-netvm / minimal-usbvm services
+                                               - cleanup salt states
+                                               - enable preloaded disposables if system has more than 16GB memory
+          --check-supported-templates        (STAGE 6) Check if all templates are supported
+          --all-pre-reboot                   Execute stages 1 to 3
+          --all-post-reboot                  Execute stages 4 to 6
+      
+          --assumeyes, -y                    Automatically answer yes for all questions.
+          --usbvm, -u                        Current UsbVM defined (default 'sys-usb').
+          --netvm, -n                        Current NetVM defined (default 'sys-net').
+          --updatevm, -f                     Current UpdateVM defined (default 'sys-firewall').
+          --skip-template-upgrade, -j        Don't upgrade TemplateVM to R4.3 repositories.
+          --skip-standalone-upgrade, -k      Don't upgrade StandaloneVM to R4.3 repositories.
+          --only-update                      Apply STAGE 4 and resync appmenus only to
+                                             selected qubes (comma separated list).
+          --keep-running                     List of extra VMs to keep running during update (comma separated list).
+                                             Can be useful if multiple updates proxy VMs are configured.
+          --max-concurrency                  How many TemplateVM/StandaloneVM to update in parallel in STAGE 1
+                                             (default 4).
+          --enable-current-testing, -e       Enable current-testing repositories for the update time.
+                                             The enabling with this option do not persist after
+                                             successful update. If you want to keep it enabled,
+                                             use the normal method instead.
+      
+
+
+After installing the tool, before-reboot stages can be performed at once with:
+
+.. code:: console
+
+      $ sudo qubes-dist-upgrade --all-pre-reboot
+
+
+
+Optionally, an ``--assumeyes`` (or ``-y``) option can be used to automatically accept all the actions without confirmation.
+
+Alternatively, each upgrade stage can be started separately (see the list of options above).
+
+After completing “STAGE 1” through “STAGE 3”, restart the system. Then perform the final steps:
+
+.. code:: console
+
+      $ sudo qubes-dist-upgrade --all-post-reboot
+
+
+
+After performing those steps, it’s recommended to restart the system one last time.
+
+When this completes, you can start using Qubes OS 4.3.
+
+Update
+------
+
+
+After upgrading or performing a clean installation, we strongly recommend :doc:`updating your system </user/how-to-guides/how-to-update>`.

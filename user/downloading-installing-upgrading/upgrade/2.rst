@@ -33,7 +33,7 @@ Note that dom0 in R2 is based on Fedora 20, in contrast to Fedora 18 in previous
 
    .. code:: console
 
-         sudo qubes-dom0-update
+         $ sudo qubes-dom0-update
 
 
 
@@ -51,8 +51,8 @@ After this step you should have ``qubes-release-2-5`` in your Dom0. Important: i
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-dom0-dist-upgrade
-      sudo qubes-dom0-update
+      $ sudo qubes-dom0-update qubes-dom0-dist-upgrade
+      $ sudo qubes-dom0-update
 
 
 
@@ -66,7 +66,7 @@ After this step you should have ``qubes-release-2-5`` in your Dom0. Important: i
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-template-fedora-20-x64
+      $ sudo qubes-dom0-update qubes-template-fedora-20-x64
 
 
 

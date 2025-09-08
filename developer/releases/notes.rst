@@ -22,4 +22,6 @@ Release notes
 
    Qubes R4.2 release notes </developer/releases/4_2/release-notes>
 
+   Qubes R4.3 release notes </developer/releases/4_3/release-notes>
+
 

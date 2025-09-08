@@ -13,9 +13,9 @@ To change this allocation, edit VM’s kernel parameters (this is expressed in 5
 
 .. code:: console
 
-      # qvm-prefs netvm |grep kernelopts
+      $ qvm-prefs netvm |grep kernelopts
       kernelopts       : iommu=soft swiotlb=2048 (default)
-      # qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=8192"
+      $ qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=8192"
 
 
 
@@ -73,8 +73,8 @@ Using the command line
 
    .. code:: console
 
-         sudo su
-         echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove
+         $ sudo su
+         $ echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove
 
 
 
@@ -109,7 +109,7 @@ NOTE: The ``permissive`` flag increases attack surface and possibility of `side 
 
 .. code:: console
 
-      qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
+      $ qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
 
 
 

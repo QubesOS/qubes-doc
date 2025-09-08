@@ -31,7 +31,7 @@ Reporting security issues in Qubes OS
 
 If you’ve discovered a security issue affecting Qubes OS, either directly or indirectly (e.g., the issue affects Xen in a configuration that is used in Qubes OS), then we would be more than happy to hear from you! We promise to take all reported issues seriously. If our investigation confirms that an issue affects Qubes, we will patch it within a reasonable time and release a public `Qubes security bulletin (QSB) <https://www.qubes-os.org/security/qsb/>`__ that describes the issue, discusses the potential impact of the vulnerability, references applicable patches or workarounds, and credits the discoverer. Please use the `Qubes security team PGP key <https://keys.qubes-os.org/keys/qubes-os-security-team-key.asc>`__ to encrypt your email to this address:
 
-.. code:: console
+.. code:: text
 
       security at qubes-os dot org
 

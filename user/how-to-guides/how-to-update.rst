@@ -9,13 +9,13 @@ It is important to keep your Qubes OS system up-to-date to ensure you have the l
 
 Fully updating your Qubes OS system means updating:
 
-- :ref:`dom0 <user/reference/glossary:dom0>`
+- :term:`dom0`
 
-- :ref:`templates <user/reference/glossary:template>`
+- :term:`templates <template>`
 
-- :ref:`standalones <user/reference/glossary:standalone>` (if you have any)
+- :term:`standalones <standalone>` (if you have any)
 
-- :ref:`firmware <user/reference/glossary:firmware>`
+- :term:`firmware`
 
 
 

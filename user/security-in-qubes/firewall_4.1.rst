@@ -1,3 +1,5 @@
+:orphan:
+
 ============
 Firewall 4.1
 ============
@@ -111,7 +113,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 .. code:: console
 
-      sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
+      $ sudo iptables -I FORWARD 2 -s <IP address of A> -d <IP address of B> -j ACCEPT
 
 
 
@@ -121,7 +123,7 @@ In order to allow networking between qubes A and B follow these steps:
 
 .. code:: console
 
-      sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
+      $ sudo iptables -I INPUT -s <IP address of A> -j ACCEPT
 
 
 
@@ -329,7 +331,7 @@ In the sys-net VM’s Terminal, code a natting firewall rule to route traffic on
 
 .. code:: console
 
-      iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j DNAT --to-destination 10.137.1.z
+      $ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 192.168.x.y -j DNAT --to-destination 10.137.1.z
 
 
 
@@ -337,7 +339,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 .. code:: console
 
-      iptables -I FORWARD 2 -i eth0 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+      $ iptables -I FORWARD 2 -i eth0 -d 10.137.1.z -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 
 
 
@@ -353,8 +355,8 @@ Verify you are cutting through the sys-net VM firewall by looking at its counter
 
 .. code:: console
 
-      iptables -t nat -L -v -n
-      iptables -L -v -n
+      $ iptables -t nat -L -v -n
+      $ iptables -L -v -n
 
 
 
@@ -364,7 +366,7 @@ Verify you are cutting through the sys-net VM firewall by looking at its counter
 
 .. code:: console
 
-      nft list table ip qubes-firewall
+      $ nft list table ip qubes-firewall
 
 
 
@@ -372,7 +374,7 @@ Send a test packet by trying to connect to the service from an external device
 
 .. code:: console
 
-      telnet 192.168.x.y 443
+      $ telnet 192.168.x.y 443
 
 
 
@@ -380,7 +382,7 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 
 .. code:: console
 
-      sudo nano /rw/config/rc.local
+      $ sudo nano /rw/config/rc.local
 
 
 
@@ -457,7 +459,7 @@ In the sys-firewall VM’s Terminal, code a natting firewall rule to route traff
 
 .. code:: console
 
-      iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.z -j DNAT --to-destination 10.137.0.xx
+      $ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -d 10.137.1.z -j DNAT --to-destination 10.137.0.xx
 
 
 
@@ -465,7 +467,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 .. code:: console
 
-      iptables -I FORWARD 2 -i eth0 -s 192.168.x.0/24 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+      $ iptables -I FORWARD 2 -i eth0 -s 192.168.x.0/24 -d 10.137.0.xx -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
 
 
 
@@ -477,7 +479,7 @@ Code the appropriate new filtering firewall rule to allow new connections for th
 
 .. code:: console
 
-      nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept
+      $ nft add rule ip qubes-firewall forward meta iifname eth0 ip saddr 192.168.x.0/24 ip daddr 10.137.0.xx tcp dport 443 ct state new counter accept
 
 
 
@@ -485,7 +487,7 @@ Once you have confirmed that the counters increase, store these command in ``/rw
 
 .. code:: console
 
-      sudo nano /rw/config/qubes-firewall-user-script
+      $ sudo nano /rw/config/qubes-firewall-user-script
 
 
 
@@ -550,7 +552,7 @@ Finally make this file executable (so it runs at every Firewall VM update)
 
 .. code:: console
 
-      sudo chmod +x /rw/config/qubes-firewall-user-script
+      $ sudo chmod +x /rw/config/qubes-firewall-user-script
 
 
 
@@ -562,7 +564,7 @@ Here no routing is required, only filtering. Proceed in the same way as above bu
 
 .. code:: console
 
-      sudo nano /rw/config/rc.local
+      $ sudo nano /rw/config/rc.local
 
 
 

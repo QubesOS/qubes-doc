@@ -30,7 +30,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
    .. code:: console
 
-         sudo dnf clean all
+         $ sudo dnf clean all
 
 
 
@@ -38,7 +38,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
    .. code:: console
 
-         qvm-remove <VMname>
+         $ qvm-remove <VMname>
 
 
    With this method, you lose the data of one VM, but it’ll work more reliably.
@@ -47,7 +47,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
    .. code:: console
 
-         sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
+         $ sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
 
 
 
@@ -98,8 +98,8 @@ After freeing some initial space, it may be possible to recover more space by de
 
 .. code:: console
 
-      qvm-start <VMname>
-      qvm-console-dispvm <VMname>
+      $ qvm-start <VMname>
+      $ qvm-console-dispvm <VMname>
 
 
 
@@ -117,7 +117,7 @@ To fix this issue:
 
    .. code:: console
 
-         qvm-console-dispvm sys-usb
+         $ qvm-console-dispvm sys-usb
 
 
 
@@ -127,7 +127,7 @@ To fix this issue:
 
    .. code:: console
 
-         fuser -m /home
+         $ fuser -m /home
 
 
 
@@ -139,9 +139,9 @@ Kill these process until they are all gone using ``kill <process ID>``.
 
    .. code:: console
 
-         umount /home
-         fsck /dev/xvdb
-         resize2fs /dev/xvdb
+         $ umount /home
+         $ fsck /dev/xvdb
+         $ resize2fs /dev/xvdb
 
 
 

@@ -219,11 +219,10 @@ The new user you create has full administrator privileges and is protected by a 
 
 |Account name and password creation window.|
 
-.. _installation-1:
 
 
-Installation
-^^^^^^^^^^^^
+Begin Installation
+^^^^^^^^^^^^^^^^^^
 
 
 
@@ -262,7 +261,7 @@ Let’s briefly go over the options:
 
 - **Templates Configuration:** Here you can decide which :doc:`templates </user/templates/templates>` you want to have installed, and which will be the default template.
 
-- **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as :ref:`disposables <user/reference/glossary:disposable>`.
+- **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as :term:`disposables <disposable>`.
 
 - **Create default application qubes:** These are how you compartmentalize your digital life. There’s nothing special about the ones the installer creates. They’re just suggestions that apply to most people. If you decide you don’t want them, you can always delete them later, and you can always create your own.
 
@@ -334,7 +333,7 @@ Getting help
 ------------
 
 
-- We work very hard to make the :doc:`documentation </index>` accurate, comprehensive useful and user friendly. We urge you to read it! It may very well contain the answers to your questions. (Since the documentation is a community effort, we’d also greatly appreciate your help in `improving <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__ it!)
+- We work very hard to make the :doc:`documentation </index>` accurate, comprehensive useful and user friendly. We urge you to read it! It may very well contain the answers to your questions. (Since the documentation is a community effort, we’d also greatly appreciate your help in :doc:`improving </developer/general/how-to-edit-the-documentation>` it!)
 
 - If issues arise during installation, see the :doc:`Installation Troubleshooting </user/troubleshooting/installation-troubleshooting>` guide.
 

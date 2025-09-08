@@ -210,9 +210,9 @@ Core documentation for Qubes developers and advanced users.
    developer/general/gsod
    developer/general/how-to-edit-the-rst-documentation
    developer/general/rst-documentation-style-guide
-   How to edit the website <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>
-   Markdown style guide <https://www.qubes-os.org/doc/documentation-style-guide/>
-   Website style guide <https://www.qubes-os.org/doc/website-style-guide/>
+   developer/general/how-to-edit-the-website
+   developer/general/markdown-style-guide
+   developer/general/website-style-guide
    developer/general/continuous-integration
    developer/general/usability-ux
    developer/general/developing-gui-applications

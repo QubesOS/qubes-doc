@@ -23,7 +23,7 @@ If you would prefer to perform a clean installation rather than upgrading in-pla
 
    .. code:: console
 
-         sudo qubes-dom0-update -y qubes-dist-upgrade
+         $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
@@ -58,7 +58,7 @@ In place upgrade is a complex operation. For this reason, we provide a ``qubes-d
 
 .. code:: console
 
-      sudo qubes-dom0-update -y qubes-dist-upgrade
+      $ sudo qubes-dom0-update -y qubes-dist-upgrade
 
 
 
@@ -104,7 +104,7 @@ After installing the tool, before-reboot stages can be performed at once with:
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --all-pre-reboot
+      $ sudo qubes-dist-upgrade --all-pre-reboot
 
 
 
@@ -116,7 +116,7 @@ After completing “STAGE 1” through “STAGE 3”, restart the system. Then p
 
 .. code:: console
 
-      sudo qubes-dist-upgrade --all-post-reboot
+      $ sudo qubes-dist-upgrade --all-post-reboot
 
 
 

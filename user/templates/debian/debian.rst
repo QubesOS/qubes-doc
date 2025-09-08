@@ -3,7 +3,7 @@ Debian templates
 ================
 
 
-The Debian :doc:`template </user/templates/templates>` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian 12 (“bookworm”). It is available in 3 versions - ``debian-12``, a standard template; ``debian-12-xfce``, a larger template with more installed applications, selected for :doc:`Xfce </user/templates/xfce-templates>`; ``debian-12-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
+The Debian :ref:`/user/reference/glossary:template` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian |debian-version| (“|debian-codename|”). It is available in 3 versions - ``debian-12``, a standard template; ``debian-12-xfce``, a larger template with more installed applications, selected for :doc:`Xfce </user/templates/xfce-templates>`; ``debian-12-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
 
 Installing
 ----------
@@ -75,9 +75,9 @@ If you have a Debian template from an earlier release that you want to use for s
 
 .. code:: console
 
-      sudo apt-mark hold salt-common salt-ssh
-      sudo apt update
-      sudo apt upgrade
+      $ sudo apt-mark hold salt-common salt-ssh
+      $ sudo apt update
+      $ sudo apt upgrade
 
 
 

@@ -75,9 +75,9 @@ One solution is to add a dummy interface to allow the package to install correct
 
 .. code:: console
 
-      ip link add d0 type dummy
-      ip addr add 192.168.0.1/24 dev d0
-      ip link set d0 up
+      $ ip link add d0 type dummy
+      $ ip addr add 192.168.0.1/24 dev d0
+      $ ip link set d0 up
 
 
 

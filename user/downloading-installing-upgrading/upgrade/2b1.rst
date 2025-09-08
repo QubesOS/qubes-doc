@@ -21,7 +21,7 @@ By default, in Qubes R1, there is only one template, however users are free to c
 
    .. code:: console
 
-         sudo yum install qubes-upgrade-vm
+         $ sudo yum install qubes-upgrade-vm
 
 
 
@@ -29,7 +29,7 @@ By default, in Qubes R1, there is only one template, however users are free to c
 
    .. code:: console
 
-         sudo yum update
+         $ sudo yum update
 
 
    The installer (yum) will prompt to accept the new Qubes R2 signing key:
@@ -72,7 +72,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo qubes-dom0-update qubes-release
+         $ sudo qubes-dom0-update qubes-release
 
 
    This should install ``qubes-release-1-6`` in your Dom0.
@@ -81,7 +81,7 @@ Be sure to do steps described in this section after *all* your template and stan
 
    .. code:: console
 
-         sudo qubes-dom0-update --releasever=2
+         $ sudo qubes-dom0-update --releasever=2
 
 
 

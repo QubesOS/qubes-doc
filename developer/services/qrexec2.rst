@@ -90,7 +90,7 @@ In a src VM, one should invoke the qrexec client via the following command:
 
 .. code:: console
 
-      /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
+      $ /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
 
 
 
@@ -114,7 +114,7 @@ In order to remove such authorization, issue this command from a Dom0 terminal (
 
 .. code:: console
 
-      sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
+      $ sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
 
 
 and then remove any line(s) ending in “allow” (before the first ``##`` comment) which are the “Yes to All” results.
@@ -164,7 +164,7 @@ We will show the necessary files to create a simple RPC call that adds two integ
 
   .. code:: console
 
-        /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
+        $ /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
 
 
 

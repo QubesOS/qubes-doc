@@ -11,7 +11,7 @@ By default, the kernel that is installed in dom0 comes from the ``kernel`` packa
 
 .. code:: console
 
-      sudo qubes-dom0-update kernel-latest
+      $ sudo qubes-dom0-update kernel-latest
 
 
 

@@ -37,7 +37,7 @@ KDE is very customisable, and there is a range of widgets to use. If you want to
 
 
 
-This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under “Edit->Restore to System Menu”*
+This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under* :menuselection:`Edit --> Restore to System Menu`
 
 Login manager
 ^^^^^^^^^^^^^
@@ -99,7 +99,7 @@ You can also use ``kstart`` to control virtual desktop placement like this:
 
 .. code:: console
 
-      kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
+      $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
 
 
@@ -117,6 +117,6 @@ The safest way to remove (most of) KDE is:
 
 .. code:: console
 
-      sudo dnf remove kdelibs plasma-workspace
+      $ sudo dnf remove kdelibs plasma-workspace
 
 

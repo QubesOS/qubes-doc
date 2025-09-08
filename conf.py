@@ -32,6 +32,7 @@ extensions = [
   'sphinx.ext.autosectionlabel',
   'sphinxnotes.strike',
   'sphinx_reredirects',
+  'sphinxext.opengraph',
   'youtube_frame',
 ]
 
@@ -42,12 +43,8 @@ redirects = {
         "https://www.qubes-os.org/downloads/mirrors/",
     "developer/general/visual-style-guide":
         "https://www.qubes-os.org/doc/visual-style-guide/",
-    "developer/general/website-style-guide":
-        "https://www.qubes-os.org/doc/website-style-guide/",
     "user/downloading-installing-upgrading/downloads":
         "https://www.qubes-os.org/downloads/",
-    "developer/general/how-to-edit-the-documentation":
-        "https://www.qubes-os.org/doc/how-to-edit-the-documentation/",
 }
 
 
@@ -86,6 +83,9 @@ html_static_path = ['attachment/doc']
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
+html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
+html_favicon = "attachment/icons/favicon-16x16.png"
+
 # -- -- Options for the linkcheck builder ------------------------------------
 
 linkcheck_anchors = False
@@ -95,6 +95,8 @@ linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 
 autosectionlabel_prefix_document = True
 
+ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
+ogp_image_alt = False
 
 # -- HTML configuration ------------------------------------------------------
 
@@ -116,3 +118,10 @@ locale_dirs = ['_translated']
 gettext_compact = False
 
 gettext_uuid = True
+
+# -- -- Options for markup ---------------------------------------------------
+
+rst_epilog = """
+.. |debian-codename| replace:: bookworm
+.. |debian-version| replace:: 12
+"""

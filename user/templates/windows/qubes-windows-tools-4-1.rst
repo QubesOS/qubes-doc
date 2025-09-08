@@ -1,3 +1,5 @@
+:orphan:
+
 =========================
 Qubes Windows Tools (QWT)
 =========================
@@ -39,7 +41,7 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-windows-tools-4.1.68
+      $ sudo qubes-dom0-update qubes-windows-tools-4.1.68
 
 
 
@@ -47,7 +49,7 @@ for Qubes R4.1.2, or
 
 .. code:: console
 
-      sudo qubes-dom0-update qubes-windows-tools-4.1.69
+      $ sudo qubes-dom0-update qubes-windows-tools-4.1.69
 
 
 
@@ -162,7 +164,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
    .. code:: console
 
-         sudo qubes-dom0-update qubes-windows-tools
+         $ sudo qubes-dom0-update qubes-windows-tools
 
 
    (If the above command does not work, it could be that the Qubes Tools are not in the stable repo yet. Try installing from the testing repo instead.)
@@ -170,14 +172,14 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
    .. code:: console
 
-         sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
+         $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 
 
    If an earlier version of Qubes Windows Tools is already installed, with enabled current-testing repo you need to specify as action to ``upgrade`` the existing package, because the default action is ``install``, which will fail if it detects that QWT is already present in Dom0:
 
    .. code:: console
 
-         sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing --action=upgrade qubes-windows-tools
+         $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing --action=upgrade qubes-windows-tools
 
 
    This package brings the ISO with Qubes Windows Tools that is passed to the VM when ``--install-windows-tools`` is specified for the ``qvm-start`` command. Please note that none of this software ever runs in Dom0 or any other part of the system except for the Windows AppVM in which it is to be installed.
@@ -195,7 +197,7 @@ Installing the Qubes Windows Tools on Windows 7, 8.1, 10 and 11 both as a Standa
 
    .. code:: console
 
-         qvm-start <VMname> --install-windows-tools
+         $ qvm-start <VMname> --install-windows-tools
 
 
    Once the Windows VM boots, a CDROM should appear in the ‘My Computer’ menu (typically as ``D:`` or ``E:``) with the setup program ``qubes-tools-x64.msi`` in its main directory.
@@ -536,10 +538,10 @@ If a specific component is malfunctioning, you can increase its log verbosity as
    * - network-setup
      - Service that sets up network parameters according to VM’s configuration.
    * - prepare-volume
-     - Utility that initializes and formats the disk backed by private.img file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
+     - Utility that initializes and formats the disk backed by ``private.img`` file. It’s registered to run on next system boot during QWT setup, if that feature is selected (it can’t run during the setup because Xen block device drivers are not yet active). It in turn registers move-profiles (see below) to run at early boot.
    * - relocate-dir
-     - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: C:\\move-profiles.log (it can’t use our common logger library so none of the log settings apply).
-
+     - Utility that moves user profiles directory to the private disk. It’s registered as an early boot native executable (similar to chkdsk) so it can run before any profile files are opened by some other process. Its log is in a fixed location: ``C:\move-profiles.log`` (it can’t use our common logger library so none of the log settings apply).
+   
 
 
 If there are network-related issues, the qube doesn’t resolve DNS and has trouble accessing the Internet, this might be an issue with the PV Network Drivers.

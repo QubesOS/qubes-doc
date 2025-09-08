@@ -21,7 +21,7 @@ I see something that should be changed in the documentation.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-We encourage you to submit the change yourself! Please see the `how to edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__ for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
+We encourage you to submit the change yourself! Please see the :doc:`how to edit the documentation </developer/general/how-to-edit-the-documentation>` for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
 
 I would like to report a security vulnerability.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -47,13 +47,15 @@ Great! Thank you for taking the time and effort to help improve Qubes! To ensure
 
 6. Do not delete the provided issue template. Fill out every applicable section.
 
-7. Make sure to mention any relevant documentation and other issues you’ve already seen. We don’t know what you’ve seen unless you tell us. If you don’t list it, we’ll assume you haven’t seen it.
+7. Please note that AIs often `hallucinate <https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)>`__ about Qubes OS. If you're using an AI to assist you, please check its conclusions against the `official documentation <https://doc.qubes-os.org/>`__.
 
-8. If any sections of the issue template are *truly* not applicable, you may remove them.
+8. Make sure to mention any relevant documentation and other issues you’ve already seen. We don’t know what you’ve seen unless you tell us. If you don’t list it, we’ll assume you haven’t seen it.
 
-9. Submit your issue.
+9. If any sections of the issue template are *truly* not applicable, you may remove them.
 
-10. Respond to any questions the official team asks. For example, you may be asked to provide specific logs or other additional information.
+10. Submit your issue.
+
+11. Respond to any questions the official team asks. For example, you may be asked to provide specific logs or other additional information.
 
 
 
@@ -171,17 +173,22 @@ If your issue is not actionable, please see :doc:`Help, Support, Mailing Lists, 
 
 This guideline is extremely important for making the issue tracker a useful tool for the developers. When an issue is too big and composite, it becomes intractable and drastically increases the likelihood that nothing will get done. Such issues also tend to encourage an excessive amount of general discussion that is simply not appropriate for a technical issue tracker (see `the issue tracker is not a discussion forum <#the-issue-tracker-is-not-a-discussion-forum>`__).
 
-New issues should not be duplicates of existing issues
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Before you submit an issue, check to see whether it has already been reported. Search through the existing issues – both open and closed – by typing your key words in the **Filters** box. If you find an issue that seems to be similar to yours, read through it. If you find an issue that is the same as or subsumes yours, leave a comment on the existing issue rather than filing a new one, even if the existing issue is closed. If an issue affects more than one Qubes version, we usually keep only one issue for all versions. The Qubes team will see your comment and reopen the issue, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments.
-
 Every issue must be of a single type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Every issue must be exactly one of the following types: a bug report (``bug``), a feature or improvement request (``enhancement``), or a task (``task``). Do not file multi-typed issues. Instead, file multiple issues of distinct types. The Qubes team will classify your issue according to its type.
+
+New issues should not be duplicates of existing issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Before you submit an issue, check to see whether it has already been reported. Search through the existing issues – both open and closed – by typing your key words in the **Filters** box. If you find an issue that seems to be similar to yours, read through it.
+
+For bug reports, if you find an issue that is the same as or subsumes yours, leave a comment on the existing bug report issue rather than opening a new one, even if the existing bug report is closed. If a bug report affects more than one Qubes version, we usually keep only one bug report for all versions. The Qubes team will see your comment and reopen the bug report, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments.
+
+For feature requests, it depends on what you want to report. If the initial implementation was incomplete or unsuccessful, then please leave a comment on the existing feature request issue, and we will reopen it. However, if the initial implementation of the feature was successful, and you are reporting a problem with the feature that arose later, then please open a separate bug report (if one doesn't already exist for that bug) instead of commenting on the old feature request, as we generally prefer not to reopen old feature requests the initial implemntation of which was successfully completed.
+
 
 New issues should include all relevant information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

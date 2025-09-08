@@ -6,10 +6,6 @@ Resize disk image
 
       This page is intended for advanced users.
 
-Resizing Disk Images
---------------------
-
-
 By default Qubes uses thin volumes for the disk images. This means that space is not actually allocated for the volume until it is used. So a 2GB private volume with 100M of files will only use 100M. This explains how you can have *many* qubes with large private volumes on quite a small disk. This is called over provisioning. You should keep an eye on the disk-space widget to see how much free space you actually have.
 
 It is easy to increase the size of disk images. There are risks attached to reducing the size of an image, and in general you should not need to do this.
@@ -42,7 +38,7 @@ Use either GUI tool Qube Settings (``qubes-vm-settings``) or the CLI tool ``qvm-
 
 .. code:: console
 
-      qvm-volume extend <vm_name>:root <size>
+      $ qvm-volume extend <vm_name>:root <size>
 
 
 
@@ -50,7 +46,7 @@ OR
 
 .. code:: console
 
-      qvm-volume extend <vm_name>:private <size>
+      $ qvm-volume extend <vm_name>:private <size>
 
 
 
@@ -92,10 +88,10 @@ FreeBSD
 
 .. code:: console
 
-      gpart recover ada0
-      sysctl kern.geom.debugflags=0x10
-      gpart resize -i index ada0
-      zpool online -e poolname ada0
+      $ gpart recover ada0
+      $ sysctl kern.geom.debugflags=0x10
+      $ gpart resize -i index ada0
+      $ zpool online -e poolname ada0
 
 
 
@@ -117,8 +113,8 @@ Or you can take the risk of reducing the size of the disk. For example, to reduc
 
 .. code:: console
 
-      qvm-shutdown qube1
-      sudo lvresize --size 1024M /dev/qubes_dom0/vm-qube1-private
+      $ qvm-shutdown qube1
+      $ sudo lvresize --size 1024M /dev/qubes_dom0/vm-qube1-private
 
 
 

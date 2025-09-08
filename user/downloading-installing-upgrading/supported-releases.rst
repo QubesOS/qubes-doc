@@ -55,7 +55,7 @@ Qubes OS releases are supported for **six months** after each subsequent major o
    * - Release 4.3
      - TBD
      - TBD
-     - In development
+     - In testing
    
 
 
@@ -94,6 +94,8 @@ The table below shows the OS used for dom0 in each Qubes OS release.
      - Fedora 32
    * - Release 4.2
      - Fedora 37
+   * - Release 4.3
+     - Fedora 41
    
 
 
@@ -120,8 +122,11 @@ It is the responsibility of each distribution to clearly notify its users in adv
      - Fedora
      - Debian
    * - Release 4.2
-     - 41
+     - 41, 42
      - 12
+   * - Release 4.3
+     - 41, 42
+     - 12, 13
    
 
 

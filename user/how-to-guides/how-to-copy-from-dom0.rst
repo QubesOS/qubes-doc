@@ -3,7 +3,7 @@ How to copy from dom0
 =====================
 
 
-This page covers copying files and clipboard text between :ref:`dom0 <user/reference/glossary:dom0>` and :ref:`domUs <user/reference/glossary:domu>`. Since dom0 is special, the processes are different from :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` and :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>`.
+This page covers copying files and clipboard text between :term:`dom0` and :term:`domUs <domu>`. Since dom0 is special, the processes are different from :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` and :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>`.
 
 Copying *from* dom0
 -------------------
@@ -17,7 +17,7 @@ To copy a file from dom0 to a VM, simply use ``qvm-copy-to-vm``:
 
 .. code:: console
 
-      qvm-copy-to-vm <target_vm> <file>
+      $ qvm-copy-to-vm <target_vm> <file>
 
 
 
@@ -73,7 +73,7 @@ If you are determined to copy some files to dom0 anyway, you can use the followi
 
 .. code:: console
 
-      qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
+      $ qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
 
 
 
@@ -81,6 +81,6 @@ Note that you can use the same method to copy files from dom0 to domUs (if, for 
 
 .. code:: console
 
-      cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
+      $ cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
 
 
