@@ -216,4 +216,6 @@ Questions, problems, and improvements
 If you have a question about something you read in the website or about how to edit the it, please post it on the `forum <https://forum.qubes-os.org/>`__ or send it to the appropriate :doc:`mailing list </introduction/support>`. If you see that something in the website should be fixed or improved, please `contribute <#how-to-submit-a-pull-request>`__ the change yourself. To report an issue with the wesbite, please follow our standard :doc:`issue reporting guidelines </introduction/issue-tracking>`. (If you report an issue with the website, you will likely be asked to submit a pull request for it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
 .. |news-section| image:: /attachment/doc/website_news_section.png
+   :alt: Depicts the News section of the Qubes OS website
 .. |hcl-section| image:: /attachment/doc/website_hcl.png
+   :alt: Depicts the Hardware Compatibility List table on the Qubes OS website

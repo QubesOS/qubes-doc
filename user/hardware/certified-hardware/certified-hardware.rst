@@ -6,7 +6,7 @@ Certified hardware
 The Qubes OS Project aims to partner with a select few computer vendors to ensure that Qubes users have reliable hardware purchasing options. We aim for these vendors to be as diverse as possible in terms of geography, cost, and availability.
 
 .. DANGER::
-      
+
       **Warning:** The Qubes OS Project certifies only that a particular hardware *configuration* is *supported* by Qubes OS and is available to purchase with Qubes OS preinstalled. We take no responsibility for any vendor’s manufacturing, shipping, payment, or other practices; nor can we control whether physical hardware is modified (whether maliciously or otherwise) *en route* to the user.
 
 You may also be interested in the `community-recommended hardware <https://forum.qubes-os.org/t/5560>`__ list and the `hardware compatibility list (HCL) <https://www.qubes-os.org/hcl/>`__.
@@ -19,8 +19,8 @@ Qubes-certified computers are certified for a :doc:`major release </developer/re
 
 The current Qubes-certified models are listed below in reverse chronological order of certification.
 
-.. list-table:: 
-   :widths: 43 43 43 
+.. list-table::
+   :widths: 43 43 43
    :align: center
    :header-rows: 1
 
@@ -28,22 +28,22 @@ The current Qubes-certified models are listed below in reverse chronological ord
      - Model
      - Certification details
    * - `NovaCustom <https://novacustom.com/>`__
-     - `V54 Series <https://novacustom.com/product/v54-series/>`__ 
+     - `V54 Series <https://novacustom.com/product/v54-series/>`__
      - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v54-series/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
-     - `NitroPad V56 <https://shop.nitrokey.com/shop/nitropad-v56-684>`__ 
+     - `NitroPad V56 <https://shop.nitrokey.com/shop/nitropad-v56-684>`__
      - :doc:`Certification details </user/hardware/certified-hardware/nitropad-v56/>`
    * - `NovaCustom <https://novacustom.com/>`__
-     - `V56 Series <https://novacustom.com/product/v56-series/>`__ 
+     - `V56 Series <https://novacustom.com/product/v56-series/>`__
      - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v56-series/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
-     - `NitroPC Pro 2 <https://shop.nitrokey.com/shop/nitropc-pro-2-523>`__ 
+     - `NitroPC Pro 2 <https://shop.nitrokey.com/shop/nitropc-pro-2-523>`__
      - :doc:`Certification details </user/hardware/certified-hardware/nitropc-pro-2/>`
    * - `Star Labs <https://starlabs.systems/>`__
-     - `StarBook <https://starlabs.systems/pages/starbook>`__ 
+     - `StarBook <https://starlabs.systems/pages/starbook>`__
      - :doc:`Certification details </user/hardware/certified-hardware/starlabs-starbook/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
-     - `NitroPC Pro <https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523>`__ 
+     - `NitroPC Pro <https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523>`__
      - :doc:`Certification details </user/hardware/certified-hardware/nitropc-pro/>`
    * - `NovaCustom <https://novacustom.com/>`__
      - `NV41 Series <https://novacustom.com/product/nv41-series/>`__
@@ -52,7 +52,7 @@ The current Qubes-certified models are listed below in reverse chronological ord
      - `Dasharo FidelisGuard Z690 <https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/>`__
      - :doc:`Certification details </user/hardware/certified-hardware/dasharo-fidelisguard-z690/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
-     - `NitroPad T430 <https://shop.nitrokey.com/shop/nitropad-t430-119>`__ 
+     - `NitroPad T430 <https://shop.nitrokey.com/shop/nitropad-t430-119>`__
      - :doc:`Certification details </user/hardware/certified-hardware/nitropad-t430/>`
    * - `Nitrokey <https://www.nitrokey.com/>`__
      - `NitroPad X230 <https://shop.nitrokey.com/shop/product/nitropad-x230-67>`__ 
@@ -60,7 +60,6 @@ The current Qubes-certified models are listed below in reverse chronological ord
    * - `Insurgo <https://insurgo.ca/>`__
      - `PrivacyBeast X230 <https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/>`__ 
      - :doc:`Certification details </user/hardware/certified-hardware/insurgo-privacybeast-x230/>`
-   
 
 
 Become hardware certified

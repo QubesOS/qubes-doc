@@ -308,7 +308,7 @@ use `:ref:` for specific sections
    :ref:`qubes <user/reference/glossary:qube>`
 
 
-For further information please :ref:`see <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
+For further information please :ref:`cross_referencing`.
 
 
 Hyperlink syntax
@@ -331,7 +331,7 @@ Do *not* use reference-style links like
 
 This facilitates the localization process.
 
-Take a look also :ref:`here <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
+Take a look also :ref:`cross_referencing`.
 
 
 Relative vs. absolute links
@@ -570,7 +570,7 @@ Core vs. external documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Core documentation resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__. External documentation should not be submitted to `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the documentation index (see :ref:`How to edit the documentation index <developer/general/how-to-edit-the-rst-documentation:how to edit the documentation index>`) to add and update Qubes Forum links in the :ref:`“External documentation” <index:external documentation>` section of the documentation table of contents.
+Core documentation resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__. External documentation should not be submitted to `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the documentation index (see :ref:`edit_doc_index`) to add and update Qubes Forum links in the :ref:`“External documentation” <index:external documentation>` section of the documentation table of contents.
 
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project. The purpose of this distinction is to keep the core docs maintainable and high-quality by limiting them to the software output by the Qubes OS Project. In other words, we take responsibility for documenting all of the software we put out into the world, but it doesn’t make sense for us to take on the responsibility of documenting or maintaining documentation for anything else. For example, Qubes OS may use a popular Linux distribution for an official :doc:`TemplateVM </user/templates/templates>`. However, it would not make sense for a comparatively small project like ours, with modest funding and a lean workforce, to attempt to document software belonging to a large, richly-funded project with an army of paid and volunteer contributors, especially when they probably already have documentation of their own. This is particularly true when it comes to Linux in general. Although many users who are new to Qubes are also new to Linux, it makes absolutely no sense for our comparatively tiny project to try to document Linux in general when there is already a plethora of documentation out there.
 
@@ -751,7 +751,7 @@ Internal
         :doc:`Link Text </path/to/file>`
 
 
-For example on cross referencing please see :ref:`cross-referencing <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
+For example on cross referencing please see :ref:`cross_referencing`.
 
 Text Decoration
 ^^^^^^^^^^^^^^^
@@ -865,4 +865,3 @@ Markdown does not have built-in support for alerts and warnings.
 
         .. danger::
            This is a danger message.
-

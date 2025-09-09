@@ -5,10 +5,11 @@ How to edit the documentation
 The Qubes OS documentation is stored as `reStructuredText (rST) <https://docutils.sourceforge.io/rst.html>`__ files in
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
 We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
-`Read The Docs <https://readsthedocs.com/>`__ for hosting.
+`Read The Docs (RTD) <https://readsthedocs.com/>`__ for hosting.
+RTD is a `continuous‑documentation deployment platform <https://docs.readthedocs.com/platform/stable/continuous-deployment.html>`__ that automatically detects changes in the qubes-doc GittHub repository and builds the latest version of the docs.
 
 .. figure:: /attachment/doc/rst-rtd-workflow.png
-    :alt: Qubes OS Documentation Workflow - TODO description
+    :alt: Qubes OS Documentation Workflow - once new documentation is written or changed, it is built and verified with Sphinx, pushed on GitHub/GitLab and hosted on RTD
     :scale: 15 %
     :align: center
 
@@ -21,8 +22,7 @@ be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 |epub-pdf|
 
 ..
-  TODO screenshot with main branch instead of rst
-  TODO add alt description overall with the images
+  TODO screenshots with main branch instead of rst when rst merged in main 
   TODO add draft pull request screenshot
 
 The documentation is a volunteer community effort. People like you are
@@ -64,12 +64,13 @@ Ok, let’s begin. Every documentation page has a “Edit on GitHub” link.
 
 When you click on it, you’ll be taken to the source file — a reStructuredText (``.rst``) file — on GitHub.
 
-|github-edit|
-
 On this page, there will be a
 button to edit the file (if you are already logged in in).
 
-TODO screenshot
+..
+  TODO screenshot when rst merged in main
+
+|github-edit|
 
 If you are not logged in you can click on :guilabel:`Sign In`
 and you’ll be prompted to sign in with your GitHub username and password.
@@ -105,7 +106,7 @@ if you want to locally verify that everything looks correct before submitting an
 
 
 Once you’re finished, describe your changes at the bottom and click
-:guilabel:`Propose file change`.
+:guilabel:`Commit changes`.
 
 |commit|
 
@@ -114,8 +115,6 @@ stage, those changes are still in your own copy of the documentation
 (“fork”). If everything looks good, send those changes to us by pressing
 the :guilabel:`Create pull request` button.
 
-
-|draft-pull-request-confirm|
 
 You will be able to adjust the pull request message and title there. In
 most cases, the defaults are ok, so you can just confirm by pressing the
@@ -140,7 +139,8 @@ can’t.
 Viewing your pull request on RTD
 --------------------------------
 
-To view your pull request on RTD you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__:
+Every time you push a commit to your pull request, a build on RTD will be triggered.
+To view your PR you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__:
 
 |pull-request-builds|
 
@@ -184,7 +184,10 @@ TL;DR: How to edit the documentation index
 For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
 The source file for the :doc:`documentation index (a.k.a. table of contents) </index>` is
-`index.rst <https://github.com/QubesOS/qubes-doc/blob/rst/index.rst>`__ (TODO: main).
+`index.rst <https://github.com/QubesOS/qubes-doc/blob/rst/index.rst>`__.
+
+..
+  TODO: point to index, conf.py etc on main not on rst when rst merged in main
 
 
 :file:`index.rst` contains information about the hierarchy between the files in the documentation and/or
@@ -231,7 +234,7 @@ Then, add your image(s) in a the :file:`attachment/doc` folder in the `qubes-doc
 repository using the same path and filename.
 This is the only permitted way to include images. Do not link to images on other websites.
 
-.. _cross_refrencing:
+.. _cross_referencing:
 
 TL;DR: Cross-referencing
 ========================
@@ -267,7 +270,7 @@ which will point to :ref:`this section <user/troubleshooting/vm-troubleshooting:
 which will refer to :ref:`this section <introduction/faq:what does it mean to "distrust the infrastructure"?>`.
 
 
-TODO: label of sections and referencing them
+For further options and use cases please refer to `Cross-references <https://www.sphinx-doc.org/en/master/usage/referencing.html>`__.
 
 
 .. _build_locally:
@@ -280,7 +283,7 @@ In order to build the Qubes OS rST documentation locally clone the `qubes-doc <h
 (or your forked one if you want to submit a pull request).
 
 
-It is recommended to use a virtual environment, f.ex. venv or poetry.
+It is recommended to use a virtual environment, f.ex. venv or uv poetry.
 In the following section there is a sample setup to prepare local environments
 for building Qubes OS rST documentation.
 
@@ -368,7 +371,7 @@ Using poetry
 
 
 1. `Install poetry <https://python-poetry.org/docs/#installation>`__ and git and clone the repository.
-A `pyproject.toml` file is provided.
+A :file:`pyproject.toml` file is provided.
 
   .. code-block:: console
 
@@ -456,7 +459,7 @@ You can find it `here <https://github.com/QubesOS/qubes-doc/blob/rst/conf.py>`__
 Extensions
 ----------
 
-We use several Sphinx `extensions<https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
+We use several Sphinx `extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
 as defined in :file:`conf.py`, as well a simple custom one to embed YouTube videos,
 which can be found `here <https://github.com/QubesOS/qubes-doc/tree/rst/_ext>`__.
 
@@ -504,16 +507,26 @@ you are not willing or able to do so.)
 
 
 .. |page-source-button| image:: /attachment/doc/doc-pr_01_page-source-button-rtd.png
+   :alt: Highlights the Edit Source Button to GitHub sources on doc.qubes-os.org
 .. |github-edit| image:: /attachment/doc/doc-pr_02_github-edit-rst.png
+   :alt: Highlights the Sign-In on GitHub
 .. |github-sign-in| image:: /attachment/doc/doc-pr_03_sign-in-rst.png
+   :alt: GitHub Login
 .. |fork1| image:: /attachment/doc/doc-pr_04_fork-rst1.png
+   :alt: Highlights the Fork Button on GitHub for the qubes-doc repository
 .. |fork2| image:: /attachment/doc/doc-pr_04_fork-rst2.png
+   :alt: Highlights the Create Fork Button on GitHub when forking the qubes-doc repository
 .. |fork3| image:: /attachment/doc/doc-pr_04_fork-rst3.png
+   :alt: Forked qubes-doc repository on GitHub
 .. |edit| image:: /attachment/doc/doc-pr_05_edit-rst.png
+   :alt: Highlights the edit options for an rst file in the GitHub forked qubes-doc repository
 .. |commit| image:: /attachment/doc/doc-pr_06_commit-msg-rst.png
+   :alt: Highlights the commit changes button on GitHub
 .. |pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-pr-rst.png
-.. |draft-pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-dpr-rst.png
+   :alt: Highlights the create pull request button on GitHub when creating a pull request
 .. |pull-request-builds| image:: /attachment/doc/doc-pr_10_view-pr-rtd.png
+   :alt: Highlights the pull request <number> and its build in the build list on RTD
 .. |pull-request-build| image:: /attachment/doc/doc-pr_11_view-pr-rtd.png
-.. |done| image:: /attachment/doc/doc-pr_09_done.png
+   :alt: Highlights the View Docs button in a specific build for a pull request <number> on RTD
 .. |epub-pdf| image:: /attachment/doc/rst-rtd-epub-pdf.png
+   :alt: Highlights from where one can download a ePUB or PDF of hte Qubes OS documentation deployed on RTD

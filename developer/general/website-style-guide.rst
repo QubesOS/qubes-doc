@@ -397,3 +397,4 @@ Git conventions
 Please follow our :ref:`Git commit message guidelines <developer/code/coding-style:commit message guidelines>`.
 
 .. |alerts| image:: /attachment/doc/website_alerts.png
+   :alt: Depicts different alerts and messages: note, warning, danger and how they are rendered on the website

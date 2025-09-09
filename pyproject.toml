@@ -11,6 +11,10 @@ dependencies = ["sphinx (>=8.2.3,<9.0.0)"]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+
+[tool.poetry]
+package-mode = false
+
 [tool.uv]
 package = false
 
@@ -20,6 +24,8 @@ dev = [
     "sphinx-autobuild>=2024.10.3,<2025",
     "sphinx-lint>=1.0.0,<2",
     "sphinx-reredirects>=1.0.0,<2",
+    "sphinxext-opengraph==0.12.0",
+    "sphinxnotes-any==2.5",
     "sphinxnotes-strike>=1.2.1,<2",
     "sphinx-rtd-theme>=3.0.2,<4",
 ]

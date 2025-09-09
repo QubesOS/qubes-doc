@@ -11,8 +11,8 @@ The `Dasharo FidelisGuard Z690 <https://web.archive.org/web/20240917145232/https
 
 The `Dasharo FidelisGuard Z690 <https://web.archive.org/web/20240917145232/https://shop.3mdeb.com/shop/open-source-hardware/dasharo-fidelisguard-z690-qubes-os-certified/>`__ is a full desktop PC build that brings the `Dasharo <https://dasharo.com/>`__ open-source firmware distribution to the MSI PRO Z690-A DDR4 motherboard with Qubes OS preinstalled. The full configuration includes:
 
-.. list-table:: 
-   :widths: 14 14 
+.. list-table::
+   :widths: 14 14
    :align: center
    :header-rows: 1
 
@@ -30,7 +30,6 @@ The `Dasharo FidelisGuard Z690 <https://web.archive.org/web/20240917145232/https
      - SSD Intel 670p 512 GB M.2 2280 PCI-E x4 Gen3 NVMe
    * - Enclosure
      - SilentiumPC Armis AR1
-   
 
 
 |Photo of Dasharo FidelisGuard Z690 with open case|

@@ -192,13 +192,6 @@ Documentation
 Browse our extensive library of :doc:`documentation </index>` for users and developers of Qubes OS. You can even :doc:`help us improve it </developer/general/how-to-edit-the-rst-documentation>`!
 
 .. |snapshot_41.png| image:: /attachment/doc/r4.1-snapshot_40.png
-   
-
 .. |r4.0-taskbar.png| image:: /attachment/doc/r4.0-taskbar.png
-   
-
 .. |r4.1-widgets.png| image:: /attachment/doc/r4.1-widgets.png
-   
-
 .. |r4.1-qubes-manager.png| image:: /attachment/doc/r4.1-qubes-manager.png
-   

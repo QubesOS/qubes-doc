@@ -6,11 +6,11 @@ NitroPC Pro
 
 
 .. warning::
-      
+
       **Note:** When configuring your NitroPC Pro 2 on the Nitrokey website, there is an option for a discrete graphics card (e.g., Nvidia GeForce RTX 4070 or 4090) in addition to integrated graphics (e.g., Intel UHD 770, which is always included because it is physically built into the CPU). NitroPC Pro 2 configurations that include discrete graphics cards are *not* Qubes-certified. The only NitroPC Pro 2 configurations that are Qubes-certified are those that contain *only* integrated graphics.
 
 .. warning::
-      
+
       **Note:** Only the “Dasharo TianoCore UEFI without Measured Boot, without Nitrokey” firmware option is certified. The “HEADS with Measured Boot, requires Nitrokey!” firmware option is *not* certified.
 
 The `NitroPC Pro <https://web.archive.org/web/20231027112856/https://shop.nitrokey.com/shop/product/nitropc-pro-523>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.
@@ -19,8 +19,8 @@ The `NitroPC Pro <https://web.archive.org/web/20231027112856/https://shop.nitrok
 
 Here’s a summary of the main component options available for this mid-tower desktop PC:
 
-.. list-table:: 
-   :widths: 29 29 
+.. list-table::
+   :widths: 29 29
    :align: center
    :header-rows: 1
 
@@ -40,7 +40,6 @@ Here’s a summary of the main component options available for this mid-tower de
      - Wi-Fi 6E, 2400 Mbps, 802.11/a/b/g/n/ac/ax, Bluetooth 5.2
    * - Operating system (optional)
      - Qubes OS 4.1 or Ubuntu 22.04 LTS
-   
 
 
 Of special note for Qubes users, the NitroPC Pro features a combined PS/2 port that supports both a PS/2 keyboard and a PS/2 mouse simultaneously with a Y-cable (not included). This allows for full control of dom0 without the need for USB keyboard or mouse passthrough. Nitrokey also offers a special tamper-evident shipping method for an additional fee. With this option, the case screws will be individually sealed and photographed, and the NitroPC Pro will be packed inside a sealed bag. Photographs of the seals will be sent to you by email, which you can use to determine whether the case was opened during transit.

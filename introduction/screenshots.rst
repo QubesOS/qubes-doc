@@ -130,61 +130,22 @@ And some more screenshots:
 |r2b3-windows-seamless-2.png|
 
 .. |r4.0-xfce-desktop.png| image:: /attachment/doc/r4.0-xfce-desktop.png
-   
-
 .. |r4.0-xfce-start-menu.png| image:: /attachment/doc/r4.0-xfce-start-menu.png
-   
-
 .. |r4.0-xfce-three-domains-at-work.png| image:: /attachment/doc/r4.0-xfce-three-domains-at-work.png
-   
-
 .. |r2b3-windows-seamless-1.png| image:: /attachment/doc/r2b3-windows-seamless-1.png
-   
-
 .. |r2b3-windows-seamless-filecopy.png| image:: /attachment/doc/r2b3-windows-seamless-filecopy.png
-   
-
 .. |r4.0-xfce-programmers-desktop.png| image:: /attachment/doc/r4.0-xfce-programmers-desktop.png
-   
-
 .. |r4.0-password-prompt.png| image:: /attachment/doc/r4.0-password-prompt.png
-   
-
 .. |r4.0-xfce-tray-icons.png| image:: /attachment/doc/r4.0-xfce-tray-icons.png
-   
-
 .. |r4.0-manager-and-sysnet-network-prompt.png| image:: /attachment/doc/r4.0-manager-and-sysnet-network-prompt.png
-   
-
 .. |r4.0-software-update.png| image:: /attachment/doc/r4.0-software-update.png
-   
-
 .. |r4.0-copy-paste.png| image:: /attachment/doc/r4.0-copy-paste.png
-   
-
 .. |“r4.0-copy-to-other-appvm-1.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-1.png
-   
-
 .. |r4.0-copy-to-other-appvm-3.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-2.png
-   
-
 .. |r4.0-open-in-dispvm-1.png| image:: /attachment/doc/r4.0-open-in-dispvm-1.png
-   
-
 .. |r4.0-open-in-dispvm-2.png| image:: /attachment/doc/r4.0-open-in-dispvm-2.png
-   
-
 .. |r4.0-convert-to-trusted-pdf-1.png| image:: /attachment/doc/r4.0-convert-to-trusted-pdf-1.png
-   
-
 .. |r4.1-converting-pdf.png| image:: /attachment/doc/r4.1-converting-pdf.png
-   
-
 .. |r4.0-manager-firewall.png| image:: /attachment/doc/r4.0-manager-firewall.png
-   
-
 .. |r4.0-xfce-red-and-green-terminals.png| image:: /attachment/doc/r4.0-xfce-red-and-green-terminals.png
-   
-
 .. |r2b3-windows-seamless-2.png| image:: /attachment/doc/r2b3-windows-seamless-2.png
-   

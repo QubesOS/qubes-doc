@@ -9,7 +9,7 @@ Qubes OS is effectively a “meta” operating system (OS) that can run almost a
 
 The following instructions explain how to permanently install new software in a template. There are different instructions for software from the default repositories and all other software. (If you’re not sure, try the default repositories first.)
 
-.. installing-software-from-default-repositories:
+.. _installing-software-from-default-repositories:
 
 Installing software from default repositories
 ---------------------------------------------
@@ -109,12 +109,12 @@ If things are still not working as expected:
 How to update software
 ----------------------
 
-Please see :doc:`how-to-update`.
+Please see :doc:`/user/how-to-guides/how-to-update`.
 
 Why don't templates have normal network access?
 -----------------------------------------------
 
-In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an :ref:`updates-proxy` which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for :ref:`installing-software-from-default-repositories` and :doc:`updating <how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
+In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an :ref:`updates-proxy` which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for :ref:`installing-software-from-default-repositories` and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
 
 Advanced
 --------
@@ -223,7 +223,7 @@ This is like the simple revert, except:
 
 - The saved revision of the volumes must be uncompromised. With the default ``revisions_to_keep=1`` for the root volume, you must **not** have started the template since the compromising action.
 
-.. updates-proxy:
+.. _updates-proxy:
 
 Updates proxy
 ^^^^^^^^^^^^^
