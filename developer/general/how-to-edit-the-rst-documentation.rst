@@ -454,6 +454,10 @@ It contains settings and extensions that define how the documentation will be ge
 
 You can find it `here <https://github.com/QubesOS/qubes-doc/blob/rst/conf.py>`__.
 
+You can also find a :file:`readthedocs.yml` `file <https://github.com/QubesOS/qubes-doc/blob/rst/.readthedocs.yaml>`__
+which tells RTD how to build the documentation. It defines the build environment, Python version, required dependencies,
+and which Sphinx configuration to run. Thus RTD automatically generates and hosts the docs.
+
 
 Extensions
 ----------

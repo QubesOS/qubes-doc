@@ -28,10 +28,10 @@ provided by `Docutils <https://www.docutils.org/>`__ and extended by `Sphinx <ht
 Directives are used to insert non-paragraph content, such as images, tables, and code blocks.
 Example directives are:
 
-.. code-block:: rst
+.. code:: rst
 
    .. image::
-   .. code-block::
+   .. code::
    .. figure::
 
 Directives start with ``..``, followed by directive name, arguments, options, and indented content.
@@ -42,7 +42,7 @@ Images
 To include images (without a caption), use the ``image`` directive.
 You need to specify the path to the image and an alt text.
 
-.. code-block:: rst
+.. code:: rst
 
   .. image:: path/to/image.png
      :alt: Alternative text
@@ -64,7 +64,7 @@ Lists
 
 Nested lists must be separated from the parent list items by blank lines:
 
-.. code-block:: rst
+.. code:: rst
 
   - Item 1
   - Item 2
@@ -76,7 +76,7 @@ Nested lists must be separated from the parent list items by blank lines:
 
 Numbered lists can be autonumbered using the ``#`` sign.
 
-.. code-block:: rst
+.. code:: rst
 
   #. Item 1
   #. Item 2
@@ -96,9 +96,9 @@ or `code <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives
 
 By specifying the language, you enable pygments, which show syntax color coding for that code sample (see `here <https://pygments.org/languages/>`__ for a list of supported languages).
 
-.. code-block:: rst
+.. code:: rst
 
-   .. code-block:: language
+   .. code:: language
 
      code
 
@@ -108,15 +108,15 @@ Use ``[...]`` for anything omitted.
 
 For inlining small code snippets you can use the `code role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-code>`__ as in
 
-.. code-block:: rst
+.. code:: rst
 
    `code:`:term:`qube``
 
 You can add line numbers to code examples with the ``:linenos:`` parameter.
 
-.. code-block:: rst
+.. code:: rst
 
-    .. code-block:: python
+    .. code:: python
       :linenos:
 
        def hello_world():
@@ -125,50 +125,50 @@ You can add line numbers to code examples with the ``:linenos:`` parameter.
 
 You can have certain lines with the ``:emphasize-lines:`` parameter.
 
-.. code-block:: rst
+.. code:: rst
 
- .. code-block:: python
+ .. code:: python
    :emphasize-lines: 1,3,4
 
 
 
 For Python use ``python``.
 
-.. code-block:: rst
+.. code:: rst
 
-    .. code-block:: python
+    .. code:: python
 
       string_var = 'python'
 
 For Bash use ``bash``.
 
-.. code-block:: rst
+.. code:: rst
 
-    .. code-block:: bash
+    .. code:: bash
 
       echo "Hello"
 
 For a terminal session use ``console``.
 
-.. code-block:: rst
+.. code:: rst
 
-    .. code-block:: console
+    .. code:: console
 
       pygments_style = 'sphinx'
 
 For text output use ``output``.
 
-.. code-block:: rst
+.. code:: rst
 
-    .. code-block:: output
+    .. code:: output
 
        some output
 
 For text use ``text``.
 
-.. code-block:: rst
+.. code:: rst
 
-    .. code-block:: text
+    .. code:: text
 
        some text
 
@@ -180,7 +180,7 @@ We adhere to the list tables directive by docutils as described `here <https://d
 
 A simple example would be:
 
-    .. code-block:: rst
+    .. code:: rst
 
         .. list-table:: rst
            :widths: 15 10
@@ -296,14 +296,14 @@ Cross referencing:
 
 Use the `:doc:` role with a path
 
-.. code-block:: rst
+.. code:: rst
 
    :doc:`contributions </introduction/contributing>`.
 
 
 use `:ref:` for specific sections
 
-.. code-block:: rst
+.. code:: rst
 
    :ref:`qubes <user/reference/glossary:qube>`
 
@@ -340,13 +340,13 @@ Relative vs. absolute links
 Always use relative rather than absolute paths for internal website links.
 For example, use:
 
-.. code-block:: rst
+.. code:: rst
 
   text :doc:`contribute code </introduction/contributing>` text
 
 instead of:
 
-.. code-block:: rst
+.. code:: rst
 
   text :doc:`contribute code </introduction/contributing>` text
 
@@ -416,19 +416,19 @@ Emphasis and Italics
 
 - *Italics*: Use single asterisks
 
- .. code-block:: rst
+ .. code:: rst
 
     *italics*
 
 - **Bold**: Use double asterisks.
 
- .. code-block:: rst
+ .. code:: rst
 
     **bold**
 
 - ``Monospace``: Use backticks.
 
- .. code-block:: rst
+ .. code:: rst
 
     ``monospace``
 
@@ -607,14 +607,14 @@ Incorrect Example
      the most part, all fooing is fooing.
 
      To foo in Qubes 3.2:
-        .. code-block:: console
+        .. code:: console
            $ qvm-foo <foo-bar>
 
      Note that this does not work in Qubes 4.0, where there is a special widget
      for fooing, which you can find in the lower-right corner of the screen in
      the Foo Manager. Alternatively, you can use the more general ``qubes-baz``
      command introduced in 4.0:
-        .. code-block:: console
+        .. code:: console
            $ qubes-baz --foo <bar>
 
      Once you foo, make sure to close the baz before fooing the next bar.
@@ -639,7 +639,7 @@ Correct Example
 
      To foo:
 
-        .. code-block:: console
+        .. code:: console
 
            $ qvm-foo <foo-bar>
 
@@ -659,7 +659,7 @@ Correct Example
      corner of the screen in the Foo Manager. Alternatively, you can use the
      general ``qubes-baz`` command:
 
-        .. code-block:: console
+        .. code:: console
 
           $ qubes-baz --foo <bar>
 
@@ -699,7 +699,7 @@ Headings
 
 **Markdown:**
 
-    .. code-block:: markdown
+    .. code:: markdown
 
         # Heading 1
         ## Heading 2
@@ -707,7 +707,7 @@ Headings
 
 **reStructuredText:**
 
-    .. code-block:: rst
+    .. code:: rst
 
         ============
         Heading 1
@@ -726,13 +726,13 @@ External
 
 **Markdown:**
 
-    .. code-block:: markdown
+    .. code:: markdown
 
         [Link Text](http://example.com)
 
 **reStructuredText:**
 
-    .. code-block:: rst
+    .. code:: rst
 
         `Link Text <http://example.com>`__
 
@@ -740,13 +740,13 @@ Internal
 
 **Markdown:**
 
-    .. code-block:: markdown
+    .. code:: markdown
 
         [Link Text](/doc/some-file)
 
 **reStructuredText:**
 
-    .. code-block:: rst
+    .. code:: rst
 
         :doc:`Link Text </path/to/file>`
 
@@ -758,7 +758,7 @@ Text Decoration
 
 **Markdown:**
 
-    .. code-block:: markdown
+    .. code:: markdown
 
         *Italic* or _Italic_
         **Bold** or __Bold__
@@ -766,7 +766,7 @@ Text Decoration
 
 **reStructuredText:**
 
-    .. code-block:: rst
+    .. code:: rst
 
         *Italic*
         **Bold**
@@ -777,7 +777,7 @@ Lists
 
 **Markdown:**
 
-    .. code-block:: markdown
+    .. code:: markdown
 
         - Item 1
         - Item 2
@@ -791,7 +791,7 @@ Lists
 
 **reStructuredText:**
 
-    .. code-block:: rst
+    .. code:: rst
 
         - Item 1
         - Item 2
@@ -808,7 +808,7 @@ Tables
 
 **Markdown:**
 
-    .. code-block:: markdown
+    .. code:: markdown
 
         | Header 1 | Header 2 |
         |----------|----------|
@@ -816,7 +816,7 @@ Tables
         | Cell 3   | Cell 4   |
 
 **reStructuredText:**
-    .. code-block:: rst
+    .. code:: rst
 
         .. list-table:: rst
            :widths: 15 10
@@ -833,7 +833,7 @@ Code Blocks
 ^^^^^^^^^^^
 
 **Markdown:**
-    .. code-block:: markdown
+    .. code:: markdown
 
         ```python
         print("Hello, world!")
@@ -841,9 +841,9 @@ Code Blocks
 
 **reStructuredText:**
 
-    .. code-block:: rst
+    .. code:: rst
 
-        .. code-block:: python
+        .. code:: python
 
             print("Hello, world!")
 
@@ -855,7 +855,7 @@ Alerts and Warnings
 Markdown does not have built-in support for alerts and warnings.
 
 **reStructuredText:**
-    .. code-block:: rst
+    .. code:: rst
 
         .. note::
            This is a note.
