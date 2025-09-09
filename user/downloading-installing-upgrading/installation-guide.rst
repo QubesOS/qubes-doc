@@ -333,7 +333,7 @@ Getting help
 ------------
 
 
-- We work very hard to make the :doc:`documentation </index>` accurate, comprehensive useful and user friendly. We urge you to read it! It may very well contain the answers to your questions. (Since the documentation is a community effort, we’d also greatly appreciate your help in :doc:`improving </developer/general/how-to-edit-the-documentation>` it!)
+- We work very hard to make the :doc:`documentation </index>` accurate, comprehensive useful and user friendly. We urge you to read it! It may very well contain the answers to your questions. (Since the documentation is a community effort, we’d also greatly appreciate your help in :doc:`improving </developer/general/how-to-edit-the-rst-documentation>` it!)
 
 - If issues arise during installation, see the :doc:`Installation Troubleshooting </user/troubleshooting/installation-troubleshooting>` guide.
 

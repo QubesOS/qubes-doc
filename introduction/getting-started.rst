@@ -189,7 +189,7 @@ Documentation
 -------------
 
 
-Browse our extensive library of :doc:`documentation </index>` for users and developers of Qubes OS. You can even :doc:`help us improve it </developer/general/how-to-edit-the-documentation>`!
+Browse our extensive library of :doc:`documentation </index>` for users and developers of Qubes OS. You can even :doc:`help us improve it </developer/general/how-to-edit-the-rst-documentation>`!
 
 .. |snapshot_41.png| image:: /attachment/doc/r4.1-snapshot_40.png
    

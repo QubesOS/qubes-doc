@@ -2,33 +2,19 @@
 reStructuredText documentation style guide
 ===========================================
 
-*Also see* :doc:`How to edit the documentation </developer/general/how-to-edit-the-rst-documentation/>` *.*
-
-Qubes OS documentation is stored as reStrucutredText files in the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
-By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation
-rather than relying solely on the web. Additionally one can download a EPUB or PDF version of the documentation from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__.
-
-We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
-`Read The Docs <https://readsthedocs.com/>`__ for hosting.
-
-.. figure::/attachment/doc/rst-rtd-workflow.png
-    :alt: Qubes OS Documentation Workflow
-
-The documentation is a volunteer community effort. People like you are constantly working to make it better.
-If you notice something that can be fixed or improved,
-please :doc:`edit the documentation </developer/general/how-to-edit-the-rst-documentation/>`!
+*Also see* :doc:`How to edit the documentation </developer/general/how-to-edit-the-rst-documentation/>`.
 
 This page explains the standards we follow for writing, formatting, and organizing the documentation.
 Please follow these guidelines and conventions when editing the rST documentation.
-For the standards governing the website (as opposed to the rST documentation hosted on RTD),
-please see the `website style guide <https://www.qubes-os.org/doc/website-style-guide/>`__.
-If you wish to submit a PR regarding markdown content hosted on the website, please refer to
-`how to edit the Markdown pages <https://www.qubes-os.org/doc/doc/how-to-edit-the-website/>`__.
+For the standards governing the website (as opposed to the rST documentation hosted on `https://doc.qubes-os.org <https://doc.qubes-os.org>`__),
+please see the :doc:`website style guide </developer/general/website-style-guide>`.
+If you wish to submit a pull request regarding content hosted on the website, please refer to
+:doc:`How to edit the website </developer/general/how-to-edit-the-website/>`.
 
 reStructuredText conventions
 ----------------------------
 
-All the documentation is written in reStructuredText. When making contributions, please observe the following style conventions.
+All the documentation is written in `reStructuredText (rST) <https://docutils.sourceforge.io/rst.html>`__. When making contributions, please observe the following style conventions.
 If you’re not familiar with reStructuredText syntax, `the Sphinx primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 is a great resource, as well as `this quick reStructuredText <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`__.
 Please always be mindful that rST syntax is sensitive to indentation!
@@ -39,23 +25,250 @@ Directives
 
 A `directive <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`__ is a generic block of explicit markup,
 provided by `Docutils <https://www.docutils.org/>`__ and extended by `Sphinx <https://www.sphinx-doc.org/>`__.
-
 Directives are used to insert non-paragraph content, such as images, tables, and code blocks.
-
 Example directives are:
 
-.. code-block :: rst
+.. code-block:: rst
 
-   .. image::, .. code-block::, etc.
+   .. image::
+   .. code-block::
+   .. figure::
 
 Directives start with ``..``, followed by directive name, arguments, options, and indented content.
 
+Images
+""""""
+
+To include images (without a caption), use the ``image`` directive.
+You need to specify the path to the image and an alt text.
+
+.. code-block:: rst
+
+  .. image:: path/to/image.png
+     :alt: Alternative text
+     :width: 200px
+     :align: center
+
+Read The Docs and the HTML `sphinx-rtd-theme <https://sphinx-rtd-theme.readthedocs.io/en/stable/>`__ in use
+have a responsive design, which allows the documentation to render appropriately across all screen sizes.
+
+Make sure to link only to images in the :file:`attachment/doc` folder of the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
+Do not attempt to link to images hosted on other websites.
+
+See also :ref:`how_to_add_images` for the further information and about using the ``figure`` directive.
+
+Lists
+"""""
+
+`Lists <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#lists-and-quote-like-blocks>`__ can be bullet lists (\*, +, -), enumerated lists (1., 2., etc.), definition lists, field lists.
+
+Nested lists must be separated from the parent list items by blank lines:
+
+.. code-block:: rst
+
+  - Item 1
+  - Item 2
+
+    - Subitem 2.1
+    - Subitem 2.2
+
+  - Item 3
+
+Numbered lists can be autonumbered using the ``#`` sign.
+
+.. code-block:: rst
+
+  #. Item 1
+  #. Item 2
+
+    #. Subitem 2.1
+    #. Subitem 2.2
+
+  #. Item 3
+
+Item 3 will start at 1.
+
+Code blocks
+"""""""""""
+
+When writing code blocks, use syntax highlighting within the `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__
+or `code <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code>`__.
+
+By specifying the language, you enable pygments, which show syntax color coding for that code sample (see `here <https://pygments.org/languages/>`__ for a list of supported languages).
+
+.. code-block:: rst
+
+   .. code-block:: language
+
+     code
+
+
+
+Use ``[...]`` for anything omitted.
+
+For inlining small code snippets you can use the `code role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-code>`__ as in
+
+.. code-block:: rst
+
+   `code:`:term:`qube``
+
+You can add line numbers to code examples with the ``:linenos:`` parameter.
+
+.. code-block:: rst
+
+    .. code-block:: python
+      :linenos:
+
+       def hello_world():
+         print("Hello, world!")
+
+
+You can have certain lines with the ``:emphasize-lines:`` parameter.
+
+.. code-block:: rst
+
+ .. code-block:: python
+   :emphasize-lines: 1,3,4
+
+
+
+For Python use ``python``.
+
+.. code-block:: rst
+
+    .. code-block:: python
+
+      string_var = 'python'
+
+For Bash use ``bash``.
+
+.. code-block:: rst
+
+    .. code-block:: bash
+
+      echo "Hello"
+
+For a terminal session use ``console``.
+
+.. code-block:: rst
+
+    .. code-block:: console
+
+      pygments_style = 'sphinx'
+
+For text output use ``output``.
+
+.. code-block:: rst
+
+    .. code-block:: output
+
+       some output
+
+For text use ``text``.
+
+.. code-block:: rst
+
+    .. code-block:: text
+
+       some text
+
+
+Tables
+""""""
+
+We adhere to the list tables directive by docutils as described `here <https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table-1>`__.
+
+A simple example would be:
+
+    .. code-block:: rst
+
+        .. list-table:: rst
+           :widths: 15 10
+           :header-rows: 1
+
+           * - Header 1
+             - Header 2
+           * - Cell 1
+             - Cell 2
+           * - Cell 3
+             - Cell 4
+
+Admonitions, messages, and warnings
+"""""""""""""""""""""""""""""""""""
+
+`Admonitions, messages, and warnings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#admonitions-messages-and-warnings>`__ are used to draw the reader’s attention to important information, such as warnings, and for stylistic purposes.
+They are typically styled as colored text boxes, usually accompanied by icons provided out of the box by Sphinx and rST.
+Alerts should generally be used somewhat sparingly, so as not to cause `alert fatigue <https://en.wikipedia.org/wiki/Alarm_fatigue>`__.
+
+Here are examples of several types of alerts:
+
+.. code:: rst
+
+    .. hint::
+       **Did you know?** The Qubes OS installer is completely offline. It doesn't
+       even load any networking drivers, so there is no possibility of
+       internet-based data leaks or attacks during the installation process.
+
+     .. note::
+       **Note:*</b>** Using Rufus to create the installation medium means that you
+       `wont be able <https://github.com/QubesOS/qubes-issues/issues/2051">`__
+       to choose the "Test this media and install Qubes OS" option mentioned in the
+       example below. Instead, choose the "Install Qubes OS" option.
+
+     .. warning::
+       **Note:** Qubes OS is not meant to be installed inside a virtual machine
+       as a guest hypervisor. In other words, **nested virtualization** is not
+       supported. In order for a strict compartmentalization to be enforced, Qubes
+       OS needs to be able to manage the hardware directly.
+
+     .. danger::
+       **Warning:** Qubes has no control over what happens on your computer
+       before you install it. No software can provide security if it is installed on
+       compromised hardware. Do not install Qubes on a computer you don't trust. See
+       installation security for more information.
+
+
+
+These render as:
+
+.. hint::
+       **Did you know?** The Qubes OS installer is completely offline. It doesn't
+       even load any networking drivers, so there is no possibility of
+       internet-based data leaks or attacks during the installation process.
+
+.. note::
+       **Note:** Using Rufus to create the installation medium means that you
+       `won't be able <"https://github.com/QubesOS/qubes-issues/issues/2051">`__
+       to choose the "Test this media and install Qubes OS" option mentioned in the
+       example below. Instead, choose the "Install Qubes OS" option.
+
+.. warning::
+       **Note:** Qubes OS is not meant to be installed inside a virtual machine
+       as a guest hypervisor. In other words, **nested virtualization** is not
+       supported. In order for a strict compartmentalization to be enforced, Qubes
+       OS needs to be able to manage the hardware directly.
+
+.. danger::
+       **Warning:** Qubes has no control over what happens on your computer
+       before you install it. No software can provide security if it is installed on
+       compromised hardware. Do not install Qubes on a computer you don't trust. See
+       installation security for more information.
+
+
+Glossary
+""""""""
+
+The Sphinx `glossary directive <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#glossary>`__
+is created with a simple ``.. glossary::`` block in :file:`/user/reference/glossary.rst`.
+Anywhere else in the documentation you can link to a term using the role: :code:`:term:`qube``
+which automatically generates a hyperlink to the glossary entry :term:`qube`.
 
 
 Roles
 ^^^^^
 
-Sphinx uses interpreted text `roles <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html>`__ to insert semantic markup into documents.
+Sphinx uses interpreted text `roles <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html>`__ to insert semantic markup into documents
+and thus enhance the readability and consistency of the documentation.
 
 Syntax is as follows:
 
@@ -65,10 +278,17 @@ Syntax is as follows:
 
 In Qubes OS documentation the `doc <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ and
 `ref <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ roles are used extensively
-as described :ref:`here <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
+as described in :ref:`cross_referencing`.
 
+The roles used in the Qubes OS documentation so far are:
 
-TODO Blocks: Literal blocks, code blocks, block quotes, code blocks (with syntax highlighting), doctest blocks, footnotes, citations, tables (simple and complex), admonitions (note, warning, danger).
+- the ``:file:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-file>`__
+- the ``:guilabel:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-guilabel>`__
+- the ``:menuselection:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-menuselection>`__
+- the ``:samp:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-samp>`__
+
+Please continue using the above or new ones where appropriate.
+
 
 
 Cross referencing:
@@ -86,6 +306,7 @@ use `:ref:` for specific sections
 .. code-block:: rst
 
    :ref:`qubes <user/reference/glossary:qube>`
+
 
 For further information please :ref:`see <developer/general/how-to-edit-the-rst-documentation:cross-referencing>`.
 
@@ -127,7 +348,7 @@ instead of:
 
 .. code-block:: rst
 
-  text `contribute code <https://https://doc.qubes-os.org/en/latest/introduction/contributing.html>`__ text
+  text :doc:`contribute code </introduction/contributing>` text
 
 You may use absolute URLs in the following cases:
 
@@ -142,31 +363,6 @@ This rule is important because using absolute URLs for internal website links br
 - Serving the documentation offline
 - Documentation localization
 - Generating offline documentation
-
-
-Image linking
-^^^^^^^^^^^^^
-
-
-See :ref:`how to add images <developer/general/how-to-edit-the-documentation:how to add images>` for the required syntax.
-Read The Docs and the used RTD theme have a responsive design, which allows the documentation to render appropriately across all screen sizes.
-When viewing this page on a smaller screen, such as on a mobile device, the image will automatically shrink down to fit the screen.
-If visitors cannot click on the image to view it in full size, then, depending on their device, they may have no way see the details in the image clearly.
-
-In addition, make sure to link only to images in the `attachment/doc` folder of the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
-Do not attempt to link to images hosted on other websites.
-
-
-To include images without a caption, use the ``image`` directive. You need to specify the path to the image and an optional alt text.
-
-.. code-block:: rst
-
-  .. image:: path/to/image.png
-     :alt: Alternative text
-     :width: 200px
-     :align: center
-
-To using the ``figure`` directive please read :ref:`how to add images <developer/general/how-to-edit-the-rst-documentation:how to add images>`.
 
 
 HTML and CSS
@@ -237,33 +433,10 @@ Emphasis and Italics
     ``monospace``
 
 
-
 Paragraph
 ^^^^^^^^^
 
 Paragraphs are plain texts where indentation matters. Separate paragraphs by leaving a blank line between them.
-
-
-Tables
-^^^^^^^
-
-We adhere to the list tables directive by docutils as described `here <https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table-1>`__.
-
-A simple example would be:
-
-    .. code-block:: rst
-
-        .. list-table:: rst
-           :widths: 15 10
-           :header-rows: 1
-
-           * - Header 1
-             - Header 2
-           * - Cell 1
-             - Cell 2
-           * - Cell 3
-             - Cell 4
-
 
 
 Indentation
@@ -273,203 +446,27 @@ Use spaces instead of tabs. Use hanging indentations where appropriate.
 rST is identation sensitiv markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
 
 
-Lists
-^^^^^
-
-Lists can be bullet lists (\*, +, -), enumerated lists (1., 2., etc.), definition lists, field lists.
-
-Nested lists must be separated from the parent list items by blank lines:
-
-.. code-block:: rst
-
-  - Item 1
-  - Item 2
-
-    - Subitem 2.1
-    - Subitem 2.2
-
-  - Item 3
-
-Numbered lists can be autonumbered using the ``#`` sign.
-
-.. code-block:: rst
-
-  #. Item 1
-  #. Item 2
-
-    #. Subitem 2.1
-    #. Subitem 2.2
-
-  #. Item 3
-
-Item 3 will start at 1.
-
-Code blocks
-^^^^^^^^^^^
-
-
-When writing code blocks, use syntax highlighting with the `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__
-or `code <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code>`__  (see `here <https://pygments.org/languages/>`__ for a list of supported languages).
-
-.. code-block:: rst
-
-   .. code-block:: language
-
-     code
-
-By specifying the language, you enable pygments, which show syntax color coding for that code sample.
-
-Use ``[...]`` for anything omitted.
-
-You can add line numbers to code examples with the ``:linenos:`` parameter.
-
-.. code-block:: rst
-
-    .. code-block:: python
-      :linenos:
-
-       def hello_world():
-         print("Hello, world!")
-
-
-You can have certain lines with the ``:emphasize-lines:`` parameter.
-
-.. code-block:: rst
-
- .. code-block:: python
-   :emphasize-lines: 1,3,4
-
-
-
-For Python use ``python``.
-
-.. code-block:: rst
-
-    .. code-block:: python
-
-      string_var = 'python'
-
-For bash use ``bash``.
-
-.. code-block:: rst
-
-    .. code-block:: bash
-
-      echo "Hello"
-
-For bash session use ``console``.
-
-.. code-block:: rst
-
-    .. code-block:: console
-
-      pygments_style = 'sphinx'
-
-For text output use ``output``.
-
-.. code-block:: rst
-
-    .. code-block:: output
-
-       some output
-
-For text use ``text``.
-
-.. code-block:: rst
-
-    .. code-block:: text
-
-       some text
-
-
 Line wrapping
 ^^^^^^^^^^^^^
 
 Do not hard wrap text, except where necessary (e.g., inside code blocks).
 
-Admonitions, messages, and warnings
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-`Admonitions, messages, and warnings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#admonitions-messages-and-warnings>`__ are used to draw the reader’s attention to important information, such as warnings, and for stylistic purposes.
-They are typically styled as colored text boxes, usually accompanied by icons provided out of the box by Sphinx and rST.
-Alerts should generally be used somewhat sparingly, so as not to cause `alert fatigue <https://en.wikipedia.org/wiki/Alarm_fatigue>`__.
-
-Here are examples of several types of alerts:
-
-.. code:: rst
-
-    .. hint::
-       **Did you know?** The Qubes OS installer is completely offline. It doesn't
-       even load any networking drivers, so there is no possibility of
-       internet-based data leaks or attacks during the installation process.
-
-     .. note::
-       **Note:*</b>** Using Rufus to create the installation medium means that you
-       `wont be able <https://github.com/QubesOS/qubes-issues/issues/2051">`__
-       to choose the "Test this media and install Qubes OS" option mentioned in the
-       example below. Instead, choose the "Install Qubes OS" option. TODO auto-build
-
-     .. warning::
-       **Note:** Qubes OS is not meant to be installed inside a virtual machine
-       as a guest hypervisor. In other words, **nested virtualization** is not
-       supported. In order for a strict compartmentalization to be enforced, Qubes
-       OS needs to be able to manage the hardware directly.
-
-     .. danger::
-       **Warning:** Qubes has no control over what happens on your computer
-       before you install it. No software can provide security if it is installed on
-       compromised hardware. Do not install Qubes on a computer you don't trust. See
-       installation security for more information.
-
-
-
-These render as:
-
-.. hint::
-       **Did you know?** The Qubes OS installer is completely offline. It doesn't
-       even load any networking drivers, so there is no possibility of
-       internet-based data leaks or attacks during the installation process.
-
-.. note::
-       **Note:** Using Rufus to create the installation medium means that you
-       `won't be able <"https://github.com/QubesOS/qubes-issues/issues/2051">`__
-       to choose the "Test this media and install Qubes OS" option mentioned in the
-       example below. Instead, choose the "Install Qubes OS" option.
-
-.. warning::
-       **Note:** Qubes OS is not meant to be installed inside a virtual machine
-       as a guest hypervisor. In other words, **nested virtualization** is not
-       supported. In order for a strict compartmentalization to be enforced, Qubes
-       OS needs to be able to manage the hardware directly.
-
-.. danger::
-       **Warning:** Qubes has no control over what happens on your computer
-       before you install it. No software can provide security if it is installed on
-       compromised hardware. Do not install Qubes on a computer you don't trust. See
-       installation security for more information.
-
-
 
 Writing guidelines
 ------------------
 
-
 Correct use of terminology
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 Familiarize yourself with the terms defined in the :doc:`glossary </user/reference/glossary>`. Use these terms consistently and accurately throughout your writing.
 
 Sentence case in headings
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 Use sentence case (rather than title case) in headings for the reasons explained `here <https://www.sallybagshaw.com.au/articles/sentence-case-v-title-case/>`__. In particular, since the authorship of the Qubes documentation is decentralized and widely distributed among users from around the world, many contributors come from regions with different conventions for implementing title case, not to mention that there are often differing style guide recommendations even within a single region. It is much easier for all of us to implement sentence case consistently across our growing body of pages, which is very important for managing the ongoing maintenance burden and sustainability of the documentation.
 
 Writing command-line examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 When providing command-line examples:
 
@@ -499,7 +496,6 @@ When providing command-line examples:
           Hello
 
  The ``#`` symbol preceding each comment is ambiguous with a root command prompt. Instead, put your comments *outside* of the code block in normal prose.
-
 
 
 Variable names in commands
@@ -546,7 +542,7 @@ Capitalization of "qube"
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-We introduced the term :ref:`“qube” <user/reference/glossary:qube>` as a user-friendly alternative to the term :ref:`“virtual machine” (“VM”) <user/reference/glossary:vm>` in the context of Qubes OS. Nonetheless, “qube” is a common noun like the words “compartment” and “container.” Therefore, in English, “qube” follows the standard capitalization rules for common nouns. For example, “I have three qubes” is correct, while “I have three Qubes” is incorrect. Like other common nouns, “qube” should still be capitalized at the beginnings of sentences, the beginnings of sentence-case headings, and in title-case headings. Note, however, that starting a sentence with the plural of “qube” (e.g., “Qubes can be shut down…”) can be ambiguous, since it may not be clear whether the referent is a plurality of qubes, :ref:`Qubes OS <user/reference/glossary:qubes os>`, or even the Qubes OS Project itself. Hence, it is generally a good idea to rephrase such sentences in order to avoid this ambiguity.
+We introduced the term :term:`qube` as a user-friendly alternative to the term :term:`vm` in the context of Qubes OS. Nonetheless, “qube” is a common noun like the words “compartment” and “container.” Therefore, in English, “qube” follows the standard capitalization rules for common nouns. For example, “I have three qubes” is correct, while “I have three Qubes” is incorrect. Like other common nouns, “qube” should still be capitalized at the beginnings of sentences, the beginnings of sentence-case headings, and in title-case headings. Note, however, that starting a sentence with the plural of “qube” (e.g., “Qubes can be shut down…”) can be ambiguous, since it may not be clear whether the referent is a plurality of qubes, :term:`qubes os`, or even the Qubes OS Project itself. Hence, it is generally a good idea to rephrase such sentences in order to avoid this ambiguity.
 
 Many people feel a strong temptation to capitalize the word “qube” all the time, like a proper noun, perhaps because it’s a new and unfamiliar term that’s closely associated with a particular piece of software (namely, Qubes OS). However, these factors are not relevant to the capitalization rules of English. In fact, it’s not unusual for new common nouns to be introduced into English, especially in the context of technology. For example, “blockchain” is a relatively recent technical term that’s a common noun. Why is it a common noun rather than a proper noun? Because proper nouns refer to *particular* people, places, things, and ideas. There are many different blockchains. However, even when there was just one, the word still denoted a collection of things rather than a particular thing. It happened to be the case that there was only one member in that collection at the time. For example, if there happened to be only one tree in the world, that wouldn’t change the way we capitalize sentences like, “John sat under a tree.” Intuitively, it makes sense that the addition and removal of objects from the world shouldn’t cause published books to become orthographicallly incorrect while sitting on their shelves.
 
@@ -574,11 +570,11 @@ Core vs. external documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Core documentation resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__. External documentation should not be submitted to `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the documentation index (see :ref:`How to edit the documentation index <developer/general/how-to-edit-the-documentation:how to edit the documentation index>`) to add and update Qubes Forum links in the :ref:`“External documentation” <external-documentation>` section of the documentation table of contents.
+Core documentation resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__. External documentation should not be submitted to `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the documentation index (see :ref:`How to edit the documentation index <developer/general/how-to-edit-the-rst-documentation:how to edit the documentation index>`) to add and update Qubes Forum links in the :ref:`“External documentation” <index:external documentation>` section of the documentation table of contents.
 
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project. The purpose of this distinction is to keep the core docs maintainable and high-quality by limiting them to the software output by the Qubes OS Project. In other words, we take responsibility for documenting all of the software we put out into the world, but it doesn’t make sense for us to take on the responsibility of documenting or maintaining documentation for anything else. For example, Qubes OS may use a popular Linux distribution for an official :doc:`TemplateVM </user/templates/templates>`. However, it would not make sense for a comparatively small project like ours, with modest funding and a lean workforce, to attempt to document software belonging to a large, richly-funded project with an army of paid and volunteer contributors, especially when they probably already have documentation of their own. This is particularly true when it comes to Linux in general. Although many users who are new to Qubes are also new to Linux, it makes absolutely no sense for our comparatively tiny project to try to document Linux in general when there is already a plethora of documentation out there.
 
-Many contributors do not realize that there is a significant amount of work involved in *maintaining* documentation after it has been written. They may wish to write documentation and submit it to the core docs, but they see only their own writing process and fail to consider that it will have to be kept up-to-date and consistent with the rest of the docs for years afterward. Submissions to the core docs also have to :ref:`undergo a review process <developer/general/how-to-edit-the-documentation:security>`__ to ensure accuracy before being merged, which takes up valuable time from the team. We aim to maintain high quality standards for the core docs (style and mechanics, formatting), which also takes up a lot of time. If the documentation involves anything external to the Qubes OS Project (such as a website, platform, program, protocol, framework, practice, or even a reference to a version number), the documentation is likely to become outdated when that external thing changes. It’s also important to periodically review and update this documentation, especially when a new Qubes release comes out. Periodically, there may be technical or policy changes that affect all the core documentation. The more documentation there is relative to maintainers, the harder all of this will be. Since there are many more people who are willing to write documentation than to maintain it, these individually small incremental additions amount to a significant maintenance burden for the project.
+Many contributors do not realize that there is a significant amount of work involved in *maintaining* documentation after it has been written. They may wish to write documentation and submit it to the core docs, but they see only their own writing process and fail to consider that it will have to be kept up-to-date and consistent with the rest of the docs for years afterward. Submissions to the core docs also have to :ref:`undergo a review process <developer/general/how-to-edit-the-rst-documentation:security>`__ to ensure accuracy before being merged, which takes up valuable time from the team. We aim to maintain high quality standards for the core docs (style and mechanics, formatting), which also takes up a lot of time. If the documentation involves anything external to the Qubes OS Project (such as a website, platform, program, protocol, framework, practice, or even a reference to a version number), the documentation is likely to become outdated when that external thing changes. It’s also important to periodically review and update this documentation, especially when a new Qubes release comes out. Periodically, there may be technical or policy changes that affect all the core documentation. The more documentation there is relative to maintainers, the harder all of this will be. Since there are many more people who are willing to write documentation than to maintain it, these individually small incremental additions amount to a significant maintenance burden for the project.
 
 On the positive side, we consider the existence of community documentation to be a sign of a healthy ecosystem, and this is quite common in the software world. The community is better positioned to write and maintain documentation that applies, combines, and simplifies the official documentation, e.g., tutorials that explain how to install and use various programs in Qubes, how to create custom VM setups, and introductory tutorials that teach basic Linux concepts and commands in the context of Qubes. In addition, just because the Qubes OS Project has officially written and maintains some flexible framework, such as ``qrexec``, it does not make sense to include every tutorial that says “here’s how to do something cool with ``qrexec`` in the core docs. Such tutorials generally also belong in the community documentation.
 
@@ -629,7 +625,7 @@ Correct Example
 ^^^^^^^^^^^^^^^
 
 
-.. code:: te
+.. code:: rst
 
      Qubes 3.2
      =========
@@ -642,7 +638,9 @@ Correct Example
      the most part, all fooing is fooing.
 
      To foo:
+
         .. code-block:: console
+
            $ qvm-foo <foo-bar>
 
      Once you foo, make sure to close the baz before fooing the next bar.
@@ -662,6 +660,7 @@ Correct Example
      general ``qubes-baz`` command:
 
         .. code-block:: console
+
           $ qubes-baz --foo <bar>
 
      Once you foo, make sure to close the baz before fooing the next bar.

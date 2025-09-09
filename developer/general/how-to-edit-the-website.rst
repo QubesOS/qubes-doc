@@ -3,139 +3,217 @@ How to edit the website
 =======================
 
 
-*Also see the* :doc:`documentation style guide </developer/general/documentation-style-guide>` *.*
+*Also see the* :doc:`Website style guide </developer/general/website-style-guide>`.
 
-Qubes OS documentation pages are stored as plain text Markdown files in the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository. By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of all Qubes documentation rather than relying solely on the web.
+The Qubes OS website content is stored in the `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ repository and its submodules.
+By cloning and regularly pulling from this repo, users can maintain their own up-to-date offline copy of the Qubes OS website rather than relying solely on the web.
 
-The documentation is a volunteer community effort. People like you are constantly working to make it better. If you notice something that can be fixed or improved, please follow the steps below to open a pull request!
+This guide refers only to the hosted website on `qubes-os.org <https://qubes-os.org>`__.
+It was the reference point before the documentation was converted from
+Markdown to reStructuredText and remains as a guide if you want to contribute
+to the Qubes OS website.
+If you want to contribute to the Qubes OS documentation, please visit :doc:`How to edit the documentation </developer/general/how-to-edit-the-rst-documentation>`.
 
 How to submit a pull request
 ----------------------------
 
+We keep all relevant files in `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__, as well as
+`qubes-attachment <https://github.com/QubesOS/qubes-attachment>`__,
+`qubes-hcl <https://github.com/QubesOS/qubes-hcl>`__ and `qubes-posts <https://github.com/QubesOS/qubes-posts>`__ - dedicated Git repositories
+hosted on `GitHub <https://github.com/>`__.
 
-We keep all the documentation in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, a dedicated Git repository hosted on `GitHub <https://github.com/>`__. Thanks to GitHub’s easy web interface, you can edit the documentation even if you’re not familiar with Git or the command line! All you need is a free GitHub account.
+A few notes to consider:
 
-A few notes before we get started:
-
-- Since Qubes is a security-oriented project, every documentation change will be `reviewed <#security>`__ before it’s accepted. This allows us to maintain quality control and protect our users.
-
-- To give your contribution a better chance of being accepted, please follow our :doc:`documentation style guide </developer/general/documentation-style-guide>`.
-
+- Since Qubes is a security-oriented project, every change will be `reviewed <#security>`__ before it’s accepted. This allows us to maintain quality control and protect our users.
+- To give your contribution a better chance of being accepted, please follow our :doc:`website style guide </developer/general/website-style-guide>`.
 - We don’t want you to spend time and effort on a contribution that we can’t accept. If your contribution would take a lot of time, please :doc:`file an issue </introduction/issue-tracking>` for it first so that we can make sure we’re on the same page before significant works begins.
+- Finally, if you’ve written something that doesn’t belong in `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ but would be beneficial to the Qubes community, please consider adding it to the :doc:`documentation </developer/general/how-to-edit-the-rst-documentation>` or the :ref:`external documentation <developer/general/rst-documentation-style-guide:core vs. external documentation>`.
 
-- Alternatively, you may already have written content that doesn’t conform to these guidelines, but you’d be willing to modify it so that it does. In this case, you can still submit it by following the instructions below. Just make a note in your pull request (PR) that you’re aware of the changes that need to be made and that you’re just asking for the content to be reviewed before you spend time making those changes.
+For an example how to submit a pull request please refer to the example given in :ref:`How to submit a pull request <developer/general/how-to-edit-the-rst-documentation:how to submit a pull request>` with the documentation.
 
-- Finally, if you’ve written something that doesn’t belong in qubes-doc but that would be beneficial to the Qubes community, please consider adding it to the :ref:`external documentation <developer/general/documentation-style-guide:core vs. external documentation>`.
+The Qubes OS website
+--------------------
 
+The Qubes OS site is generated with `Jekyll <https://jekyllrb.com/>`__, a static‑site engine that transforms Markdown, HTML, and data files into a fully rendered, deploy‑ready website.
 
+These are the relevant repositories:
 
-(**Advanced users:** If you’re already familiar with GitHub or wish to work from the command line, you can skip the rest of this section. All you need to do to contribute is to `fork and clone <https://guides.github.com/activities/forking/>`__ the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repo, make your changes, then `submit a pull request <https://help.github.com/articles/using-pull-requests/>`__.)
-
-Ok, let’s begin. Every documentation page has a “Page Source on GitHub” button. Depending on the size of your screen, it may either be on the side (larger screens) or on the bottom (smaller screens).
-
-|page-source-button|
-
-When you click on it, you’ll be taken to the source file — usually a Markdown (``.md``) file — on GitHub. On this page, there will be a button to edit the file.
-
-|github-edit|
-
-You’ll be prompted to sign in with your GitHub username and password (if you aren’t already logged in). You can also create a free account from here.
-
-|github-sign-in|
-
-If this is your first contribution to the documentation, you need to “fork” the repository (make your own copy). It’s easy — just click the big green button on the next page. This step is only needed the first time you make a contribution.
-
-|fork|
-
-Now you can make your modifications. You can also preview the changes to see how they’ll be formatted by clicking the “Preview changes” tab. If you want to add images, please see `How to add images <#how-to-add-images>`__. If you’re making formatting changes, please `render the site locally <https://github.com/QubesOS/qubesos.github.io#instructions>`__ to verify that everything looks correct before submitting any changes.
-
-|edit|
-
-Once you’re finished, describe your changes at the bottom and click “Propose file change”.
-
-|commit|
-
-After that, you’ll see exactly what modifications you’ve made. At this stage, those changes are still in your own copy of the documentation (“fork”). If everything looks good, send those changes to us by pressing the “Create pull request” button.
-
-|pull-request|
-
-You will be able to adjust the pull request message and title there. In most cases, the defaults are ok, so you can just confirm by pressing the “Create pull request” button again. However, if you’re not ready for your PR to be reviewed or merged yet, please `make a draft PR instead <https://github.blog/2019-02-14-introducing-draft-pull-requests/>`__.
-
-|pull-request-confirm|
-
-If any of your changes should be reflected in the :doc:`documentation index (a.k.a. table of contents) </index>` — for example, if you’re adding a new page, changing the title of an existing page, or removing a page — please see `How to edit the documentation index <#how-to-edit-the-documentation-index>`__.
-
-That’s all! We will review your changes. If everything looks good, we’ll pull them into the official documentation. Otherwise, we may have some questions for you, which we’ll post in a comment on your pull request. (GitHub will automatically notify you if we do.) If, for some reason, we can’t accept your pull request, we’ll post a comment explaining why we can’t.
-
-|done|
-
-How to edit the documentation index
------------------------------------
+- the main `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__, as well as its submodules:
+- `qubes-attachment <https://github.com/QubesOS/qubes-attachment>`__,
+- `qubes-hcl <https://github.com/QubesOS/qubes-hcl>`__ and
+- `qubes-posts <https://github.com/QubesOS/qubes-posts>`__.
 
 
-The source file for the :doc:`documentation index (a.k.a. table of contents) </index>` is `doc-index.yml <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/doc-index.yml>`__.
+The contents of the `qubes-posts <https://github.com/QubesOS/qubes-posts>`__ repository is reflected in the `News section <https://www.qubes-os.org/news/>`__:
 
-Editing this file will change what appears on the documentation index. If your pull request (PR) adds, removes, or edits anything that should be reflected in the documentation index, please make sure you also submit an associated pull request against this file.
+|news-section|
 
-How to add images
------------------
+This repository is maintained by the Qubes OS team and serves the purpose of announcing relevant project news. This repository and its contents should be left as is.
+
+The contents of the `qubes-hcl <https://github.com/QubesOS/qubes-hcl>`__ repository can be seen in the `Hardware Compatibility List (HCL) table <https://www.qubes-os.org/hcl/>`__:
+
+|hcl-section|
+
+This repository is also maintained by the Qubes OS team and its contents should be left as is. Of course you can :ref:`generate and submit a Hardware Compatibility List (HCL) report <user/hardware/how-to-use-the-hcl:generating and submitting new reports>` at any time.
+
+The `qubes-attachment <https://github.com/QubesOS/qubes-hcl>`__ repository contains images and files that are used by or referenced in the website.
+Here you can add new images if needed.
+Then, submit your image(s) in a separate pull request to the `qubes-attachment <https://github.com/QubesOS/qubes-attachment>`__ repository using the same path and filename. This is the only permitted way to include images. Do not link to images on other websites.
 
 
-To add an image to a page, use the following syntax in the main document (see :ref:`here <developer/general/documentation-style-guide:image linking>` for why this syntax is important).
+Quick intro to Jekyll
+---------------------
+
+
+`Jekyll <https://jekyllrb.com/>`__ is a static‑site generator that turns plain‑text files (Markdown, HTML, YAML, etc.) into a full website you can host on GitHub Pages. It works by:
+
+- *Reading data*: YAML front‑matter in :file:`pages/_posts` and files under :file:`_data` give variables you can reuse.
+- *Applying layouts*: HTML layout files wrap your content, letting you keep a consistent header/footer, navigation, etc.
+- *Processing includes*: Reusable snippets (HTML/Jinja‑style) can be dropped into pages.
+- *Compiling assets*: SASS/SCSS files become CSS, JavaScript is copied as‑is.
+- *Generating the output*: All source files are rendered into a :file:`_site` folder that contains the ready‑to‑serve static files.
+
+
+The main `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ contains the following directories:
 
 .. code:: bash
 
-      [![Image Title](/attachment/doc/image.png)](/attachment/doc/image.png)
+  ├── data          # ← YAML files with key‑value pairs used throughout the site
+  │   └── *.yml     # e.g. site settings, navigation menus
+  │
+  ├── _doc          # ← Empty Markdown documentation files (previously a submodule “qubes‑doc”)
+  │   └── *.md      # with redirects to RTD
+  │
+  ├── _hcl          # ← “qubes‑hcl” submodule – custom content for HCL pages
+  │   └── ...       #
+  │
+  ├── _includes     # ← Reusable HTML/Jinja snippets
+  │   └── *.html    # include with {% include filename.html %} in Markdown or layouts
+  │
+  ├── _layouts      # ← Page templates that wrap content
+  │   └── *.html    # e.g. default.html, news.html, hcl.html – edit to change overall page structure
+  │
+  ├── _posts        # ← “qubes‑post” submodule – blog‑style entries
+  │   └── *_*.md    # each post has YAML front‑matter
+  │
+  ├── _sass         # ← Source SASS/SCSS files
+  │   └── *.scss    #
+  │
+  ├── _utils        # ← Helper scripts or small utilities used by the site
+  │   └── *.py/.sh  # usually not touched unless you need custom build steps
+  │
+  ├── attachment    # ← “qubes‑attachment” submodule – extra downloadable files
+  │   └── *.*       # place PDFs, images, etc. that you want linked from the site
+  │
+  ├── css           # ← CSS files
+  │   └── *.css     #
+  │
+  ├── fontawesome   # ← Font Awesome CSS and font files
+  │   └── *.css/.ttf
+  │
+  ├── fonts         # ← Additional font files used by the site
+  │   └── *.woff/.ttf
+  │
+  ├── js            # ← JavaScript assets
+  │   └── *.js      # edit to add or modify interactive behaviour
+  │
+  ├── news          # ← Templates for generating news‑type content
+  │   └── *.md      # often paired with a layout (e.g., news.html)
+  │
+  └── pages         # ← Stand‑alone pages (donate, team, about, etc.)
+    └── *.md/.html  # each file becomes a page at /<filename>/
+
+How to edit the website
+-----------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 30 50
+   :align: center
+
+   * - Goal
+     - Where to edit
+     - Typical steps
+   * - Change site‑wide text (e.g., site title, navigation)
+     - ``_data/*.yml``, ``_config.yml``
+     - Update the key/value pair, then rebuild.
+   * - Modify the look of all pages
+     - ``_layouts/*.html`` and/or ``_sass/*.scss``
+     - Edit the HTML skeleton or SASS variables, then run ``jekyll serve`` to preview.
+   * - Insert a reusable component (e.g., a call‑out box)
+     - ``_includes/*.html``
+     - Create the snippet, then reference it with ``{% include snippet.html %}`` in any page or post.
+   * - Add a new static asset (image, PDF)
+     - ``attachment/`` (`qubes-attachment <https://github.com/QubesOS/qubes-attachment>`__)
+     - Drop the file there and link to it using a relative URL.
+   * - Update JavaScript behavior
+     - ``js/*.js``
+     - Edit the script, ensure it’s referenced in the appropriate layout or page.
 
 
+How to serve the website locally
+--------------------------------
 
-Then, submit your image(s) in a separate pull request to the `qubes-attachment <https://github.com/QubesOS/qubes-attachment>`__ repository using the same path and filename. This is the only permitted way to include images. Do not link to images on other websites.
+You can serve the website offline on your local machine by following `these instructions <https://github.com/QubesOS/qubesos.github.io#instructions>`__ or the instructions below.
+This can be useful for making sure that your changes render the way you expect, especially when your changes affect formatting, images, tables, styling, etc.
 
-Serving the website locally
----------------------------
+1. Create a template qube:
+
+.. code:: console
+
+  $ qvm-clone debian-12-minimal jekyll-tvm
+
+2. Install packages:
+
+.. code:: console
+
+  $ apt install qubes-core-agent-networking
+  $ apt install ruby-full build-essential zlib1g-dev vim
+  $ apt install qubes-core-agent-passwordless-root
+  $ apt install firefox-esr git
 
 
-You can serve the website offline on your local machine by following `these instructions <https://github.com/QubesOS/qubesos.github.io#instructions>`__. This can be useful for making sure that your changes render the way you expect, especially when your changes affect formatting, images, tables, styling, etc.
+3. Create a ``jekyll-app-vm`` based on the ``jekyll-tvm`` template, install and configure in ``jekyll-app-vm``:
+
+.. code:: console
+
+  $ echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+  $ echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+  $ echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+  $ source ~/.bashrc
+  $ gem install jekyll bundler
+  $ find . -name gem
+  $ bundle config set --local path '/home/user/.local/share/gem/'
+  $ git clone -b new-main --recursive https://github.com/QubesOS/qubesos.github.io.git; cd qubesos.github.io/
+  $ bundle install
+  $ bundle exec jekyll serve --incremental
+
+You can view the local site at `http://localhost:4000 <http://localhost:4000>`__.
+
+Quick checklist for a typical edit
+----------------------------------
+
+- Locate the right folder – use the table above to know where the content lives.
+- Edit the file – Markdown for content, HTML/SASS for layout/style, YAML for data.
+- Run a local build to verify the change looks correct.
+- Commit & push – include a clear commit message describing the edit.
+- Create a Pull Request
+
+Feel free to ask if you need more detail on any specific folder or on how to set up the development environment!
 
 Security
 --------
 
-
 *Also see:* :ref:`Should I trust this website? <introduction/faq:should i trust this website?>`
 
-All pull requests (PRs) against `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ must pass review prior to be merged, except in the case of :ref:`external documentation <external-documentation>` (see `#4693 <https://github.com/QubesOS/qubes-issues/issues/4693>`__). This process is designed to ensure that contributed text is accurate and non-malicious. This process is a best effort that should provide a reasonable degree of assurance, but it is not foolproof. For example, all text characters are checked for ANSI escape sequences. However, binaries, such as images, are simply checked to ensure they appear or function the way they should when the website is rendered. They are not further analyzed in an attempt to determine whether they are malicious.
+All pull requests (PRs) against `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ must pass review prior to be merged. This process is designed to ensure that contributed text is accurate and non-malicious. This process is a best effort that should provide a reasonable degree of assurance, but it is not foolproof. For example, all text characters are checked for ANSI escape sequences. However, binaries, such as images, are simply checked to ensure they appear or function the way they should when the website is rendered. They are not further analyzed in an attempt to determine whether they are malicious.
 
-Once a pull request passes review, the reviewer should add a signed comment stating, “Passed review as of ``<LATEST_COMMIT>``” (or similar). The documentation maintainer then verifies that the pull request is mechanically sound (no merge conflicts, broken links, ANSI escapes, etc.). If so, the documentation maintainer then merges the pull request, adds a PGP-signed tag to the latest commit (usually the merge commit), then pushes to the remote. In cases in which another reviewer is not required, the documentation maintainer may review the pull request (in which case no signed comment is necessary, since it would be redundant with the signed tag).
+Once a pull request passes review, the reviewer should add a signed comment stating, "Passed review as of ``<LATEST_COMMIT>``" (or similar). The website maintainer then verifies that the pull request is mechanically sound (no merge conflicts, broken links, ANSI escapes, etc.). If so, the website maintainer then merges the pull request, adds a PGP-signed tag to the latest commit (usually the merge commit), then pushes to the remote. In cases in which another reviewer is not required, the website maintainer may review the pull request (in which case no signed comment is necessary, since it would be redundant with the signed tag).
 
 Questions, problems, and improvements
 -------------------------------------
 
+If you have a question about something you read in the website or about how to edit the it, please post it on the `forum <https://forum.qubes-os.org/>`__ or send it to the appropriate :doc:`mailing list </introduction/support>`. If you see that something in the website should be fixed or improved, please `contribute <#how-to-submit-a-pull-request>`__ the change yourself. To report an issue with the wesbite, please follow our standard :doc:`issue reporting guidelines </introduction/issue-tracking>`. (If you report an issue with the website, you will likely be asked to submit a pull request for it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
-If you have a question about something you read in the documentation or about how to edit the documentation, please post it on the `forum <https://forum.qubes-os.org/>`__ or send it to the appropriate :doc:`mailing list </introduction/support>`. If you see that something in the documentation should be fixed or improved, please `contribute <#how-to-submit-a-pull-request>`__ the change yourself. To report an issue with the documentation, please follow our standard :doc:`issue reporting guidelines </introduction/issue-tracking>`. (If you report an issue with the documentation, you will likely be asked to submit a pull request for it, unless there is a clear indication in your report that you are not willing or able to do so.)
-
-.. |page-source-button| image:: /attachment/doc/doc-pr_01_page-source-button.png
-   
-
-.. |github-edit| image:: /attachment/doc/doc-pr_02_github-edit.png
-   
-
-.. |github-sign-in| image:: /attachment/doc/doc-pr_03_sign-in.png
-   
-
-.. |fork| image:: /attachment/doc/doc-pr_04_fork.png
-   
-
-.. |edit| image:: /attachment/doc/doc-pr_05_edit.png
-   
-
-.. |commit| image:: /attachment/doc/doc-pr_06_commit-msg.png
-   
-
-.. |pull-request| image:: /attachment/doc/doc-pr_07_review-changes.png
-   
-
-.. |pull-request-confirm| image:: /attachment/doc/doc-pr_08_create-pull-request.png
-   
-
-.. |done| image:: /attachment/doc/doc-pr_09_done.png
-   
+.. |news-section| image:: /attachment/doc/website_news_section.png
+.. |hcl-section| image:: /attachment/doc/website_hcl.png

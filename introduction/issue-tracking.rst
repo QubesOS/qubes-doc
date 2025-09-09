@@ -21,7 +21,7 @@ I see something that should be changed in the documentation.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-We encourage you to submit the change yourself! Please see the :doc:`how to edit the documentation </developer/general/how-to-edit-the-documentation>` for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
+We encourage you to submit the change yourself! Please see the :doc:`how to edit the documentation </developer/general/how-to-edit-the-rst-documentation>` for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
 
 I would like to report a security vulnerability.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

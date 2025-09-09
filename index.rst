@@ -211,7 +211,6 @@ Core documentation for Qubes developers and advanced users.
    developer/general/how-to-edit-the-rst-documentation
    developer/general/rst-documentation-style-guide
    developer/general/how-to-edit-the-website
-   developer/general/markdown-style-guide
    developer/general/website-style-guide
    developer/general/continuous-integration
    developer/general/usability-ux

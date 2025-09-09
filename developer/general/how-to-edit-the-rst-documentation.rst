@@ -2,7 +2,7 @@
 How to edit the documentation
 =============================
 
-The Qubes OS documentation is stored as reStructuredText (rST) files in
+The Qubes OS documentation is stored as `reStructuredText (rST) <https://docutils.sourceforge.io/rst.html>`__ files in
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
 We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
 `Read The Docs <https://readsthedocs.com/>`__ for hosting.
@@ -13,18 +13,22 @@ We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
     :align: center
 
 
-By cloning and regularly pulling from this repo, users can maintain their
+By cloning and regularly pulling from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository, users can maintain their
 own up-to-date offline copy of the Qubes documentation rather than
 relying solely on the web. EPUB or PDF versions of Qubes OS documenation can also
-be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__.
+be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 
+|epub-pdf|
+
+..
+  TODO screenshot with main branch instead of rst
+  TODO add alt description overall with the images
+  TODO add draft pull request screenshot
 
 The documentation is a volunteer community effort. People like you are
 constantly working to make it better. If you notice something that can
 be fixed or improved, please follow the steps below to open a pull
 request!
-
-If you wish to submit a PR for the website, please refer to `how to edit the Markdown pages <https://www.qubes-os.org/doc/how-to-edit-the-website/>`__.
 
 
 How to submit a pull request
@@ -38,7 +42,7 @@ GitHub account.
 
 A few notes before we get started:
 
--  Since Qubes is a security-oriented project, every documentation change will be :ref:`reviewed <developer/general/how-to-edit-the-documentation:security>` before it’s accepted. This allows us to maintain quality control and protect our users.
+-  Since Qubes is a security-oriented project, every documentation change will be :ref:`reviewed <developer/general/how-to-edit-the-rst-documentation:security>` before it’s accepted. This allows us to maintain quality control and protect our users.
 
 -  To give your contribution a better chance of being accepted, please follow our :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
@@ -46,7 +50,7 @@ A few notes before we get started:
 
 -  Alternatively, you may already have written content that doesn’t conform to these guidelines, but you’d be willing to modify it so that it does. In this case, you can still submit it by following the instructions below. Just make a note in your pull request (PR) that you’re aware of the changes that need to be made and that you’re just asking for the content to be reviewed before you spend time making those changes.
 
--  Finally, if you’ve written something that doesn’t belong in qubes-doc but that would be beneficial to the Qubes community, please consider adding it to the :ref:`external documentation <developer/general/documentation-style-guide:core vs external documentation>`.
+-  Finally, if you’ve written something that doesn’t belong in qubes-doc but that would be beneficial to the Qubes community, please consider adding it to the :ref:`external documentation <developer/general/rst-documentation-style-guide:core vs. external documentation>`.
 
 (**Advanced users:** If you’re already familiar with GitHub or wish to
 work from the command line, you can skip the rest of this section. All
@@ -58,40 +62,42 @@ Ok, let’s begin. Every documentation page has a “Edit on GitHub” link.
 
 |page-source-button|
 
-When you click on it, you’ll be taken to the source file — a reStructuredText (``.rst``) file — on GitHub. On this page, there will be a
+When you click on it, you’ll be taken to the source file — a reStructuredText (``.rst``) file — on GitHub.
+
+|github-edit|
+
+On this page, there will be a
 button to edit the file (if you are already logged in in).
 
 TODO screenshot
 
-
-
-If you are not logged in you can click on login 
-
-|github-edit| 
-
-and you’ll be prompted to sign in with your GitHub username and password (if
-you aren’t already logged in). You can also create a free account from
+If you are not logged in you can click on :guilabel:`Sign In`
+and you’ll be prompted to sign in with your GitHub username and password.
+You can also create a free account from
 here.
 
 |github-sign-in|
 
 If this is your first contribution to the documentation, you need to
-“fork” the repository (make your own copy). It’s easy — just click the
-big green button on the next page. This step is only needed the first
-time you make a contribution.
-
-TODO
+:guilabel:`fork` the repository (make your own copy).
 
 |fork1|
 
+It’s easy — just click the
+green :guilabel:`Create fork` on the next page. This step is only needed the first
+time you make a contribution.
+
+
 |fork2|
+
+Now you can make your modifications.
 
 |fork3|
 
-Now you can make your modifications. You can also preview the changes to
-see how they’ll be formatted by clicking the “Preview changes” tab. If
-you want to add images, please see :ref:`How to add images <developer/general/how-to-edit-the-rst-documentation:how to add images>`. 
-Please see :ref:`how to render the documentation on your local machine <building-the-rst-documentation-locally>`
+You can also preview the changes by clicking the :guilabel:`Preview changes` tab.
+
+If you want to add images, read :ref:`how_to_add_images`. 
+and refer to :ref:`build_locally`
 if you want to locally verify that everything looks correct before submitting any changes.
 
 
@@ -99,32 +105,29 @@ if you want to locally verify that everything looks correct before submitting an
 
 
 Once you’re finished, describe your changes at the bottom and click
-“Propose file change”.
+:guilabel:`Propose file change`.
 
 |commit|
 
 After that, you’ll see exactly what modifications you’ve made. At this
 stage, those changes are still in your own copy of the documentation
 (“fork”). If everything looks good, send those changes to us by pressing
-the “Create pull request” button.
+the :guilabel:`Create pull request` button.
 
-|pull-request|
 
 |draft-pull-request-confirm|
 
 You will be able to adjust the pull request message and title there. In
 most cases, the defaults are ok, so you can just confirm by pressing the
-“Create pull request” button again. However, if you’re not ready for
+:guilabel:`Create pull request` button again. However, if you’re not ready for
 your PR to be reviewed or merged yet, please
 `make a draft PR instead <https://github.blog/2019-02-14-introducing-draft-pull-requests/>`__.
-
-TODO file:///home/user/QubesIncoming/qubes-os/rst-cycle.drawio
 
 |pull-request-confirm|
 
 If any of your changes should be reflected in the :doc:`documentation index (a.k.a. table of contents) </index>` — for example, if you’re adding a
 new page, changing the title of an existing page, or removing a page —
-please see :ref:`How to edit the documentation index <developer/general/how-to-edit-the-rst-documentation:how to edit the documentation index>`.
+please see :ref:`edit_doc_index`.
 
 That’s all! We will review your changes. If everything looks good, we’ll
 pull them into the official documentation. Otherwise, we may have some
@@ -133,52 +136,58 @@ questions for you, which we’ll post in a comment on your pull request.
 can’t accept your pull request, we’ll post a comment explaining why we
 can’t.
 
-|done|
 
-TODO copied
+Viewing your pull request on RTD
+--------------------------------
+
+To view your pull request on RTD you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__:
+
+|pull-request-builds|
+
+There you can view the rendered docs or inspect the logs for errors:
+
+|pull-request-build|
+
+You can also just head straight to the following url: ``https://qubes-doc--<PR-NUMBER>.org.readthedocs.build/en/<PR-NUMBER>/``.
 
 
 Tips & Tricks
 -------------
 
 - Pull upstream changes into your fork regularly. Diverging too far from main can be cumbersome to update at a later stage.
-
 - To pull in upstream changes:
 
-
-.. code:: console
+  .. code:: console
 
    $ git remote add upstream https://github.com/QubesOS/qubes-doc.git
    $ git fetch upstream
 
 - Check the log and the current changes, before merging:
 
-.. code:: console
+  .. code:: console
+
    $ git log upstream/main
 
-Then merge the changes that you fetched:
+- Then merge the changes that you fetched:
 
-.. code:: console
+  .. code:: console
+
    $ git merge upstream/main
-
-
-TODO 
-1. sphinx-build
-2. logs
-Any pull request that fails the sphinx-build can be seen at 
 
 Keep your pull requests limited to a single issue, pull requests should be as atomic as possible. 
 
+.. _edit_doc_index:
 
+TL;DR: How to edit the documentation index
+==========================================
 
-How to edit the documentation index
-===================================
+For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
 The source file for the :doc:`documentation index (a.k.a. table of contents) </index>` is
 `index.rst <https://github.com/QubesOS/qubes-doc/blob/rst/index.rst>`__ (TODO: main).
 
 
-`index.rst` contains information about the hierarchy between the files in the documentation and/or
+:file:`index.rst` contains information about the hierarchy between the files in the documentation and/or
 the connection between them. `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`__
 is the rST directive which defines the table of contents.
 
@@ -198,9 +207,12 @@ submit an associated pull request against this file.
 
 Please always be mindful that rST syntax is sensitive to indentation (3 spaces)!
 
+.. _how_to_add_images:
 
-How to add images
-=================
+TL;DR: How to add images
+========================
+
+For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
 Images reside inside the `qubes-doc repository <https://github.com/QubesOS/qubes-doc/>`__ in the directory `attachment/doc <https://github.com/QubesOS/qubes-doc/tree/rst/attachment/doc>`__.
 
@@ -215,12 +227,16 @@ To add an image to a page, use the following syntax:
 If you want to add a caption to the image, you may do so using the ``caption`` option of the `figure directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure>`__.
 Another way without a caption is to use the `image directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#image>`__.
 
-Then, add your image(s) in a the `attachment/doc folder` in the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__
+Then, add your image(s) in a the :file:`attachment/doc` folder in the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__
 repository using the same path and filename.
 This is the only permitted way to include images. Do not link to images on other websites.
 
-Cross-referencing
-=================
+.. _cross_refrencing:
+
+TL;DR: Cross-referencing
+========================
+
+For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
 When referencing to an existing RST file use the ``:doc:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ as in
 
@@ -250,20 +266,11 @@ which will point to :ref:`this section <user/troubleshooting/vm-troubleshooting:
 
 which will refer to :ref:`this section <introduction/faq:what does it mean to "distrust the infrastructure"?>`.
 
-Viewing your pull request on RTD
-======================================
 
-diagram TODO add the PR automatical build on RTD section later on as 
-To view your pull request on RTD you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__.
+TODO: label of sections and referencing them
 
 
-|pull-request-builds|
-
-|pull-request-build|
-
-TODO
-
-You can also just head to the following url ``https://qubes-doc--<PR-NUMBER>.org.readthedocs.build/en/<PR-NUMBER>/``.
+.. _build_locally:
 
 Building the rST documentation locally
 ======================================
@@ -282,162 +289,176 @@ Using venv
 ----------
 
 
-Install needed packages and clone the repository.
+1. **Install needed packages and clone the repository**
 
-.. code-block:: console
+  .. code-block:: console
 
     $ sudo apt install git python3-dev python3.11-venv
     $ git clone https://github.com/QubesOS/qubes-doc.git
 
-
-Install Sphinx Tools and Build Qubes OS Documentation
------------------------------------------------------
-
-
-To install Sphinx and perform linting and link checking for an existing project, follow these steps:
-
-1.  **Install Sphinx and Required Extensions**
+2.  **Install Sphinx and Required Extensions**
 
    Install Sphinx and the necessary extensions (`sphinx-autobuild`, `sphinx-lint`) using `pip`.
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ python -m venv .q_env
-   $ source .q_env/bin/activate
-   $ pip install -r qubes-doc/requirements.txt
-   $ pip install sphinx sphinx-lint sphinx-autobuild
-
-
-2.  **Verify Installation**
-
-.. code-block:: console
-
-   $ sphinx-build --version
+     $ python -m venv .q_env
+     $ source .q_env/bin/activate
+     $ pip install -r qubes-doc/requirements.txt
+     $ pip install sphinx sphinx-lint sphinx-autobuild
 
 
-3.  **Build Documentation**
+3.  **Verify Installation**
+
+    .. code-block:: console
+
+     $ sphinx-build --version
+
+
+4.  **Build Documentation**
 
    Use `sphinx-build` with the `-v` (verbose) flag to generate detailed output during the build process.
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ sphinx-build -v -b html qubes-doc _build/html
+     $ sphinx-build -v -b html qubes-doc _build/html
 
 
-The build command specifies the source directory (`qubes-doc`), the output directory (`_build/html`), and the builder (`html`)
-and will process all source files in the `qubes-doc` directory,
-generate HTML output in the `_build/html` directory, and print detailed build information to the console.
-Pay attention to errors and warning in the output!
-Please do not introduce any new warnings and fix all errors.
+   The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`)
+   and will process all source files in the :file:`qubes-doc` directory,
+   generate HTML output in the :file:`_build/html` directory, and print detailed build information to the console.
+   Pay attention to errors and warning in the output!
+   Please do not introduce any new warnings and fix all errors.
 
-4.  **Run Linting**
+5.  **Run Linting**
 
    The `sphinx-lint` extension checks for common issues like missing references, invalid directives,
    or formatting errors.
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ sphinx-lint qubes-doc
+     $ sphinx-lint qubes-doc
 
 
-5.  **Run Link Checking**
+6.  **Run Link Checking**
 
    The `sphinx-linkcheck` extension verifies the validity of all external and internal links.
 
-   The results will be written to the `_build/linkcheck` directory with a detailed report in `output.txt` or `output.json` files
+   The results will be written to the :file:`_build/linkcheck` directory with a detailed report in :file:`output.txt` or :file:`output.json` files
    of all checked links and their status (e.g., OK, broken).
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ sphinx-build -b linkcheck qubes-doc _build/linkcheck
+     $ sphinx-build -b linkcheck qubes-doc _build/linkcheck
 
 
-6.  **Use sphinx-autobuild for development**
+7.  **Use sphinx-autobuild for development**
 
    For an active development workflow, you can use `sphinx-autobuild` to automatically rebuild the documentation
    and refresh browser whenever a file is saved. `sphinx-autobuild` starts a web server at `http://127.0.0.1:8000`,
-   automatically rebuilds the documentation and reloads the browser tab when changes are detected in the `qubes-doc` directory.
+   automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ sphinx-autobuild qubes-doc _build/html
-
-
+     $ sphinx-autobuild qubes-doc _build/html
 
 
 Using poetry
 ------------
 
 
-`Install poetry <https://python-poetry.org/docs/#installation>`__ and git and clone the repository.
+1. `Install poetry <https://python-poetry.org/docs/#installation>`__ and git and clone the repository.
 A `pyproject.toml` file is provided.
 
-.. code-block:: console
+  .. code-block:: console
 
     $ sudo apt install git
     $ curl -sSL https://install.python-poetry.org | python3 -
     $ git clone https://github.com/QubesOS/qubes-doc.git
+    $ cd qubes-doc
+    $ poetry install
 
 
-1.  **Build Documentation**
+2.  **Build Documentation**
 
    Use `sphinx-build` with the `-v` (verbose) flag to generate detailed output during the build process.
-   The build command specifies the source directory (`qubes-doc`), the output directory (`_build/html`), and the builder (`html`).
+   The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`).
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ poetry run sphinx-build -v -b html qubes-doc _build/html
+     $ poetry run sphinx-build -v -b html ../qubes-doc _build/html
 
-This command will process all source files in the `qubes-doc` directory,
-generate HTML output in the `_build/html` directory, and print detailed build information to the console.
-Pay attention to errors and warning in the output!
-Please do not introduce no new warning and fix all errors.
+   This command will process all source files in the :file:`qubes-doc` directory,
+   generate HTML output in the :file:`_build/html` directory, and print detailed build information to the console.
+   Pay attention to errors and warning in the output!
+   Please do not introduce no new warning and fix all errors.
 
-2.  **Run Linting**
+3.  **Run Linting**
 
    The `sphinx-lint` extension checks for common issues like missing references, invalid directives,
    or formatting errors. Run the linting step using the `sphinx-lint` command.
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ poetry run sphinx-lint qubes-doc
+     $ poetry run sphinx-lint ../qubes-doc
 
 
-3.  **Run Link Checking**
+4.  **Run Link Checking**
 
    The `sphinx-linkcheck` extension verifies the validity of all external and internal links.
 
-   The results will be written to the `_build/linkcheck` directory with a detailed report in `output.txt` or `output.json` files
+   The results will be written to the :file:`_build/linkcheck` directory with a detailed report in :file:`output.txt` or :file:`output.json` files
    of all checked links and their status (e.g., OK, broken, timeout).
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ poetry run sphinx-build -b linkcheck qubes-doc _build/linkcheck
+     $ poetry run sphinx-build -b linkcheck ../qubes-doc _build/linkcheck
 
-4.  **Use sphinx-autobuild for development**
+5.  **Use sphinx-autobuild for development**
 
    For an active development workflow, you can use `sphinx-autobuild` to automatically rebuild the documentation
    and refresh browser whenever a file is saved. `sphinx-autobuild` starts a web server at `http://127.0.0.1:8000`,
-   automatically rebuilds the documentation and reloads the browser tab when changes are detected in the `qubes-doc` directory.
+   automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
 
 
-.. code-block:: console
+    .. code-block:: console
 
-   $ poetry run sphinx-autobuild qubes-doc _build/html
+     $ poetry run sphinx-autobuild ../qubes-doc _build/html
 
+
+You can also use `uv <https://docs.astral.sh/uv/getting-started/>`__ as you wish.
 
 
 Editor
 ------
-
 
 An editor you can use is `ReText <https://github.com/retext-project/retext>`__ but any editor would do.
 
 
 .. code-block:: console
 
+   $ python3 -m venv myenv
+   $ source myenv/bin/activate
    $ sudo apt install libxcb-cursor0
    $ pip3 install ReText
+
+
+Configuration
+-------------
+
+Qubes-doc directory contains a build configuration file named :file:`conf.py`, used by Sphinx
+to define `input and output behaviour <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__.
+It contains settings and extensions that define how the documentation will be generated.
+
+You can find it `here <https://github.com/QubesOS/qubes-doc/blob/rst/conf.py>`__.
+
+
+Extensions
+----------
+
+We use several Sphinx `extensions<https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
+as defined in :file:`conf.py`, as well a simple custom one to embed YouTube videos,
+which can be found `here <https://github.com/QubesOS/qubes-doc/tree/rst/_ext>`__.
 
 
 Security
@@ -474,7 +495,7 @@ If you have a question about something you read in the documentation or
 about how to edit the documentation, please post it on the `forum <https://forum.qubes-os.org/>`__
 or send it to the appropriate :doc:`mailing list </introduction/support>`. If you see that something in the
 documentation should be fixed or improved, please
-:ref:`contribute <developer/general/how-to-edit-the-documentation:how to submit a pull request>` the change yourself. To
+:ref:`contribute <developer/general/how-to-edit-the-rst-documentation:how to submit a pull request>` the change yourself. To
 report an issue with the documentation, please follow our standard
 :doc:`issue reporting guidelines </introduction/issue-tracking>`. (If you report an
 issue with the documentation, you will likely be asked to submit a pull
@@ -483,16 +504,16 @@ you are not willing or able to do so.)
 
 
 .. |page-source-button| image:: /attachment/doc/doc-pr_01_page-source-button-rtd.png
-.. |github-edit| image:: /attachment/doc/doc-pr_02_github-edit-rts.png
-.. |github-sign-in| image:: /attachment/doc/doc-pr_03_sign-in-rts.png
-.. |fork1| image:: /attachment/doc/doc-pr_04_fork-rts1.png
-.. |fork2| image:: /attachment/doc/doc-pr_04_fork-rts2.png
-.. |fork3| image:: /attachment/doc/doc-pr_04_fork-rts3.png
+.. |github-edit| image:: /attachment/doc/doc-pr_02_github-edit-rst.png
+.. |github-sign-in| image:: /attachment/doc/doc-pr_03_sign-in-rst.png
+.. |fork1| image:: /attachment/doc/doc-pr_04_fork-rst1.png
+.. |fork2| image:: /attachment/doc/doc-pr_04_fork-rst2.png
+.. |fork3| image:: /attachment/doc/doc-pr_04_fork-rst3.png
 .. |edit| image:: /attachment/doc/doc-pr_05_edit-rst.png
 .. |commit| image:: /attachment/doc/doc-pr_06_commit-msg-rst.png
-.. |pull-request| image:: /attachment/doc/doc-pr_07_review-changes.png
-.. |pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-pr-rts.png
-.. |draft-pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-dpr-rts.png
+.. |pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-pr-rst.png
+.. |draft-pull-request-confirm| image:: /attachment/doc/doc-pr_09_create-dpr-rst.png
 .. |pull-request-builds| image:: /attachment/doc/doc-pr_10_view-pr-rtd.png
 .. |pull-request-build| image:: /attachment/doc/doc-pr_11_view-pr-rtd.png
 .. |done| image:: /attachment/doc/doc-pr_09_done.png
+.. |epub-pdf| image:: /attachment/doc/rst-rtd-epub-pdf.png

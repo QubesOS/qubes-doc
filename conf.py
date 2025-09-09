@@ -4,6 +4,7 @@ import os
 import sys
 from pathlib import Path
 
+# Append the path to custom extensions
 sys.path.append(str(Path('_ext').resolve()))
 
 # For the full list of options, see the documentation:
@@ -29,13 +30,14 @@ release = '4.2.4'
 # -- General configuration ---------------------------------------------------
 
 extensions = [
-  'sphinx.ext.autosectionlabel',
-  'sphinxnotes.strike',
-  'sphinx_reredirects',
-  'sphinxext.opengraph',
-  'youtube_frame',
+  'sphinx.ext.autosectionlabel',  # Automatically generate section labels
+  'sphinxnotes.strike', # Add strike-through text support
+  'sphinx_reredirects', # Manage redirects in the documentation
+  'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
+  'youtube_frame', # Embed YouTube videos
 ]
 
+# Redirects for specific URLs as fall back
 redirects = {
     "user/hardware/hcl":
         "https://www.qubes-os.org/hcl/",
@@ -50,12 +52,15 @@ redirects = {
 
 # -- -- Options for highlighting ---------------------------------------------
 
+# Disable syntax highlighting
 highlight_language = 'none'
 
+# Set the Pygments style for syntax highlighting
 pygments_style = 'sphinx'
 
 # -- -- Options for source files ---------------------------------------------
 
+# Patterns to exclude from the source directory
 exclude_patterns = [
   '_*',
   '**/.*',
@@ -92,10 +97,12 @@ linkcheck_anchors = False
 linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 
 # -- Extensions configuration ------------------------------------------------
-
+# Prefix section labels with the document name
 autosectionlabel_prefix_document = True
 
+# Open Graph image for social media sharing
 ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
+# Disable Open Graph image alt text
 ogp_image_alt = False
 
 # -- HTML configuration ------------------------------------------------------
@@ -113,6 +120,7 @@ html_context = {
 
 # -- -- Options for internationalisation -------------------------------------
 
+# Directories containing translation files
 locale_dirs = ['_translated']
 
 gettext_compact = False
@@ -121,6 +129,7 @@ gettext_uuid = True
 
 # -- -- Options for markup ---------------------------------------------------
 
+# Define a block of reusable reStructuredText (reST) snippets, warnings etc. that Sphinx automatically appends to every source file before it is parsed
 rst_epilog = """
 .. |debian-codename| replace:: bookworm
 .. |debian-version| replace:: 12
