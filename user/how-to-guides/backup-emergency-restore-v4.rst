@@ -160,7 +160,7 @@ Emergency recovery instructions
          [user@restore ~]$ xmlstarlet sel -T -t -m //domain \
              -v 'concat(.//property[@name="name"], " ", .//feature[@name="backup-path"])' \
              -n qubes.xml
-         
+
          anon-whonix
          debian-11
          default-mgmt-dvm

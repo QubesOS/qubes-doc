@@ -39,8 +39,8 @@ Each release candidate period is as follows: For the first two weeks, we accept 
 
 The next RC is released five weeks after the former. All packages are published in the ``current`` repository, and the cycle starts over. There should always be at least one release candidate before the final release.
 
-.. list-table:: 
-   :widths: 26 26 
+.. list-table::
+   :widths: 26 26
    :align: center
    :header-rows: 1
 
@@ -52,7 +52,6 @@ The next RC is released five weeks after the former. All packages are published 
      - two weeks
    * - ``current-testing`` freeze
      - one week
-   
 
 
 Starting with the second cycle (that is, after ``-rc1``), two weeks into the cycle (after the primary bug-reporting period), we decide whether there should be another RC. If, based on the bugs that have been reported, we decide that the latest RC will be designated as the stable release, then we decide on its release date, which should be no more than one week later.
@@ -104,4 +103,4 @@ Check installed version
 If you want to know which version you are running, for example to report an issue, you can either check in the Qubes Manager menu under ``About > Qubes OS`` or in the file ``/etc/qubes-release`` in dom0. For the latter you can use a command like ``cat /etc/qubes-release`` in a dom0 terminal.
 
 .. |Release cycle| image:: /attachment/doc/release-cycle.png
-   
+

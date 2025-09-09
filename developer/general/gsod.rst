@@ -57,8 +57,8 @@ Timeline
 ^^^^^^^^
 
 
-.. list-table:: 
-   :widths: 15 15 
+.. list-table::
+   :widths: 15 15
    :align: center
    :header-rows: 1
 
@@ -70,15 +70,14 @@ Timeline
      - Update & extend how-to guides
    * - December
      - Final project evaluation and case study
-   
 
 
 Project budget
 ^^^^^^^^^^^^^^
 
 
-.. list-table:: 
-   :widths: 32 32 
+.. list-table::
+   :widths: 32 32
    :align: center
    :header-rows: 1
 
@@ -88,7 +87,6 @@ Project budget
      - $12,000
    * - TOTAL
      - $12,000
-   
 
 
 Additional information

@@ -206,7 +206,7 @@ Update the following two lines, add if needed:
       GRUB_SAVEDEFAULT=true
 
 
-Save and exit nano. Regenerate the GRUB 2 configuration. 
+Save and exit nano. Regenerate the GRUB 2 configuration.
 
 .. code:: console
 

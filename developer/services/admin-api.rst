@@ -75,7 +75,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      - ``<class>\n``
-     - 
+     -
    * - ``admin.vm.List``
      - ``dom0|<vm>``
      - `-`
@@ -132,7 +132,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - ``<label-index>``
      -
-   * - ``admin.label.Remove`` 
+   * - ``admin.label.Remove``
      - ``dom0``
      - label
      - `-`
@@ -190,10 +190,10 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.property.List``
      - vm
      - `-`
-     - `-` 
+     - `-`
      - ``<property>\n``
      -
-   * - ``admin.vm.property.Get`` 
+   * - ``admin.vm.property.Get``
      - vm
      - property
      - `-`
@@ -227,7 +227,7 @@ it easy to set the policy using current mechanism.
    * - ``admin.vm.property.Reset``
      - vm
      - property
-     - `-` 
+     - `-`
      - `-`
      -
    * - ``admin.vm.property.Set``
@@ -266,7 +266,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - value
      -
-   * - ``admin.vm.feature.CheckWithTemplateAndAdminVM``  
+   * - ``admin.vm.feature.CheckWithTemplateAndAdminVM``
      - vm
      - feature
      - `-`
@@ -301,7 +301,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      - ``<tag>\n``
-     - 
+     -
    * - ``admin.vm.tag.Get``
      - vm
      - tag
@@ -322,7 +322,7 @@ it easy to set the policy using current mechanism.
      -
    * - ``admin.vm.firewall.Get``
      - vm
-     - `-` 
+     - `-`
      - `-`
      - ``<rule>\n``
      - rules syntax as in :ref:`firewall interface <developer/debugging/vm-interface:firewall rules in 4.x>` with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
@@ -364,11 +364,11 @@ it easy to set the policy using current mechanism.
      - device
      - `-`
      - `-`
-     - ``device`` is in form ``<backend-name>+<device-ident>`` 
+     - ``device`` is in form ``<backend-name>+<device-ident>``
    * - ``admin.vm.device.<class>.Set.required``
      - vm
      - device
-     - ``True|False``  
+     - ``True|False``
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
    * - ``admin.vm.deviceclass.List``
@@ -434,7 +434,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      -
-   * - ``admin.pool.volume.List`` 
+   * - ``admin.pool.volume.List``
      - ``dom0``
      - pool
      - `-`
@@ -488,12 +488,12 @@ it easy to set the policy using current mechanism.
      - vid
      - token, to be used in ``admin.pool.volume.CloneTo``
      - | obtain a token to copy volume ``vid`` in ``pool``;
-       | the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails 
+       | the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails
    * - ``admin.pool.volume.CloneTo``
      - ``dom0``
      - pool
      - ``<vid> <token>``
-     - `-` 
+     - `-`
      - copy volume pointed by a token to volume ``vid`` in ``pool``
    * - ``admin.vm.volume.List``
      - vm
@@ -503,7 +503,7 @@ it easy to set the policy using current mechanism.
      - ``<volume>`` is per-VM volume name (``root``, ``private``, etc), ``<vid>`` is pool-unique volume id
    * - ``admin.vm.volume.Info``
      - vm
-     - volume 
+     - volume
      - `-`
      - ``<property>=<value>\n``
      -
@@ -614,7 +614,7 @@ it easy to set the policy using current mechanism.
      - ``dom0``
      - config id
      - `-`
-     - backup info 
+     - backup info
      - info what would be included in the backup
    * - ``admin.backup.Cancel``
      - ``dom0``

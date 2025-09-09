@@ -6,7 +6,7 @@ Insurgo PrivacyBeast X230
 
 
 .. DANGER::
-      
+
       **Warning:** The CPU in this computer no longer receives microcode updates from Intel. Without microcode updates, Qubes OS cannot ensure that this computer is secure against CPU vulnerabilities. While this computer remains certified for Qubes OS Release 4, we recommend that prospective buyers consider a newer Qubes-certified computer instead.
 
 The `Insurgo PrivacyBeast X230 <https://insurgo.ca/produit/qubesos-certified-privacybeast_x230-reasonably-secured-laptop/>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.

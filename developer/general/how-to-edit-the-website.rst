@@ -123,8 +123,8 @@ The main `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ co
   └── pages         # ← Stand‑alone pages (donate, team, about, etc.)
     └── *.md/.html  # each file becomes a page at /<filename>/
 
-How to edit the website
------------------------
+Cheatsheet
+----------
 
 .. list-table::
    :header-rows: 1
@@ -139,7 +139,7 @@ How to edit the website
      - Update the key/value pair, then rebuild.
    * - Modify the look of all pages
      - ``_layouts/*.html`` and/or ``_sass/*.scss``
-     - Edit the HTML skeleton or SASS variables, then run ``jekyll serve`` to preview.
+     - Edit the HTML skeleton or SASS variables, then run preview.
    * - Insert a reusable component (e.g., a call‑out box)
      - ``_includes/*.html``
      - Create the snippet, then reference it with ``{% include snippet.html %}`` in any page or post.

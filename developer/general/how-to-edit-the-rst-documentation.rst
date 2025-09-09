@@ -22,7 +22,7 @@ be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 |epub-pdf|
 
 ..
-  TODO screenshots with main branch instead of rst when rst merged in main 
+  TODO screenshots with main branch instead of rst when rst merged in main
   TODO add draft pull request screenshot
 
 The documentation is a volunteer community effort. People like you are
@@ -74,8 +74,7 @@ button to edit the file (if you are already logged in in).
 
 If you are not logged in you can click on :guilabel:`Sign In`
 and you’ll be prompted to sign in with your GitHub username and password.
-You can also create a free account from
-here.
+You can also create a free account from here.
 
 |github-sign-in|
 
@@ -174,7 +173,7 @@ Tips & Tricks
 
    $ git merge upstream/main
 
-Keep your pull requests limited to a single issue, pull requests should be as atomic as possible. 
+Keep your pull requests limited to a single issue, pull requests should be as atomic as possible.
 
 .. _edit_doc_index:
 

@@ -68,7 +68,4 @@ And all these components are “glued together” by the Qubes Core Stack.
 This diagram illustrates the location of all these components in the overall system architecture. Unlike the other Qubes architecture diagram above, this one takes an app-qube-centric approach.
 
 .. |qubes-schema-v2.png| image:: /attachment/doc/qubes-schema-v2.png
-   
-
 .. |Qubes system components| image:: /attachment/doc/qubes-components.png
-   

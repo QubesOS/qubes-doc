@@ -7,8 +7,8 @@ Qubes R4.3 release schedule
 
 The table below is based on our :ref:`release schedule policy <developer/releases/version-scheme:release schedule>`.
 
-.. list-table:: 
-   :widths: 10 10 
+.. list-table::
+   :widths: 10 10
    :align: center
    :header-rows: 1
 
@@ -16,5 +16,4 @@ The table below is based on our :ref:`release schedule policy <developer/release
      - Stage
    * - TBD
      - 4.3.0-rc1 release
-   
 

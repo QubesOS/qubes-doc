@@ -230,7 +230,4 @@ While this works well for standard applications, creating a menu entry for Windo
 .. note:: Applications installed under *wine* are installed in AppVMs, not in the template on which these AppVMs are based, as the file structure used by *wine* is stored under :file:`~/.wine`, which is part of the persistent data of the AppVM and not inherited from its template.
 
 .. |image1| image:: /attachment/doc/r4.0-dom0-menu.png
-   
-
 .. |image2| image:: /attachment/doc/r4.0-dom0-appmenu-select.png
-   

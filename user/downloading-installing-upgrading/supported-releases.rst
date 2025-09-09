@@ -11,8 +11,8 @@ Qubes OS
 
 Qubes OS releases are supported for **six months** after each subsequent major or minor release (see :doc:`Version Scheme </developer/releases/version-scheme>`). The current release and past major releases are always available on the `Downloads <https://www.qubes-os.org/downloads/>`__ page, while all ISOs, including past minor releases, are available from our `download mirrors <https://www.qubes-os.org/downloads/#mirrors>`__.
 
-.. list-table:: 
-   :widths: 11 11 11 11 
+.. list-table::
+   :widths: 11 11 11 11
    :align: center
    :header-rows: 1
 
@@ -56,7 +56,6 @@ Qubes OS releases are supported for **six months** after each subsequent major o
      - TBD
      - TBD
      - In testing
-   
 
 
 Note on patch releases
@@ -71,8 +70,8 @@ Dom0
 
 The table below shows the OS used for dom0 in each Qubes OS release.
 
-.. list-table:: 
-   :widths: 11 11 
+.. list-table::
+   :widths: 11 11
    :align: center
    :header-rows: 1
 
@@ -96,7 +95,6 @@ The table below shows the OS used for dom0 in each Qubes OS release.
      - Fedora 37
    * - Release 4.3
      - Fedora 41
-   
 
 
 Note on dom0 and EOL
@@ -113,8 +111,8 @@ The following table shows select :doc:`template </user/templates/templates>` (an
 
 It is the responsibility of each distribution to clearly notify its users in advance of its own EOL dates, and it is users’ responsibility to heed these notices by upgrading to supported releases. As a courtesy to Qubes users, we attempt to pass along upstream EOL notices we receive for select distributions, but our ability to do this reliably is dependent on the upstream distribution’s practices. For example, if a distribution provides a mailing list similar to :ref:`qubes-announce <introduction/support:qubes-announce>`, which allows us to receive only very important, infrequent messages, including EOL announcements, we are much more likely to be able to pass along EOL notices to Qubes users reliably. Qubes users can always check the EOL status of an upstream release on the upstream distribution’s website (see `Fedora EOL <https://fedoraproject.org/wiki/End_of_life>`__ and `Debian Releases <https://wiki.debian.org/DebianReleases>`__).
 
-.. list-table:: 
-   :widths: 11 11 11 
+.. list-table::
+   :widths: 11 11 11
    :align: center
    :header-rows: 1
 
@@ -127,7 +125,6 @@ It is the responsibility of each distribution to clearly notify its users in adv
    * - Release 4.3
      - 41, 42
      - 12, 13
-   
 
 
 Note on Debian support

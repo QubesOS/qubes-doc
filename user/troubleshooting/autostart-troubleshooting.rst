@@ -28,10 +28,5 @@ Append ``qubes.skip_autostart`` to the end of this line (generally after the ``r
 Press ``Ctrl+X`` to boot with the edited GRUB entry. The boot will proceed as usual from here, except that no qube will be autostarted.
 
 .. |grub1.png| image:: /attachment/doc/grub1.png
-   
-
 .. |grub2.png| image:: /attachment/doc/grub2.png
-   
-
 .. |grub3.png| image:: /attachment/doc/grub3.png
-   

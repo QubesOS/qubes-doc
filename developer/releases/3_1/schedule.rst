@@ -5,8 +5,8 @@ Qubes R3.1 release schedule
 
 This schedule is based on :ref:`Version Scheme <developer/releases/version-scheme:release schedule>`.
 
-.. list-table:: 
-   :widths: 38 38 
+.. list-table::
+   :widths: 38 38
    :align: center
    :header-rows: 1
 
@@ -24,5 +24,4 @@ This schedule is based on :ref:`Version Scheme <developer/releases/version-schem
      - current-testing freeze before 3.1-rc3
    * -  :strike:`16 Feb 2016`  23 Feb 2016
      - 3.1-rc3 release
-   
 

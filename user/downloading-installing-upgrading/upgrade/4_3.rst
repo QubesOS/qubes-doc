@@ -67,16 +67,16 @@ Full list of options can be obtained with ``qubes-dist-upgrade --releasever=4.3 
 .. code:: bash
 
       Usage: qubes-dist-upgrade --releasever=VERSION [OPTIONS]...
-      
+
       This script is used for updating QubesOS to the next release.
-      
+
       Options:
           --releasever=VERSION               Specify target release, for example 4.3 or 4.2.
-      
+
       Usage: /usr/lib/qubes/qubes-dist-upgrade-r4.3.sh [OPTIONS]...
-      
+
       This script is used for updating current QubesOS R4.2 to R4.3.
-      
+
       Options:
           --update, -t                       (STAGE 1) Update of dom0, TemplatesVM and StandaloneVM.
           --release-upgrade, -r              (STAGE 2) Update 'qubes-release' for Qubes R4.3.
@@ -92,7 +92,7 @@ Full list of options can be obtained with ``qubes-dist-upgrade --releasever=4.3 
           --check-supported-templates        (STAGE 6) Check if all templates are supported
           --all-pre-reboot                   Execute stages 1 to 3
           --all-post-reboot                  Execute stages 4 to 6
-      
+
           --assumeyes, -y                    Automatically answer yes for all questions.
           --usbvm, -u                        Current UsbVM defined (default 'sys-usb').
           --netvm, -n                        Current NetVM defined (default 'sys-net').
@@ -109,7 +109,6 @@ Full list of options can be obtained with ``qubes-dist-upgrade --releasever=4.3 
                                              The enabling with this option do not persist after
                                              successful update. If you want to keep it enabled,
                                              use the normal method instead.
-      
 
 
 After installing the tool, before-reboot stages can be performed at once with:

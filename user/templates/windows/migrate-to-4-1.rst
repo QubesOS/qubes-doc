@@ -83,8 +83,8 @@ The PV disk drivers used for migration can be removed after successful installat
 
 After successful uninstallation of the PV disk drivers, the disks will appear as QEMU ATA disks.
 
-.. warning:: 
-   
+.. warning::
+
    This change may lead Windows to declare that the hardware has changed and that in consequence, the activation is no longer valid, possibly complaining that the use of the software is no longer lawful. It should be possible to reactivate the software if a valid product key is provided.
 
 

@@ -5,8 +5,8 @@ Qubes R4.1 release schedule
 
 The table below is based on our :ref:`release schedule policy <developer/releases/version-scheme:release schedule>`.
 
-.. list-table:: 
-   :widths: 10 10 
+.. list-table::
+   :widths: 10 10
    :align: center
    :header-rows: 1
 
@@ -34,5 +34,4 @@ The table below is based on our :ref:`release schedule policy <developer/release
      - decide whether 4.1.0-rc4 is the final 4.1
    * - 2022-02-04
      - final 4.1.0 release
-   
 
