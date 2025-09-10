@@ -7,7 +7,7 @@ reStructuredText documentation style guide
 This page explains the standards we follow for writing, formatting, and organizing the documentation.
 Please follow these guidelines and conventions when editing the rST documentation.
 For the standards governing the website (as opposed to the rST documentation hosted on `https://doc.qubes-os.org <https://doc.qubes-os.org>`__),
-please see the :doc:`website style guide </developer/general/website-style-guide>`.
+please see the :doc:`Website style guide </developer/general/website-style-guide>`.
 If you wish to submit a pull request regarding content hosted on the website, please refer to
 :doc:`How to edit the website </developer/general/how-to-edit-the-website/>`.
 
@@ -91,8 +91,8 @@ Item 3 will start at 1.
 Code blocks
 """""""""""
 
-When writing code blocks, use syntax highlighting within the `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__
-or `code <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code>`__.
+When writing code blocks, use syntax highlighting within the `code <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code>`__
+or `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__.
 
 By specifying the language, you enable pygments, which show syntax color coding for that code sample (see `here <https://pygments.org/languages/>`__ for a list of supported languages).
 
@@ -100,7 +100,7 @@ By specifying the language, you enable pygments, which show syntax color coding 
 
    .. code:: language
 
-     code
+      code
 
 
 
@@ -146,7 +146,7 @@ For Bash use ``bash``.
 
     .. code:: bash
 
-      echo "Hello"
+       #!/bin/bash
 
 For a terminal session use ``console``.
 
@@ -154,7 +154,7 @@ For a terminal session use ``console``.
 
     .. code:: console
 
-      pygments_style = 'sphinx'
+       $ echo "Hello"
 
 For text output use ``output``.
 
@@ -182,8 +182,9 @@ A simple example would be:
 
     .. code:: rst
 
-        .. list-table:: rst
+        .. list-table::
            :widths: 15 10
+           :align: center
            :header-rows: 1
 
            * - Header 1
@@ -280,15 +281,15 @@ In Qubes OS documentation the `doc <https://www.sphinx-doc.org/en/master/usage/r
 `ref <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ roles are used extensively
 as described in :ref:`cross_referencing`.
 
-The roles used in the Qubes OS documentation so far are:
+Some of the roles used in the Qubes OS documentation so far are:
 
 - the ``:file:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-file>`__
 - the ``:guilabel:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-guilabel>`__
 - the ``:menuselection:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-menuselection>`__
 - the ``:samp:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-samp>`__
+- the ``:kbd:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-kbd>`__
 
 Please continue using the above or new ones where appropriate.
-
 
 
 Cross referencing:
@@ -308,7 +309,7 @@ use `:ref:` for specific sections
    :ref:`qubes <user/reference/glossary:qube>`
 
 
-For further information please :ref:`cross_referencing`.
+For further information please see :ref:`cross_referencing`.
 
 
 Hyperlink syntax
@@ -331,7 +332,7 @@ Do *not* use reference-style links like
 
 This facilitates the localization process.
 
-Take a look also :ref:`cross_referencing`.
+Take a look also at :ref:`cross_referencing`.
 
 
 Relative vs. absolute links
@@ -348,7 +349,7 @@ instead of:
 
 .. code:: rst
 
-  text :doc:`contribute code </introduction/contributing>` text
+  text `contribute code <https://doc.qubes-os.org/introduction/contributing.html>` text
 
 You may use absolute URLs in the following cases:
 
@@ -383,7 +384,8 @@ as long as they are in consistent use across the documentation.
 Qubes OS uses the convention in `Python Developer’s Guide for documenting <https://devguide.python.org/documentation/markup/#sections>`__ which are as follows:
 
 
-.. code: text
+.. code:: text
+
     # with overline, for parts
     * with overline, for chapters
     = for sections
@@ -391,17 +393,19 @@ Qubes OS uses the convention in `Python Developer’s Guide for documenting <htt
     ^ for subsubsections
     " for paragraphs
 
+A simple example of how this is used in the Qubes OS documentation:
 
 .. code:: rst
 
+  ==========
   Main Title
-  =========
+  ==========
 
   Subsection
   ----------
 
   Sub-subsection
-  ^^^^^^^^^^^^
+  ^^^^^^^^^^^^^^
 
   Paragraph
   """""""""
@@ -475,7 +479,9 @@ When providing command-line examples:
  .. code:: rst
 
        Open a terminal in dom0 and run:
+
        .. code:: console
+
           $ cd test
           $ echo Hello
           Hello
@@ -488,7 +494,9 @@ When providing command-line examples:
  .. code:: rst
 
        Open a terminal in dom0 and run:
+
        .. code:: console
+
           # Navigate to the new directory
           $ cd test
           # Generate a greeting
@@ -694,6 +702,9 @@ Please follow our :ref:`Git commit message guidelines <developer/code/coding-sty
 Cheatsheet: Markdown vs. reStructuredText
 -----------------------------------------
 
+For the documentation contributors more familiar with Markdown, here is a small cheatsheet
+highlighting essential differences.
+
 Headings
 ^^^^^^^^
 
@@ -701,23 +712,23 @@ Headings
 
     .. code:: markdown
 
-        # Heading 1
-        ## Heading 2
-        ### Heading 3
+        # Title
+        ## Section
+        ### Sub-Section
 
 **reStructuredText:**
 
     .. code:: rst
 
-        ============
-        Heading 1
-        ============
+        =====
+        Title
+        =====
 
-        Heading 2
-        ----------
+        Section
+        -------
 
-        Heading 3
-        ^^^^^^^^^
+        Seub-Section
+        ^^^^^^^^^^^^
 
 Hyperlinks
 ^^^^^^^^^^
@@ -816,10 +827,12 @@ Tables
         | Cell 3   | Cell 4   |
 
 **reStructuredText:**
+
     .. code:: rst
 
         .. list-table:: rst
            :widths: 15 10
+           :align: center
            :header-rows: 1
 
            * - Header 1
@@ -855,13 +868,17 @@ Alerts and Warnings
 Markdown does not have built-in support for alerts and warnings.
 
 **reStructuredText:**
+
     .. code:: rst
 
         .. note::
+
            This is a note.
 
         .. warning::
+
            This is a warning.
 
         .. danger::
+
            This is a danger message.

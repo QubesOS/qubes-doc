@@ -4,9 +4,11 @@ How to edit the documentation
 
 The Qubes OS documentation is stored as `reStructuredText (rST) <https://docutils.sourceforge.io/rst.html>`__ files in
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
+
 We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
 `Read The Docs (RTD) <https://readsthedocs.com/>`__ for hosting.
-RTD is a `continuous‑documentation deployment platform <https://docs.readthedocs.com/platform/stable/continuous-deployment.html>`__ that automatically detects changes in the qubes-doc GittHub repository and builds the latest version of the docs.
+RTD is a `continuous‑documentation deployment platform <https://docs.readthedocs.com/platform/stable/continuous-deployment.html>`__ that can automatically
+detect changes in a GitHub repository and build the latest version of a documentation.
 
 .. figure:: /attachment/doc/rst-rtd-workflow.png
     :alt: Qubes OS Documentation Workflow - once new documentation is written or changed, it is built and verified with Sphinx, pushed on GitHub/GitLab and hosted on RTD
@@ -16,7 +18,8 @@ RTD is a `continuous‑documentation deployment platform <https://docs.readthedo
 
 By cloning and regularly pulling from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository, users can maintain their
 own up-to-date offline copy of the Qubes documentation rather than
-relying solely on the web. EPUB or PDF versions of Qubes OS documenation can also
+relying solely on the web and either serve it locally or read the rST files directly.
+EPUB or PDF versions of Qubes OS documenation can also
 be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 
 |epub-pdf|
@@ -24,6 +27,8 @@ be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 ..
   TODO screenshots with main branch instead of rst when rst merged in main
   TODO add draft pull request screenshot
+
+
 
 The documentation is a volunteer community effort. People like you are
 constantly working to make it better. If you notice something that can
@@ -56,16 +61,17 @@ A few notes before we get started:
 work from the command line, you can skip the rest of this section. All
 you need to do to contribute is to `fork and clone <https://guides.github.com/activities/forking/>`__
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repo, make your changes,
-then `submit a pull request <https://help.github.com/articles/using-pull-requests/>`__.)
+then `submit a pull request <https://help.github.com/articles/using-pull-requests/>`__.
+You can continue reading :ref:`viewing_pr`.)
 
-Ok, let’s begin. Every documentation page has a “Edit on GitHub” link.
+Ok, let’s begin. Every documentation page has a :guilabel:`Edit on GitHub` link.
 
 |page-source-button|
 
 When you click on it, you’ll be taken to the source file — a reStructuredText (``.rst``) file — on GitHub.
 
 On this page, there will be a
-button to edit the file (if you are already logged in in).
+button to edit the file (if you are already logged in).
 
 ..
   TODO screenshot when rst merged in main
@@ -79,12 +85,12 @@ You can also create a free account from here.
 |github-sign-in|
 
 If this is your first contribution to the documentation, you need to
-:guilabel:`fork` the repository (make your own copy).
+fork the repository (make your own copy).
 
 |fork1|
 
 It’s easy — just click the
-green :guilabel:`Create fork` on the next page. This step is only needed the first
+green :guilabel:`Create fork` button on the next page. This step is only needed the first
 time you make a contribution.
 
 
@@ -94,14 +100,13 @@ Now you can make your modifications.
 
 |fork3|
 
-You can also preview the changes by clicking the :guilabel:`Preview changes` tab.
-
-If you want to add images, read :ref:`how_to_add_images`. 
-and refer to :ref:`build_locally`
-if you want to locally verify that everything looks correct before submitting any changes.
+.. You can also preview the changes by clicking the :guilabel:`Preview changes` tab.
 
 
 |edit|
+
+If you want to add images, read :ref:`how_to_add_images` and refer to :ref:`build_locally`
+if you want to locally verify that everything looks correct before submitting any changes.
 
 
 Once you’re finished, describe your changes at the bottom and click
@@ -110,8 +115,8 @@ Once you’re finished, describe your changes at the bottom and click
 |commit|
 
 After that, you’ll see exactly what modifications you’ve made. At this
-stage, those changes are still in your own copy of the documentation
-(“fork”). If everything looks good, send those changes to us by pressing
+stage, those changes are still in your own copy (fork) of the documentation.
+If everything looks good, send those changes to us by pressing
 the :guilabel:`Create pull request` button.
 
 
@@ -135,11 +140,14 @@ can’t accept your pull request, we’ll post a comment explaining why we
 can’t.
 
 
+.. _viewing_pr:
+
 Viewing your pull request on RTD
 --------------------------------
 
 Every time you push a commit to your pull request, a build on RTD will be triggered.
-To view your PR you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__:
+To view your PR you can go to Qubes OS builds on `RTD <https://app.readthedocs.org/projects/qubes-doc/builds/>`__,
+find the last build of your PR and click on it:
 
 |pull-request-builds|
 
@@ -198,14 +206,11 @@ If you want to add a newly created documentation file, do so as follows:
 .. code-block:: rst
 
    .. toctree:
-      old_doc_file_name
-      new_doc_file_name
+      /path/to/old_doc_file_name
+      /path/to/new_doc_file_name
 
 
 Editing this file will change what appears on the documentation index.
-If your pull request (PR) adds, removes, or edits anything that should
-be reflected in the documentation index, please make sure you also
-submit an associated pull request against this file.
 
 Please always be mindful that rST syntax is sensitive to indentation (3 spaces)!
 
@@ -226,7 +231,7 @@ To add an image to a page, use the following syntax:
      :alt: Qubes desktop screenshot depicting <description>
 
 
-If you want to add a caption to the image, you may do so using the ``caption`` option of the `figure directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure>`__.
+If you want to add a caption to the image, you may do so using the optional ``caption`` of the `figure directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#figure>`__.
 Another way without a caption is to use the `image directive <https://docutils.sourceforge.io/docs/ref/rst/directives.html#image>`__.
 
 Then, add your image(s) in a the :file:`attachment/doc` folder in the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__
@@ -272,6 +277,27 @@ which will refer to :ref:`this section <introduction/faq:what does it mean to "d
 For further options and use cases please refer to `Cross-references <https://www.sphinx-doc.org/en/master/usage/referencing.html>`__.
 
 
+Qubes OS rST configuration
+==========================
+
+:file:`qubes-doc` directory contains a build configuration file named :file:`conf.py`, used by Sphinx
+to define `input and output behaviour <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__.
+It contains settings and extensions that define how the documentation will be generated.
+You can find it `here <https://github.com/QubesOS/qubes-doc/blob/rst/conf.py>`__.
+
+You can also find a :file:`readthedocs.yml` `file <https://github.com/QubesOS/qubes-doc/blob/rst/.readthedocs.yaml>`__
+which tells RTD how to build the documentation. It defines the build environment, Python version, required dependencies,
+and which Sphinx configuration to run. Thus RTD automatically generates and hosts the docs.
+
+
+Extensions
+----------
+
+We use several Sphinx `extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
+as defined in :file:`conf.py`, as well a simple custom one to embed YouTube videos,
+which can be found `here <https://github.com/QubesOS/qubes-doc/tree/rst/_ext>`__.
+
+
 .. _build_locally:
 
 Building the rST documentation locally
@@ -282,7 +308,9 @@ In order to build the Qubes OS rST documentation locally clone the `qubes-doc <h
 (or your forked one if you want to submit a pull request).
 
 
-It is recommended to use a virtual environment, f.ex. venv or uv poetry.
+It is recommended to use a virtual environment, f.ex.
+`venv <https://docs.python.org/3/library/venv.html>`__,
+`poetry <https://python-poetry.org/>`__ or `uv <https://docs.astral.sh/uv/>`__.
 In the following section there is a sample setup to prepare local environments
 for building Qubes OS rST documentation.
 
@@ -428,7 +456,7 @@ A :file:`pyproject.toml` file is provided.
      $ poetry run sphinx-autobuild ../qubes-doc _build/html
 
 
-You can also use `uv <https://docs.astral.sh/uv/getting-started/>`__ as you wish.
+You can also use `uv <https://docs.astral.sh/uv/getting-started/>`__ if you wish.
 
 
 Editor
@@ -445,32 +473,10 @@ An editor you can use is `ReText <https://github.com/retext-project/retext>`__ b
    $ pip3 install ReText
 
 
-Configuration
--------------
-
-Qubes-doc directory contains a build configuration file named :file:`conf.py`, used by Sphinx
-to define `input and output behaviour <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__.
-It contains settings and extensions that define how the documentation will be generated.
-
-You can find it `here <https://github.com/QubesOS/qubes-doc/blob/rst/conf.py>`__.
-
-You can also find a :file:`readthedocs.yml` `file <https://github.com/QubesOS/qubes-doc/blob/rst/.readthedocs.yaml>`__
-which tells RTD how to build the documentation. It defines the build environment, Python version, required dependencies,
-and which Sphinx configuration to run. Thus RTD automatically generates and hosts the docs.
-
-
-Extensions
-----------
-
-We use several Sphinx `extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
-as defined in :file:`conf.py`, as well a simple custom one to embed YouTube videos,
-which can be found `here <https://github.com/QubesOS/qubes-doc/tree/rst/_ext>`__.
-
-
 Security
 ========
 
-Also see: :ref:`FAQ: Why is the documentation hosted on ReadTheDocs as opposed to the website? <introduction/faq:why is the documentation hosted on readthedocs as opposed to the website?>`.
+Also see: :ref:`FAQ: Why is the documentation hosted on ReadTheDocs as opposed to the website? <introduction/faq:why is the documentation hosted on readthedocs as opposed to the website?>`
 
 All pull requests (PRs) against `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ must pass review
 prior to be merged, except in the case of :ref:`external documentation <index:external documentation>`
@@ -533,3 +539,5 @@ you are not willing or able to do so.)
    :alt: Highlights the View Docs button in a specific build for a pull request <number> on RTD
 .. |epub-pdf| image:: /attachment/doc/rst-rtd-epub-pdf.png
    :alt: Highlights from where one can download a ePUB or PDF of hte Qubes OS documentation deployed on RTD
+   :scale: 20 %
+   :align: middle

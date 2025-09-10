@@ -69,10 +69,9 @@ Quick intro to Jekyll
 
 - *Reading data*: YAML front‑matter in :file:`pages/_posts` and files under :file:`_data` give variables you can reuse.
 - *Applying layouts*: HTML layout files wrap your content, letting you keep a consistent header/footer, navigation, etc.
-- *Processing includes*: Reusable snippets (HTML/Jinja‑style) can be dropped into pages.
+- *Processing includes*: Reusable snippets (HTML/`Liquid <https://jekyllrb.com/docs/liquid/>`__) can be dropped into pages.
 - *Compiling assets*: SASS/SCSS files become CSS, JavaScript is copied as‑is.
 - *Generating the output*: All source files are rendered into a :file:`_site` folder that contains the ready‑to‑serve static files.
-
 
 The main `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ contains the following directories:
 
@@ -87,7 +86,7 @@ The main `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ co
   ├── _hcl          # ← “qubes‑hcl” submodule – custom content for HCL pages
   │   └── ...       #
   │
-  ├── _includes     # ← Reusable HTML/Jinja snippets
+  ├── _includes     # ← Reusable HTML/Liquid snippets
   │   └── *.html    # include with {% include filename.html %} in Markdown or layouts
   │
   ├── _layouts      # ← Page templates that wrap content
