@@ -66,6 +66,7 @@ exclude_patterns = [
   '**/.*',
   '**/*.txt',
   'attachment',
+  '.venv',
 ]
 
 
