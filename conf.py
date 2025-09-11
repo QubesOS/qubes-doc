@@ -64,7 +64,7 @@ pygments_style = 'sphinx'
 exclude_patterns = [
   '_*',
   '**/.*',
-  '**/*.txt'
+  '**/*.txt',
   'attachment',
 ]
 
