@@ -30,3 +30,5 @@ dev = [
     "sphinx-rtd-theme>=3.0.2,<4",
 ]
 
+[tool.esbonio.sphinx]
+pythonCommand = ["${venv:.venv}"]
