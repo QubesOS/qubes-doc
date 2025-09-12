@@ -45,7 +45,7 @@ Edit a policy with :program:`Qubes Policy Editor`
      * :samp:`{30}` indicates the priority (i.e. the default policies start with ``90`` while the policies from :program:`Qubes OS Global Config` start with ``50``)
      * :samp:`{user}` could be any name
 
-     In order to override some clipboard policy, :file:`30-clipboard` could be a good name. Starting with ``20`` makes sure that the file will be read before any file starting with ``31`` or more, especially :file:`50-config-clipboard.policy`: this file is automatically created if you :ref`edit-a-policy-with-qubes-os-global-config`. If you want to create a policy that will never override the policies from :program:`Qubes OS Global Config`, use a name starting with a number between ``51`` and ``89``. The default policies from Qubes OS start with ``90``, so using a number equal or superior might b bee useless.
+    In order to override some clipboard policy, :file:`30-clipboard` could be a good name. Starting with ``30`` makes sure that the file will be read before any file starting with ``31`` or more, especially :file:`50-config-clipboard.policy` (this file is automatically created if you :ref:`edit-a-policy-with-qubes-os-global-config`). If you want to create a policy that will never override the policies from :program:`Qubes OS Global Config`, use a name starting with a number between ``51`` and ``89``. The default policies from Qubes OS start with ``90``, so using a number equal or superior might be useless.
 
 3. Add a line to the file. In order to prevent the *untrusted* qube from pasting to the *vault* qube, the line should be:
 
