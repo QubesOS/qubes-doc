@@ -22,12 +22,10 @@ relying solely on the web and either serve it locally or read the rST files dire
 EPUB or PDF versions of Qubes OS documenation can also
 be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 
-|epub-pdf|
-
-..
-  TODO screenshots with main branch instead of rst when rst merged in main
-  TODO add draft pull request screenshot
-
+.. figure:: /attachment/doc/rst-rtd-epub-pdf.png
+   :alt: Highlights from where one can download a ePUB or PDF of hte Qubes OS documentation deployed on RTD
+   :scale: 20 %
+   :align: center
 
 
 The documentation is a volunteer community effort. People like you are
@@ -72,9 +70,6 @@ When you click on it, you’ll be taken to the source file — a reStructuredTex
 
 On this page, there will be a
 button to edit the file (if you are already logged in).
-
-..
-  TODO screenshot when rst merged in main
 
 |github-edit|
 
@@ -191,10 +186,7 @@ TL;DR: How to edit the documentation index
 For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
 The source file for the :doc:`documentation index (a.k.a. table of contents) </index>` is
-`index.rst <https://github.com/QubesOS/qubes-doc/blob/rst/index.rst>`__.
-
-..
-  TODO: point to index, conf.py etc on main not on rst when rst merged in main
+`index.rst <https://github.com/QubesOS/qubes-doc/blob/main/index.rst>`__.
 
 
 :file:`index.rst` contains information about the hierarchy between the files in the documentation and/or
@@ -221,7 +213,7 @@ TL;DR: How to add images
 
 For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
 
-Images reside inside the `qubes-doc repository <https://github.com/QubesOS/qubes-doc/>`__ in the directory `attachment/doc <https://github.com/QubesOS/qubes-doc/tree/rst/attachment/doc>`__.
+Images reside inside the `qubes-doc repository <https://github.com/QubesOS/qubes-doc/>`__ in the directory `attachment/doc <https://github.com/QubesOS/qubes-doc/tree/main/attachment/doc>`__.
 
 To add an image to a page, use the following syntax:
 
@@ -283,9 +275,9 @@ Qubes OS rST configuration
 :file:`qubes-doc` directory contains a build configuration file named :file:`conf.py`, used by Sphinx
 to define `input and output behaviour <https://www.sphinx-doc.org/en/master/usage/configuration.html>`__.
 It contains settings and extensions that define how the documentation will be generated.
-You can find it `here <https://github.com/QubesOS/qubes-doc/blob/rst/conf.py>`__.
+You can find it `here <https://github.com/QubesOS/qubes-doc/blob/main/conf.py>`__.
 
-You can also find a :file:`readthedocs.yml` `file <https://github.com/QubesOS/qubes-doc/blob/rst/.readthedocs.yaml>`__
+You can also find a :file:`readthedocs.yml` `file <https://github.com/QubesOS/qubes-doc/blob/main/.readthedocs.yaml>`__
 which tells RTD how to build the documentation. It defines the build environment, Python version, required dependencies,
 and which Sphinx configuration to run. Thus RTD automatically generates and hosts the docs.
 
@@ -295,7 +287,7 @@ Extensions
 
 We use several Sphinx `extensions <https://www.sphinx-doc.org/en/master/usage/extensions/index.html>`__
 as defined in :file:`conf.py`, as well a simple custom one to embed YouTube videos,
-which can be found `here <https://github.com/QubesOS/qubes-doc/tree/rst/_ext>`__.
+which can be found `here <https://github.com/QubesOS/qubes-doc/tree/main/_ext>`__.
 
 
 .. _build_locally:
@@ -332,8 +324,8 @@ Using venv
 
     .. code-block:: console
 
-     $ python -m venv .q_env
-     $ source .q_env/bin/activate
+     $ python -m venv .venv
+     $ source .venv/bin/activate
      $ pip install -r qubes-doc/requirements.txt
      $ pip install sphinx sphinx-lint sphinx-autobuild
 
@@ -467,8 +459,8 @@ An editor you can use is `ReText <https://github.com/retext-project/retext>`__ b
 
 .. code-block:: console
 
-   $ python3 -m venv myenv
-   $ source myenv/bin/activate
+   $ python3 -m venv .venv
+   $ source .venv/bin/activate
    $ sudo apt install libxcb-cursor0
    $ pip3 install ReText
 
@@ -537,7 +529,4 @@ you are not willing or able to do so.)
    :alt: Highlights the pull request <number> and its build in the build list on RTD
 .. |pull-request-build| image:: /attachment/doc/doc-pr_11_view-pr-rtd.png
    :alt: Highlights the View Docs button in a specific build for a pull request <number> on RTD
-.. |epub-pdf| image:: /attachment/doc/rst-rtd-epub-pdf.png
-   :alt: Highlights from where one can download a ePUB or PDF of hte Qubes OS documentation deployed on RTD
-   :scale: 20 %
-   :align: middle
+
