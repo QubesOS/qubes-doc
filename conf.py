@@ -105,6 +105,7 @@ autosectionlabel_prefix_document = True
 intersphinx_mapping = {
     'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
     'core-admin-client': ('https://dev.qubes-os.org/projects/core-admin-client/en/latest/', None),
+    'core-qrexec': ('https://dev.qubes-os.org/projects/qubes-core-qrexec/en/stable/', None),
 }
 
 # Open Graph image for social media sharing
