@@ -7,8 +7,8 @@ Dom0
 ----
 
 
-- :external+core-admin:doc:`core-admin <manpages/index>`
-- :external+core-admin-client:doc:`core-admin-client <manpages/index>`
+- :doc:`core-admin <core-admin:manpages/index>`
+- :doc:`core-admin-client <core-admin-client:manpages/index>`
 
 DomU
 ----

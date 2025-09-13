@@ -23,7 +23,7 @@ Modifying the NIC of the target VM
 ----------------------------------
 
 
-You will need to create a :external:doc:`custom libvirt config <libvirt>` for the target VM. The following assumes the target VM is named ``target-vm``.
+You will need to create a :doc:`custom libvirt config <core-admin:libvirt>` for the target VM. The following assumes the target VM is named ``target-vm``.
 
 - Edit ``/usr/share/qubes/templates/libvirt/xen.xml`` to prepare our custom config to override just the NIC part of the global template:
 

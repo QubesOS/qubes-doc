@@ -19,7 +19,6 @@ If you’re not familiar with reStructuredText syntax, `the Sphinx primer <https
 is a great resource, as well as `this quick reStructuredText <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`__.
 Please always be mindful that rST syntax is sensitive to indentation!
 
-
 Directives
 ^^^^^^^^^^
 
@@ -102,8 +101,6 @@ By specifying the language, you enable pygments, which show syntax color coding 
 
       code
 
-
-
 Use ``[...]`` for anything omitted.
 
 For inlining small code snippets you can use the `code role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-code>`__ as in
@@ -122,15 +119,12 @@ You can add line numbers to code examples with the ``:linenos:`` parameter.
        def hello_world():
          print("Hello, world!")
 
-
 You can have certain lines with the ``:emphasize-lines:`` parameter.
 
 .. code:: rst
 
  .. code:: python
    :emphasize-lines: 1,3,4
-
-
 
 For Python use ``python``.
 
@@ -171,7 +165,6 @@ For text use ``text``.
     .. code:: text
 
        some text
-
 
 Tables
 """"""
@@ -228,8 +221,6 @@ Here are examples of several types of alerts:
        compromised hardware. Do not install Qubes on a computer you don't trust. See
        installation security for more information.
 
-
-
 These render as:
 
 .. hint::
@@ -239,7 +230,7 @@ These render as:
 
 .. note::
        **Note:** Using Rufus to create the installation medium means that you
-       `won't be able <"https://github.com/QubesOS/qubes-issues/issues/2051">`__
+       `won't be able <https://github.com/QubesOS/qubes-issues/issues/2051>`__
        to choose the "Test this media and install Qubes OS" option mentioned in the
        example below. Instead, choose the "Install Qubes OS" option.
 
@@ -255,7 +246,6 @@ These render as:
        compromised hardware. Do not install Qubes on a computer you don't trust. See
        installation security for more information.
 
-
 Glossary
 """"""""
 
@@ -263,7 +253,6 @@ The Sphinx `glossary directive <https://www.sphinx-doc.org/en/master/usage/restr
 is created with a simple ``.. glossary::`` block in :file:`/user/reference/glossary.rst`.
 Anywhere else in the documentation you can link to a term using the role: :code:`:term:`qube``
 which automatically generates a hyperlink to the glossary entry :term:`qube`.
-
 
 Roles
 ^^^^^
@@ -291,7 +280,6 @@ Some of the roles used in the Qubes OS documentation so far are:
 
 Please continue using the above or new ones where appropriate.
 
-
 Cross referencing:
 ^^^^^^^^^^^^^^^^^^
 
@@ -301,20 +289,53 @@ Use the `:doc:` role with a path
 
    :doc:`contributions </introduction/contributing>`.
 
-
 use `:ref:` for specific sections
 
 .. code:: rst
 
    :ref:`qubes <user/reference/glossary:qube>`
 
-
 For further information please see :ref:`cross_referencing`.
 
+External cross-referencing
+""""""""""""""""""""""""""
+
+You can make a cross-reference to any of the projects of the external developer's documentation (hosted on https://dev.qubes-os.org):
+
+* :doc:`core-admin <core-admin:index>`
+* :doc:`core-admin-client <core-admin-client:index>`
+* :doc:`core-qrexec <core-qrexec:index>`
+
+To do such a cross-reference, use the usual cross-reference syntax but with the following prefix: :samp:`{PROJECT_NAME}:` (replace :samp:`{PROJECT_NAME}` by the name of the project). As an example, if you want to link to the index of the core-admin documentation, use this:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :doc:`core-admin:index`
+
+     - :doc:`core-admin:index`
+
+This is equivalent to using ``:doc:`index``` inside the core-admin documentation. This works with any role like ``:ref:``, ``:option:``, etc.
+
+Even if it works without it, always prefix the external cross-references with the name of the project, to help other contributors and maintainers to figure out what is going on.
+
+.. note::
+
+   Intersphinx `can list all the available links <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#showing-all-links-of-an-intersphinx-mapping-file>`__ to another project with the following command:
+
+   .. code:: console
+
+       python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
+
+   You can replace ``core-admin`` by any of the projects listed above.
 
 Hyperlink syntax
 ^^^^^^^^^^^^^^^^
-
 
 Use non-reference-style links like
 
@@ -334,7 +355,6 @@ This facilitates the localization process.
 
 Take a look also at :ref:`cross_referencing`.
 
-
 Relative vs. absolute links
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -353,11 +373,9 @@ instead of:
 
 You may use absolute URLs in the following cases:
 
-
 - External links
 - URLs that appear inside code blocks (e.g., in comments and document templates, and the plain text reproductions of `QSBs <https://www.qubes-os.org/security/qsb/>`__ and `Canaries <https://www.qubes-os.org/security/canary/>`__), since they’re not hyperlinks
 - Git repo files like ``README.md`` and ``CONTRIBUTING.md``, since they’re not part of the documentation itself.
-
 
 This rule is important because using absolute URLs for internal website links breaks:
 
@@ -365,13 +383,11 @@ This rule is important because using absolute URLs for internal website links br
 - Documentation localization
 - Generating offline documentation
 
-
 HTML and CSS
 ^^^^^^^^^^^^
 
 Do not write HTML inside rST documents. In particular, never include HTML or CSS for styling, formatting, or white space control.
 That belongs in the (S)CSS files instead.
-
 
 Headings
 ^^^^^^^^
@@ -382,7 +398,6 @@ It doesn't matter which characters you use in which order to mark a title, subti
 as long as they are in consistent use across the documentation.
 
 Qubes OS uses the convention in `Python Developer’s Guide for documenting <https://devguide.python.org/documentation/markup/#sections>`__ which are as follows:
-
 
 .. code:: text
 
@@ -410,13 +425,10 @@ A simple example of how this is used in the Qubes OS documentation:
   Paragraph
   """""""""
 
-
-
 Text decorations
 ^^^^^^^^^^^^^^^^
 
 Emphasis and Italics
-
 
 - *Italics*: Use single asterisks
 
@@ -436,12 +448,10 @@ Emphasis and Italics
 
     ``monospace``
 
-
 Paragraph
 ^^^^^^^^^
 
 Paragraphs are plain texts where indentation matters. Separate paragraphs by leaving a blank line between them.
-
 
 Indentation
 ^^^^^^^^^^^
@@ -449,12 +459,10 @@ Indentation
 Use spaces instead of tabs. Use hanging indentations where appropriate.
 rST is identation sensitiv markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
 
-
 Line wrapping
 ^^^^^^^^^^^^^
 
 Do not hard wrap text, except where necessary (e.g., inside code blocks).
-
 
 Writing guidelines
 ------------------
@@ -486,7 +494,6 @@ When providing command-line examples:
           $ echo Hello
           Hello
 
-
 - Precede each command with the appropriate command prompt: At a minimum, the prompt should contain a trailing ``#`` (for the user ``root``) or ``$`` (for other users) on Linux systems and ``>`` on Windows systems, respectively.
 
 - Don’t try to add comments inside the code block. For example, *don’t* do this:
@@ -505,10 +512,8 @@ When providing command-line examples:
 
  The ``#`` symbol preceding each comment is ambiguous with a root command prompt. Instead, put your comments *outside* of the code block in normal prose.
 
-
 Variable names in commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 Syntactically distinguish variables in commands. For example, this is ambiguous:
 
@@ -516,15 +521,11 @@ Syntactically distinguish variables in commands. For example, this is ambiguous:
 
      $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
 
-
-
 It should instead be:
 
 .. code:: console
 
      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
-
-
 
 Note that we syntactically distinguish variables in three ways:
 
@@ -534,8 +535,6 @@ Note that we syntactically distinguish variables in three ways:
 
 3. Using all capital letters
 
-
-
 We have observed that many novices make the mistake of typing the surrounding angled brackets (``< >``) on the command line, even after substituting the desired real value between them. Therefore, in documentation aimed at novices, we also recommend clarifying that the angled brackets should not be typed. This can be accomplished in one of several ways:
 
 - Explicitly say something like “without the angled brackets.”
@@ -544,15 +543,12 @@ We have observed that many novices make the mistake of typing the surrounding an
 
 - If you know that almost all users will want to use (or should use) a specific command containing all real values and no variables, you might consider providing exactly that command and forgoing the version with variables. Novices may not realize which parts of the command they can substitute with different values, but if you’ve correctly judged that they should use the command you’ve provided as is, then this shouldn’t matter.
 
-
-
 Capitalization of "qube"
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 We introduced the term :term:`qube` as a user-friendly alternative to the term :term:`vm` in the context of Qubes OS. Nonetheless, “qube” is a common noun like the words “compartment” and “container.” Therefore, in English, “qube” follows the standard capitalization rules for common nouns. For example, “I have three qubes” is correct, while “I have three Qubes” is incorrect. Like other common nouns, “qube” should still be capitalized at the beginnings of sentences, the beginnings of sentence-case headings, and in title-case headings. Note, however, that starting a sentence with the plural of “qube” (e.g., “Qubes can be shut down…”) can be ambiguous, since it may not be clear whether the referent is a plurality of qubes, :term:`qubes os`, or even the Qubes OS Project itself. Hence, it is generally a good idea to rephrase such sentences in order to avoid this ambiguity.
 
-Many people feel a strong temptation to capitalize the word “qube” all the time, like a proper noun, perhaps because it’s a new and unfamiliar term that’s closely associated with a particular piece of software (namely, Qubes OS). However, these factors are not relevant to the capitalization rules of English. In fact, it’s not unusual for new common nouns to be introduced into English, especially in the context of technology. For example, “blockchain” is a relatively recent technical term that’s a common noun. Why is it a common noun rather than a proper noun? Because proper nouns refer to *particular* people, places, things, and ideas. There are many different blockchains. However, even when there was just one, the word still denoted a collection of things rather than a particular thing. It happened to be the case that there was only one member in that collection at the time. For example, if there happened to be only one tree in the world, that wouldn’t change the way we capitalize sentences like, “John sat under a tree.” Intuitively, it makes sense that the addition and removal of objects from the world shouldn’t cause published books to become orthographicallly incorrect while sitting on their shelves.
+Many people feel a strong temptation to capitalize the word “qube” all the time, like a proper noun, perhaps because it’s a new and unfamiliar term that’s closely associated with a particular piece of software (namely, Qubes OS). However, these factors are not relevant to the capitalization rules of English. In fact, it’s not unusual for new common nouns to be introduced into English, especially in the context of technology. For example, “blockchain” is a relatively recent technical term that’s a common noun. Why is it a common noun rather than a proper noun? Because proper nouns refer to *particular* people, places, things, and ideas. There are many different blockchains. However, even when there was just one, the word still denoted a collection of things rather than a particular thing. It happened to be the case that there was only one member in that collection at the time. For example, if there happened to be only one tree in the world, that wouldn’t change the way we capitalize sentences like, “John sat under a tree.” Intuitively, it makes sense that the addition and removal of objects from the world shouldn’t cause published books to become orthographically incorrect while sitting on their shelves.
 
 Accordingly, the reason “qube” is a common noun rather than a proper noun is because it doesn’t refer to any one specific thing (in this case, any one specific virtual machine). Rather, it’s the term for any virtual machine in a Qubes OS installation. (Technically, while qubes are currently implemented as virtual machines, Qubes OS is independent of its underlying compartmentalization technology. Virtual machines could be replaced with a different technology, and qubes would still be called “qubes.”)
 
@@ -561,22 +557,18 @@ I have several qubes in my Qubes OS installation, and you have several in yours.
 English language conventions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 For the sake of consistency and uniformity, the Qubes documentation aims to follow the conventions of American English, where applicable. (Please note that this is an arbitrary convention for the sake consistency and not a value judgment about the relative merits of British versus American English.)
 
 Organizational guidelines
 -------------------------
 
-
 Do not duplicate documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 Duplicating documentation is almost always a bad idea. There are many reasons for this. The main one is that almost all documentation has to be updated as some point. When similar documentation appears in more than one place, it is very easy for it to get updated in one place but not the others (perhaps because the person updating it doesn’t realize it’s in more than once place). When this happens, the documentation as a whole is now inconsistent, and the outdated documentation becomes a trap, especially for novice users. Such traps are often more harmful than if the documentation never existed in the first place. The solution is to **link** to existing documentation rather than duplicating it. There are some exceptions to this policy (e.g., information that is certain not to change for a very long time), but they are rare.
 
 Core vs. external documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 Core documentation resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__. External documentation should not be submitted to `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the documentation index (see :ref:`edit_doc_index`) to add and update Qubes Forum links in the :ref:`“External documentation” <index:external documentation>` section of the documentation table of contents.
 
@@ -588,10 +580,8 @@ On the positive side, we consider the existence of community documentation to be
 
 See `#4693 <https://github.com/QubesOS/qubes-issues/issues/4693>`__ for more background information.
 
-
 Release-specific documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 *See* `#5308 <https://github.com/QubesOS/qubes-issues/issues/5308>`__ *for pending changes to this policy.*
 
@@ -603,7 +593,6 @@ In general, avoid mentioning specific Qubes versions in the body text of documen
 
 Incorrect Example
 ^^^^^^^^^^^^^^^^^
-
 
 .. code:: rst
 
@@ -627,11 +616,8 @@ Incorrect Example
 
      Once you foo, make sure to close the baz before fooing the next bar.
 
-
-
 Correct Example
 ^^^^^^^^^^^^^^^
-
 
 .. code:: rst
 
@@ -673,8 +659,6 @@ Correct Example
 
      Once you foo, make sure to close the baz before fooing the next bar.
 
-
-
 Subdividing the page into clearly-labeled sections for each release has several benefits:
 
 - It preserves good content for older (but still supported) releases. Many documentation contributors are also people who prefer to use the latest release. Many of them are tempted to *replace* existing content that applies to an older, supported release with content that applies only to the latest release. This is somewhat understandable. Since they only use the latest release, they may be focused on their own experience, and they may even regard the older release as deprecated, even when it’s actually still supported. However, allowing this replacement of content would do a great disservice to those who still rely on the older, supported release. In many cases, these users value the stability and reliability of the older, supported release. With the older, supported release, there has been more time to fix bugs and make improvements in both the software and the documentation. Consequently, much of the documentation content for this release may have gone through several rounds of editing, review, and revision. It would be a tragedy for this content to vanish while the very set of users who most prize stability and reliability are depending on it.
@@ -685,8 +669,6 @@ Subdividing the page into clearly-labeled sections for each release has several 
 
 - It’s easy for documentation contributors and maintainers to know which file to edit and update, since there’s only one page for all Qubes OS releases. Initially creating the new headings and duplicating content that applies to both is only a one-time cost for each page, and many pages don’t even require this treatment, since they apply to all currently-supported Qubes OS releases.
 
-
-
 By contrast, an alternative approach, such as segregating the documentation into two different branches, would mean that contributions that apply to both Qubes releases would only end up in one branch, unless someone remembered to manually submit the same thing to the other branch and actually made the effort to do so. Most of the time, this wouldn’t happen. When it did, it would mean a second pull request that would have to be reviewed. Over time, the different branches would diverge in non-release-specific content. Good general content that was submitted only to one branch would effectively disappear once that release was deprecated. (Even if it were still on the website, no one would look at it, since it would explicitly be in the subdirectory of a deprecated release, and there would be a motivation to remove it from the website so that search results wouldn’t be populated with out-of-date information.)
 
 For further discussion about release-specific documentation in Qubes, see `here <https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion>`__.
@@ -694,10 +676,7 @@ For further discussion about release-specific documentation in Qubes, see `here 
 Git conventions
 ---------------
 
-
 Please follow our :ref:`Git commit message guidelines <developer/code/coding-style:commit message guidelines>`.
-
-
 
 Cheatsheet: Markdown vs. reStructuredText
 -----------------------------------------
@@ -705,8 +684,8 @@ Cheatsheet: Markdown vs. reStructuredText
 For the documentation contributors more familiar with Markdown, here is a small cheatsheet
 highlighting essential differences.
 
-Headings
-^^^^^^^^
+Cheatsheet: Headings
+^^^^^^^^^^^^^^^^^^^^
 
 **Markdown:**
 
@@ -761,7 +740,6 @@ Internal
 
         :doc:`Link Text </path/to/file>`
 
-
 For example on cross referencing please see :ref:`cross_referencing`.
 
 Text Decoration
@@ -783,8 +761,8 @@ Text Decoration
         **Bold**
         :strike:`Strikethrough`
 
-Lists
-^^^^^
+Cheatsheet: Lists
+^^^^^^^^^^^^^^^^^
 
 **Markdown:**
 
@@ -814,8 +792,8 @@ Lists
            a. Subitem 1
            b. Subitem 2
 
-Tables
-^^^^^^
+Cheatsheet: Tables
+^^^^^^^^^^^^^^^^^^
 
 **Markdown:**
 
@@ -842,8 +820,8 @@ Tables
            * - Cell 3
              - Cell 4
 
-Code Blocks
-^^^^^^^^^^^
+Cheatsheet: Code Blocks
+^^^^^^^^^^^^^^^^^^^^^^^
 
 **Markdown:**
     .. code:: markdown

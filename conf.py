@@ -102,11 +102,13 @@ linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 autosectionlabel_prefix_document = True
 
 # Allows references to the docs in dev.qubes-os.org
+# i.e.: :doc:`core-admin:libvirt`
 intersphinx_mapping = {
     'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
     'core-admin-client': ('https://dev.qubes-os.org/projects/core-admin-client/en/latest/', None),
     'core-qrexec': ('https://dev.qubes-os.org/projects/qubes-core-qrexec/en/stable/', None),
 }
+intersphinx_disabled_reftypes = ["*"]
 
 # Open Graph image for social media sharing
 ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
