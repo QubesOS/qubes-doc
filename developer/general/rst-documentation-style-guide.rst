@@ -295,18 +295,37 @@ Please continue using the above or new ones where appropriate.
 Cross referencing:
 ^^^^^^^^^^^^^^^^^^
 
-Use the `:doc:` role with a path
 
-.. code:: rst
+- Use the `:doc:` role with a path and a custom link text:
+
+
+  .. code:: rst
 
    :doc:`contributions </introduction/contributing>`.
 
+- Use the `:doc:` role with a path:
 
-use `:ref:` for specific sections
+  .. code:: rst
 
-.. code:: rst
+   :doc:`/introduction/intro`
 
-   :ref:`qubes <user/reference/glossary:qube>`
+- Use `:ref:` for specific sections and a custom link text
+
+  .. code:: rst
+
+
+   :ref:`What is Qubes OS? <introduction/intro:what is qubes os?>`
+
+- Use `:ref` only with a unique label above the specific section:
+
+  .. code:: rst
+
+    .. _cross_referencing:
+
+    TL;DR: Cross-referencing
+    ------------------------
+
+and link to the section from within the documentation using :code:`:ref:`cross_referencing``.
 
 
 For further information please see :ref:`cross_referencing`.
