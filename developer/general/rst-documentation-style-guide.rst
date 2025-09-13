@@ -501,14 +501,13 @@ Indentation
 ^^^^^^^^^^^
 
 Use spaces instead of tabs. Use hanging indentations where appropriate.
-rST is identation sensitiv markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
+rST is an indentation sensitive markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
 
 
 Line wrapping
 ^^^^^^^^^^^^^
 
 Do not hard wrap text, except where necessary (e.g., inside code blocks).
-
 
 Writing guidelines
 ------------------

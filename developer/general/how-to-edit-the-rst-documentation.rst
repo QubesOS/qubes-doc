@@ -19,7 +19,7 @@ detect changes in a GitHub repository and build the latest version of a document
 By cloning and regularly pulling from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository, users can maintain their
 own up-to-date offline copy of the Qubes documentation rather than
 relying solely on the web and either serve it locally or read the rST files directly.
-EPUB or PDF versions of Qubes OS documenation can also
+EPUB or PDF versions of Qubes OS documentation can also
 be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 
 .. figure:: /attachment/doc/rst-rtd-epub-pdf.png
@@ -119,7 +119,7 @@ You will be able to adjust the pull request message and title there. In
 most cases, the defaults are ok, so you can just confirm by pressing the
 :guilabel:`Create pull request` button again. However, if you’re not ready for
 your PR to be reviewed or merged yet, please
-`make a draft PR instead <https://github.blog/2019-02-14-introducing-draft-pull-requests/>`__.
+`make a draft PR instead <https://github.blog/news-insights/product-news/introducing-draft-pull-requests/>`__.
 
 |pull-request-confirm|
 
