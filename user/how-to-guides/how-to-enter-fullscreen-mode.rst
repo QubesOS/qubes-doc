@@ -51,7 +51,7 @@ Enabling fullscreen mode from a selected qube
 
 .. warning:: Be sure to read :ref:`secure-use-of-fullscreen-mode` first.
 
-As an alternative to the Xfce4 method, you can enable fullscreen mode for selected qubes by using the `gui-allow-fullscreen <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#gui-gui-default>`__ feature of a qube.
+As an alternative to the Xfce4 method, you can enable fullscreen mode for selected qubes by using the :external:doc:`gui-allow-fullscreen <manpages/qvm-features>` feature of a qube.
 
 Be sure to restart the qube after modifying this feature, for the changes to take effect.
 

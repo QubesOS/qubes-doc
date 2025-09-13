@@ -83,7 +83,7 @@ The file structure should be quite similar to previous template RPMs. Namely, th
 
   - Uses ``KEY=VALUE`` format.
 
-  - Fields (corresponding to `qvm-prefs <https://dev.qubes-os.org/projects/core-admin-client/en/stable/manpages/qvm-prefs.html#common-properties>`__ and `qvm-features <https://dev.qubes-os.org/projects/core-admin-client/en/stable/manpages/qvm-features.html#list-of-known-features>`__ tags with the same names)
+  - Fields (corresponding to :external:doc:`qvm-prefs <manpages/qvm-prefs>` and :external:doc:`qvm-features <manpages/qvm-features>` tags with the same names)
 
     - ``virt_mode``
 

@@ -7,11 +7,8 @@ Dom0
 ----
 
 
-- `core-admin <https://dev.qubes-os.org/projects/core-admin/en/latest/manpages/>`__
-
-- `core-admin-client <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/>`__
-
-
+- :external+core-admin:doc:`core-admin <manpages/index>`
+- :external+core-admin-client:doc:`core-admin-client <manpages/index>`
 
 DomU
 ----

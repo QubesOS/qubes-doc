@@ -31,6 +31,7 @@ release = '4.2.4'
 
 extensions = [
   'sphinx.ext.autosectionlabel',  # Automatically generate section labels
+  'sphinx.ext.intersphinx',  # Reference other doc projects
   'sphinxnotes.strike', # Add strike-through text support
   'sphinx_reredirects', # Manage redirects in the documentation
   'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
@@ -48,7 +49,6 @@ redirects = {
     "user/downloading-installing-upgrading/downloads":
         "https://www.qubes-os.org/downloads/",
 }
-
 
 # -- -- Options for highlighting ---------------------------------------------
 
@@ -100,6 +100,12 @@ linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 # -- Extensions configuration ------------------------------------------------
 # Prefix section labels with the document name
 autosectionlabel_prefix_document = True
+
+# Allows references to the docs in dev.qubes-os.org
+intersphinx_mapping = {
+    'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
+    'core-admin-client': ('https://dev.qubes-os.org/projects/core-admin-client/en/latest/', None),
+}
 
 # Open Graph image for social media sharing
 ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
