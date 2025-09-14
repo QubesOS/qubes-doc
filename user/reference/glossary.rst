@@ -130,7 +130,7 @@ Glossary
    Qubes Windows Tools (QWT)
       A set of programs and drivers that provide integration of Windows qubes with the rest of the Qubes OS system.
 
-      See :doc:`/user/templates/windows/qubes-windows-tools-4-0` and :doc:`/user/templates/windows/windows`.
+      See :doc:`/user/templates/windows/qubes-windows-tools` and :doc:`/user/templates/windows/qubes-windows`.
 
    service qube
       Any :term:`app qube` the primary purpose of which is to provide services to other qubes. ``sys-net`` and ``sys-firewall`` are examples of service qubes.
