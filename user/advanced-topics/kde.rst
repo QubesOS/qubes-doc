@@ -107,6 +107,15 @@ You can also use ``kstart`` to control virtual desktop placement like this:
 
 This can be useful for creating a simple shell script which will set up your workspace the way you like.
 
+Wayland session
+---------------
+
+Default installation includes KDE Plasma X11 session. KDE project primary focus is Wayland session, which in Qubes OS is currently experimental. To enable the experimental Wayland session support install the following package:
+
+.. code:: console
+
+    $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
+
 Removal
 -------
 
