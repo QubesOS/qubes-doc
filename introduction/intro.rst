@@ -15,7 +15,7 @@ single-user desktop computing. Qubes OS `leverages Xen-based virtualization <htt
 
 
 These qubes, which are implemented as :ref:`virtual machines (VMs)<user/reference/glossary:vm>`, have specific:
-               
+
 - **Purposes:** with a predefined set of one or many isolated
   applications, for personal or professional projects, to manage the
   :doc:`network stack </developer/system/networking>`, :doc:`the firewall </user/security-in-qubes/firewall>`, or to fulfill other
@@ -24,8 +24,8 @@ These qubes, which are implemented as :ref:`virtual machines (VMs)<user/referenc
 - **Natures:** :doc:`full-fledged </user/advanced-topics/standalones-and-hvms>` or
   :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems,
   such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and
-  :doc:`Windows </user/templates/windows/windows>`.
-               
+  :doc:`Windows </user/templates/windows/index>`.
+
 - **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with
   :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
 
@@ -51,7 +51,7 @@ Features
 
 - **Multiple operating systems** Use multiple operating systems at the same time, including
   :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and
-  :doc:`Windows </user/templates/windows/windows>`         
+  :doc:`Windows </user/templates/windows/index>`
 
 - **Disposables** Create :doc:`disposables </user/how-to-guides/how-to-use-disposables>` on the fly that self-destruct when shut down.
 

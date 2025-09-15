@@ -47,6 +47,8 @@ redirects = {
         "https://www.qubes-os.org/doc/visual-style-guide/",
     "user/downloading-installing-upgrading/downloads":
         "https://www.qubes-os.org/downloads/",
+    "user/templates/windows/windows":
+        "/user/templates/windows/",
 }
 
 
