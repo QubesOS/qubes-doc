@@ -209,7 +209,7 @@ Set memory as appropriate and install the OS into this template in the same way 
 
 You can then create a new qube using the new template. If you use this Template as is, then any HVMs based on it will effectively be disposables. All file system changes will be wiped when the HVM is shut down.
 
-:doc:`/user/templates/windows/windows` gives specific advice on installing and using Windows-based templates.
+:ref:`user/templates/windows/qubes-windows:windows as a template` gives specific advice on installing and using Windows-based templates.
 
 Cloning HVMs
 ------------
