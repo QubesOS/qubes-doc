@@ -103,7 +103,7 @@ Help us help you
 ^^^^^^^^^^^^^^^^
 
 
-Tell us what you’ve already tried, and which documentation pages you’ve already read. Put yourself in your readers’ shoes. What essential information would they require in order to be able to help you? Make sure to include that information in your message. A great way to provide your hardware details is by :ref:`user/hardware/how-to-use-the-hcl:generating and submitting new reports`, then linking to it in your message. `Ask questions the smart way. <https://www.catb.org/esr/faqs/smart-questions.html>`__
+Tell us what you’ve already tried, and which documentation pages you’ve already read. Put yourself in your readers’ shoes. What essential information would they require in order to be able to help you? Make sure to include that information in your message. A great way to provide your hardware details is by :ref:`generating and submitting a Hardware Compatibility List (HCL) new report <user/hardware/how-to-use-the-hcl:generating and submitting new reports>`, then linking to it in your message. `Ask questions the smart way. <https://www.catb.org/esr/faqs/smart-questions.html>`__
 
 Be patient
 ^^^^^^^^^^
