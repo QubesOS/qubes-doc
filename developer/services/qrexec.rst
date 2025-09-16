@@ -212,7 +212,7 @@ When calling a service that takes an argument, just add the argument to the serv
 
 The script will receive ``ARGUMENT`` as its argument. The argument will also become available as the ``QREXEC_SERVICE_ARGUMENT`` environment variable. This means it is possible to install a different script for a particular service argument.
 
-See `below <#rpc-service-with-argument-file-reader>`__ for an example of an RPC service using an argument.
+See :ref:`developer/services/qrexec:rpc service with argument (file reader)` for an example of an RPC service using an argument.
 
 Qubes RPC examples
 ------------------
@@ -278,7 +278,7 @@ RPC service with argument (file reader)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Here we create an RPC call that reads a specific file from a predefined directory on the target. This example uses an `argument <#service-policies-with-arguments>`__ to the policy. In this example a simplified workflow will be used. The service code is placed directly in the service definition file on the target VM. No separate client script will be needed.
+Here we create an RPC call that reads a specific file from a predefined directory on the target. This example uses an :ref:`argument <developer/services/qrexec:service policies with arguments>` to the policy. In this example a simplified workflow will be used. The service code is placed directly in the service definition file on the target VM. No separate client script will be needed.
 
 First, on your target VM, create two files in the home directory: ``testfile1`` and ``testfile2``. Have them contain two different “Hello world!” lines.
 

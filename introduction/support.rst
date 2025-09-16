@@ -3,7 +3,7 @@ Help, support, mailing lists, and forum
 =======================================
 
 
-The Qubes community is here to help! Since Qubes is a security-oriented operating system, we want to make sure you `stay safe <#staying-safe>`__ as you get the support you need, and we want to make sure our community remains a friendly and productive place by ensuring we all follow the :doc:`Code of Conduct </introduction/code-of-conduct>` and `discussion guidelines <#discussion-guidelines>`__.
+The Qubes community is here to help! Since Qubes is a security-oriented operating system, we want to make sure you :ref:`stay safe <introduction/support:staying safe>` as you get the support you need, and we want to make sure our community remains a friendly and productive place by ensuring we all follow the :doc:`/introduction/code-of-conduct` and :ref:`introduction/support:discussion guidelines`.
 
 How to get help and support
 ---------------------------
@@ -17,7 +17,7 @@ I have a problem or a question.
 
 No worries! Here’s how we recommend proceeding:
 
-1. Check the :doc:`documentation </index>`. There may already be a page about it. Specifically, check out the :ref:`How-To Guides <how-to-guides>` and :ref:`Troubleshooting <troubleshooting>` sections.
+1. Check the :doc:`documentation </index>`. There may already be a page about it. Specifically, check out the :ref:`how-to-guides` and :ref:`troubleshooting` sections.
 
 2. Search the :doc:`FAQ </introduction/faq>`. Your question might already be answered.
 
@@ -33,37 +33,37 @@ I didn't find a solution or an answer!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Sorry to hear that! In that case, we recommend asking for help on the `Qubes Forum <https://forum.qubes-os.org/>`__ or on the `qubes-users mailing list <#qubes-users>`__. Choose the venue you prefer, but please don’t ask on both at the same time! Before you ask, please review our `discussion guidelines <#discussion-guidelines>`__ and StackOverflow’s advice on `how to ask good questions <https://stackoverflow.com/help/how-to-ask>`__. Don’t forget to `stay safe <#staying-safe>`__!
+Sorry to hear that! In that case, we recommend asking for help on the `Qubes Forum <https://forum.qubes-os.org/>`__ or on the :ref:`qubes-users mailing list <introduction/support:qubes-users>`. Choose the venue you prefer, but please don’t ask on both at the same time! Before you ask, please review our :ref:`introduction/support:discussion guidelines` and StackOverflow’s advice on `how to ask good questions <https://stackoverflow.com/help/how-to-ask>`__. Don’t forget to :ref:`stay safe <introduction/support:staying safe>`!
 
 I don't need support, but I think I found a bug.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-We’d be grateful if you reported it (but please make sure no one else has already reported it first)! Please see :doc:`Issue Tracking </introduction/issue-tracking>` for details.
+We’d be grateful if you reported it (but please make sure no one else has already reported it first)! Please see :doc:`/introduction/issue-tracking` for details.
 
 I don't need support, but I'd like to request a feature.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-No promises, but we’d be happy to consider it! Please see :doc:`Issue Tracking </introduction/issue-tracking>` for details.
+No promises, but we’d be happy to consider it! Please see :doc:`/introduction/issue-tracking` for details.
 
 Where's the best place to discuss Qubes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-That would be the `Qubes Forum <https://forum.qubes-os.org/>`__ and the `qubes-users mailing list <#qubes-users>`__. Please have a look at our `discussion guidelines <#discussion-guidelines>`__ before diving in. Enjoy!
+That would be the `Qubes Forum <https://forum.qubes-os.org/>`__ and the :ref:`qubes-users mailing list <introduction/support:qubes-users>`. Please have a look at our :ref:`introduction/support:discussion guidelines` before diving in. Enjoy!
 
 How can I get involved and contribute?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Thank you for asking! Please see :doc:`How to Contribute </introduction/contributing>` for all the ways you can do so.
+Thank you for asking! Please see :doc:`/introduction/contributing` for all the ways you can do so.
 
 I would like to report a security vulnerability.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-That sounds more like you helping us! Thanks! Please see :ref:`Reporting Security Issues in Qubes OS <project-security/security:reporting security issues in qubes os>`.
+That sounds more like you helping us! Thanks! Please see :ref:`project-security/security:reporting security issues in qubes os`.
 
 Staying safe
 ------------
@@ -83,7 +83,7 @@ Discussion guidelines
 ---------------------
 
 
-Qubes discussions mainly take place on ``qubes-users``, ``qubes-devel``, and our `forum <#forum>`__, all of which are explained below. Most questions should be directed to ``qubes-users`` or the `forum <#forum>`__. **Please do not send questions to individual Qubes developers.** By sending a message to the appropriate mailing list, you are not only giving others a chance to help you, but you may also be helping others by starting a public discussion about a shared problem or interest.
+Qubes discussions mainly take place on ``qubes-users``, ``qubes-devel``, and our :ref:`introduction/support:forum`, all of which are explained below. Most questions should be directed to ``qubes-users`` or the :ref:`introduction/support:forum`. **Please do not send questions to individual Qubes developers.** By sending a message to the appropriate mailing list, you are not only giving others a chance to help you, but you may also be helping others by starting a public discussion about a shared problem or interest.
 
 These are open venues where people freely come together to discuss Qubes and voluntarily help each other out of mutual interest and good will. They are *not* your personal, paid support service. **No one owes you a reply.** No one here is responsible for solving your problems for you. Nonetheless, there are many things you can do to make it more likely that you will receive a reply. This community is fortunate to have an exceptionally large number of friendly and knowledgeable people who enjoy corresponding on these lists. The vast majority of them will be happy to help you if you follow these simple guidelines.
 
@@ -103,7 +103,7 @@ Help us help you
 ^^^^^^^^^^^^^^^^
 
 
-Tell us what you’ve already tried, and which documentation pages you’ve already read. Put yourself in your readers’ shoes. What essential information would they require in order to be able to help you? Make sure to include that information in your message. A great way to provide your hardware details is by :ref:`generating and submitting a Hardware Compatibility List (HCL) report <user/hardware/how-to-use-the-hcl:generating and submitting new reports>`, then linking to it in your message. `Ask questions the smart way. <https://www.catb.org/esr/faqs/smart-questions.html>`__
+Tell us what you’ve already tried, and which documentation pages you’ve already read. Put yourself in your readers’ shoes. What essential information would they require in order to be able to help you? Make sure to include that information in your message. A great way to provide your hardware details is by :ref:`user/hardware/how-to-use-the-hcl:generating and submitting new reports`, then linking to it in your message. `Ask questions the smart way. <https://www.catb.org/esr/faqs/smart-questions.html>`__
 
 Be patient
 ^^^^^^^^^^
@@ -121,7 +121,7 @@ Report issues and submit changes in the right places
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The mailing lists and `forum <#forum>`__ are good places to ask questions and discuss things. However, if you’re submitting a more formal report, we’d prefer that you submit it to our :doc:`issue tracker </introduction/issue-tracking>` so that it doesn’t get overlooked. (However, please remember that :ref:`the issue tracker is not a discussion forum <introduction/issue-tracking:the issue tracker is not a discussion forum>`.) Likewise, if you see that something in the documentation should be changed, don’t simply point it out in a discussion venue. Instead, :doc:`submit the change </developer/general/how-to-edit-the-rst-documentation>`.
+The mailing lists and :ref:`introduction/support:forum` are good places to ask questions and discuss things. However, if you’re submitting a more formal report, we’d prefer that you submit it to our :doc:`issue tracker </introduction/issue-tracking>` so that it doesn’t get overlooked. (However, please remember that :ref:`introduction/issue-tracking:the issue tracker is not a discussion forum`.) Likewise, if you see that something in the documentation should be changed, don’t simply point it out in a discussion venue. Instead, :doc:`submit the change </developer/general/how-to-edit-the-rst-documentation>`.
 
 Moderation
 ^^^^^^^^^^
@@ -185,7 +185,7 @@ Google Groups
 ^^^^^^^^^^^^^
 
 
-While the mailing lists are implemented as Google Group web forums, a Google account is in no way required, expected, or encouraged. Many discussants (including most members of the Qubes team) treat these lists as conventional `mailing lists <https://en.wikipedia.org/wiki/Electronic_mailing_list>`__, interacting with them solely through plain text email with `MUAs <https://en.wikipedia.org/wiki/Email_client>`__ like `Thunderbird <https://www.thunderbird.net/>`__ and `Mutt <https://www.mutt.org/>`__. The Google Groups service is just free infrastructure, and we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. This is why, for example, we encourage discussants to use :doc:`Split GPG </user/security-in-qubes/split-gpg>` to sign all of their messages to the lists, but we do not endorse the use of these Google Groups as web forums. For that, we have a separate, dedicated `forum <#forum>`__.
+While the mailing lists are implemented as Google Group web forums, a Google account is in no way required, expected, or encouraged. Many discussants (including most members of the Qubes team) treat these lists as conventional `mailing lists <https://en.wikipedia.org/wiki/Electronic_mailing_list>`__, interacting with them solely through plain text email with `MUAs <https://en.wikipedia.org/wiki/Email_client>`__ like `Thunderbird <https://www.thunderbird.net/>`__ and `Mutt <https://www.mutt.org/>`__. The Google Groups service is just free infrastructure, and we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. This is why, for example, we encourage discussants to use :doc:`Split GPG </user/security-in-qubes/split-gpg>` to sign all of their messages to the lists, but we do not endorse the use of these Google Groups as web forums. For that, we have a separate, dedicated :ref:`introduction/support:forum`.
 
 Mailing lists
 -------------
@@ -337,7 +337,7 @@ The Qubes OS Project has a presence on the following social media platforms:
 
 
 
-Generally speaking, these are not intended to be primary support venues. (Those would be `qubes-users <#qubes-users>`__ and the `forum <#forum>`__.) Rather, these are primarily intended to be a way to more widely disseminate items published on the `news <https://www.qubes-os.org/news/>`__ page. If you use one of these platforms, you may find it convenient to follow the Qubes OS Project there as a way of receiving Qubes news.
+Generally speaking, these are not intended to be primary support venues. (Those would be :ref:`introduction/support:qubes-users` and the :ref:`introduction/support:forum`.) Rather, these are primarily intended to be a way to more widely disseminate items published on the `news <https://www.qubes-os.org/news/>`__ page. If you use one of these platforms, you may find it convenient to follow the Qubes OS Project there as a way of receiving Qubes news.
 
 Chat
 ----

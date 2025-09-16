@@ -5,7 +5,7 @@ System requirements
 
 .. warning::
 
-      Notice: The system requirements on this page are *necessary, but not sufficient*, for Qubes compatibility at a minimal or recommended level. In other words, just because a computer satisfies these requirements doesn’t mean that Qubes will successfully install and run on it. We strongly recommend consulting the `resources below <#choosing-hardware>`__       when selecting hardware for Qubes.
+      Notice: The system requirements on this page are *necessary, but not sufficient*, for Qubes compatibility at a minimal or recommended level. In other words, just because a computer satisfies these requirements doesn’t mean that Qubes will successfully install and run on it. We strongly recommend consulting :ref:`user/hardware/system-requirements:choosing hardware` when selecting hardware for Qubes.
 
 Minimum
 -------
@@ -35,9 +35,9 @@ Recommended
 
   - `Intel VT-d <https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d>`__
 
-  - For security, we recommend processors that are recent enough to still be receiving microcode updates (see `below <#important-notes>`__ for details).
+  - For security, we recommend processors that are recent enough to still be receiving microcode updates (see :ref:`user/hardware/system-requirements:important notes` for details).
 
-  - AMD processors are not recommended due to inconsistent security support on client platforms (see `below <#important-notes>`__ for details).
+  - AMD processors are not recommended due to inconsistent security support on client platforms (see :ref:`user/hardware/system-requirements:important notes` for details).
 
 
 

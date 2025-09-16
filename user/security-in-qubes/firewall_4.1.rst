@@ -55,7 +55,7 @@ The firewall rules for each qube are saved in an XML file in that qube’s direc
 
 Rules are implemented on the netvm.
 
-You can also manually create rules in the qube itself using standard firewalling controls. See `Where to put firewall rules <#where-to-put-firewall-rules>`__. In complex cases, it might be appropriate to load a ruleset using ``iptables-restore`` called from ``/rw/config/rc.local``. if you do this, be aware that ``rc.local`` is called *after* the network is up, so local rules should not be relied upon to block leaks.
+You can also manually create rules in the qube itself using standard firewalling controls. See :ref:`user/security-in-qubes/firewall_4.1:where to put firewall rules`. In complex cases, it might be appropriate to load a ruleset using ``iptables-restore`` called from ``/rw/config/rc.local``. if you do this, be aware that ``rc.local`` is called *after* the network is up, so local rules should not be relied upon to block leaks.
 
 Reconnecting qubes after a NetVM reboot
 ---------------------------------------

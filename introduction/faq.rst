@@ -25,7 +25,7 @@ The second sense is more complicated. Qubes OS is *mostly* “free as in speech,
 
 However, since Qubes OS is a security-focused operating system, it includes some non-free firmware that was not created by the Qubes OS Project (such as CPU microcode), which is necessary in order to protect against known security vulnerabilities. Moreover, the :doc:`architecture </developer/system/architecture>` of Qubes OS as a meta-operating system means that it incorporates other software (including entire operating systems) from various upstream projects, some of which may include non-free software of their own. In order to make the installation process easier for a wide range of users across many different devices, standard Qubes :doc:`templates </user/templates/templates>` also include some non-free firmware and drivers.
 
-Also see: `Will Qubes seek to get certified under the GNU Free System Distribution Guidelines (GNU FSDG)? <#will-qubes-seek-to-get-certified-under-the-gnu-free-system-distribution-guidelines-gnu-fsdg>`__
+Also see: :ref:`introduction/faq:will qubes seek to get certified under the gnu free system distribution guidelines (gnu fsdg)?`
 
 Why is OS security important?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,7 +63,7 @@ What about privacy in non-Whonix qubes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The main way Qubes OS `provides privacy <#how-does-qubes-os-provide-privacy>`__ is via its `integration with Whonix <https://www.whonix.org/wiki/Qubes>`__. Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-Whonix qubes. This includes :doc:`disposables </user/how-to-guides/how-to-use-disposables>`.
+The main way Qubes OS :ref:`provides privacy <introduction/faq:how does qubes os provide privacy?>` is via its `integration with Whonix <https://www.whonix.org/wiki/Qubes>`__. Qubes OS does not claim to provide special privacy (as opposed to security) properties in non-Whonix qubes. This includes :doc:`disposables </user/how-to-guides/how-to-use-disposables>`.
 
 Privacy is far more difficult than is commonly understood. In addition to the `web browser <https://www.torproject.org/projects/torbrowser/design/>`__, there is also `VM fingerprinting <https://www.whonix.org/wiki/VM_Fingerprinting>`__ and `advanced deanonymization attacks <https://www.whonix.org/wiki/Advanced_Deanonymization_Attacks>`__ that most users have never considered (and this is just to mention a few examples). The `Whonix Project <https://www.whonix.org/>`__ specializes in `protecting against these risks <https://www.whonix.org/wiki/Protocol-Leak-Protection_and_Fingerprinting-Protection>`__.
 
@@ -297,13 +297,13 @@ Instead, Qubes aims to be as free as possible *without sacrificing security*. Al
 
 The `four essential freedoms <https://www.gnu.org/philosophy/free-sw.html>`__ are part of the core of our philosophy, but so is security. Together, they inform our decisions and motivate our actions. Qubes aims to maximize both security and software freedom to the extent that they are compatible in the world today.
 
-Also see `Is Qubes OS free and open-source software? <#is-qubes-os-free-and-open-source-software>`__ and the Qubes OS :doc:`software license </developer/code/license>`.
+Also see :ref:`introduction/faq:is qubes os free and open-source software?` and the Qubes OS :doc:`software license </developer/code/license>`.
 
 Why is the documentation hosted on ReadTheDocs as opposed to the website?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Qubes OS documentation is written in reStructuredText and hosted on `Read The Docs <https://readsthedocs.com/>`__.
-The infrastructure is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__.
+The infrastructure is largely outside of our control. We don’t consider this a problem, however, since we explicitly :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`.
 For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web.
 Instead, if you want to obtain your own trustworthy copy of the documentation in a secure way,
 you should clone our `documentation repo <https://github.com/QubesOS/qubes-doc>`__,
@@ -320,7 +320,7 @@ Should I trust this website?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (`why? <#why-do-you-use-github>`__). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone :ref:`review <developer/general/how-to-edit-the-website:security>`), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was :ref:`intentionally written in Markdown so as to be readable as plain text for this very reason <developer/general/website-style-guide:markdown style guide and conventions>`. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
+This website is hosted on `GitHub Pages <https://pages.github.com/>`__ (:ref:`why? <introduction/faq:why do you use github?>`). Therefore, it is largely outside of our control. We don’t consider this a problem, however, since we explicitly :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. For this reason, we don’t think that anyone should place undue trust in the live version of this site on the Web. Instead, if you want to obtain your own trustworthy copy of this website in a secure way, you should clone our `website repo <https://github.com/QubesOS/qubesos.github.io>`__, :ref:`verify the PGP signatures on the commits and/or tags <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>` signed by the `doc-signing keys <https://github.com/QubesOS/qubes-secpack/tree/master/keys/doc-signing>`__ (which indicates that the content has undergone :ref:`review <developer/general/how-to-edit-the-website:security>`), then either `render the site on your local machine <https://github.com/QubesOS/qubesos.github.io/blob/master/README.md#instructions>`__ or simply read the source, the vast majority of which was :ref:`intentionally written in Markdown so as to be readable as plain text for this very reason <developer/general/website-style-guide:markdown style guide and conventions>`. We’ve gone to special effort to set all of this up so that no one has to trust the infrastructure and so that the contents of this website are maximally available and accessible.
 
 
 What does it mean to "distrust the infrastructure"?
@@ -331,7 +331,7 @@ A core tenet of the Qubes philosophy is “distrust the infrastructure,” where
 
 Users can never fully control all the infrastructure they rely upon, and they can never fully trust all the entities who do control it. Therefore, we believe the best solution is not to attempt to make the infrastructure trustworthy, but instead to concentrate on solutions that obviate the need to do so. We believe that many attempts to make the infrastructure appear trustworthy actually provide only the illusion of security and are ultimately a disservice to real users. Since we don’t want to encourage or endorse this, we make our distrust of the infrastructure explicit.
 
-Also see: `Should I trust this website? <#should-i-trust-this-website>`__
+Also see: :ref:`introduction/faq:should i trust this website?`
 
 Why do you use GitHub?
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -339,7 +339,7 @@ Why do you use GitHub?
 
 Three main reasons:
 
-1. We `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__ including GitHub (though there are aspects we’re still `working on <https://github.com/QubesOS/qubes-issues/issues/3958>`__).
+1. We :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>` including GitHub (though there are aspects we’re still `working on <https://github.com/QubesOS/qubes-issues/issues/3958>`__).
 
 2. It’s free (as in beer). We’d have to spend either time or money to implement a solution ourselves or pay someone to do so, and we can’t spare either one right now.
 
@@ -347,13 +347,13 @@ Three main reasons:
 
 
 
-Also see: `Should I trust this website? <#should-i-trust-this-website>`__
+Also see: :ref:`introduction/faq:should i trust this website?`
 
 Why doesn't this website have security feature X?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Although we caution users against `placing undue trust in this website <#should-i-trust-this-website>`__ because we `distrust the infrastructure <#what-does-it-mean-to-distrust-the-infrastructure>`__, we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors. So, if feature X isn’t enabled, it’s most likely for one of three reasons:
+Although we caution users against :ref:`placing undue trust in this website <introduction/faq:should i trust this website?>` because we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`, we have no objection to enabling website security features when doing so is relatively costless and provides some marginal benefit to website visitors. So, if feature X isn’t enabled, it’s most likely for one of three reasons:
 
 1. Our GitHub Pages platform doesn’t support it.
 
@@ -457,7 +457,7 @@ Why is VT-d/AMD-Vi/AMD IOMMU important?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-On a system without VT-d/AMD-Vi/AMD IOMMU, there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple `DMA attack <#what-is-a-dma-attack>`__ to go from the NetVM to Dom0. Nonetheless, all of Qubes’ other security mechanisms, such as qube separation, work without VT-d/AMD-Vi/AMD IOMMU. Therefore, a system running Qubes without VT-d/AMD-Vi/AMD IOMMU would still be significantly more secure than one running Windows, Mac, or Linux.
+On a system without VT-d/AMD-Vi/AMD IOMMU, there will be no real security benefit to having a separate NetVM, as an attacker could always use a simple :ref:`DMA attack <introduction/faq:what is a dma attack?>` to go from the NetVM to Dom0. Nonetheless, all of Qubes’ other security mechanisms, such as qube separation, work without VT-d/AMD-Vi/AMD IOMMU. Therefore, a system running Qubes without VT-d/AMD-Vi/AMD IOMMU would still be significantly more secure than one running Windows, Mac, or Linux.
 
 What is a DMA attack?
 ^^^^^^^^^^^^^^^^^^^^^
@@ -735,7 +735,7 @@ Could you please make my preference the default?
 
 It would be great if Qubes were configured just the way we like it by default with all of our favorite programs and settings. Then, we could just install Qubes without having to install any programs in it or adjust any settings. We might even think that if a particular program or setting works so well for *us*, it would work well for *everyone*, so we’d actually be doing everyone a favor! The problem is that Qubes has :doc:`tens of thousands of different users </introduction/statistics>` with radically different needs and purposes. There is no particular configuration that will be ideal for everyone (despite how much we might feel that our preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course). For this reason, we generally do not grant requests for people’s favorite programs to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches the requester’s preference.
 
-See also: `What is Qubes’ attitude toward changing guest distros? <#what-is-qubes-attitude-toward-changing-guest-distros>`__
+See also: :ref:`introduction/faq:what is qubes' attitude toward changing guest distros?`
 
 Software installed in a qube is gone after restarting. Why?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
