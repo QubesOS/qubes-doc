@@ -3,7 +3,7 @@ Templates
 =========
 
 
-In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :term:`templates <template>`. When using Qubes OS, you normally work in :term:`app qubes <app qube>`. App qubes are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user’s home directory.) The user home directory *is* specific to the app qube, and changes there are kept. There is a full explanation of this `below <#inheritance-and-persistence>`__.
+In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :term:`templates <template>`. When using Qubes OS, you normally work in :term:`app qubes <app qube>`. :term:`App qubes <app qube>` are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application here in an app qube it will disappear when you shut down the qube. The user home directory *is* specific to the app qube, and changes there are kept. This is called :ref:`inheritance-and-persistence`.
 
 If you use a :term:`Standalone <standalone>`, the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
 
@@ -17,7 +17,7 @@ The template system has significant benefits:
 
 - **Updates:** Updates are naturally centralized, since updating a template means that all qubes based on it will automatically use those updates after they’re restarted.
 
-An important side effect of this system is that any software installed in an app qube (rather than in the template on which it is based) will disappear when the app qube shuts down (see `Inheritance and Persistence <#inheritance-and-persistence>`__). For this reason, we recommend installing most of your software in templates, not app qubes.
+An important side effect of this system is that any software installed in the root filesystem of an app qube (rather than in the template on which it is based) will disappear when the app qube shuts down (see `Inheritance and Persistence <#inheritance-and-persistence>`__). For this reason, we recommend installing most of your software in templates, not app qubes. You may be able to work around this by using Flatpak or snap packages, which install to the user’s home directory.
 
 The default template in Qubes is based on Fedora, but there are additional templates based on other Linux distributions. There are also templates available with or without certain software preinstalled. You may find it useful to have multiple templates installed in order to provide:
 
@@ -191,6 +191,8 @@ Advanced
 --------
 
 The following sections cover advanced topics pertaining to templates.
+
+.. _inheritance-and-persistence:
 
 Inheritance and persistence
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
