@@ -132,6 +132,8 @@ gettext_uuid = True
 
 # Define a block of reusable reStructuredText (reST) snippets, warnings etc. that Sphinx automatically appends to every source file before it is parsed
 rst_epilog = """
+.. |fedora-version| replace:: 42
 .. |debian-codename| replace:: bookworm
 .. |debian-version| replace:: 12
+.. |whonix-version| replace:: 17
 """

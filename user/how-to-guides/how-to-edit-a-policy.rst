@@ -2,7 +2,7 @@
 How to edit a policy
 ====================
 
-There are three ways to edit a :ref:`policy <user/reference/glossary:policies>`:
+There are three ways to edit a :term:`policy`:
 
 * with :program:`Qubes OS Global Config`, the **recommended way** for the most common policies
 
