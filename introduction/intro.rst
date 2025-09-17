@@ -11,69 +11,59 @@ What is Qubes OS?
 -----------------
 
 Qubes OS is a free and open-source, security-oriented operating system for
-single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :term:`qubes <qube>`.
+single-user desktop computing. Qubes OS leverages `Xen-based virtualization <https://wiki.xenproject.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :term:`qubes <qube>`.
 
+These qubes, which are implemented as :term:`virtual machines (VMs) <vm>`, have specific:
 
-These qubes, which are implemented as :ref:`virtual machines (VMs)<user/reference/glossary:vm>`, have specific:
-               
-- **Purposes:** with a predefined set of one or many isolated
-  applications, for personal or professional projects, to manage the
-  :doc:`network stack </developer/system/networking>`, :doc:`the firewall </user/security-in-qubes/firewall>`, or to fulfill other
-  user-defined purposes.
+- **Purposes:** with a predefined set of one or many isolated applications, for personal or professional projects, to manage the :doc:`network stack </developer/system/networking>`, :doc:`the firewall </user/security-in-qubes/firewall>`, or to fulfill other user-defined purposes.
 
-- **Natures:** :doc:`full-fledged </user/advanced-topics/standalones-and-hvms>` or
-  :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems,
-  such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and
-  :doc:`Windows </user/templates/windows/windows>`.
-               
-- **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with
-  :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
+- **Natures:** :doc:`full-fledged </user/advanced-topics/standalones-and-hvms>` or :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems, such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and :doc:`Windows </user/templates/windows/windows>`.
 
-.. figure:: /attachment/site/qubes-trust-level-architecture.png
+- **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
+
+.. image:: /attachment/site/qubes-trust-level-architecture.png
    :alt: Qubes system diagram
-
 
 .. note::
 
-      **Note:** See our :doc:`glossary </user/reference/glossary>` and :doc:`FAQ </introduction/faq>` for more information.
-
+      See our :doc:`/user/reference/glossary` and :doc:`/introduction/faq` for more information.
 
 Features
 --------
 
-- **Strong isolation** Isolate different pieces of software as if they were installed on separate
-  physical machines using advanced virtualization techniques.
+Strong isolation
+   Isolate different pieces of software as if they were installed on separate physical machines using advanced virtualization techniques.
 
-- **Template system** Use :term:`app qubes  <app qube>` to
-  share a root file system without sacrificing security using the innovative
-  :doc:`Template system </user/templates/templates>`.
+Template system
+   Use :term:`app qubes <app qube>` to share a root file system without sacrificing security using the innovative :doc:`Template system </user/templates/templates>`.
 
+Multiple operating systems
+   Use multiple operating systems at the same time, including :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and :doc:`Windows </user/templates/windows/windows>`
 
-- **Multiple operating systems** Use multiple operating systems at the same time, including
-  :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and
-  :doc:`Windows </user/templates/windows/windows>`         
+:term:`Disposables <disposable>`
+   Create :doc:`disposables </user/how-to-guides/how-to-use-disposables>` on the fly that self-destruct when shut down.
 
-- **Disposables** Create :doc:`disposables </user/how-to-guides/how-to-use-disposables>` on the fly that self-destruct when shut down.
+Whonix integration
+   Run `Tor <https://www.torproject.org/>`__ securely system-wide using `Whonix with Qubes <https://www.whonix.org/wiki/Qubes>`__.
 
-- **Whonix integration** Run `Tor <https://www.torproject.org/>`__ securely system-wide using `Whonix with Qubes <https://www.whonix.org/wiki/Qubes>`__.
+Device isolation
+   Secure :doc:`device handling </user/how-to-guides/how-to-use-devices>` through isolation of network cards and USB controllers.
 
-- **Device isolation** Secure :doc:`device handling </user/how-to-guides/how-to-use-devices>` through isolation of network cards and USB controllers.
+Split GPG
+   Utilize :doc:`Split GPG </user/security-in-qubes/split-gpg>` to keep your private keys safe.
 
-- **Split GPG** Utilize :doc:`Split GPG </user/security-in-qubes/split-gpg>` to keep your private keys safe.
+CTAP proxy
+   Operate :doc:`Qubes CTAP proxy </user/security-in-qubes/ctap-proxy>` to use your two-factor authentication devices without exposing your web browser to the full USB stack.
 
-- **CTAP proxy** Operate :doc:`Qubes CTAP proxy </user/security-in-qubes/ctap-proxy>` to use your two-factor authentication devices without exposing your web browser to the full USB stack.
-
-- **Open-source** Users are free to use, copy, and modify Qubes OS and :doc:`are encouraged to do so! </introduction/contributing>`
-
+Open-source
+   Users are free to use, copy, and modify Qubes OS and :doc:`are encouraged to do so! </introduction/contributing>`
 
 .. note::
 
-      **Note:** Given the technical nature of Qubes OS, prior experience with Linux can be helpful.
-
+      Given the technical nature of Qubes OS, prior experience with Linux can be helpful.
 
 Why Qubes OS?
 -------------
-
 
 Physical isolation is a given safeguard that the digital world lacks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,10 +85,8 @@ Better yet, it allows us to create new compartments whenever we need them,
 and it gives us sophisticated tools for securely managing our activities
 and data across these compartments.
 
-.. figure:: /attachment/doc/r4.0-qubes-manager.png
+.. image:: /attachment/doc/r4.0-qubes-manager.png
    :alt: Qubes manager
-
-
 
 Qubes allows you to compartmentalize your digital life
 ------------------------------------------------------
@@ -126,12 +114,11 @@ physical computer without having to worry about a single successful
 cyberattack taking down your entire digital life in one fell swoop. In
 fact, Qubes has `distinct advantages over physical air gaps <https://invisiblethingslab.com/resources/2014/Software_compartmentalization_vs_physical_separation.pdf>`__.
 
-.. figure:: /attachment/site/qubes-partition-data-flows.jpg
+.. image:: /attachment/site/qubes-partition-data-flows.jpg
    :alt: Compartmentalization example
 
 Made to support vulnerable users and power users alike
 ------------------------------------------------------
-
 
 Qubes provides practical, usable security to vulnerable and
 actively-targeted individuals, such as journalists, activists,
@@ -157,31 +144,18 @@ software, because the fundamental operating system that constitutes the
 core infrastructure of our digital lives **must** be free and
 open-source in order to be trustworthy.
 
-
-.. figure:: /attachment/doc/r4.0-snapshot12.png
+.. image:: /attachment/doc/r4.0-snapshot12.png
    :alt: Qubes desktop screenshot
 
+Qubes OS at a glance
+--------------------
 
-
-Video Tours
-^^^^^^^^^^^
-
-Want to see Qubes OS in action? Sit back and watch a guided :doc:`tour! </introduction/video-tours/>`
-
-
-Screenshots
-^^^^^^^^^^^
-
-See what using Qubes actually looks like with these :doc:`screenshots </introduction/screenshots/>` of various
-applications running in Qubes.
-
-
-Getting Started
-^^^^^^^^^^^^^^^
-
-Ready to get started with Qubes? :doc:`Here's </introduction/getting-started>` what you need to know after installing.
-
-
+:doc:`/introduction/video-tours/`
+   Want to see Qubes OS in action? Sit back and watch one of the guided tour!
+:doc:`/introduction/screenshots/`
+   See what using Qubes actually looks like with various applications running in Qubes.
+:doc:`/introduction/getting-started`
+   Ready to get started with Qubes? Find all you need to know after installing.
 
 More information
 ----------------
@@ -190,9 +164,8 @@ This page is just a brief introduction to what Qubes is all about, and
 many technical details have been omitted here for the sake of
 presentation.
 
-
 - If you’re a current or potential Qubes user, you may want to check out the :doc:`documentation </index>` and the :ref:`user FAQ <introduction/faq:users>`.
-- If you’re a developer, there’s dedicated :ref:`index:Developer Documentation` and a :ref:`developer FAQ <introduction/faq:developers>` just for you.
+- If you’re a developer, there’s dedicated :ref:`index:Developer Documentation`, a :ref:`developer FAQ <introduction/faq:developers>` and the `documentation of the source code <https://dev.qubes-os.org>`__, just for you.
 - Ready to give Qubes a try? Head on over to the `downloads page <https://www.qubes-os.org/downloads/>`__, and read the :doc:`Installation guide </user/downloading-installing-upgrading/installation-guide>`.
 - Need help, or just want to join the conversation? Learn more about :doc:`help, support, the mailing lists, and the forum </introduction/support>`.
 
