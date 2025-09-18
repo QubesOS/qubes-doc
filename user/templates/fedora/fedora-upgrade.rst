@@ -105,7 +105,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
      If this attempt is successful, proceed to step 4.
 
    - ``dnf`` may error with the text: ``At least X MB more space needed on the / filesystem.``
-     In this case, one option is to :doc:`resize the template’s disk image </user/advanced-topics/resize-disk-image>` before reattempting the upgrade process. (See `Additional Information <#additional-information>`__ below for other options.)
+     In this case, one option is to :doc:`resize the template’s disk image </user/advanced-topics/resize-disk-image>` before reattempting the upgrade process. (See :ref:`user/templates/fedora/fedora-upgrade:additional information` below for other options.)
 
 
 

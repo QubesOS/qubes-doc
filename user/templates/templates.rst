@@ -3,7 +3,7 @@ Templates
 =========
 
 
-In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :term:`templates <template>`. When using Qubes OS, you normally work in :term:`app qubes <app qube>`. App qubes are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user’s home directory.) The user home directory *is* specific to the app qube, and changes there are kept. There is a full explanation of this `below <#inheritance-and-persistence>`__.
+In :doc:`Getting Started </introduction/getting-started>`, we covered the distinction in Qubes OS between where you *install* your software and where you *run* your software. Software that you use in most everyday tasks, is installed within :term:`templates <template>`. When using Qubes OS, you normally work in :term:`app qubes <app qube>`. App qubes are based on a *template* qube (or more simply, just *a template*). They inherit most of the `“root filesystem” <https://opensource.com/life/16/10/introduction-linux-filesystems>`__, from the template. Changes you make to the root filesystem are not written back to the template: if you install an application in an app qube it will disappear when you shut down the qube. (You may be able to work round this by using Flatpak or snap packages, which install to the user’s home directory.) The user home directory *is* specific to the app qube, and changes there are kept. There is a full explanation of this: :ref:`user/templates/templates:inheritance and persistence`.
 
 If you use a :term:`Standalone <standalone>`, the **whole filesystem** is specific to the standalone, and every change you make will be kept after shutdown.
 
@@ -17,7 +17,7 @@ The template system has significant benefits:
 
 - **Updates:** Updates are naturally centralized, since updating a template means that all qubes based on it will automatically use those updates after they’re restarted.
 
-An important side effect of this system is that any software installed in an app qube (rather than in the template on which it is based) will disappear when the app qube shuts down (see `Inheritance and Persistence <#inheritance-and-persistence>`__). For this reason, we recommend installing most of your software in templates, not app qubes.
+An important side effect of this system is that any software installed in an app qube (rather than in the template on which it is based) will disappear when the app qube shuts down (see :ref:`user/templates/templates:inheritance and persistence`). For this reason, we recommend installing most of your software in templates, not app qubes.
 
 The default template in Qubes is based on Fedora, but there are additional templates based on other Linux distributions. There are also templates available with or without certain software preinstalled. You may find it useful to have multiple templates installed in order to provide:
 
@@ -44,7 +44,7 @@ These are the official Qubes OS Project templates. We build and release updates 
 
 - :doc:`Debian Xfce </user/templates/xfce-templates>`
 
-You can see the current supported versions :ref:`here <user/downloading-installing-upgrading/supported-releases:templates>`.
+You can see the current supported versions: :ref:`user/downloading-installing-upgrading/supported-releases:templates`.
 
 Community
 ---------
@@ -104,23 +104,23 @@ Repository (repo) definitions are stored in dom0 in ``/etc/qubes/repo-templates`
 To permanently enable a repo, set the line ``enabled = 1`` in the repo definition in ``/etc/qubes/repo-templates``.
 To permanently disable, set the line to ``enabled = 0``.
 
-If you wish to install a template that is in testing, please see :ref:`here <user/downloading-installing-upgrading/testing:templates>`.
+If you wish to install a template that is in testing, please see :ref:`user/downloading-installing-upgrading/testing:templates`.
 
 After Installing
 ----------------
 
 After installing a fresh template, we recommend performing the following steps:
 
-1. `Update the template <#updating>`__.
+1. :ref:`Update the template <user/templates/templates:updating>`.
 
-2. `Switch any app qubes that are based on the old template to the new one <#switching>`__.
+2. :ref:`Switch any app qubes that are based on the old template to the new one <user/templates/templates:switching>`.
 
-3. If desired, `uninstall the old template <#uninstalling>`__.
+3. If desired, :ref:`uninstall the old template <user/templates/templates:uninstalling>`.
 
 Network access
 --------------
 
-For information about how templates access the network, please see :ref:`Why don’t templates have network access? <user/how-to-guides/how-to-install-software:why don't templates have normal network access?>` and the :ref:`Updates proxy <user/how-to-guides/how-to-install-software:updates proxy>`.
+For information about how templates access the network, please see :ref:`user/how-to-guides/how-to-install-software:why don't templates have normal network access?` and the :ref:`user/how-to-guides/how-to-install-software:updates proxy`.
 
 Updating
 --------
@@ -149,7 +149,7 @@ Alternatively, to remove a template via the command line in dom0:
 
       $ qvm-template list --installed
 
-In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. “Global property default_template” requires `switching <#switching>`__ the default_template property to another template. “Template for” can be resolved by `switching <#switching>`__ the dependent qubes’ template. Once the issues are addressed, attempt the removal again.
+In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. “Global property default_template” requires :ref:`user/templates/templates:switching` the default_template property to another template. “Template for” can be resolved by :ref:`user/templates/templates:switching` the dependent qubes’ template. Once the issues are addressed, attempt the removal again.
 
 If the template’s entry in the Qubes Menu is not removed with its uninstallation, consult the :ref:`troubleshooting page <user/troubleshooting/app-menu-shortcut-troubleshooting:what if a removed application is still in the app menu?>`.
 

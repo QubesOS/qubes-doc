@@ -13,7 +13,7 @@ i3 is part of the stable repository (as of Qubes R3.1) and can be installed by u
       $ sudo qubes-dom0-update i3 i3-settings-qubes
 
 
-The Qubes-specific configuration (package ``i3-settings-qubes``) can be installed optionally in case you would prefer writing your own configuration (see `customization <#customization>`__ section for scripts and configuration).
+The Qubes-specific configuration (package ``i3-settings-qubes``) can be installed optionally in case you would prefer writing your own configuration (see :ref:`user/advanced-topics/i3:customization` section for scripts and configuration).
 
 That’s it. After logging out, you can select i3 in the login manager.
 

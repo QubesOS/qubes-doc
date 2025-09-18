@@ -42,7 +42,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
          Checking connectivity... done.
 
 
-2. Import the included PGP keys. See our `PGP key policies <#pgp-key-policies>`__ for important information about these keys.
+2. Import the included PGP keys. See our :ref:`project-security/security-pack:pgp key policies` for important information about these keys.
 
    .. code:: console
 

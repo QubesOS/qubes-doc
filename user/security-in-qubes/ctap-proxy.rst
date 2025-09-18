@@ -41,7 +41,7 @@ The ``vault`` qube with a dashed line in the bottom portion of the diagram depic
 
 One very important assumption of protocol is that the browser verifies every request sent to the authenticator — in particular, that the web application sending an authentication request matches the application that would be authenticated by answering that request (in order to prevent, e.g., a phishing site from sending an authentication request for your bank’s site). With the WebUSB feature in Chrome, however, a malicious website can `bypass <https://www.wired.com/story/chrome-yubikey-phishing-webusb/>`__ this safeguard by connecting directly to the token instead of using the browser’s CTAP API.
 
-The Qubes CTAP Proxy also prevents this class of attacks by implementing an additional verification layer. This verification layer allows you to enforce, for example, that the web browser in your ``twitter`` qube can only access the CTAP key associated with ``https://twitter.com``. This means that if anything in your ``twitter`` qube were compromised — the browser or even the OS itself — it would still not be able to access the CTAP keys on your token for any other websites or services, like your email and bank accounts. This is another significant security advantage over monolithic systems. (For details and instructions, see the `Advanced usage <#advanced-usage-per-qube-key-access>`__ section below.)
+The Qubes CTAP Proxy also prevents this class of attacks by implementing an additional verification layer. This verification layer allows you to enforce, for example, that the web browser in your ``twitter`` qube can only access the CTAP key associated with ``https://twitter.com``. This means that if anything in your ``twitter`` qube were compromised — the browser or even the OS itself — it would still not be able to access the CTAP keys on your token for any other websites or services, like your email and bank accounts. This is another significant security advantage over monolithic systems. For details and instructions, see :ref:`per-qube-key-access`.
 
 For even more protection, you can combine this with the :doc:`Qubes firewall </user/security-in-qubes/firewall>` to ensure, for example, that the browser in your ``banking`` qube accesses only one website (your bank’s website). By configuring the Qubes firewall to prevent your ``banking`` qube from accessing any other websites, you reduce the risk of another website compromising the browser in an attempt to bypass CTAP authentication.
 
@@ -78,7 +78,9 @@ In Debian templates:
 
 
 
-As usual with software updates, shut down the templates after installation, then restart ``sys-usb`` and all qubes that use the proxy. After that, you may use your CTAP authenticator (but see `Browser support <#template-and-browser-support>`__ below).
+As usual with software updates, shut down the templates after installation, then restart ``sys-usb`` and all qubes that use the proxy. After that, you may use your CTAP authenticator (but see :ref:`Browser support <user/security-in-qubes/ctap-proxy:template and browser support>` below).
+
+.. _per-qube-key-access:
 
 Advanced usage: per-qube key access
 -----------------------------------

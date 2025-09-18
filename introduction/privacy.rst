@@ -54,7 +54,7 @@ Mirrors
 -------
 
 
-There are also other third-party mirrors hosted by volunteers. These are used both for `ISO downloads <https://www.qubes-os.org/downloads/#mirrors>`__ and `updates <#update-servers-and-repositories>`__. We have no control over what data these mirrors collect or with whom they share it. Please see the privacy policy of each respective mirror operator.
+There are also other third-party mirrors hosted by volunteers. These are used both for `ISO downloads <https://www.qubes-os.org/downloads/#mirrors>`__ and :ref:`updates <introduction/privacy:update servers and repositories>`. We have no control over what data these mirrors collect or with whom they share it. Please see the privacy policy of each respective mirror operator.
 
 Qubes OS
 --------

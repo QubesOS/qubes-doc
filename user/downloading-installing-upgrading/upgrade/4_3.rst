@@ -48,7 +48,7 @@ In-place upgrade
 ----------------
 
 
-**Warning:** It is not possible to upgrade directly from releases earlier than 4.2. If you’re still on an earlier release, please either perform a `clean installation of 4.3 <#clean-installation>`__ or :doc:`upgrade to 4.2 </user/downloading-installing-upgrading/upgrade/4_2>` first.
+**Warning:** It is not possible to upgrade directly from releases earlier than 4.2. If you’re still on an earlier release, please either perform a :ref:`clean installation of 4.3 <user/downloading-installing-upgrading/upgrade/4_3:clean installation>` or :doc:`upgrade to 4.2 </user/downloading-installing-upgrading/upgrade/4_2>` first.
 
 The upgrade may take several hours, and will download several gigabytes of data.
 

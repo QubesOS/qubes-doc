@@ -16,7 +16,7 @@ Summary instructions for Debian templates
 -----------------------------------------
 
 
-**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See `release-specific notes <#release-specific-notes>`__ for any instructions specific to your particular release.
+**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See :ref:`user/templates/debian/debian-upgrade:release-specific notes` for any instructions specific to your particular release.
 
 .. code:: console
 
@@ -38,7 +38,7 @@ Detailed instructions for Debian templates
 
 These instructions will show you how to upgrade Debian templates. The same general procedure may be used to upgrade any template based on the standard Debian template.
 
-**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See `release-specific notes <#release-specific-notes>`__ for any instructions specific to your particular release.
+**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See :ref:`user/templates/debian/debian-upgrade:release-specific notes` for any instructions specific to your particular release.
 
 1. Ensure the existing template is not running.
 

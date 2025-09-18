@@ -68,7 +68,7 @@ Attaching selected USB device:
       sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 
-Now, you can use your USB device (camera in this case) in the ``work`` qube. If you see the error ``ERROR: qubes-usb-proxy not installed in the qube`` instead, please refer to the `Installation Section <#installation-of-qubes-usb-proxy>`__.
+Now, you can use your USB device (camera in this case) in the ``work`` qube. If you see the error ``ERROR: qubes-usb-proxy not installed in the qube`` instead, please refer to the :ref:`Installation Section <installation-of-qubes-usb-proxy>`.
 
 When you finish, detach the device.
 
@@ -91,6 +91,8 @@ Creating and using a USB qube
 
 
 If you’ve selected to install a usb-qube during system installation, everything is already set up for you in ``sys-usb``. If you’ve later decided to create a usb-qube, please follow :doc:`this guide </user/advanced-topics/usb-qubes>`.
+
+.. _installation-of-qubes-usb-proxy:
 
 Installation of ``qubes-usb-proxy``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

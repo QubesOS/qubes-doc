@@ -109,7 +109,7 @@ HTML and CSS
 ^^^^^^^^^^^^
 
 
-Do not write HTML inside Markdown documents (except in rare, unavoidable cases, such as `alerts <#alerts>`__). In particular, never include HTML or CSS for styling, formatting, or white space control. That belongs in the (S)CSS files instead.
+Do not write HTML inside Markdown documents (except in rare, unavoidable cases, such as :ref:`developer/general/website-style-guide:alerts`). In particular, never include HTML or CSS for styling, formatting, or white space control. That belongs in the (S)CSS files instead.
 
 Headings
 ^^^^^^^^
@@ -161,7 +161,7 @@ There are two problems with this:
 
 
 
-Instead, an example of an appropriate way to stylistically distinguish a portion of text is by using `alerts <#alerts>`__. Consider also that extra styling and visual distinction may not even be necessary. In most cases, traditional writing methods are perfectly sufficient, e.g.,:
+Instead, an example of an appropriate way to stylistically distinguish a portion of text is by using :ref:`developer/general/website-style-guide:alerts`. Consider also that extra styling and visual distinction may not even be necessary. In most cases, traditional writing methods are perfectly sufficient, e.g.,:
 
 .. code:: markdown
 

@@ -45,7 +45,7 @@ Installing updates
 ------------------
 
 
-The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the `command-line interface <#command-line-interface>`__.)
+The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the :ref:`user/how-to-guides/how-to-update:command-line interface`.)
 
 |Qubes Update|
 

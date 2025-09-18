@@ -141,7 +141,7 @@ Prior to the next screen, a compatibility test runs to check whether IOMMU-virtu
 
 |Unsupported hardware detected|
 
-Do not panic. It may simply indicate that IOMMU-virtualization hasn’t been activated in the BIOS or UEFI. Return to the `hardware requirements <#hardware-requirements>`__ section to learn how to activate it. If the setting is not configured correctly, it means that your hardware won’t be able to leverage some Qubes security features, such as a strict isolation of the networking and USB hardware.
+Do not panic. It may simply indicate that IOMMU-virtualization hasn’t been activated in the BIOS or UEFI. Return to the :ref:`user/downloading-installing-upgrading/installation-guide:hardware requirements` section to learn how to activate it. If the setting is not configured correctly, it means that your hardware won’t be able to leverage some Qubes security features, such as a strict isolation of the networking and USB hardware.
 
 If the test passes, you will reach the installation summary screen. The installer loads Xen right at the beginning. If you can see the installer’s graphical screen, and you pass the compatibility check that runs immediately afterward, Qubes OS is likely to work on your system!
 
@@ -305,7 +305,7 @@ Security
 ^^^^^^^^
 
 
-The Qubes OS Project occasionally issues `Qubes Security Bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__ as part of the :doc:`Qubes Security Pack (qubes-secpack) </project-security/security-pack>`. It is important to make sure that you receive all QSBs in a timely manner so that you can take action to keep your system secure. (While `updating <#updating>`__ will handle most security needs, there may be cases in which additional action from you is required.) For this reason, we strongly recommend that every Qubes user subscribe to the :ref:`qubes-announce <introduction/support:qubes-announce>` mailing list.
+The Qubes OS Project occasionally issues `Qubes Security Bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__ as part of the :doc:`Qubes Security Pack (qubes-secpack) </project-security/security-pack>`. It is important to make sure that you receive all QSBs in a timely manner so that you can take action to keep your system secure. (While :ref:`user/downloading-installing-upgrading/installation-guide:updating` will handle most security needs, there may be cases in which additional action from you is required.) For this reason, we strongly recommend that every Qubes user subscribe to the :ref:`qubes-announce <introduction/support:qubes-announce>` mailing list.
 
 In addition to QSBs, the Qubes OS Project also publishes `Canaries <https://www.qubes-os.org/security/canary/>`__, XSA summaries, template releases and end-of-life notices, and other items of interest to Qubes users. Since these are not essential for all Qubes users to read, they are not sent to :ref:`qubes-announce <introduction/support:qubes-announce>` in order to keep the volume on that list low. However, we expect that most users, especially novice users, will find them helpful. If you are interested in these additional items, we encourage you to subscribe to the `Qubes News RSS feed <https://www.qubes-os.org/feed.xml>`__ or join one of our other :doc:`venues </introduction/support>`, where these news items are also announced.
 

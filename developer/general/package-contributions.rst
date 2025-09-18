@@ -35,7 +35,7 @@ Contribution Procedure
 
 Before you start putting serious work into a package, we recommend that you discuss your idea with the Qubes developers and the broader community on the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>`. Once you have a package that’s ready to become part of Qubes OS, please follow this procedure:
 
-1. Ensure that your package satisfies the `Inclusion Criteria <#inclusion-criteria>`__.
+1. Ensure that your package satisfies the :ref:`developer/general/package-contributions:inclusion criteria`.
 
 2. If your code isn’t already on GitHub, create a GitHub repo that contains your code. You can have a look to an example package called `qubes-skeleton <https://github.com/QubesOS-contrib/qubes-skeleton>`__.
 
@@ -43,7 +43,7 @@ Before you start putting serious work into a package, we recommend that you disc
 
 4. Create an issue in `qubes-issues <https://github.com/QubesOS/qubes-issues/issues/>`__ with the title ``[Contribution] your-package-name``. Include a link to your repo, a brief description of your package, and a brief explanation of why you think it should be included in Qubes. Please note that the Qubes core developers are very busy. If they are under heavy load when you submit your contribution, it may be a very long time before they have time to review your package. If this happens, please do not be discouraged. If you think they may have forgotten about your pending contribution, you may “bump” your request by commenting on your issue, but please do this *very* sparingly (i.e., no more than once a month). We appreciate your understanding!
 
-5. You may be asked followup questions. If we decide to accept your contribution, you will be invited to join the `QubesOS-contrib <https://github.com/QubesOS-contrib>`__ organization on GitHub as public recognition of your contribution (but without push access; see `Review Procedure <#review-procedure>`__), and `QubesOS-contrib <https://github.com/QubesOS-contrib>`__ will fork your repo. If we decide not to accept your contribution, we will state the reason and close the issue.
+5. You may be asked followup questions. If we decide to accept your contribution, you will be invited to join the `QubesOS-contrib <https://github.com/QubesOS-contrib>`__ organization on GitHub as public recognition of your contribution (but without push access; see :ref:`developer/general/package-contributions:review procedure`), and `QubesOS-contrib <https://github.com/QubesOS-contrib>`__ will fork your repo. If we decide not to accept your contribution, we will state the reason and close the issue.
 
 
 
@@ -59,7 +59,7 @@ Review Procedure
 ----------------
 
 
-This review procedure covers both original package contributions (see `Contribution Procedure <#contribution-procedure>`__) and all subsequent updates to those packages, including updates from the original package contributor (see `Update Procedure <#update-procedure>`__). All changes will be reviewed by a Qubes Core Reviewer (QCR) and the `Package Maintainer <#package-maintainers>`__ (PM). In all cases, the QCR will be a core Qubes developer. In some cases, the QCR and the PM will be the same person. For example, if someone contributes a package, then disappears, and no suitable replacement has been found, then it is likely that a core Qubes developer will play both the QCR and PM roles for that package, at least until another suitable candidate volunteers to become the PM for that package.
+This review procedure covers both original package contributions (see :ref:`developer/general/package-contributions:contribution procedure`) and all subsequent updates to those packages, including updates from the original package contributor (see :ref:`developer/general/package-contributions:update procedure`). All changes will be reviewed by a Qubes Core Reviewer (QCR) and the :ref:`Package Maintainer <developer/general/package-contributions:package maintainers>` (PM). In all cases, the QCR will be a core Qubes developer. In some cases, the QCR and the PM will be the same person. For example, if someone contributes a package, then disappears, and no suitable replacement has been found, then it is likely that a core Qubes developer will play both the QCR and PM roles for that package, at least until another suitable candidate volunteers to become the PM for that package.
 
 The review procedure is as follows:
 
@@ -97,7 +97,7 @@ Package Maintainers
 
 If you contribute a package, we assume that you will be the maintainer of that package, unless you tell us otherwise. As the maintainer of the package, it is your privilege and responsibility to:
 
-- `Review <#review-procedure>`__ each pull request made against the package.
+- :ref:`Review <developer/general/package-contributions:review procedure>` each pull request made against the package.
 
 - Decide when the package has reached a new version, and notify the Qubes core developers when this occurs.
 
