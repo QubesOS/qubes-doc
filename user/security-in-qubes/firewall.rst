@@ -139,7 +139,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 - Now you should be able to reach B from A – test it using e.g. ping issued from A. Note however, that this doesn’t allow you to reach A from B – for this you would need two more rules, with A and B swapped.
 
-- If everything works as expected, then you should write the above nftables rules into firewallVM’s ``qubes-firewall-user-script`` script. This script is run when the netvm starts up. You should also write relevant rules in A and B’s ``rc.local`` script which is run when the qube is launched. Here’s an example how to update the script:
+- If everything works as expected, then you should write the above nftables rules into firewallVM’s ``qubes-firewall-user-script`` script (see section :ref:`Where to put firewall rules <user/security-in-qubes/firewall:where to put firewall rules>`). This script is run when the netvm starts up. You should also write relevant rules in A and B’s ``rc.local`` script which is run when the qube is launched. Here’s an example how to update the script:
 
 
 
@@ -418,7 +418,7 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 
 
-Once you have confirmed that the counters increase, store the commands used in the previous steps in ``/rw/config/qubes-firewall-user-script`` so they get set on sys-net start-up:
+Once you have confirmed that the counters increase, store the commands used in the previous steps in ``/rw/config/qubes-firewall-user-script`` so they get set on sys-net start-up (see section :ref:`Where to put firewall rules <user/security-in-qubes/firewall:where to put firewall rules>`):
 
 .. code:: console
 
@@ -477,7 +477,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 
 
-Once you have confirmed that the counters increase, store these commands in the script ``/rw/config/qubes-firewall-user-script``
+Once you have confirmed that the counters increase, store these commands in the script ``/rw/config/qubes-firewall-user-script`` (see section :ref:`Where to put firewall rules <user/security-in-qubes/firewall:where to put firewall rules>`):
 
 .. code:: console
 
