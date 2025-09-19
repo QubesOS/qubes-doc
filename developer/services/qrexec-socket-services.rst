@@ -222,9 +222,7 @@ Here is the server code:
           socket_path = '/var/run/qubes/policy-agent.sock'
           service = SocketService(socket_path)
 
-          loop = asyncio.get_event_loop()
-          loop.run_until_complete(service.run())
-
+          asyncio.run(service.run())
 
       if __name__ == '__main__':
           main()
