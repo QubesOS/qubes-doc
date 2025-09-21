@@ -6,7 +6,7 @@ The Qubes OS documentation is stored as `reStructuredText (rST) <https://docutil
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
 
 We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
-`Read The Docs (RTD) <https://readsthedocs.com/>`__ for hosting.
+`Read The Docs (RTD) <https://readthedocs.com/>`__ for hosting.
 RTD is a `continuous‑documentation deployment platform <https://docs.readthedocs.com/platform/stable/continuous-deployment.html>`__ that can automatically
 detect changes in a GitHub repository and build the latest version of a documentation.
 
@@ -19,7 +19,7 @@ detect changes in a GitHub repository and build the latest version of a document
 By cloning and regularly pulling from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository, users can maintain their
 own up-to-date offline copy of the Qubes documentation rather than
 relying solely on the web and either serve it locally or read the rST files directly.
-EPUB or PDF versions of Qubes OS documenation can also
+EPUB or PDF versions of Qubes OS documentation can also
 be downloaded from `doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__:
 
 .. figure:: /attachment/doc/rst-rtd-epub-pdf.png
@@ -47,7 +47,7 @@ A few notes before we get started:
 
 -  Since Qubes is a security-oriented project, every documentation change will be :ref:`reviewed <developer/general/how-to-edit-the-rst-documentation:security>` before it’s accepted. This allows us to maintain quality control and protect our users.
 
--  To give your contribution a better chance of being accepted, please follow our :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
+-  To give your contribution a better chance of being accepted, please follow our :doc:`/developer/general/rst-documentation-style-guide`.
 
 -  We don’t want you to spend time and effort on a contribution that we can’t accept. If your contribution would take a lot of time, please :doc:`file an issue </introduction/issue-tracking>` for it first so that we can make sure we’re on the same page before significant works begins.
 
@@ -119,7 +119,7 @@ You will be able to adjust the pull request message and title there. In
 most cases, the defaults are ok, so you can just confirm by pressing the
 :guilabel:`Create pull request` button again. However, if you’re not ready for
 your PR to be reviewed or merged yet, please
-`make a draft PR instead <https://github.blog/2019-02-14-introducing-draft-pull-requests/>`__.
+`make a draft PR instead <https://github.blog/news-insights/product-news/introducing-draft-pull-requests/>`__.
 
 |pull-request-confirm|
 
@@ -183,7 +183,7 @@ Keep your pull requests limited to a single issue, pull requests should be as at
 TL;DR: How to edit the documentation index
 ==========================================
 
-For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
+For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`/developer/general/rst-documentation-style-guide`.
 
 The source file for the :doc:`documentation index (a.k.a. table of contents) </index>` is
 `index.rst <https://github.com/QubesOS/qubes-doc/blob/main/index.rst>`__.
@@ -211,7 +211,7 @@ Please always be mindful that rST syntax is sensitive to indentation (3 spaces)!
 TL;DR: How to add images
 ========================
 
-For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
+For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`/developer/general/rst-documentation-style-guide`.
 
 Images reside inside the `qubes-doc repository <https://github.com/QubesOS/qubes-doc/>`__ in the directory `attachment/doc <https://github.com/QubesOS/qubes-doc/tree/main/attachment/doc>`__.
 
@@ -235,15 +235,15 @@ This is the only permitted way to include images. Do not link to images on other
 TL;DR: Cross-referencing
 ========================
 
-For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`reStrucutredText Style Guide </developer/general/rst-documentation-style-guide/>`.
+For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`/developer/general/rst-documentation-style-guide`.
 
-When referencing to an existing RST file use the ``:doc:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ as in
+When referencing to an existing rST file use the ``:doc:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ as in
 
 .. code-block:: rst
 
   how to :doc:`contribute code </introduction/contributing>` do [...]
 
-When referencing to a section in an existing RST file use the ``:ref:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ as in
+When referencing to a section in an existing rST file use the ``:ref:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ as in
 
 .. code-block:: rst
 

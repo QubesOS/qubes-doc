@@ -239,7 +239,7 @@ These render as:
 
 .. note::
        **Note:** Using Rufus to create the installation medium means that you
-       `won't be able <"https://github.com/QubesOS/qubes-issues/issues/2051">`__
+       `won't be able <https://github.com/QubesOS/qubes-issues/issues/2051>`__
        to choose the "Test this media and install Qubes OS" option mentioned in the
        example below. Instead, choose the "Install Qubes OS" option.
 
@@ -295,7 +295,6 @@ Please continue using the above or new ones where appropriate.
 Cross referencing:
 ^^^^^^^^^^^^^^^^^^
 
-
 - Use the `:doc:` role with a path and a custom link text:
 
 
@@ -330,6 +329,42 @@ and link to the section from within the documentation using :code:`:ref:`cross_r
 
 For further information please see :ref:`cross_referencing`.
 
+External cross-referencing
+""""""""""""""""""""""""""
+
+You can make a cross-reference to any of the projects of the external developer's documentation (hosted on https://dev.qubes-os.org):
+
+* :doc:`core-admin <core-admin:index>`
+* :doc:`core-admin-client <core-admin-client:index>`
+* :doc:`core-qrexec <core-qrexec:index>`
+
+To do such a cross-reference, use the usual cross-reference syntax but with the following prefix: :samp:`{PROJECT_NAME}:` (replace :samp:`{PROJECT_NAME}` by the name of the project). As an example, if you want to link to the index of the core-admin documentation, use this:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :doc:`core-admin:index`
+
+     - :doc:`core-admin:index`
+
+This is equivalent to using ``:doc:`index``` inside the core-admin documentation. This works with any role like ``:ref:``, ``:option:``, etc.
+
+Even if it works without it, always prefix the external cross-references with the name of the project, to help other contributors and maintainers to figure out what is going on.
+
+.. note::
+
+   Intersphinx `can list all the available links <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#showing-all-links-of-an-intersphinx-mapping-file>`__ to another project with the following command:
+
+   .. code:: console
+
+       python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
+
+   You can replace ``core-admin`` by any of the projects listed above.
 
 Hyperlink syntax
 ^^^^^^^^^^^^^^^^
@@ -466,14 +501,13 @@ Indentation
 ^^^^^^^^^^^
 
 Use spaces instead of tabs. Use hanging indentations where appropriate.
-rST is identation sensitiv markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
+rST is an indentation sensitive markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
 
 
 Line wrapping
 ^^^^^^^^^^^^^
 
 Do not hard wrap text, except where necessary (e.g., inside code blocks).
-
 
 Writing guidelines
 ------------------
@@ -571,7 +605,7 @@ Capitalization of "qube"
 
 We introduced the term :term:`qube` as a user-friendly alternative to the term :term:`vm` in the context of Qubes OS. Nonetheless, “qube” is a common noun like the words “compartment” and “container.” Therefore, in English, “qube” follows the standard capitalization rules for common nouns. For example, “I have three qubes” is correct, while “I have three Qubes” is incorrect. Like other common nouns, “qube” should still be capitalized at the beginnings of sentences, the beginnings of sentence-case headings, and in title-case headings. Note, however, that starting a sentence with the plural of “qube” (e.g., “Qubes can be shut down…”) can be ambiguous, since it may not be clear whether the referent is a plurality of qubes, :term:`qubes os`, or even the Qubes OS Project itself. Hence, it is generally a good idea to rephrase such sentences in order to avoid this ambiguity.
 
-Many people feel a strong temptation to capitalize the word “qube” all the time, like a proper noun, perhaps because it’s a new and unfamiliar term that’s closely associated with a particular piece of software (namely, Qubes OS). However, these factors are not relevant to the capitalization rules of English. In fact, it’s not unusual for new common nouns to be introduced into English, especially in the context of technology. For example, “blockchain” is a relatively recent technical term that’s a common noun. Why is it a common noun rather than a proper noun? Because proper nouns refer to *particular* people, places, things, and ideas. There are many different blockchains. However, even when there was just one, the word still denoted a collection of things rather than a particular thing. It happened to be the case that there was only one member in that collection at the time. For example, if there happened to be only one tree in the world, that wouldn’t change the way we capitalize sentences like, “John sat under a tree.” Intuitively, it makes sense that the addition and removal of objects from the world shouldn’t cause published books to become orthographicallly incorrect while sitting on their shelves.
+Many people feel a strong temptation to capitalize the word “qube” all the time, like a proper noun, perhaps because it’s a new and unfamiliar term that’s closely associated with a particular piece of software (namely, Qubes OS). However, these factors are not relevant to the capitalization rules of English. In fact, it’s not unusual for new common nouns to be introduced into English, especially in the context of technology. For example, “blockchain” is a relatively recent technical term that’s a common noun. Why is it a common noun rather than a proper noun? Because proper nouns refer to *particular* people, places, things, and ideas. There are many different blockchains. However, even when there was just one, the word still denoted a collection of things rather than a particular thing. It happened to be the case that there was only one member in that collection at the time. For example, if there happened to be only one tree in the world, that wouldn’t change the way we capitalize sentences like, “John sat under a tree.” Intuitively, it makes sense that the addition and removal of objects from the world shouldn’t cause published books to become orthographically incorrect while sitting on their shelves.
 
 Accordingly, the reason “qube” is a common noun rather than a proper noun is because it doesn’t refer to any one specific thing (in this case, any one specific virtual machine). Rather, it’s the term for any virtual machine in a Qubes OS installation. (Technically, while qubes are currently implemented as virtual machines, Qubes OS is independent of its underlying compartmentalization technology. Virtual machines could be replaced with a different technology, and qubes would still be called “qubes.”)
 
@@ -724,8 +758,8 @@ Cheatsheet: Markdown vs. reStructuredText
 For the documentation contributors more familiar with Markdown, here is a small cheatsheet
 highlighting essential differences.
 
-Headings
-^^^^^^^^
+Cheatsheet: Headings
+^^^^^^^^^^^^^^^^^^^^
 
 **Markdown:**
 
@@ -802,8 +836,8 @@ Text Decoration
         **Bold**
         :strike:`Strikethrough`
 
-Lists
-^^^^^
+Cheatsheet: Lists
+^^^^^^^^^^^^^^^^^
 
 **Markdown:**
 
@@ -833,8 +867,8 @@ Lists
            a. Subitem 1
            b. Subitem 2
 
-Tables
-^^^^^^
+Cheatsheet: Tables
+^^^^^^^^^^^^^^^^^^
 
 **Markdown:**
 
@@ -861,8 +895,8 @@ Tables
            * - Cell 3
              - Cell 4
 
-Code Blocks
-^^^^^^^^^^^
+Cheatsheet: Code Blocks
+^^^^^^^^^^^^^^^^^^^^^^^
 
 **Markdown:**
     .. code:: markdown
