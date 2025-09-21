@@ -2,8 +2,6 @@
 Documentation
 =============
 
-:doc:`core-admin:index`
-
 =================
 Table of contents
 =================
