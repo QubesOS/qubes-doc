@@ -151,7 +151,7 @@ Qubes OS at a glance
 --------------------
 
 :doc:`/introduction/video-tours/`
-   Want to see Qubes OS in action? Sit back and watch one of the guided tour!
+   Want to see Qubes OS in action? Sit back and watch one of the guided :doc:`/introduction/video-tours/`!
 :doc:`/introduction/screenshots/`
    See what using Qubes actually looks like with various applications running in Qubes.
 :doc:`/introduction/getting-started`
@@ -165,7 +165,7 @@ many technical details have been omitted here for the sake of
 presentation.
 
 - If you’re a current or potential Qubes user, you may want to check out the :doc:`documentation </index>` and the :ref:`user FAQ <introduction/faq:users>`.
-- If you’re a developer, there’s dedicated :ref:`index:Developer Documentation`, a :ref:`developer FAQ <introduction/faq:developers>` and the `documentation of the source code <https://dev.qubes-os.org>`__, just for you.
+- If you’re a developer, there’s dedicated :ref:`index:Developer Documentation` and a :ref:`developer FAQ <introduction/faq:developers>` just for you.
 - Ready to give Qubes a try? Head on over to the `downloads page <https://www.qubes-os.org/downloads/>`__, and read the :doc:`Installation guide </user/downloading-installing-upgrading/installation-guide>`.
 - Need help, or just want to join the conversation? Learn more about :doc:`help, support, the mailing lists, and the forum </introduction/support>`.
 
