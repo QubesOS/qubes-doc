@@ -2,7 +2,6 @@
 Documentation
 =============
 
-
 =================
 Table of contents
 =================

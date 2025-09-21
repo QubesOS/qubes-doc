@@ -14,6 +14,10 @@ The table below is based on our :ref:`release schedule policy <developer/release
 
    * - Date
      - Stage
-   * - TBD
+   * - 2025-08-10
      - 4.3.0-rc1 release
+   * - 2025-09-19
+     - 4.3.0-rc2 release
+   * - 2025-10-20
+     - 4.3.0-rc3 release
 
