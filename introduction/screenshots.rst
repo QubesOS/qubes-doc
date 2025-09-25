@@ -37,7 +37,7 @@ Qubes Release 2 can also run Windows AppVMs in seamless mode, integrated onto th
 
 |r2b3-windows-seamless-filecopy.png|
 
-Windows AppVMs are fully integrated with the rest of the Qubes OS system, which includes things such as secure, policy governed, inter-VM file copy, clipboard, and generally our whole elastic qrexec infrastructure for secure inter-VM RPC! Starting with Qubes R2 Beta 3 we also support HVM-based templates allowing to instantly create many Windows AppVMs with shared “root filesystem” from the Template VM (but one should ensure their license allows for such instantiation of the OS in the template). Just like with Linux AppVMs!
+Windows AppVMs are fully integrated with the rest of the Qubes OS system, which includes things such as secure, :term:`policy` governed, inter-VM file copy, clipboard, and generally our whole elastic qrexec infrastructure for secure inter-VM RPC! Starting with Qubes R2 Beta 3 we also support HVM-based templates allowing to instantly create many Windows AppVMs with shared “root filesystem” from the Template VM (but one should ensure their license allows for such instantiation of the OS in the template). Just like with Linux AppVMs!
 
 
 ----
