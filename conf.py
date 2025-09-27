@@ -48,6 +48,18 @@ redirects = {
         "https://www.qubes-os.org/doc/visual-style-guide/",
     "user/downloading-installing-upgrading/downloads":
         "https://www.qubes-os.org/downloads/",
+
+    # user/templates/windows URLs
+    "user/templates/windows/windows-qubes-4-1":
+        "qubes-windows.html",
+    "user/templates/windows/windows-qubes-4-0":
+        "qubes-windows.html",
+    "user/templates/windows/qubes-windows-tools-4-1":
+        "qubes-windows-tools.html",
+    "user/templates/windows/qubes-windows-tools-4-0":
+        "qubes-windows-tools.html",
+    "user/templates/windows/migrate-to-4-1":
+        "qubes-windows-migrate.html",
 }
 
 # -- -- Options for highlighting ---------------------------------------------
