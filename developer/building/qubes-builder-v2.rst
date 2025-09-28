@@ -14,7 +14,7 @@ In the second generation of Qubes OS builder, container or disposable qube isola
 Setup
 -----
 
-This is a simple setup using a docker or podman executor. This is a good default choice; if you don’t know which executor to use, use docker.
+This is a simple setup using a docker or podman executor. This is a good default choice; if you don’t know which executor to use, use docker.  Note the podman exector `is known <https://github.com/QubesOS/qubes-issues/issues/10280>` not to be currently able to build DEB packages.
 
 1. First, decide what qube you are going to use when working with Qubes Builder v2. It can be an AppVM or a Standalone qube, with some steps different between the two.
 
