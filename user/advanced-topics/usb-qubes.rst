@@ -92,7 +92,7 @@ When using a USB keyboard on a system with multiple USB controllers, we recommen
 
 5. Save and close the file.
 
-6. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg`` (legacy boot) or ``grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`` (EFI) in dom0.
+6. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg``
 
 7. Reboot.
 
@@ -202,7 +202,7 @@ GRUB2 (legacy boot or EFI)
 
 4. Save and close the file.
 
-5. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg`` (legacy boot) or ``grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`` (EFI) in dom0.
+5. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg``
 
 6. Reboot.
 
@@ -233,25 +233,3 @@ GRUB2
 7. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg`` in dom0.
 
 8. Reboot.
-
-
-
-Qubes 4.0: EFI
-^^^^^^^^^^^^^^
-
-
-1. Shut down the USB qube.
-
-2. In Qubes Manager, right-click on the USB qube and select “Remove VM.”
-
-3. Open the file ``/boot/efi/EFI/qubes/xen.cfg`` in dom0.
-
-4. Find the line(s) that begins with ``kernel=``.
-
-5. If ``rd.qubes.hide_all_usb`` appears anywhere in those lines, remove it.
-
-6. Save and close the file.
-
-7. Reboot.
-
-
