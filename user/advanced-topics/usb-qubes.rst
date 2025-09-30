@@ -182,17 +182,11 @@ USB controllers are automatically hidden from dom0 if you opt to create a USB qu
 
 2. Hide (i.e., blacklist) all USB controllers from dom0.
 
+.. warning:: **If you use a USB keyboard**, hiding your USB controllers from dom0 could lock you out of your system. See `USB keyboards <#usb-keyboards>`__ for more information.
 
+.. warning:: **Using a USB AEM device** requires dom0 to have access to the USB controller to which your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM will hang.
 
-**Warning:** If you use a USB keyboard, hiding your USB controllers from dom0 could lock you out of your system. See `USB keyboards <#usb-keyboards>`__ for more information.
-
-**Warning:** Using a USB AEM device requires dom0 to have access to the USB controller to which your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM will hang.
-
-The following procedure will hide all USB controllers from dom0.
-
-GRUB2 (legacy boot or EFI)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+The following procedure will hide all USB controllers from dom0:
 
 1. Open the file ``/etc/default/grub`` in dom0.
 
@@ -206,17 +200,10 @@ GRUB2 (legacy boot or EFI)
 
 6. Reboot.
 
-
-
 How to remove a USB qube
 ------------------------
 
-
-**Warning:** This procedure will result in your USB controller(s) being attached directly to dom0.
-
-GRUB2
-^^^^^
-
+.. warning:: This procedure will result in your USB controller(s) being attached directly to dom0.
 
 1. Shut down the USB qube.
 
