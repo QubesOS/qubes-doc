@@ -148,3 +148,25 @@ Accessing installer Rescue mode on UEFI
 ---------------------------------------
 
 Choose “Rescue a Qubes OS system” from grub2 boot menu.
+
+Updating GRUB options doesn't work
+----------------------------------
+
+If you upgraded from Qubes OS R4.0 or followed outdated instructions, you might have a wrong `grub.cfg` file.
+
+The content of :file:`/boot/efi/EFI/qubes/grub.cfg` should be something like:
+
+.. code:: bash
+
+   search --no-floppy --fs-uuid --set=dev xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   set prefix=($dev)/grub2
+   export $prefix
+   configfile $prefix/grub.cfg
+
+Where the end of the first line is replaced by a UUID. If not, you can reinstall this file:
+
+.. code:: console
+
+   sudo qubes-dom0-update --action=reinstall grub2-common
+
+After that, running the `grub2-mkconfig` command should work.

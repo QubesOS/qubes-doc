@@ -160,4 +160,4 @@ Suspend turns off the screen and gets stuck
 -------------------------------------------
 
 
-On some devices suspend-to-RAM does not work and a hard power-off is needed to recover, because the system does not go into deep sleep. To get suspend to work, you need to add ``mem_sleep_default=deep`` kernel option. For legacy boot, or UEFI/legacy in R4.1+, add it to the ``GRUB_CMDLINE_LINUX`` setting in ``/etc/default/grub``, update the grub config, and reboot. In R4.0 with UEFI boot, you need to add it to every ``kernel=`` line in ``/boot/efi/EFI/qubes/xen.cfg`` and reboot.
+On some devices suspend-to-RAM does not work and a hard power-off is needed to recover, because the system does not go into deep sleep. To get suspend to work, you need to add ``mem_sleep_default=deep`` kernel option. Add it to the ``GRUB_CMDLINE_LINUX`` setting in ``/etc/default/grub``, update the grub config, and reboot.
