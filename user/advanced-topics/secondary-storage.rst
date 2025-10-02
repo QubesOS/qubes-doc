@@ -38,7 +38,7 @@ qvm-pool driver explanation:
 
 In theory, you can still use file-based disk images (“file” pool driver), but they will lack some features: for example, you won’t be able to do backups without shutting down the qube.
 
-Additional storage can also be added on a Btrfs filesystem. A unique feature of Btrfs is that data can be compressed transparently. The subvolume can also be backed up using snapshots for an additional layer of protection; Btrfs supports differents level of redundancy; it has parity checksum; Btrfs volumes can be expanded or shrunk. Starting or stopping a VM has less impact and less chance of causing slowdown of the system as some users have noted with LVM. Relevant information for general btrfs configuration will be provided after the section on LVM storage.
+Additional storage can also be added on a Btrfs filesystem. A unique feature of Btrfs is that data can be compressed transparently. The subvolume can also be backed up using snapshots for an additional layer of protection; Btrfs supports differents level of redundancy; it has parity checksum; Btrfs volumes can be expanded or shrunk. Starting or stopping a VM has less impact and less chance of causing slowdown of the system as some users have noted with LVM. Relevant information for general Btrfs configuration will be provided after the section on LVM storage.
 
 LVM storage
 ^^^^^^^^^^^
@@ -62,7 +62,7 @@ Take note of the VG and thin pool names for your second drive, then register it 
 
 
 
-BTRFS storage
+Btrfs storage
 ^^^^^^^^^^^^^
 
 
@@ -76,7 +76,7 @@ It is possible to use an existing Btrfs storage if it is configured. In dom0, av
       $ btrfs show filesystem
 
 
-To register the storage to qubes use the following command where ``<pool_name>`` is a freely chosen pool name adn ``<dir_path>`` is the mounted path to the second btrfs storage:
+To register the storage to qubes use the following command where ``<pool_name>`` is a freely chosen pool name adn ``<dir_path>`` is the mounted path to the second Btrfs storage:
 
 .. code:: console
 
@@ -201,7 +201,7 @@ Unmount the temporary Btrfs filesystem:
       $ rmdir /mnt/new_qube_storage
 
 
-Mount the subvolume with compression enabled if desired, where ``<compression>`` can take the values ``zlib|lzo|zstd``. ``<subvol>`` is a btrfs subvolume "qubes" in this example.
+Mount the subvolume with compression enabled if desired, where ``<compression>`` can take the values ``zlib|lzo|zstd``. ``<subvol>`` is a Btrfs subvolume "qubes" in this example.
 
 .. code:: console
 
