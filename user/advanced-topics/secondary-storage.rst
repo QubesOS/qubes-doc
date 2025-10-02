@@ -66,7 +66,7 @@ Btrfs storage
 ^^^^^^^^^^^^^
 
 
-Theses steps assume you have already created a separate Btrfs filesystem for your second drive., that it is encrypted with LUKS and it is mounted. It is recommended to use a subvolume as it enables compression and excess storage can be use for other things.
+Theses steps assume you have already created a separate Btrfs filesystem for your second drive, that it is encrypted with LUKS and it is mounted. It is recommended to use a subvolume as it enables snapshotting the VM data independently of any other files that you may want to store on the filesystem.
 
 It is possible to use an existing Btrfs storage if it is configured. In dom0, available Btrfs storage can be displayed using:
 
@@ -177,12 +177,12 @@ First create the physical volume:
       $ sudo mkfs.btrfs -L <label> /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde
 
 
-Then mount the new Btrfs to a temporary path:
+Then mount the new Btrfs filesystem with compression enabled if desired, where ``<compression>`` can take the values ``zlib|lzo|zstd``:
 
 .. code:: console
 
       $ sudo mkdir -p /mnt/new_qube_storage
-      $ sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /mnt/new_qube_storage
+      $ sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /mnt/new_qube_storage -o compress=<compression>
 
 
 Create a subvolume to hold the data:
@@ -192,27 +192,11 @@ Create a subvolume to hold the data:
       $ sudo btrfs subvolume create /mnt/new_qube_storage/qubes
 
 
-
-Unmount the temporary Btrfs filesystem:
-
-.. code:: console
-
-      $ sudo umount /mnt/new_qube_storage
-      $ rmdir /mnt/new_qube_storage
-
-
-Mount the subvolume with compression enabled if desired, where ``<compression>`` can take the values ``zlib|lzo|zstd``. ``<subvol>`` is a Btrfs subvolume "qubes" in this example.
-
-.. code:: console
-
-      $ sudo mount /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde /var/lib/qubes_newpool -o compress=<compression>,subvol=qubes
-
-
 Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume:
 
 .. code:: console
 
-      $ qvm-pool --add poolhd0_qubes file-reflink -o dir_path=/var/lib/qubes_newpool,revisions_to_keep=2
+      $ qvm-pool --add poolhd0_qubes file-reflink -o dir_path=/mnt/new_qube_storage/qubes,revisions_to_keep=2
 
 
 By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary drive do the following on a dom0 terminal:
