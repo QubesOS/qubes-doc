@@ -53,7 +53,7 @@ Here we see Xfce4.14 Window Manager running in Dom0 (instead of KDE as on previo
 
 |r4.0-password-prompt.png|
 
-It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “blue” label. When we look at the titlebar, we see “[qubes]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the red Tor Browser running in a DisposableVM) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
+It is always clearly visible to which domain a given window belongs. Here it’s immediately clear that the passphrase-prompting window belongs to some domain with the “blue” label. When we look at the titlebar, we see “[qubes]”, which is the name of the actual domain. Theoretically, the untrusted application (here, the red Tor Browser running in a :term:`disposable`) beneath the prompt window could draw a similar looking window within its contents. In practice, this would be very hard, because it doesn’t know, e.g., the exact decoration style that is in use. However, if this is a concern, the user can simply try to move the more trusted window onto some empty space on the desktop such that no other window is present beneath it. Or, better yet, use the Expose-like effect (available via a hot-key). A malicious application from an untrusted domain cannot spoof the whole desktop because the trusted Window Manager will never let any domain “own” the whole screen. Its titlebar will always be visible.
 
 
 ----
@@ -91,7 +91,7 @@ Qubes supports secure copy-and-paste operations between AppVMs. Only the user ca
 ----
 
 
-|“r4.0-copy-to-other-appvm-1.png| |r4.0-copy-to-other-appvm-3.png|
+|r4.0-copy-to-other-appvm-1.png| |r4.0-copy-to-other-appvm-3.png|
 
 Qubes also supports secure file copying between AppVMs.
 
@@ -99,10 +99,9 @@ Qubes also supports secure file copying between AppVMs.
 ----
 
 
-|r4.0-open-in-dispvm-1.png| |r4.0-open-in-dispvm-2.png|
+|r4.3-domU-filemanager-disp-pdfviewer.png| |r4.3-domU-filemanager-disp-pdfviewer-open.png|
 
-Qubes’ unique DisposableVMs (DispVMs) allow the user to open any file in a disposable VM in a matter of seconds! A file can be edited in a disposable VM, and any changes are projected back onto the original file. Currently, there is no way to mark files to be automatically opened in a disposable VM (one needs to right-click on the file and choose the “View in DisposableVM” or “Edit in DisposableVM” option), but this is planned for the R2 Beta 3 release.
-
+Qubes' unique :term:`disposable` qubes allow the user to open any file in a disposable VM in a matter of seconds! A file can be edited in a disposable qube, and any changes are projected back onto the original file.
 
 ----
 
@@ -140,10 +139,10 @@ And some more screenshots:
 .. |r4.0-manager-and-sysnet-network-prompt.png| image:: /attachment/doc/r4.0-manager-and-sysnet-network-prompt.png
 .. |r4.0-software-update.png| image:: /attachment/doc/r4.0-software-update.png
 .. |r4.0-copy-paste.png| image:: /attachment/doc/r4.0-copy-paste.png
-.. |“r4.0-copy-to-other-appvm-1.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-1.png
+.. |r4.0-copy-to-other-appvm-1.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-1.png
 .. |r4.0-copy-to-other-appvm-3.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-2.png
-.. |r4.0-open-in-dispvm-1.png| image:: /attachment/doc/r4.0-open-in-dispvm-1.png
-.. |r4.0-open-in-dispvm-2.png| image:: /attachment/doc/r4.0-open-in-dispvm-2.png
+.. |r4.3-domU-filemanager-disp-pdfviewer.png| image:: /attachment/doc/r4.3-domU-filemanager-disp-pdfviewer.png
+.. |r4.3-domU-filemanager-disp-pdfviewer-open.png| image:: /attachment/doc/r4.3-domU-filemanager-disp-pdfviewer-open.png
 .. |r4.0-convert-to-trusted-pdf-1.png| image:: /attachment/doc/r4.0-convert-to-trusted-pdf-1.png
 .. |r4.1-converting-pdf.png| image:: /attachment/doc/r4.1-converting-pdf.png
 .. |r4.0-manager-firewall.png| image:: /attachment/doc/r4.0-manager-firewall.png
