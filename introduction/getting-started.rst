@@ -73,7 +73,7 @@ Qube Manager
 
 To see all of your qubes at the same time, you can use the **Qube Manager**. It displays the states of all the qubes in your system, even the ones that aren’t running.
 
-To access Qube Manager go to: Qubes Icon (App Menu) → Settings Icon → Qubes Tools → **Qube Manager**
+To access Qube Manager go to |qubes-logo-icon|:menuselection:`App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qube Manager`
 
 |r4.1-qubes-manager.png|
 
@@ -81,9 +81,9 @@ Command-line interface
 ^^^^^^^^^^^^^^^^^^^^^^
 
 
-All aspects of Qubes OS can be controlled using command-line tools such as the terminal emulator. The default terminal emulator in Qubes is Xfce Terminal. Opening a terminal emulator in dom0 can be done in several ways:
+All aspects of Qubes OS can be controlled using command-line tools such as the terminal emulator. The default terminal emulator in Qubes is Xfce Terminal. Opening a terminal emulator in :term:`dom0` can be done in several ways:
 
-- Go to the App Menu, click on the Settings icon, choose Other from the drop-down menu, and select **Xfce Terminal Emulator** at the bottom.
+- Using the application menu: |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Other --> Xfce Terminal`.
 
 - Press ``Alt`` + ``F3`` and search for ``xfce terminal``.
 
@@ -117,17 +117,19 @@ Adding, removing, and listing qubes
 
 To create a new qube or remove one, use **Create Qubes VM** option in the App Menu.
 
-Creating a New Qube: Qubes Icon → Settings → Qubes Tools → Qube Manager → Create Qubes VM → **New Qube**
+Creating a new qube, |qubes-logo-icon|:menuselection:`App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Create New Qube`.
 
-Removing a qube: To remove a qube, use the **Delete qube button** as the final step instead.
+To remove a qube, |qubes-logo-icon|:menuselection:`App Menu (Q icon) --> <QUBE> --> Settings --> Delete qube`, where :samp:`{<QUBE>}` is the qube you desire to delete.
+
+To list qubes, use the :ref:`Qube Manager <introduction/getting-started:qube manager>`.
 
 You can also add, remove, and list qubes from the command line using the following tools:
 
-- ``qvm-create``
+- :program:`qvm-create`
 
-- ``qvm-remove``
+- :program:`qvm-remove`
 
-- ``qvm-ls``
+- :program:`qvm-ls`
 
 
 
