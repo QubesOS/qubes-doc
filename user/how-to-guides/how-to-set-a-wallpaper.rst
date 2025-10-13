@@ -4,7 +4,7 @@ How to take screenshots and set a wallpaper
 
 In Qubes OS, :term:`dom0` is strongly isolated from the outside world. It has no direct internet connection (for updates, a dedicated UpdateProxy is used to avoid interacting with untrusted data) and copying files into it is highly discouraged and not supported by tools such as ``qvm-copy``.
 
-:term:`dom0` is also where the desktop environment and Qubes OS GUI tools are running (unless you are using the experimental :doc:`sys-gui</user/advanced-topics/gui-domain>`, thus, if you take a screenshot or want to set a wallpaper, you will be acting within :term:`dom0`.
+:term:`dom0` is also where the desktop environment and Qubes OS GUI tools are running (unless you are using the experimental :doc:`sys-gui</user/advanced-topics/gui-domain>`). Thus, if you take a screenshot or want to set a wallpaper, you will be acting within :term:`dom0`.
 
 
 Taking screenshots
