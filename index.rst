@@ -69,6 +69,7 @@ Core documentation for Qubes users.
    :caption: How-to guides
 
    user/how-to-guides/how-to-organize-your-qubes
+   user/how-to-guides/how-to-set-a-wallpaper
    user/how-to-guides/how-to-update
    user/how-to-guides/how-to-back-up-restore-and-migrate
    user/how-to-guides/how-to-copy-and-paste-text
