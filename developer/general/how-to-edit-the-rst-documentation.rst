@@ -306,149 +306,190 @@ It is recommended to use a virtual environment, f.ex.
 In the following section there is a sample setup to prepare local environments
 for building Qubes OS rST documentation.
 
-
 Using venv
 ----------
 
 
+Creating a Python environment with venv
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 1. **Install needed packages and clone the repository**
 
-  .. code-block:: console
+   .. code-block:: console
 
-    $ sudo apt install git python3-dev python3.11-venv
-    $ git clone https://github.com/QubesOS/qubes-doc.git
+      $ sudo apt install git python3-dev python3.11-venv
+      $ git clone https://github.com/QubesOS/qubes-doc.git
+      $ cd qubes-doc
 
 2.  **Install Sphinx and Required Extensions**
 
-   Install Sphinx and the necessary extensions (`sphinx-autobuild`, `sphinx-lint`) using `pip`.
+   Enter the virtual environment.
 
-    .. code-block:: console
+   .. code-block:: console
 
-     $ python -m venv .venv
-     $ source .venv/bin/activate
-     $ pip install -r qubes-doc/requirements.txt
-     $ pip install sphinx sphinx-lint sphinx-autobuild
+      $ python3 -m venv .venv
+      $ . .venv/bin/activate
+      (.venv) $ echo "$VIRTUAL_ENV"
 
+   .. note::
 
-3.  **Verify Installation**
+      You will have to activate the environment every time a new shell is opened.
 
-    .. code-block:: console
+2.  **Install Sphinx and Required Extensions**
 
-     $ sphinx-build --version
+   Install Sphinx and the necessary extensions (:program:`sphinx-autobuild`, :program:`sphinx-lint`).
 
+   .. code-block:: console
 
-4.  **Build Documentation**
-
-   Use `sphinx-build` with the `-v` (verbose) flag to generate detailed output during the build process.
-
-    .. code-block:: console
-
-     $ sphinx-build -v -b html qubes-doc _build/html
+      (.venv) $ pip install -r requirements.txt sphinx-lint sphinx-autobuild
 
 
-   The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`)
-   and will process all source files in the :file:`qubes-doc` directory,
-   generate HTML output in the :file:`_build/html` directory, and print detailed build information to the console.
-   Pay attention to errors and warning in the output!
-   Please do not introduce any new warnings and fix all errors.
+Linting the documentation from venv
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-5.  **Run Linting**
+
+1.  **Run Linting**
 
    The `sphinx-lint` extension checks for common issues like missing references, invalid directives,
-   or formatting errors.
+   or formatting errors. Run the linting step using the :program:`sphinx-lint` command.
 
-    .. code-block:: console
+   .. code-block:: console
 
-     $ sphinx-lint qubes-doc
-
-
-6.  **Run Link Checking**
-
-   The `sphinx-linkcheck` extension verifies the validity of all external and internal links.
-
-   The results will be written to the :file:`_build/linkcheck` directory with a detailed report in :file:`output.txt` or :file:`output.json` files
-   of all checked links and their status (e.g., OK, broken).
-
-    .. code-block:: console
-
-     $ sphinx-build -b linkcheck qubes-doc _build/linkcheck
+      (.venv) $ sphinx-lint -i .venv .
 
 
-7.  **Use sphinx-autobuild for development**
-
-   For an active development workflow, you can use `sphinx-autobuild` to automatically rebuild the documentation
-   and refresh browser whenever a file is saved. `sphinx-autobuild` starts a web server at `http://127.0.0.1:8000`,
-   automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
-
-    .. code-block:: console
-
-     $ sphinx-autobuild qubes-doc _build/html
-
-
-Using poetry
-------------
-
-
-1. `Install poetry <https://python-poetry.org/docs/#installation>`__ and git and clone the repository.
-A :file:`pyproject.toml` file is provided.
-
-  .. code-block:: console
-
-    $ sudo apt install git
-    $ curl -sSL https://install.python-poetry.org | python3 -
-    $ git clone https://github.com/QubesOS/qubes-doc.git
-    $ cd qubes-doc
-    $ poetry install
-
-
-2.  **Build Documentation**
-
-   Use `sphinx-build` with the `-v` (verbose) flag to generate detailed output during the build process.
-   The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`).
-
-    .. code-block:: console
-
-     $ poetry run sphinx-build -v -b html ../qubes-doc _build/html
-
-   This command will process all source files in the :file:`qubes-doc` directory,
-   generate HTML output in the :file:`_build/html` directory, and print detailed build information to the console.
-   Pay attention to errors and warning in the output!
-   Please do not introduce no new warning and fix all errors.
-
-3.  **Run Linting**
-
-   The `sphinx-lint` extension checks for common issues like missing references, invalid directives,
-   or formatting errors. Run the linting step using the `sphinx-lint` command.
-
-    .. code-block:: console
-
-     $ poetry run sphinx-lint ../qubes-doc
-
-
-4.  **Run Link Checking**
+2.  **Run Link Checker**
 
    The `sphinx-linkcheck` extension verifies the validity of all external and internal links.
 
    The results will be written to the :file:`_build/linkcheck` directory with a detailed report in :file:`output.txt` or :file:`output.json` files
    of all checked links and their status (e.g., OK, broken, timeout).
 
-    .. code-block:: console
+   .. code-block:: console
 
-     $ poetry run sphinx-build -b linkcheck ../qubes-doc _build/linkcheck
+      (.venv) $ sphinx-build -b linkcheck . _build/linkcheck
 
-5.  **Use sphinx-autobuild for development**
+
+Building the documentation from venv
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+-  **Build Documentation**
+
+   Use `sphinx-build` with the `-v` (verbose) flag to generate detailed output during the build process.
+   The build command specifies the source directory (current directory :file:`.`, :file:`qubes-doc` in this case), the output directory (:file:`_build/html`), and the builder (`html`).
+
+   .. code-block:: console
+
+      (.venv) $ sphinx-build -v -b html . _build/html
+
+
+   The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`).
+   The build command will process all source files in the :file:`qubes-doc` directory, generate HTML output in the :file:`_build/html` directory, and print detailed build information to the console.
+   Pay attention to errors and warning in the output!
+   Please do not introduce any new warnings and fix all errors.
+
+
+-  **Use sphinx-autobuild for development**
 
    For an active development workflow, you can use `sphinx-autobuild` to automatically rebuild the documentation
    and refresh browser whenever a file is saved. `sphinx-autobuild` starts a web server at `http://127.0.0.1:8000`,
    automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
 
+   .. code-block:: console
 
-    .. code-block:: console
+      (.venv) $ sphinx-autobuild . _build/html
 
-     $ poetry run sphinx-autobuild ../qubes-doc _build/html
+Using poetry
+------------
 
 
 You can also use `uv <https://docs.astral.sh/uv/getting-started/>`__ if you wish.
+
+Creating a Python environment with poetry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+1. `Install poetry <https://python-poetry.org/docs/#installation>`__ and git and clone the repository.
+
+   .. code-block:: console
+
+      $ sudo apt install git
+      $ git clone https://github.com/QubesOS/qubes-doc.git
+      $ cd qubes-doc
+
+
+2.  **Install Sphinx and Required Extensions**
+
+   Install Poetry, Sphinx and the necessary extensions (`sphinx-autobuild`, `sphinx-lint`).
+   A :file:`pyproject.toml` file is `provided <https://github.com/QubesOS/qubes-doc/blob/main/pyproject.toml>`__.
+
+   .. code-block:: console
+
+      $ curl -sSL https://install.python-poetry.org | python3 -
+      $ poetry config virtualenvs.in-project true  # optional
+      $ poetry install
+
+   .. hint::
+
+      If you would like to avoid prefixing commands with :program:`poetry run`, you can source the virtual environment with ``eval $(poetry env activate)`` on every new shell session. Note that when enabling ``virtualenvs.in-project``, you will find the virtual environment in the project root directory undre ``.venv``, same place the ``venv`` instructions uses.
+
+Linting the documentation with peotry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+1.  **Run Linting**
+
+   The `sphinx-lint` extension checks for common issues like missing references, invalid directives,
+   or formatting errors. Run the linting step using the :program:`sphinx-lint` command.
+
+   .. code-block:: console
+
+      $ poetry run sphinx-lint -i .venv .
+
+
+2.  **Run Link Checker**
+
+   The `sphinx-linkcheck` extension verifies the validity of all external and internal links.
+
+   The results will be written to the :file:`_build/linkcheck` directory with a detailed report in :file:`output.txt` or :file:`output.json` files
+   of all checked links and their status (e.g., OK, broken, timeout).
+
+   .. code-block:: console
+
+      $ poetry run sphinx-build -b linkcheck . _build/linkcheck
+
+
+Building the documentation with poetry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+-  **Build Documentation**
+
+   Use `sphinx-build` with the `-v` (verbose) flag to generate detailed output during the build process.
+   The build command specifies the source directory (current directory :file:`.`, :file:`qubes-doc` in this case), the output directory (:file:`_build/html`), and the builder (`html`).
+
+   .. code-block:: console
+
+      $ poetry run sphinx-build -v -b html . _build/html
+
+
+   The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`).
+   The build command will process all source files in the :file:`qubes-doc` directory, generate HTML output in the :file:`_build/html` directory, and print detailed build information to the console.
+   Pay attention to errors and warning in the output!
+   Please do not introduce any new warnings and fix all errors.
+
+
+-  **Use sphinx-autobuild for development**
+
+   For an active development workflow, you can use `sphinx-autobuild` to automatically rebuild the documentation
+   and refresh browser whenever a file is saved. `sphinx-autobuild` starts a web server at `http://127.0.0.1:8000`,
+   automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
+
+   .. code-block:: console
+
+      $ poetry run sphinx-autobuild . _build/html
 
 
 Editor
@@ -459,9 +500,9 @@ An editor you can use is `ReText <https://github.com/retext-project/retext>`__ b
 
 .. code-block:: console
 
-   $ python3 -m venv .venv
-   $ source .venv/bin/activate
    $ sudo apt install libxcb-cursor0
+   $ python3 -m venv .venv
+   $ . .venv/bin/activate
    $ pip3 install ReText
 
 
@@ -529,4 +570,3 @@ you are not willing or able to do so.)
    :alt: Highlights the pull request <number> and its build in the build list on RTD
 .. |pull-request-build| image:: /attachment/doc/doc-pr_11_view-pr-rtd.png
    :alt: Highlights the View Docs button in a specific build for a pull request <number> on RTD
-
