@@ -24,7 +24,7 @@ hosted on `GitHub <https://github.com/>`__.
 
 A few notes to consider:
 
-- Since Qubes is a security-oriented project, every change will be `reviewed <#security>`__ before it’s accepted. This allows us to maintain quality control and protect our users.
+- Since Qubes is a security-oriented project, every change will be :ref:`reviewed <developer/general/how-to-edit-the-website:security>` before it’s accepted. This allows us to maintain quality control and protect our users.
 - To give your contribution a better chance of being accepted, please follow our :doc:`website style guide </developer/general/website-style-guide>`.
 - We don’t want you to spend time and effort on a contribution that we can’t accept. If your contribution would take a lot of time, please :doc:`file an issue </introduction/issue-tracking>` for it first so that we can make sure we’re on the same page before significant works begins.
 - Finally, if you’ve written something that doesn’t belong in `qubesos.github.io <https://github.com/QubesOS/qubesos.github.io>`__ but would be beneficial to the Qubes community, please consider adding it to the :doc:`documentation </developer/general/how-to-edit-the-rst-documentation>` or the :ref:`external documentation <developer/general/rst-documentation-style-guide:core vs. external documentation>`.
@@ -212,7 +212,7 @@ Once a pull request passes review, the reviewer should add a signed comment stat
 Questions, problems, and improvements
 -------------------------------------
 
-If you have a question about something you read in the website or about how to edit the it, please post it on the `forum <https://forum.qubes-os.org/>`__ or send it to the appropriate :doc:`mailing list </introduction/support>`. If you see that something in the website should be fixed or improved, please `contribute <#how-to-submit-a-pull-request>`__ the change yourself. To report an issue with the wesbite, please follow our standard :doc:`issue reporting guidelines </introduction/issue-tracking>`. (If you report an issue with the website, you will likely be asked to submit a pull request for it, unless there is a clear indication in your report that you are not willing or able to do so.)
+If you have a question about something you read in the website or about how to edit the it, please post it on the `forum <https://forum.qubes-os.org/>`__ or send it to the appropriate :doc:`mailing list </introduction/support>`. If you see that something in the website should be fixed or improved, please :ref:`contribute <developer/general/how-to-edit-the-website:how to submit a pull request>` the change yourself. To report an issue with the wesbite, please follow our standard :doc:`issue reporting guidelines </introduction/issue-tracking>`. (If you report an issue with the website, you will likely be asked to submit a pull request for it, unless there is a clear indication in your report that you are not willing or able to do so.)
 
 .. |news-section| image:: /attachment/doc/website_news_section.png
    :alt: Depicts the News section of the Qubes OS website

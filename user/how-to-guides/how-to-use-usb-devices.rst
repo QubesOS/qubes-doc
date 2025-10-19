@@ -87,6 +87,8 @@ Creating and using a USB qube
 
 If you’ve selected to install a usb-qube during system installation, everything is already set up for you in ``sys-usb``. If you’ve later decided to create a usb-qube, please follow :doc:`this guide </user/advanced-topics/usb-qubes>`.
 
+.. _installation-of-qubes-usb-proxy:
+
 Installation of ``qubes-usb-proxy``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
