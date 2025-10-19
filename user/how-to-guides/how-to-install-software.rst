@@ -56,7 +56,7 @@ If you are using another installation method fetching remote resources, you migh
 Using direct networking
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. Warning:: This method gives your template direct network access, which is `risky <#why-dont-templates-have-normal-network-access>`__. This method is **not** recommended for trusted templates. Moreover, depending on how you install this software, it may not get updated automatically when you :doc:`update Qubes normally </user/how-to-guides/how-to-update>`, which means you may have to update it manually yourself.
+.. Warning:: This method gives your template direct network access, which is :ref:`risky <user/how-to-guides/how-to-install-software:why don't templates have normal network access?>`. This method is **not** recommended for trusted templates. Moreover, depending on how you install this software, it may not get updated automatically when you :doc:`update Qubes normally </user/how-to-guides/how-to-update>`, which means you may have to update it manually yourself.
 
 This method assumes that you are trying to follow instructions to install some piece of software in a normal operating system, except *that* operating system is running as a template in Qubes OS.
 
@@ -112,7 +112,7 @@ Please see :doc:`/user/how-to-guides/how-to-update`.
 Why don't templates have normal network access?
 -----------------------------------------------
 
-In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an :ref:`updates-proxy` which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for :ref:`installing-software-from-default-repositories` and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see `installing software from other sources <#installing-software-from-other-sources>`__.
+In order to protect you from performing risky activities in templates, they do not have normal network access by default. Instead, templates use an :ref:`updates-proxy` which allows you to install and update software using the distribution’s package manager over the proxy connection. **The updates proxy is already set up to work automatically out-of-the-box and requires no special action from you.** Most users should simply follow the normal instructions for :ref:`installing-software-from-default-repositories` and :doc:`updating </user/how-to-guides/how-to-update>` software. If your software is not available in the default repositories, see :ref:`user/how-to-guides/how-to-install-software:installing software from other sources`.
 
 Advanced
 --------

@@ -42,7 +42,7 @@ Beware that when you attach a whole block device, partitions can be identified b
 
 If several different block-devices are attached to a single VM, the last letter of the device node name is advanced through the alphabet, so after ``xvdi`` the next device will be named ``xvdj``, the next ``xvdk``, and so on.
 
-To specify this device node name, you need to use the command line tool and its `frontend-dev-option <#frontend-dev>`__.
+To specify this device node name, you need to use the command line tool and its :ref:`frontend-dev-option <user/how-to-guides/how-to-use-block-storage-devices:frontend-dev>`.
 
 Command Line Tool Guide
 -----------------------

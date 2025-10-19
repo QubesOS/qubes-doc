@@ -60,7 +60,7 @@ Creating a backup
 
 5. When you are ready, click **Next**. Qubes will proceed to create your backup. Once the progress bar has completed, you may click **Finish**.
 
-6. Test restore your backup. Follow the `restore procedure <#restoring-from-a-backup>`__, selecting **Verify backup integrity, do not restore the data**. This step is optional but strongly recommended. A backup is useless if you can’t restore your data from it, and you can’t be sure that your backup is good until you try to restore.
+6. Test restore your backup. Follow the :ref:`restore procedure <user/how-to-guides/how-to-back-up-restore-and-migrate:restoring from a backup>`, selecting **Verify backup integrity, do not restore the data**. This step is optional but strongly recommended. A backup is useless if you can’t restore your data from it, and you can’t be sure that your backup is good until you try to restore.
 
 
 

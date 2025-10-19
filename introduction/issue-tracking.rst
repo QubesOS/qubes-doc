@@ -35,13 +35,13 @@ I still want to open an issue.
 
 Great! Thank you for taking the time and effort to help improve Qubes! To ensure the process is efficient and productive for everyone involved, please follow these steps:
 
-1. Carefully read our issue tracking `guidelines <#guidelines>`__. If your issue would violate any of the guidelines, **stop**. Please do not submit it.
+1. Carefully read our issue tracking :ref:`introduction/issue-tracking:guidelines`. If your issue would violate any of the guidelines, **stop**. Please do not submit it.
 
-2. `Search through the existing issues <#search-tips>`__, both open and closed, to see if your issue already exists. If it does, **stop**. :ref:`Do not open a duplicate. <introduction/issue-tracking:new issues should not be duplicates of existing issues>` Instead, comment on the existing issue.
+2. :ref:`Search through the existing issues <introduction/issue-tracking:search tips>`, both open and closed, to see if your issue already exists. If it does, **stop**. :ref:`Do not open a duplicate. <introduction/issue-tracking:new issues should not be duplicates of existing issues>` Instead, comment on the existing issue.
 
 3. Go `here <https://github.com/QubesOS/qubes-issues/issues/new/choose>`__.
 
-4. Select the `type <#types>`__ of issue you want to open.
+4. Select the :ref:`type <introduction/issue-tracking:types>` of issue you want to open.
 
 5. Enter a descriptive title.
 
@@ -119,7 +119,7 @@ Meta-issues
 ^^^^^^^^^^^
 
 
-A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of `sub-issues <https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues>`__, usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use `projects <#projects>`__ for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
+A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of `sub-issues <https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues>`__, usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use :ref:`introduction/issue-tracking:projects` for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
 
 Meta-issues should have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
 
@@ -149,7 +149,7 @@ The issue tracker is not a discussion forum
 
 The issue tracker is a tool to help the developers be more productive and efficient in their work. It is not a place for discussion. If you wish to discuss something in the issue tracker, please do so on the forum or mailing lists (see :doc:`Help, Support, Mailing Lists, and Forum </introduction/support>`). You can simply link to the relevant issue in your discussion post.
 
-This guideline is important for keeping issues focused on *actionable information*, which helps the developers to stay focused on their work. When developers come back to an issue to work on it, we do not want them to have to sift through a large number of unnecessary comments before they can get started. In many cases, an issue that gets “too big” essentially becomes more trouble than it’s worth, and no developer will touch it (also see `every issue must be about a single, actionable thing <#every-issue-must-be-about-a-single-actionable-thing>`__). In these cases, we sometimes have to close the issue and open a new one. This is a waste of energy for everyone involved, so we ask that everyone help to avoid repeating this pattern.
+This guideline is important for keeping issues focused on *actionable information*, which helps the developers to stay focused on their work. When developers come back to an issue to work on it, we do not want them to have to sift through a large number of unnecessary comments before they can get started. In many cases, an issue that gets “too big” essentially becomes more trouble than it’s worth, and no developer will touch it (also see :ref:`introduction/issue-tracking:every issue must be about a single, actionable thing`). In these cases, we sometimes have to close the issue and open a new one. This is a waste of energy for everyone involved, so we ask that everyone help to avoid repeating this pattern.
 
 Do not submit questions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -171,7 +171,7 @@ Every issue must be about a single, actionable thing
 
 If your issue is not actionable, please see :doc:`Help, Support, Mailing Lists, and Forum </introduction/support>` for the appropriate place to post it. If your issue would be about more than one thing, file them as separate issues instead. This means we should generally not try to use a single issue as a “meta” or “epic” issue that exists only to group, contain, or track other issues. Instead, when there is a need to group multiple related issues together, use `projects <https://github.com/QubesOS/qubes-issues/projects>`__.
 
-This guideline is extremely important for making the issue tracker a useful tool for the developers. When an issue is too big and composite, it becomes intractable and drastically increases the likelihood that nothing will get done. Such issues also tend to encourage an excessive amount of general discussion that is simply not appropriate for a technical issue tracker (see `the issue tracker is not a discussion forum <#the-issue-tracker-is-not-a-discussion-forum>`__).
+This guideline is extremely important for making the issue tracker a useful tool for the developers. When an issue is too big and composite, it becomes intractable and drastically increases the likelihood that nothing will get done. Such issues also tend to encourage an excessive amount of general discussion that is simply not appropriate for a technical issue tracker (see :ref:`introduction/issue-tracking:the issue tracker is not a discussion forum`).
 
 Every issue must be of a single type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -206,7 +206,7 @@ Issues and comments must be written in English
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a `collapsible section <#use-collapsible-sections-for-long-nonessential-content>`__.
+If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a :ref:`collapsible section <introduction/issue-tracking:use collapsible sections for long, nonessential content>`.
 
 Use collapsible sections for long, nonessential content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -249,7 +249,7 @@ Being closed as ``completed`` means that the issue has been fixed (in the case o
 
 Being closed as ``not planned`` means that the issue will *not* be fixed (in the case of bugs) or done (in the case of enhancements and tasks). When an issue is closed as ``not planned``, we add a **resolution** label starting with ``R:`` that specifies the reason for the closure, such as ``R: duplicate`` or ``R: cannot reproduce``. Each of these labels has a description that briefly explains the label. We also leave a comment containing a longer explanation for why the issue is being closed along with general information.
 
-While issues that are closed as ``not planned`` get a more specific resolution label, issues that are closed as ``completed`` do not always get one, since the linked PRs, commits, automated messages, and the ``completed`` reason itself are often sufficient to convey all relevant information. For information about using closure reasons in searches, see `Search tips <#search-tips>`__.
+While issues that are closed as ``not planned`` get a more specific resolution label, issues that are closed as ``completed`` do not always get one, since the linked PRs, commits, automated messages, and the ``completed`` reason itself are often sufficient to convey all relevant information. For information about using closure reasons in searches, see :ref:`introduction/issue-tracking:search tips`.
 
 Backports
 ^^^^^^^^^
