@@ -15,7 +15,9 @@ In default Qubes OS installation, you can use the default XFCE screenshot tool (
 .. figure:: /attachment/doc/howto-screenshot-1.png
    :alt: image of Qubes Menu with the page for Other tools open and the Screenshot tool highlighted
    :align: center
+
 |
+
 .. figure:: /attachment/doc/howto-screenshot-2.png
    :alt: image of the default XFCE screenshot tool
    :align: center
