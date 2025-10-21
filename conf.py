@@ -158,3 +158,7 @@ rst_epilog = """
 .. |debian-codename| replace:: bookworm
 .. |debian-version| replace:: 12
 """
+
+# -- -- Options for the nitpicky mode ----------------------------------------
+
+nitpicky = True
