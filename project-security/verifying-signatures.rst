@@ -647,7 +647,7 @@ Why am I getting "CRC error; […] no signature found […]"?
 You’re not verifying against the correct :ref:`detached PGP signature file <project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos>`, or the signature file has been modified. Try downloading it again or from a different source.
 
 Do I have to verify both the :ref:`detached PGP signature file <project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos>` and the :ref:`cryptographic hash values <project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos>`?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 No, either method is sufficient by itself, but you can do both if you like.
