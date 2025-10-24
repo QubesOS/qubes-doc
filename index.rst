@@ -101,7 +101,7 @@ Core documentation for Qubes users.
    user/templates/debian/debian-upgrade
    user/templates/minimal-templates
    user/templates/xfce-templates
-   user/templates/windows/windows
+   user/templates/windows/index
 
 
 .. _troubleshooting:
