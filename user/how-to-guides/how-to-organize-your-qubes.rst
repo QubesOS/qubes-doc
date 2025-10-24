@@ -102,7 +102,7 @@ After learning about all this, Carol decided that it was ultimately up to her to
 
 - **A qube for credit monitoring, credit reports, and credit history services.** Carol has worked hard to build up a good credit score, and she’s concerned about identity theft, so she has one qube dedicated to managing her free credit monitoring services and downloading her free annual credit reports.
 
-- **Two qubes for taxes.** Carol has a :doc:`Windows qube </user/templates/windows/windows>` for running her Windows-only tax software. She also has an offline vault where she stores all of her tax-related forms and documents, organized by year.
+- **Two qubes for taxes.** Carol has a :doc:`Windows qube </user/templates/windows/index>` for running her Windows-only tax software. She also has an offline vault where she stores all of her tax-related forms and documents, organized by year.
 
 - **A qube for financial planning and tracking.** Carol loves spreadsheets, so this offline qube is where she maintains a master spreadsheet to track all of her investments and her savings rate. She also keeps her budgeting spreadsheet, insurance spreadsheet, and written investment policy statement here. This qube is based on a template with some additional productivity software, like LibreOffice and Gnumeric (so that Carol can run her own Monte Carlo simulations).
 

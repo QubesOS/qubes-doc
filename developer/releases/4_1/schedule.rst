@@ -3,7 +3,7 @@ Qubes R4.1 release schedule
 ===========================
 
 
-The table below is based on our :ref:`release schedule policy <developer/releases/version-scheme:release schedule>`.
+The table below is based on our :ref:`release-schedule-policy`.
 
 .. list-table::
    :widths: 10 10

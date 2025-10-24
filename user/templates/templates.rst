@@ -70,7 +70,7 @@ By installing these templates, you are trusting not only the Qubes developers an
 Windows
 -------
 
-Windows templates are constructed differently from Linux-based templates as Windows is a closed source system that can be modified only after installing. So it is not possible to provide preconfigured Windows templates for Qubes. The process of installing a Windows qube and connecting it to the Qubes environment via installing Qubes Windows Tools (QWT) is described in several chapters in :doc:`Windows qubes </user/templates/windows/windows>`.
+Windows templates are constructed differently from Linux-based templates as Windows is a closed source system that can be modified only after installing. So it is not possible to provide preconfigured Windows templates for Qubes. The process of installing a Windows qube and connecting it to the Qubes environment via installing Qubes Windows Tools (QWT) is described in several chapters in :doc:`Windows qubes </user/templates/windows/index>`.
 
 Installing
 ----------
