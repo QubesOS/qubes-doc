@@ -155,4 +155,8 @@ gettext_uuid = True
 rst_epilog = """
 .. |debian-codename| replace:: bookworm
 .. |debian-version| replace:: 12
+.. |qubes-logo-icon| image:: /attachment/icons/128x128/apps/qubes-logo-icon.png
+   :height: 1em
+   :class: no-scaled-link
+   :alt: Qubes logo icon
 """
