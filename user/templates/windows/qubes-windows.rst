@@ -261,14 +261,14 @@ Start Windows VM
 
 
 
-    - For version 24H2, the following actions allow you to install Windows 11 with a local account, if the VM is defined, at least temporarily, without a netVM:
+    - For versions 24H2 and 25H2, the following actions allow you to install Windows 11 with a local account, if the VM is defined, at least temporarily, without a netVM:
 
       - After some reboots, the VM will show a window allowing the selection of an installation country. In this window, type Shift-F10 to open a console window.
 
       - In this window, type ``oobe\bypassnro``. The VM will then reboot and return to the country selection window. The network connection window will now show an option “I don’t have internet”, allowing you to define a local account.
 
 
-    - In new preview builds of Windows (26120 and beyond, and eventually the next release version), the ``oobe\bypassnro`` command has been erased and no longer works. Instead, there’s a new command called start ``ms-chx:localonly`` that does something similar. In this case, proceed as follows:
+    - In some preview builds of Windows (26120 and beyond, and possibly a release version after 25H2), the ``oobe\bypassnro`` command has been erased and no longer works. Instead, there’s a new command called start ``ms-chx:localonly`` that does something similar. In this case, proceed as follows:
 
       - Follow the Windows 11 install process until you get to the Sign in screen. Here, type Shift-F10 to open a console window.
 
