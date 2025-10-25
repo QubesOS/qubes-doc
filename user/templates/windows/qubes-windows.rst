@@ -272,7 +272,7 @@ Start Windows VM
 
       - Follow the Windows 11 install process until you get to the Sign in screen. Here, type Shift-F10 to open a console window.
 
-      - Enter start ``ms-cxh:localonly`` at the command prompt.
+      - Enter ``start ms-cxh:localonly`` at the command prompt.
 
       - A “Create a user for this PC” dialog window appears, allowing you to define a local account.
 
