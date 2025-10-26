@@ -87,14 +87,29 @@ Command-line interface
 
 Advanced users may wish to perform updates via the command-line interface. There are two ways to do this:
 
-- If you are using Salt, one can use the following two Salt states.
+1. Use the following two Salt states:
 
-- :ref:`update.qubes-dom0 <user/advanced-topics/salt:\`\`update.qubes-dom0\`\`>`
+  - :ref:`update.qubes-dom0 <user/advanced-topics/salt:\`\`update.qubes-dom0\`\`>`
 
-- :ref:`update.qubes-vm <user/advanced-topics/salt:\`\`update.qubes-vm\`\`>`
+  - :ref:`update.qubes-vm <user/advanced-topics/salt:\`\`update.qubes-vm\`\`>`
 
-- Alternatively, use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs.
+2. Use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs:
 
+  - Execute ``sudo qubes-dom0-update`` to check for updates and apply them or add arguments to tweak the behavior. Refer to:
+
+    - ``qubes-dom0-update --help``
+
+    - ``man qubes-dom0-update`` (if you have documentation installed)
+
+    - `manual on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version)
+
+  - Execute ``qubes-vm-update -T`` to update all templates with available updates or use a different set of arguments. Refer to:
+
+    - ``qubes-vm-update --help``
+
+    - ``man qubes-vm-update`` (if you have documentation installed)
+
+    - `manual on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-vm-update.rst>`__ (make sure to read the appropriate version)
 
 
 Using either of these methods has the same effect as updating via the Qubes Update tool.
