@@ -50,6 +50,8 @@ redirects = {
         "https://www.qubes-os.org/downloads/",
 
     # user/templates/windows URLs
+    "user/templates/windows/windows":
+        "/user/templates/windows/",
     "user/templates/windows/windows-qubes-4-1":
         "qubes-windows.html",
     "user/templates/windows/windows-qubes-4-0":
@@ -156,3 +158,7 @@ rst_epilog = """
 .. |debian-codename| replace:: bookworm
 .. |debian-version| replace:: 12
 """
+
+# -- -- Options for the nitpicky mode ----------------------------------------
+
+nitpicky = True
