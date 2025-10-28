@@ -289,7 +289,7 @@ Known issues
   `#8701 <https://github.com/QubesOS/qubes-issues/issues/8701>`__.)
 
 Also see the `full list of open bug reports affecting Qubes
-4.3 <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.3+label%3A%22T%3A+bug%22+is%3Aopen>`__.
+4.3 <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20label%3Aaffects-4.3%20is%3Aopen%20type%3ABug>`__.
 
 We strongly recommend :doc:`updating Qubes OS </user/how-to-guides/how-to-update>`
 immediately after installation in order to apply all available bug fixes.
