@@ -95,7 +95,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
 2. Use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs:
 
-  - To check for dom0 updates and apply them, execute
+  - To check for dom0 updates and apply them, in a dom0 terminal: 
 
     .. code:: console
 
@@ -103,7 +103,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
     Or add arguments to tweak the default behaviour. Refer to ``qubes-dom0-update --help``, manpage (if you have them installed) or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version).
 
-  - To update all updatable templates, execute
+  - To update all updatable templates, in a dom0 terminal:
 
     .. code:: console
 
