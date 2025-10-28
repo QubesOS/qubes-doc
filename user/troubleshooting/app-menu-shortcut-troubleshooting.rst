@@ -148,7 +148,7 @@ What about applications in disposables?
 ---------------------------------------
 
 
-See :ref:`Adding programs to the app menu in Disposable customization <user/advanced-topics/disposable-customization:adding programs to the app menu>`.
+See :ref:`Add programs to the app menu in Disposable customization <user/advanced-topics/disposable-customization:add programs to the app menu>`.
 
 What if a removed application is still in the app menu?
 -------------------------------------------------------
