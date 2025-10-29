@@ -101,7 +101,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
        # qubes-dom0-update
 
-    Or add arguments to tweak the default behaviour. Refer to ``qubes-dom0-update --help``, manpage (if you have them installed) or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version).
+    Or add arguments to tweak the default behaviour. Refer to ``qubes-dom0-update --help``, ``man qubes-dom0-update`` or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version).
 
   - To update all updatable templates, in a dom0 terminal:
 
@@ -109,7 +109,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
        $ qubes-vm-update -T
 
-    Or use a different set of arguments. Refer to ``qubes-vm-update --help``, manpage (if you have them installed) or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-vm-update.rst>`__ (make sure to read the appropriate version).
+    Or use a different set of arguments. Refer to ``qubes-vm-update --help``, ``man qubes-vm-update`` or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-vm-update.rst>`__ (make sure to read the appropriate version).
 
 Using either of these methods has the same effect as updating via the Qubes Update tool.
 
