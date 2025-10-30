@@ -121,7 +121,7 @@ It is the responsibility of each distribution to clearly notify its users in adv
      - Debian
    * - Release 4.2
      - 41, 42
-     - 12
+     - 12, 13
    * - Release 4.3
      - 41, 42
      - 12, 13
