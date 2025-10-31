@@ -322,9 +322,9 @@ Creating a Python environment with venv
       $ git clone https://github.com/QubesOS/qubes-doc.git
       $ cd qubes-doc
 
-2.  **Install Sphinx and Required Extensions**
+2.  **Create a virtual environment**
 
-   Enter the virtual environment.
+   Create and enter the virtual environment.
 
    .. code-block:: console
 
