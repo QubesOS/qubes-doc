@@ -3,7 +3,7 @@ Qubes R3.2 release schedule
 ===========================
 
 
-This schedule is based on :ref:`Version Scheme <developer/releases/version-scheme:release schedule>`.
+This schedule is based on our :ref:`release-schedule-policy`.
 
 .. list-table::
    :widths: 38 38
