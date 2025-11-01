@@ -47,7 +47,7 @@ New features since 3.2
 
 
 
-You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.0%22+label%3Arelease-notes+is%3Aclosed>`__
+You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%204.0%22%20is%3Aclosed%20label%3A%22release%20notes%22>`__
 
 Security Notes
 --------------
