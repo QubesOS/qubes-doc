@@ -29,7 +29,7 @@ New features since 3.0
 
 
 
-You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.1%22+label%3Arelease-notes+is%3Aclosed>`__
+You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%203.1%22%20label%3A%22release%20notes%22%20is%3Aclosed>`__
 
 Known issues
 ------------
@@ -43,7 +43,7 @@ Known issues
 
 - USB mouse (in the case of USB VM) does not work at first system startup (just after completing firstboot). Workaround: restart the system.
 
-- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+3.1%22+label%3Abug>`__
+- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20milestone%3A%22Release%203.1%22%20type%3ABug>`__
 
 
 

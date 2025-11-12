@@ -25,7 +25,7 @@ New features since 3.1
 
 
 
-You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+3.2%22+label%3Arelease-notes+is%3Aclosed>`__
+You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%203.2%22%20label%3A%22release%20notes%22%20is%3Aclosed>`__
 
 Known issues
 ------------
@@ -37,7 +37,7 @@ Known issues
 
 - Some icons in the Qubes Manager application might not be drawn correctly when using the Xfce4 environment in Dom0. If this bothers you, please use the KDE environment instead.
 
-- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+3.2%22+label%3Abug>`__
+- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20milestone%3A%22Release%203.2%22%20type%3ABug>`__
 
 
 
