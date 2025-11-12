@@ -371,7 +371,7 @@ it easy to set the policy using current mechanism.
      - ``True|False``
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
-   * - ``admin.vm.deviceclass.List``
+   * - ``admin.deviceclass.List``
      - ``dom0``
      - `-`
      - `-`
