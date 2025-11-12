@@ -89,7 +89,7 @@ New features and improvements since Qubes 4.0
 
 
 
-For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.1%22+label%3A%22release+notes%22+is%3Aclosed>`__.
+For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%204.1%22%20label%3A%22release%20notes%22%20is%3Aclosed>`__.
 
 Known issues
 ------------
