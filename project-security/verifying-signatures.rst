@@ -240,7 +240,7 @@ Before we proceed, you must first complete the following prerequisite steps:
 
 After you have completed these two prerequisite steps, the next step is to obtain the correct RSK. The filename pattern for RSKs is ``qubes-release-X-signing-key.asc``, where ``X`` is either a major or minor Qubes release number, such as ``4`` or ``4.2``. There are several ways to get the RSK for your Qubes release.
 
-- If you have access to an existing Qubes installation, the release keys are available in dom0 in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. These can be :ref:`copied <user/how-to-guides/how-to-copy-from-dom0:copying *from* dom0>` into other qubes for further use. In addition, every other qube contains the release key corresponding to that installation’s release in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. If you wish to use one of these keys, make sure to import it into your keyring, e.g.:
+- If you have access to an existing Qubes installation, the release keys are available in dom0 in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. These can be :ref:`copied <user/how-to-guides/how-to-copy-from-dom0:copying *from* dom0>` into other qubes for further use. In addition, the official Fedora templates (and qubes based on them) contain the release key corresponding to that installation’s release in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. If you wish to use one of these keys, make sure to import it into your keyring, e.g.:
 
   .. code:: console
 
