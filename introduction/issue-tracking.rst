@@ -129,7 +129,7 @@ Search tips
 -----------
 
 
-- `Search both open and closed issues. <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue>`__ For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view `all bug reports, both open and closed, with the most recently updated sorted to the top <https://github.com/QubesOS/qubes-issues/issues?q=label%3A%22T%3A+bug%22+sort%3Aupdated-desc>`__.
+- `Search both open and closed issues. <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue>`__ For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view `all bug reports, both open and closed, with the most recently updated sorted to the top <https://github.com/QubesOS/qubes-issues/issues?q=sort%3Aupdated-desc%20type%3ABug>`__.
 
 - `Search with labels. <https://github.com/QubesOS/qubes-issues/labels>`__ For example, you can search issues by priority (`blocker <https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker>`__, `critical <https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical>`__, `major <https://github.com/QubesOS/qubes-issues/labels/P%3A%20major>`__, etc.) and by component (`core <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22>`__, `manager/widget <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+>`__, `Xen <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22>`__, etc.).
 
