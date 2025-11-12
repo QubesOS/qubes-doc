@@ -242,7 +242,7 @@ Consolidate troubleshooting guides
 
 - Review existing :ref:`troubleshooting guides <troubleshooting>`
 
-- Review `issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22>`__ containing common troubleshooting steps (checking specific logs etc)
+- Review `issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20doc%22>`__ containing common troubleshooting steps (checking specific logs etc)
 
 - Propose updated, consolidated troubleshooting documentation, including its layout
 

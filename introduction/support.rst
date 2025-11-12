@@ -271,7 +271,7 @@ Examples of topics or questions suitable for this list include:
 
 - FOSS governance discussions
 
-- Most Github issues tagged `business <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3Abusiness>`__ or `project management <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22project+management%22>`__
+- Most Github issues tagged `business <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3Abusiness>`__ or `project management <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22project%20management%22>`__
 
 
 
