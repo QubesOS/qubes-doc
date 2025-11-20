@@ -32,17 +32,17 @@ Official
 
 These are the official Qubes OS Project templates. We build and release updates for these templates. We guarantee that the binary updates are compiled from exactly the same source code as we publish.
 
-- :doc:`Fedora </user/templates/fedora/fedora>` (default)
+- :doc:`Fedora Xfce </user/templates/fedora/fedora>` (default)
+
+- :doc:`Fedora GNOME </user/templates/fedora/fedora>`
 
 - :doc:`Fedora Minimal </user/templates/minimal-templates>`
 
-- :doc:`Fedora Xfce </user/templates/xfce-templates>`
+- :doc:`Debian Xfce </user/templates/debian/debian>` (default)
 
-- :doc:`Debian </user/templates/debian/debian>`
+- :doc:`Debian GNOME </user/templates/debian/debian>`
 
-- :doc:`Debian Minimal </user/templates/minimal-templates>`
-
-- :doc:`Debian Xfce </user/templates/xfce-templates>`
+- :doc:`Debian Minimal </user/templates/minimal-templates>
 
 You can see the current supported versions: :ref:`user/downloading-installing-upgrading/supported-releases:templates`.
 
