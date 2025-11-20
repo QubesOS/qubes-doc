@@ -47,7 +47,7 @@ Restoring a DisposableVM from the savefile
 ------------------------------------------
 
 
-Normally, disposable VM is created when qubes rpc request with target *$dispvm* is received. Then, as a part of rpc connection setup, the ``qfile-daemon-dvm`` program is executed; it executes ``/usr/lib/qubes/qubes_restore`` program. It is crucial that this program executes quickly, to make DisposableVM creation overhead bearable for the user. Its main steps are:
+Normally, disposable VM is created when qubes rpc request with target *@dispvm* is received. Then, as a part of rpc connection setup, the ``qfile-daemon-dvm`` program is executed; it executes ``/usr/lib/qubes/qubes_restore`` program. It is crucial that this program executes quickly, to make DisposableVM creation overhead bearable for the user. Its main steps are:
 
 1. modify the savefile so that the VM name, VM UUID, MAC address and IP address are unique
 
