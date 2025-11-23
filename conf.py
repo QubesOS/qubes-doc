@@ -153,8 +153,8 @@ gettext_uuid = True
 
 # Define a block of reusable reStructuredText (reST) snippets, warnings etc. that Sphinx automatically appends to every source file before it is parsed
 rst_epilog = """
-.. |debian-codename| replace:: bookworm
-.. |debian-version| replace:: 12
+.. |debian-codename| replace:: trixie
+.. |debian-version| replace:: 13
 .. |qubes-logo-icon| image:: /attachment/icons/128x128/apps/qubes-logo-icon.png
    :height: 1em
    :class: no-scaled-link

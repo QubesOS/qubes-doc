@@ -3,7 +3,7 @@ Debian templates
 ================
 
 
-The Debian :term:`template` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian |debian-version| (“|debian-codename|”). It is available in 3 versions - ``debian-12-xfce``, the default Debian template with the Xfce desktop environment; ``debian-12``, an alternative Debian template with the GNOME desktop environment; and ``debian-12-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
+The Debian :term:`template` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian |debian-version| (“|debian-codename|”). It is available in 3 versions - ``debian-13-xfce``, the default Debian template with the Xfce desktop environment; ``debian-13``, an alternative Debian template with the GNOME desktop environment; and ``debian-13-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
 
 Installing
 ----------
