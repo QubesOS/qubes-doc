@@ -18,8 +18,8 @@ Major features and improvements since Qubes 4.2
 - Default Debian template upgraded to Debian 13 (Debian TemplateVMs and
   StandaloneVMs with version lower than 12 are not supported).
 
-- Default Whonix templates upgraded to Whonix 17.4.3 (Whonix TemplateVMs
-  and StandaloneVMs with version lower than 17 are not supported).
+- Default Whonix templates upgraded to Whonix 18 (Whonix TemplateVMs
+  and StandaloneVMs with version lower than 18 are not supported).
 
 - Preloaded disposables
   (`#1512 <https://github.com/QubesOS/qubes-issues/issues/1512>`__,
