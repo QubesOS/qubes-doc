@@ -28,8 +28,8 @@ In case of template-based qubes, the private storage (the /home directory and us
 .. _increasing-the-size-of-disk-images-1:
 
 
-Increasing the size of Disk Images
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Increasing the size of Disk Images with :program:`qvm-volume`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 

@@ -162,3 +162,7 @@ rst_epilog = """
    :class: no-scaled-link
    :alt: Qubes logo icon
 """
+
+# -- -- Options for the nitpicky mode ----------------------------------------
+
+nitpicky = True
