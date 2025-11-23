@@ -17,7 +17,7 @@ These qubes, which are implemented as :term:`virtual machines (VMs) <vm>`, have 
 
 - **Purposes:** with a predefined set of one or many isolated applications, for personal or professional projects, to manage the :doc:`network stack </developer/system/networking>`, :doc:`the firewall </user/security-in-qubes/firewall>`, or to fulfill other user-defined purposes.
 
-- **Natures:** :doc:`full-fledged </user/advanced-topics/standalones-and-hvms>` or :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems, such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and :doc:`Windows </user/templates/windows/windows>`.
+- **Natures:** :doc:`full-fledged </user/advanced-topics/standalones-and-hvms>` or :doc:`stripped-down </introduction/getting-started/>` virtual machines based on popular operating systems, such as :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian>`, and :doc:`Windows </user/templates/windows/index>`.
 
 - **Levels of trust:** from complete to non-existent. All windows are displayed in a unified desktop environment with :doc:`unforgeable colored window borders </introduction/getting-started>` so that different security levels are easily identifiable.
 
@@ -38,7 +38,7 @@ Template system
    Use :term:`app qubes <app qube>` to share a root file system without sacrificing security using the innovative :doc:`Template system </user/templates/templates>`.
 
 Multiple operating systems
-   Use multiple operating systems at the same time, including :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and :doc:`Windows </user/templates/windows/windows>`
+   Use multiple operating systems at the same time, including :doc:`Fedora </user/templates/fedora/fedora>`, :doc:`Debian </user/templates/debian/debian/>`, and :doc:`Windows </user/templates/windows/index>`
 
 :term:`Disposables <disposable>`
    Create :doc:`disposables </user/how-to-guides/how-to-use-disposables>` on the fly that self-destruct when shut down.
