@@ -241,19 +241,23 @@ Both the old and new names work. The defaults listed above are applied if the se
 Technical details
 ^^^^^^^^^^^^^^^^^
 
-The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in dom0: ``/etc/qubes-rpc/policy/qubes.UpdatesProxy``. By default this is set to sys-net and/or sys-whonix, depending on firstboot choices. This new design allows for templates to be updated even when they are not connected to any NetVM.
+The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in dom0: ``/etc/qubes/policy.d/90-default.policy``. By default this is set to sys-net and/or sys-whonix, depending on firstboot choices. This new design allows for templates to be updated even when they are not connected to any NetVM.
 
-Example policy file in R4.1 (with Whonix installed, but not set as default UpdateVM for all templates):
+Example policy file in R4.2 (with Whonix installed, but not set as default UpdateVM for all templates):
 
 .. code:: text
 
-      # any VM with tag `whonix-updatevm` should use `sys-whonix`; this tag is added to `whonix-gw` and `whonix-ws` during installation and is preserved during template clone
-      @tag:whonix-updatevm @default allow,target=sys-whonix
-      @tag:whonix-updatevm @anyvm deny
+      # HTTP proxy for downloading updates
+      # Upgrade all TemplateVMs through sys-whonix.
+      #qubes.UpdatesProxy     *    @type:TemplateVM        @default    allow target=sys-whonix
+      # Upgrade Whonix TemplateVMs through sys-whonix.
+      qubes.UpdatesProxy      *   @tag:whonix-updatevm    @default    allow target=sys-whonix
+      # Deny Whonix TemplateVMs using UpdatesProxy of any other VM.
+      qubes.UpdatesProxy      *   @tag:whonix-updatevm    @anyvm      deny
+      # Default rule for all TemplateVMs - direct the connection to sys-net
+      qubes.UpdatesProxy      *   @type:TemplateVM        @default    allow target=sys-net
+      qubes.UpdatesProxy      *   @anyvm                  @anyvm      deny
 
-      # other templates use sys-net
-      @type:TemplateVM @default allow,target=sys-net
-      @anyvm @anyvm deny
 
 Installing Snap Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^
