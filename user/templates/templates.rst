@@ -44,6 +44,8 @@ These are the official Qubes OS Project templates. We build and release updates 
 
 - :doc:`Debian Minimal </user/templates/minimal-templates>
 
+- :doc:`Debian Xfce </user/templates/xfce-templates>`
+
 You can see the current supported versions: :ref:`user/downloading-installing-upgrading/supported-releases:templates`.
 
 Community
