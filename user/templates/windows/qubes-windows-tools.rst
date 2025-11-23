@@ -42,8 +42,7 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 	Due to the security problems described in `QSB-091 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-091-2023.txt>`__, installation of Qubes Windows Tools is currently blocked. Instead, a text file containing a warning is displayed. Currently, it is difficult to estimate the severity of the risks posed by the sources of the Xen drivers used in QWT possibly being compromised, so it was decided not to offer direct QWT installation until this problem could be treated properly. While Windows qubes are, in Qubes, generally not regarded as being very trustworthy, a possible compromise of the Xen drivers used in Qubes Windows Tools might create a risk for Xen or `dom0` and thus be dangerous for Qubes itself. This risk may be small or even non-existent, as stated in QSB-091. If you **understand** this risk and are **willing to take it**, you can still install the previous version of Qubes Windows Tools **for Windows 7**, which will work for Windows 7, but not for Windows 10 or 11.
 
-	**For Windows 10 or 11**, currently, there is no official, final QWT version available, but for Qubes R4.3, a preliminary testing version has been developed and can be used in Qubes R4.2. This version is not subject to the security problems stated above, but it should be noted that it is not yet in its final, debugged state and so may still show some errors. The new Qubes graphics driver is not yet fully compatible with Windows and should not be installed, as it may cause the Windows installation to break and render it unusable. If the driver is installed, despite these risks, and is working at least partially, switching to seamless mode and staying there will probably work quite satisfactorily, but switching to and from non-seamless mode is likely to cause trouble, as well as changing the screen resolution will do there. So, usage of the new Qubes graphics driver should be avoided unless a casual reboot of the Windows VM is acceptable, even if it is partially working. In Windows 11 25H2, using the Qubes graphics driver has practically no effect amd will not provide seamless mode unless the ``qvm-features`` parameter ``gui`` is set to ``1``.
-
+	**For Windows 10 or 11**, currently, there is no official, final QWT version available for Qubes R4.2, but for Qubes R4.3, a version has been developed and can be used in Qubes R4.2. This version is not subject to the security problems stated above, but it should be noted that its graphics agent is still regarded as experimental and so may show some errors. The new Qubes graphics driver used there is not yet fully compatible with Windows and may cause weird effects. So, in Windows 11 25H2, it will cause all windows to be displayed twice; this can be, at least partially, remedied by moving the second instance to another work surface. Furthermore, trying to display the Windows menu via the keyboard button may result in a tiny, unusable menu. If the driver is installed, despite these risks, and is working at least partially, switching to seamless mode and staying there will probably work quite satisfactorily, but switching to and from non-seamless mode may cause trouble, as well as changing the screen resolution will do there. So, usage of the new Qubes graphics driver should be avoided unless a casual reboot of the Windows VM is acceptable, even if it is partially working. Using the Qubes graphics driver will not provide seamless mode unless the ``qvm-features`` parameter ``gui`` is set to ``1``. To disable the graphics driver, the parameter ``gui`` has to be set to an empty string, while the parameter ``gui-emulated`` has to be set to ``1``.
 
 **Note**: If you choose to move profiles, drive letter ``Q:`` must be assigned to the secondary (private) disk.
 
@@ -63,7 +62,7 @@ Below is a breakdown of the feature availability depending on the Windows versio
    * - Qubes Video Driver
      - y
      - \(y\)
-     - n
+     - \(y\)
    * - Qubes Network Setup
      - y
      - y
@@ -191,7 +190,7 @@ Installing Qubes Windows Tools (QWT) in a Windows VM
 
 Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a StandaloneVM as well as a Template VM and a corresponding AppVM, is described in the following sections.
 
-**Note:** Seamless mode is currently not available for Windows 10 and 11. Please check the top of this document for the full feature availability breakdown.
+**Note:** Seamless mode is currently only available in an experimental version for Windows 10 and 11. Please check the top of this document for the full feature availability breakdown.
 
 1. First, make sure that ``qubes-windows-tools`` is installed in your system:
 
@@ -206,15 +205,15 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
      If you prefer to download the corresponding .rpm file for manual QWT installation for Windows 7, this is still available from the repositories (version `4.1.69-1 <https://yum.qubes-os.org/r4.2/current/dom0/fc37/rpm/qubes-windows-tools-4.1.69-1.fc37.noarch.rpm>`__ ).
 
-   - For use with **Windows 10 and 11**, you have to install the new, preliminary version 4.2.1 of Qubes Windows Tools. As this new QWT version is currently only provided in the testing area of Qubes R4.3, it has to be installed by downloading the .rpm file from the repository (version `4.2.1-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.1-1.fc41.noarch.rpm>`__ ).
+   - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. As this new QWT version is currently only provided in the testing area of Qubes R4.3, it has to be installed by downloading the .rpm file from the repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ) if you want to use it in Qubes R4.2.
 
    After downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
 
    **Caution:** Installation of one of these QWT versions will remove the other one, if it is installed.
 
-   **Warning:** The older version of Qubes Windows Tools, and possibly the new version 4.2.1-1, too, will be replaced during the next `dom0` update by the current dummy version 4.1.70-1. This can be inhibited by appending the line `exclude=qubes-windows-tools` to the file `/etc/dnf/dnf.conf` in ``dom0``. But this will also stop any further QWT updates - so be sure to remove this line when - hopefully - a new fully functional version 4.2.x-1 of Qubes Windows Tools will be made available for Windows 10 and 11!!!
+   **Warning:** In Windows 7, the older version of Qubes Windows Tools will be replaced during the next ``dom0`` update by the current dummy version 4.1.70-1. This can be inhibited by appending the line ``exclude=qubes-windows-tools`` to the file ``/etc/dnf/dnf.conf`` in ``dom0``.
 
-   This package brings the ISO with Qubes Windows Tools that is passed to the VM when `--install-windows-tools` is specified for the ``qvm-start`` command. Please note that none of this software ever runs in ``dom0`` or any other part of the system except for the Windows AppVM in which it is to be installed. (It could not run in ``dom0`` at all, because ``dom0`` is a VM running under Fedora, while the QWT software is Windows software.)
+   This package makes the ISO with Qubes Windows Tools available, which is passed to the VM when ``--install-windows-tools`` is specified for the ``qvm-start`` command. Please note that none of this software ever runs in ``dom0`` or any other part of the system except for the Windows AppVM in which it is to be installed. (It could not run in ``dom0`` at all, because ``dom0`` is a VM running under Fedora, while the QWT software is Windows software.)
 
 2. To install the Qubes Windows Tools in a Windows VM, one should start the VM passing the additional option ``--install-windows-tools``:
 
@@ -226,7 +225,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 3. Install Qubes Windows Tools by starting the setup program (logged in as administrator), optionally selecting the ``Xen PV disk drivers``.
 
-  **Caution:** The Qubes graphics driver is still in experimental development. It may work or not, possibly depending on your hardware. So, in Windows 10 and 11, it may be less risky to install Qubes Windows Tools without selecting this driver, and later on, to try it in a clone of your Windows VM by re-running the installation in change mode.
+   **Caution:** The Qubes graphics driver is still in experimental development. It may work or not, possibly depending on your hardware. So, in Windows 10 and 11, it may be less risky to install Qubes Windows Tools without selecting this driver, and later on, to try it in a clone of your Windows VM by re-running the installation in change mode.
 
    **Warning:** The installation of the PV disk drivers may lead Windows to declare that the hardware has changed and that, in consequence, the activation is no longer valid, possibly complaining that the use of the software is no longer lawful. It should be possible to reactivate the software if a valid product key is provided.
 
@@ -327,6 +326,8 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    After the next boot, the VM will start in seamless mode. If Windows is used in a TemplateVM / AppVM combination, this registry fix has to be applied to the TemplateVM, as the ``HKLM`` registry key belongs to the template-based part of the registry.
 
+   **Windows 10 and 11:**  If the experimental graphics driver is installed and enabled by setting the ``qvm-features`` parameter ``gui`` to 1, seamless mode can be enabled and will stay enabled even after reboot of the qube.
+
 
 Xen PV drivers and Qubes Windows Tools
 --------------------------------------
@@ -393,13 +394,13 @@ In order to create an HVM TemplateVM, the type “TemplateVM” has to be select
 
 If you use this Template as it is, then any HVMs that use it will effectively be DisposableVMs - the User directory will be wiped when the HVM is closed down.
 
-If you want to retain the User directory between reboots, then it would make sense to store the ``C:\Users`` directory on the 2nd disk which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the ``private.img`` file in the AppVMs’ and is not reset upon AppVMs reboot, so the user’s directories and profiles would survive the AppVMs reboot, unlike the “root” filesystem which will be reverted to the “golden image” from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move ``C:\Users`` directory to the 2nd disk backed by ``private.img``. It’s a selectable feature of the installer. For Windows 7, the private disk must be renamed to ``Q:`` before QWT installation (see above); for Windows 10 and 11, this renaming occurs automatically during QWT installation.
+If you want to retain the User directory between reboots, then it would make sense to store the ``C:\Users`` directory on the 2nd disk, which is automatically exposed by Qubes to all HVMs. This 2nd disk is backed by the ``private.img`` file in the AppVMs and is not reset upon AppVMs reboot, so the user’s directories and profiles would survive the AppVMs reboot, unlike the “root” filesystem, which will be reverted to the “golden image” from the Template VM automatically. To facilitate such separation of user profiles, Qubes Windows Tools provide an option to automatically move the ``C:\Users`` directory to the 2nd disk backed by ``private.img``. It’s a selectable feature of the installer. For Windows 7, the private disk must be renamed to ``Q:`` before QWT installation (see above); for Windows 10 and 11, this renaming occurs automatically during QWT installation.
 
 If that feature is selected during installation, completion of the process requires two reboots:
 
-- The private disk is initialized and formatted on the first reboot after tools installation. It can’t be done **during** the installation because Xen mass storage drivers are not yet active.
+- The private disk is initialised and formatted on the first reboot after tools installation. It can’t be done **during** the installation because Xen mass storage drivers are not yet active.
 
-- User profiles are moved to the private disk on the next reboot after the private disk is initialized. Reboot is required because the “mover utility” runs very early in the boot process so OS can’t yet lock any files in there. This can take some time depending on the profiles’ size and because the GUI agent is not yet active dom0/Qubes Manager may complain that the AppVM failed to boot. That’s a false alarm (you can increase the AppVM’s default boot timeout using ``qvm-prefs``), the VM should appear “green” in Qubes Manager shortly after.
+- User profiles are moved to the private disk on the next reboot after the private disk is initialised. A reboot is required because the “mover utility” runs very early in the boot process so OS can’t yet lock any files in there. This can take some time depending on the profiles’ size, and because the GUI agent is not yet active, dom0/Qubes Manager may complain that the AppVM failed to boot. That’s a false alarm (you can increase the AppVM’s default boot timeout using ``qvm-prefs``), the VM should appear “green” in Qubes Manager shortly after.
 
 
 It also makes sense to disable Automatic Updates for all the template-based AppVMs – of course, this should be done in the Template VM, not in individual AppVMs, because the system-wide settings are stored in the root filesystem (which holds the system-wide registry hives). Then, periodically check for updates in the Template VM, and the changes will be carried over to any child AppVMs.
@@ -476,7 +477,7 @@ Installation logs
 -----------------
 
 
-If the install process fails or something goes wrong during it, include the installation logs in your bug report. They are created in the ``%TEMP%`` directory, by default ``<user profile>\AppData\Local\Temp``. There are two text files, one small and one big, with names starting with ``Qubes_Windows_Tools``.
+If the installation process fails or something goes wrong during it, include the installation logs in your bug report. They are created in the ``%TEMP%`` directory, by default ``<user profile>\AppData\Local\Temp``. There are two text files, one small and one big, with names starting with ``Qubes_Windows_Tools``.
 
 Uninstalling QWT is supported. After uninstalling, you need to manually enable the DHCP Client Windows service, or set IP settings yourself to restore network access.
 
@@ -657,17 +658,17 @@ If there is a drive ``D:`` from this earlier installation of Qubes Windows Tools
 
 - First, be sure that the automatic repair function is disabled. In a command window, execute ``bcdedit /set recoveryenabled NO``, and check that this worked by issuing the command ``bcdedit``, without parameters, again.
 
-- Now, uninstall QWT (currently version 4.2.1-1), using the Apps and Features function of Windows. This will most likely result in a crash with the error INACCESSIBLE BOOT DEVICE, especially if the PV drivers were installed with QWT.
+- Now, uninstall QWT (currently version 4.2.2-1), using the Apps and Features function of Windows. This will most likely result in a crash with the error INACCESSIBLE BOOT DEVICE, especially if the PV drivers were installed with QWT.
 
-- Restart Windows again, possibly two or three times, until repair options are offered. By hitting the F8 key, select the restart menu, and there select a start in safe mode (in German, it’s option number 4).
+- Restart Windows again, possibly two or three times, until repair options are offered. By hitting the F8 key, select the restart menu, and in that menu select a start in safe mode (in German, it’s option number 4).
 
-- The system will start again, but in a rather useless way. Just shut it down, and reboot again.
+- The system will start again, but in a rather useless way. Just shut it down and reboot again.
 
 - Now Windows will start normally. Check in the Apps and Features display if there are any Xen drivers left. If so, uninstall them.
 
 - In the Windows device manager, check if there is still a (probably non-working) Xen PV disk device. If so, uninstall it.
 
-- In the Apps and Features display, check again if the Xen drivers are removed. A Xen Bus Package may remain and cannot be removed, but does no harm. Any other Xen drivers should have disappeared.
+- In the Apps and Features display, check again if the Xen drivers are removed. A Xen Bus Package may remain and cannot be removed, but it does not cause harm. Any other Xen drivers should have disappeared.
 
 After successful uninstallation of the PV disk drivers, the disks will appear as QEMU ATA disks.
 
