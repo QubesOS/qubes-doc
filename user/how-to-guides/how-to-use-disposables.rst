@@ -165,7 +165,7 @@ Retrieve unnamed disposables faster (preloaded disposables)
 
 Disposable qubes can take some time to boot. It is possible to queue several unnamed disposables, guaranteeing a faster workflow.
 
-Preloaded disposables are a type of :term:`unnamed disposables <unnamed disposable>` started in the background and queued. It is hidden from most graphical applications by using the :term:`internal` flag. You can use preloaded disposables by attempting to create a new disposable out of a disposable template, instead, the preloaded disposable will be provided to your while another disposable will be preloaded in the background to continue the cycle.
+Preloaded disposables are a type of :term:`unnamed disposables <unnamed disposable>` started in the background and queued. It is hidden from most graphical applications by using the :term:`internal <internal qube>` flag. You can use preloaded disposables by attempting to create a new disposable out of a disposable template, instead, the preloaded disposable will be provided to your while another disposable will be preloaded in the background to continue the cycle.
 
 The use of preloaded disposables is indistinguishable from the use of ref:`using unnamed <user/how-to-guides/how-to-use-disposables.html:how to create unnamed disposables>`. Requesting a disposable respects the template inheritance, if the disposable template has preloaded disposables, it will use those, when it doesn't have any, it will generate new ones.
 

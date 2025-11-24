@@ -102,7 +102,7 @@ For instance, to have Mozilla Thunderbird application open all attachments in a 
 
       qvm-appmenus --get-available --i-understand-format-is-unstable <QUBE> | grep -i thunderbird
 
-In the current case, we identified the application ID to be ``net.thunderbird.Thunderbird`` (in your case it may as well be ``thunderbird``). Finally, enable the ``app-dispvm.net.thunderbird.Thunderbird`` service via the :ref:`qube settings <user/how-to-guides/how-to-enable-a-service:how to enable a service in the settings>`.
+In the current case, we identified the application ID to be ``net.thunderbird.Thunderbird`` (in your case it may as well be ``thunderbird``). Finally, enable the ``app-dispvm.net.thunderbird.Thunderbird`` service via the :ref:`qube settings <how-to-enable-a-service-in-the-settings>`.
 
 .. warning:: This feature is currently somewhat experimental, and only works for Linux qubes. It is known to work with Thunderbird and Wire, but it may fail to work with some applications that do not honor all XDG environment variables. If the feature does not work for you, please file a bug report.
 
