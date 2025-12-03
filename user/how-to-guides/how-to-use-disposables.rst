@@ -156,7 +156,7 @@ The same can be done from the command line, although more difficult:
       ")"
       user@dom0:~$ qvm-device <DEVICE_CLASS> attach <ATTACH_OPTIONS> -- "$disp" <BACKEND:DEVICE_ID>
       user@dom0:~$ # Do your tasks.
-      user@dom0:~$ qvm-device <DEVICE_CLASS> dettach <ATTACH_OPTIONS> -- "$disp"
+      user@dom0:~$ qvm-device <DEVICE_CLASS> detach <ATTACH_OPTIONS> -- "$disp"
       user@dom0:~$ qvm-kill -- "$disp"
 
 Retrieve unnamed disposables faster (preloaded disposables)
