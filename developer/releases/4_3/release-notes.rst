@@ -261,9 +261,6 @@ Other
 - New Devices API for salt
   (`#9753 <https://github.com/QubesOS/qubes-issues/issues/9753>`__).
 
-- IPv6 DNS support for full IPv4-less environments
-  (`#10038 <https://github.com/QubesOS/qubes-issues/issues/10038>`__).
-
 Dropped or replaced features
 ----------------------------
 
