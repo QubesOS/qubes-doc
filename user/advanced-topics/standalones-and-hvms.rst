@@ -80,7 +80,7 @@ Using the GUI
 ^^^^^^^^^^^^^
 
 
-In Qube Manager, select “Create new qube” from the Qube menu, or select the “Create a new qube” button. In the “create new qube” dialog box set Type to “Empty standalone qube (install your own OS)”. If “install system from device” is selected (which it is by default), then ``virt_mode`` will be set to ``hvm`` automatically. Otherwise, open the newly-created qube’s Settings GUI and, in the “Advanced” tab, select ``HVM`` in the virtualization mode drop-down list. Also, make sure “Kernel” is set to ``(none)`` on the same tab.
+In Qube Manager, use either the "New qube" button, or the "New qube" entry in the "Qube" menu. In the "Create new qube" dialog box click on tab "Standalone". If "install system from device" is selected (which it is by default), then ``virt_mode`` will be set to ``hvm`` automatically. Otherwise, open the newly-created qube’s Settings GUI and, in the "Advanced" tab, select ``HVM`` in the virtualization mode drop-down list. Also, make sure “Kernel” is set to ``(none)`` on the same tab.
 
 Command line
 ^^^^^^^^^^^^
