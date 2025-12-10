@@ -116,13 +116,6 @@ Preloaded disposables are paused for various reasons:
 
 But this comes at a cost:
 
-- Can only connect to the GUI after the qube is requested (longer run time), else, if `early GUI connection was made before the qube is paused <https://github.com/qubesos/qubes-issues/issues/9940>`__:
-
-  - Events such as screen resize by plugging or removing external monitors can't work;
-  - No easy way to hide autostarted applications, depends on qube collaboration;
-  - Can only preload after GUI login to be able to establish a connection;
-  - Can't survive GUI login and logout as the connection might change;
-
 - Memory management before pause may take some seconds, that is not prejudicial to the time to use the qube but it is prejudicial to the system as :doc:`qmemman </developer/services/qmemman>` can not balloon/balance other qubes in the mean time due to its design.
 
 Preloaded disposable's security
@@ -134,11 +127,13 @@ As preloaded disposables are started before being used, methods to prevent accid
 - The qube has the ``internal`` feature enabled, Qubes GUI applications were patched to hide and show :term:`internal qubes<internal qube>` by handling events for ``domain-feature-((pre-)?set|delete):internal``;
 - When requesting an unnamed disposable, the qube object is only returned to the user once it has finished preloading;
 - The qube is paused as the last stage of preloading, this permits receiving :py:meth:`domain-unpaused <core-admin:qubes.vm.dispvm.DispVM.on_domain_unpaused>` event and be notified that the qube was used, marked as such and removed from the preload list to avoid reuse, even without the qube being requested with :py:meth:`core-admin:qubes.vm.dispvm.DispVM.from_appvm`;
-- The GUID only connects to the GUI agent on the qube after the preloaded disposable is marked as used, this prevents that an autostarted application such as a terminal appears on the screen before preloading has finished. Enabling a GUI is is controlled by the :py:attr:`is_preload <core-admin:qubes.vm.dispvm.DispVM.is_preload>` property, that when disabled, allows the GUI connection to initiate. This method delays GUI calls considerably as establishing the connection can take ~2 seconds, research is being done to prevent this delay.
+- The GUID and Audio daemon only connects to the GUI agent and audio agent on the qube after the preloaded disposable is marked as used, this prevents that an autostarted applications appearing on the screen before it is ready or before pause, which could be confusing. Enabling a GUI is controlled by the :py:attr:`is_preload <core-admin:qubes.vm.dispvm.DispVM.is_preload>` property, that when disabled, allows the GUI and audio connection to initiate.
 
 Another point of security is reliability:
 
 - The ``preload-dispvm-threshold`` feature controls how much free memory must be present on the system before attempting to create a new preloaded disposable. Used to ensure preloaded disposables do not consume all available memory, which would prevent starting other qubes.
+
+To have late GUI daemon but an early GUI agent, changes have been made that limit the usability on ``sys-gui``. `Events such as plugging or removing external monitors can't work, it will be ignored by Xephyr <https://github.com/QubesOS/qubes-gui-agent-linux/pull/253>`__.
 
 Alternatives considered
 ^^^^^^^^^^^^^^^^^^^^^^^
