@@ -174,3 +174,8 @@ rst_epilog = """
 # -- -- Options for the nitpicky mode ----------------------------------------
 
 nitpicky = True
+
+
+# -- -- Options for warning control ------------------------------------------
+
+suppress_warnings = ["epub.unknown_project_files"]
