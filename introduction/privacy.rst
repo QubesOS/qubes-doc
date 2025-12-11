@@ -11,7 +11,26 @@ Website
 
 For the legally-required boilerplate, see `Website Privacy Policy <https://www.qubes-os.org/website-privacy-policy/>`__.
 
-This is just a static website generated with Jekyll and hosted from GitHub Pages. We try to use as little JavaScript as possible. We host all resources locally (no third-party CDNs) so that you only have to connect to one domain. This site should be easy to browse using Tor Browser and with scripts blocked. We also have an `onion service <http://qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion/>`__ (access is not logged). We even go out of our way to make it easy to download `this website’s git repo <https://github.com/QubesOS/qubesos.github.io>`__, including all the website source code, so that you can host this entire site from your own local machine offline. Better yet, we’ve specifically written all of the :doc:`documentation </index>` in Markdown so that the plain text can be enjoyed from the comfort of your terminal. Here’s the `repo <https://github.com/QubesOS/qubes-doc>`__. (By the way, Git tags on our repos are PGP-signed so you can :doc:`verify </project-security/verifying-signatures>` the authenticity of the content.) Obviously, we don’t use any ads or trackers, but this is still a public website, so man-in-the-middle attacks and such are always a possibility. Please be careful. See :ref:`FAQ: Should I trust this website? <introduction/faq:should i trust this website?>`
+This is just a static website generated with Jekyll and hosted from GitHub Pages. We try to use as little JavaScript as possible. We host all resources locally (no third-party CDNs) so that you only have to connect to one domain. The website should be easy to browse using Tor Browser and with scripts blocked. We also have an `onion service <http://qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion/>`__ (access is not logged). We even go out of our way to make it easy to download `this website’s git repo <https://github.com/QubesOS/qubesos.github.io>`__, including all the website source code, so that you can host this entire site from your own local machine offline.
+
+Most of the website is written in Markdown so that the plain text can be enjoyed from the comfort of your terminal.
+Obviously, we don’t use any ads or trackers, but this is still a public website, so man-in-the-middle attacks and such are always a possibility. Please be careful. See :ref:`FAQ: Should I trust this website? <introduction/faq:should i trust this website?>`
+
+Qubes OS documentation
+----------------------
+
+Qubes OS documentation is hosted on `Read The Docs <https://readsthedocs.com/>`__.
+We’ve converted all of the :doc:`documentation </index>` from Markdown to reStructuredText. You can enjoy the plain text from the comfort of your terminal. Here’s the `repo <https://github.com/QubesOS/qubes-doc>`__. (By the way, Git tags on our repos are PGP-signed so you can :doc:`verify </project-security/verifying-signatures>` the authenticity of the content.) We omit the ethical ads from RTD, but this is still a public website, so man-in-the-middle attacks and such are always a possibility. Please be careful. Also see :ref:`FAQ: Why is the documentation hosted on ReadTheDocs as opposed to the website? <introduction/faq:why is the documentation hosted on readthedocs as opposed to the website?>`.
+
+Please refer to RTD's `privacy policy <https://docs.readthedocs.com/platform/stable/privacy-policy.html>`__
+for more information.
+As per RTD site, the TL;DR version is as follows:
+
+.. code:: text
+
+   RTD collects information only with consent; only the minimum amount of personal information that is necessary to fulfill the purpose of the interaction with RTD;
+   doesn’t sell it to third parties; and only use it as the above Privacy Policy describes.
+
 
 Update Servers and Repositories
 -------------------------------
@@ -35,7 +54,7 @@ Mirrors
 -------
 
 
-There are also other third-party mirrors hosted by volunteers. These are used both for `ISO downloads <https://www.qubes-os.org/downloads/#mirrors>`__ and `updates <#update-servers-and-repositories>`__. We have no control over what data these mirrors collect or with whom they share it. Please see the privacy policy of each respective mirror operator.
+There are also other third-party mirrors hosted by volunteers. These are used both for `ISO downloads <https://www.qubes-os.org/downloads/#mirrors>`__ and :ref:`updates <introduction/privacy:update servers and repositories>`. We have no control over what data these mirrors collect or with whom they share it. Please see the privacy policy of each respective mirror operator.
 
 Qubes OS
 --------

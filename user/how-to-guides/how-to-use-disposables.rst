@@ -2,237 +2,218 @@
 How to use disposables
 ======================
 
+A :term:`disposable` is a stateless :term:`qube`, it does not save data for the next boot. These qubes can serve various uses cases that require a pristine environment:
 
-A :ref:`disposable <user/reference/glossary:disposable>` is a lightweight :ref:`qube <user/reference/glossary:qube>` that can be created quickly and will self-destruct when closed. Disposables are usually created in order to host a single application, like a viewer, editor, or web browser.
+- View untrusted files without other trusted files on the same system;
+- Visit untrusted websites in a web browser without authentication cookies from previous session;
+- Sanitize untrusted PDFs or images and retrieve a safe-to-view image;
+- Connect untrusted devices without other trusted devices or files on the same system;
+- Fresh environment for build systems (for technical users).
 
-From inside an app qube, choosing the ``Open in disposable`` option on a file will launch a disposable for just that file. Changes made to a file opened in a disposable are passed back to the originating qube. This means that you can safely work with untrusted files without risk of compromising your other qubes. Disposables can be launched either directly from dom0’s app menu or terminal window, or from within app qubes. Disposables are generated with names like ``disp####``, where ``####`` is random number.
+Disposables can be launched either directly from :term:`GUI domain`'s app menu or terminal window, or from within app qubes. Disposables are generated with names like :samp:`disp{1234}`, where :samp:`{1234}` is a random number. Below is an example of disposable workflow benefits:
 
-|disposablevm-example.png|
+.. figure:: /attachment/doc/disposablevm-example.png
+   :alt:
 
-This diagram provides a general example of how disposables can be used to safely open untrusted links and attachments in disposables. See `this article <https://blog.invisiblethings.org/2010/06/01/disposable-vms.html>`__ for more on why one would want to use a disposable.
+   Example of how disposables can be used to safely open untrusted links and attachments in disposables
 
-Named disposables and disposable templates
-------------------------------------------
+   In the ``work-email`` qube, the user clicks on a link. This link is opened in a new disposable through the qrexec protocol (:program:`qubes.OpenURL`). The link contains some kind of malware that infects the disposable qube, but it is harmless for the ``work-email`` qube, as the links was opened in a separate environment from the mail client, the mail box is safe. The disposable is later destroyed.
 
+   In that same *work-email* qube, the user now opens a PDF attachment. Using the qrexec protocol (:program:`qubes.OpenInVM`), the PDF is opened as in a new disposable qube, this time, the file looks clean, but as we can never be sure, the user prefers to default to open files in disposables. The disposable is later destroyed.
 
-There is a difference between :ref:`named disposable qubes <user/reference/glossary:named disposable>` and :ref:`disposable templates <user/reference/glossary:disposable template>`.
+This diagram provides a general example of how disposables can be used to safely open untrusted links and attachments in disposables. You may find more on why one would want to use a disposable on the `first disposable qube article <https://blog.invisiblethings.org/2010/06/01/disposable-vms.html>`__. Please note that the blog post is dated and some of the information it presents are not accurate anymore.
 
-In a default QubesOS Installation, you would probably use the ‘whonix-ws-16-dvm’ disposable template to, for example, browse the Tor network with an disposable qube. Every time you start an application using this disposable template, a new disposable qube - named ``dispX`` (where X is a random number) starts. If you close the application window, the ``dispX`` qube shuts down and vanishes from your system. That is how disposable templates are used.
-
-Named disposables are also built upon disposable templates, but they have a fixed name. The named disposable seems to behave like an ordinary app qube - every application you open will start in the same qube, and you need to manually shutdown the qube. But when you shutdown *any changes you made in the named disposable will be lost*. Except for this non-persistance, they feel like usual app qubes.
-
-How to create disposable templates
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Disposable types
+----------------
 
 
-First, you need to create an app qube. You can run it normally, set up any necessary settings (like browser settings) you wish to be applied to every disposable qube ran from this template. Next, go to ‘Qube Settings’ of the app qube, set it as a *Disposable template* in the *Advanced* section and apply the change.
+Disposable template
+^^^^^^^^^^^^^^^^^^^
 
-In Qubes 4.1, the entry in the Application menu is split into ‘Disposable’ and ‘Template (disp)’. The settings for the disposable can be changed under **’Application Menu -> Template (disp) -> Template: Qubes Settings**
 
-In Qubes 4.2, the qube will now appear in the menu as a disposable template (in the Apps section), from which you can launch new disposable qubes. To change the settings of the template itself or run programs in it, use the menu item for the disposable template located in the Templates section.
+:term:`Disposable template <disposable template>` is not a disposable in itself, but a special template that can create different disposable types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. When there is need to customize the files of a disposable, it must be done on the disposable template or the template itself to be reflected in every new disposable based on that template. By default, Qubes OS creates the ``default-dvm`` disposable template, we will use it as an example on this page, but you can create as many disposable templates as you'd prefer. :doc:`Disposable customization </user/advanced-topics/disposable-customization>` is outside of the scope of this page.
+
+Named disposable
+^^^^^^^^^^^^^^^^
+
+
+:term:`Named disposables<named disposable>` are built upon disposable templates, but they have a fixed name. The named disposable seems to behave like an ordinary app qube, it doesn't shutdown when you close the initial application, every application you open will start in the same qube, and you need to manually shut it down. However, when it is shutdown, *any changes you made in the named disposable will be lost*.
+
+If you have selected during installation to use disposable :term:`service qubes<service qube>`, your ``sys-net``, ``sys-usb`` and ``sys-firewall`` are examples of named disposables based on the ``default-dvm`` disposable template.
+
+
+Unnamed disposable
+^^^^^^^^^^^^^^^^^^
+
+
+:term:`Unnamed disposables<unnamed disposable>` are built upon disposable templates, they don't have a fixed name and are deleted from the system after the termination of initial application opened in them. Therefore, *any changes you made in the unnamed disposable will be lost*. The Qubes Devices widget doesn't connect to an initial application when creating a disposable, therefore it must be manually turned off.
+
+You would probably use the ``default-dvm`` disposable template to, for example, create an unnamed disposable qube to browse the internet. Every time you launch an application using this disposable template as base, a new disposable qube named :samp:`disp{1234}` (where :samp:`{1234}` is a random number) starts and launches the chosen application. If you close the application window, the :samp:`disp{1234}` qube shuts down and vanishes from your system.
+
+
+How to create disposables
+-------------------------
+
 
 How to create named disposables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In Qubes 4.1: named disposables can be created under **Application Menu -> Create Qubes VM**, set the qube type to be *DisposableVM*.
+Named disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Create New Qube --> Named disposable`, choose a name, configure according to your needs and click on :guilabel:`Create`.
 
-In Qubes 4.2: named disposables can be created by **Application Menu -> Settings -> Qubes Settings -> Create New Qube**. Set the qube type to **Named disposable**.
+If you create the qube with the name ``test-disp``, you can open applications on it using |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> test-disp` and selecting the application you wish to open in the named disposable.
 
-Security
---------
-
-
-If a :ref:`disposable template <user/reference/glossary:disposable template>` becomes compromised, then any disposable based on that disposable template could be compromised. In particular, the *default* disposable template is important because it is used by the “Open in disposable” feature. This means that it will have access to everything that you open with this feature. For this reason, it is strongly recommended that you base the default disposable template on a trusted template.
-
-Disposables and Local Forensics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to create unnamed disposables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-At this time, disposables should not be relied upon to circumvent local forensics, as they do not run entirely in RAM. For details, see `this thread <https://groups.google.com/d/topic/qubes-devel/QwL5PjqPs-4/discussion>`__.
+Unnamed disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> default-dvm`, select the application you wish to launch in a new unnamed disposable and one will created for you. Notice that the application was not opened in the disposable template ``default-dvm``, instead, it opens in a :samp:`disp{1234}` qube. This is because applications from a disposable template listed in the :guilabel:`APPS` tab will open in a new unnamed disposable.
 
-When it is essential to avoid leaving any trace, consider using `Tails <https://tails.boum.org/>`__.
+After the qube is created, you can access it via other tools using its :samp:`disp{1234}` name, :ref:`Qubes Domains widget <introduction/getting-started:user interface>`, :ref:`Qubes Manager <introduction/getting-started:qube manager>`, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> disp1234`, :guilabel:`qvm-copy`, :program:`qvm-ls` etc.
 
-Disposables and Networking
---------------------------
-
-
-Similarly to how app qubes are based on their underlying :ref:`template <user/reference/glossary:template>`, disposables are based on their underlying :ref:`disposable template <user/reference/glossary:disposable template>`. R4.0 introduces the concept of multiple disposable templates, whereas R3.2 was limited to only one.
-
-On a fresh installation of Qubes, the default disposable template is called ``fedora-X-dvm`` or ``debian-X-dvm`` (where ``X`` is a release number). If you have included the Whonix option in your install, there will also be a ``whonix-ws-dvm`` disposable template available for your use.
-
-You can set any app qube to have the ability to act as a disposable template with:
-
-.. code:: console
-
-      $ qvm-prefs <APP_QUBE> template_for_dispvms True
+In action
+---------
 
 
+Open an application in a disposable (from GUI domain)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default system wide disposable template can be changed with ``qubes-prefs default_dispvm``. By combining the two, choosing ``Open in disposable`` from inside an app qube will open the document in a disposable based on the default disposable template you specified.
 
-You can change this behavior for individual qubes: in the Application Menu, open Qube Settings for the qube in question and go to the “Advanced” tab. Here you can edit the “Default disposable” setting to specify which disposable template will be used to launch disposables from that qube. This can also be changed from the command line with:
+Sometimes it is desirable to open an instance of Firefox in a new fresh disposable. This can be done easily using the app menu: just go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> default-dvm --> Firefox`. Wait a few seconds until the web browser starts.
+
+.. image:: /attachment/doc/r4.3-dom0-menu-disp-firefox.png
+   :alt: Application menu being used to open an Firefox from the ``default-dvm`` in a disposable qube.
+
+.. image:: /attachment/doc/r4.3-dom0-menu-disp-firefox-open.png
+   :alt: Firefox opened in a disposable qube in the default page.
+
+It is possible to do the same as above using the command line:
 
 .. code:: console
 
-      $ qvm-prefs <QUBE> default_dispvm <DISPOSABLE_TEMPLATE>
+      user@dom0:~$ qvm-run --dispvm=default-dvm --service -- qubes.StartApp+firefox
+
+The browser is opened from a disposable based on the ``default-dvm`` qube.
+
+Open a file in a disposable (from app qube)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+In an app qube's file manager, right click on the file you wish to open in a disposable, then choose :guilabel:`Edit/View in disposable qube`. Wait a few seconds and the default application for this file type should appear displaying the file content. This app is running in its own dedicated qube, a disposable created for the purpose of viewing or editing this very file. If you have edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
 
-For example, ``anon-whonix`` has been set to use ``whonix-ws-dvm`` as its ``default_dispvm``, instead of the system default. You can even set an app qube that has also been configured as a disposable template to use itself, so disposables launched from within the app qube/disposable template would inherit the same settings.
+.. image:: /attachment/doc/r4.3-domU-filemanager-disp-pdfviewer.png
+   :alt: App qube file manager context menu being used to edit a PDF in a disposable qube.
 
-Network and firewall settings for disposable templates can be set as they can for a normal qube. By default a disposable will inherit the network and firewall settings of the disposable template on which it is based. This is a change in behavior from R3.2, where disposables would inherit the settings of the app qube from which they were launched. Therefore, launching a disposable from an app qube will result in it using the network/firewall settings of the disposable template on which it is based. For example, if an app qube uses sys-net as its net qube, but the default system disposable uses sys-whonix, any disposable launched from this app qube will have sys-whonix as its net qube.
-
-**Warning:** The opposite is also true. This means if you have changed ``anon-whonix``’s ``default_dispvm`` to use the system default, and the system default disposable uses sys-net, launching a disposable from inside ``anon-whonix`` will result in the disposable using ``sys-net``.
-
-A disposable launched from the app menu inherits the net qube and firewall settings of the disposable template on which it is based. Note that changing the net qube setting for the system default disposable template *does* affect the net qube of disposables launched from the app menu. Different disposable templates with individual net qube settings can be added to the app menu.
-
-**Important Notes:** Some disposable templates will automatically create a menu item to launch a disposable. If you do not see an entry and want to add one, please use the command:
-
-.. code:: console
-
-      $ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
+.. image:: /attachment/doc/r4.3-domU-filemanager-disp-pdfviewer-open.png
+   :alt: PDF viewer opened in a disposable qube with the PDF the user selected to edit.
 
 
-
-To launch a disposable template from the command line, execute the following command in dom0:
+It is also possible to do the same from the command line using :program:`qvm-open-in-dvm`:
 
 .. code:: console
 
-      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+<APPLICATION>
+      [user@work ~]$ qvm-open-in-dvm -- 'apple-sandbox.pdf'
+      [user@work ~]$ qvm-open-in-dvm --view-only -- 'apple-sandbox.pdf'
+
+The PDF viewer is opened in a disposable based on the ``work`` qube default disposable template.
+
+Sanitize a file in a disposable (from app qube)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+There is a nice security property in the system that allows transforming untrusted files into trusted files, this process is called sanitization. A sanitized file, presumably, leaves no room to malicious code, therefore, you can safely open the sanitized file in the qube itself (doesn't need to view in disposable anymore), in a viewer outside of :term:`Qubes OS`, or send the sanitized file to someone that doesn't use :term:`Qubes OS` and can't make the conversion themselves without compromising them..
 
-Opening a file in a disposable via GUI
---------------------------------------
+Only supported file types for conversions are images and PDFs. The untrusted files will be converted to :abbr:`RGBA bitmap (A raster image where pixels are stored in Red, Green, Blue and Alpha)`. On conversion, the original untrusted files will be moved to :file:`~/QubesUntrustedPDFs` or :file:`image.png-untrusted` (location depends on the file type) while the sanitized file will be created with the same location and name by reconstructing the received data. As the output is an image, the sanitized files are a bit bigger, searching strings without :abbr:`OCR (Optical Character Recognition)` will not be possible anymore.
 
+If you'd like to sanitize a file, in an app qube's file manager, right click on the file (image or PDF) you wish to sanitize in a disposable, then choose :guilabel:`Convert in disposable qube`. Wait a few seconds for the conversion. This conversion runs on its own dedicated qube, a disposable created for the sole purpose of sanitizing this very file.
 
-In an app qube’s file manager, right click on the file you wish to open in a disposable, then choose “View in disposable” or “Edit in disposable”. Wait a few seconds and the default application for this file type should appear displaying the file content. This app is running in its own dedicated qube – a disposable created for the purpose of viewing or editing this very file. Once you close the viewing application the whole disposable will be destroyed. If you have edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
+It is also possible to do the same on the command line using :program:`qvm-convert-img` and :program:`qvm-convert-pdf`.
 
-.. figure:: /attachment/doc/r4.0-open-in-dispvm-1.png
-   :alt: r4.0-open-in-dispvm-1.png
-
-
-
-.. figure:: /attachment/doc/r4.0-open-in-dispvm-2.png
-   :alt: r4.0-open-in-dispvm-2.png
+Connect a device to an unnamed disposable (from GUI domain)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+Sometimes you have a device which you don't trust, therefore you decide to leverage disposables for the task. To attach a device to a disposable, go to :menuselection:`Qubes Devices widget --> <DEVICE> --> Attach to new disposable qube --> default-dvm`.
 
-Opening a fresh web browser instance in a new disposable
---------------------------------------------------------
-
-
-Sometimes it is desirable to open an instance of Firefox within a new fresh disposable. This can be done easily using the app menu: just go to **Application Menu -> Disposable -> Disposable: Firefox web browser**. Wait a few seconds until a web browser starts. Once you close the viewing application the whole disposable will be destroyed.
-
-.. figure:: /attachment/doc/r4.0-open-in-dispvm-3.png
-   :alt: r4.0-open-in-dispvm-3.png
+.. note:: No application will launch by default and the disposable will continue running, that is expected, no application request was made. Also notice that opening and closing the first (or any other) application opened in the disposable will not turn it off, this is also expected, you must shutdown disposables created by the Qubes Devices widget manually.
 
 
+The same can be done from the command line, although more difficult:
 
-Opening a file in a disposable via command line (from app qube)
----------------------------------------------------------------
-
-
-Use the ``qvm-open-in-dvm`` command from a terminal in your app qube:
+..
+   Python Admin API was preferred because each shell has a different way to read null bytes (qubesd-query).
+   The escaped backslash is used to have indented blocks for readability.
 
 .. code:: console
 
-      [user@work-pub ~]$ qvm-open-in-dvm Downloads/apple-sandbox.pdf
+      user@dom0:~$ disp_template="default-dvm"
+      user@dom0:~$ disp="$(python3 -c "import qubesadmin; \
+          app = qubesadmin.Qubes(); \
+          appvm = app.domains['$disp_template']; \
+          disp = qubesadmin.vm.DispVM.from_appvm(qubesadmin.Qubes(), appvm); \
+          disp.start(); \
+          print(disp.name)
+      ")"
+      user@dom0:~$ qvm-device <DEVICE_CLASS> attach <ATTACH_OPTIONS> -- "$disp" <BACKEND:DEVICE_ID>
+      user@dom0:~$ # Do your tasks.
+      user@dom0:~$ qvm-device <DEVICE_CLASS> detach <ATTACH_OPTIONS> -- "$disp"
+      user@dom0:~$ qvm-kill -- "$disp"
+
+Retrieve unnamed disposables faster (preloaded disposables)
+-----------------------------------------------------------
 
 
+Disposable qubes can take some time to boot. It is possible to queue several unnamed disposables, guaranteeing a faster workflow.
 
-Note that the ``qvm-open-in-dvm`` process will not exit until you close the application in the disposable.
+Preloaded disposables are a type of :term:`unnamed disposables <unnamed disposable>` started in the background and queued. It is hidden from most graphical applications by using the :term:`internal <internal qube>` flag. You can use preloaded disposables by attempting to create a new disposable out of a disposable template, instead, the preloaded disposable will be provided to your while another disposable will be preloaded in the background to continue the cycle.
 
-Making a particular application open everything in a disposable
----------------------------------------------------------------
+The use of preloaded disposables is indistinguishable from the use of ref:`using unnamed <user/how-to-guides/how-to-use-disposables.html:how to create unnamed disposables>`. Requesting a disposable respects the template inheritance, if the disposable template has preloaded disposables, it will use those, when it doesn't have any, it will generate new ones.
 
+It is possible to preload from any disposable template as long as it supports :doc:`Qrexec </developer/services/qrexec>`, except :term:`Qubes Windows Tools (QWT)` which isn't feature complete yet.
 
-You can use the ``qvm-service`` command or the services GUI to cause an application in a qube to open files and URLs in a disposable. To do this, enable a service named ``app-dispvm.X`` in that qube, where ``X`` is the application ID. For instance, to have Thunderbird open all attachments in a disposable, enable the ``app-dispvm.thunderbird`` service.
-
-This feature is currently somewhat experimental, and only works for Linux qubes. It is known to work with Thunderbird and Wire, but it may fail to work with some applications that do not honor all XDG environment variables. If the feature does not work for you, please file a bug report.
-
-Opening particular types of files in a disposable
--------------------------------------------------
+Preload disposables from the system's default disposable template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-You can set ``qvm-open-in-dvm.desktop`` as the handler for a given MIME type. This will cause all files of that type to open in a disposable. This works in disposable templates too, but be careful: if your disposable template is set to use ``qvm-open-in-dvm.desktop`` to open a certain kind of file, every disposable based on it will be as well. If the disposable template is its own default disposable template (as is often the case), this will result in a loop: ``qvm-open-in-dvm`` will execute ``qubes.OpenURL`` in a new disposable, but that will in turn execute ``qvm-open-in-dvm``. The cycle will repeat until no new disposables can be created, most likely because your system has run out of memory.
+Configuring system's default disposable template setting is very useful when you use this disposable template a lot. The system setting applies to whichever disposable template currently is the system's one, so if you change it, the preloaded disposables will be updated accordingly.
 
-This will *not* override the internal handling of PDF documents in Web browsers. This is typically okay, though: in-browser PDF viewers have a fairly good security record, especially when compared to non-browser PDF viewers. In particular, the attack surface of PDF viewing in Firefox is usually less than that of viewing an ordinary Web page.
+Preloading from the system's default disposable is possible with the |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Preload disposable qubes` and choose a small number such as ``2`` for testing, end with :guilabel:`Apply Changes and Close`.
 
-Starting an arbitrary program in a disposable from an app qube
+.. image:: /attachment/doc/r4.3-disp-preload-global.png
+   :alt: Global config window with preloaded disposables items emphasized and preload disposable setting configured to ``2``.
+
+This can also be changed from the command line from the :term:`GUI domain`, with :program:`qvm-features` targeting ``dom0``:
+
+.. code:: console
+
+      user@dom0:~$ qvm-features dom0 preload-dispvm-max 2
+
+Preload disposables from a specific disposable template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Configuring per disposable template setting is very useful when the disposable template is intended for specific workflows:
+
+- ``default-mgmt-dvm``: :term:`management qube`, used for :doc:`Salt </user/advanced-topics/salt>`, Ansible and Debug Console.
+- ``qubes-builder-dvm``: :doc:`Qubes Builder V2 Executor qube </developer/building/qubes-builder-v2>`
+
+To configure, for example, the ``default-mgmt-dvm`` qube using the app menu and qube manager, as it is an :term:`internal qube`, first we need to make it visible, in the  |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qube Manager --> View --> Show internal qubes`. After this step is completed, :menuselection:`Qube Manager --> default-mgmt-dvm --> Settings (icon) --> Advanced --> Preload disposables`, choose a number such as ``2`` and click :guilabel:`&OK` to apply and save changes.
+
+.. note:: You may deselect :guilabel:`Show internal qubes` to hide them again after making the changes.
+
+.. image:: /attachment/doc/r4.3-disp-preload-local.png
+   :alt: Qube settings of ``default-mgmt-dvm`` with preloaded disposable setting configured to ``2``.
+
+This can also be changed from the command line from the :term:`GUI domain`, with :program:`qvm-features` targeting ``default-mgmt-dvm``:
+
+.. code:: console
+
+      [user@dom0 ~]$ qvm-features default-mgmt-dvm preload-dispvm-max 2
+
+Call to the application succeeds but disposable exits too soon
 --------------------------------------------------------------
 
 
-Sometimes it can be useful to start an arbitrary program in a disposable. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details `here <https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009>`__). Starting an arbitrary program can be done from an app qube by running
+When the main process of an application exits, the unnamed disposable is removed. Some applications, such as GNOME Terminal (show on the app menu as :guilabel:`Terminal`, `do not wait for the application to close before the main process exits <https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009>`__.
 
-.. code:: console
-
-      [user@vault ~]$ qvm-run '@dispvm' xterm
-
-
-
-The created disposable can be accessed via other tools (such as ``qvm-copy-to-vm``) using its ``disp####`` name as shown in the Qubes Manager or ``qvm-ls``.
-
-Starting an arbitrary application in a disposable via command line from dom0
-----------------------------------------------------------------------------
-
-
-The Application Launcher has shortcuts for opening a terminal and a web browser in dedicated disposables, since these are very common tasks. The disposable will stay running so long as the process which started the disposable has not exited. Some applications, such as GNOME Terminal, do not wait for the application to close before the process exits (details `here <https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009>`__). It is possible to start an arbitrary application in a disposable directly from dom0 by running:
-
-.. code:: console
-
-      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
-
-
-
-The label color will be inherited from ``<DISPOSABLE_TEMPLATE>``. (The disposable Application Launcher shortcut used for starting programs runs a very similar command to the one above.)
-
-Opening a link in a disposable based on a non-default disposable template from a qube
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Suppose that the default disposable template for your ``email`` qube has no networking (e.g., so that untrusted attachments can’t phone home). However, sometimes you want to open email links in disposables. Obviously, you can’t use the default disposable template, since it has no networking, so you need to be able to specify a different disposable template. You can do that with this command from the ``email`` qube (as long as your RPC policies allow it):
-
-.. code:: console
-
-      $ qvm-open-in-vm @dispvm:<ONLINE_DISPOSABLE_TEMPLATE> https://www.qubes-os.org
-
-
-
-This will create a new disposable based on ``<ONLINE_DISPOSABLE_TEMPLATE>``, open the default web browser in that disposable, and navigate to ``https://www.qubes-os.org``.
-
-Example of RPC policies to allow this behavior
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-In dom0, add the following line at the beginning of the file ``/etc/qubes-rpc/policy/qubes.OpenURL``
-
-.. code:: text
-
-      @anyvm @dispvm:<ONLINE_DISPOSABLE_TEMPLATE> allow
-
-
-
-This line means:
-
-- FROM: Any qube
-
-- TO: A disposable based on ``<ONLINE_DISPOSABLE_TEMPLATE>``
-
-- WHAT: Allow sending an “Open URL” request
-
-
-
-In other words, any qube will be allowed to create a new disposable based on ``<ONLINE_DISPOSABLE_TEMPLATE>`` and open a URL inside of that disposable.
-
-More information about RPC policies for disposables can be found :ref:`here <developer/services/qrexec:qubes rpc administration>`.
-
-Customizing disposables
------------------------
-
-
-You can change the template used to generate the disposables, and change settings used in the disposable savefile. These changes will be reflected in every new disposable based on that template. Full instructions can be found :doc:`here </user/advanced-topics/disposable-customization>`.
-
-.. |disposablevm-example.png| image:: /attachment/doc/disposablevm-example.png
-
+These cases requires wrappers to keep the application running. Qubes provides a wrapper for this particular case, :program:`qubes-run-gnome-terminal`, which will be used automatically by :program:`qubes-run-terminal` or application :guilabel:`Run Terminal` if GNOME Terminal happens to be the preferred terminal for the disposable template.

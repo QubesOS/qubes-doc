@@ -37,7 +37,7 @@ KDE is very customisable, and there is a range of widgets to use. If you want to
 
 
 
-This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under “Edit->Restore to System Menu”*
+This allows you to edit the menu as you will. When editing the Menu *DO NOT use the option under* :menuselection:`Edit --> Restore to System Menu`
 
 Login manager
 ^^^^^^^^^^^^^
@@ -99,13 +99,22 @@ You can also use ``kstart`` to control virtual desktop placement like this:
 
 .. code:: console
 
-      kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
+      $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
 
 
 (Replace “3” with whichever virtual desktop you want the window to be on.)
 
 This can be useful for creating a simple shell script which will set up your workspace the way you like.
+
+Wayland session
+---------------
+
+Default installation includes KDE Plasma X11 session. KDE project primary focus is Wayland session, which in Qubes OS is currently experimental. To enable the experimental Wayland session support install the following package:
+
+.. code:: console
+
+    $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
 
 Removal
 -------

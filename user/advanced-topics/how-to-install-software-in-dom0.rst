@@ -206,7 +206,7 @@ Update the following two lines, add if needed:
       GRUB_SAVEDEFAULT=true
 
 
-Save and exit nano. Regenerate the GRUB 2 configuration. 
+Save and exit nano. Regenerate the GRUB 2 configuration.
 
 .. code:: console
 
@@ -222,7 +222,7 @@ Updating over Tor
 
 Requires installed `Whonix <https://forum.qubes-os.org/t/19014>`__.
 
-Go to Qubes VM Manager -> System -> Global Settings. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
+Go to :menuselection:`Qubes VM Manager --> System --> Global Settings`. See the UpdateVM setting. Choose your desired Whonix-Gateway ProxyVM from the list. For example: sys-whonix.
 
 :menuselection:`Qubes VM Manager --> System --> Global Settings --> UpdateVM --> sys-whonix`
 

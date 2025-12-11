@@ -23,7 +23,7 @@ Thank you for your interest in contributing to Qubes! Here are some of the many 
 
 - Create `artwork <https://github.com/QubesOS/qubes-artwork>`__ (plymouth themes, installer themes, wallpapers, etc.)
 
-- `Write and edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__
+- :doc:`Write and edit the documentation </developer/general/how-to-edit-the-rst-documentation>`
 
 - `Donate <https://www.qubes-os.org/donate/>`__ to the project
 
@@ -55,17 +55,17 @@ Contributing Code
 
 If you’re interested in contributing code, the best starting point is to have a look at our `GitHub issues <https://github.com/QubesOS/qubes-issues/issues>`__ to see which tasks are the most urgent. You can filter issues depending on your interest and experience. For example, here are some common issue labels:
 
-- `Help wanted <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&utf8=%E2%9C%93>`__
+- `Help wanted <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22help%20wanted%22&utf8=%E2%9C%93>`__
 
-- `UX and usability <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3AUX>`__
+- `UX and usability <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3AUX>`__
 
-- `Windows tools <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+windows-tools%22>`__
+- `Windows tools <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22C%3A%20windows-tools%22>`__
 
-- `Documentation <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+doc%22>`__
+- `Documentation <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22C%3A%20doc%22>`__
 
 - `Privacy <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20>`__
 
-- `Debian/Ubuntu <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22C%3A+Debian%2FUbuntu%22>`__
+- `Debian/Ubuntu <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22C%3A%20Debian%2FUbuntu%22>`__
 
 
 

@@ -3,7 +3,7 @@ How to copy from dom0
 =====================
 
 
-This page covers copying files and clipboard text between :ref:`dom0 <user/reference/glossary:dom0>` and :ref:`domUs <user/reference/glossary:domu>`. Since dom0 is special, the processes are different from :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` and :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>`.
+This page covers copying files and clipboard text between :term:`dom0` and :term:`domUs <domu>`. Since dom0 is special, the processes are different from :doc:`copying and pasting text between qubes </user/how-to-guides/how-to-copy-and-paste-text>` and :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>`.
 
 Copying *from* dom0
 -------------------
@@ -41,7 +41,7 @@ Use the **Qubes Clipboard** widget:
 
 
 
-Alternatively, you can put your text in a file, then `copy it as a file <#copying-files-from-dom0>`__. Or, you can write the data you wish to copy into ``/var/run/qubes/qubes-clipboard.bin``, then ``echo -n dom0 > /var/run/qubes/qubes-clipboard.bin.source``. Then use Ctrl+Shift+V to paste the data to the target qube.
+Alternatively, you can put your text in a file, then :ref:`copy it as a file <user/how-to-guides/how-to-copy-from-dom0:copying files from dom0>`. Or, you can write the data you wish to copy into ``/var/run/qubes/qubes-clipboard.bin``, then ``echo -n dom0 > /var/run/qubes/qubes-clipboard.bin.source``. Then use Ctrl+Shift+V to paste the data to the target qube.
 
 Copying logs from dom0
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -65,7 +65,7 @@ Copying *to* dom0
 -----------------
 
 
-Copying anything into dom0 is not advised, since doing so can compromise the security of your Qubes system. For this reason, there is no simple means of copying anything into dom0, unlike `copying from dom0 <#copying-from-dom0>`__.
+Copying anything into dom0 is not advised, since doing so can compromise the security of your Qubes system. For this reason, there is no simple means of copying anything into dom0, unlike :ref:`user/how-to-guides/how-to-copy-from-dom0:copying *from* dom0`.
 
 There should normally be few reasons for the user to want to copy anything from domUs to dom0, as dom0 only acts as a “thin trusted terminal”, and no user applications run there. Sometimes, new users feel the urge to copy a desktop wallpaper image into dom0, but that is not necessary. A safer approach is simply to display the image in :doc:`full-screen mode </user/how-to-guides/how-to-enter-fullscreen-mode>` in an app qube, then take a screenshot from dom0, which results in exactly the image needed for a wallpaper, created securely and natively in dom0.
 
@@ -81,6 +81,6 @@ Note that you can use the same method to copy files from dom0 to domUs (if, for 
 
 .. code:: console
 
-      cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
+      $ cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
 
 

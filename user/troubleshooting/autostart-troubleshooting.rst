@@ -2,9 +2,6 @@
 Autostart troubleshooting
 =========================
 
-
-The following instructions are valid for **Qubes OS R4.0 legacy mode** and **Qubes OS R4.1 legacy and UEFI modes**. For **Qubes OS R4.0 in UEFI mode**, there is no GRUB, so manual boot from another operating system is needed.
-
 In several cases, there is a need to prevent ``autostart=True`` for qubes on boot. For example:
 
 - ``sys-usb`` was enabled, but the only keyboard is attached via USB, and the ``qubes.InputKeyboard`` service is disabled.
@@ -28,10 +25,5 @@ Append ``qubes.skip_autostart`` to the end of this line (generally after the ``r
 Press ``Ctrl+X`` to boot with the edited GRUB entry. The boot will proceed as usual from here, except that no qube will be autostarted.
 
 .. |grub1.png| image:: /attachment/doc/grub1.png
-   
-
 .. |grub2.png| image:: /attachment/doc/grub2.png
-   
-
 .. |grub3.png| image:: /attachment/doc/grub3.png
-   

@@ -13,9 +13,9 @@ To change this allocation, edit VM’s kernel parameters (this is expressed in 5
 
 .. code:: console
 
-      # qvm-prefs netvm |grep kernelopts
+      $ qvm-prefs netvm |grep kernelopts
       kernelopts       : iommu=soft swiotlb=2048 (default)
-      # qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=8192"
+      $ qvm-prefs -s netvm kernelopts "iommu=soft swiotlb=8192"
 
 
 

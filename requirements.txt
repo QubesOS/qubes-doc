@@ -6,14 +6,14 @@ charset-normalizer==3.4.1
 docutils==0.21.2
 idna==3.10
 imagesize==1.4.1
-Jinja2==3.1.5
+Jinja2==3.1.6
 jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
 MarkupSafe==3.0.2
 packaging==24.2
 Pygments==2.19.1
 referencing==0.35.1
-requests==2.32.3
+requests==2.32.4
 requests-file==2.1.0
 rpds-py==0.22.3
 snowballstemmer==2.2.0
@@ -29,8 +29,9 @@ sphinxcontrib-jquery==4.1
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==2.0.0
 sphinxcontrib-serializinghtml==2.0.0
+sphinxext-opengraph==0.12.0
 sphinxnotes-any==2.5
 sphinxnotes-comboroles==1.0
 sphinxnotes-strike==1.2.1
-urllib3==2.3.0
+urllib3==2.6.0
 Wand==0.6.13

@@ -6,10 +6,6 @@ Resize disk image
 
       This page is intended for advanced users.
 
-Resizing Disk Images
---------------------
-
-
 By default Qubes uses thin volumes for the disk images. This means that space is not actually allocated for the volume until it is used. So a 2GB private volume with 100M of files will only use 100M. This explains how you can have *many* qubes with large private volumes on quite a small disk. This is called over provisioning. You should keep an eye on the disk-space widget to see how much free space you actually have.
 
 It is easy to increase the size of disk images. There are risks attached to reducing the size of an image, and in general you should not need to do this.
@@ -32,8 +28,8 @@ In case of template-based qubes, the private storage (the /home directory and us
 .. _increasing-the-size-of-disk-images-1:
 
 
-Increasing the size of Disk Images
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Increasing the size of Disk Images with :program:`qvm-volume`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -92,10 +88,10 @@ FreeBSD
 
 .. code:: console
 
-      gpart recover ada0
-      sysctl kern.geom.debugflags=0x10
-      gpart resize -i index ada0
-      zpool online -e poolname ada0
+      $ gpart recover ada0
+      $ sysctl kern.geom.debugflags=0x10
+      $ gpart resize -i index ada0
+      $ zpool online -e poolname ada0
 
 
 

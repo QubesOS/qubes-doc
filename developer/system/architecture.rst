@@ -7,7 +7,7 @@ Qubes implements a security-by-compartmentalization approach. To do this, Qubes 
 
 |qubes-schema-v2.png|
 
-Qubes lets the user define many secure compartments known as :ref:`qubes <user/reference/glossary:qube>`, which are implemented as lightweight :ref:`virtual machines (VMs) <user/reference/glossary:vm>`. For example, the user can have “personal,” “work,” “shopping,” “bank,” and “random” app qubes and can use the applications within those qubes just as if they were executing on the local machine. At the same time, however, these applications are well isolated from each other. Qubes also supports secure copy-and-paste and file sharing between qubes, of course.
+Qubes lets the user define many secure compartments known as :term:`qubes <qube>`, which are implemented as lightweight :term:`virtual machines (VMs)  <vm>`. For example, the user can have “personal,” “work,” “shopping,” “bank,” and “random” app qubes and can use the applications within those qubes just as if they were executing on the local machine. At the same time, however, these applications are well isolated from each other. Qubes also supports secure copy-and-paste and file sharing between qubes, of course.
 
 Key architecture features
 -------------------------
@@ -68,7 +68,4 @@ And all these components are “glued together” by the Qubes Core Stack.
 This diagram illustrates the location of all these components in the overall system architecture. Unlike the other Qubes architecture diagram above, this one takes an app-qube-centric approach.
 
 .. |qubes-schema-v2.png| image:: /attachment/doc/qubes-schema-v2.png
-   
-
 .. |Qubes system components| image:: /attachment/doc/qubes-components.png
-   

@@ -53,7 +53,7 @@ The firewall rules for each qube are saved in an XML file in that qube’s direc
 
 Rules are implemented on the netvm.
 
-You can also manually create rules in the qube itself using standard firewalling controls. See `Where to put firewall rules <#where-to-put-firewall-rules>`__. In complex cases, it might be appropriate to load a ruleset using ``nft -f /path/to/ruleset`` called from ``/rw/config/rc.local``, the ruleset file can be populated from the current ruleset using ``nft list ruleset > /path/to/ruleset``, you should add ``flush ruleset`` at the top of the file to remove all existing rules before loading them. if you do this, be aware that ``rc.local`` is called *after* the network is up, so local rules should not be relied upon to block leaks.
+You can also manually create rules in the qube itself using standard firewalling controls. See :ref:`user/security-in-qubes/firewall:where to put firewall rules`. In complex cases, it might be appropriate to load a ruleset using ``nft -f /path/to/ruleset`` called from ``/rw/config/rc.local``, the ruleset file can be populated from the current ruleset using ``nft list ruleset > /path/to/ruleset``, you should add ``flush ruleset`` at the top of the file to remove all existing rules before loading them. if you do this, be aware that ``rc.local`` is called *after* the network is up, so local rules should not be relied upon to block leaks.
 
 Reconnecting qubes after a NetVM reboot
 ---------------------------------------
@@ -139,7 +139,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 - Now you should be able to reach B from A – test it using e.g. ping issued from A. Note however, that this doesn’t allow you to reach A from B – for this you would need two more rules, with A and B swapped.
 
-- If everything works as expected, then you should write the above nftables rules into firewallVM’s ``qubes-firewall-user-script`` script. This script is run when the netvm starts up. You should also write relevant rules in A and B’s ``rc.local`` script which is run when the qube is launched. Here’s an example how to update the script:
+- If everything works as expected, then you should write the above nftables rules into firewallVM’s ``qubes-firewall-user-script`` script (see section :ref:`Where to put firewall rules <user/security-in-qubes/firewall:where to put firewall rules>`). This script is run when the netvm starts up. You should also write relevant rules in A and B’s ``rc.local`` script which is run when the qube is launched. Here’s an example how to update the script:
 
 
 
@@ -355,7 +355,7 @@ In the sys-net VM’s Terminal, the first step is to define an nftables chain th
 
 .. code:: console
 
-      nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+      $ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
 
 
@@ -369,7 +369,7 @@ Second step, code a natting firewall rule to route traffic on the outside interf
 
 .. code:: console
 
-      nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
+      $ nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
 
 
@@ -377,7 +377,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 .. code:: console
 
-      nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
+      $ nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 
 
 
@@ -391,7 +391,7 @@ Verify the rules on the sys-net firewall correctly match the packets you want by
 
 .. code:: console
 
-      nft list table ip qubes
+      $ nft list table ip qubes
 
 
 
@@ -414,11 +414,11 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 .. code:: console
 
-      telnet 192.168.x.n 443
+      $ telnet 192.168.x.n 443
 
 
 
-Once you have confirmed that the counters increase, store the commands used in the previous steps in ``/rw/config/qubes-firewall-user-script`` so they get set on sys-net start-up:
+Once you have confirmed that the counters increase, store the commands used in the previous steps in ``/rw/config/qubes-firewall-user-script`` so they get set on sys-net start-up (see section :ref:`Where to put firewall rules <user/security-in-qubes/firewall:where to put firewall rules>`):
 
 .. code:: console
 
@@ -437,7 +437,7 @@ Content of ``/rw/config/qubes-firewall-user-script`` in ``sys-net``:
       if nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
       then
         # create the dnat rule
-        nft add rule qubes custom-dnat-qubeDEST iifname ens6 saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
+        nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
         # allow forwarded traffic
         nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
@@ -453,7 +453,7 @@ In the sys-firewall Terminal, add a DNAT chain that will contain routing rules:
 
 .. code:: console
 
-      nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+      $ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
 
 
@@ -461,7 +461,7 @@ Second step, code a natting firewall rule to route traffic on the outside interf
 
 .. code:: console
 
-      nft add rule qubes custom-dnat-qubeDEST iifgroup 1 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
+      $ nft add rule qubes custom-dnat-qubeDEST iifgroup 1 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 
 
 
@@ -469,7 +469,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 .. code:: console
 
-      nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
+      $ nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 
 
 
@@ -477,7 +477,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 
 
-Once you have confirmed that the counters increase, store these commands in the script ``/rw/config/qubes-firewall-user-script``
+Once you have confirmed that the counters increase, store these commands in the script ``/rw/config/qubes-firewall-user-script`` (see section :ref:`Where to put firewall rules <user/security-in-qubes/firewall:where to put firewall rules>`):
 
 .. code:: console
 
@@ -516,7 +516,7 @@ The according rule to allow the traffic is:
 
 .. code:: console
 
-      nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
+      $ nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
 
 
 
@@ -537,6 +537,8 @@ Where to put firewall rules
 
 Implicit in the above example :doc:`scripts </user/advanced-topics/config-files>`, but worth calling attention to: for all qubes *except* those supplying networking, nftables commands should be added to the ``/rw/config/rc.local`` script. For service qubes supplying networking (``sys-firewall`` and ``sys-net`` inclusive), nftables commands should be added to ``/rw/config/qubes-firewall-user-script``.
 
+Remember that you have to perform these changes in the corresponding disposable templates if the VMs are disposable VMs; otherwise the changes will get lost on restart of the VMs.
+
 Firewall troubleshooting
 ------------------------
 
@@ -549,7 +551,7 @@ For instance, if you want to check if your network interface ``eth0`` is receivi
 
 .. code:: console
 
-      tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
+      $ tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
 
 
 
@@ -567,7 +569,7 @@ You can dump the ruleset in two files using the following command:
 
 .. code:: console
 
-      nft list ruleset | tee nft_backup | tee nft_new_ruleset
+      $ nft list ruleset | tee nft_backup | tee nft_new_ruleset
 
 
 
@@ -577,6 +579,6 @@ You can revert to the original ruleset with the following commands:
 
 .. code:: console
 
-      nft flush ruleset && nft -f nft_backup
+      $ nft flush ruleset && nft -f nft_backup
 
 

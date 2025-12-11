@@ -4,8 +4,8 @@ System requirements
 
 
 .. warning::
-      
-      Notice: The system requirements on this page are *necessary, but not sufficient*, for Qubes compatibility at a minimal or recommended level. In other words, just because a computer satisfies these requirements doesn’t mean that Qubes will successfully install and run on it. We strongly recommend consulting the `resources below <#choosing-hardware>`__       when selecting hardware for Qubes.
+
+      Notice: The system requirements on this page are *necessary, but not sufficient*, for Qubes compatibility at a minimal or recommended level. In other words, just because a computer satisfies these requirements doesn’t mean that Qubes will successfully install and run on it. We strongly recommend consulting :ref:`user/hardware/system-requirements:choosing hardware` when selecting hardware for Qubes.
 
 Minimum
 -------
@@ -35,9 +35,9 @@ Recommended
 
   - `Intel VT-d <https://en.wikipedia.org/wiki/X86_virtualization#Intel-VT-d>`__
 
-  - For security, we recommend processors that are recent enough to still be receiving microcode updates (see `below <#important-notes>`__ for details).
+  - For security, we recommend processors that are recent enough to still be receiving microcode updates (see :ref:`user/hardware/system-requirements:important notes` for details).
 
-  - AMD processors are not recommended due to inconsistent security support on client platforms (see `below <#important-notes>`__ for details).
+  - AMD processors are not recommended due to inconsistent security support on client platforms (see :ref:`user/hardware/system-requirements:important notes` for details).
 
 
 
@@ -126,9 +126,9 @@ Important Notes
 - You can check whether an Intel processor has VT-x and VT-d on `ark.intel.com <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__.
 
 
-.. [1] 
+.. [1]
    There is an ``amd-ucode-firmware`` package, but it only contains microcode for servers and outdated microcode for Chromebooks. Also, the `AMD security website <https://www.amd.com/en/resources/product-security.html>`__ only lists microcode as a mitigation for data center CPUs.
-.. [2] 
+.. [2]
    As shown on `the AMD page for Speculative Return Stack Overflow <https://www.amd.com/en/resources/product-security/bulletin/amd-sb-7005.html>`__, updated AGESA™ firmware for AMD Ryzen™ Threadripper™ 5000WX Processors was not available until 2024-01-11, even though the vulnerability became public on 2023-08-08. AMD did not provide updated firmware for other client processors until a date between 2023-08-22 to 2023-08-25.
 
    For Zenbleed, firmware was not available until 2024 for most client parts, even though server parts got microcode on 2023-06-06.

@@ -8,7 +8,7 @@ posts related to Qubes OS.
 Secure Software Development
 ===========================
 
-- `Security challenges for the Qubes build process <https://blog.invisiblethings.org/2016/05/30/build-security.html>`__ by Joanna Rutkowska, May 2016 
+- `Security challenges for the Qubes build process <https://blog.invisiblethings.org/2016/05/30/build-security.html>`__ by Joanna Rutkowska, May 2016
 
 
 Towards Trusted Hardware

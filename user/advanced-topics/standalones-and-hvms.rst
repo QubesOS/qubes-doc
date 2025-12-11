@@ -6,7 +6,7 @@ Standalones and HVMs
 
       This page is intended for advanced users.
 
-A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that is created by cloning a :ref:`template <user/reference/glossary:template>`. Unlike templates, however, standalones do not supply their root filesystems to other qubes. Examples of situations in which standalones can be useful include:
+A :term:`standalone` is a type of qube that is created by cloning a :term:`template`. Unlike templates, however, standalones do not supply their root filesystems to other qubes. Examples of situations in which standalones can be useful include:
 
 - Qubes used for development (dev environments often require a lot of specific packages and tools)
 
@@ -14,7 +14,7 @@ A :ref:`standalone <user/reference/glossary:standalone>` is a type of qube that 
 
 
 
-Meanwhile, a :ref:`Hardware-assisted Virtual Machine (HVM) <user/reference/glossary:hvm>`, also known as a “Fully-Virtualized Virtual Machine,” utilizes the virtualization extensions of the host CPU. These are typically contrasted with Paravirtualized (PV) VMs.
+Meanwhile, a :term:`Hardware-assisted Virtual Machine (HVM)  <hvm>`, also known as a “Fully-Virtualized Virtual Machine,” utilizes the virtualization extensions of the host CPU. These are typically contrasted with Paravirtualized (PV) VMs.
 
 HVMs allow you to create qubes based on any OS for which you have an installation ISO, so you can easily have qubes running Windows, ``*BSD``, or any Linux distribution. You can also use HVMs to run “live” distros.
 
@@ -32,7 +32,7 @@ PVH has less attack surface than PV, as it relies on Second Level Address Transl
 
 PVH also has less attack surface than HVM, as it does not require QEMU to provide device emulation services. While QEMU is confined in a stubdomain, and again in a seccomp based sandbox, the stubdomain has significant attack surface against the hypervisor. Not only does it have the full attack surface of a PV domain, it also has access to additional hypercalls that allow it to control the guest it is providing emulation services for. XSA-109 was a vulnerability in one of these hypercalls.
 
-PVH has better performance than HVM, as the stubdomain iin HVM consumes resources (both memory and a small amount of CPU). There is little difference in the I/O path at runtime, as both PVH and HVM guests usually use paravirtualized I/O protocols.
+PVH has better performance than HVM, as the stubdomain in HVM consumes resources (both memory and a small amount of CPU). There is little difference in the I/O path at runtime, as both PVH and HVM guests usually use paravirtualized I/O protocols.
 
 Surprisingly, PVH often has better performance than PV. This is because PVH does not require hypercalls for page table updates, which are expensive. SLAT does raise the cost of TLB misses, but this is somewhat mitigated by a second-level TLB in recent hardware.
 
@@ -80,13 +80,13 @@ Using the GUI
 ^^^^^^^^^^^^^
 
 
-In Qube Manager, select “Create new qube” from the Qube menu, or select the “Create a new qube” button. In the “create new qube” dialog box set Type to “Empty standalone qube (install your own OS)”. If “install system from device” is selected (which it is by default), then ``virt_mode`` will be set to ``hvm`` automatically. Otherwise, open the newly-created qube’s Settings GUI and, in the “Advanced” tab, select ``HVM`` in the virtualization mode drop-down list. Also, make sure “Kernel” is set to ``(none)`` on the same tab.
+In Qube Manager, use either the "New qube" button, or the "New qube" entry in the "Qube" menu. In the "Create new qube" dialog box click on tab "Standalone". If "install system from device" is selected (which it is by default), then ``virt_mode`` will be set to ``hvm`` automatically. Otherwise, open the newly-created qube’s Settings GUI and, in the "Advanced" tab, select ``HVM`` in the virtualization mode drop-down list. Also, make sure “Kernel” is set to ``(none)`` on the same tab.
 
 Command line
 ^^^^^^^^^^^^
 
 
-Qubes are template-based (i.e., :ref:`app qubes <user/reference/glossary:app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
+Qubes are template-based (i.e., :term:`app qubes  <app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
 
 .. code:: console
 
@@ -148,7 +148,7 @@ Just like standard app qubes, an HVM gets a fixed IP addresses centrally assigne
 
 A generic HVM such as a standard Windows or Ubuntu installation, however, has no Qubes agent scripts running inside it initially and thus requires manual configuration of networking so that it matches the values assigned by Qubes.
 
-Even though we do have a small DHCP server that runs inside the HVM’s untrusted stub domain to make the manual network configuration unnecessary for many qubes, this won’t work for most modern Linux distributions, which contain Xen networking PV drivers (but not Qubes tools), which bypass the stub-domain networking. (Their net frontends connect directly to the net backend in the :ref:`net qube <user/reference/glossary:net qube>`.) In this instance, our DHCP server is not useful.
+Even though we do have a small DHCP server that runs inside the HVM’s untrusted stub domain to make the manual network configuration unnecessary for many qubes, this won’t work for most modern Linux distributions, which contain Xen networking PV drivers (but not Qubes tools), which bypass the stub-domain networking. (Their net frontends connect directly to the net backend in the :term:`net qube  <net qube>`.) In this instance, our DHCP server is not useful.
 
 In order to manually configure networking in a qube, one should first find out the IP/netmask/gateway assigned to the particular qube by Qubes. This can be seen, e.g., in the Qube Manager in the qube’s properties:
 
@@ -209,7 +209,7 @@ Set memory as appropriate and install the OS into this template in the same way 
 
 You can then create a new qube using the new template. If you use this Template as is, then any HVMs based on it will effectively be disposables. All file system changes will be wiped when the HVM is shut down.
 
-Please see :ref:`this page <user/templates/windows/windows-qubes-4-1:windows as a template>` for specific advice on installing and using Windows-based templates.
+:ref:`user/templates/windows/qubes-windows:windows as a template` gives specific advice on installing and using Windows-based templates.
 
 Cloning HVMs
 ------------
@@ -393,7 +393,7 @@ Unzip VirtualBox zip file:
 
 .. code:: console
 
-      unzip *.zip
+      $ unzip *.zip
 
 
 
@@ -401,7 +401,7 @@ Extract OVA tar archive:
 
 .. code:: console
 
-      tar -xvf *.ova
+      $ tar -xvf *.ova
 
 
 
@@ -409,7 +409,7 @@ Convert vmdk to raw:
 
 .. code:: console
 
-      qemu-img convert -O raw *.vmdk win10.raw
+      $ qemu-img convert -O raw *.vmdk win10.raw
 
 
 
@@ -445,7 +445,7 @@ Filetype of OVA file:
 
 .. code:: console
 
-      file *.ova
+      $ file *.ova
 
 
 
@@ -453,7 +453,7 @@ List files of OVA tar archive:
 
 .. code:: console
 
-      tar -tf *.ova
+      $ tar -tf *.ova
 
 
 
@@ -461,7 +461,7 @@ List filetypes supported by qemu-img:
 
 .. code:: console
 
-      qemu-img -h | tail -n1
+      $ qemu-img -h | tail -n1
 
 
 

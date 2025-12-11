@@ -9,13 +9,13 @@ It is important to keep your Qubes OS system up-to-date to ensure you have the l
 
 Fully updating your Qubes OS system means updating:
 
-- :ref:`dom0 <user/reference/glossary:dom0>`
+- :term:`dom0`
 
-- :ref:`templates <user/reference/glossary:template>`
+- :term:`templates <template>`
 
-- :ref:`standalones <user/reference/glossary:standalone>` (if you have any)
+- :term:`standalones <standalone>` (if you have any)
 
-- :ref:`firmware <user/reference/glossary:firmware>`
+- :term:`firmware`
 
 
 
@@ -45,7 +45,7 @@ Installing updates
 ------------------
 
 
-The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the `command-line interface <#command-line-interface>`__.)
+The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the :ref:`user/how-to-guides/how-to-update:command-line interface`.)
 
 |Qubes Update|
 
@@ -87,15 +87,29 @@ Command-line interface
 
 Advanced users may wish to perform updates via the command-line interface. There are two ways to do this:
 
-- If you are using Salt, one can use the following two Salt states.
+1. Use the following two Salt states:
 
-- :ref:`update.qubes-dom0 <user/advanced-topics/salt:\`\`update.qubes-dom0\`\`>`
+  - :ref:`update.qubes-dom0 <user/advanced-topics/salt:\`\`update.qubes-dom0\`\`>`
 
-- :ref:`update.qubes-vm <user/advanced-topics/salt:\`\`update.qubes-vm\`\`>`
+  - :ref:`update.qubes-vm <user/advanced-topics/salt:\`\`update.qubes-vm\`\`>`
 
-- Alternatively, use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs.
+2. Use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs:
 
+  - To check for dom0 updates and apply them, in a dom0 terminal: 
 
+    .. code:: console
+
+       # qubes-dom0-update
+
+    Or add arguments to tweak the default behaviour. Refer to ``qubes-dom0-update --help``, ``man qubes-dom0-update`` or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version).
+
+  - To update all updatable templates, in a dom0 terminal:
+
+    .. code:: console
+
+       $ qubes-vm-update -T
+
+    Or use a different set of arguments. Refer to ``qubes-vm-update --help``, ``man qubes-vm-update`` or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-vm-update.rst>`__ (make sure to read the appropriate version).
 
 Using either of these methods has the same effect as updating via the Qubes Update tool.
 

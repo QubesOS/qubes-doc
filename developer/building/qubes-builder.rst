@@ -1,3 +1,5 @@
+:orphan:
+
 =============
 Qubes builder
 =============
@@ -177,7 +179,7 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 
 
-- You can also set GIT_PREFIX=“marmarek/qubes-” to use marmarek’s repo instead of “mainstream” - it contains newer (but less tested) versions
+  - You can also set GIT_PREFIX=“marmarek/qubes-” to use marmarek’s repo instead of “mainstream” - it contains newer (but less tested) versions
 
 
 

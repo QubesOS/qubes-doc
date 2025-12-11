@@ -1,3 +1,5 @@
+:orphan:
+
 ==================
 Star Labs StarBook
 ==================
@@ -11,8 +13,8 @@ The `Star Labs StarBook <https://starlabs.systems/pages/starbook>`__ is a 14-inc
 
 The Qubes developers have tested and certified the following StarBook configuration options for Qubes OS Release 4:
 
-.. list-table:: 
-   :widths: 16 16 
+.. list-table::
+   :widths: 16 16
    :align: center
    :header-rows: 1
 
@@ -32,7 +34,6 @@ The Qubes developers have tested and certified the following StarBook configurat
      - coreboot 8.97 (2023-10-03)
    * - Operating system
      - Qubes OS (pre-installation optional)
-   
 
 
 |image1|

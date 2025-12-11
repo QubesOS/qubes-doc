@@ -57,8 +57,8 @@ Timeline
 ^^^^^^^^
 
 
-.. list-table:: 
-   :widths: 15 15 
+.. list-table::
+   :widths: 15 15
    :align: center
    :header-rows: 1
 
@@ -70,15 +70,14 @@ Timeline
      - Update & extend how-to guides
    * - December
      - Final project evaluation and case study
-   
 
 
 Project budget
 ^^^^^^^^^^^^^^
 
 
-.. list-table:: 
-   :widths: 32 32 
+.. list-table::
+   :widths: 32 32
    :align: center
    :header-rows: 1
 
@@ -88,7 +87,6 @@ Project budget
      - $12,000
    * - TOTAL
      - $12,000
-   
 
 
 Additional information
@@ -113,22 +111,17 @@ Instructional video series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. _the-projects-problem-1:
-
-
-The project's problem
-^^^^^^^^^^^^^^^^^^^^^
+Instructional video series: The project's problem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
 There is user demand for high-quality, up-to-date video guides that take users from zero Linux knowledge to using Qubes as a daily driver and performing specific tasks inside of Qubes, but almost no such videos exist. Although most of the required knowledge is documented, many users report that they would prefer to watch videos rather than read text or that they would find videos easier to understand and follow along with.
 
-.. _the-projects-scope-1:
 
-
-The project's scope
-^^^^^^^^^^^^^^^^^^^
+Instructional video series: The project's scope
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -219,11 +212,10 @@ Below is an example of the content (which is already :doc:`documented </index>`)
 
 The project is estimated to need around six months to complete (see the timeline below). Qubes team members, including Michael Carbone, Andrew Wong, and Marek Marczykowski-Górecki, will supervise and support the creator.
 
-.. _measuring-the-projects-success-1:
 
 
-Measuring the project's success
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instructional video series: Measuring the project's success
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
@@ -250,7 +242,7 @@ Consolidate troubleshooting guides
 
 - Review existing :ref:`troubleshooting guides <troubleshooting>`
 
-- Review `issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+doc%22>`__ containing common troubleshooting steps (checking specific logs etc)
+- Review `issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20doc%22>`__ containing common troubleshooting steps (checking specific logs etc)
 
 - Propose updated, consolidated troubleshooting documentation, including its layout
 
@@ -258,7 +250,7 @@ Consolidate troubleshooting guides
 
 **Knowledge prerequisite**:
 
-- `Markdown <https://daringfireball.net/projects/markdown/>`__
+- `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 
 
 
@@ -284,7 +276,7 @@ Improve Getting Started page
 
 - basic Qubes OS knowledge
 
-- `Markdown <https://daringfireball.net/projects/markdown/>`__
+- `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 
 
 
@@ -310,7 +302,7 @@ Rewrite qrexec documentation
 
 **Knowledge prerequisite**:
 
-- `Markdown <https://daringfireball.net/projects/markdown/>`__
+- `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
 
 
 

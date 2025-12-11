@@ -174,7 +174,7 @@ Other GUI domain issues
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
-see existing issues ``QubesOS/qubes-issues`` under `C: gui-domain <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+gui-domain%22>`__ label.
+see existing issues ``QubesOS/qubes-issues`` under `C: gui-domain <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20gui-domain%22>`__ label.
 
 Reverting sys-gui
 -----------------
@@ -188,7 +188,7 @@ Set ``default_guivm`` as ``dom0``:
 
 .. code:: console
 
-      qubes-prefs default_guivm dom0
+      $ qubes-prefs default_guivm dom0
 
 
 and for every selected qubes not using default value for GUI domain property, for example with a qube ``personal``:

@@ -21,7 +21,7 @@ I see something that should be changed in the documentation.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-We encourage you to submit the change yourself! Please see the `how to edit the documentation <https://www.qubes-os.org/doc/how-to-edit-the-documentation/>`__ for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
+We encourage you to submit the change yourself! Please see the :doc:`how to edit the documentation </developer/general/how-to-edit-the-rst-documentation>` for instructions on how to do so. If it’s something you can’t do yourself, please proceed to open an issue.
 
 I would like to report a security vulnerability.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,25 +35,27 @@ I still want to open an issue.
 
 Great! Thank you for taking the time and effort to help improve Qubes! To ensure the process is efficient and productive for everyone involved, please follow these steps:
 
-1. Carefully read our issue tracking `guidelines <#guidelines>`__. If your issue would violate any of the guidelines, **stop**. Please do not submit it.
+1. Carefully read our issue tracking :ref:`introduction/issue-tracking:guidelines`. If your issue would violate any of the guidelines, **stop**. Please do not submit it.
 
-2. `Search through the existing issues <#search-tips>`__, both open and closed, to see if your issue already exists. If it does, **stop**. :ref:`Do not open a duplicate. <introduction/issue-tracking:new issues should not be duplicates of existing issues>` Instead, comment on the existing issue.
+2. :ref:`Search through the existing issues <introduction/issue-tracking:search tips>`, both open and closed, to see if your issue already exists. If it does, **stop**. :ref:`Do not open a duplicate. <introduction/issue-tracking:new issues should not be duplicates of existing issues>` Instead, comment on the existing issue.
 
 3. Go `here <https://github.com/QubesOS/qubes-issues/issues/new/choose>`__.
 
-4. Select the `type <#types>`__ of issue you want to open.
+4. Select the :ref:`type <introduction/issue-tracking:types>` of issue you want to open.
 
 5. Enter a descriptive title.
 
 6. Do not delete the provided issue template. Fill out every applicable section.
 
-7. Make sure to mention any relevant documentation and other issues you’ve already seen. We don’t know what you’ve seen unless you tell us. If you don’t list it, we’ll assume you haven’t seen it.
+7. Please note that AIs often `hallucinate <https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)>`__ about Qubes OS. If you're using an AI to assist you, please check its conclusions against the `official documentation <https://doc.qubes-os.org/>`__.
 
-8. If any sections of the issue template are *truly* not applicable, you may remove them.
+8. Make sure to mention any relevant documentation and other issues you’ve already seen. We don’t know what you’ve seen unless you tell us. If you don’t list it, we’ll assume you haven’t seen it.
 
-9. Submit your issue.
+9. If any sections of the issue template are *truly* not applicable, you may remove them.
 
-10. Respond to any questions the official team asks. For example, you may be asked to provide specific logs or other additional information.
+10. Submit your issue.
+
+11. Respond to any questions the official team asks. For example, you may be asked to provide specific logs or other additional information.
 
 
 
@@ -117,7 +119,7 @@ Meta-issues
 ^^^^^^^^^^^
 
 
-A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of `sub-issues <https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues>`__, usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use `projects <#projects>`__ for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
+A meta-issue is an issue that serves primarily to collect and organize a group of other issues. This group of other issues typically exists in a hierarchy of `sub-issues <https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues>`__, usually with the meta-issue at the top. (For example, we use meta-issues when we need a way to track work on specific features. We cannot use :ref:`introduction/issue-tracking:projects` for this, because we already use a project for tracking the work of the Qubes team as a whole, and projects cannot contain milestones or other projects.)
 
 Meta-issues should have informative descriptions, not just lists of issues. In particular, each meta-issue should explain its goal, what is in scope, and what the relevant categories and priorities are.
 
@@ -127,11 +129,11 @@ Search tips
 -----------
 
 
-- `Search both open and closed issues. <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue>`__ For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view `all bug reports, both open and closed, with the most recently updated sorted to the top <https://github.com/QubesOS/qubes-issues/issues?q=label%3A%22T%3A+bug%22+sort%3Aupdated-desc>`__.
+- `Search both open and closed issues. <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue>`__ For example, you may be experiencing a bug that was just fixed, in which case the report for that bug is probably closed. In this case, it would be useful to view `all bug reports, both open and closed, with the most recently updated sorted to the top <https://github.com/QubesOS/qubes-issues/issues?q=sort%3Aupdated-desc%20type%3ABug>`__.
 
-- `Search with labels. <https://github.com/QubesOS/qubes-issues/labels>`__ For example, you can search issues by priority (`blocker <https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker>`__, `critical <https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical>`__, `major <https://github.com/QubesOS/qubes-issues/labels/P%3A%20major>`__, etc.) and by component (`core <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+core%22>`__, `manager/widget <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A%22C%3A+manager%2Fwidget%22+>`__, `Xen <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+label%3A%22C%3A+Xen%22>`__, etc.).
+- `Search with labels. <https://github.com/QubesOS/qubes-issues/labels>`__ For example, you can search issues by priority (`blocker <https://github.com/QubesOS/qubes-issues/labels/P%3A%20blocker>`__, `critical <https://github.com/QubesOS/qubes-issues/labels/P%3A%20critical>`__, `major <https://github.com/QubesOS/qubes-issues/labels/P%3A%20major>`__, etc.) and by component (`core <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20core%22>`__, `manager/widget <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20manager%2Fwidget%22+>`__, `Xen <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20Xen%22>`__, etc.).
 
-- Search by closure reason: `reason:completed <https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted>`__ and `reason:"not planned" <https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not+planned%22>`__.
+- Search by closure reason: `reason:completed <https://github.com/QubesOS/qubes-issues/issues?q=reason%3Acompleted>`__ and `reason:"not planned" <https://github.com/QubesOS/qubes-issues/issues?q=reason%3A%22not%20planned%22>`__.
 
 - `Search by project <https://github.com/QubesOS/qubes-issues/projects>`__.
 
@@ -147,7 +149,7 @@ The issue tracker is not a discussion forum
 
 The issue tracker is a tool to help the developers be more productive and efficient in their work. It is not a place for discussion. If you wish to discuss something in the issue tracker, please do so on the forum or mailing lists (see :doc:`Help, Support, Mailing Lists, and Forum </introduction/support>`). You can simply link to the relevant issue in your discussion post.
 
-This guideline is important for keeping issues focused on *actionable information*, which helps the developers to stay focused on their work. When developers come back to an issue to work on it, we do not want them to have to sift through a large number of unnecessary comments before they can get started. In many cases, an issue that gets “too big” essentially becomes more trouble than it’s worth, and no developer will touch it (also see `every issue must be about a single, actionable thing <#every-issue-must-be-about-a-single-actionable-thing>`__). In these cases, we sometimes have to close the issue and open a new one. This is a waste of energy for everyone involved, so we ask that everyone help to avoid repeating this pattern.
+This guideline is important for keeping issues focused on *actionable information*, which helps the developers to stay focused on their work. When developers come back to an issue to work on it, we do not want them to have to sift through a large number of unnecessary comments before they can get started. In many cases, an issue that gets “too big” essentially becomes more trouble than it’s worth, and no developer will touch it (also see :ref:`introduction/issue-tracking:every issue must be about a single, actionable thing`). In these cases, we sometimes have to close the issue and open a new one. This is a waste of energy for everyone involved, so we ask that everyone help to avoid repeating this pattern.
 
 Do not submit questions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -169,19 +171,24 @@ Every issue must be about a single, actionable thing
 
 If your issue is not actionable, please see :doc:`Help, Support, Mailing Lists, and Forum </introduction/support>` for the appropriate place to post it. If your issue would be about more than one thing, file them as separate issues instead. This means we should generally not try to use a single issue as a “meta” or “epic” issue that exists only to group, contain, or track other issues. Instead, when there is a need to group multiple related issues together, use `projects <https://github.com/QubesOS/qubes-issues/projects>`__.
 
-This guideline is extremely important for making the issue tracker a useful tool for the developers. When an issue is too big and composite, it becomes intractable and drastically increases the likelihood that nothing will get done. Such issues also tend to encourage an excessive amount of general discussion that is simply not appropriate for a technical issue tracker (see `the issue tracker is not a discussion forum <#the-issue-tracker-is-not-a-discussion-forum>`__).
-
-New issues should not be duplicates of existing issues
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Before you submit an issue, check to see whether it has already been reported. Search through the existing issues – both open and closed – by typing your key words in the **Filters** box. If you find an issue that seems to be similar to yours, read through it. If you find an issue that is the same as or subsumes yours, leave a comment on the existing issue rather than filing a new one, even if the existing issue is closed. If an issue affects more than one Qubes version, we usually keep only one issue for all versions. The Qubes team will see your comment and reopen the issue, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments.
+This guideline is extremely important for making the issue tracker a useful tool for the developers. When an issue is too big and composite, it becomes intractable and drastically increases the likelihood that nothing will get done. Such issues also tend to encourage an excessive amount of general discussion that is simply not appropriate for a technical issue tracker (see :ref:`introduction/issue-tracking:the issue tracker is not a discussion forum`).
 
 Every issue must be of a single type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Every issue must be exactly one of the following types: a bug report (``bug``), a feature or improvement request (``enhancement``), or a task (``task``). Do not file multi-typed issues. Instead, file multiple issues of distinct types. The Qubes team will classify your issue according to its type.
+
+New issues should not be duplicates of existing issues
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Before you submit an issue, check to see whether it has already been reported. Search through the existing issues – both open and closed – by typing your key words in the **Filters** box. If you find an issue that seems to be similar to yours, read through it.
+
+For bug reports, if you find an issue that is the same as or subsumes yours, leave a comment on the existing bug report issue rather than opening a new one, even if the existing bug report is closed. If a bug report affects more than one Qubes version, we usually keep only one bug report for all versions. The Qubes team will see your comment and reopen the bug report, if appropriate. For example, you can leave a comment with additional information to help the maintainer debug it. Adding a comment will subscribe you to email notifications, which can be helpful in getting important updates regarding the issue. If you don’t have anything to add but still want to receive email updates, you can click the “Subscribe” button at the side or bottom of the comments.
+
+For feature requests, it depends on what you want to report. If the initial implementation was incomplete or unsuccessful, then please leave a comment on the existing feature request issue, and we will reopen it. However, if the initial implementation of the feature was successful, and you are reporting a problem with the feature that arose later, then please open a separate bug report (if one doesn't already exist for that bug) instead of commenting on the old feature request, as we generally prefer not to reopen old feature requests the initial implemntation of which was successfully completed.
+
 
 New issues should include all relevant information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -199,7 +206,7 @@ Issues and comments must be written in English
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a `collapsible section <#use-collapsible-sections-for-long-nonessential-content>`__.
+If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a :ref:`collapsible section <introduction/issue-tracking:use collapsible sections for long, nonessential content>`.
 
 Use collapsible sections for long, nonessential content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -242,7 +249,7 @@ Being closed as ``completed`` means that the issue has been fixed (in the case o
 
 Being closed as ``not planned`` means that the issue will *not* be fixed (in the case of bugs) or done (in the case of enhancements and tasks). When an issue is closed as ``not planned``, we add a **resolution** label starting with ``R:`` that specifies the reason for the closure, such as ``R: duplicate`` or ``R: cannot reproduce``. Each of these labels has a description that briefly explains the label. We also leave a comment containing a longer explanation for why the issue is being closed along with general information.
 
-While issues that are closed as ``not planned`` get a more specific resolution label, issues that are closed as ``completed`` do not always get one, since the linked PRs, commits, automated messages, and the ``completed`` reason itself are often sufficient to convey all relevant information. For information about using closure reasons in searches, see `Search tips <#search-tips>`__.
+While issues that are closed as ``not planned`` get a more specific resolution label, issues that are closed as ``completed`` do not always get one, since the linked PRs, commits, automated messages, and the ``completed`` reason itself are often sufficient to convey all relevant information. For information about using closure reasons in searches, see :ref:`introduction/issue-tracking:search tips`.
 
 Backports
 ^^^^^^^^^

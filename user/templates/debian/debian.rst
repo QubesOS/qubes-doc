@@ -3,7 +3,7 @@ Debian templates
 ================
 
 
-The Debian :doc:`template </user/templates/templates>` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian 12 (“bookworm”). It is available in 3 versions - ``debian-12``, a standard template; ``debian-12-xfce``, a larger template with more installed applications, selected for :doc:`Xfce </user/templates/xfce-templates>`; ``debian-12-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
+The Debian :term:`template` is an officially :ref:`supported <user/downloading-installing-upgrading/supported-releases:templates>` template in Qubes OS. The Current version is Debian |debian-version| (“|debian-codename|”). It is available in 3 versions - ``debian-13-xfce``, the default Debian template with the Xfce desktop environment; ``debian-13``, an alternative Debian template with the GNOME desktop environment; and ``debian-13-minimal``. This page is about the “full” templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
 
 Installing
 ----------
@@ -53,7 +53,7 @@ Upgrading
 
 There are two ways to upgrade your template to a new Debian release:
 
-- **Recommended:** `Install a fresh template to replace the existing one. <#installing>`__ **This option may be simpler for less experienced users.** After you install the new template, redo all desired template modifications and :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>`. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see ``/var/log/dpkg.log`` and ``/var/log/apt/history.log`` for logs of package manager actions.
+- **Recommended:** :ref:`Install a fresh template to replace the existing one. <user/templates/debian/debian:installing>` **This option may be simpler for less experienced users.** After you install the new template, redo all desired template modifications and :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>`. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see ``/var/log/dpkg.log`` and ``/var/log/apt/history.log`` for logs of package manager actions.
 
 - **Advanced:** :doc:`Perform an in-place upgrade of an existing Debian template. </user/templates/debian/debian-upgrade>` This option will preserve any modifications you’ve made to the template, **but it may be more complicated for less experienced users.**
 

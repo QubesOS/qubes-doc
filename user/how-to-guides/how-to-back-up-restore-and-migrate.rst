@@ -30,7 +30,7 @@ Creating a backup
 -----------------
 
 
-1. Go to **Applications menu -> System Tools -> Backup Qubes**. This brings up the **Qubes Backup VMs** window.
+1. Go to :menuselection:`Applications menu --> System Tools --> Backup Qubes`. This brings up the **Qubes Backup VMs** window.
 
 2. Move the VMs that you want to back up to the right-hand **Selected** column. VMs in the left-hand **Available** column will not be backed up.
 
@@ -60,7 +60,7 @@ Creating a backup
 
 5. When you are ready, click **Next**. Qubes will proceed to create your backup. Once the progress bar has completed, you may click **Finish**.
 
-6. Test restore your backup. Follow the `restore procedure <#restoring-from-a-backup>`__, selecting **Verify backup integrity, do not restore the data**. This step is optional but strongly recommended. A backup is useless if you can’t restore your data from it, and you can’t be sure that your backup is good until you try to restore.
+6. Test restore your backup. Follow the :ref:`restore procedure <user/how-to-guides/how-to-back-up-restore-and-migrate:restoring from a backup>`, selecting **Verify backup integrity, do not restore the data**. This step is optional but strongly recommended. A backup is useless if you can’t restore your data from it, and you can’t be sure that your backup is good until you try to restore.
 
 
 
@@ -68,7 +68,7 @@ Restoring from a backup
 -----------------------
 
 
-1. Go to **Applications menu -> System Tools -> Restore Backup**. This brings up the **Qubes Restore VMs** window.
+1. Go to :menuselection:`Applications menu -> System Tools -> Restore Backup`. This brings up the **Qubes Restore VMs** window.
 
 2. Select the source location of the backup to be restored:
 
@@ -101,7 +101,7 @@ Restoring from a backup
 
 
 
-In case that applications are not shown, i.e. “No applications found”, open the settings of the qube -> select ``Applications`` -> click ``Refresh applications``.
+In case that applications are not shown, i.e. “No applications found”, open the settings of the qube -> select :guilabel:`Applications`, click :guilabel:`Refresh applications`.
 
 When a restored application qube refreshes, the application lists will open the template qubes on which it is based. In that case the template qube should also be restored, if it is missing the default qube will be assigned. The updated list of the installed software can be seen on the left and adjusted accordingly to the user’s needs.
 

@@ -4,6 +4,7 @@ import os
 import sys
 from pathlib import Path
 
+# Append the path to custom extensions
 sys.path.append(str(Path('_ext').resolve()))
 
 # For the full list of options, see the documentation:
@@ -29,12 +30,15 @@ release = '4.2.4'
 # -- General configuration ---------------------------------------------------
 
 extensions = [
-  'sphinx.ext.autosectionlabel',
-  'sphinxnotes.strike',
-  'sphinx_reredirects',
-  'youtube_frame',
+  'sphinx.ext.autosectionlabel',  # Automatically generate section labels
+  'sphinx.ext.intersphinx',  # Reference other doc projects
+  'sphinxnotes.strike', # Add strike-through text support
+  'sphinx_reredirects', # Manage redirects in the documentation
+  'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
+  'youtube_frame', # Embed YouTube videos
 ]
 
+# Redirects for specific URLs as fall back
 redirects = {
     "user/hardware/hcl":
         "https://www.qubes-os.org/hcl/",
@@ -42,27 +46,41 @@ redirects = {
         "https://www.qubes-os.org/downloads/mirrors/",
     "developer/general/visual-style-guide":
         "https://www.qubes-os.org/doc/visual-style-guide/",
-    "developer/general/website-style-guide":
-        "https://www.qubes-os.org/doc/website-style-guide/",
     "user/downloading-installing-upgrading/downloads":
         "https://www.qubes-os.org/downloads/",
-    "developer/general/how-to-edit-the-documentation":
-        "https://www.qubes-os.org/doc/how-to-edit-the-documentation/",
-}
 
+    # user/templates/windows URLs
+    "user/templates/windows/windows":
+        "/user/templates/windows/",
+    "user/templates/windows/windows-qubes-4-1":
+        "qubes-windows.html",
+    "user/templates/windows/windows-qubes-4-0":
+        "qubes-windows.html",
+    "user/templates/windows/qubes-windows-tools-4-1":
+        "qubes-windows-tools.html",
+    "user/templates/windows/qubes-windows-tools-4-0":
+        "qubes-windows-tools.html",
+    "user/templates/windows/migrate-to-4-1":
+        "qubes-windows-migrate.html",
+}
 
 # -- -- Options for highlighting ---------------------------------------------
 
+# Disable syntax highlighting
 highlight_language = 'none'
 
+# Set the Pygments style for syntax highlighting
+pygments_style = 'sphinx'
 
 # -- -- Options for source files ---------------------------------------------
 
+# Patterns to exclude from the source directory
 exclude_patterns = [
   '_*',
   '**/.*',
-  '**/*.txt'
+  '**/*.txt',
   'attachment',
+  '.venv',
 ]
 
 
@@ -85,15 +103,31 @@ html_static_path = ['attachment/doc']
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
+html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
+html_favicon = "attachment/icons/favicon-16x16.png"
+
 # -- -- Options for the linkcheck builder ------------------------------------
 
 linkcheck_anchors = False
 linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
 
 # -- Extensions configuration ------------------------------------------------
-
+# Prefix section labels with the document name
 autosectionlabel_prefix_document = True
 
+# Allows references to the docs in dev.qubes-os.org
+# i.e.: :doc:`core-admin:libvirt`
+intersphinx_mapping = {
+    'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
+    'core-admin-client': ('https://dev.qubes-os.org/projects/core-admin-client/en/latest/', None),
+    'core-qrexec': ('https://dev.qubes-os.org/projects/qubes-core-qrexec/en/stable/', None),
+}
+intersphinx_disabled_reftypes = ["*"]
+
+# Open Graph image for social media sharing
+ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
+# Disable Open Graph image alt text
+ogp_image_alt = False
 
 # -- HTML configuration ------------------------------------------------------
 
@@ -110,8 +144,25 @@ html_context = {
 
 # -- -- Options for internationalisation -------------------------------------
 
+# Directories containing translation files
 locale_dirs = ['_translated']
 
 gettext_compact = False
 
 gettext_uuid = True
+
+# -- -- Options for markup ---------------------------------------------------
+
+# Define a block of reusable reStructuredText (reST) snippets, warnings etc. that Sphinx automatically appends to every source file before it is parsed
+rst_epilog = """
+.. |debian-codename| replace:: trixie
+.. |debian-version| replace:: 13
+.. |qubes-logo-icon| image:: /attachment/icons/128x128/apps/qubes-logo-icon.png
+   :height: 1em
+   :class: no-scaled-link
+   :alt: Qubes logo icon
+"""
+
+# -- -- Options for the nitpicky mode ----------------------------------------
+
+nitpicky = True

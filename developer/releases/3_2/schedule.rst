@@ -3,10 +3,10 @@ Qubes R3.2 release schedule
 ===========================
 
 
-This schedule is based on :ref:`Version Scheme <developer/releases/version-scheme:release schedule>`.
+This schedule is based on our :ref:`release-schedule-policy`.
 
-.. list-table:: 
-   :widths: 38 38 
+.. list-table::
+   :widths: 38 38
    :align: center
    :header-rows: 1
 
@@ -28,5 +28,3 @@ This schedule is based on :ref:`Version Scheme <developer/releases/version-schem
      - 3.2-rc3 release
    * - 29 Sep 2016
      - 3.2 release
-   
-

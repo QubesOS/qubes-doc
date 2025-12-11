@@ -89,13 +89,13 @@ New features and improvements since Qubes 4.0
 
 
 
-For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.1%22+label%3A%22release+notes%22+is%3Aclosed>`__.
+For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%204.1%22%20label%3A%22release%20notes%22%20is%3Aclosed>`__.
 
 Known issues
 ------------
 
 
-For a full list of known 4.1 issues with open bug reports, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.1%22+label%3A%22T%3A+bug%22>`__. We strongly recommend :doc:`updating Qubes OS </user/how-to-guides/how-to-update>` immediately after installation in order to apply any and all available bug fixes.
+For a full list of known 4.1 issues with open bug reports, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20milestone%3A%22Release%204.1%22%20type%3ABug>`__. We strongly recommend :doc:`updating Qubes OS </user/how-to-guides/how-to-update>` immediately after installation in order to apply any and all available bug fixes.
 
 Download
 --------

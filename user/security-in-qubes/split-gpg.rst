@@ -79,7 +79,7 @@ This is pretty much all that is required. However, you might want to modify the 
 
 Please note that previously, this parameter was set in ~/.bash_profile. This will no longer work. If you have the parameter set in ~/.bash_profile you *must* update your configuration.
 
-Please be aware of the caveat regarding passphrase-protected keys in the `Current limitations <#current-limitations>`__ section.
+Please be aware of the caveat regarding passphrase-protected keys in the :ref:`user/security-in-qubes/split-gpg:current limitations` section.
 
 Configuring the client apps to use Split GPG backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -287,6 +287,8 @@ A safe, unspoofable user consent dialog box is displayed.
 
 Selecting “Yes to All” will add a line in the corresponding :doc:`RPC Policy </user/advanced-topics/rpc-policy>` file.
 
+.. _using-split-gpg-with-subkeys:
+
 Advanced: Using Split GPG with Subkeys
 --------------------------------------
 
@@ -387,11 +389,11 @@ Current limitations
 -------------------
 
 
-- Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket `#474 <https://github.com/QubesOS/qubes-issues/issues/474>`__ for more details and plans how to get around this problem, as well as the section on `using Split GPG with subkeys <#advanced-using-split-gpg-with-subkeys>`__.
+- Current implementation requires importing of public keys to the vault domain. This opens up an avenue to attack the gpg running in the backend domain via a hypothetical bug in public key importing code. See ticket `#474 <https://github.com/QubesOS/qubes-issues/issues/474>`__ for more details and plans how to get around this problem, as well as the section on :ref:`using-split-gpg-with-subkeys`.
 
 - It doesn’t solve the problem of allowing the user to know what is to be signed before the operation gets approved. Perhaps the GPG backend domain could start a disposable and have the to-be-signed document displayed there? To Be Determined.
 
-- The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase. It will give an ``Inappropriate ioctl for device`` error. Do not set passphrases for the private keys in the GPG backend domain. Doing so won’t provide any extra security anyway, as explained in the introduction and in `using Split GPG with subkeys <#advanced-using-split-gpg-with-subkeys>`__. If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use ``gpg2 --edit-key <key_id>`` then ``passwd`` to set an empty passphrase. Note that ``pinentry`` might show an error when you try to set an empty passphrase, but it will still make the change. (See `this StackExchange answer <https://unix.stackexchange.com/a/379373>`__ for more information.) **Note:** The error shows only if you **do not** have graphical pinentry installed.
+- The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase. It will give an ``Inappropriate ioctl for device`` error. Do not set passphrases for the private keys in the GPG backend domain. Doing so won’t provide any extra security anyway, as explained in the introduction and in :ref:`using-split-gpg-with-subkeys`. If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use ``gpg2 --edit-key <key_id>`` then ``passwd`` to set an empty passphrase. Note that ``pinentry`` might show an error when you try to set an empty passphrase, but it will still make the change. (See `this StackExchange answer <https://unix.stackexchange.com/a/379373>`__ for more information.) **Note:** The error shows only if you **do not** have graphical pinentry installed.
 
 
 .. [1]

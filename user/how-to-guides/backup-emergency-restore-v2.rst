@@ -71,8 +71,9 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 **Note:** For multi-part files, a loop can be used:
 
-.. code:: console
+.. code:: bash
 
+      #!/bin/sh
       find -name 'private.img.*' | sort -V | while read f; do
         openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -in $f -out
       ${f/.img/.img.dec}

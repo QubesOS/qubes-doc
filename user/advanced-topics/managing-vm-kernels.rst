@@ -285,7 +285,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 You can safely ignore this error message:
 
-.. code:: console
+.. code:: output
 
       grub2-probe: error: cannot find a GRUB drive for /dev/mapper/dmroot. Check your device.map
 
@@ -339,7 +339,7 @@ You may want to adjust some settings in ``/etc/default/grub`` (or better ``/etc/
 
 Then shutdown the VM.
 
-Go to dom0 -> Qubes VM Manger -> right click on the VM -> Qube settings -> Advanced
+Go to dom0: :menuselection:`Qubes VM Manager --> right click on the VM --> Qube settings --> Advanced`
 
 Depends on ``Virtualization`` mode setting:
 

@@ -113,3 +113,4 @@ Conventional means of viewing the memory available to Qubes will give incorrect 
 
 .. |checkmark| image:: /attachment/doc/checkmark.png
 .. |redx| image:: /attachment/doc/red_x.png
+

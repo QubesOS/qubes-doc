@@ -3,10 +3,10 @@ Qubes R4.0 release schedule
 ===========================
 
 
-This schedule is based on :ref:`Version Scheme <developer/releases/version-scheme:release schedule>`.
+This schedule is based on our :ref:`release-schedule-policy`.
 
-.. list-table:: 
-   :widths: 88 88 
+.. list-table::
+   :widths: 88 88
    :align: center
    :header-rows: 1
 
@@ -40,5 +40,4 @@ This schedule is based on :ref:`Version Scheme <developer/releases/version-schem
      - decide whether 4.0-rc5 is the final 4.0
    * - 28 Mar 2018
      - final 4.0 release
-   
 

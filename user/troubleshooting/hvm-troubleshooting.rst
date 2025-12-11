@@ -61,7 +61,7 @@ If this solves the problem then you will want to make the change permanent:
 
    .. code:: console
 
-         grub2-mkconfig --output=/boot/grub2/grub.cfg
+         $ grub2-mkconfig --output=/boot/grub2/grub.cfg
 
 
 

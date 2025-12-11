@@ -49,7 +49,7 @@ New features and improvements since Qubes 4.1
 
 
 
-For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.2%22+label%3A%22release+notes%22+is%3Aclosed>`__. Below are some screenshots of the new and improved Qubes GUI tools.
+For a full list, including more detailed descriptions, please see `here <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%204.2%22%20label%3A%22release%20notes%22%20is%3Aclosed>`__. Below are some screenshots of the new and improved Qubes GUI tools.
 
 The new Qubes OS Update tool:
 
@@ -73,7 +73,7 @@ Known issues
 
 
 
-Also see the `full list of open bug reports affecting Qubes 4.2 <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+label%3Aaffects-4.2+label%3A%22T%3A+bug%22+is%3Aopen>`__.
+Also see the `full list of open bug reports affecting Qubes 4.2 <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20label%3Aaffects-4.2%20is%3Aopen%20type%3ABug>`__.
 
 We strongly recommend :doc:`updating Qubes OS </user/how-to-guides/how-to-update>` immediately after installation in order to apply all available bug fixes.
 

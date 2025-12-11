@@ -47,7 +47,7 @@ New features since 3.2
 
 
 
-You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue+sort%3Aupdated-desc+milestone%3A%22Release+4.0%22+label%3Arelease-notes+is%3Aclosed>`__
+You can get detailed description in `completed github issues <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20sort%3Aupdated-desc%20milestone%3A%22Release%204.0%22%20is%3Aclosed%20label%3A%22release%20notes%22>`__
 
 Security Notes
 --------------
@@ -56,6 +56,7 @@ Security Notes
 - PV VMs migrated from 3.2 to 4.0-rc4 or later are automatically set to PVH mode in order to protect against Meltdown (see `QSB #37 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-037-2018.txt>`__). However, PV VMs migrated from any earlier 4.0 release candidate (RC1, RC2, or RC3) are not automatically set to PVH mode. These must be set manually.
 
 - The following steps may need to be applied in dom0 and Fedora 26 TemplateVMs in order to receive updates (see `#3737 <https://github.com/QubesOS/qubes-issues/issues/3737>`__).
+
   Steps for dom0 updates:
 
   1. Open the Qubes Menu by clicking on the “Q” icon in the top-left corner of the screen.
@@ -120,7 +121,7 @@ Known issues
 
 - With R4.0.1, which ships kernel-4.19, you may never reach the anaconda startup and be block on an idle black screen with blinking cursor. You can try to add ``plymouth.ignore-serial-consoles`` in the grub installer boot menu right after ``quiet rhgb``. With legacy mode, you can do it directly when booting the DVD or USB key. In UEFI mode, follow the same procedure described for :ref:`disabling <user/troubleshooting/uefi-troubleshooting:installation freezes before displaying installer>` ``nouveau`` module (related `solved issue <https://github.com/QubesOS/qubes-issues/issues/3849>`__ in further version of Qubes).
 
-- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen+is%3Aissue+milestone%3A%22Release+4.0%22+label%3Abug>`__
+- For other known issues take a look at `our tickets <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20milestone%3A%22Release%204.0%22%20type%3ABug>`__
 
 
 
