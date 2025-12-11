@@ -11,33 +11,33 @@ This way the compromise of your less trusted qube does not allow the attacker to
 How-to split your GPG keys between two qubes
 --------------------------------------------
 
-The following how-to will setup Split GPG-2 with two qubes:
+The following how-to will set up Split GPG-2 with two qubes:
 
 * one qube holding the private keys, called **server-qube**. This qube is offline and should be trusted.
 * the other qube using the keys, called **client-qube**. This qube doesn't have to be trusted as much as the server.
 
-Each time you want to do something with a GPG key, the *client-qube* will delegate the operation to the *server-qube*. This qube will ask you to confirm the operation.
+Each time you want to do something with a GPG key, the *client qube* will delegate the operation to the *server qube*. This qube will ask you to confirm the operation.
 
 Install Split GPG-2
 ^^^^^^^^^^^^^^^^^^^
 
-In the template(s) qube(s) used by *server-qube* and *client-qube*, :ref:`install the split-gpg2 package <user/how-to-guides/how-to-install-software:installing software from default repositories>`.
+In the template(s) qube(s) used by the *server qube* and the *client qube*, :ref:`install the split-gpg2 package <user/how-to-guides/how-to-install-software:installing software from default repositories>`.
 
 .. note:: If you use a minimal template, make sure to install ``zenity``
 
 Create a policy for Split GPG-2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**In dom0**, :doc:`create or edit a RPC policy </user/how-to-guides/how-to-edit-a-policy>`. Add a line like the following and make sure to replace :samp:`{client-qube}` and :samp:`{server-qube}` by the appropriate values.
+**In dom0**, :doc:`create or edit an RPC policy </user/how-to-guides/how-to-edit-a-policy>`. Add a line like the following and make sure to replace :samp:`{client-qube}` and :samp:`{server-qube}` by the appropriate values.
 
 .. code:: text
 
       qubes.Gpg2 + client-qube @default allow target=server-qube
 
-Generate or import the secret keys in the server qube
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Generate or import the secret keys in the *server qube*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**In server-qube**, you have two options:
+**In the server qube**, you have two options:
 
 * either generate your secret keys, like this:
 
@@ -45,14 +45,16 @@ Generate or import the secret keys in the server qube
 
          [user@server-qube] $ gpg --gen-key
 
-* or, if you want to use some old keys, previously generated in an other qube, import them and the ownertrust. Make sure to replace :file:`/home/user/QubesIncoming/{<SOME_OTHER_QUBE>}/{[...]}` by the path of the expected file:
+* or, if you want to use some old keys, previously generated in another qube, import them and the ownertrust. Make sure to replace :file:`/home/user/QubesIncoming/{<SOME_OTHER_QUBE>}/{[...]}` by the path of the expected file:
 
    .. code:: console
 
          [user@server-qube] $ gpg --import /home/user/QubesIncoming/<SOME_OTHER_QUBE>/secret-keys-export
          [user@server-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/<SOME_OTHER_QUBE>/ownertrust-export
 
-In both situations, you have to export the public part of your keys and the "ownertrust" values in the client qube:
+.. note:: Ensure your key doesn't have a passphrase set.
+
+In both situations, you have to export the public part of your keys and the "ownertrust" values in the *client qube*:
 
 .. code:: console
 
@@ -65,15 +67,15 @@ In both situations, you have to export the public part of your keys and the "own
 Set up the *client qube*
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Enable ``split-gpg2-client`` service in *client qube*
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Enable the ``split-gpg2-client`` service in the *client qube*
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The first step is to :doc:`enable the qube service </user/how-to-guides/how-to-enable-a-service>` called ``split-gpg2-client``.
+The first step is to :doc:`enable the qube service </user/how-to-guides/how-to-enable-a-service>` called ``split-gpg2-client``. Restarting the *client qube* is needed.
 
 Import the public keys and ownertrust
 """""""""""""""""""""""""""""""""""""
 
-If you have previously exported the public keys and the "ownertrust" values from *server-qube*. Now, you have to import them in the client qube. Replace the following paths by the correct values.
+If you have previously exported the public keys and the "ownertrust" values from the *server qube*. Now, you have to import them in the *client qube*. Replace the following paths by the correct values.
 
 .. code:: console
 
@@ -131,7 +133,7 @@ By setting up some values in the configuration file, you can change some paramet
    :default: ``no``
    :allowed values: ``no``, ``yes`` or any integer
 
-   By default, all requests made to the *server-qube* need to be confirmed. You can tell Split GPG-2 to accept requests: never (``no``), always (``yes``) or during a period of time after a successful request. To accept all requests following a successful one during one minute, use a value of ``60`` seconds.
+   By default, all requests made to the *server qube* need to be confirmed. You can tell Split GPG-2 to accept requests: never (``no``), always (``yes``) or during a period of time after a successful request. To accept all requests following a successful one during one minute, use a value of ``60`` seconds.
 
 This option has two alternatives:
 
@@ -181,7 +183,7 @@ This option has two alternatives:
    :type: full path
    :default: empty
 
-   If you store different keys for different client qubes in the same server qube, you can isolate each GnuPG home, by setting :confval:`isolated_gnupghome`. The value points at a directory where each client will get its own subdirectory. For example, when this option is set to :file:`/home/user/gpg-home`, then the qube *personal* will use :file:`/home/user/gpg-home/{personal}` as GnuPG home.
+   If you store different keys for different *client qubes* in the same *server qube*, you can isolate each GnuPG home, by setting :confval:`isolated_gnupghome`. The value points at a directory where each client will get its own subdirectory. For example, when this option is set to :file:`/home/user/gpg-home`, then the qube *personal* will use :file:`/home/user/gpg-home/{personal}` as GnuPG home.
 
    If you do this, don't forget to use the option ``--gnupg-home`` or the environment variable ``GNUPGHOME`` when using :program:`gpg` commands.
 
