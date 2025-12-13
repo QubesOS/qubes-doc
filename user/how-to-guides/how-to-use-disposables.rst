@@ -162,6 +162,7 @@ The same can be done from the command line, although more difficult:
 Retrieve unnamed disposables faster (preloaded disposables)
 -----------------------------------------------------------
 
+.. versionadded:: R4.3
 
 Disposable qubes can take some time to boot. It is possible to queue several unnamed disposables, guaranteeing a faster workflow.
 
