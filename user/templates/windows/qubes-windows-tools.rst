@@ -177,7 +177,7 @@ To enable file copy operations to a Windows VM, the ``default_user`` property of
 	    [user@dom0 ~]$ qvm-prefs <VMNAME> default_user <USERNAME>
   
 	
-**Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder :file:`C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\{<source_VM>}`. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
+**Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder :file:`C:\\Windows\\System32\\config\\systemprofile\\Documents\\QubesIncoming\\{<source_VM>}`. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 **For Windows 10 and 11:** From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which may lead to corruption of the VM's disk.
 
