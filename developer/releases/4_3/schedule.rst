@@ -24,4 +24,6 @@ The table below is based on our :ref:`release-schedule-policy`.
      - `4.3.0-rc2 release <https://www.qubes-os.org/news/2025/09/19/qubes-os-4-3-0-rc2-available-for-testing/>`_
    * - 2025-10-27
      - `4.3.0-rc3 release <https://www.qubes-os.org/news/2025/10/27/qubes-os-4-3-0-rc3-available-for-testing/>`_
+   * - 2025-12-06
+     - `4.3.0-rc4 release <https://www.qubes-os.org/news/2025/12/06/qubes-os-4-3-0-rc4-available-for-testing/>`_
 

@@ -8,7 +8,7 @@ Installing contributed packages
 
 *This page is for users who wish to install contributed packages. If you want to contribute a package, please see* :doc:`package contributions </developer/general/package-contributions>` *.*
 
-Qubes OS contributed packages are available under the `QubesOS-contrib <https://github.com/QubesOS-contrib/>`__ GitHub Project. This is a place where our community can :doc:`contribute Qubes OS related packages, additions and various customizations </developer/general/package-contributions>`.
+Contributed packages are software created by the community of Qubes OS users. They are managed, reviewed, and signed by the Qubes OS maintainer team to ensure they are safe to install on Qubes OS. Qubes OS contributed packages are available under the `QubesOS-contrib <https://github.com/QubesOS-contrib/>`__ GitHub Project. This is a place where our community can :doc:`contribute Qubes OS related packages, additions and various customizations </developer/general/package-contributions>`.
 
 Installing the repositories
 ---------------------------
