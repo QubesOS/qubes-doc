@@ -23,7 +23,7 @@ Install Split GPG-2
 
 In the template(s) qube(s) used by the *server qube* and the *client qube*, :ref:`install the split-gpg2 package <user/how-to-guides/how-to-install-software:installing software from default repositories>`.
 
-.. note:: If you use a minimal template, make sure to install ``zenity``
+.. note:: If you use a minimal template, make sure to install ``zenity`` package.
 
 Create a policy for Split GPG-2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -62,7 +62,7 @@ In both situations, you have to export the public part of your keys and the "own
  [user@server-qube] $ gpg --export-ownertrust > ownertrust-export
  [user@server-qube] $ qvm-copy public-keys-export ownertrust-export
 
-.. warning:: do not export the private keys !
+.. warning:: Do not export the private keys!
 
 Set up the *client qube*
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ To prevent this, Split GPG-2 creates a new GnuPG home directory and imports the 
 Server options
 --------------
 
-If you want change some server option, copy :file:`/usr/share/doc/split-gpg2/examples/qubes-split-gpg2.conf.example` to :file:`/home/user/.config/qubes-split-gpg2/qubes-split-gpg2.conf` and change it as desired, it will take precedence over other loaded files, such as the drop-in configuration files with the suffix ``.conf`` in `/home/user/.config/qubes-split-gpg2/conf.d/`.
+If you want to change some server option, copy :file:`/usr/share/doc/split-gpg2/examples/qubes-split-gpg2.conf.example` to :file:`/home/user/.config/qubes-split-gpg2/qubes-split-gpg2.conf` and change it as desired, it will take precedence over other loaded files, such as the drop-in configuration files with the suffix ``.conf`` in `/home/user/.config/qubes-split-gpg2/conf.d/`.
 
 By setting up some values in the configuration file, you can change some parameters. The configurations files are INI files, you can set global options in the ``DEFAULT`` section, or provide some client specific options in their own :samp:`client:{QUBE_NAME}` section (where ``QUBE_NAME`` is the name of the client). The following configuration is an example where no qube is automatically accepted besides *personal* qube:
 
@@ -129,7 +129,7 @@ By setting up some values in the configuration file, you can change some paramet
 
 .. confval:: autoaccept
 
-   :type: text
+   :type: boolean or integer
    :default: ``no``
    :allowed values: ``no``, ``yes`` or any integer
 
