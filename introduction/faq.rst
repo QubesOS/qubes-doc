@@ -389,19 +389,15 @@ Can I watch YouTube videos in qubes?
 
 Absolutely.
 
-Can I run applications, like games, which require hardware acceleration?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Can I run applications, like games and video editors, which require hardware acceleration?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Those won’t fly. We do not provide GPU virtualization for Qubes. This is mostly a security decision, as implementing such a feature would most likely introduce a great deal of complexity into the GUI virtualization infrastructure. However, Qubes does allow for the use of accelerated graphics (e.g. OpenGL) in dom0’s Window Manager, so all the fancy desktop effects should still work. App qubes use a software-only (CPU-based) implementation of OpenGL, which may be good enough for basic games and applications.
+This is possible with some configurations, but it is currently not recommended. It's usually a better idea to have a separate device for GPU-intensive tasks, but if that isn't practical for your use case and you absolutely must use GPU acceleration, this can be done with significant effort and security trade-offs. For instructions, see `Create a Gaming HVM <https://forum.qubes-os.org/t/create-a-gaming-hvm/19000>`_ on the Qubes forum.
 
-For further discussion about the potential for GPU passthrough on Xen/Qubes, please see the following threads:
+Qubes OS uses the CPU to render graphics outside of dom0 and does not currently implement GPU virtualization, so any GPU-based tasks will require giving a Qube full access to a dedicated GPU, and therefore any security vulnerabilities in your GPU will be exploitable if the qube is compromised. However, there are plans to implement GPU virtualization in Qubes OS in the future, see `the GPU acceleration project on GitHub <https://github.com/orgs/QubesOS/projects/17/views/1>`__ for more information.
 
-- `GPU passing to HVM <https://groups.google.com/group/qubes-devel/browse_frm/thread/31f1f2da39978573?scoring=d&q=GPU&>`__
-
-- `Clarifications on GPU security <https://groups.google.com/group/qubes-devel/browse_frm/thread/31e2d8a47c8b4474?scoring=d&q=GPU&>`__
-
-
+Furthermore, your system will need two GPUs - one to render the Qubes desktop, and one for your GPU-accelerated Qube. If you have an integrated graphics chip on your CPU, you can use the CPU graphics to render Qubes and the dedicated graphics for your GPU-accelerated Qube. Also note that you will likely experience noticeably worse performance in video games and other CPU-intensive programs unless you have a good CPU due to the virtualization overhead.
 
 Is Qubes a multi-user system?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
