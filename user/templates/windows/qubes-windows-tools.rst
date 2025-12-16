@@ -13,7 +13,9 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 - **Qubes GUI Agent** - video driver and GUI agent that enable the seamless GUI mode that integrates Windows apps onto the common Qubes trusted desktop (currently only for Windows 7 and, in a preliminary experimental version, for Windows 10 and 11).
 
-- **Disable UAC** - User Account Control may interfere with QWT and doesn't really provide any additional benefits in Qubes environment
+- **Configure autologon** - To start a Windows qube without a prompt for user name and password, autologon is defined, using a random hidden password which cannot be extracted from the registry.
+
+- **Disable UAC** - User Account Control may interfere with QWT and doesn't really provide any additional benefits in the Qubes environment
 
 - **Clipboard sender/receiver** - Support for :doc:`secure clipboard copy/paste </user/how-to-guides/how-to-copy-and-paste-text>` between the Windows VM and other AppVMs
 
@@ -42,7 +44,7 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 	Due to the security problems described in `QSB-091 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-091-2023.txt>`__, installation of Qubes Windows Tools is currently blocked. Instead, a text file containing a warning is displayed. Currently, it is difficult to estimate the severity of the risks posed by the sources of the Xen drivers used in QWT possibly being compromised, so it was decided not to offer direct QWT installation until this problem could be treated properly. While Windows qubes are, in Qubes, generally not regarded as being very trustworthy, a possible compromise of the Xen drivers used in Qubes Windows Tools might create a risk for Xen or `dom0` and thus be dangerous for Qubes itself. This risk may be small or even non-existent, as stated in QSB-091. If you **understand** this risk and are **willing to take it**, you can still install the previous version of Qubes Windows Tools **for Windows 7**, which will work for Windows 7, but not for Windows 10 or 11.
 
-	**For Windows 10 or 11**, currently, there is no official, final QWT version available for Qubes R4.2, but for Qubes R4.3, a version has been developed and can be used in Qubes R4.2. This version is not subject to the security problems stated above, but it should be noted that its graphics agent is still regarded as experimental and so may show some errors. The new Qubes graphics driver used there is not yet fully compatible with Windows and may cause weird effects. So, in Windows 11 25H2, it will cause all windows to be displayed twice; this can be, at least partially, remedied by moving the second instance to another work surface. Furthermore, trying to display the Windows menu via the keyboard button may result in a tiny, unusable menu. If the driver is installed, despite these risks, and is working at least partially, switching to seamless mode and staying there will probably work quite satisfactorily, but switching to and from non-seamless mode may cause trouble, as well as changing the screen resolution will do there. So, usage of the new Qubes graphics driver should be avoided unless a casual reboot of the Windows VM is acceptable, even if it is partially working. Using the Qubes graphics driver will not provide seamless mode unless the ``qvm-features`` parameter ``gui`` is set to ``1``. To disable the graphics driver, the parameter ``gui`` has to be set to an empty string, while the parameter ``gui-emulated`` has to be set to ``1``.
+	**For Windows 10 or 11**, currently, there is no official, final QWT version available for Qubes R4.2, but for Qubes R4.3, a version has been developed and can be used in Qubes R4.2. This version is not subject to the security problems stated above, but it should be noted that its graphics agent is still regarded as experimental and so may show some errors. The new Qubes graphics driver used there is not yet fully compatible with Windows and may cause weird effects. So, in Windows 11 25H2, it will cause all windows to be displayed twice; this can be, at least partially, remedied by moving the second instance to another workspace. Furthermore, trying to display the Windows menu via the keyboard button may result in a tiny, unusable menu. If the driver is installed, despite these risks, and is working at least partially, switching to seamless mode and staying there will probably work quite satisfactorily, but switching to and from non-seamless mode may cause trouble, as well as changing the screen resolution will do there. So, usage of the new Qubes graphics driver should be avoided unless a casual reboot of the Windows VM is acceptable, even if it is partially working. Using the Qubes graphics driver will not provide seamless mode unless the ``qvm-features`` parameter ``gui`` is set to ``1``. To disable the graphics driver, the parameter ``gui`` has to be set to an empty string, while the parameter ``gui-emulated`` has to be set to ``1``.
 
 **Note**: If you choose to move profiles, drive letter ``Q:`` must be assigned to the secondary (private) disk.
 
@@ -73,6 +75,14 @@ Below is a breakdown of the feature availability depending on the Windows versio
      - y
    * - File sender/receiver
      - y
+     - y
+     - y
+   * - Disable UAC
+     - y
+     - n
+     - n
+   * - Configure autologon
+     - n
      - y
      - y
    * - Clipboard Copy/Paste
@@ -116,9 +126,16 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
 
 
 
+Installing Windows OS as a Qubes VM
+-----------------------------------
+
+
+Please refer to :doc:`this page </user/templates/windows/qubes-windows>` for instructions on how to install Windows in a Qubes VM.
+
+
+
 Preparation
 -----------
-
 
 Before proceeding with the installation, we need to disable the Windows mechanism that allows only signed drivers to be installed, because currently, the drivers provided as part of the Windows Tools are not digitally signed with a publicly recognizable certificate. To do that:
 
@@ -143,11 +160,24 @@ If script execution is blocked, it must be allowed using the following PowerShel
 
 	PS C:\> Set-ExecutionPolicy Unrestricted
 
+**Warning:** It is encouraged to enable autologon for any Windows HVMs that will have Qubes Tools installed in order to avoid possible problems with the Windows logon process, especially if the :kbd:`Ctrl-Alt-Del` requirement is enabled there. To do so, in Windows 7, run the ``netplwiz`` command from the :kbd:`Win-R` "execute" prompt, and uncheck the *Users must enter a user name and password to use this computer* option. In Windows 10 and 11, autologon can be configured later on during Qubes Windows Tools installation.
+
+
 **Warning:** It is recommended to increase the default value of the Windows VM’s ``qrexec_timeout`` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation, Windows user profiles are moved onto the private VM’s virtual disk (private.img), and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when ``qrexec`` is not yet running, so a timeout may occur with the default value. To change the property use this command in ``dom0``: *(where* ``<VMname>`` *is the name of your Windows VM)*
 
 .. code:: console
 
       [user@dom0 ~]$ qvm-prefs <VMNAME> qrexec_timeout 7200
+
+
+To enable file copy operations to a Windows VM, the ``default_user`` property of this VM should be set to the ``<USERNAME>`` that you use to log in to the Windows VM. This can be done via the following command on a ``dom0`` terminal  (where ``<VMNAME>`` is the name of your Windows VM):
+
+   .. code:: console
+
+	    [user@dom0 ~]$ qvm-prefs <VMNAME> default_user <USERNAME>
+  
+	
+**Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder :file:`C:\\Windows\\System32\\config\\systemprofile\\Documents\\QubesIncoming\\{<source_VM>}`. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
 
 **For Windows 10 and 11:** From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which may lead to corruption of the VM's disk.
 
@@ -171,17 +201,6 @@ or
       [user@dom0 ~]$ qvm-start <VMNAME> --install-windows-tools
 
 The solution is to disable hibernation in Windows with this command. (That command is included in QWT’s setup, but it’s necessary to run it manually in order to be able to open QWT’s setup ISO/CD-ROM in Windows).
-
-
-
-Installing Windows OS as a Qubes VM
------------------------------------
-
-
-Please refer to :doc:`this page </user/templates/windows/qubes-windows>` for instructions on how to install Windows in a Qubes VM.
-
-**Warning:** It is strongly suggested to enable autologon for any Windows HVMs that will have Qubes Tools installed. To do so, run the ``netplwiz`` command from the :kbd:`Win-R` "execute" prompt, and uncheck the *Users must enter a user name and password to use this computer* option.
-
 
 
 Installing Qubes Windows Tools (QWT) in a Windows VM
@@ -209,7 +228,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    After downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
 
-   **Caution:** Installation of one of these QWT versions will remove the other one, if it is installed.
+   **Caution:** Installing one of these QWT versions will remove the other if it is installed.
 
    **Warning:** In Windows 7, the older version of Qubes Windows Tools will be replaced during the next ``dom0`` update by the current dummy version 4.1.70-1. This can be inhibited by appending the line ``exclude=qubes-windows-tools`` to the file ``/etc/dnf/dnf.conf`` in ``dom0``.
 
@@ -225,7 +244,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 3. Install Qubes Windows Tools by starting the setup program (logged in as administrator), optionally selecting the ``Xen PV disk drivers``.
 
-   **Caution:** The Qubes graphics driver is still in experimental development. It may work or not, possibly depending on your hardware. So, in Windows 10 and 11, it may be less risky to install Qubes Windows Tools without selecting this driver, and later on, to try it in a clone of your Windows VM by re-running the installation in change mode.
+   **Caution:** For Windows 7, the installation of the graphics driver in the first step will probably break the Windows qube, causing it to show only a black window and become unresponsive; the graphics driver has to be installed later on in a second step described below. For Windows 10 and 11, the Qubes graphics driver is still in experimental development. It may work or not, possibly depending on your hardware. So, in Windows 10 and 11, it may be less risky to install Qubes Windows Tools without selecting this driver, and later on, to try it in a clone of your Windows VM by re-running the installation in change mode.
 
    **Warning:** The installation of the PV disk drivers may lead Windows to declare that the hardware has changed and that, in consequence, the activation is no longer valid, possibly complaining that the use of the software is no longer lawful. It should be possible to reactivate the software if a valid product key is provided.
 
@@ -259,7 +278,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - Reboot the VM.
 
-   - It may be necessary to start the GUI manually, by typing `qvm-start-gui VMNAME``` in dom0.
+   - It may be necessary to start the GUI manually, by typing ``qvm-start-gui VMNAME`` in dom0.
 
    - The device “Qubes Video Driver” may show up as deactivated. In this case, you can now activate it again.
 
@@ -267,23 +286,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - Shut down the Windows VM.
 
-5. Qubes will automatically detect that the tools have been installed in the VM and will set appropriate properties for the VM, such as ``qrexec_installed``, ``guiagent_installed``, and ``default_user``. This can be verified (but is not required) using the ``qvm-prefs`` command (where ``<VMNAME>`` is the name of your Windows VM):
-
-   .. code:: console
-
-         [user@dom0 ~]$ qvm-prefs <VMNAME>
-
-
-   To enable file copy operations to a Windows VM, the ``default_user`` property of this VM should be set to the ``<USERNAME>`` that you use to log in to the Windows VM. This can be done via the following command on a ``dom0`` terminal  (where ``<VMNAME>`` is the name of your Windows VM):
-
-   .. code:: console
-
-	    [user@dom0 ~]$ qvm-prefs <VMNAME> default_user <USERNAME>
-  
-	
-   **Warning:** If this property is not set or set to a wrong value, files copied to this VM are stored in the folder :file:`C:\Windows\System32\config\systemprofile\Documents\QubesIncoming\{<source_VM>}`. If the target VM is an AppVM, this has the consequence that the files are stored in the corresponding TemplateVM and so are lost on AppVM shutdown.
-
-6. It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
+5. It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
 
    .. code:: console
 
@@ -303,11 +306,11 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    With the value ``localtime`` the dom0 ``timezone`` will be provided to virtual hardware, effectively setting the Windows clock to that of Qubes. With a digit value (negative or positive) the guest clock will have an offset (in seconds) applied relative to UTC.
 
-7. Reboot Windows. If the VM starts, but does not show any window, then shut down Windows from the Qube manager, wait until it has **really** stopped, and reboot Windows once more.
+6. Reboot Windows. If the VM starts, but does not show any window, then shut down Windows from the Qube manager, wait until it has **really** stopped, and reboot Windows once more.
 
-8. Now the system should be up, with QWT running correctly.
+7. Now the system should be up, with QWT running correctly.
 
-9. **Windows 7 only:** Optionally enable seamless mode on VM startup. This can be done by setting appropriate values in the Windows registry:
+8. **Windows 7 only:** Optionally enable seamless mode on VM startup. This can be done by setting appropriate values in the Windows registry:
 
    - Start the command prompt as administrator, i.e., right click on the Command Prompt icon (All Programs -> Accessories) and choose “Run as administrator”
 
@@ -669,6 +672,8 @@ If there is a drive ``D:`` from this earlier installation of Qubes Windows Tools
 - In the Windows device manager, check if there is still a (probably non-working) Xen PV disk device. If so, uninstall it.
 
 - In the Apps and Features display, check again if the Xen drivers are removed. A Xen Bus Package may remain and cannot be removed, but it does not cause harm. Any other Xen drivers should have disappeared.
+
+In order to avoid Qubes stopping Windows VMs forcefully after QWT was uninstalled, it is advisable to undefine the qrexec control for these VMs. This can be done using the command ``qvm-features <VMNAME> qrexec ""``.
 
 After successful uninstallation of the PV disk drivers, the disks will appear as QEMU ATA disks.
 

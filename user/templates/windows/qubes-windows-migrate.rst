@@ -33,6 +33,6 @@ Migration to Qubes R4.3
 -----------------------
 
 
-As the current new QWT version was developed primarily for Qubes R4.3, it is compatible with the version of Qubes. So, a Windows VM running under Qubes R4.2 should be transferable to R4.3 via backup/restore, without the need to remove and reinstall Qubes Windows Tools. At least, for the current pre-release of Qubes R4.3-rc3, this is possible. Currently, however, the new Qubes graphics driver is still somewhat buggy and should be used with caution.
+As the current new QWT version was developed primarily for Qubes R4.3, it is compatible with the version of Qubes. So, a Windows VM running under Qubes R4.2 should be transferable to R4.3 via backup/restore, without the need to remove and reinstall Qubes Windows Tools. At least, for the current pre-release of Qubes R4.3-rc4, this is possible. Currently, however, the new Qubes graphics driver is still somewhat buggy and should be used with caution.
 
-Performing an in-place upgrade of Qubes itself from R4.2.4 to R4.3-rc3 preserves the functionality of Windows 7, 10, and 11 qubes, including Qubes Windows Tools; so there is no need to perform an upgrade of these qubes. If, for Windos 10 or 11, the Qubes graphics driver was installed, its performance and (current) bugginess may change, however.
+Performing an in-place upgrade of Qubes itself from R4.2.4 to R4.3-rc4 preserves the functionality of Windows 7, 10, and 11 qubes, including Qubes Windows Tools; so there is no need to perform an upgrade of these qubes. If, for Windos 10 or 11, the Qubes graphics driver was installed, its performance and (current) bugginess may change, however.
