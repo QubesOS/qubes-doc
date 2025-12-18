@@ -6,7 +6,7 @@ reStructuredText documentation style guide
 
 This page explains the standards we follow for writing, formatting, and organizing the documentation.
 Please follow these guidelines and conventions when editing the rST documentation.
-For the standards governing the website (as opposed to the rST documentation hosted on `https://doc.qubes-os.org <https://doc.qubes-os.org>`__),
+For the standards governing the website (as opposed to the rST documentation hosted on `https://doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__),
 please see the :doc:`Website style guide </developer/general/website-style-guide>`.
 If you wish to submit a pull request regarding content hosted on the website, please refer to
 :doc:`How to edit the website </developer/general/how-to-edit-the-website/>`.
@@ -24,7 +24,7 @@ Directives
 ^^^^^^^^^^
 
 A `directive <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`__ is a generic block of explicit markup,
-provided by `Docutils <https://www.docutils.org/>`__ and extended by `Sphinx <https://www.sphinx-doc.org/>`__.
+provided by `Docutils <https://www.docutils.org/>`__ and extended by `Sphinx <https://www.sphinx-doc.org/en/master/>`__.
 Directives are used to insert non-paragraph content, such as images, tables, and code blocks.
 Example directives are:
 
@@ -53,7 +53,7 @@ Read The Docs and the HTML `sphinx-rtd-theme <https://sphinx-rtd-theme.readthedo
 have a responsive design, which allows the documentation to render appropriately across all screen sizes.
 
 Make sure to link only to images in the :file:`attachment/doc` folder of the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
-Do not attempt to link to images hosted on other websites.
+**Do not attempt to link to images hosted on other websites**.
 
 See also :ref:`how_to_add_images` for the further information and about using the ``figure`` directive.
 
@@ -259,11 +259,32 @@ These render as:
 Glossary
 """"""""
 
-The Sphinx `glossary directive <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#glossary>`__
-is created with a simple ``.. glossary::`` block in :file:`/user/reference/glossary.rst`.
-Anywhere else in the documentation you can link to a term using the role: :code:`:term:`qube``
-which automatically generates a hyperlink to the glossary entry :term:`qube`.
+Most of the `glossaries <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#glossary>`__ are present in :file:`/user/reference/glossary.rst`, like:
 
+.. code:: rst
+
+   .. glossary::
+
+      qube
+         A secure compartment in Qubes OS.
+
+Anywhere else in the documentation you can link to a term using the `term role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-term>`__: which automatically generates a hyperlink to the glossary entry.
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :term:`qube`
+
+     - :term:`qube`
+
+.. admonition:: See also
+
+   :ref:`customizing-text-link`
 
 Roles
 ^^^^^
@@ -279,60 +300,204 @@ Syntax is as follows:
 
 In Qubes OS documentation the `doc <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ and
 `ref <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ roles are used extensively
-as described in :ref:`cross_referencing`.
+as described in :ref:`cross-referencing`.
 
-Some of the roles used in the Qubes OS documentation so far are:
+Some of the other roles used in the Qubes OS documentation so far are:
 
-- the ``:file:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-file>`__
-- the ``:guilabel:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-guilabel>`__
-- the ``:menuselection:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-menuselection>`__
-- the ``:samp:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-samp>`__
-- the ``:kbd:`` `role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-kbd>`__
+.. list-table::
+   :widths: 10 50 50
+   :header-rows: 1
+
+   * - name
+     - reStructuredText markup
+     - output
+
+
+   * - `:guilabel: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-guilabel>`__
+
+     - .. code:: rst
+
+        :guilabel:`&Apply`
+
+     - :guilabel:`&Apply`
+
+   * - `:file: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-file>`__
+
+     - .. code:: rst
+
+        :file:`~/QubesIncoming/disp{XXXX}`
+
+     - :file:`~/QubesIncoming/disp{XXXX}`
+
+   * - `:program: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-program>`__
+
+     - .. code:: rst
+
+        :program:`qvm-copy`
+
+     - :program:`qvm-copy`
+
+   * - `:menuselection: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-menuselection>`__
+
+     - .. code:: rst
+
+        :menuselection:`Settings --> &Advanced`
+
+     - :menuselection:`Settings --> &Advanced`
+
+   * - `:samp: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-samp>`__
+
+     - .. code:: rst
+
+        :samp:`disp{XXXX}`
+
+     - :samp:`disp{XXXX}`
+
+   * - `:kbd: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-kbd>`__
+
+     - .. code:: rst
+
+        :kbd:`Ctrl`
+
+     - :kbd:`Ctrl`
+
+   * - `:abbr: <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-abbr>`__
+
+     - .. code:: rst
+
+        :abbr:`OCR (Optical Character Recognition)`
+
+     -  :abbr:`OCR (Optical Character Recognition)`
+
+   * - `:code: <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-code>`__
+
+     - .. code:: rst
+
+          :code:`qvm-ls --help`
+
+     - :code:`qvm-ls --help`
+
+   * - `:mimetype: <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-mimetype>`__
+
+     - .. code:: rst
+
+        :mimetype:`application/pdf`
+
+     - :mimetype:`application/pdf`
 
 Please continue using the above or new ones where appropriate.
 
+.. _cross-referencing:
 
-Cross referencing:
-^^^^^^^^^^^^^^^^^^
+Cross-referencing
+^^^^^^^^^^^^^^^^^
 
-- Use the `:doc:` role with a path and a custom link text:
+You can reference other parts of the documentation such as:
 
+* :ref:`a whole page <developer/general/rst-documentation-style-guide:Cross-referencing a page>`, using `doc role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-doc>`__ and a path
+* :ref:`specific sections <developer/general/rst-documentation-style-guide:Cross-referencing a section with a header>` such as headers, using `ref <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref>`__ with a path and the header content
+* :ref:`unique labels <developer/general/rst-documentation-style-guide:Cross-referencing a custom label>`, created for this purpose
+* :ref:`glossary terms <developer/general/rst-documentation-style-guide:Glossary>`, using `term <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-term>`__
+* :ref:`external documentation <developer/general/rst-documentation-style-guide:External cross-referencing>` like :doc:`core-admin's documentation <core-admin:index>`
+* a lot of :ref:`other items <developer/general/rst-documentation-style-guide:Cross-referencing code>`: python objects, C constructs, program options
 
-  .. code:: rst
+Cross-referencing a page
+""""""""""""""""""""""""
 
-   :doc:`contributions </introduction/contributing>`.
-
-- Use the `:doc:` role with a path:
+To cross-reference a page, use the `doc role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-doc>`__ with a path. To get a link to the file called :file:`intro.rst` in the :file:`introduction/` directory, use:
 
   .. code:: rst
 
    :doc:`/introduction/intro`
 
-- Use `:ref:` for specific sections and a custom link text
+The path could be relative to the current document, or absolute. In that case, the path starts from the root of the ``qubes-doc`` repository, **with a leading slash** (``/``). You have to **remove the file extension** (``.rst``).
+
+Cross-referencing a section with a header
+"""""""""""""""""""""""""""""""""""""""""
+
+To cross-reference a section with a header, use the `ref role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref>`__ with a path and the reStructuredText content of the header, separated by a colon:
 
   .. code:: rst
 
+   :ref:`introduction/intro:What is Qubes OS?`
 
-   :ref:`What is Qubes OS? <introduction/intro:what is qubes os?>`
+Note that with the `ref role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref>`__ the path starts **without a leading slash** (``/``). You might also encounter the normalized header content: in lowercase, with normalized spaces. This is another way to achieve the same result.
 
-- Use `:ref` only with a unique label above the specific section:
+You can get a list of the generated labels after building the documentation. If your build directory is :file:`_build/html`, run the following:
 
-  .. code:: rst
+.. code:: console
 
-    .. _cross_referencing:
+   [~/qubes-doc] $ python3 -m sphinx.ext.intersphinx _build/html/objects.inv
 
-    TL;DR: Cross-referencing
-    ------------------------
+You can also run that command against the current online version of the docs:
 
-and link to the section from within the documentation using :code:`:ref:`cross_referencing``.
+.. code:: console
 
+   $ python3 -m sphinx.ext.intersphinx https://doc.qubes-os.org/en/latest/objects.inv
 
-For further information please see :ref:`cross_referencing`.
+.. note::
+
+   Make sure to **use the reStructuredText content**, and not the built output.
+
+   You can copy-paste headers from the HTML build but it might fail in some situations (i.e.: with quotation marks or any markup).
+
+Cross-referencing a custom label
+""""""""""""""""""""""""""""""""
+
+.. note:: No need to create a custom label if you don't reference it somewhere else
+
+Frequently linked sections, especially when they have a long name can be referenced using a custom label.
+
+First, you have to create a custom label, **only use lowercase alphanumeric characters and hyphens**:
+
+.. code:: rst
+
+   .. _disposable-with-pci-devices:
+
+   Named disposable for service qubes without PCI devices via GUI
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now, to reference this label, use the custom label instead of the path and the header separated by a colon.
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :ref:`disposable-with-pci-devices`
+
+     - :ref:`disposable-with-pci-devices`
+
+You can create an arbitrary label anywhere, but make sure to reference it with an explicit title.
+
+.. hint:: For further options and use cases please refer to `Cross-references in the Sphinx project <https://www.sphinx-doc.org/en/master/usage/referencing.html>`__.
+
+.. _customizing-text-link:
+
+Customizing the text content of a link
+""""""""""""""""""""""""""""""""""""""
+
+Most cross-references can generate an automatic title. If it doesn't fit the sentence where it is placed, you can `change the text content of the link <https://www.sphinx-doc.org/en/master/usage/referencing.html#xref-syntax>`__ with the following markup. **Avoid doing this if it only duplicates the automatic title.**
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :ref:`without PCI devices <disposable-with-pci-devices>`
+
+     - :ref:`without PCI devices <disposable-with-pci-devices>`
 
 External cross-referencing
 """"""""""""""""""""""""""
 
-You can make a cross-reference to any of the projects of the external developer's documentation (hosted on https://dev.qubes-os.org):
+You can make a cross-reference to any of the projects of the external developer's documentation (hosted on `https://dev.qubes-os.org <https://dev.qubes-os.org/en/latest/>`__):
 
 * :doc:`core-admin <core-admin:index>`
 * :doc:`core-admin-client <core-admin-client:index>`
@@ -352,9 +517,9 @@ To do such a cross-reference, use the usual cross-reference syntax but with the 
 
      - :doc:`core-admin:index`
 
-This is equivalent to using ``:doc:`index``` inside the core-admin documentation. This works with any role like ``:ref:``, ``:option:``, etc.
+This is equivalent to using ``:doc:`index``` inside the core-admin documentation. This works with any role like `ref <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref>`__, `option <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-option>`__, etc. Write the role like you would normally do inside the target documentation, then prefix it with the name of the target (``core-admin`` in the previous example). Something working as :code:`:ref:`some-title`` inside ``core-admin``'s documentation will become :samp:`:ref:`core-admin:some-title``. The only exception concerns the `doc role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-doc>`__: **do not prepend the file path with a slash** (``/``).
 
-Even if it works without it, always prefix the external cross-references with the name of the project, to help other contributors and maintainers to figure out what is going on.
+Even if it works without it, **always prefix the external cross-references** with the name of the project, to help other contributors and maintainers figuring out what the target is while reading the reStructuredText source.
 
 .. note::
 
@@ -366,17 +531,69 @@ Even if it works without it, always prefix the external cross-references with th
 
    You can replace ``core-admin`` by any of the projects listed above.
 
-Hyperlink syntax
-^^^^^^^^^^^^^^^^
+Cross-referencing code
+""""""""""""""""""""""
+
+You can create a reference to `any documented python objects <https://www.sphinx-doc.org/en/master/usage/domains/python.html#python-xref-roles>`__ as well as `configuration values <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-confval>`__, `command-line options <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-option>`__ or `C language constructs <https://www.sphinx-doc.org/en/master/usage/domains/c.html#c-xref-roles>`__.
+
+**To link to the option** called :option:`--help <core-admin-client:qubes-prefs.--help>` in :program:`qvm-prefs` described in core-admin-client documentation, use:
 
 
-Use non-reference-style links like
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :option:`core-admin-client:qubes-prefs --help`
+     - :option:`core-admin-client:qubes-prefs --help`
+
+**To link to the python class** :py:class:`core-admin:qubes.vm.dispvm.DispVM` in the core-admin documentation use:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :py:class:`core-admin:qubes.vm.dispvm.DispVM`
+
+     - :py:class:`core-admin:qubes.vm.dispvm.DispVM`
+
+Do not use a :ref:`custom title <customizing-text-link>` to shorten the link label. **Use the tilde modifier** (``~``) instead:
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
+
+          :py:class:`~core-admin:qubes.vm.dispvm.DispVM`
+
+     - :py:class:`~core-admin:qubes.vm.dispvm.DispVM`
+
+**If a cross-reference points to a missing reference** (i.e.: reference to a removed component), prefix the reference with an exclamation mark (``!``). If the function :py:func:`!old_function` has been removed but is still referenced, to discuss the old implementation use:
+
+.. code:: rst
+
+   :py:func:`!old_function`
+
+Hyperlink to other websites syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use `embedded links <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#external-links>`__ like
 
 .. code:: rst
 
     `website <https://example.com/>`__
 
-Do *not* use reference-style links like
+**Do not use reference-style links** like
 
 .. code:: rst
 
@@ -386,68 +603,36 @@ Do *not* use reference-style links like
 
 This facilitates the localization process.
 
-Take a look also at :ref:`cross_referencing`.
+.. warning::
 
+   Always use :ref:`cross-references <cross-referencing>` rather than hyperlinks to link to the documentation (``doc.qubes-os.org`` and ``dev.qubes-os.org`` domains), because using those hyperlinks breaks:
 
-Relative vs. absolute links
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Always use relative rather than absolute paths for internal website links.
-For example, use:
-
-.. code:: rst
-
-  text :doc:`contribute code </introduction/contributing>` text
-
-instead of:
-
-.. code:: rst
-
-  text `contribute code <https://doc.qubes-os.org/introduction/contributing.html>` text
-
-You may use absolute URLs in the following cases:
-
-
-- External links
-- URLs that appear inside code blocks (e.g., in comments and document templates, and the plain text reproductions of `QSBs <https://www.qubes-os.org/security/qsb/>`__ and `Canaries <https://www.qubes-os.org/security/canary/>`__), since they’re not hyperlinks
-- Git repo files like ``README.md`` and ``CONTRIBUTING.md``, since they’re not part of the documentation itself.
-
-
-This rule is important because using absolute URLs for internal website links breaks:
-
-- Serving the documentation offline
-- Documentation localization
-- Generating offline documentation
-
+   - Serving the documentation offline
+   - Documentation localization
+   - Generating offline documentation
 
 HTML and CSS
 ^^^^^^^^^^^^
 
-Do not write HTML inside rST documents. In particular, never include HTML or CSS for styling, formatting, or white space control.
-That belongs in the (S)CSS files instead.
+**Do not write HTML inside rST documents.** In particular, never include HTML or CSS for styling, formatting, or white space control.
+That belongs to the Sphinx theme instead.
 
 
 Headings
 ^^^^^^^^
 
-Sectioning uses underlines with different characters (=, -, ^, ", ', ~) to create different levels of headings.
-This is also the recommended order provided.
-It doesn't matter which characters you use in which order to mark a title, subtitle etc,
-as long as they are in consistent use across the documentation.
+To create a section header use an underline filled with punctuation characters. The length of the underlining should be as long as the text of the header.
 
-Qubes OS uses the convention in `Python Developer’s Guide for documenting <https://devguide.python.org/documentation/markup/#sections>`__ which are as follows:
+Each punctuation character correspond to a header level. Qubes OS uses the convention in `Python Developer’s Guide for documenting <https://devguide.python.org/documentation/markup/#sections>`__ which are as follows:
 
+* ``=`` for sections, corresponding to the main title of a HTML page
+* ``-`` for subsections
+* ``^`` for subsubsections
+* ``"`` for paragraphs
 
-.. code:: text
+Although possible, using a level under the paragraph level should be avoided.
 
-    # with overline, for parts
-    * with overline, for chapters
-    = for sections
-    - for subsections
-    ^ for subsubsections
-    " for paragraphs
-
-A simple example of how this is used in the Qubes OS documentation:
+Here is a simple example of a page with a title and three nested levels of heading:
 
 .. code:: rst
 
@@ -500,14 +685,14 @@ Paragraphs are plain texts where indentation matters. Separate paragraphs by lea
 Indentation
 ^^^^^^^^^^^
 
-Use spaces instead of tabs. Use hanging indentations where appropriate.
+**Use spaces instead of tabs.** Use hanging indentations where appropriate.
 rST is an indentation sensitive markup language, similar to Python, please maintain consistent indentation (3 spaces) for readability.
 
 
 Line wrapping
 ^^^^^^^^^^^^^
 
-Do not hard wrap text, except where necessary (e.g., inside code blocks).
+**Do not hard wrap text**, except where necessary (e.g., inside code blocks).
 
 Writing guidelines
 ------------------
@@ -520,50 +705,115 @@ Familiarize yourself with the terms defined in the :doc:`glossary </user/referen
 Sentence case in headings
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use sentence case (rather than title case) in headings for the reasons explained `here <https://www.sallybagshaw.com.au/articles/sentence-case-v-title-case/>`__. In particular, since the authorship of the Qubes documentation is decentralized and widely distributed among users from around the world, many contributors come from regions with different conventions for implementing title case, not to mention that there are often differing style guide recommendations even within a single region. It is much easier for all of us to implement sentence case consistently across our growing body of pages, which is very important for managing the ongoing maintenance burden and sustainability of the documentation.
+**Use sentence case** (rather than title case) in headings for the reasons explained `here <https://www.sallybagshaw.com.au/articles/sentence-case-v-title-case/>`__. In particular, since the authorship of the Qubes documentation is decentralized and widely distributed among users from around the world, many contributors come from regions with different conventions for implementing title case, not to mention that there are often differing style guide recommendations even within a single region. It is much easier for all of us to implement sentence case consistently across our growing body of pages, which is very important for managing the ongoing maintenance burden and sustainability of the documentation.
 
 Writing command-line examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When providing command-line examples:
+**Tell the reader where to open a terminal** (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
 
-- Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
- .. code:: rst
+   * - reStructuredText markup
+     - output
+   * - .. code:: rst
 
-       Open a terminal in dom0 and run:
+          Open a terminal in dom0 and run:
 
-       .. code:: console
+          .. code:: console
 
-          $ cd test
-          $ echo Hello
-          Hello
+             [user@dom0] $ cd test
+             [user@dom0 ~/test] $ echo Hello
+             Hello
 
-
-- Precede each command with the appropriate command prompt: At a minimum, the prompt should contain a trailing ``#`` (for the user ``root``) or ``$`` (for other users) on Linux systems and ``>`` on Windows systems, respectively.
-
-- Don’t try to add comments inside the code block. For example, *don’t* do this:
-
- .. code:: rst
-
-       Open a terminal in dom0 and run:
+     - Open a terminal in dom0 and run:
 
        .. code:: console
 
-          # Navigate to the new directory
-          $ cd test
-          # Generate a greeting
-          $ echo Hello
+          [user@dom0] $ cd test
+          [user@dom0 ~/test] $ echo Hello
           Hello
 
- The ``#`` symbol preceding each comment is ambiguous with a root command prompt. Instead, put your comments *outside* of the code block in normal prose.
+**Precede each command with the appropriate command prompt**:
+
+- at a minimum, the prompt should contain a trailing ``#`` (for the user ``root``) or ``$`` (for other users) on Linux systems and ``>`` on Windows systems, respectively.
+- if possible, **indicate the qube used** (i.e.: ``dom0``)
+- if relevant, **indicate the path** where the command should occur.
+- following all the previous recommendations and **adding the username** could provide a familiar prompt to the user.
+
+  .. list-table::
+     :widths: 10 50 50
+     :header-rows: 1
+
+     * - style
+       - reStructuredText markup
+       - output
+
+     * - minimal
+       - .. code:: rst
+
+            .. code:: console
+
+               $ cd test
+
+       - .. code:: console
+
+            $ cd test
+
+     * - qube name
+       - .. code:: rst
+
+            .. code:: console
+
+               [dom0] $ cd test
+
+       - .. code:: console
+
+            [dom0] $ cd test
+
+     * - with path
+       - .. code:: rst
+
+            .. code:: console
+
+               [dom0 /tmp] $ cd test
+
+       - .. code:: console
+
+            [dom0 /tmp] $ cd test
+
+     * - full
+       - .. code:: rst
+
+            .. code:: console
+
+               [user@dom0 /tmp] $ cd test
+
+       - .. code:: console
+
+            [user@dom0 /tmp] $ cd test
+
+.. warning::
+
+   **Don’t try to add comments inside the code block**. For example, *don’t* do this:
+
+   .. code:: console
+
+      # Navigate to the new directory
+      $ cd test
+      # Generate a greeting
+      $ echo Hello
+
+   The ``#`` symbol preceding each comment is ambiguous with a root command prompt. Instead, put your comments *outside* of the code block in normal prose.
 
 
 Variable names in commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Syntactically distinguish variables in commands. For example, this is ambiguous:
+**Syntactically distinguish variables in commands**. For example, this is ambiguous:
 
 .. code:: console
 
@@ -581,21 +831,21 @@ It should instead be:
 
 Note that we syntactically distinguish variables in three ways:
 
-1. Surrounding them in angled brackets (``< >``)
+1. **Surrounding them in angled brackets** (``< >``)
 
-2. Using underscores (``_``) instead of spaces between words
+2. **Using underscores** (``_``) instead of spaces between words
 
-3. Using all capital letters
+3. **Using all capital letters**
 
 
 
 We have observed that many novices make the mistake of typing the surrounding angled brackets (``< >``) on the command line, even after substituting the desired real value between them. Therefore, in documentation aimed at novices, we also recommend clarifying that the angled brackets should not be typed. This can be accomplished in one of several ways:
 
-- Explicitly say something like “without the angled brackets.”
+- **Explicitly say something like "without the angled brackets".**
 
-- Provide an example command using real values that excludes the angled brackets.
+- **Provide an example command using real values** that excludes the angled brackets.
 
-- If you know that almost all users will want to use (or should use) a specific command containing all real values and no variables, you might consider providing exactly that command and forgoing the version with variables. Novices may not realize which parts of the command they can substitute with different values, but if you’ve correctly judged that they should use the command you’ve provided as is, then this shouldn’t matter.
+- If you know that almost all users will want to use (or should use) a specific command containing all real values and no variables, you might consider **providing exactly that command** and forgoing the version with variables. Novices may not realize which parts of the command they can substitute with different values, but if you’ve correctly judged that they should use the command you’ve provided as is, then this shouldn’t matter.
 
 
 
@@ -625,7 +875,7 @@ Do not duplicate documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Duplicating documentation is almost always a bad idea. There are many reasons for this. The main one is that almost all documentation has to be updated as some point. When similar documentation appears in more than one place, it is very easy for it to get updated in one place but not the others (perhaps because the person updating it doesn’t realize it’s in more than once place). When this happens, the documentation as a whole is now inconsistent, and the outdated documentation becomes a trap, especially for novice users. Such traps are often more harmful than if the documentation never existed in the first place. The solution is to **link** to existing documentation rather than duplicating it. There are some exceptions to this policy (e.g., information that is certain not to change for a very long time), but they are rare.
+**Duplicating documentation is almost always a bad idea**. There are many reasons for this. The main one is that almost all documentation has to be updated as some point. When similar documentation appears in more than one place, it is very easy for it to get updated in one place but not the others (perhaps because the person updating it doesn’t realize it’s in more than once place). When this happens, the documentation as a whole is now inconsistent, and the outdated documentation becomes a trap, especially for novice users. Such traps are often more harmful than if the documentation never existed in the first place. The solution is to **link** to existing documentation rather than duplicating it. There are some exceptions to this policy (e.g., information that is certain not to change for a very long time), but they are rare.
 
 Core vs. external documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -742,7 +992,7 @@ Subdividing the page into clearly-labeled sections for each release has several 
 
 By contrast, an alternative approach, such as segregating the documentation into two different branches, would mean that contributions that apply to both Qubes releases would only end up in one branch, unless someone remembered to manually submit the same thing to the other branch and actually made the effort to do so. Most of the time, this wouldn’t happen. When it did, it would mean a second pull request that would have to be reviewed. Over time, the different branches would diverge in non-release-specific content. Good general content that was submitted only to one branch would effectively disappear once that release was deprecated. (Even if it were still on the website, no one would look at it, since it would explicitly be in the subdirectory of a deprecated release, and there would be a motivation to remove it from the website so that search results wouldn’t be populated with out-of-date information.)
 
-For further discussion about release-specific documentation in Qubes, see `here <https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion>`__.
+For further discussion about release-specific documentation in Qubes, see `this discussion on qubes-users <https://groups.google.com/g/qubes-users/c/H9BZX4K9Ptk>`__.
 
 Git conventions
 ---------------
@@ -761,177 +1011,275 @@ highlighting essential differences.
 Cheatsheet: Headings
 ^^^^^^^^^^^^^^^^^^^^
 
-**Markdown:**
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-    .. code:: markdown
+   * - Markdown markup
+     - reStructuredText markup
+   * - .. code:: markdown
 
-        # Title
-        ## Section
-        ### Sub-Section
+          # Title
+          ## Subsection
+          ### Subsubsection
+          #### Paragraph
 
-**reStructuredText:**
-
-    .. code:: rst
+     - .. code:: rst
 
         =====
         Title
         =====
 
-        Section
-        -------
+        Subsection
+        ----------
 
-        Seub-Section
-        ^^^^^^^^^^^^
+        Subsubsection
+        ^^^^^^^^^^^^^
 
-Hyperlinks
-^^^^^^^^^^
+        Paragraph
+        """""""""
 
-External
+Hyperlinks and cross-references
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Markdown:**
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-    .. code:: markdown
+   * - Markdown markup
+     - reStructuredText markup
 
-        [Link Text](http://example.com)
+   * - .. code:: markdown
 
-**reStructuredText:**
+          [Link Text](/doc/path/to/some-file)
 
-    .. code:: rst
+     - .. code:: rst
 
-        `Link Text <http://example.com>`__
+          :doc:`/path/to/some-file`
 
-Internal
+   * - .. code:: markdown
 
-**Markdown:**
+          [Link Text](/doc/path/to/some-file#some-title)
 
-    .. code:: markdown
+     - .. code:: rst
 
-        [Link Text](/doc/some-file)
+          :ref:`/path/to/some-file:Some title`
 
-**reStructuredText:**
+   * - .. code:: markdown
 
-    .. code:: rst
+          a [qube](/doc/glossary#qube)
 
-        :doc:`Link Text </path/to/file>`
+     - .. code:: rst
 
+          :term:`qube`
 
-For example on cross referencing please see :ref:`cross_referencing`.
+   * - .. code:: markdown
 
-Text Decoration
-^^^^^^^^^^^^^^^
+          [Link Text](http://example.com)
 
-**Markdown:**
+     - .. code:: rst
 
-    .. code:: markdown
+          `Link Text <http://example.com>`__
 
-        *Italic* or _Italic_
-        **Bold** or __Bold__
-        ~~Strikethrough~~
+Linking to developer's documentation objects
+""""""""""""""""""""""""""""""""""""""""""""
 
-**reStructuredText:**
+**Markdown link to a page:**
 
-    .. code:: rst
+.. code:: markdown
+
+   [Common concepts](https://dev.qubes-os.org/projects/core-admin/en/latest/qubes.html)
+
+**reStructuredText link to a page:**
+
+.. code:: rst
+
+   :ref:`core-admin:qubes`
+
+**Markdown link to a python object:**
+
+.. code:: markdown
+
+   [DispVM](https://dev.qubes-os.org/projects/core-admin/en/latest/qubes-vm/dispvm.html#qubes.vm.dispvm.DispVM)
+
+**reStructuredText link to a python object:**
+
+.. code:: rst
+
+   :py:class:`~core-admin:qubes.vm.dispvm.DispVM`
+
+.. admonition:: See also
+
+   * :ref:`cross-referencing`
+   * :ref:`developer/general/rst-documentation-style-guide:Hyperlink to other websites syntax`
+
+Cheatsheet: Text Decorations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Markdown markup
+     - reStructuredText markup
+
+   * - .. code:: markdown
+
+         *Italic* or _Italic_
+
+     - .. code:: rst
 
         *Italic*
-        **Bold**
-        :strike:`Strikethrough`
+
+   * - .. code:: markdown
+
+          **Bold** or __Bold__
+
+     - .. code:: rst
+
+          **Bold**
+
+   * - .. code:: markdown
+
+          ~~Strikethrough~~
+
+     - .. code:: rst
+
+          :strike:`Strikethrough`
+
+   * - .. code:: markdown
+
+          ***Bold and italic***
+
+     - .. warning::
+
+          Impossible!
+
+.. admonition:: See also
+
+   :ref:`developer/general/rst-documentation-style-guide:Text decorations`
 
 Cheatsheet: Lists
 ^^^^^^^^^^^^^^^^^
 
-**Markdown:**
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-    .. code:: markdown
+   * - Markdown markup
+     - reStructuredText markup
 
-        - Item 1
-        - Item 2
-          - Subitem 1
-          - Subitem 2
+   * - .. code:: markdown
 
-        1. Item 1
-        2. Item 2
-           a. Subitem 1
-           b. Subitem 2
+          - Item 1
+          - Item 2
+            - Subitem 1
+            - Subitem 2
 
-**reStructuredText:**
+          1. Item 1
+          2. Item 2
+             a. Subitem 1
+             b. Subitem 2
 
-    .. code:: rst
+     - .. code:: rst
 
-        - Item 1
-        - Item 2
-          - Subitem 1
-          - Subitem 2
+          - Item 1
+          - Item 2
+            - Subitem 1
+            - Subitem 2
 
-        1. Item 1
-        2. Item 2
-           a. Subitem 1
-           b. Subitem 2
+          1. Item 1
+          2. Item 2
+             a. Subitem 1
+             b. Subitem 2
+
+.. admonition:: See also
+
+   * :ref:`developer/general/rst-documentation-style-guide:Lists`
 
 Cheatsheet: Tables
 ^^^^^^^^^^^^^^^^^^
 
-**Markdown:**
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-    .. code:: markdown
+   * - Markdown markup
+     - reStructuredText markup
 
-        | Header 1 | Header 2 |
-        |----------|----------|
-        | Cell 1   | Cell 2   |
-        | Cell 3   | Cell 4   |
+   * - .. code:: markdown
 
-**reStructuredText:**
+          | Header 1 | Header 2 |
+          |----------|----------|
+          | Cell 1   | Cell 2   |
+          | Cell 3   | Cell 4   |
 
-    .. code:: rst
+     - .. code:: rst
 
-        .. list-table:: rst
-           :widths: 15 10
-           :align: center
-           :header-rows: 1
+          .. list-table::
+             :widths: 10 10
+             :header-rows: 1
 
-           * - Header 1
-             - Header 2
-           * - Cell 1
-             - Cell 2
-           * - Cell 3
-             - Cell 4
+             * - Header 1
+               - Header 2
+             * - Cell 1
+               - Cell 2
+             * - Cell 3
+               - Cell 4
+
+.. admonition:: See also
+
+   :ref:`developer/general/rst-documentation-style-guide:Tables`
 
 Cheatsheet: Code Blocks
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-**Markdown:**
-    .. code:: markdown
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-        ```python
-        print("Hello, world!")
-        ```
+   * - Markdown markup
+     - reStructuredText markup
 
-**reStructuredText:**
+   * - .. code:: markdown
 
-    .. code:: rst
+          ```python
+          print("Hello, world!")
+          ```
+     - .. code:: rst
 
-        .. code:: python
+          .. code:: python
 
-            print("Hello, world!")
+              print("Hello, world!")
+
+.. admonition:: See also
+
+   :ref:`developer/general/rst-documentation-style-guide:Code blocks`
 
 Alerts and Warnings
 ^^^^^^^^^^^^^^^^^^^
 
-**Markdown:**
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
 
-Markdown does not have built-in support for alerts and warnings.
+   * - Markdown markup
+     - reStructuredText markup
 
-**reStructuredText:**
+   * - .. code:: markdown
 
-    .. code:: rst
+          <div class="alert alert-info" role="alert">
+            <i class="fa fa-info-circle"></i>
+            <b>Note:</b> This is a note
+          </div>
 
-        .. note::
+     - .. code:: rst
 
-           This is a note.
+          .. note::
 
-        .. warning::
+             This is a note.
 
-           This is a warning.
+.. admonition:: See also
 
-        .. danger::
+   :ref:`developer/general/rst-documentation-style-guide:Admonitions, messages, and warnings`
 
-           This is a danger message.
