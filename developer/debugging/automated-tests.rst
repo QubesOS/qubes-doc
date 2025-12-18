@@ -107,6 +107,31 @@ For instance, to run only the tests for the fedora-21 template, you can use the 
       vm_qrexec_gui/TC_20_DispVM_fedora-21/test_030_edit_file
       [user@dom0 ~]$ sudo -E python3 -m qubes.tests.run -v `python3 -m qubes.tests.run -l | grep fedora-21`
 
+Some developers script this part, so you can provide arguments to the script and it handles ``qubesd``. Save the following contents to :file:`~/run-tests`:
+
+.. code:: console
+
+    #!/bin/sh
+    set -eu
+    exit_trap(){
+        systemctl restart qubesd
+    }
+    trap exit_trap EXIT
+    systemctl stop qubesd
+    sudo -E python3 -m qubes.tests.run "$@"
+
+
+And run:
+
+.. code:: console
+
+    ~/run-tests -L INFO -o /tmp/tests.log <TEST_NAME>
+
+You might even almost complete test names and shell expansion:
+
+.. code:: console
+
+    ~/run-tests qubes.tests.integ.dispvm_perf/TC_00_DispVMPerf_debian-{12,13}-xfce/test_0{0,1,2}
 
 Example test run:
 
@@ -123,6 +148,8 @@ Tests are also compatible with nose2 test runner, so you can use this instead:
 
 
 This may be especially useful together with various nose2 plugins to store tests results (for example ``nose2.plugins.junitxml``), to ease presenting results. This is what we use on `OpenQA <https://open.qa/>`__.
+
+If you cancel the test, normally by ``Ctrl-C | SIGINT`` repeatedly, you might not be able to start the next test, it will hang. To solve that, ``Ctrl-C`` until it quits the test, restart ``qubesd`` and start the test again.
 
 Unit testing inside a VM
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -256,13 +283,151 @@ Automated tests with openQA
 ---------------------------
 
 
-**URL:** https://openqa.qubes-os.org/ **Tests:** https://github.com/marmarek/openqa-tests-qubesos
+**URL:** https://openqa.qubes-os.org/ **Tests:** https://github.com/QubesOS/openqa-tests-qubesos
 
 Manually testing Qubes OS and its installation is a time-consuming process. We use `OpenQA <https://open.qa/>`__ to automate this process. It works by installing Qubes in KVM and interacting with it as a user would, including simulating mouse clicks and keyboard presses. Then, it checks the output to see whether various tests were passed, e.g. by comparing the virtual screen output to screenshots of a successful installation.
 
-Using openQA to automatically test the Qubes installation process works as of Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT. KVM also supports nested virtualization, so HVM should theoretically work. In practice, however, either Xen or QEMU crashes when this is attempted. Nonetheless, PV works well, which is sufficient for automated installation testing.
+Using openQA to automatically test the Qubes installation process works since Qubes 4.0-rc4 on 2018-01-26, provided that the versions of KVM and QEMU are new enough and the hardware has VT-x and EPT. KVM also supports nested virtualization, so HVM should theoretically work. In practice, however, either Xen or QEMU crashes when this is attempted. Nonetheless, PV works well, which is sufficient for automated installation testing.
 
 Thanks to present and past donors who have provided the infrastructure for Qubes’ openQA system with hardware that meets these requirements.
+
+How to add openQA test
+^^^^^^^^^^^^^^^^^^^^^^
+
+openQA tests integration of your PR will the rest of the system, therefore, for that, if your code is not tested yet buy unittests because of reasons, write integration tests in the :file:`tests/integ` directory. This directory already exists in most relevant repositories, we will approach only this case for now.
+
+If your code may hang, use a timeout on a section of the code. This avoids holding openQA hostage for too long, possibly, unfortunately, reaching ``MAX_JOB_TIME``
+
+Performance tests runs on hardware ``@hw*``. Everything else, should run on Qubes in KVM on a best effort basis, exclusion depends on maintainers decision.
+
+openQA, you might love or hate it, but you need it:
+
+- Qubes in KVM is slow and memory restricted to 8GB of RAM, that is on purpose:
+    - Helps catch leaky objects, might be code that runs after the test is finished, sometimes an ``asyncio.Future``
+    - Ensures changes are compliant with minimum system requirements
+    - Ability to run simultaneous tests on single worker without conflicts
+- Runs on a pool of certified systems to guarantee future compatibility
+
+You might want to "simulate" openQA slowness to reproduce errors that you might not see on a more powerful system. You can do so by configuring the following options in Xen command line: ``maxcpus=2``, ``availmem=8192M``
+
+How to schedule openQA
+^^^^^^^^^^^^^^^^^^^^^^
+
+The process is the following:
+
+#. Github comment on PR: developer interaction
+#. Gitlab pipeline: fetch sources, builds and publishes to openQA
+#. openQA pipeline: automated tests
+#. qubesos-bot comment: brings results to PR, editing comment if existent
+
+Only the first step, scheduling via Github comment, requires developer intervention.
+
+
+Add label to your PR on Github
+""""""""""""""""""""""""""""""
+
+- Only necessary if testing more than one PR
+- Ask the maintainer to allow your account to assign labels
+- Only the maintainer can create labels, unless given individually on a per repository basis
+
+Click the top most search box and use the following query with the label you want to add to your PR: ``org:QubesOS is:pr is:open label:openqa-group-1``. If the label is already used, choose another label. If there are no ``openqa-*`` label, either wait or ask the maintainer to add more labels to each desired repository.
+
+
+Comment on Github
+"""""""""""""""""
+
+To schedule, comment on a PR ``openQArun`` to test that PR, optionally, add filters:
+
+- ``PR_LABEL``: All PRs with such label
+- ``TEST``: Only selected tests, CSV
+- ``SELINUX_TEMPLATES``: Installs selinux on specified templates, CSV
+- ``TEST_TEMPLATES``: Test only selected templates, CSV
+- ``UPDATE_TEMPLATES``: Update only selected templates, CSV
+- ``DEFAULT_TEMPLATE``: Specify default template
+- ``FLAVOR``: ``pull-requests``, ``kernel``, ``whonix``, ``templates``
+- ``KERNEL_VERSION``: ``stable``, ``latest``
+- ``QUBES_TEST_MGMT_TPL``: Select ``management_dispvm`` template
+- ``DISTUPGRADE_TEMPLATES``: Dist upgrade only selected templates
+- ``MACHINE``: Runs on specified ``hw*``
+
+Notes:
+
+- These are ``and`` filters, when combined, all must match
+- If a test is already assigned to a ``hw``, don't specify ``MACHINE``
+
+Examples:
+
+.. code:: console
+
+    # Only this PR
+    openQArun
+
+    # All PRs that have such tag
+    openQArun PR_LABEL=openqa-group-3
+
+    # Only this PR with only these tests
+    openQArun TEST=system_tests_dispvm,system_tests_dispvm_perf
+
+    # All PRs that have such tag and only these tests
+    openQArun PR_LABEL=openqa-group-3 TEST=system_tests_dispvm,system_tests_dispvm_perf
+
+    # Same as above, but only run tests on select template
+    openQArun PR_LABEL=openqa-group-3 TEST=system_tests_dispvm,system_tests_dispvm_perf TEST_TEMPLATES=debian-13-xfce
+
+
+Gitlab pipeline
+"""""""""""""""
+
+Find your `Gitlab pipeline <https://gitlab.com/QubesOS/qubes-continuous-integration/-/pipelines>` and wait till completion.
+
+- In less than 20 seconds after the Github comment, the pipeline will appear as ``Running``
+- Takes ~10 minutes to complete
+- Only the maintainer can cancel pipelines at this stage because of Gitlab's lax permission system
+
+
+openQA pipeline
+"""""""""""""""
+
+Find your test in `openQA pull requests group <https://openqa.qubes-os.org/group_overview/11>`.
+
+**Cancellation**:
+
+- Sometimes, you might want to cancel a test because it is using outdated code. For that, `login to openQA <https://openqa-qubes-os.org/login>` and ask the maintainer for ``cancellation`` permission. After being allowed, the cancel button as an `X` near the circle indicating status of the job
+- Don't cancel ``install_default_upload@hw*``, it can leave system boot order in weird state, breaks further tests, requiring manual intervention to fix
+
+
+Check out results
+^^^^^^^^^^^^^^^^^
+
+qubesos-bot does comment on Github a summary of the results, providing links to jobs that failed. Click on such link and you will be redirected especifically to the test that failed, at the **Details tab**.
+
+**Settings tab**:
+
+- ``PULL_REQUESTS``: Included PRs and commit used
+- ``QEMURAM``: Memory available to the guest, normally 8192 MiB
+- ``MAX_JOB_TIME``: How much time, in seconds, a job can take, until timeout is reached
+
+**Details tab**:
+
+- Find red signs, failure is near
+- When clicking an image, there is a video icon on the top right to jump to video right when that image was made
+- Test classes ``TC_*``, are links, when clicking, you will be able to see beautiful perl code used during the test. Relevant to see why something happens, such as test generation, window actions, environment variables, log uploads
+
+**Logs & Assets**:
+
+- ``Video``: Screencast, you will most likely need to right click and set slower speed. To disable time stamp, click on CC then Off
+- ``sut_packages.txt``: List of packages available on each qube at the beginning of the test
+- ``vars.json``: JSON variant of **Settings tab**
+- ``serial0.txt``: Dom0 serial output
+- ``serial_terminal.txt``: Dom0 serial console
+- ``system_tests-var_log.tar.gz``: Dom0 directory :file:`/var/log/`
+- ``system_tests-tests-TEST.log``: Test results
+- ``system_tests-*(hypervisor|guest*).log``: Dom0 directory :file:`/var/log/xen/console` with all qubes involved in a test that failed
+- ``system_tests-qvm-prefs-QUBE.log``: ``qvm-prefs`` of qubes running before test
+- ``system_tests-((user-journalctl|journalctl|libxl-driver|xen-hotplug).log|.xsession-errors)``: Dom0 logs added since the test started
+- ``system_tests-objgraph*``: Memory leak graphs generated by graphviz displayed as image. Image might be huge, farewell
+
+- ``*.qcow2``: Disk image / snapshot
 
 Looking for patterns in tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
