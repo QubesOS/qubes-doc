@@ -1,0 +1,44 @@
+Usage: /usr/bin/qubes-dist-upgrade --releasever=VERSION [OPTIONS]...
+
+This script is used for updating QubesOS to the next release.
+
+Options:
+    --releasever=VERSION               Specify target release, for example 4.3 or 4.2.
+
+
+
+This script is used for updating current QubesOS R4.2 to R4.3.
+
+Options:
+    --update, -t                       (STAGE 1) Update of dom0, TemplatesVM and StandaloneVM.
+    --release-upgrade, -r              (STAGE 2) Update 'qubes-release' for Qubes R4.3.
+    --dist-upgrade, -s                 (STAGE 3) Upgrade to Qubes R4.3 and Fedora 41 repositories.
+    --template-standalone-upgrade, -l  (STAGE 4) Upgrade templates and standalone VMs to R4.3 repository.
+    --finalize, -x                     (STAGE 5) Finalize upgrade. It does:
+                                         - resync applications and features
+                                         - create LVM devices cache
+                                         - update PCI device IDs
+                                         - enable minimal-netvm / minimal-usbvm services
+                                         - cleanup salt states
+                                         - enable preloaded disposables if system has more than 15GB memory
+    --check-supported-templates        (STAGE 6) Check if all templates are supported
+    --all-pre-reboot                   Execute stages 1 to 3
+    --all-post-reboot                  Execute stages 4 to 6
+
+    --assumeyes, -y                    Automatically answer yes for all questions.
+    --usbvm, -u                        Current UsbVM defined (default 'sys-usb').
+    --netvm, -n                        Current NetVM defined (default 'sys-net').
+    --updatevm, -f                     Current UpdateVM defined (default 'sys-firewall').
+    --skip-template-upgrade, -j        Don't upgrade TemplateVM to R4.3 repositories.
+    --skip-standalone-upgrade, -k      Don't upgrade StandaloneVM to R4.3 repositories.
+    --only-update                      Apply STAGE 4 and resync appmenus only to
+                                       selected qubes (comma separated list).
+    --keep-running                     List of extra VMs to keep running during update (comma separated list).
+                                       Can be useful if multiple updates proxy VMs are configured.
+    --max-concurrency                  How many TemplateVM/StandaloneVM to update in parallel in STAGE 1
+                                       (default 4).
+    --enable-current-testing, -e       Enable current-testing repositories for the update time.
+                                       The enabling with this option do not persist after
+                                       successful update. If you want to keep it enabled,
+                                       use the normal method instead.
+
