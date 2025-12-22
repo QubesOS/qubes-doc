@@ -440,7 +440,7 @@ Download both the ISO and its signature file. Put both of them in the same direc
 
 .. code:: console
 
-      $ gpg2 -v --verify Qubes-R*-x86_64.iso.asc Qubes-R*-x86_64.iso
+      $ gpg2 -v --verify Qubes-R*-x86_64.iso.asc
       gpg: armor header: Version: GnuPG v1
       gpg: Signature made <TIME> using RSA key ID 03FA5082
       gpg: using PGP trust model
