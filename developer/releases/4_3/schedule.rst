@@ -2,12 +2,12 @@
 Qubes R4.3 release schedule
 ===========================
 
+..
+   .. note::
 
-.. note::
+      This page is still an **unfinished draft in progress**. It is being updated as Qubes 4.3 development and testing continues.
 
-   This page is still an **unfinished draft in progress**. It is being updated as Qubes 4.3 development and testing continues.
-
-   To get the latest news, check the `news on the main website <https://www.qubes-os.org/news/>`_.
+      To get the latest news, check the `news on the main website <https://www.qubes-os.org/news/>`_.
 
 The table below is based on our :ref:`release-schedule-policy`.
 
@@ -26,4 +26,6 @@ The table below is based on our :ref:`release-schedule-policy`.
      - `4.3.0-rc3 release <https://www.qubes-os.org/news/2025/10/27/qubes-os-4-3-0-rc3-available-for-testing/>`_
    * - 2025-12-06
      - `4.3.0-rc4 release <https://www.qubes-os.org/news/2025/12/06/qubes-os-4-3-0-rc4-available-for-testing/>`_
+   * - 2025-12-21
+     - `final 4.3.0 release <https://www.qubes-os.org/news/2025/12/21/qubes-os-4-3-0-has-been-released/>`_
 
