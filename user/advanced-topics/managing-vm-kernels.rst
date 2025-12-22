@@ -24,18 +24,15 @@ To select which kernel a given VM will use, you can either use Qubes Manager (VM
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-prefs -s my-appvm kernel
-      Missing kernel version argument!
-      Possible values:
-      1) default
-      2) none (kernels subdir in VM)
-      3) <kernel version>, one of:
-        - 3.18.16-3
-        - 3.18.17-4
-        - 3.19.fc20
-        - 3.18.10-2
-      [user@dom0 ~]$ qvm-prefs -s my-appvm kernel 3.18.17-4
-      [user@dom0 ~]$ qvm-prefs -s my-appvm kernel default
+      [user@dom0 ~]$ dnf list --installed kernel
+      Installed Packages
+      kernel.x86_64            1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
+      kernel.x86_64            1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
+      kernel.x86_64            1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
+      [user@dom0 ~]$ qvm-prefs my-appvm kernel
+      6.12.59-1.fc37
+      [user@dom0 ~]$ qvm-prefs my-appvm kernel 6.12.54-1.fc37
+      [user@dom0 ~]$ qvm-prefs -D my-appvm kernel
 
 
 To check/change the default kernel you can either go to “Global settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
