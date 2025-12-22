@@ -13,9 +13,9 @@ Hardware requirements
 ^^^^^^^^^^^^^^^^^^^^^
 
 
-.. DANGER::
+.. danger::
 
-      **Warning:** Qubes has no control over what happens on your computer before you install it. No software can provide security if it is installed on compromised hardware. Do not install Qubes on a computer you don’t trust. See :doc:`installation security </user/downloading-installing-upgrading/install-security>`       for more information.
+      Qubes has no control over what happens on your computer before you install it. No software can provide security if it is installed on compromised hardware. Do not install Qubes on a computer you don’t trust. See :doc:`installation security </user/downloading-installing-upgrading/install-security>` for more information.
 
 Qubes OS has very specific :doc:`system requirements </user/hardware/system-requirements>`. To ensure compatibility, we strongly recommend using :doc:`Qubes-certified hardware </user/hardware/certified-hardware/certified-hardware>`. Other hardware may require you to perform significant troubleshooting. You may also find it helpful to consult the `Hardware Compatibility List <https://www.qubes-os.org/hcl/>`__.
 
@@ -23,41 +23,46 @@ Even on supported hardware, you must ensure that `IOMMU-based virtualization <ht
 
 .. warning::
 
-      **Note:** Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor. In other words, *nested virtualization* is not supported. In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly.
+      Qubes OS is not meant to be installed inside a virtual machine as a guest hypervisor. In other words, *nested virtualization* is not supported. In order for a strict compartmentalization to be enforced, Qubes OS needs to be able to manage the hardware directly.
 
 Copying the ISO onto the installation medium
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. `Download <https://www.qubes-os.org/downloads/>`__ a Qubes ISO. If your Internet connection is unstable and the download is interrupted, you could resume the partial download with ``wget --continue`` in case you are currently using wget for downloading or use a download-manager with resume capability. Alternatively you can download installation ISO via BitTorrent that sometimes enables higher download speeds and more reliable downloads of large files.
+Pick the most secure existing computer and OS you have available for downloading and copying the Qubes ISO onto the installation medium. `Download <https://www.qubes-os.org/downloads/>`__ a Qubes ISO. The size of each Qubes ISO is available on the `downloads <https://www.qubes-os.org/downloads/>`__ page by hovering over the download button.
 
-.. DANGER::
+If your Internet connection is unstable and the download is interrupted, you could:
 
-      **Warning:** Any file you download from the internet could be malicious, even if it appears to come from a trustworthy source. Our philosophy is to :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`      . Regardless of how you acquire your Qubes ISO, :doc:`verify its authenticity </project-security/verifying-signatures>`       before continuing.
+* resume the partial download with ``wget --continue`` in case you are currently using wget for downloading;
+* use a download-manager with resume capability;
+* or alternatively you can download installation ISO via BitTorrent that sometimes enables higher download speeds and more reliable downloads of large files.
 
-Once the ISO has been verified as authentic, you should copy it onto the installation medium of your choice, such as a USB drive, dual-layer DVD, or Blu-ray disc. The size of each Qubes ISO is available on the `downloads <https://www.qubes-os.org/downloads/>`__ page by hovering over the download button. The instructions below assume you’ve chosen a USB drive as your medium. If you’ve chosen a different medium, please adapt the instructions accordingly.
+.. danger::
 
-.. warning::
+      Any file you download from the internet **could be malicious**, even if it appears to come from a trustworthy source. Our philosophy is to :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`.
 
-      **Note:** There are important :doc:`security considerations </user/downloading-installing-upgrading/install-security>`       to keep in mind when choosing an installation medium. Advanced users may wish to :ref:`re-verify their installation media after writing <project-security/verifying-signatures:how to re-verify installation media after writing>`      .
+      Regardless of how you acquire your Qubes ISO, :doc:`verify its authenticity </project-security/verifying-signatures>` before continuing.
 
-.. DANGER::
+**Once the ISO has been verified as authentic**, you should copy it onto the installation medium of your choice, such as a USB drive, dual-layer DVD, or Blu-ray disc. The instructions below assume you’ve chosen a USB drive as your medium. If you’ve chosen a different medium, please adapt the instructions accordingly.
 
-      **Warning:** Be careful to choose the correct device when copying the ISO, or you may lose data. We strongly recommended making a full backup before modifying any devices.
+There are important :doc:`security considerations </user/downloading-installing-upgrading/install-security>` to keep in mind when choosing an installation medium.
 
 Linux ISO to USB
 ^^^^^^^^^^^^^^^^
 
+.. danger::
+
+      Be careful to choose the correct device when copying the ISO, or you may lose data. We strongly recommended making a full backup before modifying any devices.
 
 On Linux, if you choose to use a USB drive, copy the ISO onto the USB device, e.g. using ``dd``:
 
 .. code:: console
 
-      $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 conv=fsync
+      $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1M conv=fsync
 
+Change :file:`Qubes-R{X}-x86_64.iso` to the filename of the version you’re installing, and change :file:`/dev/sd{Y}` to the correct target device e.g., :file:`/dev/sdc`). Make sure to write to the entire device (e.g., :file:`/dev/sdc`) rather than just a single partition (e.g., :file:`/dev/sdc1`).
 
-
-Change ``Qubes-RX-x86_64.iso`` to the filename of the version you’re installing, and change ``/dev/sdY`` to the correct target device e.g., ``/dev/sdc``). Make sure to write to the entire device (e.g., ``/dev/sdc``) rather than just a single partition (e.g., ``/dev/sdc1``).
+**Advanced users** may wish to :ref:`re-verify their installation media after writing <project-security/verifying-signatures:how to re-verify installation media after writing>`.
 
 Windows ISO to USB
 ^^^^^^^^^^^^^^^^^^
@@ -67,7 +72,7 @@ On Windows, you can use the `Rufus <https://rufus.ie/>`__ tool to write the ISO 
 
 .. note::
 
-      **Note:** Using Rufus to create the installation medium means that you `won’t be able <https://github.com/QubesOS/qubes-issues/issues/2051>`__       to choose the “Test this media and install Qubes OS” option mentioned in the example below. Instead, choose the “Install Qubes OS” option.
+      Using Rufus to create the installation medium means that you `won’t be able <https://github.com/QubesOS/qubes-issues/issues/2051>`__ to choose the “Test this media and install Qubes OS” option mentioned in the example below. Instead, choose the “Install Qubes OS” option.
 
 |Rufus menu|
 
@@ -87,7 +92,7 @@ Getting to the boot screen
 
 Since you’re installing Qubes OS, you’ll need to access your computer’s BIOS or UEFI menu so that you can tell it to boot from the USB drive to which you just copied the Qubes installer ISO.
 
-To begin, power off your computer and plug the USB drive into a USB port, but don’t press the power button yet. Right after you press the power button, you’ll have to immediately press a specific key to enter the BIOS or UEFI menu. The key to press varies from brand to brand. ``Esc``, ``Del``, and ``F10`` are common ones. If you’re not sure, you can search the web for ``<COMPUTER_MODEL> BIOS key`` or ``<COMPUTER_MODEL> UEFI key`` (replacing ``<COMPUTER_MODEL>`` with your specific computer model) or look it up in your computer’s manual.
+To begin, power off your computer and plug the USB drive into a USB port, but don’t press the power button yet. Right after you press the power button, you’ll have to immediately press a specific key to enter the BIOS or UEFI menu. The key to press varies from brand to brand. :kbd:`Esc`, :kbd:`Del`, and :kbd:`F10` are common ones. If you’re not sure, you can search the web for ``<COMPUTER_MODEL> BIOS key`` or ``<COMPUTER_MODEL> UEFI key`` (replacing ``<COMPUTER_MODEL>`` with your specific computer model) or look it up in your computer’s manual.
 
 Once you know the key to press, press your computer’s power button, then repeatedly press that key until you’ve entered your computer’s BIOS or UEFI menu. To give you an idea of what you should be looking for, we’ve provided a couple of example photos below.
 
@@ -125,7 +130,7 @@ Select the option to test this media and install Qubes OS.
 
 .. note::
 
-      **Note:** If the latest stable release is not compatible with your hardware, you may wish to consider installing using the latest kernel. Be aware that this has not been as well tested as the standard kernel.
+      If the latest stable release is not compatible with your hardware, you may wish to consider installing using the latest kernel. Be aware that this has not been as well tested as the standard kernel.
 
 If the boot screen does not appear, there are several options to troubleshoot. First, try rebooting your computer. If it still loads your currently installed operating system or does not detect your installation medium, make sure the boot order is set up appropriately. The process to change the boot order varies depending on the currently installed system and the motherboard manufacturer. If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order. This may require an `advanced reboot <https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings>`__.
 
@@ -151,9 +156,9 @@ Installation summary
 ^^^^^^^^^^^^^^^^^^^^
 
 
-.. note::
+.. admonition:: Did you know?
 
-      **Did you know?** The Qubes OS installer is completely offline. It doesn’t even load any networking drivers, so there is no possibility of internet-based data leaks or attacks during the installation process.
+      The Qubes OS installer is completely offline. It doesn’t even load any networking drivers, so there is no possibility of internet-based data leaks or attacks during the installation process.
 
 The Installation summary screen allows you to change how the system will be installed and configured, including localization settings. At minimum, you are required to select the storage device on which Qubes OS will be installed.
 
@@ -183,29 +188,29 @@ Installation destination
 
 Under the System section, you must choose the installation destination. Select the storage device on which you would like to install Qubes OS.
 
-.. DANGER::
+.. danger::
 
-      **Warning:** Be careful to choose the correct installation target, or you may lose data. We strongly recommended making a full backup before proceeding.
+      Be careful to choose the correct installation target, or you may lose data. We strongly recommended making a full backup before proceeding.
 
 Your installation destination can be an internal or external storage drive, such as an SSD, HDD, or USB drive. The installation destination must have a least 32 GiB of free space available.
 
 .. warning::
 
-      **Note:** The installation destination cannot be the same as the installation medium. For example, if you’re installing Qubes OS *from* a USB drive *onto* a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time. (**Note:** This may not apply to advanced users who partition their devices appropriately.)
+      The installation destination cannot be the same as the installation medium. For example, if you’re installing Qubes OS *from* a USB drive *onto* a USB drive, they must be two distinct USB drives, and they must both be plugged into your computer at the same time. (**Note:** This may not apply to advanced users who partition their devices appropriately.)
 
 Installing an operating system onto a USB drive can be a convenient way to try Qubes. However, USB drives are typically much slower than internal SSDs. We recommend a very fast USB 3.0 drive for decent performance. Please note that a minimum storage of 32 GiB is required. If you want to install Qubes OS onto a USB drive, just select the USB device as the target installation device. Bear in mind that the installation process is likely to take longer than it would on an internal storage device.
 
 |Select storage device screen|
 
-.. note::
+.. admonition:: Did you know?
 
-      **Did you know?** By default, Qubes OS uses `LUKS <https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup>`__      /`dm-crypt <https://en.wikipedia.org/wiki/Dm-crypt>`__       to encrypt everything except the ``/boot`` partition.
+      By default, Qubes OS uses `LUKS <https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup>`__ /`dm-crypt <https://en.wikipedia.org/wiki/Dm-crypt>`__ to encrypt everything except the ``/boot`` partition.
 
 As soon as you press **Done**, the installer will ask you to enter a passphrase for disk encryption. The passphrase should be complex. Make sure that your keyboard layout reflects what keyboard you are actually using. When you’re finished, press **Done**.
 
-.. DANGER::
+.. danger::
 
-      **Warning:** If you forget your encryption passphrase, there is no way to recover it.
+      If you forget your encryption passphrase, there is no way to recover it.
 
 |Select storage passphrase|
 
