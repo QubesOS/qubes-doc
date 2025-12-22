@@ -47,18 +47,20 @@ Many important Qubes OS Project assets (e.g., ISOs, RPMs, TGZs, and Git objects)
 
 The developer signing keys are set to expire after one year, while the QMSK and RSKs have no expiration date. The QMSK was generated on and is kept only on a dedicated, air-gapped “vault” machine, and the private portion will (hopefully) never leave this isolated machine.
 
-Before we proceed, you must first complete the prerequisite step of :ref:`installing OpenPGP software <project-security/verifying-signatures:openpgp software>`.
+.. hint::
+
+   Before we proceed, you must first complete the prerequisite step of :ref:`installing OpenPGP software <project-security/verifying-signatures:openpgp software>`.
 
 Once you have appropriate OpenPGP software installed, there are several ways to get the QMSK.
 
-- If you’re on Qubes OS, it’s available in every qube (`except dom0 <https://github.com/QubesOS/qubes-issues/issues/2544>`__):
+- **If you’re on Qubes OS**, it’s available in every qube (`except dom0 <https://github.com/QubesOS/qubes-issues/issues/2544>`__):
 
   .. code:: console
 
         $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
 
-- If you’re on Fedora, you can get it in the `distribution-gpg-keys <https://github.com/xsuchy/distribution-gpg-keys>`__ package:
+- **If you’re on Fedora**, you can get it in the `distribution-gpg-keys <https://github.com/xsuchy/distribution-gpg-keys>`__ package:
 
   .. code:: console
 
@@ -66,9 +68,9 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
         $ gpg2 --import /usr/share/distribution-gpg-keys/qubes/*
 
 
-- If you’re on Debian, it may already be included in your keyring.
+- **If you’re on Debian**, it may already be included in your keyring.
 
-- Fetch it with GPG:
+- You can also **fetch it with GPG**:
 
   .. code:: console
 
@@ -82,8 +84,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
         $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
 
-- Download it as a file, then import the file.
-  Here are some example download locations:
+- Or **download it as a file**, then import the file. Here are some example download locations:
 
   - :doc:`Qubes security pack </project-security/security-pack>`
 
@@ -94,7 +95,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
   - `Email to qubes-users <https://groups.google.com/d/msg/qubes-users/CLnB5uFu_YQ/ZjObBpz0S9UJ>`__
 
 
-  Once you have the key as a file, import it:
+  Once you have the key as a file, **import it**:
 
   .. code:: console
 
@@ -215,7 +216,7 @@ Now, when you import any of the release signing keys and many Qubes team member 
 
 As a final sanity check, make sure the QMSK is in your keyring with the correct trust level.
 
-.. code-block:: console
+.. code:: console
       :emphasize-lines: 4
 
       $ gpg2 -k "Qubes Master Signing Key"
@@ -235,42 +236,48 @@ How to import and authenticate release signing keys
 
 Every Qubes OS release is signed by a **release signing key (RSK)**, which is, in turn, signed by the Qubes Master Signing Key (QMSK).
 
-Before we proceed, you must first complete the following prerequisite steps:
+.. hint::
 
-1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
+   Before we proceed, you must first complete the following prerequisite steps:
 
-2. :ref:`Import and authenticate the QMSK. <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`
+   1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
 
-
-
-After you have completed these two prerequisite steps, the next step is to obtain the correct RSK. The filename pattern for RSKs is ``qubes-release-X-signing-key.asc``, where ``X`` is either a major or minor Qubes release number, such as ``4`` or ``4.2``. There are several ways to get the RSK for your Qubes release.
-
-- If you have access to an existing Qubes installation, the release keys are available in dom0 in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. These can be :ref:`copied <user/how-to-guides/how-to-copy-from-dom0:copying *from* dom0>` into other qubes for further use. In addition, the official Fedora templates (and qubes based on them) contain the release key corresponding to that installation’s release in ``/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*``. If you wish to use one of these keys, make sure to import it into your keyring, e.g.:
-
-  .. code:: console
-
-        $ gpg2 --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*
+   2. :ref:`Import and authenticate the QMSK. <how-to-import-QMSK>`
 
 
-- Fetch it with GPG:
 
-  .. code:: console
+After you have completed these two prerequisite steps, the next step is to obtain the correct RSK. The filename pattern for RSKs is :file:`qubes-release-{*}-signing-key.asc`, where :samp:`{*}` is either a major or minor Qubes release number, such as :samp:`4` or :samp:`4.3`. There are several ways to get the RSK for your Qubes release.
 
-        $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
+- **If you have access to an existing Qubes installation**, the release keys are available **in dom0** or **in the official Fedora templates** (and qubes based on them), in :file:`/etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-{*}`.
 
+  These can be :doc:`copied from dom0 </user/how-to-guides/how-to-copy-from-dom0>` or :doc:`any qube based on fedora </user/how-to-guides/how-to-copy-and-move-files>` into other qubes for further use.
 
-- Download it as a file. You can find the RSK for your Qubes release on the `downloads <https://www.qubes-os.org/downloads/>`__ page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, import it with GPG:
+  If you wish to use one of these keys, **make sure to import it into your keyring**, e.g.:
 
   .. code:: console
 
-        $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc
+     [user@fedora-based-qube] $ gpg2 --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*
+
+
+- **Fetch it with GPG**:
+
+  .. code:: console
+
+        [user@any-online-qube] $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
+
+
+- **Download it as a file**. You can find the RSK for your Qubes release on the `downloads <https://www.qubes-os.org/downloads/>`__ page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, **import it with GPG**:
+
+  .. code:: console
+
+        [user@any-qube] $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc
 
 
 
 
 Now that you have the correct RSK, you simply need to verify that it is signed by the QMSK:
 
-.. code-block:: console
+.. code:: console
       :emphasize-lines: 6
 
       $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
@@ -283,11 +290,11 @@ Now that you have the correct RSK, you simply need to verify that it is signed b
       gpg: 2 good signatures
 
 
-This is just an example, so the output you receive may not look exactly the same. What matters is the line with a ``sig!`` prefix showing that the QMSK has signed this key. This verifies the authenticity of the RSK. Note that the ``!`` flag after the ``sig`` tag is important because it means that the key signature is valid. A ``sig-`` prefix would indicate a bad signature, and ``sig%`` would mean that gpg encountered an error while verifying the signature. It is not necessary to independently verify the authenticity of the RSK, since you already verified the authenticity of the QMSK.
+This is just an example, so the output you receive may not look exactly the same (:samp:`{X}` will be replaced by the release number). What matters is the line with a ``sig!`` prefix showing that the QMSK has signed this key. This verifies the authenticity of the RSK. Note that the ``!`` flag after the ``sig`` tag is important because it means that the key signature is valid. A ``sig-`` prefix would indicate a bad signature, and ``sig%`` would mean that gpg encountered an error while verifying the signature. It is not necessary to independently verify the authenticity of the RSK, since you already verified the authenticity of the QMSK.
 
 As a final sanity check, make sure the RSK is in your keyring with the correct trust level:
 
-.. code-block:: console
+.. code:: console
       :emphasize-lines: 4
 
       $ gpg2 -k "Qubes OS Release X Signing Key"
@@ -307,13 +314,23 @@ Please see the :doc:`Qubes security pack </project-security/security-pack>` docu
 How to verify detached PGP signatures on Qubes ISOs
 ---------------------------------------------------
 
-.. hint:: Before we proceed, you must have :ref:`an authentic RSK <how-to-import-RSK>`.
+.. hint::
+
+   Before we proceed, you must first complete the following prerequisite steps:
+
+   1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
+
+   2. :ref:`Import and authenticate the Qubes Master Signing Key. <how-to-import-QMSK>`
+
+   3. :ref:`Import and authenticate your release signing key. <how-to-import-RSK>`
+
+
 
 Every Qubes ISO is released with a **detached PGP signature** file, which you can find on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside the ISO. If the filename of your ISO is :file:`Qubes-R{X}-86_64.iso`, then the name of the signature file for that ISO is :file:`Qubes-R{X}-86_64.iso.asc`, where :samp:`{X}` is a specific release of Qubes. The signature filename is always the same as the ISO filename followed by ``.asc``.
 
 **Download both the ISO and its signature file**. Put both of them **in the same directory**, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files, make sure to replace :samp:`Qubes-R{X}` by the correct release number (i.e.: :samp:`Qubes-R{4.3}`):
 
-.. code-block:: console
+.. code:: console
    :emphasize-lines: 5
 
    $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
@@ -323,12 +340,10 @@ Every Qubes ISO is released with a **detached PGP signature** file, which you ca
    gpg: Good signature from "Qubes OS Release X Signing Key"
    gpg: binary signature, digest algorithm SHA256
 
-This is just an example, so the output you receive will not look exactly the same. What matters is the line that says :samp:`Good signature from "Qubes OS Release {X} Signing Key"` where :samp:`{X}` is the release number. **This confirms that the signature on the ISO is good.**
 
-If you don’t see a good signature here:
+This is just an example, so the output you receive will not look exactly the same. What matters is the line that says ``Good signature from "Qubes OS Release X Signing Key"``. This confirms that the signature on the ISO is good.
 
-* go back and follow the instructions in this section (or the previous ones) carefully;
-* or consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
+If you don’t see a good signature here, go back and follow the instructions in this section carefully, and consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
 
 How to re-verify installation media after writing
 -------------------------------------------------
@@ -367,7 +382,7 @@ Where :file:`Qubes-R{X}-x86_64.iso` is your Qubes ISO (with :samp:`{X}` replaced
 
 You can now use :program:`gpg` to verify the detached PGP signature directly against the data on the USB drive. The following command reads the exact number of bytes from your USB drive and pipes them into :program:`gpg`: 
 
-.. code-block:: console
+.. code:: console
       :emphasize-lines: 8
 
       $ dd if=/dev/sdX bs=1M count=<SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
@@ -390,14 +405,15 @@ Where :file:`/dev/{sdX}` is your USB drive, :samp:`<SIZE>` is the exact size in 
 How to verify signatures on Git repository tags and commits
 -----------------------------------------------------------
 
+.. hint::
 
-Before we proceed, you must first complete the following prerequisite steps:
+   Before we proceed, you must first complete the following prerequisite steps:
 
-1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
+   1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
 
-2. :ref:`Import and authenticate the Qubes Master Signing Key. <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`
+   2. :ref:`Import and authenticate the Qubes Master Signing Key. <how-to-import-QMSK>`
 
-3. :doc:`Import and authenticate keys from the Qubes security pack (qubes-secpack). </project-security/security-pack>` Please see our :ref:`PGP key policies <project-security/security-pack:pgp key policies>` for important information about these keys.
+   3. :doc:`Import and authenticate keys from the Qubes security pack (qubes-secpack). </project-security/security-pack>` Please see our :ref:`PGP key policies <project-security/security-pack:pgp key policies>` for important information about these keys.
 
 
 
@@ -445,7 +461,7 @@ Why am I getting "Can't check signature: public key not found"?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-You don’t have the correct :ref:`release signing key <project-security/verifying-signatures:how to import and authenticate release signing keys>`.
+You don’t have the correct :ref:`release signing key <how-to-import-RSK>`.
 
 Why am I getting "BAD signature from ‘Qubes OS Release X Signing Key'"?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -497,9 +513,9 @@ Why am I getting "WARNING: This key is not certified with a trusted signature! T
 
 There are several possibilities:
 
-- You don’t have the :ref:`Qubes Master Signing Key <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`.
+- You don’t have the :ref:`Qubes Master Signing Key <how-to-import-QMSK>`.
 
-- You have not :ref:`set the Qubes Master Signing Key’s trust level correctly. <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`
+- You have not :ref:`set the Qubes Master Signing Key’s trust level correctly. <how-to-import-QMSK>`
 
 - In the case of a key that is not directly signed by the Qubes Master Signing Key, you have not :ref:`set that key’s trust level correctly. <project-security/verifying-signatures:how to verify signatures on git repository tags and commits>`
 
@@ -509,7 +525,7 @@ Why am I getting "X signature not checked due to a missing key"?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-You don’t have the keys that created those signatures in your keyring. For the purpose of verifying a Qubes ISO, you don’t need them as long as you have the :ref:`Qubes Master Signing Key <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>` and the :ref:`release signing key <project-security/verifying-signatures:how to import and authenticate release signing keys>` for your Qubes release.
+You don’t have the keys that created those signatures in your keyring. For the purpose of verifying a Qubes ISO, you don’t need them as long as you have the :ref:`Qubes Master Signing Key <how-to-import-QMSK>` and the :ref:`release signing key <how-to-import-RSK>` for your Qubes release.
 
 Why am I seeing additional signatures on a key with "[User ID not found]" or from a revoked key?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
