@@ -5,6 +5,7 @@ Installation guide
 
 Welcome to the Qubes OS installation guide! This guide will walk you through the process of installing Qubes. Please read it carefully and thoroughly, as it contains important information for ensuring that your Qubes OS installation is functional and secure.
 
+
 Pre-installation
 ----------------
 
@@ -83,7 +84,7 @@ Getting to the boot screen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-“Booting” is the process of starting your computer. When a computer boots up, it first runs low-level software before the main operating system. Depending on the computer, this low-level software may be called the `“BIOS” <https://en.wikipedia.org/wiki/BIOS>`__ or `“UEFI” <https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface>`__.
+“Booting” is the process of starting your computer. When a computer boots up, it first runs :term:`low-level software <firmware>` before the main operating system. Depending on the computer, this low-level software may be called the `“BIOS” <https://en.wikipedia.org/wiki/BIOS>`__ or `“UEFI” <https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface>`__.
 
 Since you’re installing Qubes OS, you’ll need to access your computer’s BIOS or UEFI menu so that you can tell it to boot from the USB drive to which you just copied the Qubes installer ISO.
 
@@ -213,7 +214,7 @@ Create your user account
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Select “User Creation” to create your user account. This is what you’ll use to log in after disk decryption and when unlocking the screen locker. This is a purely local, offline account in dom0. By design, Qubes OS is a single-user operating system, so this is just for you.
+Select “User Creation” to create your user account. This is what you’ll use to log in after disk decryption and when unlocking the screen locker. This is a purely local, offline account in :term:`dom0`. By design, Qubes OS is a single-user operating system, so this is just for you.
 
 The new user you create has full administrator privileges and is protected by a password. Just as for the disk encryption, this password should be complex. The root account is deactivated and should remain as such.
 
@@ -255,33 +256,53 @@ You’re almost done. Before you can start using Qubes OS, some configuration is
 
 |Window with link for final configuration| Click on the item marked with the warning triangle to enter the configuration screen. |Initial configuration menu|
 
-By default, the installer will create a number of qubes (depending on the options you selected during the installation process). These are designed to give you a more ready-to-use environment from the get-go.
+By default, the installer will create a number of :term:`qubes <qube>` (depending on the options you selected during the installation process). These are designed to give you a more ready-to-use environment from the get-go.
 
 Let’s briefly go over the options:
 
-- **Templates Configuration:** Here you can decide which :doc:`templates </user/templates/templates>` you want to have installed, and which will be the default template.
+Templates Configuration
+~~~~~~~~~~~~~~~~~~~~~~~
 
-- **Create default system qubes:** These are the core components of the system, required for things like internet access. You can opt to have some created as :term:`disposables <disposable>`.
+This section provides the :term:`templates <template>` you wish to install and which one to use as the default one. The default template settings can always be changed after this initial configuration too.
 
-- **Create default application qubes:** These are how you compartmentalize your digital life. There’s nothing special about the ones the installer creates. They’re just suggestions that apply to most people. If you decide you don’t want them, you can always delete them later, and you can always create your own.
+Main Configuration
+~~~~~~~~~~~~~~~~~~
 
-- **Use a qube to hold all USB controllers:** Just like the network qube for the network stack, the USB qube isolates the USB controllers.
+:guilabel:`Create default system qubes (sys-net, sys-firewall, default DispVM)`: These are the core components of the system, required for things like internet access.
 
-  - **Use sys-net qube for both networking and USB devices:** You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter.
+  :guilabel:`Make sys-firewall and sys-usb disposable`: The :term:`qubes <qube>` responsible for firewalling/isolating network traffic and holding certain hardware devices like USB, Bluetooth adapter, integrated cameras, etc. (**sys-usb** only, if applicable) will be made :term:`disposable`. Enabled by default as it fits most users' needs.
+
+  :guilabel:`Make sys-net disposable`: The :term:`net qube` handling your network devices will be made :term:`disposable`. This will result in loss of stored Wi-Fi passwords and therefore automatic Wi-Fi connections each time :term:`the qube <net qube>` gets booted. Disabled by default for a more user-friendly experience but if you don't mind storing the aforementioned passwords e.g. in an offline password manager, you may turn it on for privacy enhancements (no broadcasting of saved Wi-Fi network names). You might also :ref:`customize the disposable net qube so that your Wi-Fi credentials will be passed dynamically <user/advanced-topics/disposable-customization:Change application settings dynamically>`.
+
+  :guilabel:`Preload disposable qubes based on the default DispVM (faster usage)`: If your computer has enough memory, this option will be enabled by default and :ref:`transparently enqueue several disposables in the background for faster startup <user/how-to-guides/how-to-use-disposables:Retrieve unnamed disposables faster (preloaded disposables)>`.
+
+:guilabel:`Create default application qubes (personal, work, untrusted, vault)`: These are how you compartmentalize your digital life. There's nothing special about the ones the installer creates. They're just suggestions that apply to most people. If you decide you don't want them, you can always delete them later, and you can always :doc:`create your own </user/how-to-guides/how-to-organize-your-qubes>`.
+
+:guilabel:`Use a qube to hold all USB controllers (create a new qube called sys-usb by default)`: A dedicated :term:`qube` that holds certain hardware devices like USB, Bluetooth adapter, integrated cameras, etc. (**sys-usb**) will be created.
+
+  :guilabel:`Use sys-net qube for both networking and USB devices`: certain hardware devices will be held by **sys-net** instead. You should select this option if you rely on a USB device for network access, such as a USB modem or a USB Wi-Fi adapter, as this option will make the experience with them more user-friendly and seamless.
+
+  :guilabel:`Automatically accept USB mice (discouraged)`: If enabled, upon the connecting of a device that presents itself as a USB mouse, it will be automatically forwarded to :term:`dom0`. Disabled by default so once such device is connected, manual user interaction is required to confirm forwarding that device. This results in additional security benefits - e.g. a malicious device presenting itself as a mouse will be rendered useless until a confirmation dialog in :term:`dom0` is accepted.
+
+  :guilabel:`Automatically accept USB keyboard (discouraged if non-USB keyboard is available)`: See the point above about USB mice. The same applies here. Enabling this is mostly beneficial to modern stationary workstations where only a USB keyboard can be used for typing. If you can use a PS/2 keyboard (generally laptops use an emulated PS/2 for their internal keyboards), you may want to leave this option disabled for additional security.
+
+.. warning::
+
+      **Note:** When choosing to automatically accept USB mice or keyboards, be aware of the :ref:`security considerations <user/security-in-qubes/device-handling-security:USB Security>`. For troubleshooting non-working devices, see :ref:`this document <user/how-to-guides/how-to-use-usb-devices:Using USB keyboards and other input devices>`.
+
+:guilabel:`Create Whonix Gateway and Workstation qubes (sys-whonix, anon-whonix)`: If you want to use `Whonix <https://www.whonix.org/wiki/Qubes>`__, you should select this option.
+
+  :guilabel:`Enable system and template updates over the Tor anonymity network using Whonix`: If you select this option, then whenever you install or update software in :term:`dom0` or a :term:`templates <template>`, the internet traffic will go through Tor.
+
+Advanced Configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+:guilabel:`Use custom storage pool`: Here you can specify custom names for the LVM pool holding your :term:`qubes <qube>`' filesystems as well as LVM Volume Group name. Unless you're preparing a customized environment on your machine (e.g. dual booting distinct Qubes OS releases), you can leave this option unchecked.
+
+:guilabel:`Do not configure anything (for advanced users)`: This is for very advanced users only. If you select this option, you'll have to set everything up manually afterward.
 
 
-
-- **Create Whonix Gateway and Workstation qubes:** If you want to use `Whonix <https://www.whonix.org/wiki/Qubes>`__, you should select this option.
-
-  - **Enabling system and template updates over the Tor anonymity network using Whonix:** If you select this option, then whenever you install or update software in dom0 or a template, the internet traffic will go through Tor.
-
-
-
-- **Do not configure anything:** This is for very advanced users only. If you select this option, you will have to manually set up everything.
-
-
-
-When you’re satisfied with your choices, press **Done**. This configuration process may take a while, depending on the speed and compatibility of your system.
+When you’re satisfied with your choices, press **Done**. This configuration process may take a while, depending on the speed of your computer and the selected options described above (the more :term:`templates <template>` to be installed, the longer the configuration process will take).
 
 After configuration is done, you will be greeted by the login screen. Enter your password and log in.
 
@@ -307,7 +328,7 @@ Security
 
 The Qubes OS Project occasionally issues `Qubes Security Bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__ as part of the :doc:`Qubes Security Pack (qubes-secpack) </project-security/security-pack>`. It is important to make sure that you receive all QSBs in a timely manner so that you can take action to keep your system secure. (While :ref:`user/downloading-installing-upgrading/installation-guide:updating` will handle most security needs, there may be cases in which additional action from you is required.) For this reason, we strongly recommend that every Qubes user subscribe to the :ref:`qubes-announce <introduction/support:qubes-announce>` mailing list.
 
-In addition to QSBs, the Qubes OS Project also publishes `Canaries <https://www.qubes-os.org/security/canary/>`__, XSA summaries, template releases and end-of-life notices, and other items of interest to Qubes users. Since these are not essential for all Qubes users to read, they are not sent to :ref:`qubes-announce <introduction/support:qubes-announce>` in order to keep the volume on that list low. However, we expect that most users, especially novice users, will find them helpful. If you are interested in these additional items, we encourage you to subscribe to the `Qubes News RSS feed <https://www.qubes-os.org/feed.xml>`__ or join one of our other :doc:`venues </introduction/support>`, where these news items are also announced.
+In addition to QSBs, the Qubes OS Project also publishes `Canaries <https://www.qubes-os.org/security/canary/>`__, XSA summaries, :term:`templates <template>` releases and end-of-life notices, and other items of interest to Qubes users. Since these are not essential for all Qubes users to read, they are not sent to :ref:`qubes-announce <introduction/support:qubes-announce>` in order to keep the volume on that list low. However, we expect that most users, especially novice users, will find them helpful. If you are interested in these additional items, we encourage you to subscribe to the `Qubes News RSS feed <https://www.qubes-os.org/feed.xml>`__ or join one of our other :doc:`venues </introduction/support>`, where these news items are also announced.
 
 For more information about Qubes OS Project security, please see the :doc:`security center </project-security/security>`.
 
@@ -347,20 +368,20 @@ Getting help
 .. |Rufus DD image mode| image:: /attachment/doc/rufus-dd-image-mode.png
 .. |ThinkPad T430 BIOS menu| image:: /attachment/doc/Thinkpad-t430-bios-main.jpg
 .. |UEFI menu| image:: /attachment/doc/uefi.jpeg
-.. |Boot screen| image:: /attachment/doc/boot-screen-4.2.png
-.. |Language selection window| image:: /attachment/doc/welcome-to-qubes-os-installation-screen-4.2.png
-.. |Unsupported hardware detected| image:: /attachment/doc/unsupported-hardware-detected.png
-.. |Installation summary screen awaiting input| image:: /attachment/doc/installation-summary-not-ready-4.2.png
-.. |Keyboard layout selection| image:: /attachment/doc/keyboard-layout-selection.png
-.. |Language support selection| image:: /attachment/doc/language-support-selection.png
-.. |Time and date| image:: /attachment/doc/time-and-date.png
-.. |Select storage device screen| image:: /attachment/doc/select-storage-device-4.2.png
-.. |Select storage passphrase| image:: /attachment/doc/select-storage-passphrase.png
-.. |Account name and password creation window.| image:: /attachment/doc/account-name-and-password-4.2.png
-.. |Windows showing installation complete and Reboot button.| image:: /attachment/doc/installation-complete-4.2.png
-.. |Grub boot menu| image:: /attachment/doc/grub-boot-menu.png
-.. |Screen to enter device decryption password| image:: /attachment/doc/unlock-storage-device-screen-4.2.png
-.. |Window with link for final configuration| image:: /attachment/doc/initial-setup-menu-4.2.png
-.. |Initial configuration menu| image:: /attachment/doc/initial-setup-menu-configuration-4.2.png
-.. |Login screen| image:: /attachment/doc/login-screen.png
-.. |Desktop menu| image:: /attachment/doc/desktop-menu.png
+.. |Boot screen| image:: /attachment/doc/boot-screen-4.3.png
+.. |Language selection window| image:: /attachment/doc/welcome-to-qubes-os-installation-screen-4.3.png
+.. |Unsupported hardware detected| image:: /attachment/doc/unsupported-hardware-detected-4.3.png
+.. |Installation summary screen awaiting input| image:: /attachment/doc/installation-summary-not-ready-4.3.png
+.. |Keyboard layout selection| image:: /attachment/doc/keyboard-layout-selection-4.3.png
+.. |Language support selection| image:: /attachment/doc/language-support-selection-4.3.png
+.. |Time and date| image:: /attachment/doc/time-and-date-4.3.png
+.. |Select storage device screen| image:: /attachment/doc/select-storage-device-4.3.png
+.. |Select storage passphrase| image:: /attachment/doc/select-storage-passphrase-4.3.png
+.. |Account name and password creation window.| image:: /attachment/doc/account-name-and-password-4.3.png
+.. |Windows showing installation complete and Reboot button.| image:: /attachment/doc/installation-complete-4.3.png
+.. |Grub boot menu| image:: /attachment/doc/grub-boot-menu-4.3.png
+.. |Screen to enter device decryption password| image:: /attachment/doc/unlock-storage-device-screen-4.3.png
+.. |Window with link for final configuration| image:: /attachment/doc/initial-setup-menu-4.3.png
+.. |Initial configuration menu| image:: /attachment/doc/initial-setup-menu-configuration-4.3.png
+.. |Login screen| image:: /attachment/doc/login-screen-4.3.png
+.. |Desktop menu| image:: /attachment/doc/desktop-menu-4.3.png
