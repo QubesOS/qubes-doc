@@ -2,8 +2,9 @@
 How to update
 =============
 
+.. note::
 
-*This page is about updating your system while staying on the same* :ref:`supported version of Qubes OS <user/downloading-installing-upgrading/supported-releases:qubes os>` *. If you’re instead looking to upgrade from your current version of Qubes OS to a newer version, see* :doc:`Upgrade guides </user/downloading-installing-upgrading/upgrade/upgrade>` *.*
+   This page is about updating your system while staying on the same :ref:`supported version of Qubes OS <user/downloading-installing-upgrading/supported-releases:qubes os>`. If you’re instead looking to upgrade from your current version of Qubes OS to a newer version, see :doc:`Upgrade guides </user/downloading-installing-upgrading/upgrade/upgrade>`.
 
 It is important to keep your Qubes OS system up-to-date to ensure you have the latest security updates, as well as the latest non-security enhancements and bug fixes.
 
@@ -95,7 +96,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
 2. Use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs:
 
-  - To check for dom0 updates and apply them, in a dom0 terminal: 
+  - To check for dom0 updates and apply them, in a dom0 terminal:
 
     .. code:: console
 

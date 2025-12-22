@@ -24,6 +24,8 @@ How to update dom0
 
 See :doc:`How to Update </user/how-to-guides/how-to-update>`.
 
+.. _install-package-in-dom0:
+
 How to install a specific package
 ---------------------------------
 
@@ -75,6 +77,7 @@ If you’ve installed a package such as anti-evil-maid, you can remove it with t
       $ sudo dnf remove anti-evil-maid
 
 
+.. _dom0-testing-repositories:
 
 Testing repositories
 --------------------
@@ -82,7 +85,7 @@ Testing repositories
 
 If you wish to install updates that are still in :doc:`testing </user/downloading-installing-upgrading/testing>`, you must enable the appropriate testing repositories.
 
-**Note:** The following repos are in dom0. For template testing repos, see :ref:`here <user/how-to-guides/how-to-install-software:testing repositories>`.
+.. note: The following repos are in dom0. For template testing repos, see :ref:`here <user/how-to-guides/how-to-install-software:testing repositories>`.
 
 - ``qubes-dom0-current-testing`` – testing packages that will eventually land in the stable (``current``) repository
 
