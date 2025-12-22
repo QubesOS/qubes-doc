@@ -299,12 +299,13 @@ For a full list, including more detailed descriptions, please see
 Known issues
 ============
 
-- Templates restored in 4.3 from a pre-4.3 backup continue to target
-  their original Qubes OS release repos. If you are using fresh
-  templates on a clean 4.3 installation, or if you performed an
-  :ref:`in-place upgrade from 4.2 to 4.3 <user/downloading-installing-upgrading/upgrade/4_3:in-place upgrade>`,
-  then this does not affect you. (For more information, see issue
-  `#8701 <https://github.com/QubesOS/qubes-issues/issues/8701>`__.)
+- Templates restored in 4.3 from a pre-4.3 backup continue to target their original Qubes OS release repositories. Make sure to follow the :ref:`last upgrade step <upgrade-templates-4.3>` of the :ref:`clean-installation-4.3` instructions.
+
+  If you are using fresh templates on a :ref:`clean 4.3 installation <clean-installation-4.3>`, or if you performed an :ref:`in-place upgrade from 4.2 to 4.3 <user/downloading-installing-upgrading/upgrade/4_3:In-place upgrade from Qubes 4.2 to Qubes 4.3>`, then this does not affect you.
+
+  .. admonition:: See also
+
+     See `related issue #8701 <https://github.com/QubesOS/qubes-issues/issues/8701>`__.
 
 Also see the `full list of open bug reports affecting Qubes
 4.3 <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20label%3Aaffects-4.3%20is%3Aopen%20type%3ABug>`__.
