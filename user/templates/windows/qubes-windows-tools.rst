@@ -5,7 +5,7 @@ Qubes Windows Tools (QWT)
 
 .. note::
 
-	As there is currently no officially supported version of Qubes Windows Tools, the following instructions describe a workaround to get QWT functionality using an old and a preliminary version of QWT.  When a new officially supported version is made available, the following description has to be updated accordingly.
+	As there is no officially supported version of Qubes Windows Tools for Qubes R4.2, the following instructions describe a workaround to obtain QWT functionality using an older version of QWT for Windows 7, and the new version provided in Qubes R4.3 for Windows 10 and 11. In Qubes R4.3, the old version of QWT still has to be used for Windows 7, while for Windows 10 and 11, the new official version of QWT has to be used.
 
 Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 10, and 11 Standalone, TemplateVMs, and AppVMs with the rest of the Qubes system. They contain several components that can be enabled or disabled during installation and rely on specific functions of Qubes, which support this integration:
 
@@ -42,9 +42,9 @@ Qubes Windows Tools (QWT) are a set of programs and drivers that provide integra
 
 .. attention::
 
-	Due to the security problems described in `QSB-091 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-091-2023.txt>`__, installation of Qubes Windows Tools is currently blocked. Instead, a text file containing a warning is displayed. Currently, it is difficult to estimate the severity of the risks posed by the sources of the Xen drivers used in QWT possibly being compromised, so it was decided not to offer direct QWT installation until this problem could be treated properly. While Windows qubes are, in Qubes, generally not regarded as being very trustworthy, a possible compromise of the Xen drivers used in Qubes Windows Tools might create a risk for Xen or `dom0` and thus be dangerous for Qubes itself. This risk may be small or even non-existent, as stated in QSB-091. If you **understand** this risk and are **willing to take it**, you can still install the previous version of Qubes Windows Tools **for Windows 7**, which will work for Windows 7, but not for Windows 10 or 11.
+	Due to the security problems described in `QSB-091 <https://github.com/QubesOS/qubes-secpack/blob/master/QSBs/qsb-091-2023.txt>`__, installation of Qubes Windows Tools is currently blocked in Qubes R4.2. Instead, a text file containing a warning is displayed. Currently, it is difficult to estimate the severity of the risks posed by the sources of the Xen drivers used in QWT possibly being compromised, so it was decided not to offer direct QWT installation until this problem could be treated properly. While Windows qubes are, in Qubes, generally not regarded as being very trustworthy, a possible compromise of the Xen drivers used in Qubes Windows Tools might create a risk for Xen or `dom0` and thus be dangerous for Qubes itself. This risk may be small or even non-existent, as stated in QSB-091. If you **understand** this risk and are **willing to take it**, you can still install the previous version of Qubes Windows Tools **for Windows 7**, which will work for Windows 7, but not for Windows 10 or 11.
 
-	**For Windows 10 or 11**, currently, there is no official, final QWT version available for Qubes R4.2, but for Qubes R4.3, a version has been developed and can be used in Qubes R4.2. This version is not subject to the security problems stated above, but it should be noted that its graphics agent is still regarded as experimental and so may show some errors. The new Qubes graphics driver used there is not yet fully compatible with Windows and may cause weird effects. So, in Windows 11 25H2, it will cause all windows to be displayed twice; this can be, at least partially, remedied by moving the second instance to another workspace. Furthermore, trying to display the Windows menu via the keyboard button may result in a tiny, unusable menu. If the driver is installed, despite these risks, and is working at least partially, switching to seamless mode and staying there will probably work quite satisfactorily, but switching to and from non-seamless mode may cause trouble, as well as changing the screen resolution will do there. So, usage of the new Qubes graphics driver should be avoided unless a casual reboot of the Windows VM is acceptable, even if it is partially working. Using the Qubes graphics driver will not provide seamless mode unless the ``qvm-features`` parameter ``gui`` is set to ``1``. To disable the graphics driver, the parameter ``gui`` has to be set to an empty string, while the parameter ``gui-emulated`` has to be set to ``1``.
+	**For Windows 10 or 11**, currently, there is no official, final QWT version available for Qubes R4.2, but for Qubes R4.3, an official version has been developed and can also be used in Qubes R4.2. This version is not subject to the security problems stated above, but it should be noted that its graphics agent is still regarded as experimental and so may show some errors. The new Qubes graphics driver used there is not yet fully compatible with Windows and may cause weird effects. So, in Windows 11 25H2, it will cause all windows to be displayed twice; this can be, at least partially, remedied by moving the second instance to another workspace. Furthermore, trying to display the Windows menu via the keyboard button may result in a tiny, unusable menu. If the driver is installed, despite these risks, and is working at least partially, switching to seamless mode and staying there will probably work quite satisfactorily, but switching to and from non-seamless mode may cause trouble, as well as changing the screen resolution will do there. So, usage of the new Qubes graphics driver should be avoided unless a casual reboot of the Windows VM is acceptable, even if it is partially working. Using the Qubes graphics driver will not provide seamless mode unless the ``qvm-features`` parameter ``gui`` is set to ``1``. To disable the graphics driver, the parameter ``gui`` has to be set to an empty string, while the parameter ``gui-emulated`` has to be set to ``1``.
 
 **Note**: If you choose to move profiles, drive letter ``Q:`` must be assigned to the secondary (private) disk.
 
@@ -118,7 +118,7 @@ Qubes Windows Tools are open source and are distributed under a GPL license.
 
 - Currently, only 64-bit versions of Windows 7, 10, and 11 are supported by Qubes Windows Tools. Only the emulated SVGA GPU is supported (although `there have been reports <https:///groups.google.com/forum/#!topic/qubes-users/cmPRMOkxkdA>`__ on working GPU passthrough).
 
-- This page documents the process of installing Qubes Windows Tools in version **R4.2**.
+- This page documents the process of installing Qubes Windows Tools in versions **R4.2** and **R4.3**.
 
 - *In testing VMs only* it's probably a good idea to install a VNC server before installing QWT. If something goes very wrong with the Qubes GUI agent, a VNC server should still allow access to the OS.
 
@@ -224,7 +224,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
      If you prefer to download the corresponding .rpm file for manual QWT installation for Windows 7, this is still available from the repositories (version `4.1.69-1 <https://yum.qubes-os.org/r4.2/current/dom0/fc37/rpm/qubes-windows-tools-4.1.69-1.fc37.noarch.rpm>`__ ).
 
-   - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. As this new QWT version is currently only provided in the testing area of Qubes R4.3, it has to be installed by downloading the .rpm file from the repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ) if you want to use it in Qubes R4.2.
+   - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. As this new QWT version is only provided for Qubes R4.3, it has to be installed by downloading the .rpm file from the repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ) if you want to use it in Qubes R4.2.
 
    After downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
 
@@ -240,7 +240,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
       [user@dom0 ~]$ qvm-start <VMNAME> --install-windows-tools
 
-   Once the Windows VM boots, a CDROM should appear in the ‘My Computer’ menu (typically as ``D:`` or ``E:``) with the setup program with the setup program ``qubes-tools-x64.msi`` for Windows 7 or ``qubes-tools-4.2.1.exe`` for Windows 10 and 11 in its main directory.
+   Once the Windows VM boots, a CDROM should appear in the ‘My Computer’ menu (typically as ``D:`` or ``E:``) with the setup program with the setup program ``qubes-tools-x64.msi`` for Windows 7 or ``qubes-tools-4.2.2.exe`` for Windows 10 and 11 in its main directory.
 
 3. Install Qubes Windows Tools by starting the setup program (logged in as administrator), optionally selecting the ``Xen PV disk drivers``.
 
