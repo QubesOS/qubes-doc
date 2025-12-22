@@ -39,37 +39,37 @@ To check/change the default kernel you can either go to “Global settings” in
 
 .. code:: console
 
-      [user@dom0 ~]$ qubes-prefs
-      clockvm           : sys-net
-      default-fw-netvm  : sys-net
-      default-kernel    : 3.18.17-4
-      default-netvm     : sys-firewall
-      default-template  : fedora-21
-      updatevm          : sys-firewall
-      [user@dom0 ~]$ qubes-prefs -s default-kernel 3.19.fc20
+      [user@dom0 ~]$ qubes-prefs default-kernel
+      6.12.59-1.fc37
+      [user@dom0 ~]$ qubes-prefs default-kernel 6.12.54-1.fc37
 
 
 To view kernel options, you can use the GUI VM Settings tool; to view and change them, use ``qvm-prefs`` commandline tool:
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-prefs -g work kernelopts
-      nopat
-      [user@dom0 ~]$ qvm-prefs -s work kernelopts "nopat apparmor=1 security=apparmor"
+      [user@dom0 ~]$ qvm-prefs my-appvm kernelopts
+      swiotlb=2048
+      [user@dom0 ~]$ qvm-prefs my-appvm kernelopts "swiotlb=10240 apparmor=1 security=apparmor"
 
 
 Installing different kernel using Qubes kernel package
 ------------------------------------------------------
 
 
-VM kernels are packaged by the Qubes team in the ``kernel-qubes-vm`` packages. Generally, the system will keep the three newest available versions. You can list them with the ``rpm`` command:
+VM kernels are packaged by the Qubes team in the ``kernel`` packages. Generally, the system will keep the three newest available versions. You can list them using ``rpm`` or ``dnf`` commands:
 
 .. code:: console
 
-      [user@dom0 ~]$ rpm -qa 'kernel-qubes-vm*'
-      kernel-qubes-vm-3.18.10-2.pvops.qubes.x86_64
-      kernel-qubes-vm-3.18.16-3.pvops.qubes.x86_64
-      kernel-qubes-vm-3.18.17-4.pvops.qubes.x86_64
+      [user@dom0 ~]$ rpm -qa 'kernel'
+      kernel-6.12.47-1.qubes.fc37.x86_64
+      kernel-6.12.54-1.qubes.fc37.x86_64
+      kernel-6.12.59-1.qubes.fc37.x86_64
+      [user@dom0 ~]$ dnf list --installed kernel
+      Installed Packages
+      kernel.x86_64            1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
+      kernel.x86_64            1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
+      kernel.x86_64            1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
 
 
 If you want a more recent version, you can check the ``qubes-dom0-unstable`` repository. There is also the ``kernel-latest-qubes-vm`` package which should provide a more recent (non-LTS) kernel, but has received much less testing. As the names suggest, keep in mind that those packages may be less stable than the default ones.
