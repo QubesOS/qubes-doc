@@ -50,12 +50,12 @@ Qubes OS releases are supported for **six months** after each subsequent major o
      - Unsupported
    * - Release 4.2
      - 2023-12-18
-     - TBD
+     - 2026-06-21
      - Supported
    * - Release 4.3
+     - 2025-12-21
      - TBD
-     - TBD
-     - In testing
+     - Supported
 
 
 Note on patch releases

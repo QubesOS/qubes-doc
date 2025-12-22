@@ -54,7 +54,7 @@ Core documentation for Qubes users.
    :caption: Downloading, Installing, and Upgrading Qubes
 
    Download Qubes OS <https://www.qubes-os.org/downloads/>
-   Download mirrors <https://www.qubes-os.org/downloads/mirrors/>
+   user/downloading-installing-upgrading/download-mirrors
    user/downloading-installing-upgrading/installation-guide
    user/downloading-installing-upgrading/install-security
    user/downloading-installing-upgrading/upgrade/upgrade
@@ -252,6 +252,7 @@ Core documentation for Qubes developers and advanced users.
    developer/system/template-implementation
    developer/system/audio
    developer/system/template-manager
+   developer/system/vm-sudo.rst
 
 
 .. _services:
