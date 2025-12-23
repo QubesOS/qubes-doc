@@ -253,7 +253,37 @@ If you’d like to use a different kernel than default, continue reading.
 Installing kernel in Fedora VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are using a distribution kernel package (``kernel`` package), the initramfs and kernel modules may be handled automatically. If you are using a manually built kernel, you need to handle this on your own. Take a look at the ``dkms`` documentation, especially the ``dkms autoinstall`` command may be useful. If you did not see the ``kernel`` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself. Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
+Distribution kernel
+^^^^^^^^^^^^^^^^^^^
+
+Install kernel and the packages required to run vm with its own kernel:
+
+.. code: console
+
+  [root@fedora-vm ~]# dnf install kernel qubes-kernel-vm-support grub2
+
+
+
+Once the kernel is installed, you need to setup ``grub2`` by running:
+
+.. code:: console
+
+  [root@fedora-vm ~]# grub2-install /dev/xvda
+
+
+
+Finally, you need to create a GRUB configuration. You may want to adjust some settings in ``/etc/default/grub``; for example, lower ``GRUB_TIMEOUT`` to speed up VM startup. Then, you need to generate the actual configuration. In Fedora it can be done using the ``grub2-mkconfig`` tool:
+
+.. code:: console
+
+  [root@fedora-vm ~]# grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
+
+Custom kernel
+^^^^^^^^^^^^^
+
+If you are using a manually built kernel, you need to handle the initramfs and kernel modules on your own. Take a look at the ``dkms`` documentation, especially the ``dkms autoinstall`` command may be useful. If you did not see the ``kernel`` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself. Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
 
 .. code:: console
 
