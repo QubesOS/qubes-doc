@@ -138,7 +138,7 @@ html_context = {
     "display_github": True,
     "github_user": "QubesOs",
     "github_repo": "qubes-doc",
-    "github_version": "rst",
+    "github_version": "main",
     "conf_py_path": "/",
 }
 
