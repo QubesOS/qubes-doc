@@ -239,16 +239,14 @@ Using kernel installed in the VM
 --------------------------------
 
 
-Both debian-9 and fedora-26 templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
+Non-minimal debian and fedora templates already have grub and related tools preinstalled so if you want to use one of the distribution kernels, all you need to do is clone either template to a new one, then:
 
 .. code:: console
 
-      $ qvm-prefs <clonetemplatename> virt_mode hvm
-      $ qvm-prefs <clonetemplatename> kernel ''
+      [user@dom0 ~]$ qvm-prefs <clonetemplatename> virt_mode hvm
+      [user@dom0 ~]$ qvm-prefs <clonetemplatename> kernel ''
 
 
-
-If you’d like to use a different kernel than default, continue reading.
 
 Installing kernel in Fedora VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -258,7 +256,7 @@ Distribution kernel
 
 Install kernel and the packages required to run vm with its own kernel:
 
-.. code: console
+.. code:: console
 
   [root@fedora-vm ~]# dnf install kernel qubes-kernel-vm-support grub2
 
