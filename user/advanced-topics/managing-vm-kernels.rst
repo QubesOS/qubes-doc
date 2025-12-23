@@ -285,7 +285,7 @@ If you are using a manually built kernel, you need to handle the initramfs and k
 
 .. code:: console
 
-      $ sudo dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
+  [root@fedora-vm ~]# dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 
 
 
@@ -293,7 +293,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 .. code:: console
 
-      $ sudo grub2-install /dev/xvda
+  [root@fedora-vm ~]# grub2-install /dev/xvda
 
 
 
@@ -301,7 +301,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 .. code:: console
 
-      $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+  [root@fedora-vm ~]# grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
@@ -343,7 +343,7 @@ Install distribution kernel image, kernel headers and the grub.
 
 .. code:: console
 
-      $ sudo apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
+  [root@debian-vm ~]# apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 
 
 
@@ -351,7 +351,7 @@ If you are doing that on a qube based on “Debian Minimal” template, a grub g
 
 .. code:: console
 
-      $ sudo grub-install /dev/xvda
+  [root@debian-vm ~]# grub-install /dev/xvda
 
 
 
@@ -405,7 +405,7 @@ Run DKMS. Replace this with actual kernel version.
 
 .. code:: console
 
-      $ sudo dkms autoinstall -k <kernel-version>
+  [root@debian-vm ~]# dkms autoinstall -k <kernel-version>
 
 
 For example.
@@ -414,7 +414,7 @@ For example.
 
 .. code:: console
 
-      $ sudo dkms autoinstall -k 4.19.0-6-amd64
+  [root@debian-vm ~]# dkms autoinstall -k 4.19.0-6-amd64
 
 
 Update initramfs.
@@ -423,14 +423,14 @@ Update initramfs.
 
 .. code:: console
 
-      $ sudo update-initramfs -u
+  [root@debian-vm ~]# update-initramfs -u
 
 
 The output should look like this:
 
 .. code:: console
 
-      $ sudo dkms autoinstall -k 3.16.0-4-amd64
+  [root@debian-vm ~]# dkms autoinstall -k 3.16.0-4-amd64
 
       u2mfn:
       Running module version sanity check.
