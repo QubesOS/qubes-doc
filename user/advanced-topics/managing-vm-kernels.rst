@@ -253,9 +253,6 @@ If you’d like to use a different kernel than default, continue reading.
 Installing kernel in Fedora VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-Install whatever kernel you want. You need to also ensure you have the ``kernel-devel`` package for the same kernel version installed.
-
 If you are using a distribution kernel package (``kernel`` package), the initramfs and kernel modules may be handled automatically. If you are using a manually built kernel, you need to handle this on your own. Take a look at the ``dkms`` documentation, especially the ``dkms autoinstall`` command may be useful. If you did not see the ``kernel`` install rebuild your initramfs, or are using a manually built kernel, you will need to rebuild it yourself. Replace the version numbers in the example below with the ones appropriate to the kernel you are installing:
 
 .. code:: console
