@@ -4,6 +4,13 @@ build:
   os: "ubuntu-lts-latest"
   tools:
     python: "3.13"
+  jobs:
+    post_checkout:
+      if [ "$READTHEDOCS_VERSION_TYPE" = "external" ]; then
+        # Mark builds from PR as such, with tinted icons
+        sed -i "s/^project = '\([^']\+\)'/project = '\1 PR build'/" conf.py
+        sed -i 's/^html_\(logo\|favicon\) = \(\S\+\)\.png"\s*$/html_\1 = \2-red.png"/' conf.py
+      fi
 
 submodules:
   include: all
