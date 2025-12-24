@@ -5,8 +5,8 @@ How to edit the documentation
 The Qubes OS documentation is stored as `reStructuredText (rST) <https://docutils.sourceforge.io/rst.html>`__ files in
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
 
-We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
-`Read The Docs (RTD) <https://readthedocs.com/>`__ for hosting.
+We use `Sphinx <https://www.sphinx-doc.org/en/master/>`__ for building and
+`Read The Docs (RTD) <https://about.readthedocs.com/>`__ for hosting.
 RTD is a `continuous‑documentation deployment platform <https://docs.readthedocs.com/platform/stable/continuous-deployment.html>`__ that can automatically
 detect changes in a GitHub repository and build the latest version of a documentation.
 
@@ -230,44 +230,34 @@ Then, add your image(s) in a the :file:`attachment/doc` folder in the `qubes-doc
 repository using the same path and filename.
 This is the only permitted way to include images. Do not link to images on other websites.
 
-.. _cross_referencing:
-
 TL;DR: Cross-referencing
 ========================
 
-For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`/developer/general/rst-documentation-style-guide`.
+You can link to any part of the documentation using cross-references.
 
-When referencing to an existing rST file use the ``:doc:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ as in
-
-.. code-block:: rst
-
-  how to :doc:`contribute code </introduction/contributing>` do [...]
-
-When referencing to a section in an existing rST file use the ``:ref:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ as in
+**When referencing to a page** use the ``:doc:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ as in:
 
 .. code-block:: rst
 
-  See the :ref:`USB Troubleshooting guide <user/troubleshooting/usb-troubleshooting:usb vm does not boot after creating and assigning usb controllers to it>` for [...]
+  See :doc:`/introduction/contributing` to do [...]
 
-Use the path to the file starting from the root of qubes-doc repository, without any leading slash ``/`` and without the ``.rst`` file ending. The section name is usually taken as is in small caps.
+Use the path to the file starting from the root of qubes-doc repository, **with a leading slash** (``/``) and without the ``.rst`` file ending.
 
-Some special cases are as follows (here the emphasis is on the ``"`` in the sections's title:
+**When referencing to a section in a page** use the ``:ref:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ as in:
 
 .. code-block:: rst
 
-   the :ref:`VM Troubleshooting <user/troubleshooting/vm-troubleshooting:"no match found" when trying to install a template>`.
+  See :ref:`introduction/contributing:Contributing Code` for [...]
 
-which will point to :ref:`this section <user/troubleshooting/vm-troubleshooting:"no match found" when trying to install a template>`.
+The first part (before the colon) is the path of the file as with the ``:doc:`` `role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ but **without the leading slash** (``/``). The second part is the content of the header.
+
+**When referencing some kind of code** use the corresponding role, eventually prefixed by the sub-project, as in:
 
 .. code:: rst
 
-   we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`
+   See :py:class:`core-admin:qubes.vm.dispvm.DispVM`
 
-which will refer to :ref:`this section <introduction/faq:what does it mean to "distrust the infrastructure"?>`.
-
-
-For further options and use cases please refer to `Cross-references <https://www.sphinx-doc.org/en/master/usage/referencing.html>`__.
-
+.. hint:: For a more comprehensive guide to the rST syntax and pitfalls please refer to the :doc:`/developer/general/rst-documentation-style-guide`.
 
 Qubes OS rST configuration
 ==========================
