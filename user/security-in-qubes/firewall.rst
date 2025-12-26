@@ -6,10 +6,6 @@ Firewall
 Introduction
 ------------
 
-| This page explains use of the firewall in Qubes 4.2, using ``nftables``.
-| In Qubes 4.1, all firewall components used ``iptables``. For details of that usage see :doc:`here </user/security-in-qubes/firewall_4.1>`.
-
-
 Understanding firewalling in Qubes
 ----------------------------------
 
@@ -581,4 +577,9 @@ You can revert to the original ruleset with the following commands:
 
       $ nft flush ruleset && nft -f nft_backup
 
+Historical note
+---------------
 
+In Qubes 4.1 and prior versions, all firewall components used ``iptables``.
+
+**See also:** :ref:`Known issues in Qubes OS 4.2 release notes <developer/releases/4_2/release-notes:Known issues>`
