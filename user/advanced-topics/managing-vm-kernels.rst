@@ -296,6 +296,7 @@ Non-minimal debian and fedora templates already have grub and related tools prei
 
 
 Depending on vm and kernel you're running, you may also want to disable memory balancing and change the amount of memory vm has: 
+
 .. code:: console
 
       [user@dom0 ~]$ qvm-prefs <clonedtemplatename> maxmem 0
