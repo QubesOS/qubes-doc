@@ -295,6 +295,12 @@ Non-minimal debian and fedora templates already have grub and related tools prei
       [user@dom0 ~]$ qvm-prefs <clonetemplatename> kernel ''
 
 
+Depending on vm and kernel you're running, you may also want to disable memory balancing and change the amount of memory vm has: 
+.. code:: console
+
+      [user@dom0 ~]$ qvm-prefs <clonedtemplatename> maxmem 0
+      [user@dom0 ~]$ qvm-prefs <clonedtemplatename> memory 2000
+
 
 Installing kernel in Fedora VM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
