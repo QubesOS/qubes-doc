@@ -28,15 +28,19 @@ Major features and improvements since Qubes 4.2
   `#9918 <https://github.com/QubesOS/qubes-issues/issues/9918>`__ &
   `#10026 <https://github.com/QubesOS/qubes-issues/issues/10026>`__).
 
+  **See:** :ref:`preloaded-disposables`
+
 - Device “self-identity oriented” assignment (a.k.a New Devices API)
   (`#9325 <https://github.com/QubesOS/qubes-issues/issues/9325>`__).
 
-- QWT (Qubes Windows Tools) reintroduction with improved features
+  **See:** :option:`core-admin-client:qvm-device --assignments`, ``qvm-device assign`` and ``qvm-device unassign``
+
+- :doc:`/user/templates/windows/qubes-windows-tools` reintroduction with improved features
   (`#1861 <https://github.com/QubesOS/qubes-issues/issues/1861>`__).
 
-|Screenshot of QWT, Welcome page|
+  |Screenshot of QWT, Welcome page|
 
-|Screenshot of QWT, Windows 11|
+  |Screenshot of QWT, Windows 11|
 
 UI/UX
 -----
@@ -46,28 +50,47 @@ UI/UX
   Qubes Devices widget is completely redesigned.
   (`#8537 <https://github.com/QubesOS/qubes-issues/issues/8537>`__).
 
-|Screenshot of Device UX assignments|
+  |Screenshot of Device UX assignments|
 
-|Screenshot of Device UX deny attachment|
+  |Screenshot of Device UX deny attachment|
 
-|Screenshot of Device UX edit assignment|
+  |Screenshot of Device UX edit assignment|
 
-|Screenshot of Device UX required devices|
+  |Screenshot of Device UX required devices|
 
-|Screenshot of Device UX Qubes Devices widget|
+  |Screenshot of Device UX Qubes Devices widget|
 
-- New and improved flat icons for GUI tools
-  (`#5657 <https://github.com/QubesOS/qubes-issues/issues/5657>`__).
+- New and improved flat icons for GUI tools (`#5657 <https://github.com/QubesOS/qubes-issues/issues/5657>`__).
 
-|Screenshot of Qube Manager|
+   .. list-table::
+      :widths: 10 10
+      :align: center
+      :header-rows: 1
 
-- The far left icons from the Qube Manager are removed
-  (`#9776 <https://github.com/QubesOS/qubes-issues/issues/9776>`__).
+      * - 4.3
+        - 4.2
+      * - |Screenshot of Qube Manager in 4.3|
+        - |Screenshot of Qube Manager in 4.2|
 
-- Application icons are available in VM Settings
-  (`#9829 <https://github.com/QubesOS/qubes-issues/issues/9829>`__).
+- In :program:`Qube Manager`, the icons from the far-left column are removed (`#6776 <https://github.com/QubesOS/qubes-issues/issues/6776>`__).
 
-|Screenshot of Qube Settings Applications|
+- Improved :program:`Qubes Template Manager` graphical interface
+
+- In the :program:`Settings` of a qube:
+
+  - the :guilabel:`Application` tab now provides a search bar.
+
+  - and Application icons are displayed (`#9829 <https://github.com/QubesOS/qubes-issues/issues/9829>`__).
+
+  .. list-table::
+     :widths: 10 10
+     :align: center
+     :header-rows: 1
+
+     * - 4.3
+       - 4.2
+     * - |Screenshot of Qube Settings Applications in 4.3|
+       - |Screenshot of Qube Settings Applications in 4.2|
 
 - Option to add Qubes video Companion to AppMenu
   (`#9761 <https://github.com/QubesOS/qubes-issues/issues/9761>`__).
@@ -81,8 +104,9 @@ UI/UX
 - Centralized Tray Notifications
   (`#889 <https://github.com/QubesOS/qubes-issues/issues/889>`__).
 
-- Option to launch root terminal or console terminal from Qubes Domains widget
-  (`#9788 <https://github.com/QubesOS/qubes-issues/issues/9788>`__)
+- Options to launch root terminal or `console terminal <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#expert-mode>`__ from :program:`Qubes Domains widget` (`#9788 <https://github.com/QubesOS/qubes-issues/issues/9788>`__).
+
+  Holding the shift key changes the :guilabel:`Run Terminal` command into a :guilabel:`Run Root Terminal` action.
 
 - Option to open Global Config at a selected section for user
   convenience
@@ -158,14 +182,14 @@ Security features
 - Preventing unsafe practice of 3rd party template installation with rpm/dnf
   (`#9943 <https://github.com/QubesOS/qubes-issues/issues/9943>`__).
 
-- Ability to prohibit start of specific qubes
+- Ability to `prohibit start <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#prohibit-start>`__ of specific qubes
   (`#9622 <https://github.com/QubesOS/qubes-issues/issues/9622>`__).
 
 - UUID support for qubes and support for addressing them by UUID in policies
   (`#8862 <https://github.com/QubesOS/qubes-issues/issues/8862>`__ &
   `#8510 <https://github.com/QubesOS/qubes-issues/issues/8510>`__).
 
-- Custom persist feature to avoid unwanted data to persist as much as possible
+- `Custom persist feature <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#custom-persist>`__ to avoid unwanted data to persist as much as possible
   (`#1006 <https://github.com/QubesOS/qubes-issues/issues/1006>`__).
 
 Anonymity improvements
@@ -247,13 +271,12 @@ Other
   comments, remarks, reminders, etc.)
   (`#899 <https://github.com/QubesOS/qubes-issues/issues/899>`__).
 
-|Screenshot of Qube Settings Notes|
+  |Screenshot of Qube Settings Notes|
 
 - Automatically clean up `QubesIncoming` directory if empty
   (`#8307 <https://github.com/QubesOS/qubes-issues/issues/8307>`__).
 
-- ``vm-config.*`` features to pass external configuration to inside the qube
-  (`#9837 <https://github.com/QubesOS/qubes-issues/issues/9837>`__).
+- `vm-config.* <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#vm-config>`__ features to pass external configuration to inside the qube (`#9837 <https://github.com/QubesOS/qubes-issues/issues/9837>`__).
 
 - Admin API for reading/writing denied device-interface list
   (`#9674 <https://github.com/QubesOS/qubes-issues/issues/9674>`__).
@@ -264,11 +287,9 @@ Other
 Dropped or replaced features
 ----------------------------
 
-- Default screen locker is changed from ``XScreenSaver`` to
-  ``xfce4-screensaver``
+- Default screen locker is changed from :program:`XScreenSaver` to :program:`xfce4-screensaver`
 
-- ``Create Qubes VM`` is retired in favor of the improved ``Create New Qube``
-  (`#6561 <https://github.com/QubesOS/qubes-issues/issues/6561>`__).
+- :program:`Create Qubes VM` is retired in favor of the improved :program:`Create New Qube` (`#6561 <https://github.com/QubesOS/qubes-issues/issues/6561>`__).
 
 - Windows 7 support is dropped from QWT.
 
@@ -314,31 +335,49 @@ Please see :doc:`how to upgrade to Qubes 4.3 </user/downloading-installing-upgra
 
 .. |Screenshot of QWT, Welcome page| image:: /attachment/doc/4-3_qwt-hi.png
    :alt: Windows 11 welcome page after installation in an HVM
+   :width: 100%
 
 .. |Screenshot of QWT, Windows 11| image:: /attachment/doc/4-3_qwt-win11.png
    :alt: Windows 11 within an HVM qube showing file explorer
+   :width: 100%
 
 .. |Screenshot of Device UX assignments| image:: /attachment/doc/4-3_device-ux-assignments.png
    :alt: Device Assignments page in Global Config
+   :width: 100%
 
 .. |Screenshot of Device UX deny attachment| image:: /attachment/doc/4-3_device-ux-deny-attachment.png
    :alt: Deny device attachment config in Global Config
+   :width: 100%
 
 .. |Screenshot of Device UX edit assignment| image:: /attachment/doc/4-3_device-ux-edit-assignment.png
    :alt: Editing device assignment for a network interface in Global Config
+   :width: 100%
 
 .. |Screenshot of Device UX required devices| image:: /attachment/doc/4-3_device-ux-required-device.png
    :alt: Editing a required device in Global Config
+   :width: 100%
 
 .. |Screenshot of Device UX Qubes Devices widget| image:: /attachment/doc/4-3_qui-devices.png
    :alt: Redesigned Qubes Devices widget
+   :width: 100%
 
-.. |Screenshot of Qube Manager| image:: /attachment/doc/4-3_manager.png
-   :alt: Qube Manager with improved flat icons
+.. |Screenshot of Qube Manager in 4.3| image:: /attachment/doc/4-3_manager.png
+   :alt: Qube Manager with improved flat icons in 4.3
+   :width: 100%
 
-.. |Screenshot of Qube Settings Applications| image:: /attachment/doc/4-3_vmsettings-applications.png
-   :alt: Qube settings showing icons of Apps
+.. |Screenshot of Qube Manager in 4.2| image:: /attachment/doc/4-2_manager.png
+   :alt: Qube Manager with improved flat icons in 4.2
+   :width: 100%
+
+.. |Screenshot of Qube Settings Applications in 4.3| image:: /attachment/doc/4-3_vmsettings-applications.png
+   :alt: Qube settings showing icons of Apps in 4.3
+   :width: 100%
+
+.. |Screenshot of Qube Settings Applications in 4.2| image:: /attachment/doc/4-2_vmsettings-applications.png
+   :alt: Qube settings showing icons of Apps in 4.2
+   :width: 100%
 
 .. |Screenshot of Qube Settings Notes| image:: /attachment/doc/4-3_notes.png
    :alt: Qube settings showing qube notes
+   :width: 100%
 
