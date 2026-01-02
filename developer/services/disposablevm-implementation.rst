@@ -67,13 +67,18 @@ Preloaded disposable's management
 These are common events that trigger changes in preloaded disposables quantity:
 
 - Refill or remove:
+
   - Changing the ``preload-dispvm-max`` feature;
   - Changing system's :py:attr:`default_dispvm <core-admin:qubes.vm.dispvm.DispVM.default_dispvm>` while system's feature is set to a different value than the disposable template setting;
+
 - Refill:
+
   - (Re)starting :file:`qubes-preload-dispvm.service`;
   - Using a preloaded disposable;
   - Requesting a disposable;
+
 - Refresh:
+
   - Updating the volumes of a template or disposable template;
   - Qubesd was interrupted mid preload creation, on the next service restart, :py:meth:`domain-load <core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.on_domain_loaded>` of the disposable template.
 
