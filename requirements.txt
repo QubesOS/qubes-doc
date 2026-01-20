@@ -33,5 +33,5 @@ sphinxext-opengraph==0.12.0
 sphinxnotes-any==2.5
 sphinxnotes-comboroles==1.0
 sphinxnotes-strike==1.2.1
-urllib3==2.6.0
+urllib3==2.6.3
 Wand==0.6.13
