@@ -296,7 +296,7 @@ How to add openQA test
 
 openQA tests integration of your PR will the rest of the system, therefore, for that, if your code is not tested yet buy unittests because of reasons, write integration tests in the :file:`tests/integ` directory. This directory already exists in most relevant repositories, we will approach only this case for now.
 
-If your code may hang, use a timeout on a section of the code. This avoids holding openQA hostage for too long, possibly, unfortunately, reaching ``MAX_JOB_TIME``
+If your code may hang, use a timeout on a section of the code. This avoids holding openQA hostage for too long, which otherwise is capped to ``MAX_JOB_TIME``
 
 Performance tests runs on hardware ``@hw*``. Everything else, should run on Qubes in KVM on a best effort basis, exclusion depends on maintainers decision.
 
@@ -330,7 +330,7 @@ Add label to your PR on Github
 - Ask the maintainer to allow your account to assign labels
 - Only the maintainer can create labels, unless given individually on a per repository basis
 
-Click the top most search box and use the following query with the label you want to add to your PR: ``org:QubesOS is:pr is:open label:openqa-group-1``. If the label is already used, choose another label. If there are no ``openqa-*`` label, either wait or ask the maintainer to add more labels to each desired repository.
+Click the top most search box on `Github <https://github.com>`__ and use the following query with the label you want to add to your PR: ``org:QubesOS is:pr is:open label:openqa-group-1``. If the label is already used, choose another label. If there are no ``openqa-*`` label, either wait or ask the maintainer to add more labels to each desired repository.
 
 
 Comment on Github
@@ -378,10 +378,10 @@ Examples:
 Gitlab pipeline
 """""""""""""""
 
-Find your `Gitlab pipeline <https://gitlab.com/QubesOS/qubes-continuous-integration/-/pipelines>` and wait till completion.
+Find your `Gitlab pipeline <https://gitlab.com/QubesOS/qubes-continuous-integration/-/pipelines>`__ and wait till completion.
 
-- In less than 20 seconds after the Github comment, the pipeline will appear as ``Running``
-- Takes ~10 minutes to complete
+- In less than 20 seconds after the Github comment, the pipeline will have the ``Running`` status
+- Takes at minimum 10 minutes to complete, if covering more components, it can take more than 1 hour
 - Only the maintainer can cancel pipelines at this stage because of Gitlab's lax permission system
 
 
@@ -392,7 +392,7 @@ Find your test in `openQA pull requests group <https://openqa.qubes-os.org/group
 
 **Cancellation**:
 
-- Sometimes, you might want to cancel a test because it is using outdated code. For that, `login to openQA <https://openqa-qubes-os.org/login>` and ask the maintainer for ``cancellation`` permission. After being allowed, the cancel button as an `X` near the circle indicating status of the job
+- Sometimes, you might want to cancel a test because it is using outdated code. For that, `login to openQA <https://openqa-qubes-os.org/login>` and ask the maintainer for ``cancellation`` permission. After gaining permission, the cancel button appears as an `X` near the circle indicating status of the job
 - Don't cancel ``install_default_upload@hw*``, it can leave system boot order in weird state, breaks further tests, requiring manual intervention to fix
 
 
