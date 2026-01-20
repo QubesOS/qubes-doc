@@ -125,7 +125,6 @@ Core documentation for Qubes users.
    user/troubleshooting/usb-troubleshooting
    user/troubleshooting/gui-troubleshooting
    user/troubleshooting/media-troubleshooting
-   user/troubleshooting/vpn-troubleshooting
 
 
 .. _security:
