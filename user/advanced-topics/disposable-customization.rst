@@ -96,7 +96,7 @@ Make a particular application open everything in a disposable
 
 You can enable a :ref:`qube service <user/how-to-guides/how-to-enable-a-service:how to enable a qube service>` to cause an application in a qube to open files and URLs in a disposable. In order to accomplish this, enable a service named :samp:`app-dispvm.{X}` in that qube, where :samp:`{X}` is the application ID, which is the application name minus the :file:`.desktop` extension.
 
-For instance, to have Mozilla Thunderbird application open all attachments in a disposable, find its application name with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Applications`, hover your mouse over the application to see the ``.desktop filename``. Or use the command line equivalent:
+For instance, to have Mozilla Thunderbird application open all attachments in a disposable, find its application name with :appmenuselection:`TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Applications`, hover your mouse over the application to see the ``.desktop filename``. Or use the command line equivalent:
 
 .. code:: console
 
@@ -124,7 +124,7 @@ Set the system's default disposable template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The system's default disposable template can be configured in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Default disposable template`, choose to your liking and click :guilabel:`Apply Changes and Close`.
+The system's default disposable template can be configured in :appmenuselection:`Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Default disposable template`, choose to your liking and click :guilabel:`Apply Changes and Close`.
 
 .. image:: /attachment/doc/r4.3-disp-default-global.png
    :alt: Global config window with system's default disposable template item emphasized.
@@ -142,7 +142,7 @@ Set the qube's default disposable template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The per qube default disposable template can be configured in the app menu, for example, to change the setting for the ``work`` qube, in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> work --> Settings --> Advanced --> Default disposable template`, select your preference and click :guilabel:`&OK` to apply the changes and close the window.
+The per qube default disposable template can be configured in the app menu, for example, to change the setting for the ``work`` qube, in :appmenuselection:`APPS --> work --> Settings --> Advanced --> Default disposable template`, select your preference and click :guilabel:`&OK` to apply the changes and close the window.
 
 .. image:: /attachment/doc/r4.3-disp-default-local.png
    :alt: Qube settings of ``work`` with qube's default disposable template item emphasized.
@@ -173,7 +173,7 @@ Add programs to the app menu
 
 For added convenience, arbitrary programs can be added to the app menu of the disposable template :ref:`just like for any other qube <user/troubleshooting/app-menu-shortcut-troubleshooting:How-to add a shortcut>`.
 
-In order to do that, go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Applications` and select desired applications as for any other qube.
+In order to do that, go to :appmenuselection:`TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Applications` and select desired applications as for any other qube.
 
 Only applications whose :ref:`main process keeps running until you close the application <user/how-to-guides/how-to-use-disposables:call to the application succeeds but disposable exits too soon>` will work.
 
@@ -183,7 +183,7 @@ Change application settings manually
 
 It is also possible to change application settings of a disposable by customizing the disposable template:
 
-1. Start a terminal (or your chosen application) in the :samp:`{<DISPOSABLE_TEMPLATE>}` qube with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Run Terminal` or by running the following command in a :term:`GUI domain`:
+1. Start a terminal (or your chosen application) in the :samp:`{<DISPOSABLE_TEMPLATE>}` qube with :appmenuselection:`TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Run Terminal` or by running the following command in a :term:`GUI domain`:
 
    .. code:: console
 
@@ -195,7 +195,7 @@ It is also possible to change application settings of a disposable by customizin
 
    - Default editor, image viewer. In Debian derivatives, this can be done with the :program:`mimeopen` command.
 
-3. Shutdown the qube, either with Qubes Domains widget, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Shutdown`, :program:`qvm-shutdown` from the :term:`GUI domain` terminal or with :program:`poweroff` from qube's terminal.
+3. Shutdown the qube, either with Qubes Domains widget, :appmenuselection:`TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Shutdown`, :program:`qvm-shutdown` from the :term:`GUI domain` terminal or with :program:`poweroff` from qube's terminal.
 
 Change application settings dynamically
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -227,7 +227,7 @@ Create a new disposable template
 
 You can create as many disposable templates as you want. First, you need to :ref:`create an app qube <introduction/getting-started:adding, removing, and listing qubes>`.
 
-Next, go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> Settings --> Advanced --> Disposable template` and enable it, at last, click on :guilabel:`&OK` to accept the changes and close the window. To modify settings of the disposable template itself or how programs are run on it, use the :guilabel:`TEMPLATES` tab.
+Next, go to :appmenuselection:`APPS --> <DISPOSABLE_TEMPLATE> --> Settings --> Advanced --> Disposable template` and enable it, at last, click on :guilabel:`&OK` to accept the changes and close the window. To modify settings of the disposable template itself or how programs are run on it, use the :guilabel:`TEMPLATES` tab.
 
 You can also use the command line equivalent:
 
@@ -237,9 +237,9 @@ You can also use the command line equivalent:
       user@dom0:~$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
       user@dom0:~$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
-The ``appmenus-dispvm`` feature is only necessary if you intend to launch unnamed disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new unnamed disposable based on the disposable template (not in the disposable template itself).
+The ``appmenus-dispvm`` feature is only necessary if you intend to launch unnamed disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in :appmenuselection:`APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new unnamed disposable based on the disposable template (not in the disposable template itself).
 
-.. important:: Application shortcuts that existed before setting this feature will not be updated automatically. Please go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> Settings`, in the :guilabel:`Applications` tab, unselect all existing shortcuts by clicking :guilabel:`<<`, then click :guilabel:`&OK` and close the dialog. Give it a few seconds and then reopen and re-select all the shortcuts you want to see in the menu. See :doc:`app menu shortcut troubleshooting </user/troubleshooting/app-menu-shortcut-troubleshooting>` for background information.
+.. important:: Application shortcuts that existed before setting this feature will not be updated automatically. Please go to :appmenuselection:`APPS --> <DISPOSABLE_TEMPLATE> --> Settings`, in the :guilabel:`Applications` tab, unselect all existing shortcuts by clicking :guilabel:`<<`, then click :guilabel:`&OK` and close the dialog. Give it a few seconds and then reopen and re-select all the shortcuts you want to see in the menu. See :doc:`app menu shortcut troubleshooting </user/troubleshooting/app-menu-shortcut-troubleshooting>` for background information.
 
 Creating named disposables for service qubes
 --------------------------------------------
@@ -385,7 +385,7 @@ It is only possible to delete a disposable template if certain state is met:
 - No disposables based on it (preloaded disposables can be ignored).
 - No system or qube property links to it (such as ``template`` or ``default_dispvm``).
 
-Let's delete a disposable template with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Basic --> Delete qube`.
+Let's delete a disposable template with :appmenuselection:`TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Basic --> Delete qube`.
 
 Or with the command line equivalent:
 
@@ -402,7 +402,7 @@ Retire the qube from being the system's default disposable template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-The system's default disposable template may reference the :samp:`{<DISPOSABLE_TEMPLATE>}`. Let's check if it is being used with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Default disposable template`. Or the command line equivalent.
+The system's default disposable template may reference the :samp:`{<DISPOSABLE_TEMPLATE>}`. Let's check if it is being used with :appmenuselection:`Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Default disposable template`. Or the command line equivalent.
 
 .. code:: console
 
@@ -415,7 +415,7 @@ Retire the qube from being a qube's default disposable template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Now let's check the per qube ``default_dispvm`` property for any qube, in this case, the ``work`` qube, in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> work --> Settings --> Advanced --> Default disposable template`. Or use the command line equivalent:
+Now let's check the per qube ``default_dispvm`` property for any qube, in this case, the ``work`` qube, in :appmenuselection:`APPS --> work --> Settings --> Advanced --> Default disposable template`. Or use the command line equivalent:
 
 .. code:: console
 

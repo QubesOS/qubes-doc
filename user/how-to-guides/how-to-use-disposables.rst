@@ -59,17 +59,17 @@ How to create named disposables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Named disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Create New Qube --> Named disposable`, choose a name, configure according to your needs and click on :guilabel:`Create`.
+Named disposables can be created with :appmenuselection:`Settings (icon) --> Qubes Tools --> Create New Qube --> Named disposable`, choose a name, configure according to your needs and click on :guilabel:`Create`.
 
-If you create the qube with the name ``test-disp``, you can open applications on it using |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> test-disp` and selecting the application you wish to open in the named disposable.
+If you create the qube with the name ``test-disp``, you can open applications on it using :appmenuselection:`APPS --> test-disp` and selecting the application you wish to open in the named disposable.
 
 How to create unnamed disposables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Unnamed disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> default-dvm`, select the application you wish to launch in a new unnamed disposable and one will created for you. Notice that the application was not opened in the disposable template ``default-dvm``, instead, it opens in a :samp:`disp{1234}` qube. This is because applications from a disposable template listed in the :guilabel:`APPS` tab will open in a new unnamed disposable.
+Unnamed disposables can be created with :appmenuselection:`APPS --> default-dvm`, select the application you wish to launch in a new unnamed disposable and one will created for you. Notice that the application was not opened in the disposable template ``default-dvm``, instead, it opens in a :samp:`disp{1234}` qube. This is because applications from a disposable template listed in the :guilabel:`APPS` tab will open in a new unnamed disposable.
 
-After the qube is created, you can access it via other tools using its :samp:`disp{1234}` name, :ref:`Qubes Domains widget <introduction/getting-started:user interface>`, :ref:`Qubes Manager <introduction/getting-started:qube manager>`, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> disp1234`, :guilabel:`qvm-copy`, :program:`qvm-ls` etc.
+After the qube is created, you can access it via other tools using its :samp:`disp{1234}` name, :ref:`Qubes Domains widget <introduction/getting-started:user interface>`, :ref:`Qubes Manager <introduction/getting-started:qube manager>`, :appmenuselection:`APPS --> disp1234`, :guilabel:`qvm-copy`, :program:`qvm-ls` etc.
 
 In action
 ---------
@@ -79,7 +79,7 @@ Open an application in a disposable (from GUI domain)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Sometimes it is desirable to open an instance of Firefox in a new fresh disposable. This can be done easily using the app menu: just go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> default-dvm --> Firefox`. Wait a few seconds until the web browser starts.
+Sometimes it is desirable to open an instance of Firefox in a new fresh disposable. This can be done easily using the app menu: just go to :appmenuselection:`APPS --> default-dvm --> Firefox`. Wait a few seconds until the web browser starts.
 
 .. image:: /attachment/doc/r4.3-dom0-menu-disp-firefox.png
    :alt: Application menu being used to open an Firefox from the ``default-dvm`` in a disposable qube.
@@ -179,7 +179,7 @@ Preload disposables from the system's default disposable template
 
 Configuring system's default disposable template setting is very useful when you use this disposable template a lot. The system setting applies to whichever disposable template currently is the system's one, so if you change it, the preloaded disposables will be updated accordingly.
 
-Preloading from the system's default disposable is possible with the |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Preload disposable qubes` and choose a small number such as ``2`` for testing, end with :guilabel:`Apply Changes and Close`.
+Preloading from the system's default disposable is possible with the :appmenuselection:`Settings (icon) --> Qubes Tools --> Qubes Global Config --> General --> Preload disposable qubes` and choose a small number such as ``2`` for testing, end with :guilabel:`Apply Changes and Close`.
 
 .. image:: /attachment/doc/r4.3-disp-preload-global.png
    :alt: Global config window with preloaded disposables items emphasized and preload disposable setting configured to ``2``.
@@ -199,7 +199,7 @@ Configuring per disposable template setting is very useful when the disposable t
 - ``default-mgmt-dvm``: :term:`management qube`, used for :doc:`Salt </user/advanced-topics/salt>`, Ansible and Debug Console.
 - ``qubes-builder-dvm``: :doc:`Qubes Builder V2 Executor qube </developer/building/qubes-builder-v2>`
 
-To configure, for example, the ``default-mgmt-dvm`` qube using the app menu and qube manager, as it is an :term:`internal qube`, first we need to make it visible, in the  |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qube Manager --> View --> Show internal qubes`. After this step is completed, :menuselection:`Qube Manager --> default-mgmt-dvm --> Settings (icon) --> Advanced --> Preload disposables`, choose a number such as ``2`` and click :guilabel:`&OK` to apply and save changes.
+To configure, for example, the ``default-mgmt-dvm`` qube using the app menu and qube manager, as it is an :term:`internal qube`, first we need to make it visible, in the  :appmenuselection:`Settings (icon) --> Qubes Tools --> Qube Manager --> View --> Show internal qubes`. After this step is completed, :menuselection:`Qube Manager --> default-mgmt-dvm --> Settings (icon) --> Advanced --> Preload disposables`, choose a number such as ``2`` and click :guilabel:`&OK` to apply and save changes.
 
 .. note:: You may deselect :guilabel:`Show internal qubes` to hide them again after making the changes.
 
