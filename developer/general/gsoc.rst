@@ -157,7 +157,7 @@ System health monitor
 
 **Project**: System health monitor
 
-**Brief explanation**: A tool that informs the user about common system and configuration issues. Some of this is already available, but scattered across different places. See related issues: `6663 <https://github.com/QubesOS/qubes-issues/issues/6663>`__, `2134 <https://github.com/QubesOS/qubes-issues/issues/2134>`__
+**Brief explanation**: A tool that informs the user about common system and configuration issues. Some of this is already available, but scattered across different places. See related issues: `6663 <https://github.com/QubesOS/qubes-issues/issues/6663>`__, `2134 <https://github.com/QubesOS/qubes-issues/issues/2134>`__ (see issues linked to it).
 
 **Expected results**:
 
@@ -166,6 +166,8 @@ System health monitor
   - some updates to be applied (separate widget already exists)
 
   - running out of disk space (separate widget already exists)
+
+  - running out of memory
 
   - insecure USB configuration (USB in dom0)
 
@@ -193,7 +195,7 @@ System health monitor
 
 **Size of the project**: 350 hours
 
-**Mentor**: `Marta Marczykowska-Górecka <https://www.qubes-os.org/team/>`__
+**Mentor**: `Marta Marczykowska-Górecka <https://www.qubes-os.org/team/>`__, `Benjamin Grande <https://www.qubes-os.org/team/>`__
 
 Mechanism for maintaining in-VM configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -535,7 +537,15 @@ Admin API Fuzzer
 
 **Project**: Develop a `Fuzzer <https://en.wikipedia.org/wiki/Fuzzing>`__ for the :doc:`Qubes OS Admin API </developer/services/admin-api>`.
 
-**Brief explanation**: The :doc:`Qubes OS Admin API </developer/services/admin-api>` enables VMs to execute privileged actions on other VMs or dom0 - if allowed by the Qubes OS RPC policy. Programming errors in the Admin API however may cause these access rights to be more permissive than anticipated by the programmer.
+**Brief explanation**: The :doc:`Qubes OS Admin API </developer/services/admin-api>` enables VMs to execute privileged actions on other VMs or dom0 - if allowed by the Qubes OS RPC policy. Programming errors in the Admin API however may cause these access rights to be more permissive than anticipated by the programmer. If the there is a client error and the API response is too restrictive, it won't reveal any information making it difficult to debug and handle errors, as it is a general error. More details:
+
+- `QSB-038: Qrexec policy bypass and possible information leak <https://www.qubes-os.org/news/2018/02/20/qsb-38/>`__
+- `QSB-087: Qrexec: Injection of unsanitized data into log output <https://www.qubes-os.org/news/2022/11/23/qsb-087/>`__ (related to Qrexec rather than the Admin API, but helps understand dangers of unsanitized data in logs/output)
+- `QSB-089: Qrexec: Memory corruption in service request handling <https://www.qubes-os.org/news/2023/05/11/qsb-089/>`__ (related to Qrexec rather than the Admin API, but helps understand dangers of unsanitized data length that could be passed to other applications that may cause memory corruption on a faulty application)
+- `QSB-099: Qrexec policy leak via policy.RegisterArgument service <https://www.qubes-os.org/news/2024/01/19/qsb-099/>`__
+- `#5316: qvm-create error message unhelpful on missing template <https://github.com/QubesOS/qubes-issues/issues/5316>`__
+- `#6739: Improve “Got empty response from qubesd” message <https://github.com/QubesOS/qubes-issues/issues/6739>`__
+- `#10345: Specific exception against PermissionDenied when API argument is invalid <https://github.com/QubesOS/qubes-issues/issues/10345>`__
 
 Since the Admin API is continuously growing and changing, continuous security assessments are required. A `Fuzzer <https://en.wikipedia.org/wiki/Fuzzing>`__ would help to automate part of these assessments.
 
