@@ -16,6 +16,7 @@ Table of contents
    introduction/intro
    introduction/screenshots
    introduction/video-tours
+   introduction/Security_Architecture
    introduction/getting-started
    introduction/faq
    introduction/issue-tracking
