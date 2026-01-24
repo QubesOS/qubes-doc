@@ -355,8 +355,8 @@ others.
 
    Whonix for Privacy & Anonymity <https://forum.qubes-os.org/t/whonix-for-privacy-anonymity/19014>
    Running Tails in Qubes <https://forum.qubes-os.org/t/tails-hvm/19012>
-   Anonymizing your MAC Address <https://forum.qubes-os.org/t/anonymizing-your-mac-address/19072>
-   Signal <https://forum.qubes-os.org/t/signal-messenger/19073>
+   Anonymizing your ethernet MAC Address <https://forum.qubes-os.org/t/anonymizing-your-mac-address/19072>
+   How to install Signal Desktop in Qubes <https://forum.qubes-os.org/t/signal-messenger/19073>
    Reducing the fingerprint of the text-based web browser w3m <https://forum.qubes-os.org/t/reducing-the-fingerprint-of-the-text-based-web-browser-w3m/18993>
 
 
@@ -366,7 +366,8 @@ others.
    :maxdepth: 1
    :caption: External - Configuration Guides
 
-   How to set up a ProxyVM as a VPN Gateway <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>
+   Installing Software in Qubes (all methods) <https://forum.qubes-os.org/t/installing-software-in-qubes-all-methods/9991>
+   Meta-topic: List of all VPN guides <https://forum.qubes-os.org/t/meta-topic-list-of-all-vpn-guides/38466>
    Multibooting <https://forum.qubes-os.org/t/multibooting-qubes/18988>
    Changing your Time Zone <https://forum.qubes-os.org/t/changing-your-time-zone/18983>
    Installing ZFS in Qubes <https://forum.qubes-os.org/t/zfs-in-qubes-os/18994>
@@ -377,14 +378,13 @@ others.
    How to make proxy for individual tcp connection from networkless VM <https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a>
    Adding Bridge Support to the NetVM (EXPERIMENTAL) <https://forum.qubes-os.org/t/network-bridge-support-experimental-and-unsupported/18990>
    Screen Sharing <https://forum.qubes-os.org/t/sharing-a-screen-across-qubes/19059>
-   Enabling TRIM for SSD disks <https://forum.qubes-os.org/t/disk-trimming/19054>
    Configuring a Network Printer <https://forum.qubes-os.org/t/configuring-a-network-printer/19056>
    Using External Audio Devices <https://forum.qubes-os.org/t/using-external-audio-devices/18984>
    Rxvt Guide <https://forum.qubes-os.org/t/rxvt-terminal/18992>
    Adding SSD storage cache <https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com>
    How to Make a Multimedia TemplateVM <https://forum.qubes-os.org/t/configuring-a-multimedia-templatevm/19055>
    How to install an Nvidia driver in dom0 <https://forum.qubes-os.org/t/nvidia-proprietary-driver-installation/18987>
-
+   How to Connect To Android via USB <https://forum.qubes-os.org/t/how-to-connect-to-android-via-usb/32450>
 
 .. _external-customization-guides:
 
@@ -392,12 +392,18 @@ others.
    :maxdepth: 1
    :caption: External - Customization Guides
 
+   Opening All Files in Disposable Qube <https://forum.qubes-os.org/t/opening-all-files-in-disposable-qube/4674>
+   Quick Quality-of-Life Improvements <https://forum.qubes-os.org/t/quick-quality-of-life-improvements/23380>
    Customizing Fedora minimal templates <https://forum.qubes-os.org/t/fedora-packages-recommendations/18999>
    Customizing Windows 7 templates <https://forum.qubes-os.org/t/disable-uninstall-unnecessary-features-in-windows-qubes/19005>
    Language Localization <https://forum.qubes-os.org/t/language-localization/19001>
    Dark Theme in Dom0 and DomU <https://forum.qubes-os.org/t/dark-theme-in-dom0/18997>
    Safely Removing TemplateVM Packages (Example: Thunderbird) <https://forum.qubes-os.org/t/safely-uninstalling-packages-in-templatevms/19002>
-
+   Minifying debian-12-minimal <https://forum.qubes-os.org/t/minifying-debian-12-minimal/24778>
+   Customize a named disposable using the vm-config feature <https://forum.qubes-os.org/t/customize-a-named-disposable-using-the-vm-config-feature/34207>
+   Automatically restart a qube on stop <https://forum.qubes-os.org/t/automatically-restart-a-qube-on-stop/34490>
+   Add new device to the default vm-pool <https://forum.qubes-os.org/t/add-new-device-to-the-default-vm-pool/36302>
+   Qubes Salt Beginner's Guide <https://forum.qubes-os.org/t/qubes-salt-beginners-guide/20126>
 
 .. _external-troubleshooting:
 
@@ -405,6 +411,7 @@ others.
    :maxdepth: 1
    :caption: External - Troubleshooting
 
+   How to Fix Deleted XFCE Panel <https://forum.qubes-os.org/t/how-to-fix-deleted-xfce-panel/28073>
    Nvidia troubleshooting guide <https://forum.qubes-os.org/t/nvidia-troubleshooting-guide/19021>
    Lenovo ThinkPad Troubleshooting <https://forum.qubes-os.org/t/lenovo-thinkpad-troubleshooting/19024>
    Apple MacBook Troubleshooting <https://forum.qubes-os.org/t/apple-macbook-troubleshooting/19020>
