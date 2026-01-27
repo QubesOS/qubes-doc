@@ -220,6 +220,7 @@ Core documentation for Qubes developers and advanced users.
    Visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>
    developer/general/research
    developer/general/devel-books
+   developer/general/documentation-last-updates.rst
 
 
 .. _code:
