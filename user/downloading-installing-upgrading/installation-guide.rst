@@ -61,7 +61,7 @@ On Linux, if you choose to use a USB drive, copy the ISO onto the USB device, e.
 
       $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1M conv=fsync
 
-Change :file:`Qubes-R{X}-x86_64.iso` to the filename of the version you’re installing, and change :file:`/dev/sd{Y}` to the correct target device e.g., :file:`/dev/sdc`). Make sure to write to the entire device (e.g., :file:`/dev/sdc`) rather than just a single partition (e.g., :file:`/dev/sdc1`).
+Change :file:`Qubes-R{X}-x86_64.iso` to the filename of the version you’re installing, and change :file:`/dev/sd{Y}` to the correct target device e.g., :file:`/dev/sdc`). Make sure to write to the entire device (e.g., :file:`/dev/sdc`) rather than just a single partition (e.g., :file:`/dev/sdc1`). If you are doing this within Qubes OS, you must make sure that you have attached the whole device to your qube, not just a partition. The path of your target device will then be :file:`/dev/xvd{Y}` such as :file:`/dev/xvdi` - avoid writing to a single partition (e.g., :file:`/dev/xvdi1`).
 
 **Advanced users** may wish to :ref:`re-verify their installation media after writing <project-security/verifying-signatures:how to re-verify installation media after writing>`.
 
