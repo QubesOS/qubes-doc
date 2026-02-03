@@ -7,15 +7,22 @@ from pathlib import Path
 # Append the path to custom extensions
 sys.path.append(str(Path('_ext').resolve()))
 
+
+# True, if the build is made on Read The Docs, from a pull request
+IS_PULL_REQUEST = os.environ.get('READTHEDOCS_VERSION_TYPE') == 'external'
+
+
 # For the full list of options, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-
 
 # -- Project information -----------------------------------------------------
 
 project = 'Qubes OS'
 author = 'Qubes OS Project'
 copyright = f'%Y, {author}'
+
+if IS_PULL_REQUEST:
+    project = f'{project} PR build'
 
 # Warning: Sphinx's version and release differ from Qubes OS !
 
@@ -106,6 +113,10 @@ html_use_opensearch = "https://doc.qubes-os.org"
 html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
 html_favicon = "attachment/icons/favicon-16x16.png"
 
+if IS_PULL_REQUEST:
+    html_logo = html_logo[:-4] + "-red" + html_logo[-4:]
+    html_favicon = html_favicon[:-4] + "-red" + html_favicon[-4:]
+
 # -- -- Options for the linkcheck builder ------------------------------------
 
 linkcheck_anchors = False
@@ -125,7 +136,11 @@ intersphinx_mapping = {
 intersphinx_disabled_reftypes = ["*"]
 
 # Open Graph image for social media sharing
-ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
+if IS_PULL_REQUEST:
+    ogp_image = html_baseurl.strip('/') + "/_static/custom-theme/qubes-logo-icon-name-slogan-fb-red.png"
+else:
+    ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
+
 # Disable Open Graph image alt text
 ogp_image_alt = False
 
