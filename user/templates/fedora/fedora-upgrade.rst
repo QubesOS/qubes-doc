@@ -22,9 +22,10 @@ Summary instructions for standard Fedora templates
 
       [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
       [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-      [user@dom0 ~]$ qvm-run -a fedora-<new> gnome-terminal
+      [user@dom0 ~]$ qvm-start fedora-<new>
       [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
       [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
+      [user@dom0 ~]$ qvm-run -a fedora-<new> xfce4-terminal
       [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
       [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
       [user@fedora-<new> ~]$ sudo dnf clean all
