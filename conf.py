@@ -83,6 +83,10 @@ exclude_patterns = [
   '.venv',
 ]
 
+# -- -- Options for templating -----------------------------------------------
+
+templates_path = ['_templates']
+
 
 # -- Builder options ---------------------------------------------------------
 
