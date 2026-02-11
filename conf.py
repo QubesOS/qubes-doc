@@ -167,6 +167,11 @@ rst_epilog = """
    :alt: Qubes logo icon
 """
 
+rst_prolog = """
+.. meta::
+   :http-equiv=onion-location: http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion
+"""
+
 # -- -- Options for the nitpicky mode ----------------------------------------
 
 nitpicky = True

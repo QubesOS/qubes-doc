@@ -22,7 +22,7 @@ Summary instructions for standard Fedora templates
 
       [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
       [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-      [user@dom0 ~]$ qvm-run -a fedora-<new> gnome-terminal
+      [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
       [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
       [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
       [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
@@ -57,7 +57,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
    .. code:: console
 
          [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
-         [user@dom0 ~]$ qvm-run -a fedora-<new> gnome-terminal
+         [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
 
 
 3. Attempt the upgrade process in the new template.
