@@ -55,9 +55,11 @@ For example, Qubes OS may use a popular Linux distribution for an official :doc:
    Whonix for Privacy & Anonymity <https://forum.qubes-os.org/t/whonix-for-privacy-anonymity/19014>
    Running Tails in Qubes <https://forum.qubes-os.org/t/tails-hvm/19012>
    Anonymizing your MAC Address <https://forum.qubes-os.org/t/anonymizing-your-mac-address/19072>
-   Signal <https://forum.qubes-os.org/t/signal-messenger/19073>
+   How to install Signal Desktop in Qubes <https://forum.qubes-os.org/t/signal-messenger/19073>
    Reducing the fingerprint of the text-based web browser w3m <https://forum.qubes-os.org/t/reducing-the-fingerprint-of-the-text-based-web-browser-w3m/18993>
 
+.. versionadded:: 4.1
+   The **Wi-Fi** MAC addresses are randomized by default :ref:`since Qubes OS 4.1 <qubes-4.1-mac-randomization>`.
 
 .. _external-configuration-guides:
 
@@ -65,7 +67,6 @@ For example, Qubes OS may use a popular Linux distribution for an official :doc:
    :maxdepth: 1
    :caption: External - Configuration Guides
 
-   How to set up a ProxyVM as a VPN Gateway <https://forum.qubes-os.org/t/configuring-a-proxyvm-vpn-gateway/19061>
    Multibooting <https://forum.qubes-os.org/t/multibooting-qubes/18988>
    Changing your Time Zone <https://forum.qubes-os.org/t/changing-your-time-zone/18983>
    Installing ZFS in Qubes <https://forum.qubes-os.org/t/zfs-in-qubes-os/18994>
@@ -76,14 +77,12 @@ For example, Qubes OS may use a popular Linux distribution for an official :doc:
    How to make proxy for individual tcp connection from networkless VM <https://groups.google.com/group/qubes-devel/msg/4ca950ab6d7cd11a>
    Adding Bridge Support to the NetVM (EXPERIMENTAL) <https://forum.qubes-os.org/t/network-bridge-support-experimental-and-unsupported/18990>
    Screen Sharing <https://forum.qubes-os.org/t/sharing-a-screen-across-qubes/19059>
-   Enabling TRIM for SSD disks <https://forum.qubes-os.org/t/disk-trimming/19054>
    Configuring a Network Printer <https://forum.qubes-os.org/t/configuring-a-network-printer/19056>
    Using External Audio Devices <https://forum.qubes-os.org/t/using-external-audio-devices/18984>
    Rxvt Guide <https://forum.qubes-os.org/t/rxvt-terminal/18992>
    Adding SSD storage cache <https://groups.google.com/d/msgid/qubes-users/a08359c9-9eb0-4d1a-ad92-a8a9bc676ea6%40googlegroups.com>
    How to Make a Multimedia TemplateVM <https://forum.qubes-os.org/t/configuring-a-multimedia-templatevm/19055>
    How to install an Nvidia driver in dom0 <https://forum.qubes-os.org/t/nvidia-proprietary-driver-installation/18987>
-
 
 .. _external-customization-guides:
 
@@ -96,7 +95,6 @@ For example, Qubes OS may use a popular Linux distribution for an official :doc:
    Language Localization <https://forum.qubes-os.org/t/language-localization/19001>
    Dark Theme in Dom0 and DomU <https://forum.qubes-os.org/t/dark-theme-in-dom0/18997>
    Safely Removing TemplateVM Packages (Example: Thunderbird) <https://forum.qubes-os.org/t/safely-uninstalling-packages-in-templatevms/19002>
-
 
 .. _external-troubleshooting:
 
