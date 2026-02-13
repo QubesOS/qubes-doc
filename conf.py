@@ -36,6 +36,7 @@ extensions = [
   'sphinx_reredirects', # Manage redirects in the documentation
   'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
   'youtube_frame', # Embed YouTube videos
+  'last_edition',
 ]
 
 # Redirects for specific URLs as fall back
@@ -86,7 +87,6 @@ exclude_patterns = [
 # -- -- Options for templating -----------------------------------------------
 
 templates_path = ['_templates']
-
 
 # -- Builder options ---------------------------------------------------------
 
