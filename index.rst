@@ -15,6 +15,7 @@ Table of contents
 
    introduction/intro
    introduction/screenshots
+   introduction/overview
    Introduction/video-tours
    introduction/security_architecture
    introduction/getting-started
