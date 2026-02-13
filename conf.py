@@ -36,6 +36,7 @@ extensions = [
   'sphinx_reredirects', # Manage redirects in the documentation
   'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
   'youtube_frame', # Embed YouTube videos
+  'last_edition',
 ]
 
 # Redirects for specific URLs as fall back
@@ -83,6 +84,9 @@ exclude_patterns = [
   '.venv',
 ]
 
+# -- -- Options for templating -----------------------------------------------
+
+templates_path = ['_templates']
 
 # -- Builder options ---------------------------------------------------------
 
@@ -142,6 +146,10 @@ html_context = {
     "conf_py_path": "/",
 }
 
+# The onion site only mirrors the content of the documentation built as /en/latest/
+if os.environ.get('READTHEDOCS_LANGUAGE') == 'en' and os.environ.get('READTHEDOCS_VERSION') == 'latest':
+    html_context["onion_location"] = "http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion"
+
 # -- -- Options for internationalisation -------------------------------------
 
 # Directories containing translation files
@@ -161,11 +169,6 @@ rst_epilog = """
    :height: 1em
    :class: no-scaled-link
    :alt: Qubes logo icon
-"""
-
-rst_prolog = """
-.. meta::
-   :http-equiv=onion-location: http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion
 """
 
 # -- -- Options for the nitpicky mode ----------------------------------------

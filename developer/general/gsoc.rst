@@ -157,7 +157,7 @@ System health monitor
 
 **Project**: System health monitor
 
-**Brief explanation**: A tool that informs the user about common system and configuration issues. Some of this is already available, but scattered across different places. See related issues: `6663 <https://github.com/QubesOS/qubes-issues/issues/6663>`__, `2134 <https://github.com/QubesOS/qubes-issues/issues/2134>`__
+**Brief explanation**: A tool that informs the user about common system and configuration issues. Some of this is already available, but scattered across different places. See related issues: `6663 <https://github.com/QubesOS/qubes-issues/issues/6663>`__, `2134 <https://github.com/QubesOS/qubes-issues/issues/2134>`__ (see issues linked to it).
 
 **Expected results**:
 
@@ -166,6 +166,8 @@ System health monitor
   - some updates to be applied (separate widget already exists)
 
   - running out of disk space (separate widget already exists)
+
+  - running out of memory
 
   - insecure USB configuration (USB in dom0)
 
@@ -193,7 +195,7 @@ System health monitor
 
 **Size of the project**: 350 hours
 
-**Mentor**: `Marta Marczykowska-Górecka <https://www.qubes-os.org/team/>`__
+**Mentor**: `Marta Marczykowska-Górecka <https://www.qubes-os.org/team/>`__, `Benjamin Grande <https://www.qubes-os.org/team/>`__
 
 Mechanism for maintaining in-VM configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -359,58 +361,6 @@ GUI agent for Windows 8/10
 
 **Mentor**: `Rafał Wojdyła <https://www.qubes-os.org/team/>`__
 
-GNOME support in dom0 / GUI VM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-**Project**: GNOME support in dom0
-
-**Brief explanation**: Integrating GNOME into Qubes dom0. This include:
-
-- patching window manager to add colorful borders
-
-- removing stuff not needed in dom0 (file manager(s), indexing services etc)
-
-- adjusting menu for easy navigation (same applications in different VMs and such problems, dom0-related entries in one place)
-
-- More info: `#1806 <https://github.com/QubesOS/qubes-issues/issues/1806>`__
-
-
-
-**Expected results**:
-
-- Review existing support for other desktop environments (KDE, Xfce4, i3, awesome).
-
-- Patch window manager to draw colorful borders (we use only server-side decorations), there is already very similar patch in `Cappsule project <https://github.com/cappsule/cappsule-gui>`__.
-
-- Configure GNOME to not make use of dom0 user home in visible way (no search in files there, no file manager, etc).
-
-- Configure GNOME to not look into external devices plugged in (no auto mounting, device notifications etc).
-
-- Package above modifications as RPMs, preferably as extra configuration files and/or plugins than overwriting existing files. Exceptions to this rule may apply if no other option.
-
-- Adjust comps.xml (in installer-qubes-os repo) to define package group with all required packages.
-
-- Document installation procedure.
-
-
-
-**Difficulty**: hard
-
-**Knowledge prerequisite**:
-
-- GNOME architecture
-
-- C language (patching metacity)
-
-- Probably also javascript - for modifying GNOME shell extensions
-
-
-
-**Size of the project**: 175 hours
-
-**Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__, `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
-
 Generalize the Qubes PDF Converter to other types of files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -535,7 +485,15 @@ Admin API Fuzzer
 
 **Project**: Develop a `Fuzzer <https://en.wikipedia.org/wiki/Fuzzing>`__ for the :doc:`Qubes OS Admin API </developer/services/admin-api>`.
 
-**Brief explanation**: The :doc:`Qubes OS Admin API </developer/services/admin-api>` enables VMs to execute privileged actions on other VMs or dom0 - if allowed by the Qubes OS RPC policy. Programming errors in the Admin API however may cause these access rights to be more permissive than anticipated by the programmer.
+**Brief explanation**: The :doc:`Qubes OS Admin API </developer/services/admin-api>` enables VMs to execute privileged actions on other VMs or dom0 - if allowed by the Qubes OS RPC policy. Programming errors in the Admin API however may cause these access rights to be more permissive than anticipated by the programmer. If the there is a client error and the API response is too restrictive, it won't reveal any information making it difficult to debug and handle errors, as it is a general error. More details:
+
+- `QSB-038: Qrexec policy bypass and possible information leak <https://www.qubes-os.org/news/2018/02/20/qsb-38/>`__
+- `QSB-087: Qrexec: Injection of unsanitized data into log output <https://www.qubes-os.org/news/2022/11/23/qsb-087/>`__ (related to Qrexec rather than the Admin API, but helps understand dangers of unsanitized data in logs/output)
+- `QSB-089: Qrexec: Memory corruption in service request handling <https://www.qubes-os.org/news/2023/05/11/qsb-089/>`__ (related to Qrexec rather than the Admin API, but helps understand dangers of unsanitized data length that could be passed to other applications that may cause memory corruption on a faulty application)
+- `QSB-099: Qrexec policy leak via policy.RegisterArgument service <https://www.qubes-os.org/news/2024/01/19/qsb-099/>`__
+- `#5316: qvm-create error message unhelpful on missing template <https://github.com/QubesOS/qubes-issues/issues/5316>`__
+- `#6739: Improve “Got empty response from qubesd” message <https://github.com/QubesOS/qubes-issues/issues/6739>`__
+- `#10345: Specific exception against PermissionDenied when API argument is invalid <https://github.com/QubesOS/qubes-issues/issues/10345>`__
 
 Since the Admin API is continuously growing and changing, continuous security assessments are required. A `Fuzzer <https://en.wikipedia.org/wiki/Fuzzing>`__ would help to automate part of these assessments.
 
@@ -626,64 +584,6 @@ Past Projects
 You can view the projects we had in 2017 in the `GSoC 2017 archive <https://summerofcode.withgoogle.com/archive/2017/organizations/5074771758809088/>`__. We also participated in GSoC 2020 and GSoC 2021, and you can see the project in the `GSoC 2020 archive <https://summerofcode.withgoogle.com/archive/2020/organizations/4924517870206976/>`__ and `GSoC 2021 archive <https://summerofcode.withgoogle.com/archive/2021/organizations/5682513023860736>`__.
 
 Here are some successful projects which have been implemented in the past by Google Summer of Code participants.
-
-Template manager, new template distribution mechanism
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-**Project**: Template manager, new template distribution mechanism
-
-**Brief explanation**: Template VMs currently are distributed using RPM packages. There are multiple problems with that, mostly related to static nature of RPM package (what files belong to the package). This means such Template VM cannot be renamed, migrated to another storage (like LVM), etc. Also we don’t want RPM to automatically update template package itself (which would override all the user changes there). More details: `#2064 <https://github.com/QubesOS/qubes-issues/issues/2064>`__, `#2534 <https://github.com/QubesOS/qubes-issues/issues/2534>`__, `#3573 <https://github.com/QubesOS/qubes-issues/issues/3573>`__.
-
-**Expected results**:
-
-- Design new mechanism for distributing templates (possibly including some package format - either reuse something already existing, or design new one). The mechanism needs to handle:
-
-  - integrity protection (digital signatures), not parsing any data in dom0 prior to signature verification
-
-  - efficient handling of large sparse files
-
-  - ability to deploy the template into various storage mechanisms (sparse files, LVM thin volumes etc).
-
-  - template metadata, templates repository - enable the user to browse available templates (probably should be done in dedicated VM, or DisposableVM)
-
-  - manual template removal by users (without it, see problems such as `#5509 <https://github.com/QubesOS/qubes-issues/issues/5509>`__
-
-
-
-- Implement the above mechanism:
-
-  - tool to download named template - should perform download operation in some VM (as dom0 have no network access), then transfer the data to dom0, verify its integrity and then create Template VM and feed it’s root filesystem image with downloaded data.
-
-  - tool to browse templates repository - both CLI and GUI (preferably integrated with existing Template Manager tool)
-
-  - integrate both tools - user should be able to choose some template to be installed from repository browsing tool - see `#1705 <https://github.com/QubesOS/qubes-issues/issues/1705>`__ for some idea (this one lacks integrity verification, but a similar service could be developed with that added)
-
-
-
-- If new “package” format is developed, add support for it into `linux-template-builder <https://github.com/QubesOS/qubes-linux-template-builder>`__.
-
-- Document the mechanism.
-
-- Write unit tests and integration tests.
-
-
-
-**Knowledge prerequisite**:
-
-- Large files (disk images) handling (sparse files, archive formats)
-
-- Bash and Python scripting
-
-- Data integrity handling - digital signatures (gpg2, gpgv2)
-
-- PyGTK
-
-- RPM package format, (yum) repository basics
-
-
-
-**Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
 
 
 ----
