@@ -15,7 +15,7 @@ sys.path.append(str(Path('_ext').resolve()))
 
 project = 'Qubes OS'
 author = 'Qubes OS Project'
-copyright = f'%Y, {author}'
+copyright = f'%Y, {author} and others'
 
 # Warning: Sphinx's version and release differ from Qubes OS !
 
