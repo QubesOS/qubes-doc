@@ -1,0 +1,9 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  
+  {%- if onion_location -%}
+  <meta http-equiv="onion-location" content="{{ onion_location }}/{{ pagename }}{{ file_suffix }}" />
+  {%- endif %}
+{% endblock %}
