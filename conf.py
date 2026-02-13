@@ -146,6 +146,10 @@ html_context = {
     "conf_py_path": "/",
 }
 
+# The onion site only mirrors the content of the documentation built as /en/latest/
+if os.environ.get('READTHEDOCS_LANGUAGE') == 'en' and os.environ.get('READTHEDOCS_VERSION') == 'latest':
+    html_context["onion_location"] = "http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion"
+
 # -- -- Options for internationalisation -------------------------------------
 
 # Directories containing translation files

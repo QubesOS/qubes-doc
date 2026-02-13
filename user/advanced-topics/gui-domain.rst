@@ -40,9 +40,18 @@ You can now disable the ``sys-gui`` formula:
       $ sudo qubesctl top.disable qvm.sys-gui
 
 
-At this point, you need to shutdown all your running qubes as the ``default_guivm`` qubes global property has been set to ``sys-gui``. In order to use ``sys-gui`` as GUI domain, you need to logout and, in the top right corner, select ``lightdm`` session type to **GUI domain (sys-gui)**. Once logged, you are running ``sys-gui`` as fullscreen window and you can perform any operation as if you would be in ``dom0`` desktop.
+Note that the ``default_guivm`` qubes global property has not been changed. You can confirm this with:
 
-   **Note:** In order to go back to ``dom0`` desktop, you need to logout and then, select ``lightdm`` session to *Session Xfce*.
+.. code:: console
+
+      $ qubes-prefs default_guivm
+
+If you want to change the global property, use the same command specifying ``sys-gui``.
+
+
+To use sys-gui, shutdown all your running qubes , and log out. Before you log back in change the session type to **GUI domain (sys-gui)** in the top right corner of the login screen. Once logged in, you are running ``sys-gui`` as a fullscreen window and you can work as if you were in the ``dom0`` desktop.
+
+   **Note:** In order to go back to ``dom0`` desktop, you need to logout and then change the  ``lightdm`` session to **Session Xfce**.
 
 GPU GUI domain (``sys-gui-gpu``)
 --------------------------------
@@ -136,8 +145,8 @@ A VNC server session is running on ``localhost:5900`` in ``sys-gui-vnc``. In ord
 
    **WARNING**: This setup raises multiple security issues: 1) Anyone who can reach the ``VNC`` server, can take over the control of the Qubes OS machine, 2) A second client can connect even if a connection is already active and potentially get disconnected, 3) You can get disconnected by some unrelated network issues. Generally, if this ``VNC`` server is exposed to open network, it must be protected with some other (cryptographic) layer like ``VPN``. The setup as is, is useful only for purely testing machine.
 
-Known issues
-------------
+Major Known issues
+------------------
 
 
 Application menu lacks qubes entries in a fresh GUI domain
@@ -152,29 +161,19 @@ Cannot update dom0 from sys-gui
 
 See `QubesOS/qubes-issues#8934 <https://github.com/QubesOS/qubes-issues/issues/8934>`__
 
-GUI of HVM qubes not visible
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-See `QubesOS/qubes-issues#9385 <https://github.com/QubesOS/qubes-issues/issues/9385>`__
 
 Power saving/screensaver issues
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-See `QubesOS/qubes-issues#9033 <https://github.com/QubesOS/qubes-issues/issues/9033>`__, `QubesOS/qubes-issues#9384 <https://github.com/QubesOS/qubes-issues/issues/9384>`__, `QubesOS/qubes-issues#7989 <https://github.com/QubesOS/qubes-issues/issues/7989>`__
+See `QubesOS/qubes-issues#9033 <https://github.com/QubesOS/qubes-issues/issues/9033>`__, `QubesOS/qubes-issues#9384 <https://github.com/QubesOS/qubes-issues/issues/9384>`__
 
-Qube startup order (sys-usb and sys-gui)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-See `QubesOS/qubes-issues#7954 <https://github.com/QubesOS/qubes-issues/issues/7954>`__
 
 Other GUI domain issues
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
+There are a number of other issues affecting use of the GUI domain, and some proposed enhancements. Please review these at ``QubesOS/qubes-issues`` using the label `C: gui-domain <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20gui-domain%22>`__ .
 
-see existing issues ``QubesOS/qubes-issues`` under `C: gui-domain <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22C%3A%20gui-domain%22>`__ label.
 
 Reverting sys-gui
 -----------------
