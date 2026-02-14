@@ -14,7 +14,7 @@ Here are some diagrams illustrating the basic ideas behind Qubes OS's architectu
 
 |Glance_Building|
 
-|Glance_Breach|
+|Glance_Qubes_philosopy|
 
 |Glance_Qubes_compartmentalization|
 
@@ -30,7 +30,7 @@ Here are some diagrams illustrating the basic ideas behind Qubes OS's architectu
 
 .. |Glance_Building| image:: /attachment/doc/Glance_Building.png
 
-.. |Glance_Breach| image:: /attachment/doc/Glance_Breach.png
+.. |Glance_Qubes_philosopy| image:: /attachment/doc/Glance_Qubes_philosopy.png
 
 .. |Glance_Qubes_compartmentalization| image:: /attachment/doc/Glance_Qubes_compartmentalization.png
 
