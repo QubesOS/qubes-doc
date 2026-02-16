@@ -30,8 +30,10 @@ Installing software from default repositories
 
 6. (Recommended) In the relevant qubes’ :menuselection:`Settings --> Applications` tab, select the new application(s) from the list, and press :guilabel:`OK`. These new shortcuts will appear in the Applications Menu. (If you encounter problems, see :ref:`app-menu-troubleshooting`)
 
-.. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
+.. image:: /attachment/doc/settings-applications.png
    :alt: The Applications tab in Qube Settings
+   :width: 100%
+
 
 
 Installing software from other sources
@@ -83,8 +85,9 @@ This method assumes that you are trying to follow instructions to install some p
 
 9. (Recommended) In the relevant qubes’ :menuselection:`Settings --> Applications` tab, select the new application(s) from the list, and press :guilabel:`OK`. These new shortcuts will appear in the Applications Menu. (If you encounter problems, see :ref:`app-menu-troubleshooting`)
 
-.. image:: /attachment/doc/r4.1-dom0-appmenu-select.png
+.. image:: /attachment/doc/settings-applications.png
    :alt:
+   :width: 100%
 
 
 Troubleshooting

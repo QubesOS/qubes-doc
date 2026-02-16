@@ -7,7 +7,10 @@ App menu shortcut troubleshooting
 
 For ease of use Qubes aggregates shortcuts to applications that are installed in app qubes and shows them in one application menu (aka “app menu” or “start menu”) in dom0. Clicking on such shortcut runs the assigned application in its app qube.
 
-|image1|
+.. image:: /attachment/doc/app-menu.png
+   :alt:
+   :width: 100%
+
 
 .. _how-to-add-a-shortcut:
 
@@ -21,7 +24,9 @@ With the graphical user interface
 
 To make applications newly installed show up in the menu, you can use the qube’s *Settings*. Under the :guilabel:`Applications` tab, use the :guilabel:`Refresh Applications` button. Linux qubes do this automatically, if the *Settings* are opened after the installation of the package.
 
-|image2|
+.. image:: /attachment/doc/settings-applications.png
+   :alt:
+   :width: 100%
 
 After that, use the directional buttons (:guilabel:`>`, :guilabel:`>>`, :guilabel:`<` or :guilabel:`<<`) to customize which applications are shown, by moving them to the *Applications shown in App Menu* part (on the right side). Use the :guilabel:`Apply` (or :guilabel:`Ok`) button to see the changes in the app menu.
 
@@ -229,5 +234,3 @@ While this works well for standard applications, creating a menu entry for Windo
 
 .. note:: Applications installed under *wine* are installed in AppVMs, not in the template on which these AppVMs are based, as the file structure used by *wine* is stored under :file:`~/.wine`, which is part of the persistent data of the AppVM and not inherited from its template.
 
-.. |image1| image:: /attachment/doc/r4.0-dom0-menu.png
-.. |image2| image:: /attachment/doc/r4.0-dom0-appmenu-select.png
