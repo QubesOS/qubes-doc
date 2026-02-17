@@ -11,7 +11,9 @@ The default desktop environment is Xfce4.
 ----
 
 
-|r4.0-xfce-start-menu.png|
+.. image:: /attachment/doc/app-menu.png
+   :alt:
+   :width: 100%
 
 Starting applications from different domains (AppVMs) is very easy.
 
@@ -59,7 +61,10 @@ It is always clearly visible to which domain a given window belongs. Here it’s
 ----
 
 
-|r4.0-xfce-tray-icons.png|
+.. image:: /attachment/doc/tray.png
+   :alt:
+   :scale: 100%
+   :align: center
 
 Qubes is all about seamless integration from the user’s point of view. Here you can see how it virtualizes tray icons from other domains. Notice the network icon is in red. This icon is in fact managed by the Network Manager running in a separate NetVM.
 
@@ -75,7 +80,9 @@ All the networking runs in a special, unprivileged NetVM. (Notice the red frame 
 ----
 
 
-|r4.0-software-update.png|
+.. image:: /attachment/doc/qubes-os-update.png
+   :alt:
+   :width: 100%
 
 Qubes lets you update all the software in all the domains all at once, in a centralized way. This is possible thanks to Qubes’ unique TemplateVM technology. Note that the user is not required to shut down any AppVMs (domains) for the update process. This can be done later, at a convenient moment, and separately for each AppVM.
 
@@ -114,7 +121,9 @@ Qubes provides an advanced infrastructure for programming inter-VM services, suc
 ----
 
 
-|r4.0-manager-firewall.png|
+.. image:: /attachment/doc/settings-firewall.png
+   :alt:
+   :width: 100%
 
 Qubes provides a dedicated firewall that itself runs in an isolated FirewallVM.
 
@@ -129,15 +138,12 @@ And some more screenshots:
 |r2b3-windows-seamless-2.png|
 
 .. |r4.0-xfce-desktop.png| image:: /attachment/doc/r4.0-xfce-desktop.png
-.. |r4.0-xfce-start-menu.png| image:: /attachment/doc/r4.0-xfce-start-menu.png
 .. |r4.0-xfce-three-domains-at-work.png| image:: /attachment/doc/r4.0-xfce-three-domains-at-work.png
 .. |r2b3-windows-seamless-1.png| image:: /attachment/doc/r2b3-windows-seamless-1.png
 .. |r2b3-windows-seamless-filecopy.png| image:: /attachment/doc/r2b3-windows-seamless-filecopy.png
 .. |r4.0-xfce-programmers-desktop.png| image:: /attachment/doc/r4.0-xfce-programmers-desktop.png
 .. |r4.0-password-prompt.png| image:: /attachment/doc/r4.0-password-prompt.png
-.. |r4.0-xfce-tray-icons.png| image:: /attachment/doc/r4.0-xfce-tray-icons.png
 .. |r4.0-manager-and-sysnet-network-prompt.png| image:: /attachment/doc/r4.0-manager-and-sysnet-network-prompt.png
-.. |r4.0-software-update.png| image:: /attachment/doc/r4.0-software-update.png
 .. |r4.0-copy-paste.png| image:: /attachment/doc/r4.0-copy-paste.png
 .. |r4.0-copy-to-other-appvm-1.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-1.png
 .. |r4.0-copy-to-other-appvm-3.png| image:: /attachment/doc/r4.0-copy-to-other-appvm-2.png
@@ -145,6 +151,5 @@ And some more screenshots:
 .. |r4.3-domU-filemanager-disp-pdfviewer-open.png| image:: /attachment/doc/r4.3-domU-filemanager-disp-pdfviewer-open.png
 .. |r4.0-convert-to-trusted-pdf-1.png| image:: /attachment/doc/r4.0-convert-to-trusted-pdf-1.png
 .. |r4.1-converting-pdf.png| image:: /attachment/doc/r4.1-converting-pdf.png
-.. |r4.0-manager-firewall.png| image:: /attachment/doc/r4.0-manager-firewall.png
 .. |r4.0-xfce-red-and-green-terminals.png| image:: /attachment/doc/r4.0-xfce-red-and-green-terminals.png
 .. |r2b3-windows-seamless-2.png| image:: /attachment/doc/r2b3-windows-seamless-2.png

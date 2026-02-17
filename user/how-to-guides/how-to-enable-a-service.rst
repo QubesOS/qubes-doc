@@ -18,6 +18,10 @@ How to enable a service in the :program:`Settings`
 
 2. Go to the :guilabel:`Services` tab
 
+   .. image:: /attachment/doc/settings-services.png
+      :alt:
+      :width: 100%
+
 3. You have two options, depending on the current list of the services:
 
    * If the service is listed, you just have to check the box if front of the name.
@@ -26,9 +30,17 @@ How to enable a service in the :program:`Settings`
 
      1. Select it in the :guilabel:`Select a service` drop-down.
 
+        .. image:: /attachment/doc/settings-services-drop-down.png
+           :alt:
+           :width: 100%
+
         If that service is not present in the drop-down, select the last item, called :guilabel:`(custom...)`
 
      2. Click on :guilabel:`Add`
+
+        .. image:: /attachment/doc/settings-services-add.png
+           :alt:
+           :width: 100%
 
         If you have previously selected :guilabel:`(custom...)`, a pop-up will ask you the name of the service
 

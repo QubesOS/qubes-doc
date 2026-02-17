@@ -36,8 +36,9 @@ How to edit rules using qube's Settings
 
 In order to edit rules for a given qube, open the qube's Settings and go to the :guilabel:`Firewall rules` tab.
 
-.. figure:: /attachment/doc/r4.0-manager-firewall.png
-   :alt: r4.0-manager-firewall.png
+.. image:: /attachment/doc/settings-firewall.png
+   :alt:
+   :width: 100%
 
 .. note:: ICMP and DNS are not accessible with this method, but can be changed via the :program:`qvm-firewall` program.
 

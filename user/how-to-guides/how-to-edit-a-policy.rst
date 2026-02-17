@@ -33,7 +33,11 @@ Edit a policy with :program:`Qubes OS Global Config`
 Edit a policy with :program:`Qubes Policy Editor`
 -------------------------------------------------
 
-1. Open :program:`Qubes Policy Editor`
+1. Open :program:`Qubes Policy Editor`:
+
+   .. image:: /attachment/doc/qubes-policy-editor.png
+      :alt:
+      :width: 100%
 
 2. You have to either:
 
