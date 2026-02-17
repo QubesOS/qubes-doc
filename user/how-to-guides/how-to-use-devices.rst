@@ -26,8 +26,9 @@ Microphones, block devices and USB devices can be attached with the GUI-tool. PC
 General Qubes Device Widget Behavior And Handling
 -------------------------------------------------
 
-.. figure:: /attachment/doc/qubes-devices.svg
+.. figure:: /attachment/icons/qubes-desktop-linux-manager/qubes-devices.svg
    :alt:
+   :scale: 500%
    :align: center
 
    Qubes Devices Widget tray icon
@@ -35,6 +36,10 @@ General Qubes Device Widget Behavior And Handling
 When clicking on the tray icon, several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
+
+.. image::  /attachment/doc/qubes-devices-widget.png
+   :alt:
+   :width: 100%
 
 Attaching Using The Widget
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
