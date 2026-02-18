@@ -305,8 +305,8 @@ To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``
 - :menuselection:`Basic --> Start qube automatically on boot`
 - :menuselection:`Basic --> Net qube --> (none)`
 - :menuselection:`Advanced --> Virtualization --> Mode --> HVM`
-- :menuselection:`Devices --> Available devices --> <DEVICE> --> >`
-- :menuselection:`Services --> Select a service --> meminfo-writer --> Add`
+- :menuselection:`Advanced --> Include in memory balancing` and uncheck it
+- :menuselection:`Devices --> Available devices --> <DEVICE>` and pass desired devices by selecting them and clicking on :guilabel:`>`
 
 Optionally, if this disposable will also provide network access to other qubes:
 
@@ -340,8 +340,8 @@ To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``
 
       user@dom0:~$ qvm-create -C DispVM -l red <SERVICE_QUBE>
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> virt_mode hvm
-      user@dom0:~$ qvm-service <SERVICE_QUBE> meminfo-writer off
       user@dom0:~$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
+      user@dom0:~$ qvm-prefs <SERVICE_QUBE> maxmem 0
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> autostart true
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> netvm ''
       user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
@@ -366,8 +366,8 @@ Here is an example of a complete ``sys-net`` replacement:
 
       user@dom0:~$ qvm-create -C DispVM -l red sys-net2
       user@dom0:~$ qvm-prefs sys-net2 virt_mode hvm
-      user@dom0:~$ qvm-service sys-net2 meminfo-writer off
       user@dom0:~$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
+      user@dom0:~$ qvm-prefs sys-net2 maxmem 0
       user@dom0:~$ qvm-prefs sys-net2 autostart true
       user@dom0:~$ qvm-prefs sys-net2 netvm ''
       user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
