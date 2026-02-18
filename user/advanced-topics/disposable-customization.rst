@@ -306,7 +306,7 @@ To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``
 - :menuselection:`Basic --> Net qube --> (none)`
 - :menuselection:`Advanced --> Virtualization --> Mode --> HVM`
 - :menuselection:`Devices --> Available devices --> <DEVICE> --> >`
-- :menuselection:`Services --> Select a service --> meminfo-writer --> Add`
+- :menuselection:`Services --> Select a service --> (custom...) --> Add --> meminfo-writer --> Uncheck`
 
 Optionally, if this disposable will also provide network access to other qubes:
 
