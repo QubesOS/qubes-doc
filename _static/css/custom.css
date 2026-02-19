@@ -1,0 +1,17 @@
+.rst-content .appmenuselection {
+  padding-left: 2px;
+}
+.appmenuselection::before {
+  content: "";
+  display: inline-block;
+
+  height: 16px;
+  width: 16px;
+  margin-right: 2px;
+  vertical-align: middle;
+
+  background-image: url('../images/qubes-logo-icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
