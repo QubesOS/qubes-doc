@@ -18,8 +18,8 @@ VNC is better
 While it is possible to disable seamless desktop integration, at the moment of writing (2026-02) different approach is often considered superior: setting up VNC server and client in the same vm. It also provides you with a separate desktop in a vm, but doesn't require setting specific properties, behaves better than the default qubes vm viewer, and doesn't reduce integration (such as ability to transfer files among qubes) in any way.
 
 See the following topics on using VNC:
-- `original instruction by unman <https://forum.qubes-os.org/t/automatic-startup-of-gnome-environement/26526/25>`
-- `most recent discussion containing information about this <https://forum.qubes-os.org/t/rejecting-hard-work-of-qubes-os-developers-gui-integration/38817/7>`
+- `original instruction by unman <https://forum.qubes-os.org/t/automatic-startup-of-gnome-environement/26526/25>`__
+- `most recent discussion containing information about this <https://forum.qubes-os.org/t/rejecting-hard-work-of-qubes-os-developers-gui-integration/38817/7>`__
 
 Disable seamless mode on Debian guest
 -------------------------------------
@@ -43,3 +43,4 @@ Disable seamless mode on Fedora guest
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
+
