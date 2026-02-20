@@ -25,7 +25,7 @@ See the following topics on using VNC:
 Disable seamless mode on Debian guest
 -------------------------------------
 
-In command line, with :code:`full_desktop` as the name of the targeted qube:
+In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. code:: console
 
@@ -34,13 +34,25 @@ In command line, with :code:`full_desktop` as the name of the targeted qube:
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
     [user@dom0 ~]$ qvm-prefs full_desktop kernelopts "systemd.unit=graphical.target"
     [user@dom0 ~]$ qvm-service full_desktop lightdm on
-    [user@dom0 ~]$ qvm-shutdown full_desktop
 
 Revert to seamless mode on Debian guest
 ---------------------------------------
 
 Disable seamless mode on Fedora guest
 -------------------------------------
+
+In terminal, with :code:`full_desktop` as the name of the targeted qube:
+
+  .. code:: console
+
+    [user@dom0 ~]$ vm-run -u root full_desktop -- systemctl set-default graphical.target
+    [user@dom0 ~]$ vm-run -u root full_desktop -- 'echo "user" | passwd --stdin user'
+    [user@dom0 ~]$ vm-prefs full_desktop debug true
+    [user@dom0 ~]$ vm-prefs full_desktop virt_mode hvm
+    [user@dom0 ~]$ vm-prefs full_desktop kernel ''
+    [user@dom0 ~]$ vm-prefs full_desktop memory 1000
+    [user@dom0 ~]$ vm-prefs full_desktop maxmem 0
+    [user@dom0 ~]$ vm-service full_desktop lightdm on
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
