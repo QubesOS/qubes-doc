@@ -22,7 +22,7 @@ See the following topics on using VNC:
 - `most recent discussion containing information about this <https://forum.qubes-os.org/t/rejecting-hard-work-of-qubes-os-developers-gui-integration/38817/7>`
 
 Disable seamless mode on Debian guest
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 In command line, with :code:`full_desktop` as the name of the targeted qube:
 
@@ -36,11 +36,10 @@ In command line, with :code:`full_desktop` as the name of the targeted qube:
     [user@dom0 ~]$ qvm-shutdown full_desktop
 
 Revert to seamless mode on Debian guest
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------
 
 Disable seamless mode on Fedora guest
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 Revert to seamless mode on Fedora guest
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+---------------------------------------
