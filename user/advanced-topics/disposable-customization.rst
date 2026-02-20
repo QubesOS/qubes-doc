@@ -43,8 +43,8 @@ Advanced disposable's usage
 ---------------------------
 
 
-Open an program in a disposable via command line (from app qube)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Open a program in a disposable via command line (from app qube)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Sometimes it can be useful to start an arbitrary program in a disposable. This can be done from an app qube with :program:`qvm-run-vm`:
