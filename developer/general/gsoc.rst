@@ -109,6 +109,27 @@ These project ideas were contributed by our developers and may be incomplete. If
 
       **Mentor**: Name and email address.
 
+Graphical package manager support in templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ **Project**: Graphical package manager support in templates
+
+
+ **Brief explanation**: Most of the actions needed to be performed by a Qubes OS user can be done easily with GUI tools and without the command line -- except installing software in a template. This project aims to fill this gap by ensuring a smooth user experience across different default templates (Fedora, Debian, Whonix) to have GUI-based software management. for more info please see: https://github.com/QubesOS/qubes-issues/issues/6310 as well as https://forum.qubes-os.org/t/how-to-fix-software-in-templates-to-install-packages-using-a-gui/20944
+
+ **Expected results**: 
+- select a basic software manager for each template
+- ensure necessary tweaks so that they can access internet via qubes network proxy
+- an "Add Software" context button in Qubes menu that works across different templates
+
+ **Difficulty**: medium
+
+ **Knowledge prerequisite**: 
+- Python
+
+ **Size of the project**: 175 hours
+
+ **Mentor**: Marta Marczykowska-Górecka <marmarta@invisiblethingslab.com>
 
 
 Qubes as a Vagrant provider
@@ -126,8 +147,6 @@ Qubes as a Vagrant provider
   - `box format <https://www.vagrantup.com/docs/plugins/providers.html#box-format>`__
 
   - method for running commands inside (ssh vs qvm-run)
-
-
 
 - Write a Vagrant provider able to create/start/stop/etc a VM
 
