@@ -203,7 +203,7 @@ Change application settings dynamically
 
 It is possible to specify data from the :term:`GUI domain` to be read inside the qube using :doc:`vm-config.* features <core-admin-client:manpages/qvm-features>`. This is useful to pass secrets to a single qube instead of writing to the disposable template, which would be shared with all descendants of it.
 
-Let's take for example ``sys-net``, which could be a disposable if you enabled that option during installation. In that case, it's template is ``default-dvm``, but that is also the template of unnamed disposables that launch applications which you don't trust. It would be improper to write the Wi-Fi password to ``default-dvm``, as it would expose it to numerous qubes. Instead, write the data as a qube feature using the :samp:`vm-config.{X}` syntax, where :samp:`{X}` is any valid identification string you'd like.
+Let's take for example ``sys-net``, which could be a disposable if you enabled that option during installation. In that case, its template is ``default-dvm``, but that is also the template of unnamed disposables that launch applications which you don't trust. It would be improper to write the Wi-Fi password to ``default-dvm``, as it would expose it to numerous qubes. Instead, write the data as a qube feature using the :samp:`vm-config.{X}` syntax, where :samp:`{X}` is any valid identification string you'd like.
 
 .. note:: It is up to each qube to handle these entries. In this case, :program:`nmcli` command should be called from somewhere during qube startup to configure the network, it is up to the user to manage it.
 
