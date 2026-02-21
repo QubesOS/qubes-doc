@@ -64,7 +64,9 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
 
-  Kernel option :code:`systemd.unit` to `graphical.target` overrides the default boot target.
+  Kernel option :code:`systemd.unit` overrides the default boot target.
+
+3. Restart the qube for changes to take effect
 
 Revert to seamless mode on Debian guest
 ---------------------------------------
@@ -74,15 +76,32 @@ Disable seamless mode on Fedora guest
 
 In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
+1. Disable qubes os xorg config, set a password:
+
   .. code:: console
 
-    [user@dom0 ~]$ qvm-run -u root full_desktop -- systemctl set-default graphical.target
+    [user@dom0 ~]$ qvm-run -u root full_desktop -- mv /etc/X11/xorg-qubes.conf /etc/X11/xorg-qubes.conf.backup
     [user@dom0 ~]$ qvm-run -u root full_desktop -- 'echo "user" | passwd --stdin user'
+
+  This is merely an example, you are free to handle the configuration however you want. Just keep a copy to revert back to.
+
+  .. TODO: try fixing fedora autologin
+
+2. Configure qube preferences
+
+  .. code:: console
+
     [user@dom0 ~]$ qvm-features --unset full_desktop gui
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
     [user@dom0 ~]$ qvm-prefs full_desktop kernel ''
     [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
     [user@dom0 ~]$ qvm-service full_desktop lightdm on
+
+  Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
+
+  Kernel option :code:`systemd.unit` overrides the default boot target.
+
+3. Restart the qube for changes to take effect
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
