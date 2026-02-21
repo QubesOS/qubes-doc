@@ -56,16 +56,15 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-prefs full_desktop debug true
+    [user@dom0 ~]$ qvm-features --unset full_desktop gui
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
+    [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
     [user@dom0 ~]$ qvm-prefs full_desktop kernelopts "systemd.unit=graphical.target"
     [user@dom0 ~]$ qvm-service full_desktop lightdm on
 
-  Combination of debug mode and hvm virt_mode tell QubesOS to display viewer window for a qube without working gui agent.
-
   Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
 
-  Setting kernel option :code:`systemd.unit` to `graphical.target`
+  Kernel option :code:`systemd.unit` to `graphical.target` overrides the default boot target.
 
 Revert to seamless mode on Debian guest
 ---------------------------------------
@@ -77,14 +76,13 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. code:: console
 
-    [user@dom0 ~]$ vm-run -u root full_desktop -- systemctl set-default graphical.target
-    [user@dom0 ~]$ vm-run -u root full_desktop -- 'echo "user" | passwd --stdin user'
-    [user@dom0 ~]$ vm-prefs full_desktop debug true
-    [user@dom0 ~]$ vm-prefs full_desktop virt_mode hvm
-    [user@dom0 ~]$ vm-prefs full_desktop kernel ''
-    [user@dom0 ~]$ vm-prefs full_desktop memory 1000
-    [user@dom0 ~]$ vm-prefs full_desktop maxmem 0
-    [user@dom0 ~]$ vm-service full_desktop lightdm on
+    [user@dom0 ~]$ qvm-run -u root full_desktop -- systemctl set-default graphical.target
+    [user@dom0 ~]$ qvm-run -u root full_desktop -- 'echo "user" | passwd --stdin user'
+    [user@dom0 ~]$ qvm-features --unset full_desktop gui
+    [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
+    [user@dom0 ~]$ qvm-prefs full_desktop kernel ''
+    [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
+    [user@dom0 ~]$ qvm-service full_desktop lightdm on
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
