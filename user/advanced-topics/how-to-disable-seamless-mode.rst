@@ -2,7 +2,7 @@
 How to disable seamless mode
 ============================
 
-By default, vm applications are seamlessly integrated into dom0's desktop environment. This guide explains how to disable this seamless mode in order to get separate desktop inside of an otherwise integrated vm.
+By default, vm applications are seamlessly integrated into dom0's desktop environment. This article explains how to disable seamless mode in order to get separate desktop inside of an otherwise integrated vm.
 
 Visually, it turns this:
 
@@ -31,7 +31,11 @@ Graphical viewer window for a qube is displayed when it has feature :code:`gui` 
 
 .. note::
 
-   For more detailed explanation of this behaviour see :code:`gui` and :code:`gui-emulated` features in the "LIST OF KNOWN FEATURES" section in the :code:`qvm-features` manual.
+   For more detailed explanation of this behaviour see :code:`gui` and :code:`gui-emulated` features in the "LIST OF KNOWN FEATURES" section of :code:`qvm-features` manual.
+
+.. warning::
+
+   You might need to provision more initial memory to your qubes in order for them to boot.
 
 Moreover, debian and fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
 
@@ -51,6 +55,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 2. Configure qube preferences
 
   .. code:: console
+
     [user@dom0 ~]$ qvm-prefs full_desktop debug true
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
     [user@dom0 ~]$ qvm-prefs full_desktop kernelopts "systemd.unit=graphical.target"
