@@ -119,7 +119,7 @@ Graphical package manager support in templates
 
  **Expected results**: 
 - select a basic software manager for each template
-- ensure necessary tweaks so that they can access internet via qubes network proxy
+- ensure necessary tweaks so that they can access internet via `qubes updates proxy https://doc.qubes-os.org/en/latest/user/how-to-guides/how-to-install-software.html#updates-proxy`_
 - an "Add Software" context button in Qubes menu that works across different templates
 
  **Difficulty**: medium
