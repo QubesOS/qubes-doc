@@ -90,25 +90,25 @@ Project Ideas
 
 These project ideas were contributed by our developers and may be incomplete. If you are interested in submitting a proposal based on these ideas, you should contact the :ref:`qubes-devel mailing list <introduction/support:qubes-devel>` and associated GitHub issue to learn more about the idea.
 
-.. code:: markdown
+.. To add a project, copy the following template and unindent it:
 
-      ### Adding a Proposal
+   Adding a Proposal
+   ^^^^^^^^^^^^^^^^^
 
-      **Project**: Something that you're totally excited about
+   **Project**: Something that you're totally excited about
 
-      **Brief explanation**: What is the project, where does the code live?
+   **Brief explanation**: What is the project, where does the code live?
 
-      **Expected results**: What is the expected result in the timeframe given
+   **Expected results**: What is the expected result in the timeframe given
 
-      **Difficulty**: easy / medium / hard
+   **Difficulty**: easy / medium / hard
 
-      **Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
-      If applicable, links to more information or discussions
+   **Knowledge prerequisite**: Pre-requisites for working on the project. What coding language and knowledge is needed?
+   If applicable, links to more information or discussions
 
-      **Size of the project**: either 175 hours (medium) or 350 hours (large)
+   **Size of the project**: either 175 hours (medium) or 350 hours (large)
 
-      **Mentor**: Name and email address.
-
+   **Mentor**: Name and email address.
 
 
 Qubes as a Vagrant provider
