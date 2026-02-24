@@ -16,7 +16,7 @@ You don’t have to be a proven developer – in fact, this whole program is mea
 You should start learning the components that you plan on working on before the start date. Qubes developers are available on the :ref:`mailing lists <introduction/support:qubes-devel>` for help. The GSoC timeline reserves a lot of time for bonding with the project – use that time wisely. Good communication is key, you should plan to communicate with your team daily and formally report progress and plans weekly. Students who neglect active communication will be failed.
 
 Overview of Steps
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 - Join the :ref:`qubes-devel list <introduction/support:qubes-devel>` and introduce yourself, and meet your fellow developers
@@ -42,7 +42,7 @@ Coming up with an interesting idea that you can realistically achieve in the tim
 Before the summer starts, there are some preparatory tasks which are highly encouraged. First, if you aren’t already, definitely start using Qubes as your primary OS as soon as possible! Also, it is encouraged that you become familiar and comfortable with the Qubes development workflow sooner than later. A good way to do this (and also a great way to stand out as an awesome applicant and make us want to accept you!) might be to pick up some issues from `qubes-issues <https://github.com/QubesOS/qubes-issues/issues>`__ (our issue-tracking repo) and submit some patches addressing them. Some suitable issues might be those with tags `“help wanted” and “P: minor” <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22P%3A%20minor%22%20label%3A%22help%20wanted%22>`__ (although more significant things are also welcome, of course). Doing this will get you some practice with :doc:`qubes-builder </developer/building/qubes-builder-v2>`, our code-signing policies, and some familiarity with our code base in general so you are ready to hit the ground running come summer.
 
 Contributor proposal guidelines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 A project proposal is what you will be judged upon. Write a clear proposal on what you plan to do, the scope of your project, and why we should choose you to do it. Proposals are the basis of the GSoC projects and therefore one of the most important things to do well.
@@ -110,30 +110,30 @@ These project ideas were contributed by our developers and may be incomplete. If
       **Mentor**: Name and email address.
 
 Graphical package manager support in templates
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- **Project**: Graphical package manager support in templates
+**Project**: Graphical package manager support in templates
 
 
- **Brief explanation**: Most of the actions needed to be performed by a Qubes OS user can be done easily with GUI tools and without the command line -- except installing software in a template. This project aims to fill this gap by ensuring a smooth user experience across different default templates (Fedora, Debian, Whonix) to have GUI-based software management. for more info please see: https://github.com/QubesOS/qubes-issues/issues/6310 as well as https://forum.qubes-os.org/t/how-to-fix-software-in-templates-to-install-packages-using-a-gui/20944
+**Brief explanation**: Most of the actions needed to be performed by a Qubes OS user can be done easily with GUI tools and without the command line -- except installing software in a template. This project aims to fill this gap by ensuring a smooth user experience across different default templates (Fedora, Debian, Whonix) to have GUI-based software management. for more info please see: https://github.com/QubesOS/qubes-issues/issues/6310 as well as https://forum.qubes-os.org/t/how-to-fix-software-in-templates-to-install-packages-using-a-gui/20944
 
- **Expected results**: 
+**Expected results**: 
 - select a basic software manager for each template
-- ensure necessary tweaks so that they can access internet via `qubes updates proxy https://doc.qubes-os.org/en/latest/user/how-to-guides/how-to-install-software.html#updates-proxy`_
+- ensure necessary tweaks so that they can access internet via `qubes updates proxy` :ref:`user/how-to-guides/how-to-install-software:Updates proxy`
 - an "Add Software" context button in Qubes menu that works across different templates
 
- **Difficulty**: medium
+**Difficulty**: medium
 
- **Knowledge prerequisite**: 
+**Knowledge prerequisite**: 
 - Python
 
- **Size of the project**: 175 hours
+**Size of the project**: 175 hours
 
- **Mentor**: Marta Marczykowska-Górecka <marmarta@invisiblethingslab.com>
+**Mentor**: Marta Marczykowska-Górecka <marmarta@invisiblethingslab.com>
 
 
 Qubes as a Vagrant provider
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Qubes as a Vagrant provider
@@ -171,7 +171,7 @@ Qubes as a Vagrant provider
 **Mentor**: `Wojtek Porczyk <https://www.qubes-os.org/team/>`__, `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
 
 System health monitor
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: System health monitor
@@ -217,7 +217,7 @@ System health monitor
 **Mentor**: `Marta Marczykowska-Górecka <https://www.qubes-os.org/team/>`__, `Benjamin Grande <https://www.qubes-os.org/team/>`__
 
 Mechanism for maintaining in-VM configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Mechanism for maintaining in-VM configuration
@@ -249,7 +249,7 @@ Mechanism for maintaining in-VM configuration
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
 
 Qubes Live USB
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Revive Qubes Live USB, integrate it with installer
@@ -287,7 +287,7 @@ Qubes Live USB
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
 
 LogVM(s)
-^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: LogVM(s)
@@ -325,7 +325,7 @@ LogVM(s)
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
 
 Whonix IPv6 and nftables support
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Whonix IPv6 and nftables support
@@ -363,7 +363,7 @@ Whonix IPv6 and nftables support
 **Mentor**: `Patrick Schleizer <https://www.qubes-os.org/team/>`__
 
 GUI agent for Windows 8/10
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: GUI agent for Windows 8/10
@@ -399,7 +399,7 @@ Generalize the Qubes PDF Converter to other types of files
 **Mentors**: Andrew Clausen and Jean-Philippe Ouellet
 
 Progress towards reproducible builds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Progress towards reproducible builds
@@ -427,7 +427,7 @@ for more information and qubes-specific background.
 **Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
 
 Porting Qubes to ARM/aarch64
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Porting Qubes to ARM/aarch64
@@ -473,7 +473,7 @@ Some related discussion:
 **Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
 
 Android development in Qubes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Research running Android in Qubes VM (probably HVM) and connecting it to Android Studio
@@ -499,7 +499,7 @@ Android development in Qubes
 **Mentor**: Inquire on :ref:`qubes-devel <introduction/support:qubes-devel>`.
 
 Admin API Fuzzer
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Develop a `Fuzzer <https://en.wikipedia.org/wiki/Fuzzing>`__ for the :doc:`Qubes OS Admin API </developer/services/admin-api>`.
@@ -541,7 +541,7 @@ Since the Admin API is continuously growing and changing, continuous security as
 **Mentor**: Inquire on :ref:`qubes-devel <introduction/support:qubes-devel>`.
 
 Secure Boot support
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Add support for protecting boot binaries with Secure Boot technology, using user-generated keys.
@@ -573,7 +573,7 @@ Secure Boot support
 **Mentor**: `Marek Marczykowski-Górecki <https://www.qubes-os.org/team/>`__
 
 Reduce logging of Disposable VMs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Project**: Reduce logging of Disposable VMs
