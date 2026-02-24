@@ -92,7 +92,7 @@ When using a USB keyboard on a system with multiple USB controllers, we recommen
 
 5. Save and close the file.
 
-6. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg`` (legacy boot) or ``grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`` (EFI) in dom0.
+6. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg``
 
 7. Reboot.
 
@@ -182,17 +182,11 @@ USB controllers are automatically hidden from dom0 if you opt to create a USB qu
 
 2. Hide (i.e., blacklist) all USB controllers from dom0.
 
+.. warning:: **If you use a USB keyboard**, hiding your USB controllers from dom0 could lock you out of your system. See :ref:`user/advanced-topics/usb-qubes:usb keyboards` for more information.
 
+.. warning:: **Using a USB AEM device** requires dom0 to have access to the USB controller to which your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM will hang.
 
-**Warning:** If you use a USB keyboard, hiding your USB controllers from dom0 could lock you out of your system. See :ref:`user/advanced-topics/usb-qubes:usb keyboards` for more information.
-
-**Warning:** Using a USB AEM device requires dom0 to have access to the USB controller to which your USB AEM device is attached. If dom0 cannot read your USB AEM device, AEM will hang.
-
-The following procedure will hide all USB controllers from dom0.
-
-GRUB2 (legacy boot or EFI)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+The following procedure will hide all USB controllers from dom0:
 
 1. Open the file ``/etc/default/grub`` in dom0.
 
@@ -202,21 +196,14 @@ GRUB2 (legacy boot or EFI)
 
 4. Save and close the file.
 
-5. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg`` (legacy boot) or ``grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg`` (EFI) in dom0.
+5. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg``
 
 6. Reboot.
-
-
 
 How to remove a USB qube
 ------------------------
 
-
-**Warning:** This procedure will result in your USB controller(s) being attached directly to dom0.
-
-GRUB2
-^^^^^
-
+.. warning:: This procedure will result in your USB controller(s) being attached directly to dom0.
 
 1. Shut down the USB qube.
 
@@ -233,25 +220,3 @@ GRUB2
 7. Run the command ``grub2-mkconfig -o /boot/grub2/grub.cfg`` in dom0.
 
 8. Reboot.
-
-
-
-Qubes 4.0: EFI
-^^^^^^^^^^^^^^
-
-
-1. Shut down the USB qube.
-
-2. In Qubes Manager, right-click on the USB qube and select “Remove VM.”
-
-3. Open the file ``/boot/efi/EFI/qubes/xen.cfg`` in dom0.
-
-4. Find the line(s) that begins with ``kernel=``.
-
-5. If ``rd.qubes.hide_all_usb`` appears anywhere in those lines, remove it.
-
-6. Save and close the file.
-
-7. Reboot.
-
-

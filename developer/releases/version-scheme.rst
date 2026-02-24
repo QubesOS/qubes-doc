@@ -29,15 +29,19 @@ When enough progress has been made, we announce the first stable release, e.g. `
 
 Please see :doc:`issue tracking </introduction/issue-tracking>` for information about how releases are handled in the issue tracker.
 
-Release schedule
-----------------
+.. _release-schedule-policy:
+
+Release schedule policy
+-----------------------
 
 
-There is no specific schedule for releases other than a general roadmap. When the time comes, we declare a feature freeze, tag ``-rc1``, and release an ISO. From this point on, no new features are accepted, and our schedule begins.
+There is **no specific schedule for releases** other than a general roadmap. When the time comes, we declare a feature freeze, tag ``-rc1``, and release an ISO. From this point on, no new features are accepted, and our schedule begins.
 
-Each release candidate period is as follows: For the first two weeks, we accept and assign bug reports to be fixed before the next release candidate. For the next two weeks, we generally focus on fixing assigned bug reports, so issues discovered during this period may be postponed until a later RC. Finally, there is a one week current-testing freeze, during which time no new packages are released, in the hope that they will be installed and tested by wider user base.
+Each release candidate period is as follows:
 
-The next RC is released five weeks after the former. All packages are published in the ``current`` repository, and the cycle starts over. There should always be at least one release candidate before the final release.
+1. For the first two weeks, **we accept and assign bug reports** to be fixed before the next release candidate.
+2. For the next two weeks, we generally **focus on fixing assigned bug reports**, so issues discovered during this period may be postponed until a later RC.
+3. Finally, there is a one week current-testing freeze, during which time **no new packages are released**, in the hope that they will be installed and tested by wider user base.
 
 .. list-table::
    :widths: 26 26
@@ -53,8 +57,11 @@ The next RC is released five weeks after the former. All packages are published 
    * - ``current-testing`` freeze
      - one week
 
+The next RC is usually **released five weeks after the former**. All packages are published in the ``current`` repository, and the cycle starts over. There should always be at least one release candidate before the final release.
 
 Starting with the second cycle (that is, after ``-rc1``), two weeks into the cycle (after the primary bug-reporting period), we decide whether there should be another RC. If, based on the bugs that have been reported, we decide that the latest RC will be designated as the stable release, then we decide on its release date, which should be no more than one week later.
+
+To get a real life example, check the :doc:`4_1/schedule`.
 
 |Release cycle|
 

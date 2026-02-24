@@ -54,7 +54,7 @@ Core documentation for Qubes users.
    :caption: Downloading, Installing, and Upgrading Qubes
 
    Download Qubes OS <https://www.qubes-os.org/downloads/>
-   Download mirrors <https://www.qubes-os.org/downloads/mirrors/>
+   user/downloading-installing-upgrading/download-mirrors
    user/downloading-installing-upgrading/installation-guide
    user/downloading-installing-upgrading/install-security
    user/downloading-installing-upgrading/upgrade/upgrade
@@ -101,7 +101,7 @@ Core documentation for Qubes users.
    user/templates/debian/debian-upgrade
    user/templates/minimal-templates
    user/templates/xfce-templates
-   user/templates/windows/windows
+   user/templates/windows/index
 
 
 .. _troubleshooting:
@@ -125,7 +125,6 @@ Core documentation for Qubes users.
    user/troubleshooting/usb-troubleshooting
    user/troubleshooting/gui-troubleshooting
    user/troubleshooting/media-troubleshooting
-   user/troubleshooting/vpn-troubleshooting
 
 
 .. _security:
@@ -140,7 +139,8 @@ Core documentation for Qubes users.
    user/security-in-qubes/vm-sudo
    user/security-in-qubes/device-handling-security
    user/security-in-qubes/anti-evil-maid
-   user/security-in-qubes/split-gpg
+   Split GPG-1 <user/security-in-qubes/split-gpg>
+   user/security-in-qubes/split-gpg-2
    user/security-in-qubes/mfa
    user/security-in-qubes/ctap-proxy
 
@@ -251,6 +251,7 @@ Core documentation for Qubes developers and advanced users.
    developer/system/template-implementation
    developer/system/audio
    developer/system/template-manager
+   developer/system/vm-sudo.rst
 
 
 .. _services:

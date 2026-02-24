@@ -125,7 +125,7 @@ Here are the steps to fix this. Note that this allows sys-net and sys-usb to tak
 
 2. Add ``qubes.enable_insecure_pv_passthrough`` to ``GRUB_CMDLINE_LINUX`` in ``/etc/default/grub``
 
-3. Run ``sudo grub2-mkconfig -o /boot/efi/EFI/qubes/grub.cfg``. If you are using a non-UEFI BIOS (where ``/boot/efi/EFI`` doesn’t exist), use the command ``sudo grub-mkconfig -o /boot/grub2/grub.cfg`` instead.
+3. Run ``sudo grub-mkconfig -o /boot/grub2/grub.cfg``
 
 4. Reboot
 

@@ -6,15 +6,11 @@ Firewall
 Introduction
 ------------
 
-| This page explains use of the firewall in Qubes 4.2, using ``nftables``.
-| In Qubes 4.1, all firewall components used ``iptables``. For details of that usage see :doc:`here </user/security-in-qubes/firewall_4.1>`.
-
-
 Understanding firewalling in Qubes
 ----------------------------------
 
 
-Every qube in Qubes is connected to the network via a FirewallVM, which is used to enforce network-level policies. By default there is one default FirewallVM, but the user is free to create more, if needed.
+Every qube in Qubes OS is connected to the network via a :term:`net qube`, which is used to enforce network-level policies. By default there is one default :term:`net qube` used as firewall, but the user is free to create more, if needed.
 
 For more information, see the following:
 
@@ -22,26 +18,58 @@ For more information, see the following:
 
 - https://blog.invisiblethings.org/2011/09/28/playing-with-qubes-networking-for-fun.html
 
+.. note:: Connections to :ref:`updates proxy <user/how-to-guides/how-to-install-software:Using the updates proxy>` are not made over a network so can not be allowed or blocked with firewall rules, but are controlled using the relevant policy file.
 
+Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment the rules take effect* (including each time the qube or netvm starts), and not on the fly for each new connection. This means it will not work reliably for servers that have different IPs at different times as a result of DNS-based load balancing.
 
 How to edit rules
 -----------------
 
+You have several methods to edit the rules:
 
-In order to edit rules for a given qube, select it in the Qube Manager and press the “firewall” button.
+* using the :program:`qube's Settings`
+* using the :program:`qvm-firewall` command-line program in dom0. This gives you greater control than the previous method.
+* from the qube itself, using standard firewalling controls
+
+How to edit rules using qube's Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to edit rules for a given qube, open the qube's Settings and go to the :guilabel:`Firewall rules` tab.
 
 .. figure:: /attachment/doc/r4.0-manager-firewall.png
    :alt: r4.0-manager-firewall.png
 
+.. note:: ICMP and DNS are not accessible with this method, but can be changed via the :program:`qvm-firewall` program.
+
+If you previously used the :program:`qvm-firewall` program with a qube, the settings will warn you that:
+
+    Firewall has been modified manually. Please use the 'qvm-firewall' command in dom0 for any further configuration.
+
+In that case, you can remove every firewall rules by using the following command:
+
+.. code:: console
+
+   [user@dom0] $ qvm-firewall <QUBE> reset
+
+Where :samp:`{QUBE}` is the name of the qube.
+
+How to edit rules using :program:`qvm-firewall`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+See: :doc:`core-admin-client:manpages/qvm-firewall`
+
+How to edit rules from the qube itself
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. admonition:: See also
+
+   :ref:`user/security-in-qubes/firewall:where to put firewall rules`.
+
+You can also manually create rules in the qube itself using standard firewalling controls. In complex cases, it might be appropriate to load a ruleset using ``nft -f /path/to/ruleset`` called from ``/rw/config/rc.local``, the ruleset file can be populated from the current ruleset using ``nft list ruleset > /path/to/ruleset``, you should add ``flush ruleset`` at the top of the file to remove all existing rules before loading them. if you do this, be aware that ``rc.local`` is called *after* the network is up, so local rules should not be relied upon to block leaks.
 
 
-If the qube is running, you can open Settings from the Qube Popup Menu.
-
-ICMP and DNS are not accessible in the GUI, but can be changed via ``qvm-firewall`` described below. Connections to Updates Proxy are not made over a network so can not be allowed or blocked with firewall rules, but are controlled using the relevant policy file (see :doc:`R4.x Updates proxy </user/how-to-guides/how-to-install-software>` for more detail).
-
-Note that if you specify a rule by DNS name it will be resolved to IP(s) *at the moment the rules take effect* (including each time the qube or netvm starts), and not on the fly for each new connection. This means it will not work reliably for servers that have different IPs at different times as a result of DNS-based load balancing.
-
-Instead of using the firewall GUI, you can use the ``qvm-firewall`` command in Dom0 to edit the firewall rules by hand. This gives you greater control than by using the GUI.
+Where are the rules?
+--------------------
 
 The firewall rules for each qube are saved in an XML file in that qube’s directory in dom0:
 
@@ -49,29 +77,24 @@ The firewall rules for each qube are saved in an XML file in that qube’s direc
 
       /var/lib/qubes/appvms/<vm-name>/firewall.xml
 
+Rules are implemented on the :term:`net qube`, so: if a rule is set for a qube that uses *sys-firewall* as its net qube, *sys-firewall* will implement the rules.
 
+Reconnecting qubes after a net qube reboot
+------------------------------------------
 
-Rules are implemented on the netvm.
-
-You can also manually create rules in the qube itself using standard firewalling controls. See :ref:`user/security-in-qubes/firewall:where to put firewall rules`. In complex cases, it might be appropriate to load a ruleset using ``nft -f /path/to/ruleset`` called from ``/rw/config/rc.local``, the ruleset file can be populated from the current ruleset using ``nft list ruleset > /path/to/ruleset``, you should add ``flush ruleset`` at the top of the file to remove all existing rules before loading them. if you do this, be aware that ``rc.local`` is called *after* the network is up, so local rules should not be relied upon to block leaks.
-
-Reconnecting qubes after a NetVM reboot
----------------------------------------
-
-
-Normally Qubes doesn’t let the user stop a NetVM if there are other qubes running which use it as their own NetVM. But in case the NetVM stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes R4.x will often automatically repair the connection. If it does not, then there is an easy way to restore the connection to the NetVM by issuing in dom0:
+Qubes OS tries to prevent stopping a net qube if there are other qubes running which use it as their own net qube. But in case the net qube stops for whatever reason (e.g. it crashes, or the user forces its shutdown via qvm-kill via terminal in Dom0), Qubes OS will often automatically repair the connection. If it does not, then there is an easy way to restore the connection to the net qube by issuing the following command in dom0:
 
 .. code:: console
 
-      $ qvm-prefs <vm> netvm <netvm>
+      [user@dom0] $ qvm-prefs <QUBE> netvm <NET_QUBE>
 
+Where :samp:`{<QUBE>}` is the qube connected to the stopped net qube and :samp:`{<NET_QUBE>}` is the net qube that stopped.
 
-
-Normally qubes do not connect directly to the actual NetVM (sys-net by default) which has networking devices, but rather to the default sys-firewall first, and in most cases it would be the NetVM that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is only necessary to issue the above command once, for the sys-firewall (this assumes default VM-naming used by the default Qubes installation):
+A qube should normally not connect directly to the actual net qube which has networking devices (*sys-net* by default), but rather to another net qube first (*sys-firewall* by default). In most cases it would be the net qube with networking devices that will crash, e.g. in response to S3 sleep/restore or other issues with WiFi drivers. In that case it is only necessary to issue the above command once, for the *sys-firewall* qube (following named conventions used by the default Qubes installation):
 
 .. code:: console
 
-      $ qvm-prefs sys-firewall netvm sys-net
+      [user@dom0] $ qvm-prefs sys-firewall netvm sys-net
 
 
 
@@ -79,7 +102,7 @@ Network service qubes
 ---------------------
 
 
-Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, …) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons. In particular, if you want to ensure proper functioning of the Qubes firewall, you should not tinker with nftables rules in such qubes.
+Qubes does not support running any networking services (e.g. VPN, local DNS server, IPS, …) directly in a qube that is used to run the Qubes firewall service (usually sys-firewall) for good reasons. In particular, if you want to ensure proper functioning of the Qubes firewall, you should not tinker with firewall rules in such qubes.
 
 Instead, you should deploy a network infrastructure such as
 
@@ -89,7 +112,7 @@ Instead, you should deploy a network infrastructure such as
 
 
 
-Thereby sys-firewall-1 is only needed if you have other client qubes connected there, or you want to manage the traffic of the local network service qube. The sys-firewall-2 proxy ensures that:
+Thereby *sys-firewall-1* is only needed if you have other client qubes connected there, or you want to manage the traffic of the local network service qube. The *sys-firewall-2* proxy ensures that:
 
 1. Firewall changes done in the network service qube cannot render the Qubes firewall ineffective.
 
@@ -99,9 +122,11 @@ Thereby sys-firewall-1 is only needed if you have other client qubes connected t
 
 
 
-If you adopt this model, you should be aware that all traffic will arrive at the ``network service qube`` appearing to originate from the IP address of ``sys-firewall-2``.
+If you adopt this model, you should be aware that all traffic will arrive at the *network service qube* appearing to originate from the IP address of *sys-firewall-2*.
 
-For the VPN service please also look at the `VPN documentation <https://forum.qubes-os.org/t/19061>`__.
+.. admonition:: See also
+
+   For the VPN service, see the `Meta-topic: List of all VPN guides <https://forum.qubes-os.org/t/meta-topic-list-of-all-vpn-guides/38466>`__ on the forum.
 
 Enabling networking between two qubes
 -------------------------------------
@@ -581,4 +606,9 @@ You can revert to the original ruleset with the following commands:
 
       $ nft flush ruleset && nft -f nft_backup
 
+Historical note
+---------------
 
+In Qubes 4.1 and prior versions, all firewall components used ``iptables``.
+
+**See also:** :ref:`Known issues in Qubes OS 4.2 release notes <developer/releases/4_2/release-notes:Known issues>`

@@ -1,0 +1,20 @@
+{% extends "!footer.html" %}
+
+{% block contentinfo %}
+  {{ super() }}
+  
+  {% if last_edition_datetime %}
+  <p>Last edition of the current page: 
+  {% if pagename -%}
+  <a href="https://github.com/{{ github_user }}/{{ github_repo }}/commits/{{ github_version }}/{{ pagename }}{{page_source_suffix}}" title="History of the source file of the current page">
+  {%- endif -%}
+  {{ last_edition_datetime }}
+  {%- if pagename -%}
+    </a>
+  {%- endif -%}
+  </p>
+  {% endif %}
+<p><strong>Need help?</strong> search <a href="{{ pathto('/introduction/issue-tracking') }}#search-tips">the issue tracker</a>, <a href="{{ pathto('/introduction/support') }}#mailing-lists">the mailing-lists</a>, <a href="https://forum.qubes-os.org">the forum</a>, or <a href="{{ pathto('/introduction/support') }}#chat">the chatrooms</a>. If you don't find the solution, feel free to <a href="{{ pathto('/introduction/support') }}#i-didn-t-find-a-solution-or-an-answer">ask for help</a>.</p>
+
+  {{ super() }}
+{% endblock %}

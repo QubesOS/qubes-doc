@@ -1,8 +1,6 @@
-:orphan:
-
-=================================
-Passwordless root access in qubes
-=================================
+=======================================
+Passwordless root access implementation
+=======================================
 
 
 The rationale behind passwordless root in qubes is set out :doc:`here </user/security-in-qubes/vm-sudo>`. Implementation is by the qubes-core-agent-passwordless-root package.

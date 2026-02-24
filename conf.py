@@ -36,6 +36,7 @@ extensions = [
   'sphinx_reredirects', # Manage redirects in the documentation
   'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
   'youtube_frame', # Embed YouTube videos
+  'last_edition',
 ]
 
 # Redirects for specific URLs as fall back
@@ -50,6 +51,8 @@ redirects = {
         "https://www.qubes-os.org/downloads/",
 
     # user/templates/windows URLs
+    "user/templates/windows/windows":
+        "/user/templates/windows/",
     "user/templates/windows/windows-qubes-4-1":
         "qubes-windows.html",
     "user/templates/windows/windows-qubes-4-0":
@@ -81,6 +84,9 @@ exclude_patterns = [
   '.venv',
 ]
 
+# -- -- Options for templating -----------------------------------------------
+
+templates_path = ['_templates']
 
 # -- Builder options ---------------------------------------------------------
 
@@ -136,9 +142,13 @@ html_context = {
     "display_github": True,
     "github_user": "QubesOs",
     "github_repo": "qubes-doc",
-    "github_version": "rst",
+    "github_version": "main",
     "conf_py_path": "/",
 }
+
+# The onion site only mirrors the content of the documentation built as /en/latest/
+if os.environ.get('READTHEDOCS_LANGUAGE') == 'en' and os.environ.get('READTHEDOCS_VERSION') == 'latest':
+    html_context["onion_location"] = "http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion"
 
 # -- -- Options for internationalisation -------------------------------------
 
@@ -153,6 +163,14 @@ gettext_uuid = True
 
 # Define a block of reusable reStructuredText (reST) snippets, warnings etc. that Sphinx automatically appends to every source file before it is parsed
 rst_epilog = """
-.. |debian-codename| replace:: bookworm
-.. |debian-version| replace:: 12
+.. |debian-codename| replace:: trixie
+.. |debian-version| replace:: 13
+.. |qubes-logo-icon| image:: /attachment/icons/128x128/apps/qubes-logo-icon.png
+   :height: 1em
+   :class: no-scaled-link
+   :alt: Qubes logo icon
 """
+
+# -- -- Options for the nitpicky mode ----------------------------------------
+
+nitpicky = True

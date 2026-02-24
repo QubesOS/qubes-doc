@@ -108,10 +108,14 @@ The same mock Qubes can also be used to write tests. You can use the wrappers ab
                                     'clockvm', b'test-blue')] = b'0\x00'
           basics_handler.save()
 
-
 If the call is made correctly, the test will continue successfully; if an unexpected call is made, the test will fail.
 
 Caution: the mock Qubes object does not react to changes like a normal Qubes object does. Further queries to the test object will continue to return initial values.
 
 .. |Qubes Manager running MockQubesComplete| image:: /attachment/doc/doc-mock-app-ex1.png
 
+
+More information
+----------------
+
+For more insight into developing GUI tools for Qubes and some UX tips and tricks, you can watch marmarta's talk from the Qubes OS Summit `Design for Hackers and How To Contribute to GUI Tools <https://www.youtube.com/watch?v=jJWmqcxiHZ8>`__.

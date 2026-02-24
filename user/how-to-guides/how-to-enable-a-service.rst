@@ -9,6 +9,8 @@ To enable a :doc:`service </user/advanced-topics/qubes-service>` in a qube there
 
 You might have to restart the qube for changes to be reflected.
 
+.. _how-to-enable-a-service-in-the-settings:
+
 How to enable a service in the :program:`Settings`
 ---------------------------------------------------
 
