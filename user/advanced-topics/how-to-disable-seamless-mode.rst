@@ -22,8 +22,8 @@ See the following topics on using VNC:
 - `original instruction by unman <https://forum.qubes-os.org/t/automatic-startup-of-gnome-environement/26526/25>`__
 - `most recent discussion containing information about this <https://forum.qubes-os.org/t/rejecting-hard-work-of-qubes-os-developers-gui-integration/38817/7>`__
 
-Procedure overview
-------------------
+Overview
+--------
 
 In its simplest form disabling seamless mode is done by disabling or stopping :code:`qubes-gui-agent` service, but it doesn't provide any graphical interface with the qube by itself.
 
@@ -39,20 +39,17 @@ Graphical viewer window for a qube is displayed when it has feature :code:`gui` 
 
 Moreover, debian and fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
 
+Limitations
+^^^^^^^^^^^
+
+Inter-qube clipboard feature relies on :code:`qubes-gui-agent`. It does not work when seamless mode is off.
+
 Disable seamless mode on Debian guest
 -------------------------------------
 
 In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
-1. Disable qubes os xorg config:
-
-  .. code:: console
-
-    [user@dom0 ~]$ qvm-run -u root full_desktop -- mv /etc/X11/xorg-qubes.conf /etc/X11/xorg-qubes.conf.backup
-
-  This is merely an example, you are free to handle the configuration however you want. Just keep a copy to revert back to.
-
-2. Configure qube preferences
+#. Configure qube preferences
 
   .. code:: console
 
@@ -66,10 +63,21 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Kernel option :code:`systemd.unit` overrides the default boot target.
 
-3. Restart the qube for changes to take effect
+#. Restart the qube for changes to take effect
 
 Revert to seamless mode on Debian guest
 ---------------------------------------
+
+To revert, simply undo the configuration changes:
+
+  .. code:: console
+
+    [user@dom0 ~]$ qvm-run -u root full_desktop -- mv /etc/X11/xorg-qubes.conf /etc/X11/xorg-qubes.conf.backup
+    [user@dom0 ~]$ qvm-features full_desktop gui 1
+    [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
+    [user@dom0 ~]$ qvm-prefs -D full_desktop kernelopts
+    [user@dom0 ~]$ qvm-service full_desktop lightdm off
+
 
 Disable seamless mode on Fedora guest
 -------------------------------------
@@ -105,4 +113,3 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
-
