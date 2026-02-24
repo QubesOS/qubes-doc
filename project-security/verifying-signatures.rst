@@ -37,6 +37,8 @@ We use `PGP <https://en.wikipedia.org/wiki/Pretty_Good_Privacy>`__ (specifically
 
 Throughout this page, we’ll use GnuPG via the ``gpg2`` command. If that doesn’t work for you, try ``gpg`` instead. If that still doesn’t work, please consult the documentation for your specific program (see links above) and the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
 
+.. _how-to-import-QMSK:
+
 How to import and authenticate the Qubes Master Signing Key
 -----------------------------------------------------------
 
@@ -213,7 +215,8 @@ Now, when you import any of the release signing keys and many Qubes team member 
 
 As a final sanity check, make sure the QMSK is in your keyring with the correct trust level.
 
-.. code:: console
+.. code-block:: console
+      :emphasize-lines: 4
 
       $ gpg2 -k "Qubes Master Signing Key"
       pub   rsa4096 2010-04-01 [SC]
@@ -223,6 +226,8 @@ As a final sanity check, make sure the QMSK is in your keyring with the correct 
 
 
 If you don’t see the QMSK here with a trust level of “ultimate,” go back and follow the instructions in this section carefully and consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
+
+.. _how-to-import-RSK:
 
 How to import and authenticate release signing keys
 ---------------------------------------------------
@@ -265,7 +270,8 @@ After you have completed these two prerequisite steps, the next step is to obtai
 
 Now that you have the correct RSK, you simply need to verify that it is signed by the QMSK:
 
-.. code:: console
+.. code-block:: console
+      :emphasize-lines: 6
 
       $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
       pub   rsa4096 YYYY-MM-DD [SC]
@@ -281,7 +287,8 @@ This is just an example, so the output you receive may not look exactly the same
 
 As a final sanity check, make sure the RSK is in your keyring with the correct trust level:
 
-.. code:: console
+.. code-block:: console
+      :emphasize-lines: 4
 
       $ gpg2 -k "Qubes OS Release X Signing Key"
       pub   rsa4096 YYYY-MM-DD [SC]
@@ -297,206 +304,88 @@ How to obtain and authenticate other signing keys
 
 Please see the :doc:`Qubes security pack </project-security/security-pack>` documentation.
 
-How to verify the cryptographic hash values of Qubes ISOs
----------------------------------------------------------
-
-
-There are two ways to verify Qubes ISOs: cryptographic hash values and detached PGP signatures. Both methods are equally secure. Using just one method is sufficient to verify your Qubes ISO. Using both methods is not necessary, but you can do so if you like. One method might be more convenient than another in certain circumstances, so we provide both. This section covers cryptographic hash values. For the other method, see :ref:`project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos`.
-
-Before we proceed, you must first complete the following prerequisite steps:
-
-1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
-
-2. :ref:`Import and authenticate the Qubes Master Signing Key. <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`
-
-3. :ref:`Import and authenticate your release signing key. <project-security/verifying-signatures:how to import and authenticate release signing keys>`
-
-
-
-Each Qubes ISO is accompanied by a set of **cryptographic hash values** contained in a plain text file ending in ``.DIGESTS``, which can find on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside the ISO. This file contains the output of running several different cryptographic hash functions on the ISO (a process known as “hashing”) to obtain alphanumeric outputs known as “hash values” or “digests.”
-
-One convenient property of hash values is that they can be generated on any computer. This means, for example, that you can download a Qubes ISO on one computer, hash it, then visually compare that hash value to the one you generated or have saved on a different computer.
-
-In addition to the ``.DIGESTS`` files on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside each ISO, and you can always find all the digest files for every Qubes ISO in the :doc:`Qubes security pack </project-security/security-pack>`.
-
-If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the digest file for that ISO is ``Qubes-RX-x86_64.iso.DIGESTS``, where ``X`` is a specific release of Qubes. The digest filename is always the same as the ISO filename followed by ``.DIGESTS``. Since the digest file is a plain text file, you can open it with any text editor. Inside, you should find text that looks similar to this:
-
-.. code:: text
-
-      -----BEGIN PGP SIGNED MESSAGE-----
-      Hash: SHA256
-
-      3c951138b8b9867d8657f173c1b58b82 *Qubes-RX-x86_64.iso
-      1fc9508160d7c4cba6cacc3025165b0f996c843f *Qubes-RX-x86_64.iso
-      6b998045a513dcdd45c1c6e61ace4f1b4e7eff799f381dccb9eb0170c80f678a *Qubes-RX-x86_64.iso
-      de1eb2e76bdb48559906f6fe344027ece20658d4a7f04ba00d4e40c63723171c62bdcc869375e7a4a4499d7bff484d7a621c3acfe9c2b221baee497d13cd02fe *Qubes-RX-x86_64.iso
-      -----BEGIN PGP SIGNATURE-----
-      Version: GnuPG v2
-
-      iQIcBAEBCAAGBQJX4XO/AAoJEMsRyh0D+lCCL9sP/jlZ26zhvlDEX/eaA/ANa/6b
-      Dpsh/sqZEpz1SWoUxdm0gS+anc8nSDoCQSMBxnafuBbmwTChdHI/P7NvNirCULma
-      9nw+EYCsCiNZ9+WCeroR8XDFSiDjvfkve0R8nwfma1XDqu1bN2ed4n/zNoGgQ8w0
-      t5LEVDKCVJ+65pI7RzOSMbWaw+uWfGehbgumD7a6rfEOqOTONoZOjJJTnM0+NFJF
-      Qz5yBg+0FQYc7FmfX+tY801AwSyevj3LKGqZN1GVcU9hhoHH7f2BcbdNk9I5WHHq
-      doKMnZtcdyadQGwMNB68Wu9+0CWsXvk6E00QfW69M4d6w0gbyoJyUL1uzxgixb5O
-      qodxrqeitXQSZZvU4kom5zlSjqZs4dGK+Ueplpkr8voT8TSWer0Nbh/VMfrNSt1z
-      0/j+e/KMjor7XxehR+XhNWa2YLjA5l5H9rP+Ct/LAfVFp4uhsAnYf0rUskhCStxf
-      Zmtqz4FOw/iSz0Os+IVcnRcyTYWh3e9XaW56b9J/ou0wlwmJ7oJuEikOHBDjrUph
-      2a8AM+QzNmnc0tDBWTtT2frXcotqL+Evp/kQr5G5pJM/mTR5EQm7+LKSl7yCPoCj
-      g8JqGYYptgkxjQdX3YAy9VDsCJ/6EkFc2lkQHbgZxjXqyrEMbgeSXtMltZ7cCqw1
-      3N/6YZw1gSuvBlTquP27
-      =e9oD
-      -----END PGP SIGNATURE-----
-
-
-Four digests have been computed for this ISO. The hash functions used, in order from top to bottom, are MD5, SHA-1, SHA-256, and SHA-512. One way to verify that the ISO you downloaded matches any of these hash values is by using the respective ``*sum`` command:
-
-.. code:: console
-
-      $ md5sum -c Qubes-RX-x86_64.iso.DIGESTS
-       Qubes-RX-x86_64.iso: OK
-      md5sum: WARNING: 23 lines are improperly formatted
-      $ sha1sum -c Qubes-RX-x86_64.iso.DIGESTS
-      Qubes-RX-x86_64.iso: OK
-      sha1sum: WARNING: 23 lines are improperly formatted
-      $ sha256sum -c Qubes-RX-x86_64.iso.DIGESTS
-      Qubes-RX-x86_64.iso: OK
-      sha256sum: WARNING: 23 lines are improperly formatted
-      $ sha512sum -c Qubes-RX-x86_64.iso.DIGESTS
-      Qubes-RX-x86_64.iso: OK
-      sha512sum: WARNING: 23 lines are improperly formatted
-
-
-The ``OK`` response tells us that the hash value for that particular hash function matches. The program also warns us that there are 23 improperly formatted lines, but this is expected. This is because each file contains lines for several different hash values (as mentioned above), but each ``*sum`` program verifies only the line for its own hash function. In addition, there are lines for the PGP signature that the ``*sum`` programs do not know how to read. Therefore, it is safe to ignore these warning lines.
-
-Another way is to use ``openssl`` to compute each hash value, then compare them to the contents of the digest file:
-
-.. code:: console
-
-      $ openssl dgst -md5 Qubes-RX-x86_64.iso
-      MD5(Qubes-RX-x86_64.iso)= 3c951138b8b9867d8657f173c1b58b82
-      $ openssl dgst -sha1 Qubes-RX-x86_64.iso
-      SHA1(Qubes-RX-x86_64.iso)= 1fc9508160d7c4cba6cacc3025165b0f996c843f
-      $ openssl dgst -sha256 Qubes-RX-x86_64.iso
-      SHA256(Qubes-RX-x86_64.iso)= 6b998045a513dcdd45c1c6e61ace4f1b4e7eff799f381dccb9eb0170c80f678a
-      $ openssl dgst -sha512 Qubes-RX-x86_64.iso
-      SHA512(Qubes-RX-x86_64.iso)= de1eb2e76bdb48559906f6fe344027ece20658d4a7f04ba00d4e40c63723171c62bdcc869375e7a4a4499d7bff484d7a621c3acfe9c2b221baee497d13cd02fe
-
-
-(Notice that the outputs match the values from the digest file.)
-
-However, it is possible that an attacker replaced ``Qubes-RX-x86_64.iso`` with a malicious ISO, computed the hash values for that malicious ISO, and replaced the values in ``Qubes-RX-x86_64.iso.DIGESTS`` with his own set of values. Therefore, we should also verify the authenticity of the listed hash values. Since ``Qubes-RX-x86_64.iso.DIGESTS`` is a clearsigned PGP file, we can use GPG to verify the signature in the digest file:
-
-.. code:: console
-
-      $ gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS
-      gpg: armor header: Hash: SHA256
-      gpg: armor header: Version: GnuPG v2
-      gpg: original file name=''
-      gpg: Signature made <TIME> using RSA key ID 03FA5082
-      gpg: using PGP trust model
-      gpg: Good signature from "Qubes OS Release X Signing Key"
-      gpg: textmode signature, digest algorithm SHA256
-
-
-This is just an example, so the output you receive will not look exactly the same. What matters is the line that says ``Good signature from "Qubes OS Release X Signing Key"``. This confirms that the signature on the digest file is good.
-
-If you don’t see a good signature here, go back and follow the instructions in this section carefully, and consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
-
 How to verify detached PGP signatures on Qubes ISOs
 ---------------------------------------------------
 
+.. hint:: Before we proceed, you must have :ref:`an authentic RSK <how-to-import-RSK>`.
 
-There are two ways to verify Qubes ISOs: cryptographic hash values and detached PGP signatures. Both methods are equally secure. Using just one method is sufficient to verify your Qubes ISO. Using both methods is not necessary, but you can do so if you like. One method might be more convenient than another in certain circumstances, so we provide both. This section covers detached PGP signatures. For the other method, see :ref:`project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos`.
+Every Qubes ISO is released with a **detached PGP signature** file, which you can find on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside the ISO. If the filename of your ISO is :file:`Qubes-R{X}-86_64.iso`, then the name of the signature file for that ISO is :file:`Qubes-R{X}-86_64.iso.asc`, where :samp:`{X}` is a specific release of Qubes. The signature filename is always the same as the ISO filename followed by ``.asc``.
 
-Before we proceed, you must first complete the following prerequisite steps:
+**Download both the ISO and its signature file**. Put both of them **in the same directory**, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files, make sure to replace :samp:`Qubes-R{X}` by the correct release number (i.e.: :samp:`Qubes-R{4.3}`):
 
-1. :ref:`Install OpenPGP software. <project-security/verifying-signatures:openpgp software>`
+.. code-block:: console
+   :emphasize-lines: 5
 
-2. :ref:`Import and authenticate the Qubes Master Signing Key. <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`
+   $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
+   gpg: armor header: Version: GnuPG v1
+   gpg: Signature made <TIME> using RSA key ID 03FA5082
+   gpg: using PGP trust model
+   gpg: Good signature from "Qubes OS Release X Signing Key"
+   gpg: binary signature, digest algorithm SHA256
 
-3. :ref:`Import and authenticate your release signing key. <project-security/verifying-signatures:how to import and authenticate release signing keys>`
+This is just an example, so the output you receive will not look exactly the same. What matters is the line that says :samp:`Good signature from "Qubes OS Release {X} Signing Key"` where :samp:`{X}` is the release number. **This confirms that the signature on the ISO is good.**
 
+If you don’t see a good signature here:
 
-
-Every Qubes ISO is released with a **detached PGP signature** file, which you can find on the `downloads <https://www.qubes-os.org/downloads/>`__ page alongside the ISO. If the filename of your ISO is ``Qubes-RX-x86_64.iso``, then the name of the signature file for that ISO is ``Qubes-RX-x86_64.iso.asc``, where ``X`` is a specific release of Qubes. The signature filename is always the same as the ISO filename followed by ``.asc``.
-
-Download both the ISO and its signature file. Put both of them in the same directory, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files:
-
-.. code:: console
-
-      $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
-      gpg: armor header: Version: GnuPG v1
-      gpg: Signature made <TIME> using RSA key ID 03FA5082
-      gpg: using PGP trust model
-      gpg: Good signature from "Qubes OS Release X Signing Key"
-      gpg: binary signature, digest algorithm SHA256
-
-
-This is just an example, so the output you receive will not look exactly the same. What matters is the line that says ``Good signature from "Qubes OS Release X Signing Key"``. This confirms that the signature on the ISO is good.
-
-If you don’t see a good signature here, go back and follow the instructions in this section carefully, and consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
+* go back and follow the instructions in this section (or the previous ones) carefully;
+* or consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
 
 How to re-verify installation media after writing
 -------------------------------------------------
 
+.. note:: This is an optional section intended for advanced users.
 
-*This is an optional section intended for advanced users.*
+**Why would you want to re-verify the data that has been written when you’ve already verified the original ISO?** Well, it’s conceivable that a sufficiently sophisticated adversary might allow your initial ISO verification to succeed (so as not to alert you that your machine has been compromised, for example), then surreptitiously modify the data as it is being written onto your installation medium, resulting in a compromised Qubes installer. This might increase the odds that the attack goes undetected. One way to mitigate this risk is to re-verify the installer after writing it onto an installation medium that cannot be altered, such as a USB drive with a properly implemented physical write-protect switch and firmware that is either unflashable or cryptographically signed (or both), as discussed in our :doc:`installation security considerations </user/downloading-installing-upgrading/install-security>`.
 
-After you have authenticated your Qubes ISO and written it onto your desired medium (such as a USB drive or optical disc), you can re-verify the data that has been written to your medium. Why would you want to do this when you’ve already verified the original ISO? Well, it’s conceivable that a sufficiently sophisticated adversary might allow your initial ISO verification to succeed (so as not to alert you that your machine has been compromised, for example), then surreptitiously modify the data as it is being written onto your installation medium, resulting in a compromised Qubes installer. This might increase the odds that the attack goes undetected. One way to mitigate this risk is to re-verify the installer after writing it onto an installation medium that cannot be altered, such as a USB drive with a properly-implemented physical write-protect switch and firmware that is either unflashable or cryptographically-signed (or both), as discussed in our :doc:`installation security considerations </user/downloading-installing-upgrading/install-security>`.
+.. hint:: Before we proceed, you must have:
 
-This section will walk through an example of re-verifying the installer on such a device. We begin by assuming that you have just :ref:`written your desired Qubes ISO onto the USB drive <user/downloading-installing-upgrading/installation-guide:copying the iso onto the installation medium>`. First, unplug your USB drive and flip the write protect switch so that the data on the drive can no longer be altered. If you have a different computer from the one you used to create the installation medium, consider using that computer. If not, try to at least use a fresh VM (e.g., if it’s a Qubes system). The idea is that the original machine may have been compromised, and using a different one for re-verification forces your hypothetical adversary to compromise an additional machine in order to succeed.
+   * :ref:`an authentic RSK <how-to-import-RSK>`
+   * :ref:`written a Qubes ISO onto your desired medium <user/downloading-installing-upgrading/installation-guide:copying the iso onto the installation medium>` (such as a USB drive or optical disc)
 
-Now, our goal is to perform the same verification steps as we did with the original ISO, except, this time, we’ll be reading the installer data directly from the write-protected USB drive instead of from the original ISO file. First, let’s compute the SHA-256 hash value of the data on the drive. (This assumes you’re already familiar with :ref:`project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos`.) In order to do this, we have to know the exact size, in bytes, of the original ISO. There are two ways to get this information: from the ISO itself and from the Qubes website. Here’s an example of the first way:
+**First**, unplug your USB drive and flip the write protect switch so that the data on the drive can no longer be altered.
 
-.. code:: console
+Then, you have two options:
 
-      $ dd if=/dev/sdX bs=1M count=$(stat -c %s /path/to/iso) iflag=count_bytes | sha256sum
+* **If you have a different computer** from the one you used to create the installation medium, consider using that computer, preferably an offline computer that has never seen the original ISO.
+* **If not**, try to at least use a fresh VM (e.g., a new qube if it’s a Qubes system), preferably offline and with a storage space that is too small to hold the original ISO
 
+The idea is that the original system may have been compromised, and using a different one for re-verification forces your hypothetical adversary to compromise an additional system in order to succeed. After all, if your adversary knows the answer you’re looking for — namely, a match to the genuine ISO — and has access to that very ISO in the same re-verification environment, then there is little to prevent them from simply reading the original ISO and feeding you that result (perhaps while also reading from the USB drive and piping it into ``/dev/null`` so that you see the light on the USB drive blinking to support the illusion that the data is being read from the USB drive).
 
-(Where ``/dev/sdX`` is your USB drive and ``/path/to/iso`` is the path to your Qubes ISO.)
+Now, our goal is to perform **the same verification steps as we did with the original ISO**, except, this time, we’ll be reading the installer data directly from the write-protected USB drive instead of from the original ISO file.
 
-This command reads exactly the number of bytes of your Qubes ISO (obtained with ``stat -c %s /path/to/iso``) from the USB drive and pipes them into ``sha256sum``. The output should look something like this:
+In order to do this, **we have to know the exact size, in bytes, of the original ISO**. There are two ways to get this information:
 
-.. code:: output
-
-      0e68dd3347b68618d9e5f3ddb580bf7ecdd2166747630859b3582803f1ca8801  -
-      5523+0 records in
-      5523+0 records out
-      5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.3369 s, 75.9 MB/s
-
-
-Note that your actual SHA-256 hash value and byte number will depend on which Qubes ISO you’re using. This is just an example. Your SHA-256 hash value should match the hash value of your genuine original Qubes ISO.
-
-Now, reading the number of bytes directly from the ISO is fine, but you may be concerned that a sufficiently sophisticated adversary may have compromised the machine on which you’re performing this re-verification and may therefore be capable of feeding you a false success result. After all, if your adversary knows the answer you’re looking for — namely, a match to the genuine ISO — and has access to that very ISO in the same re-verification environment, then there is little to prevent him from simply hashing the original ISO and feeding you that result (perhaps while also reading from the USB drive and piping it into ``/dev/null`` so that you see the light on the USB drive blinking to support the illusion that the data is being read from the USB drive).
-
-Therefore, in order to make things a bit more difficult for your hypothetical adversary, you may instead wish to perform the re-verification in an environment that has never seen the original ISO, e.g., a separate offline computer or a fresh VM the storage space of which is too small to hold the ISO. (**Note:** If you’re doing this in Qubes, you can attach the block device from sys-usb to a separate new qube. You don’t have to perform the re-verification directly in sys-usb.) In that case, you’ll have to obtain the size of the ISO in bytes and enter it into the above command manually. You can, of course, obtain the size by simply using the ``stat -c %s /path/to/iso`` command from above on the machine that has the ISO. You can also obtain it from the Qubes website by hovering over any ISO download button on the `downloads page <https://www.qubes-os.org/downloads/>`__. (You can also view these values directly in the downloads page’s `source data <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml>`__.) Once you have the exact size of the ISO in bytes, simply insert it into the same command, for example:
+* **from the Qubes website**, by hovering over any ISO download button on the `downloads page <https://www.qubes-os.org/downloads/>`__. You can also view these values directly in the `downloads page’s source data <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml>`__.
+* **from the ISO itself**:
 
 .. code:: console
 
-      $ dd if=/dev/sdX bs=1M count=5791285248 iflag=count_bytes | sha256sum
+      $ stat -c %s Qubes-RX-x86_64.iso
+      8176568320
 
+Where :file:`Qubes-R{X}-x86_64.iso` is your Qubes ISO (with :samp:`{X}` replaced by the release number). Note that your actual byte number will depend on which Qubes ISO you’re using. This is just an example.
 
-If you wish to compute the values of other hash functions, you can replace ``sha256sum``, e.g., with ``md5sum``, ``sha1sum``, or ``sha512sum``.
+You can now use :program:`gpg` to verify the detached PGP signature directly against the data on the USB drive. The following command reads the exact number of bytes from your USB drive and pipes them into :program:`gpg`: 
 
-In addition to checking hash values, you can also use GnuPG to verify the detached PGP signature directly against the data on the USB drive. (This assumes you’re already familiar with :ref:`project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos`.)
+.. code-block:: console
+      :emphasize-lines: 8
 
-.. code:: console
-
-      $ dd if=/dev/sdX bs=1M count=<ISO_SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
+      $ dd if=/dev/sdX bs=1M count=<SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
+      7797+1 records in
+      7797+1 records out
+      8176568320 bytes (8.2 GB, 7.6 GiB) copied, 277.332 s, 29.5 MB/s
       gpg: Signature made <TIME>
       gpg:                using RSA key XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       gpg: using pgp trust model
       gpg: Good signature from "Qubes OS Release X Signing Key" [full]
       gpg: binary signature, digest algorithm SHA256, key algorithm rsa4096
-      5523+0 records in
-      5523+0 records out
-      5791285248 bytes (5.8 GB, 5.4 GiB) copied, 76.6013 s, 75.6 MB/s
+
+Where :file:`/dev/{sdX}` is your USB drive, :samp:`<SIZE>` is the exact size in bytes of the original ISO and ``Qubes-RX-x86_64.iso.asc`` is the detached PGP signature file of the original ISO.
+
+.. note:: The usual form of a :program:`gpg` verification command is ``gpg --verify <SIGNATURE> <SIGNED_DATA>``. Our command is using shell redirection in order to use data from your USB drive as the ``<SIGNED_DATA>``, which is why the ``-`` at the end of the command is required.
 
 
-(Where ``/dev/sdX`` is your USB drive, ``<ISO_SIZE>`` is the size of the original ISO in bytes, and ``Qubes-RX-x86_64.iso.asc`` is the detached signature file of the original ISO.)
-
-This command reads the exact number of bytes from your USB drive as the size of the original ISO and pipes them into ``gpg``. The usual form of a ``gpg`` verification command is ``gpg --verify <SIGNATURE> <SIGNED_DATA>``. Our command is using shell redirection in order to use data from your USB drive as the ``<SIGNED_DATA>``, which is why the ``-`` at the end of the command is required. Remember that you still must have properly imported and trusted the :ref:`QMSK <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>` and appropriate :ref:`RSK <project-security/verifying-signatures:how to import and authenticate release signing keys>` in order for this to work. You should receive a ``Good signature`` message for the appropriate RSK, which should be signed by a copy of the QMSK that you previously confirmed to be genuine.
+**The output you receive will not look exactly the same**, what matters is that you should receive a ``Good signature`` message for the :ref:`appropriate RSK <how-to-import-RSK>`, which should be signed by a copy of the :ref:`genuine QMSK <how-to-import-QMSK>`.
 
 How to verify signatures on Git repository tags and commits
 -----------------------------------------------------------
@@ -584,8 +473,8 @@ Why am I getting "No such file or directory"?
 
 Your working directory does not contain the required files. Go back and follow the instructions more carefully, making sure that you put all required files in the same directory *and* navigate to that directory.
 
-Why am I getting "can't open signed data ‘Qubes-RX-x86_64.iso' / can't hash datafile: file open error"?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Why am I getting "can't open signed data ‘Qubes-RX-x86_64.iso'" / "no signed data" / "can't hash datafile: No data"?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 The correct ISO is not in your working directory.
@@ -646,24 +535,6 @@ Why am I getting "CRC error; […] no signature found […]"?
 
 You’re not verifying against the correct :ref:`detached PGP signature file <project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos>`, or the signature file has been modified. Try downloading it again or from a different source.
 
-Do I have to verify both the :ref:`detached PGP signature file <project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos>` and the :ref:`cryptographic hash values <project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos>`?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-No, either method is sufficient by itself, but you can do both if you like.
-
-Why am I getting "no properly formatted X checksum lines found"?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-You’re not checking the correct :ref:`cryptographic hash values <project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos>`.
-
-Why am I getting "WARNING: X lines are improperly formatted"?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Read :ref:`project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos` again.
-
 Why am I getting "WARNING: 1 listed file could not be read"?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -674,4 +545,4 @@ I have another problem that isn't mentioned here.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Carefully reread this page to be certain that you didn’t skip any steps. In particular, make sure you have the :ref:`Qubes Master Signing Key <project-security/verifying-signatures:how to import and authenticate the qubes master signing key>`, the :ref:`release signing key <project-security/verifying-signatures:how to import and authenticate release signing keys>` for your Qubes release, *and* the :ref:`cryptographic hash values <project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos>` and/or :ref:`detached PGP signature file <project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos>`, all for the *correct* Qubes OS release. If your question is about GPG, please see the `GnuPG documentation <https://www.gnupg.org/documentation/>`__. Still have question? Please see :doc:`help, support, mailing lists, and forum </introduction/support>` for places where you can ask!
+Carefully reread this page to be certain that you didn’t skip any steps. In particular, make sure you have the :ref:`Qubes Master Signing Key <how-to-import-QMSK>`, the :ref:`release signing key <how-to-import-RSK>` for your Qubes release, *and* the :ref:`detached PGP signature file <project-security/verifying-signatures:how to verify detached pgp signatures on qubes isos>`, all for the *correct* Qubes OS release. If your question is about GPG, please see the `GnuPG documentation <https://www.gnupg.org/documentation/>`__. Still have question? Please see :doc:`help, support, mailing lists, and forum </introduction/support>` for places where you can ask!
