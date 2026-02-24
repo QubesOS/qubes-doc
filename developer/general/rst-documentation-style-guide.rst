@@ -199,62 +199,53 @@ Admonitions, messages, and warnings
 
 `Admonitions, messages, and warnings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#admonitions-messages-and-warnings>`__ are used to draw the reader’s attention to important information, such as warnings, and for stylistic purposes.
 They are typically styled as colored text boxes, usually accompanied by icons provided out of the box by Sphinx and rST.
-Alerts should generally be used somewhat sparingly, so as not to cause `alert fatigue <https://en.wikipedia.org/wiki/Alarm_fatigue>`__.
+
+**Alerts should generally be used somewhat sparingly**, so as not to cause `alert fatigue <https://en.wikipedia.org/wiki/Alarm_fatigue>`__.
 
 Here are examples of several types of alerts:
 
 .. code:: rst
 
-    .. hint::
-       **Did you know?** The Qubes OS installer is completely offline. It doesn't
-       even load any networking drivers, so there is no possibility of
-       internet-based data leaks or attacks during the installation process.
+     .. hint::
+        If you would like to avoid prefixing commands with [...]
 
      .. note::
-       **Note:*</b>** Using Rufus to create the installation medium means that you
-       `wont be able <https://github.com/QubesOS/qubes-issues/issues/2051">`__
-       to choose the "Test this media and install Qubes OS" option mentioned in the
-       example below. Instead, choose the "Install Qubes OS" option.
+       Using Rufus to create the installation medium means that you [...]
 
      .. warning::
-       **Note:** Qubes OS is not meant to be installed inside a virtual machine
-       as a guest hypervisor. In other words, **nested virtualization** is not
-       supported. In order for a strict compartmentalization to be enforced, Qubes
-       OS needs to be able to manage the hardware directly.
+       Qubes OS is not meant to be installed inside a virtual machine as [...]
 
      .. danger::
-       **Warning:** Qubes has no control over what happens on your computer
-       before you install it. No software can provide security if it is installed on
-       compromised hardware. Do not install Qubes on a computer you don't trust. See
-       installation security for more information.
-
-
+       Qubes has no control over what happens on your computer before [...]
 
 These render as:
 
 .. hint::
-       **Did you know?** The Qubes OS installer is completely offline. It doesn't
-       even load any networking drivers, so there is no possibility of
-       internet-based data leaks or attacks during the installation process.
+   If you would like to avoid prefixing commands with [...]
 
 .. note::
-       **Note:** Using Rufus to create the installation medium means that you
-       `won't be able <https://github.com/QubesOS/qubes-issues/issues/2051>`__
-       to choose the "Test this media and install Qubes OS" option mentioned in the
-       example below. Instead, choose the "Install Qubes OS" option.
+   Using Rufus to create the installation medium means that you [...]
 
 .. warning::
-       **Note:** Qubes OS is not meant to be installed inside a virtual machine
-       as a guest hypervisor. In other words, **nested virtualization** is not
-       supported. In order for a strict compartmentalization to be enforced, Qubes
-       OS needs to be able to manage the hardware directly.
+   Qubes OS is not meant to be installed inside a virtual machine as [...]
 
 .. danger::
-       **Warning:** Qubes has no control over what happens on your computer
-       before you install it. No software can provide security if it is installed on
-       compromised hardware. Do not install Qubes on a computer you don't trust. See
-       installation security for more information.
+   Qubes has no control over what happens on your computer before [...]
 
+
+You can also provide a `custom title to the admonition <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-admonition>`_:
+
+.. code:: rst
+
+   .. admonition:: Did you know?
+
+      The Qubes OS installer is completely offline. It doesn't even load [...]
+
+Rendering as:
+
+.. admonition:: Did you know?
+
+   The Qubes OS installer is completely offline. It doesn't even load [...]
 
 Glossary
 """"""""
