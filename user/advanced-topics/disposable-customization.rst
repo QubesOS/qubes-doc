@@ -253,9 +253,14 @@ Named disposable for service qubes without PCI devices via GUI
 
 To create one that has no PCI devices attached, such as for ``sys-firewall``, create a :ref:`named disposable <user/how-to-guides/how-to-use-disposables:how to create named disposables>`. Write a name, choose a label and select :guilabel:`Launch Qube Settings after creation`. Click :guilabel:`Create new qube` to complete creation. When the :guilabel:`Qube Settings` opens:
 
-- :menuselection:`Basic --> Start qube automatically on boot`
-- :menuselection:`Basic --> Net qube --> sys-net`
-- :menuselection:`Advanced --> Provides network`
+- In :guilabel:`Basic` tab:
+
+  - Check :guilabel:`Start qube automatically on boot`
+  - Set :guilabel:`Net qube` to :guilabel:`sys-net`
+
+- In :guilabel:`Advanced` tab:
+
+  - Check :guilabel:`Provides network`
 
 Click :guilabel:`&OK` to save changes and close the window.
 
@@ -302,15 +307,25 @@ Named disposable for service qubes with PCI devices via GUI
 
 To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``, create a :ref:`named disposable <user/how-to-guides/how-to-use-disposables:how to create named disposables>`. Write a name, choose a label and select :guilabel:`Launch Qube Settings after creation`. Click :guilabel:`Create new qube` to complete creation. When the :guilabel:`Qube Settings` opens:
 
-- :menuselection:`Basic --> Start qube automatically on boot`
-- :menuselection:`Basic --> Net qube --> (none)`
-- :menuselection:`Advanced --> Virtualization --> Mode --> HVM`
-- :menuselection:`Advanced --> Include in memory balancing` and uncheck it
-- :menuselection:`Devices --> Available devices --> <DEVICE>` and pass desired devices by selecting them and clicking on :guilabel:`>`
+- In :guilabel:`Basic` tab:
+
+  - Check :guilabel:`Start qube automatically on boot`
+  - Set :guilabel:`Net qube` to :guilabel:`(none)`
+
+- In :guilabel:`Advanced` tab:
+
+  - In :guilabel:`Virtualization` section, set :guilabel:`Mode` to :guilabel:`HVM`
+  - In :guilabel:`Memory/CPU` section, uncheck :guilabel:`Include in memory balancing`
+
+- In :guilabel:`Devices` tab:
+
+  - Select devices in the :guilabel:`Available devices` section and attach them to the qube by clicking on :guilabel:`>`
 
 Optionally, if this disposable will also provide network access to other qubes:
 
-- :menuselection:`Advanced --> Provides network`
+- In :guilabel:`Advanced` tab:
+
+  - Check :guilabel:`Provides network`
 
 Click :guilabel:`&OK` to save changes and close the window.
 
