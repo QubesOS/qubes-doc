@@ -35,9 +35,10 @@ def html_page_context(app, pagename, templatename, context, doctree):
                 "--pretty=format:%ci",
                 "--",
                 f"{pagename}{context['page_source_suffix']}",
-            )
+            ),
+            timeout=5,
         ).decode()
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
         return
 
     try:
