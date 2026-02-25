@@ -84,16 +84,24 @@ Disable seamless mode on Fedora guest
 
 In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
-1. Disable qubes os xorg config, set a password:
+1. Set graphical boot target:
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-run -u root full_desktop -- 'echo "user" | passwd --stdin user'
-    [user@dom0 ~]$ qvm-run -u root full_desktop -- systemctl set-default graphical.target
+    [root@full_desktop ~]# systemctl set-default graphical.target
 
-  .. TODO: try fixing fedora autologin
+2. Set a password
 
-2. Configure qube preferences
+  .. code:: console
+
+    [root@full_desktop ~]# passwd user
+    New password: 
+    Retype new password: 
+    passwd: password updated successfully
+
+  Set any non-empty password. It is required to log in.
+
+3. Configure qube preferences
 
   .. code:: console
 
@@ -105,9 +113,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
 
-  Kernel option :code:`systemd.unit` overrides the default boot target.
-
-3. Restart the qube for changes to take effect
+4. Restart the qube for changes to take effect
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
