@@ -15,7 +15,7 @@ Into this:
 VNC is better
 -------------
 
-While it is possible to disable seamless desktop integration, at the moment of writing (2026-02) different approach is often considered superior: setting up VNC server and client in the same vm. It also provides you with a separate desktop in a vm, but doesn't require setting specific properties, behaves better than the default qubes vm viewer, and doesn't reduce integration (such as ability to transfer files among qubes) in any way.
+While it is possible to disable seamless desktop integration, at the moment of writing (2026-02) different approach is often considered superior: setting up VNC server and client in the same vm. It also provides you with a separate desktop in a vm, but doesn't require setting specific properties, behaves better than the default qubes vm viewer, and doesn't reduce integration (such as inter-qube clipboard) in any way.
 
 See the following topics on using VNC:
 
@@ -25,7 +25,7 @@ See the following topics on using VNC:
 Overview
 --------
 
-In its simplest form disabling seamless mode is done by disabling or stopping :code:`qubes-gui-agent` service, but it doesn't provide any graphical interface with the qube by itself.
+In its simplest form disabling seamless mode is done by disabling or stopping :code:`qubes-gui-agent` service, but it doesn't provide any graphical interface as a replacement.
 
 Graphical viewer window for a qube is displayed when it has feature :code:`gui` unset with virtualization mode set to :code:`hvm`.
 
@@ -33,11 +33,11 @@ Graphical viewer window for a qube is displayed when it has feature :code:`gui` 
 
    For more detailed explanation of this behaviour see :code:`gui` and :code:`gui-emulated` features in the "LIST OF KNOWN FEATURES" section of :code:`qvm-features` manual.
 
+Moreover, debian and fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
+
 .. warning::
 
    You might need to provision more initial memory to your qubes in order for them to boot.
-
-Moreover, debian and fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
 
 Limitations
 ^^^^^^^^^^^
@@ -49,7 +49,7 @@ Disable seamless mode on Debian guest
 
 In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
-#. Configure qube preferences
+1. Configure qube preferences
 
   .. code:: console
 
@@ -63,7 +63,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Kernel option :code:`systemd.unit` overrides the default boot target.
 
-#. Restart the qube for changes to take effect
+2. Restart the qube for changes to take effect
 
 Revert to seamless mode on Debian guest
 ---------------------------------------
@@ -88,10 +88,8 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-run -u root full_desktop -- mv /etc/X11/xorg-qubes.conf /etc/X11/xorg-qubes.conf.backup
     [user@dom0 ~]$ qvm-run -u root full_desktop -- 'echo "user" | passwd --stdin user'
-
-  This is merely an example, you are free to handle the configuration however you want. Just keep a copy to revert back to.
+    [user@dom0 ~]$ qvm-run -u root full_desktop -- systemctl set-default graphical.target
 
   .. TODO: try fixing fedora autologin
 
