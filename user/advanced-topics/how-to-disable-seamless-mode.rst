@@ -76,7 +76,7 @@ To revert, simply undo the configuration changes:
     [user@dom0 ~]$ qvm-features full_desktop gui 1
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
     [user@dom0 ~]$ qvm-prefs -D full_desktop kernelopts
-    [user@dom0 ~]$ qvm-service full_desktop lightdm off
+    [user@dom0 ~]$ qvm-service -D full_desktop lightdm
 
 
 Disable seamless mode on Fedora guest
@@ -90,7 +90,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
     [root@full_desktop ~]# systemctl set-default graphical.target
 
-2. Set a password
+2. Set a password:
 
   .. code:: console
 
@@ -101,7 +101,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Set any non-empty password. It is required to log in.
 
-3. Configure qube preferences
+3. Configure qube preferences:
 
   .. code:: console
 
@@ -117,3 +117,18 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
 Revert to seamless mode on Fedora guest
 ---------------------------------------
+
+1. Set :code:`multi-user` as the boot target:
+
+  .. code:: console
+
+    [root@full_desktop ~]# systemctl set-default multi-user.target
+
+2. Undo changes to configuration:
+
+  .. code:: console
+
+    [user@dom0 ~]$ qvm-features full_desktop gui 1
+    [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
+    [user@dom0 ~]$ qvm-prefs -D full_desktop kernel
+    [user@dom0 ~]$ qvm-service -D full_desktop lightdm
