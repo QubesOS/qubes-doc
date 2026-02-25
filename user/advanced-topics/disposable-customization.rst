@@ -355,11 +355,11 @@ To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``
 
       user@dom0:~$ qvm-create -C DispVM -l red <SERVICE_QUBE>
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> virt_mode hvm
-      user@dom0:~$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> maxmem 0
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> autostart true
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> netvm ''
       user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+      user@dom0:~$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
 
 Optionally, if this disposable will also provide network access to other qubes:
 
@@ -381,12 +381,12 @@ Here is an example of a complete ``sys-net`` replacement:
 
       user@dom0:~$ qvm-create -C DispVM -l red sys-net2
       user@dom0:~$ qvm-prefs sys-net2 virt_mode hvm
-      user@dom0:~$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
       user@dom0:~$ qvm-prefs sys-net2 maxmem 0
       user@dom0:~$ qvm-prefs sys-net2 autostart true
       user@dom0:~$ qvm-prefs sys-net2 netvm ''
-      user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
       user@dom0:~$ qvm-prefs sys-net2 provides_network true
+      user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
+      user@dom0:~$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
       user@dom0:~$ qvm-prefs sys-net autostart false
       user@dom0:~$ qvm-prefs sys-firewall netvm sys-net2
       user@dom0:~$ qubes-prefs clockvm sys-net2
