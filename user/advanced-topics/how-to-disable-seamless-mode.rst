@@ -6,15 +6,11 @@ By default, vm applications are seamlessly integrated into dom0's desktop enviro
 
 Visually, it turns this:
 
-.. TODO: add conventional window on dom0 desktop screenshot
-
 .. image:: /attachment/doc/seamless_mode.png
   :alt: VM applications in seamless mode - vm applications displayed as separate windows in dom0's desktop environment
   :align: center
 
 Into this:
-/attachment/doc/
-.. TODO: add vm with a full desktop screenshot
 
 .. image:: /attachment/doc/non-seamless_mode.png
   :alt: VM in non-seamless mode - running its own xfce desktop environment
