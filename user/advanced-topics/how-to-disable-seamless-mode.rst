@@ -178,7 +178,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. hint::
 
-    If your goal is non-seamless mode in an AppVM with no template modification, you might be interested in persisting configuration changes using :doc:`bind-dirs <user/advanced-topics/bind-dirs>` or :doc:`adding a script to rc.local.d <user/advanced-topics/config-files>`
+    If your goal is non-seamless mode in an AppVM with no template modification, you might be interested in persisting configuration changes using :doc:`bind-dirs </user/advanced-topics/bind-dirs>` or :doc:`adding a script to rc.local.d </user/advanced-topics/config-files>`
 
 2. Configure qube preferences:
 
