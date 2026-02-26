@@ -31,9 +31,9 @@ See the following topics on using VNC:
 Overview
 --------
 
-In its simplest form disabling seamless mode is done by disabling or stopping :code:`qubes-gui-agent` service, but it doesn't provide any graphical interface as a replacement.
+In its simplest form disabling seamless mode is done by disabling or stopping :code:`qubes-gui-agent` service of a qube, but it doesn't provide any graphical interface as a replacement.
 
-Graphical viewer window for a qube is displayed when it has feature :code:`gui` unset with virtualization mode set to :code:`hvm`.
+Graphical viewer window for a qube is displayed when the feature :code:`gui` is unset and virtualization mode set to :code:`hvm`. This defaults to using emulated VGA output. To explicitly tell QubesOS to use VGA output, set :code:`gui-emulated` to 1.
 
 .. note::
 
@@ -59,7 +59,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-features --unset full_desktop gui
+    [user@dom0 ~]$ qvm-features full_desktop gui-emulated 1
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
     [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
     [user@dom0 ~]$ qvm-prefs full_desktop kernelopts "systemd.unit=graphical.target"
@@ -79,7 +79,7 @@ To revert, simply undo the configuration changes:
   .. code:: console
 
     [user@dom0 ~]$ qvm-run -u root full_desktop -- mv /etc/X11/xorg-qubes.conf /etc/X11/xorg-qubes.conf.backup
-    [user@dom0 ~]$ qvm-features full_desktop gui 1
+    [user@dom0 ~]$ qvm-features --unset full_desktop gui-emulated
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
     [user@dom0 ~]$ qvm-prefs -D full_desktop kernelopts
     [user@dom0 ~]$ qvm-service -D full_desktop lightdm
@@ -111,7 +111,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-features --unset full_desktop gui
+    [user@dom0 ~]$ qvm-features full_desktop gui-emulated 1
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
     [user@dom0 ~]$ qvm-prefs full_desktop kernel ''
     [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
@@ -134,7 +134,7 @@ Revert to seamless mode on Fedora guest
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-features full_desktop gui 1
+    [user@dom0 ~]$ qvm-features --unset full_desktop gui-emulated
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
     [user@dom0 ~]$ qvm-prefs -D full_desktop kernel
     [user@dom0 ~]$ qvm-service -D full_desktop lightdm
