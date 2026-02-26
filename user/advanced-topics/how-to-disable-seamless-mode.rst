@@ -98,13 +98,7 @@ Disable seamless mode
 
 In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
-1. Set graphical boot target:
-
-  .. code:: console
-
-    [root@full_desktop ~]# systemctl set-default graphical.target
-
-2. Set a password:
+1. Set a password:
 
   .. code:: console
 
@@ -115,19 +109,31 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Set any non-empty password. It is required to log in. Alternatively, configure lightdm autologin.
 
-3. Configure qube preferences:
+2. Note kernel cmdline of :code:`full_desktop` qube, you will need them in the next step:
+
+  .. code:: console
+
+    [user@full_desktop ~]$ cat /proc/cmdline
+    root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH rd.plymouth.enable=0 plymouth.enable=0 clocksource=tsc xen_scrub_pages=0 swiotlb=2048 selinux=1 security=selinux
+
+2. Configure qube preferences:
+
+  Replace :code:`$kernel_options` with the options you have acquired from :code:`/proc/cmdline`, but omit :code:`nomodeset`
 
   .. code:: console
 
     [user@dom0 ~]$ qvm-features full_desktop gui-emulated 1
+    [user@dom0 ~]$ qvm-features full_desktop no-default-kernelopts 1
     [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
-    [user@dom0 ~]$ qvm-prefs full_desktop kernel ''
     [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
+    [user@dom0 ~]$ qvm-prefs full_desktop kernelopts "$kernel_options systemd.unit=graphical.target"
     [user@dom0 ~]$ qvm-service full_desktop lightdm on
 
   Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
 
-4. Restart the qube for changes to take effect
+  Kernel option :code:`systemd.unit` overrides the default boot target.
+
+3. Restart the qube for changes to take effect
 
 Revert back to seamless mode
 """"""""""""""""""""""""""""
@@ -143,8 +149,9 @@ Revert back to seamless mode
   .. code:: console
 
     [user@dom0 ~]$ qvm-features --unset full_desktop gui-emulated
+    [user@dom0 ~]$ qvm-features --unset full_desktop no-default-kernelopts
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
-    [user@dom0 ~]$ qvm-prefs -D full_desktop kernel
+    [user@dom0 ~]$ qvm-prefs -D full_desktop kernelopts
     [user@dom0 ~]$ qvm-service -D full_desktop lightdm
 
 
