@@ -41,7 +41,7 @@ Graphical viewer window for a qube is displayed when the feature :code:`gui` is 
 
 .. note::
 
-   For more detailed explanation of this behaviour see :code:`gui` and :code:`gui-emulated` features in the "LIST OF KNOWN FEATURES" section of :code:`qvm-features` manual.
+   For more detailed explanation of this behavior see :code:`gui` and :code:`gui-emulated` features in the "LIST OF KNOWN FEATURES" section of :code:`qvm-features` manual.
 
 Moreover, debian and fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
 
