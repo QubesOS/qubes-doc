@@ -10,16 +10,12 @@ By default, vm applications are seamlessly integrated into dom0's desktop enviro
 
 Visually, it turns this:
 
-.. image:: /attachment/doc/seamless_mode.png
-  :alt: VM applications in seamless mode - vm applications displayed as separate windows in dom0's desktop environment
-  :align: center
+|seamless_mode|
 
 
 Into this:
 
-.. image:: /attachment/doc/non-seamless_mode.png
-  :alt: VM in non-seamless mode - running its own xfce desktop environment
-  :align: center
+|non-seamless_mode|
 
 
 VNC is better
@@ -142,3 +138,11 @@ Revert to seamless mode on Fedora guest
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
     [user@dom0 ~]$ qvm-prefs -D full_desktop kernel
     [user@dom0 ~]$ qvm-service -D full_desktop lightdm
+
+
+.. |seamless_mode| image:: /attachment/doc/seamless_mode.png
+  :alt: VM applications in seamless mode - vm applications displayed as separate windows in dom0's desktop environment
+  :align: center
+.. |non-seamless_mode| image:: /attachment/doc/non-seamless_mode.png
+  :alt: VM in non-seamless mode - running its own xfce desktop environment
+  :align: center
