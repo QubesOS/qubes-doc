@@ -138,13 +138,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 Revert back to seamless mode
 """"""""""""""""""""""""""""
 
-1. Set :code:`multi-user` as the boot target:
-
-  .. code:: console
-
-    [root@full_desktop ~]# systemctl set-default multi-user.target
-
-2. Undo changes to configuration:
+To revert, simply undo the configuration changes:
 
   .. code:: console
 
