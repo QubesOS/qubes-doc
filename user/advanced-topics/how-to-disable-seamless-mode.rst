@@ -105,7 +105,7 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
     Retype new password: 
     passwd: password updated successfully
 
-  Set any non-empty password. It is required to log in.
+  Set any non-empty password. It is required to log in. Alternatively, configure lightdm autologin.
 
 3. Configure qube preferences:
 
