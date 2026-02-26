@@ -4,7 +4,8 @@ How to disable seamless mode
 
 .. note::
 
-  This document is about Linux virtual machines integrated into QubesOS. For Windows refer to :ref:`Qubes Windows Tools documentation </user/templates/windows/qubes-windows-tools:using-windows-appvms-in-seamless-mode>`
+  This document is about Linux virtual machines integrated into QubesOS. For Windows refer to :ref:`Qubes Windows Tools documentation </user/templates/windows/qubes-windows-tools:Using Windows AppVMs in seamless mode>`
+:ref:`What is Qubes OS? <introduction/intro:what is qubes os?>`
 
 By default, vm applications are seamlessly integrated into dom0's desktop environment. This article explains how to disable seamless mode in order to get separate desktop inside of an otherwise integrated vm.
 
