@@ -50,6 +50,8 @@ Limitations
 
 Inter-qube clipboard feature relies on :code:`qubes-gui-agent`. It does not work when seamless mode is off.
 
+Following procedures of handling seamless mode are nothing more than examples, working with default xfce templates provided by Qubes. Actual workflow can differ depending on your configuration and personal preferences. Be prepared to troubleshoot display manager and X server if something goes wrong.
+
 Disable seamless mode on Debian guest
 -------------------------------------
 
@@ -177,6 +179,8 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
     [user@dom0 ~]$ qvm-service full_desktop lightdm on
 
   Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
+
+  Kernel option :code:`systemd.unit` overrides the default boot target.
 
 3. Restart the qube for changes to take effect
 
