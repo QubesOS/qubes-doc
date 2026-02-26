@@ -85,8 +85,14 @@ To revert, simply undo the configuration changes:
     [user@dom0 ~]$ qvm-service -D full_desktop lightdm
 
 
-Disable seamless mode on Fedora guest
--------------------------------------
+Fedora guest
+------------
+
+Qubes 4.2
+^^^^^^^^^
+
+Disable seamless mode
+"""""""""""""""""""""
 
 In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
@@ -121,8 +127,8 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
 4. Restart the qube for changes to take effect
 
-Revert to seamless mode on Fedora guest
----------------------------------------
+Revert back to seamless mode
+""""""""""""""""""""""""""""
 
 1. Set :code:`multi-user` as the boot target:
 
@@ -137,6 +143,54 @@ Revert to seamless mode on Fedora guest
     [user@dom0 ~]$ qvm-features --unset full_desktop gui-emulated
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
     [user@dom0 ~]$ qvm-prefs -D full_desktop kernel
+    [user@dom0 ~]$ qvm-service -D full_desktop lightdm
+
+
+Qubes 4.3
+^^^^^^^^^
+
+Disable seamless mode
+"""""""""""""""""""""
+
+In terminal, with :code:`full_desktop` as the name of the targeted qube:
+
+1. Set a password:
+
+  .. code:: console
+
+    [root@full_desktop ~]# passwd user
+    New password: 
+    Retype new password: 
+    passwd: password updated successfully
+
+  Set any non-empty password. It is required to log in. Alternatively, configure lightdm autologin.
+
+2. Configure qube preferences:
+
+  .. code:: console
+
+    [user@dom0 ~]$ qvm-features full_desktop gui-emulated 1
+    [user@dom0 ~]$ qvm-features full_desktop no-nomodeset 1
+    [user@dom0 ~]$ qvm-prefs full_desktop virt_mode hvm
+    [user@dom0 ~]$ qvm-prefs full_desktop memory 1000
+    [user@dom0 ~]$ qvm-prefs full_desktop kernelopts "systemd.unit=graphical.target"
+    [user@dom0 ~]$ qvm-service full_desktop lightdm on
+
+  Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts lightdm display manager.
+
+3. Restart the qube for changes to take effect
+
+Revert back to seamless mode
+""""""""""""""""""""""""""""
+
+To revert, simply undo the configuration changes:
+
+  .. code:: console
+
+    [user@dom0 ~]$ qvm-features --unset full_desktop gui-emulated
+    [user@dom0 ~]$ qvm-features --unset full_desktop no-nomodeset
+    [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
+    [user@dom0 ~]$ qvm-prefs -D full_desktop kernelopts
     [user@dom0 ~]$ qvm-service -D full_desktop lightdm
 
 
