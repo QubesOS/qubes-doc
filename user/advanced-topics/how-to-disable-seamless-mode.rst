@@ -2,6 +2,10 @@
 How to disable seamless mode
 ============================
 
+.. note::
+
+  This document is about Linux virtual machines integrated into QubesOS. For Windows refer to :doc:`Qubes Windows Tools documentation </user/templates/windows/qubes-windows-tools.html#using-windows-appvms-in-seamless-mode>`
+
 By default, vm applications are seamlessly integrated into dom0's desktop environment. This article explains how to disable seamless mode in order to get separate desktop inside of an otherwise integrated vm.
 
 Visually, it turns this:
@@ -10,11 +14,13 @@ Visually, it turns this:
   :alt: VM applications in seamless mode - vm applications displayed as separate windows in dom0's desktop environment
   :align: center
 
+
 Into this:
 
 .. image:: /attachment/doc/non-seamless_mode.png
   :alt: VM in non-seamless mode - running its own xfce desktop environment
   :align: center
+
 
 VNC is better
 -------------
@@ -39,7 +45,7 @@ Graphical viewer window for a qube is displayed when it has feature :code:`gui` 
 
 Moreover, debian and fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
 
-.. warning::
+.. hint::
 
    You might need to provision more initial memory to your qubes in order for them to boot.
 
