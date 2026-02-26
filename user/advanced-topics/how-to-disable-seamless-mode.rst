@@ -142,7 +142,5 @@ Revert to seamless mode on Fedora guest
 
 .. |seamless_mode| image:: /attachment/doc/seamless_mode.png
   :alt: VM applications in seamless mode - vm applications displayed as separate windows in dom0's desktop environment
-  :align: center
 .. |non-seamless_mode| image:: /attachment/doc/non-seamless_mode.png
   :alt: VM in non-seamless mode - running its own xfce desktop environment
-  :align: center
