@@ -2,6 +2,10 @@
 How to disable seamless mode
 ============================
 
+.. warning::
+
+      This page is intended for advanced users.
+
 .. note::
 
   This document is about Linux virtual machines integrated into QubesOS. For Windows refer to :ref:`Qubes Windows Tools documentation <user/templates/windows/qubes-windows-tools:Using Windows AppVMs in seamless mode>`
@@ -109,6 +113,10 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
 
   Set any non-empty password. It is required to log in. Alternatively, configure lightdm autologin.
 
+  .. hint::
+
+    If your goal is non-seamless mode in an AppVM with no template modification, you might be interested in persisting configuration changes using :doc:`bind-dirs <user/advanced-topics/bind-dirs>` or :doc:`adding a script to rc.local.d <user/advanced-topics/config-files>`
+
 2. Note kernel cmdline of :code:`full_desktop` qube, you will need them in the next step:
 
   .. code:: console
@@ -167,6 +175,10 @@ In terminal, with :code:`full_desktop` as the name of the targeted qube:
     passwd: password updated successfully
 
   Set any non-empty password. It is required to log in. Alternatively, configure lightdm autologin.
+
+  .. hint::
+
+    If your goal is non-seamless mode in an AppVM with no template modification, you might be interested in persisting configuration changes using :doc:`bind-dirs <user/advanced-topics/bind-dirs>` or :doc:`adding a script to rc.local.d <user/advanced-topics/config-files>`
 
 2. Configure qube preferences:
 
