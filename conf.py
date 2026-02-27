@@ -38,8 +38,10 @@ extensions = [
   'youtube_frame', # Embed YouTube videos
 ]
 
-if os.environ.get('READTHEDOCS') or os.environ.get('QUBES_DOC_FULL_BUILD'):
-    extensions.append('last_edition')
+if os.environ.get("READTHEDOCS") or os.environ.get(
+    "QUBES_DOC_FULL_BUILD", ""
+).lower() in ("true", "on", "1"):
+    extensions.append("last_edition")
 
 # Redirects for specific URLs as fall back
 redirects = {
