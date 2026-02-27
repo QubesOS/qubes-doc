@@ -290,6 +290,44 @@ as defined in :file:`conf.py`, as well a simple custom one to embed YouTube vide
 which can be found `here <https://github.com/QubesOS/qubes-doc/tree/main/_ext>`__.
 
 
+.. _last_edition_configuration:
+
+``last_edition`` timeout configuration
+---------------------------------------
+
+The ``last_edition`` extension runs ``git log`` once per page during a full
+build to determine when each page was last edited. To avoid accumulating
+delays across many pages, the subprocess call uses a short timeout and the
+extension is only loaded when explicitly requested via an environment variable.
+
+``QUBES_DOC_FULL_BUILD``
+   When set to any non-empty value, the ``last_edition`` extension is loaded.
+   On `Read The Docs <https://readthedocs.com/>`__ the ``READTHEDOCS``
+   environment variable fulfils the same role and is set automatically.
+   In a plain local build neither variable is set by default, so the extension
+   is skipped and per-page ``git`` invocations are not performed.
+
+``QUBES_LAST_EDITION_TIMEOUT``
+   Maximum time in seconds allowed for each ``git log`` subprocess call.
+   Defaults to ``1``. Increase this value only if the extension is timing out
+   on a slow build machine.
+
+Example — enabling the extension for a local build:
+
+.. code-block:: console
+
+   $ export QUBES_DOC_FULL_BUILD=1
+   $ sphinx-build -b html . _build/html
+
+To also override the per-page timeout:
+
+.. code-block:: console
+
+   $ export QUBES_DOC_FULL_BUILD=1
+   $ export QUBES_LAST_EDITION_TIMEOUT=2
+   $ sphinx-build -b html . _build/html
+
+
 .. _build_locally:
 
 Building the rST documentation locally
