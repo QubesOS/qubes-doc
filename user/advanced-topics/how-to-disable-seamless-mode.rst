@@ -171,7 +171,7 @@ In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
     Retype new password: 
     passwd: password updated successfully
 
-  Set any non-empty password. It is required to log in. Alternatively, configure LightDM autologin.
+  Set any non-empty password. It is required to log in. Alternatively, `configure LightDM autologin <https://wiki.archlinux.org/title/LightDM#Enabling_autologin>`__.
 
   .. hint::
 
