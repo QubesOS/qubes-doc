@@ -84,7 +84,6 @@ To revert, simply undo the configuration changes:
 
   .. code:: console
 
-    [user@dom0 ~]$ qvm-run -u root full_desktop -- mv /etc/X11/xorg-qubes.conf /etc/X11/xorg-qubes.conf.backup
     [user@dom0 ~]$ qvm-features --unset full_desktop gui-emulated
     [user@dom0 ~]$ qvm-prefs -D full_desktop virt_mode
     [user@dom0 ~]$ qvm-prefs -D full_desktop kernelopts
