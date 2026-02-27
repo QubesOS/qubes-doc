@@ -8,7 +8,7 @@ import subprocess
 MIGRATION_DATETIME = datetime.datetime.fromisoformat("2025-08-06 02:20:01+02:00")
 
 _DEFAULT_TIMEOUT = 1
-_GIT_TIMEOUT = int(os.environ.get("QUBES_LAST_EDITION_TIMEOUT", _DEFAULT_TIMEOUT))
+_GIT_TIMEOUT = int(os.environ.get("QUBES_DOC_LAST_EDITION_TIMEOUT", _DEFAULT_TIMEOUT))
 
 
 def html_page_context(app, pagename, templatename, context, doctree):
