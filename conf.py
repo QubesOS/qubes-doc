@@ -37,6 +37,7 @@ extensions = [
   'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
   'youtube_frame', # Embed YouTube videos
   'last_edition',
+  'custom_menuselections',
 ]
 
 # Redirects for specific URLs as fall back
@@ -103,7 +104,8 @@ html_theme_options = {
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-html_static_path = ['attachment/doc']
+html_static_path = ['_static']
+html_css_files = ['css/custom.css']
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
