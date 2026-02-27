@@ -27,7 +27,7 @@ VNC is better
 
 While it is possible to disable seamless desktop integration, at the moment of writing (2026-02) different approach is often considered superior: setting up VNC server and client in the same qube. It also provides a separate desktop in a qube, but doesn't require setting specific properties, behaves better than the default qube viewer, and doesn't reduce integration (such as inter-qube clipboard) in any way.
 
-Consult qube's OS and VNC distribution documentation for more guidelines on using VNC:
+Consult qube's OS and VNC distribution documentation on using VNC:
 
 - `Fedora user documentation <https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/advanced/VNC_Installations/>`__
 - `Debian community wiki <https://wiki.debian.org/?action=fullsearch&value=vnc&titlesearch=Titles>`__
@@ -39,11 +39,7 @@ Overview
 
 In its simplest form disabling seamless mode is done by disabling or stopping :code:`qubes-gui-agent` service of a qube, but it doesn't provide any graphical interface as a replacement.
 
-Graphical viewer window for a qube is displayed when the feature :code:`gui` is unset and virtualization mode set to :code:`hvm`. This defaults to using emulated VGA output. To explicitly tell Qubes OS to use VGA output, set :code:`gui-emulated` to 1.
-
-.. note::
-
-   For more detailed explanation of this behavior see :code:`gui` and :code:`gui-emulated` features in the "LIST OF KNOWN FEATURES" section of :code:`qvm-features` manual.
+Graphical viewer window for a qube is displayed when the feature `gui <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#gui>`__ is unset and virtualization mode set to :code:`hvm`. This defaults to using emulated VGA output. To explicitly tell Qubes OS to use VGA output, set `gui-emulated <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#gui-emulated>`__ to 1.
 
 Moreover, Debian and Fedora hosts don't run desktop environment unless they are configured to do so, for example by setting :code:`graphical.target` as the default for systemd to boot into.
 
