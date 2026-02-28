@@ -15,7 +15,7 @@ sys.path.append(str(Path('_ext').resolve()))
 
 project = 'Qubes OS'
 author = 'Qubes OS Project'
-copyright = f'%Y, {author}'
+copyright = f'%Y, {author} and others'
 
 # Warning: Sphinx's version and release differ from Qubes OS !
 
@@ -103,7 +103,8 @@ html_theme_options = {
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-html_static_path = ['attachment/doc']
+html_static_path = ['_static']
+html_css_files = ['css/custom.css']
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
