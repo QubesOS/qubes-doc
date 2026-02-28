@@ -324,43 +324,20 @@ LogVM(s)
 
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
 
-Whonix IPv6 and nftables support
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Whonix
+^^^^^^
 
+Nowadays, the following policies apply:
 
-**Project**: Whonix IPv6 and nftables support
+- `First Time Source Code Contributor Policy <https://www.whonix.org/wiki/First_Time_Source_Code_Contributor_Policy>`__
+- `Development Discussion Policy <https://www.whonix.org/wiki/Development_Discussion_Policy>`__
+- `Policy On Artificial Intelligence <https://www.whonix.org/wiki/Policy_On_Artificial_Intelligence>`__
 
-**Brief explanation**: `T509 <https://phabricator.whonix.org/T509>`__
+Steps:
 
-**Expected results**:
-
-- Work at upstream Tor: An older version of `TransparentProxy <https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy>`__ page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. `here <https://trac.torproject.org/projects/tor/ticket/21397>`__
-
-- implement corridor feature request add IPv6 support / port to nftables - `issue <https://github.com/rustybird/corridor/issues/39>`__
-
-- port `whonix-firewall <https://github.com/Whonix/whonix-firewall>`__ to nftables
-
-- make connections to IPv6 Tor relays work
-
-- make connections to IPv6 destinations work
-
-
-
-**Difficulty**: medium
-
-**Knowledge prerequisite**:
-
-- nftables
-
-- iptables
-
-- IPv6
-
-
-
-**Size of the project**: 175 hours
-
-**Mentor**: `Patrick Schleizer <https://www.qubes-os.org/team/>`__
+#. Read the policies listed above.
+#. Become a contributor.
+#. Suggest a GSoC project.
 
 GUI agent for Windows 8/10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
