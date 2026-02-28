@@ -247,6 +247,8 @@ Creating named disposables for service qubes
 
 You can use a :term:`named disposable` for a :term:`service qube` (such as those with the ``sys-*`` naming scheme) as long as they are stateless. For example, a ``sys-net`` using DHCP or ``sys-usb`` will work. In most cases ``sys-firewall`` will also work, even if you have configured app qube firewall rules. The only exception is if you require something like qube to qube communication and have manually edited :program:`nftables` or other items directly inside the firewall app qube.
 
+.. _disposable-with-pci-devices:
+
 Named disposable for service qubes without PCI devices via GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
