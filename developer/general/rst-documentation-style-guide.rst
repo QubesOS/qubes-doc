@@ -232,6 +232,44 @@ These render as:
 .. danger::
    Qubes has no control over what happens on your computer before [...]
 
+Describing changes between releases
+"""""""""""""""""""""""""""""""""""
+
+Sphinx gives you the ability to mark changes between any version of Qubes OS. Any new feature, change, deprecation or removed feature between the previous version and the current version of the documentation should be marked using the corresponding directive.
+
+Those directives should be removed if they mention a previous version, i.e.: no directive concerning Qubes R4.2 should stay in the documentation about Qubes R4.3.
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - reStructuredText markup
+     - output
+
+   * - .. code:: rst
+
+          .. versionadded:: R4.3
+
+     -  .. versionadded:: R4.3
+
+   * - .. code:: rst
+
+          .. versionchanged:: R4.3
+
+     -  .. versionchanged:: R4.3
+
+   * - .. code:: rst
+
+          .. deprecated:: R4.3
+
+     -  .. deprecated:: R4.3
+
+   * - .. code:: rst
+
+          .. versionremoved:: R4.3
+
+     -  .. versionremoved:: R4.3
+
 
 You can also provide a `custom title to the admonition <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-admonition>`_:
 
@@ -636,102 +674,9 @@ See `#4693 <https://github.com/QubesOS/qubes-issues/issues/4693>`__ for more bac
 Release-specific documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-*See* `#5308 <https://github.com/QubesOS/qubes-issues/issues/5308>`__ *for pending changes to this policy.*
-
-We maintain only one set of documentation for Qubes OS. We do not maintain a different set of documentation for each release of Qubes. Our single set of Qubes OS documentation is updated on a continual, rolling basis. Our first priority is to document all **current, stable releases** of Qubes. Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
-
-In cases where a documentation page covers functionality that differs considerably between Qubes OS releases, the page should be subdivided into clearly-labeled sections that cover the different functionality in different releases (examples below).
+Our first priority is to document all **current, stable releases** of Qubes. Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
 
 In general, avoid mentioning specific Qubes versions in the body text of documentation, as these references rapidly go out of date and become misleading to readers.
-
-Incorrect Example
-^^^^^^^^^^^^^^^^^
-
-
-.. code:: rst
-
-     How to Foo
-     ==========
-
-     Fooing is the process by which one foos. There are both general and specific
-     versions of fooing, which vary in usefulness depending on your goals, but for
-     the most part, all fooing is fooing.
-
-     To foo in Qubes 3.2:
-        .. code:: console
-           $ qvm-foo <foo-bar>
-
-     Note that this does not work in Qubes 4.0, where there is a special widget
-     for fooing, which you can find in the lower-right corner of the screen in
-     the Foo Manager. Alternatively, you can use the more general ``qubes-baz``
-     command introduced in 4.0:
-        .. code:: console
-           $ qubes-baz --foo <bar>
-
-     Once you foo, make sure to close the baz before fooing the next bar.
-
-
-
-Correct Example
-^^^^^^^^^^^^^^^
-
-
-.. code:: rst
-
-     Qubes 3.2
-     =========
-
-     How to Foo
-     ----------
-
-     Fooing is the process by which one foos. There are both general and specific
-     versions of fooing, which vary in usefulness depending on your goals, but for
-     the most part, all fooing is fooing.
-
-     To foo:
-
-        .. code:: console
-
-           $ qvm-foo <foo-bar>
-
-     Once you foo, make sure to close the baz before fooing the next bar.
-
-     Qubes 4.0
-     =========
-
-     How to Foo
-     ----------
-
-     Fooing is the process by which one foos. There are both general and specific
-     versions of fooing, which vary in usefulness depending on your goals, but for
-     the most part, all fooing is fooing.
-
-     There is a special widget for fooing, which you can find in the lower-right
-     corner of the screen in the Foo Manager. Alternatively, you can use the
-     general ``qubes-baz`` command:
-
-        .. code:: console
-
-          $ qubes-baz --foo <bar>
-
-     Once you foo, make sure to close the baz before fooing the next bar.
-
-
-
-Subdividing the page into clearly-labeled sections for each release has several benefits:
-
-- It preserves good content for older (but still supported) releases. Many documentation contributors are also people who prefer to use the latest release. Many of them are tempted to *replace* existing content that applies to an older, supported release with content that applies only to the latest release. This is somewhat understandable. Since they only use the latest release, they may be focused on their own experience, and they may even regard the older release as deprecated, even when it’s actually still supported. However, allowing this replacement of content would do a great disservice to those who still rely on the older, supported release. In many cases, these users value the stability and reliability of the older, supported release. With the older, supported release, there has been more time to fix bugs and make improvements in both the software and the documentation. Consequently, much of the documentation content for this release may have gone through several rounds of editing, review, and revision. It would be a tragedy for this content to vanish while the very set of users who most prize stability and reliability are depending on it.
-
-- It’s easy for readers to quickly find the information they’re looking for, since they can go directly to the section that applies to their release.
-
-- It’s hard for readers to miss information they need, since it’s all in one place. In the incorrect example, information that the reader needs could be in any paragraph in the entire document, and there’s no way to tell without reading the entire page. In the correct example, the reader can simply skim the headings in order to know which parts of the page need to be read and which can be safely ignored. The fact that some content is repeated in the two release-specific sections is not a problem, since no reader has to read the same thing twice. Moreover, as one release gets updated, it’s likely that the documentation for that release will also be updated. Therefore, content that is initially duplicated between release-specific sections will not necessarily stay that way, and this is a good thing: We want the documentation for a release that *doesn’t* change to stay the same, and we want the documentation for a release that *does* change to change along with the software.
-
-- It’s easy for documentation contributors and maintainers to know which file to edit and update, since there’s only one page for all Qubes OS releases. Initially creating the new headings and duplicating content that applies to both is only a one-time cost for each page, and many pages don’t even require this treatment, since they apply to all currently-supported Qubes OS releases.
-
-
-
-By contrast, an alternative approach, such as segregating the documentation into two different branches, would mean that contributions that apply to both Qubes releases would only end up in one branch, unless someone remembered to manually submit the same thing to the other branch and actually made the effort to do so. Most of the time, this wouldn’t happen. When it did, it would mean a second pull request that would have to be reviewed. Over time, the different branches would diverge in non-release-specific content. Good general content that was submitted only to one branch would effectively disappear once that release was deprecated. (Even if it were still on the website, no one would look at it, since it would explicitly be in the subdirectory of a deprecated release, and there would be a motivation to remove it from the website so that search results wouldn’t be populated with out-of-date information.)
 
 For further discussion about release-specific documentation in Qubes, see `here <https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion>`__.
 

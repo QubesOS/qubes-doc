@@ -34,6 +34,7 @@ It is also possible to write rules that would allow creating disposables out of 
 Preloaded disposables
 ---------------------
 
+.. versionadded:: R4.3
 
 The user desires to circumvent any slow process, the creation of disposables fits into this category. Preloaded disposables enables fast retrieval of fresh disposables, so users don't have to get away from the computer or switch tasks when requesting disposables (or not requesting one at all because it was slow).
 
