@@ -36,8 +36,12 @@ extensions = [
   'sphinx_reredirects', # Manage redirects in the documentation
   'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
   'youtube_frame', # Embed YouTube videos
-  'last_edition',
 ]
+
+if os.environ.get("READTHEDOCS") or os.environ.get(
+    "QUBES_DOC_FULL_BUILD", ""
+).lower() in ("true", "on", "1"):
+    extensions.append("last_edition")
 
 # Redirects for specific URLs as fall back
 redirects = {

@@ -289,6 +289,31 @@ We use several Sphinx `extensions <https://www.sphinx-doc.org/en/master/usage/ex
 as defined in :file:`conf.py`, as well a simple custom one to embed YouTube videos,
 which can be found `here <https://github.com/QubesOS/qubes-doc/tree/main/_ext>`__.
 
+.. _last-edition-extension:
+
+``last_edition`` extension
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``last_edition`` adds the "Last edition of the current page" in the footer. The extension runs ``git log`` once per page during a full build to determine when each page was last edited. To avoid accumulating delays across many pages, the build process uses a short timeout and the extension is only loaded when explicitly requested via an environment variable.
+
+.. envvar:: QUBES_DOC_FULL_BUILD
+
+   :Default value: empty
+   :Allowed values: ``True``, ``on``, ``1``
+   :Case sensitive: no
+
+   Build the documentation with full features: if any of the allowed values is set, "last edition" will be displayed in the footer. On `Read the Docs <https://readthedocs.com/>`__ the ``READTHEDOCS`` environment variable fulfills the same role and is set automatically. In a plain local build, neither variable is set by default, so the extension is skipped and per-page ``git`` invocations are not performed.
+
+.. envvar:: QUBES_DOC_LAST_EDITION_TIMEOUT
+
+   :Default value: ``1``
+   :Allowed values: any integer
+
+   Maximum time in seconds allowed for each program:`git` call. Increase this value only if the extension is timing out on a slow build machine.
+
+.. admonition:: See also
+
+   :ref:`build-environment-variables`
 
 .. _build_locally:
 
@@ -433,9 +458,9 @@ Creating a Python environment with poetry
 
    .. hint::
 
-      If you would like to avoid prefixing commands with :program:`poetry run`, you can source the virtual environment with ``eval $(poetry env activate)`` on every new shell session. Note that when enabling ``virtualenvs.in-project``, you will find the virtual environment in the project root directory undre ``.venv``, same place the ``venv`` instructions uses.
+      If you would like to avoid prefixing commands with :program:`poetry run`, you can source the virtual environment with ``eval $(poetry env activate)`` on every new shell session. Note that when enabling ``virtualenvs.in-project``, you will find the virtual environment in the project root directory under ``.venv``, same place the ``venv`` instructions uses.
 
-Linting the documentation with peotry
+Linting the documentation with poetry
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -491,6 +516,38 @@ Building the documentation with poetry
 
       $ poetry run sphinx-autobuild . _build/html
 
+.. _build-environment-variables:
+
+Build environment variables
+---------------------------
+
+Part of the build process is not triggered by the default build, to speed up the local builds. You might want to define some environment variables in order to get something closer to the official documentation website.
+
+Display the "last edition" in the footer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to build the documentation and print the :ref:`last edition datetime <last-edition-extension>` in the footer, set :envvar:`QUBES_DOC_FULL_BUILD` to `True`. A :program:`git` command will be issued for each page. A timeout is set, in case :program:`git` takes too much time. The following is an example of enabling the extension for a local build:
+
+.. code-block:: console
+
+   $ export QUBES_DOC_FULL_BUILD=True
+   $ sphinx-build -b html . _build/html
+
+To also change the value of the timeout, use :envvar:`QUBES_DOC_LAST_EDITION_TIMEOUT`.
+
+.. code-block:: console
+
+   $ export QUBES_DOC_FULL_BUILD=True
+   $ export QUBES_DOC_LAST_EDITION_TIMEOUT=2
+   $ sphinx-build -b html . _build/html
+
+Display the ".onion available" button in Tor Browser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, the documentation only tells Tor Browser that an .onion alternative is available when building the ``latest`` branch and ``en`` language on ReadTheDocs. You can force this behavior by setting:
+
+* `READTHEDOCS_VERSION <https://docs.readthedocs.com/platform/stable/reference/environment-variables.html#envvar-READTHEDOCS_VERSION>`__ to ``latest``
+* and `READTHEDOCS_LANGUAGE <https://docs.readthedocs.com/platform/stable/reference/environment-variables.html#envvar-READTHEDOCS_LANGUAGE>`__ to ``en``
 
 Editor
 ------
