@@ -11,7 +11,7 @@ Minimum
 -------
 
 
-- **CPU:** 64-bit Intel or AMD processor (also known as ``x86_64``, ``x64``, and ``AMD64``)
+- **CPU:** Dual-core 64-bit Intel or AMD processor (also known as ``x86_64``, ``x64``, and ``AMD64``)
 
   - `Intel VT-x <https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29>`__ with `EPT <https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables>`__ or `AMD-V <https://en.wikipedia.org/wiki/X86_virtualization#AMD_virtualization_.28AMD-V.29>`__ with `RVI <https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Rapid_Virtualization_Indexing>`__
 
@@ -29,7 +29,7 @@ Recommended
 -----------
 
 
-- **CPU:** 64-bit Intel processor (also known as ``x86_64``, ``x64``, and ``Intel 64``)
+- **CPU:** Quad-core (or more) 64-bit Intel processor (also known as ``x86_64``, ``x64``, and ``Intel 64``)
 
   - `Intel VT-x <https://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29>`__ with `EPT <https://en.wikipedia.org/wiki/Second_Level_Address_Translation#Extended_Page_Tables>`__
 
