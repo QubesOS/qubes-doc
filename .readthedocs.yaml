@@ -4,6 +4,10 @@ build:
   os: "ubuntu-lts-latest"
   tools:
     python: "3.13"
+  jobs:
+    install:
+      - python -m pip install --upgrade --no-cache-dir pip setuptools
+      - python -m pip install --exists-action=w --no-cache-dir -r requirements.txt
 
 submodules:
   include: all
