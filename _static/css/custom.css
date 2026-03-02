@@ -7,7 +7,12 @@
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+}
 
 .accelerator {
     text-decoration: underline;
+}
+
+:host > div .background {
+  backdrop-filter: none;
 }
