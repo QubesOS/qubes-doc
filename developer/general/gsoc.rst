@@ -337,7 +337,7 @@ Steps:
 
 #. Read the policies listed above.
 #. Become a contributor.
-#. Suggest a GSoC project.
+#. Suggest a GSoC project in the `Whonix Forum <https://forums.whonix.org/>`__
 
 GUI agent for Windows 8/10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
