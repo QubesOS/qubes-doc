@@ -88,77 +88,8 @@ To revert, simply undo relevant configuration changes:
     [user@dom0 ~]$ qvm-service -D FULL_DESKTOP lightdm
 
 
-Fedora guest
-------------
-
-Qubes 4.2
-^^^^^^^^^
-
-Disable seamless mode
-"""""""""""""""""""""
-
-In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
-
-1. Set a password:
-
-  .. code:: console
-
-    [root@FULL_DESKTOP ~]# passwd user
-    New password: 
-    Retype new password: 
-    passwd: password updated successfully
-
-  Set any non-empty password. It is required to log in. Alternatively, `configure LightDM autologin <https://wiki.archlinux.org/title/LightDM#Enabling_autologin>`__.
-
-  .. hint::
-
-    If your goal is non-seamless mode in an app qube with no template modification, you might be interested in persisting configuration changes using :doc:`bind-dirs </user/advanced-topics/bind-dirs>` or :doc:`adding a script to rc.local.d </user/advanced-topics/config-files>`
-
-2. Note kernel cmdline of :code:`FULL_DESKTOP` qube, you will need them in the next step:
-
-  .. code:: console
-
-    [user@FULL_DESKTOP ~]$ cat /proc/cmdline
-    root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH rd.plymouth.enable=0 plymouth.enable=0 clocksource=tsc xen_scrub_pages=0 swiotlb=2048 selinux=1 security=selinux
-
-3. Configure qube preferences:
-
-  Replace :code:`$kernel_options` with the options you have acquired from :code:`/proc/cmdline`, but omit :code:`nomodeset`
-
-  .. code:: console
-
-    [user@dom0 ~]$ qvm-features FULL_DESKTOP gui-emulated 1
-    [user@dom0 ~]$ qvm-features FULL_DESKTOP no-default-kernelopts 1
-    [user@dom0 ~]$ qvm-prefs FULL_DESKTOP virt_mode hvm
-    [user@dom0 ~]$ qvm-prefs FULL_DESKTOP memory 1000
-    [user@dom0 ~]$ qvm-prefs FULL_DESKTOP kernelopts "$kernel_options systemd.unit=graphical.target"
-    [user@dom0 ~]$ qvm-service FULL_DESKTOP lightdm on
-
-  Lightdm service disables seamless mode by preventing qubes-gui-agent from starting and starts LightDM display manager.
-
-  Kernel option :code:`systemd.unit` overrides the default boot target.
-
-4. Restart the qube for changes to take effect
-
-Revert back to seamless mode
-""""""""""""""""""""""""""""
-
-To revert, simply undo relevant configuration changes:
-
-  .. code:: console
-
-    [user@dom0 ~]$ qvm-features --unset FULL_DESKTOP gui-emulated
-    [user@dom0 ~]$ qvm-features --unset FULL_DESKTOP no-default-kernelopts
-    [user@dom0 ~]$ qvm-prefs -D FULL_DESKTOP virt_mode
-    [user@dom0 ~]$ qvm-prefs -D FULL_DESKTOP kernelopts
-    [user@dom0 ~]$ qvm-service -D FULL_DESKTOP lightdm
-
-
-Qubes 4.3
-^^^^^^^^^
-
-Disable seamless mode
-"""""""""""""""""""""
+Disable seamless mode on Fedora guest
+-------------------------------------
 
 In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
 
@@ -194,8 +125,8 @@ In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
 
 3. Restart the qube for changes to take effect
 
-Revert back to seamless mode
-""""""""""""""""""""""""""""
+Revert to seamless mode on Fedora guest
+---------------------------------------
 
 To revert, simply undo relevant configuration changes:
 
