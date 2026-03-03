@@ -78,7 +78,7 @@ In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
 Revert to seamless mode on Debian guest
 ---------------------------------------
 
-To revert, simply undo the configuration changes:
+To revert, simply undo relevant configuration changes:
 
   .. code:: console
 
@@ -121,7 +121,7 @@ In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
     [user@FULL_DESKTOP ~]$ cat /proc/cmdline
     root=/dev/mapper/dmroot ro nomodeset console=hvc0 rd_NO_PLYMOUTH rd.plymouth.enable=0 plymouth.enable=0 clocksource=tsc xen_scrub_pages=0 swiotlb=2048 selinux=1 security=selinux
 
-2. Configure qube preferences:
+3. Configure qube preferences:
 
   Replace :code:`$kernel_options` with the options you have acquired from :code:`/proc/cmdline`, but omit :code:`nomodeset`
 
@@ -138,12 +138,12 @@ In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
 
   Kernel option :code:`systemd.unit` overrides the default boot target.
 
-3. Restart the qube for changes to take effect
+4. Restart the qube for changes to take effect
 
 Revert back to seamless mode
 """"""""""""""""""""""""""""
 
-To revert, simply undo the configuration changes:
+To revert, simply undo relevant configuration changes:
 
   .. code:: console
 
@@ -197,7 +197,7 @@ In terminal, with :code:`FULL_DESKTOP` as the name of the targeted qube:
 Revert back to seamless mode
 """"""""""""""""""""""""""""
 
-To revert, simply undo the configuration changes:
+To revert, simply undo relevant configuration changes:
 
   .. code:: console
 
@@ -206,7 +206,6 @@ To revert, simply undo the configuration changes:
     [user@dom0 ~]$ qvm-prefs -D FULL_DESKTOP virt_mode
     [user@dom0 ~]$ qvm-prefs -D FULL_DESKTOP kernelopts
     [user@dom0 ~]$ qvm-service -D FULL_DESKTOP lightdm
-
 
 .. |seamless_mode| image:: /attachment/doc/seamless_mode.png
   :alt: Qube applications in seamless mode - qube applications displayed as separate windows in dom0's desktop environment
