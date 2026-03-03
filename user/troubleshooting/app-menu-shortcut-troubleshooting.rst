@@ -200,9 +200,9 @@ Behind the scenes
 -----------------
 
 
-``qvm-sync-appmenus`` works by invoking the *GetAppMenus* :doc:`Qubes service </developer/services/qrexec>` in the target domain. This service enumerates applications installed in that qube and sends formatted info back to dom0 which creates ``.desktop`` files in the app qube/template directory of dom0.
+``qvm-sync-appmenus`` works by invoking the *GetAppmenus* :doc:`Qubes service </developer/services/qrexec>` in the target domain. This service enumerates applications installed in that qube and sends formatted info back to dom0 which creates ``.desktop`` files in the app qube/template directory of dom0.
 
-        For Linux qubes the service script is in :file:`/etc/qubes-rpc/qubes.GetAppMenus``. In Windows it’s a PowerShell script located in :file:`c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools\qubes-rpc-services\get-appmenus.ps1` by default.
+        For Linux qubes the service script is in :file:`/etc/qubes-rpc/qubes.GetAppmenus``. In Windows it’s a PowerShell script located in :file:`c:\Program Files\Invisible Things Lab\Qubes OS Windows Tools\qubes-rpc-services\get-appmenus.ps1` by default.
 
 The list of installed applications for each app qube is stored in dom0’s :file:`~/.local/share/qubes-appmenus/{<QUBE_NAME>}/apps.templates`. Each menu entry is a file that follows the `.desktop file format <https://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html>`__ with some wildcards (``%VMNAME%``, ``%VMDIR%``). Applications selected to appear in the menu are stored in :file:`~/.local/share/qubes-appmenus/{<QUBE_NAME>}/apps` and in :file:`~/.local/share/applications/`.
 
