@@ -27,7 +27,7 @@ VNC is better
 
 While it is possible to disable seamless desktop integration, at the moment of writing (2026-02) different approach is often considered superior: setting up VNC server and client in the same qube. It also provides a separate desktop in a qube, but doesn't require setting specific properties, behaves better than the default qube viewer, and doesn't reduce integration (such as inter-qube clipboard) in any way.
 
-Consult qube's OS and VNC distribution documentation on using VNC:
+Consult the operating system of the qube and VNC distribution documentation on using VNC:
 
 - `Fedora user documentation <https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/advanced/VNC_Installations/>`__
 - `Debian community wiki <https://wiki.debian.org/?action=fullsearch&value=vnc&titlesearch=Titles>`__
