@@ -10,21 +10,21 @@ Disposable behavior
 -------------------
 
 
-A :term:`disposable template` is not a disposable in itself, but a special template that can create different :term:`disposable` types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. This intermediary template serves different functions, first to permit customization of the private volume of a disposable as well as well as a degree of inheritance that would not be possible with normal templates. It has the :py:attr:`template_for_dispvms <core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.template_for_dispvms>` property enabled, being a :py:class:`DVMTemplateMixin <core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin>`.
+A :term:`disposable template` is not a disposable in itself, but a special template that can create different :term:`disposable` types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. This intermediary template serves different functions, first to permit customization of the private volume of a disposable as well as well as a degree of inheritance that would not be possible with normal templates. It has the :py:attr:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.template_for_dispvms` property enabled, being a :py:class:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin`.
 
-A :term:`disposable` is a qube with the :py:class:`DispVM <core-admin:qubes.vm.dispvm.DispVM>` class and is based on a disposable template. Every disposable type has all of its volumes configured to disable :py:attr:`save_on_stop <core-admin:qubes.storage.Volume.save_on_stop>`, therefore no changes are saved on shutdown. Unnamed disposables enables the property :py:attr:`auto_cleanup <core-admin:qubes.vm.dispvm.DispVM.auto_cleanup>` by default, thus automatically removes the qube upon shutdown. Named disposables don't enable :py:attr:`auto_cleanup <core-admin:qubes.vm.dispvm.DispVM.auto_cleanup>` by default, thus the qube skeleton is not removed upon shutdown, thus allowing to keep qube settings.
+A :term:`disposable` is a qube with the :py:class:`~core-admin:qubes.vm.dispvm.DispVM` class and is based on a disposable template. Every disposable type has all of its volumes configured to disable :py:attr:`~core-admin:qubes.storage.Volume.save_on_stop`, therefore no changes are saved on shutdown. Unnamed disposables enables the property :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus automatically removes the qube upon shutdown. Named disposables don't enable :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus the qube skeleton is not removed upon shutdown, thus allowing to keep qube settings.
 
 Named disposables are useful for service qubes, as referencing static names is easier when the qube name is mentioned on Qrexec policies (:file:`qubes.UpdatesProxy` target) or as a property of another qube, such as a disposable :term:`net qube` which is referenced by downstream clients in the ``netvm`` property.
 
-Unnamed disposables have their names in the format :samp:`disp{1234}`, where :samp:`{1234}` is derived from the :py:attr:`dispid <core-admin:qubes.vm.dispvm.DispVM.dispid>` property, a random integer ranging from 0 to 9999 with a fail-safe mechanism to avoid reusing the same value in a short period.
+Unnamed disposables have their names in the format :samp:`disp{1234}`, where :samp:`{1234}` is derived from the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.dispid` property, a random integer ranging from 0 to 9999 with a fail-safe mechanism to avoid reusing the same value in a short period.
 
 
 Disposable's creation with Qrexec
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The system and every qube can have the :py:attr:`default_dispvm <core-admin:qubes.vm.dispvm.DispVM.default_dispvm>` property. This property can only have disposable template as value or an empty value. If the qube property is set to the default value, it will use the system's property. An exception to the rule is the property of disposables, which always default to their disposables templates to avoid data leaks such as using unintended network paths.
+The system and every qube can have the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property. This property can only have disposable template as value or an empty value. If the qube property is set to the default value, it will use the system's property. An exception to the rule is the property of disposables, which always default to their disposables templates to avoid data leaks such as using unintended network paths.
 
-There are some Qrexec policy rules that have some services with allow resolution in case the target is the :doc:`@dispvm <core-qrexec:qrexec-policy>` tag, which translates to creation of disposables out of the :py:attr:`default_dispvm <core-admin:qubes.vm.dispvm.DispVM.default_dispvm>` property. It is most commonly used to open files and URLs, (:file:`qubes.OpenInVM` and :file:`qubes.OpenURL`, respectively).
+There are some Qrexec policy rules that have some services with allow resolution in case the target is the :doc:`@dispvm <core-qrexec:qrexec-policy>` tag, which translates to creation of disposables out of the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property. It is most commonly used to open files and URLs, (:file:`qubes.OpenInVM` and :file:`qubes.OpenURL`, respectively).
 
 It is also possible to write rules that would allow creating disposables out of different disposables templates by using as destination the disposable template name or a tag it has. The destination would be:
 
@@ -69,8 +69,7 @@ These are common events that trigger changes in preloaded disposables quantity:
 - Refill or remove:
 
   - Changing the ``preload-dispvm-max`` feature;
-  - Changing system's :py:attr:`default_dispvm <core-admin:qubes.vm.dispvm.DispVM.default_dispvm>` while system's feature is set to a different value than the disposable template setting;
-
+  - Changing system's :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` while system's feature is set to a different value than the disposable template setting;
 - Refill:
 
   - (Re)starting :file:`qubes-preload-dispvm.service`;
@@ -132,7 +131,7 @@ As preloaded disposables are started before being used, methods to prevent accid
 - The qube has the ``internal`` feature enabled, Qubes GUI applications were patched to hide and show :term:`internal qubes<internal qube>` by handling events for ``domain-feature-((pre-)?set|delete):internal``;
 - When requesting an unnamed disposable, the qube object is only returned to the user once it has finished preloading;
 - The qube is paused as the last stage of preloading, this permits receiving :py:meth:`domain-unpaused <core-admin:qubes.vm.dispvm.DispVM.on_domain_unpaused>` event and be notified that the qube was used, marked as such and removed from the preload list to avoid reuse, even without the qube being requested with :py:meth:`core-admin:qubes.vm.dispvm.DispVM.from_appvm`;
-- The GUID and Audio daemon only connects to the GUI agent and audio agent on the qube after the preloaded disposable is marked as used, this prevents that an autostarted applications appearing on the screen before it is ready or before pause, which could be confusing. Enabling a GUI is controlled by the :py:attr:`is_preload <core-admin:qubes.vm.dispvm.DispVM.is_preload>` property, that when disabled, allows the GUI and audio connection to initiate.
+- The GUID and Audio daemon only connects to the GUI agent and audio agent on the qube after the preloaded disposable is marked as used, this prevents that an autostarted applications appearing on the screen before it is ready or before pause, which could be confusing. Enabling a GUI is controlled by the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.is_preload` property, that when disabled, allows the GUI and audio connection to initiate.
 
 Another point of security is reliability:
 
