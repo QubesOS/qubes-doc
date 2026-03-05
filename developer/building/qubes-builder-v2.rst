@@ -14,9 +14,9 @@ In the second generation of Qubes OS builder, container or disposable qube isola
 Setup
 -----
 
-This is a simple setup using a docker or podman executor. This is a good default choice; if you don’t know which executor to use, use docker.  Note the podman exector `is known <https://github.com/QubesOS/qubes-issues/issues/10280>` not to be currently able to build DEB packages.
+This is a simple setup using a docker or podman executor. This is a good default choice; if you don’t know which executor to use, use docker.  Note the podman executor `is known <https://github.com/QubesOS/qubes-issues/issues/10280>`__ not to be currently able to build DEB packages.
 
-1. First, decide what qube you are going to use when working with Qubes Builder v2. It can be an AppVM or a Standalone qube, with some steps different between the two.
+1. First, decide what qube you are going to use when working with Qubes Builder v2. It can be an app qube or a standalone, with some steps different between the two.
 
 2. Clone the qubes-builder v2 repository into a location of your choice:
 
@@ -27,7 +27,7 @@ This is a simple setup using a docker or podman executor. This is a good default
 
 3. Installing dependencies
 
-   If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory (you will also find dependency lists for ``podman`` and ``qubes`` executors if you choose to use thsose), and you can install them easily in the following ways:
+   If you want to use an app qube for developing, install dependencies in the template. If you are using a standalone, install them in the qube itself. Dependencies are specified in ``dependencies-*. txt`` files in the main builder directory (you will also find dependency lists for ``podman`` and ``qubes`` executors if you choose to use those), and you can install them easily in the following ways:
 
    - for Fedora, use:
 
