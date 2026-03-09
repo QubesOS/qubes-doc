@@ -115,7 +115,7 @@ html_favicon = "attachment/icons/favicon-16x16.png"
 # -- -- Options for the linkcheck builder ------------------------------------
 
 linkcheck_anchors = False
-linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
+linkcheck_ignore = [r"^https?://[^/\s]+\.onion", r"https://localhost:\d+/"]
 
 # -- Extensions configuration ------------------------------------------------
 # Prefix section labels with the document name
