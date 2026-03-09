@@ -25,7 +25,7 @@ PCI Passthrough Issues
 ----------------------
 
 
-Sometimes the PCI arbitrator is too strict, which may cause errors such as ``Unable to reset PCI device`` and other PCI-related errors. There is a way to enable permissive mode for it. See also: `this thread <https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI>`__ and the Xen wiki’s `PCI passthrough <https://wiki.xen.org/wiki/Xen_PCI_Passthrough>`__ page. Other times, you may instead need to disable the FLR requirement on a device.
+Sometimes the PCI arbitrator is too strict, which may cause errors such as ``Unable to reset PCI device`` and other PCI-related errors. There is a way to enable permissive mode for it. See also: `this thread <https://groups.google.com/forum/#!topic/qubes-users/Fs94QAc3vQI>`__ and the Xen wiki’s `PCI passthrough <https://wiki.xenproject.org/wiki/Xen_PCI_Passthrough>`__ page. Other times, you may instead need to disable the FLR requirement on a device.
 
 Both can be achieved during attachment with ``qvm-pci`` as described :ref:`PCI Devices documentation <user/how-to-guides/how-to-use-pci-devices:additional attach options>`.
 
