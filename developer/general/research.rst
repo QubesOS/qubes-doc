@@ -31,7 +31,7 @@ Attacks on Intel TXT
 
 - `Attacking Intel TXT® via SINIT code execution hijacking <https://invisiblethingslab.com/resources/2011/Attacking_Intel_TXT_via_SINIT_hijacking.pdf>`__ by Rafal Wojtczuk and Joanna Rutkowska, November 2011
 - `Another Way to Circumvent Intel® Trusted Execution Technology <https://invisiblethingslab.com/resources/misc09/Another%20TXT%20Attack.pdf>`__ by Rafal Wojtczuk, Joanna Rutkowska, Alex Tereshkin, December 2009
-- `ACPI: Design Principles and Concerns <https://cyber.gouv.fr/sites/default/files/IMG/pdf/article_acpi.pdf>`__ by Loic Duflot, Olivier Levillain, and Benjamin Morin, 2009
+- `ACPI: Design Principles and Concerns <https://web.archive.org/web/20251019184330/https://cyber.gouv.fr/sites/default/files/IMG/pdf/article_acpi.pdf>`__ by Loic Duflot, Olivier Levillain, and Benjamin Morin, 2009
 - `Attacking Intel® Trusted Execution Technology <https://invisiblethingslab.com/resources/bh09dc/Attacking%20Intel%20TXT%20-%20paper.pdf>`__ by Rafal Wojtczuk and Joanna Rutkowska
 
 Software Attacks Coming Through Devices
@@ -40,7 +40,7 @@ Software Attacks Coming Through Devices
 - `Following the White Rabbit: Software Attacks against Intel® VT-d <https://invisiblethingslab.com/resources/2011/Software%20Attacks%20on%20Intel%20VT-d.pdf>`__ by Rafal Wojtczuk and Joanna Rutkowska, April 2011
 - `On Formally Verified Microkernels (and on attacking them) <https://blog.invisiblethings.org/2010/05/03/on-formally-verified-microkernels-and.html>`__ by Joanna Rutkowska, May 2010
 - `Remotely Attacking Network Cards (or why we do need VT-d and TXT) <https://blog.invisiblethings.org/2010/04/30/remotely-attacking-network-cards-or-why.html>`__ by Joanna Rutkowska, April 2010
-- `Can you still trust your network card? <https://cyber.gouv.fr/sites/default/files/IMG/pdf/csw-trustnetworkcard.pdf>`__ by Loïc Duflot, Yves-Alexis Perez and others
+- `Can you still trust your network card? <https://web.archive.org/web/20251019184331/https://cyber.gouv.fr/sites/default/files/IMG/pdf/csw-trustnetworkcard.pdf>`__ by Loïc Duflot, Yves-Alexis Perez and others
 
 Application-level Security
 ==========================

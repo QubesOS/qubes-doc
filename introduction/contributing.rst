@@ -35,7 +35,7 @@ Thank you for your interest in contributing to Qubes! Here are some of the many 
 
 - Engage with us on social media:
 
-  - Follow us on `Twitter <https://twitter.com/QubesOS>`__
+  - Follow us on `Twitter <https://x.com/QubesOS>`__
 
   - Join us on `Reddit <https://www.reddit.com/r/Qubes/>`__
 

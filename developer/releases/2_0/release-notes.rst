@@ -51,7 +51,7 @@ Known issues
 
 - System shutdown sometimes is very slow (#903). To mitigate the problem, shutdown all the VMs first.
 
-- For other known issues take a look at `our trac tickets <https://wiki.qubes-os.org/query?status=accepted&status=assigned&status=new&status=reopened&type=defect&milestone=Release+2.1+(post+R2)&col=id&col=summary&col=status&col=type&col=priority&col=milestone&col=component&order=priority>`__
+- For other known issues take a look at our trac tickets [dead query link towards the now defunct site `wiki.qubes-os.org <https://web.archive.org/web/20150311104801/https://wiki.qubes-os.org>`__]
 
 
 
