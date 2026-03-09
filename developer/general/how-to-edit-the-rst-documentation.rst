@@ -6,7 +6,7 @@ The Qubes OS documentation is stored as `reStructuredText (rST) <https://docutil
 the `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ repository.
 
 We use `Sphinx <https://www.sphinx-doc.org/>`__ for building and
-`Read The Docs (RTD) <https://readthedocs.com/>`__ for hosting.
+`Read The Docs (RTD) <https://about.readthedocs.com/>`__ for hosting.
 RTD is a `continuous‑documentation deployment platform <https://docs.readthedocs.com/platform/stable/continuous-deployment.html>`__ that can automatically
 detect changes in a GitHub repository and build the latest version of a documentation.
 

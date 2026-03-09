@@ -11,7 +11,7 @@ What is Qubes OS?
 -----------------
 
 Qubes OS is a free and open-source, security-oriented operating system for
-single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xen.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :term:`qubes <qube>`.
+single-user desktop computing. Qubes OS `leverages Xen-based virtualization <https://wiki.xenproject.org/wiki/Xen_Project_Software_Overview>`__ to allow for the creation and management of isolated compartments called :term:`qubes <qube>`.
 
 These qubes, which are implemented as :term:`virtual machines (VMs) <vm>`, have specific:
 
@@ -130,8 +130,8 @@ plug in devices, and install software free from worry. It's a place where
 (See some :doc:`examples of how different types of users organize their qubes </user/how-to-guides/how-to-organize-your-qubes>`.)
 
 Qubes is also powerful. Organizations like the `Freedom of the Press Foundation <https://securedrop.org/news/piloting-securedrop-workstation-qubes-os>`__,
-`Mullvad <https://twitter.com/mullvadnet/status/631010362083643392>`__,
-and `Let's Encrypt <https://twitter.com/letsencrypt/status/1239934557710737410>`__
+`Mullvad <https://x.com/mullvadnet/status/631010362083643392>`__,
+and `Let's Encrypt <https://x.com/letsencrypt/status/1239934557710737410>`__
 rely on Qubes as they build and maintain critical privacy and
 security internet technologies that are in turn relied upon by countless
 users around the world every day. Renowned security `experts <https://qubes-os.org/endorsements/>`__ like Edward Snowden, Daniel J. Bernstein,

@@ -143,9 +143,9 @@ The ``0x`` prefix is sometimes used to indicate that the string following it is 
 
 The general idea of “comparing fingerprints” is to go out into the world (whether digitally, physically, or both) and find other 40-character strings purporting to be the QMSK fingerprint, then compare them to your own purported QMSK fingerprint to ensure that the sequence of alphanumeric characters is exactly the same (again, regardless of spaces or capitalization). If any of the characters do not match or are not in the same order, then at least one of the fingerprints is a forgery. Here are some ideas to get you started:
 
-- Check the fingerprint on various websites (e.g., `mailing lists <https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ>`__, `discussion forums <https://forum.qubes-os.org/t/1441/9>`__, `social <https://twitter.com/rootkovska/status/496976187491876864>`__ `media <https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/>`__, `personal websites <https://andrewdavidwong.com/fingerprints.txt>`__).
+- Check the fingerprint on various websites (e.g., `mailing lists <https://groups.google.com/g/qubes-devel/c/RqR9WPxICwg/m/kaQwknZPDHkJ>`__, `discussion forums <https://forum.qubes-os.org/t/1441/9>`__, `social <https://x.com/rootkovska/status/496976187491876864>`__ `media <https://www.reddit.com/r/Qubes/comments/5bme9n/fingerprint_verification/>`__, `personal websites <https://andrewdavidwong.com/fingerprints.txt>`__).
 
-- Check against PDFs, photographs, and videos in which the fingerprint appears (e.g., `slides from a talk <https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf>`__, on a `T-shirt <https://twitter.com/legind/status/813847907858337793/photo/2>`__, or in the `recording of a presentation <https://youtu.be/S0TVw7U3MkE?t=2563>`__).
+- Check against PDFs, photographs, and videos in which the fingerprint appears (e.g., `slides from a talk <https://hyperelliptic.org/PSC/slides/psc2015_qubesos.pdf>`__, on a `T-shirt <https://x.com/legind/status/813847907858337793/photo/2>`__, or in the `recording of a presentation <https://youtu.be/S0TVw7U3MkE?t=2563>`__).
 
 - Ask people to post the fingerprint on various mailing lists, forums, and chat rooms.
 
