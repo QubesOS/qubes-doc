@@ -126,10 +126,10 @@ Standalones
 
 The procedure for upgrading a Debian :doc:`standalone </user/advanced-topics/standalones-and-hvms>` is the same as for a template.
 
-.. Release-specific notes
-   ----------------------
-   This section contains notes about upgrading to specific releases.
+Release-specific notes
+----------------------
 
+.. note:: This section contains notes about upgrading to specific releases.
 
 End-of-life (EOL) releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
