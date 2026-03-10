@@ -137,12 +137,12 @@ Automate template version upgrade
 
 **Project**: Automate template version upgrade
 
-**Brief explanation**: At least once a year, users have to upgrade the Fedora template to the next version (e.g. Fedora 42 to Fedora 43), for Debian-based qubes this is less frequent but is eventually necessary. The documentation `recommends <https://doc.qubes-os.org/en/latest/user/templates/fedora/fedora.html#upgrading>`__ downloading the new template and then installing once again all the software the user had on the previous template. This is a cumbersome process that requires remembering / discovering all that had been installed / modified on the older template. The alternative is to `perform an inplace upgrade <https://doc.qubes-os.org/en/latest/user/templates/fedora/fedora-upgrade.html>`__, but it involves running manual commands in the template's terminal. The goal of this project to enable users to easily do templates inplace upgrades with a single command / push of a button. You can find prior efforts `here <https://github.com/QubesOS/qubes-issues/issues/8605>`_.
+**Brief explanation**: At least once a year, users have to upgrade the Fedora template to the next version (e.g. Fedora 42 to Fedora 43), for Debian-based qubes this is less frequent but is eventually necessary. The documentation :ref:`recommends <user/templates/fedora/fedora:upgrading>` downloading the new template and then installing once again all the software the user had on the previous template. This is a cumbersome process that requires remembering / discovering all that had been installed / modified on the older template. The alternative is to :doc:`perform an inplace upgrade </user/templates/fedora/fedora-upgrade>`, but it involves running manual commands in the template's terminal. The goal of this project to enable users to easily do templates inplace upgrades with a single command / push of a button. You can find prior efforts in `issue #8605 <https://github.com/QubesOS/qubes-issues/issues/8605>`__.
 
 **Expected results**:
 - Build and integrate Fedora and Debian template upgrade mechanism into existing tooling
 - Adequate safeguards to accommodate failure scenarios during upgrades
-- `Write integration tests <doc/automated-tests/>`__
+- :doc:`Write integration tests </developer/debugging/automated-tests>`
 
 **Difficulty**: medium
 
