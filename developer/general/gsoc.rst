@@ -115,21 +115,45 @@ Graphical package manager support in templates
 **Project**: Graphical package manager support in templates
 
 
-**Brief explanation**: Most of the actions needed to be performed by a Qubes OS user can be done easily with GUI tools and without the command line -- except installing software in a template. This project aims to fill this gap by ensuring a smooth user experience across different default templates (Fedora, Debian, Whonix) to have GUI-based software management. for more info please see: https://github.com/QubesOS/qubes-issues/issues/6310 as well as https://forum.qubes-os.org/t/how-to-fix-software-in-templates-to-install-packages-using-a-gui/20944
+**Brief explanation**: Most of the actions needed to be performed by a Qubes OS user can be done easily with GUI tools and without the command line -- except installing managing software in a template. This project aims to fill this gap by ensuring a smooth user experience across different default templates (Fedora, Debian, Whonix) to have GUI-based software management. for more info please see: https://github.com/QubesOS/qubes-issues/issues/6310 as well as https://forum.qubes-os.org/t/how-to-fix-software-in-templates-to-install-packages-using-a-gui/20944
 
-**Expected results**: 
+**Expected results**:
 - select a basic software manager for each template
 - ensure necessary tweaks so that they can access internet via `qubes updates proxy` :ref:`user/how-to-guides/how-to-install-software:Updates proxy`
 - an "Add Software" context button in Qubes menu that works across different templates
 
 **Difficulty**: medium
 
-**Knowledge prerequisite**: 
+**Knowledge prerequisite**:
 - Python
 
 **Size of the project**: 175 hours
 
 **Mentor**: Marta Marczykowska-Górecka <marmarta@invisiblethingslab.com>
+
+
+Automate template version upgrade
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Project**: Automate template version upgrade
+
+**Brief explanation**: At least once a year, users have to upgrade the Fedora template to the next version (e.g. Fedora 42 to Fedora 43), for Debian-based qubes this is less frequent but is eventually necessary. The documentation `recommends <https://doc.qubes-os.org/en/latest/user/templates/fedora/fedora.html#upgrading>`__ downloading the new template and then installing once again all the software the user had on the previous template. This is a cumbersome process that requires remembering / discovering all that had been installed / modified on the older template. The alternative is to `perform an inplace upgrade <https://doc.qubes-os.org/en/latest/user/templates/fedora/fedora-upgrade.html>`__, but it involves running manual commands in the template's terminal. The goal of this project to enable users to easily do templates inplace upgrades with a single command / push of a button. You can find prior efforts `here <https://github.com/QubesOS/qubes-issues/issues/8605>`_.
+
+**Expected results**:
+- Build and integrate Fedora and Debian template upgrade mechanism into existing tooling
+- Adequate safeguards to accommodate failure scenarios during upgrades
+- `Write integration tests <doc/automated-tests/>`__
+
+**Difficulty**: medium
+
+**Knowledge prerequisite**:
+- Python
+- Bash
+- Debian / Fedora packaging
+
+**Size of the project**: 350 hours
+
+**Mentor**: TBD
 
 
 Qubes as a Vagrant provider
