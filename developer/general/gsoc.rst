@@ -153,7 +153,7 @@ Automate template version upgrade
 
 **Size of the project**: 350 hours
 
-**Mentor**: TBD
+**Mentor**: Piotr Bartman-Szwarc
 
 
 Qubes as a Vagrant provider
