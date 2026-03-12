@@ -9,7 +9,7 @@ The **Qubes security pack (qubes-secpack)** is a Git repository that contains:
 
 - `Qubes canaries <https://www.qubes-os.org/security/canary/>`__
 
-- :ref:`Qubes ISO cryptographic hash values <project-security/verifying-signatures:how to verify the cryptographic hash values of qubes isos>`
+- `Qubes ISO cryptographic hash values <https://github.com/QubesOS/qubes-secpack/tree/main/digests>`__
 
 - `Qubes fund information <https://github.com/QubesOS/qubes-secpack/tree/master/fund>`__
 
