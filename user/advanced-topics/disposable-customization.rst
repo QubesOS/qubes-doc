@@ -253,9 +253,14 @@ Named disposable for service qubes without PCI devices via GUI
 
 To create one that has no PCI devices attached, such as for ``sys-firewall``, create a :ref:`named disposable <user/how-to-guides/how-to-use-disposables:how to create named disposables>`. Write a name, choose a label and select :guilabel:`Launch Qube Settings after creation`. Click :guilabel:`Create new qube` to complete creation. When the :guilabel:`Qube Settings` opens:
 
-- :menuselection:`Basic --> Start qube automatically on boot`
-- :menuselection:`Basic --> Net qube --> sys-net`
-- :menuselection:`Advanced --> Provides network`
+- In :guilabel:`Basic` tab:
+
+  - Check :guilabel:`Start qube automatically on boot`
+  - Set :guilabel:`Net qube` to :guilabel:`sys-net`
+
+- In :guilabel:`Advanced` tab:
+
+  - Check :guilabel:`Provides network`
 
 Click :guilabel:`&OK` to save changes and close the window.
 
@@ -302,15 +307,25 @@ Named disposable for service qubes with PCI devices via GUI
 
 To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``, create a :ref:`named disposable <user/how-to-guides/how-to-use-disposables:how to create named disposables>`. Write a name, choose a label and select :guilabel:`Launch Qube Settings after creation`. Click :guilabel:`Create new qube` to complete creation. When the :guilabel:`Qube Settings` opens:
 
-- :menuselection:`Basic --> Start qube automatically on boot`
-- :menuselection:`Basic --> Net qube --> (none)`
-- :menuselection:`Advanced --> Virtualization --> Mode --> HVM`
-- :menuselection:`Devices --> Available devices --> <DEVICE> --> >`
-- :menuselection:`Services --> Select a service --> meminfo-writer --> Add`
+- In :guilabel:`Basic` tab:
+
+  - Check :guilabel:`Start qube automatically on boot`
+  - Set :guilabel:`Net qube` to :guilabel:`(none)`
+
+- In :guilabel:`Advanced` tab:
+
+  - In :guilabel:`Virtualization` section, set :guilabel:`Mode` to :guilabel:`HVM`
+  - In :guilabel:`Memory/CPU` section, uncheck :guilabel:`Include in memory balancing`
+
+- In :guilabel:`Devices` tab:
+
+  - Select devices in the :guilabel:`Available devices` section and attach them to the qube by clicking on :guilabel:`>`
 
 Optionally, if this disposable will also provide network access to other qubes:
 
-- :menuselection:`Advanced --> Provides network`
+- In :guilabel:`Advanced` tab:
+
+  - Check :guilabel:`Provides network`
 
 Click :guilabel:`&OK` to save changes and close the window.
 
@@ -340,11 +355,11 @@ To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``
 
       user@dom0:~$ qvm-create -C DispVM -l red <SERVICE_QUBE>
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> virt_mode hvm
-      user@dom0:~$ qvm-service <SERVICE_QUBE> meminfo-writer off
-      user@dom0:~$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
+      user@dom0:~$ qvm-prefs <SERVICE_QUBE> maxmem 0
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> autostart true
       user@dom0:~$ qvm-prefs <SERVICE_QUBE> netvm ''
       user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+      user@dom0:~$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
 
 Optionally, if this disposable will also provide network access to other qubes:
 
@@ -366,12 +381,12 @@ Here is an example of a complete ``sys-net`` replacement:
 
       user@dom0:~$ qvm-create -C DispVM -l red sys-net2
       user@dom0:~$ qvm-prefs sys-net2 virt_mode hvm
-      user@dom0:~$ qvm-service sys-net2 meminfo-writer off
-      user@dom0:~$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
+      user@dom0:~$ qvm-prefs sys-net2 maxmem 0
       user@dom0:~$ qvm-prefs sys-net2 autostart true
       user@dom0:~$ qvm-prefs sys-net2 netvm ''
-      user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
       user@dom0:~$ qvm-prefs sys-net2 provides_network true
+      user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
+      user@dom0:~$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
       user@dom0:~$ qvm-prefs sys-net autostart false
       user@dom0:~$ qvm-prefs sys-firewall netvm sys-net2
       user@dom0:~$ qubes-prefs clockvm sys-net2
