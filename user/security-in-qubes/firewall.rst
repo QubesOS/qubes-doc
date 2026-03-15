@@ -79,6 +79,35 @@ The firewall rules for each qube are saved in an XML file in that qube’s direc
 
 Rules are implemented on the :term:`net qube`, so: if a rule is set for a qube that uses *sys-firewall* as its net qube, *sys-firewall* will implement the rules.
 
+.. warning::
+
+   The firewall rules described above only take effect if the
+   ``qubes-firewall`` service is running in the net qube. If the
+   ``qubes-firewall`` service is stopped or has crashed in the net
+   qube (e.g. ``sys-firewall``), **all traffic will be passed
+   through without any filtering**, regardless of the rules you
+   have configured. This is a common source of confusion and
+   potential security risk.
+
+   You can verify that the service is running by executing the
+   following command in the net qube:
+
+   .. code:: console
+
+         $ sudo systemctl status qubes-firewall.service
+
+   Additionally, if your upstream qube is ``sys-whonix`` instead
+   of ``sys-firewall``, be aware that ``sys-whonix`` does **not**
+   run the ``qubes-firewall`` service. In this case, traffic
+   isolation is handled by Whonix and Tor, not by the Qubes
+   firewall. Any firewall rules configured via ``qvm-firewall`` or
+   the Qubes Manager will have **no effect** on qubes that use
+   ``sys-whonix`` as their net qube.
+
+   See the `Whonix documentation
+   <https://www.whonix.org/wiki/Qubes>`__ for more details on
+   networking in this configuration.
+
 Reconnecting qubes after a net qube reboot
 ------------------------------------------
 
