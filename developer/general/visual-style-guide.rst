@@ -11,16 +11,20 @@ Currently Qubes OS is using the following fonts for our website, branding, and o
    :header-rows: 0
    :widths: 75 25
 
-   * - .. image:: /attachment/doc/visual_guide/fonts/font_ostrich_sans_bold.png
+   * - .. image:: /attachment/doc/visual_guide/fonts/font-ostrich-sans-bold.png
+          :alt:
      - **Family:** Ostrich Sans Bold
 
-   * - .. image:: /attachment/doc/visual_guide/fonts/font_ostrich_sans.png
+   * - .. image:: /attachment/doc/visual_guide/fonts/font-ostrich-sans.png
+          :alt:
      - **Family:** Ostrich Sans
 
-   * - .. image:: /attachment/doc/visual_guide/fonts/font_open_sans_bold.png
+   * - .. image:: /attachment/doc/visual_guide/fonts/font-open-sans-bold.png
+          :alt:
      - **Family:** Open Sans Bold
 
-   * - .. image:: /attachment/doc/visual_guide/fonts/font_open_sans.png
+   * - .. image:: /attachment/doc/visual_guide/fonts/font-open-sans.png
+          :alt:
      - **Family:** Open Sans
 
 Colors
@@ -36,7 +40,6 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-base.svg
-         :alt: #333333
 
       **Main Black**
 
@@ -45,7 +48,6 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-darker.svg
-         :alt: #888888
 
       **Sub Gray**
 
@@ -54,7 +56,6 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-dark.svg
-         :alt: #8e8e95
 
       **Icon Dark Gray**
 
@@ -63,7 +64,6 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray.svg
-         :alt: #bfbfbf
 
       **Middle Gray**
 
@@ -72,7 +72,6 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-light.svg
-         :alt: #d2d2d2
 
       **Light Gray**
 
@@ -81,7 +80,6 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-lighter.svg
-         :alt: #f5f5f5
 
       **Background Gray**
 
@@ -97,7 +95,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-primary.svg
-         :alt: #3874d8
 
       **Primary Blue**
 
@@ -106,7 +103,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-info.svg
-         :alt: #43c4f3
 
       **Info Blue**
 
@@ -115,7 +111,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-blue.svg
-         :alt: #63a0ff
 
       **Qubes Blue**
 
@@ -124,7 +119,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-blue-light.svg
-         :alt: #99bfff
 
       **Light Blue**
 
@@ -133,7 +127,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-success.svg
-         :alt: #5ad840
 
       **Success Green**
 
@@ -142,7 +135,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-purple.svg
-         :alt: #9f389f
 
       **Purple**
 
@@ -151,7 +143,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-danger.svg
-         :alt: #bd2727
 
       **Danger Red**
 
@@ -160,7 +151,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-warning.svg
-         :alt: #e79e27
 
       **Warning Orange**
 
@@ -169,7 +159,6 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-yellow.svg
-         :alt: #e7e532
 
       **Alert Yellow**
 
@@ -199,35 +188,35 @@ Logo Assets
 
    * - .. image:: /attachment/doc/visual_guide/icons/qubes-logo-home.svg
           :alt: qubes-logo-home.svg
-     - | **Image:** qubes-logo-home.svg
-       | **Size:** 200×200px
-       | **Format:** SVG
-       | **Download:** :download:`qubes-logo-home.svg </attachment/doc/visual_guide/icons/qubes-logo-home.svg>`
+     - :Image: qubes-logo-home.svg
+       :Size: 200×200px
+       :Format: SVG
+       :Download: :download:`qubes-logo-home.svg </attachment/doc/visual_guide/icons/qubes-logo-home.svg>`
 
    * - .. image:: /attachment/doc/visual_guide/icons/logo-outline-small.svg
           :alt: logo-outline-small.svg
-     - | **Image:** logo-outline-small.svg
-       | **Size:** 40×40px
-       | **Format:** SVG
-       | **Download:** :download:`logo-outline-small.svg </attachment/doc/visual_guide/icons/logo-outline-small.svg>`
+     - :Image: logo-outline-small.svg
+       :Size: 40×40px
+       :Format: SVG
+       :Download: :download:`qubes-logo-home.svg </attachment/doc/visual_guide/icons/qubes-logo-home.svg>`
 
    * - .. image:: /attachment/doc/visual_guide/icons/qubes-logo-icon-512.png
           :alt: qubes-logo-icon-512.png
-     - | **Image:** qubes-logo-icon.png
-       | **Size:** 512×512px
-       | **Format:** PNG
-       | **Download:** :download:`qubes-logo-icon-512.png </attachment/doc/visual_guide/icons/qubes-logo-icon-512.png>`
+     - :Image: qubes-logo-icon.png
+       :Size: 512×512px
+       :Format: PNG
+       :Download: :download:`qubes-logo-icon-512.png </attachment/doc/visual_guide/icons/qubes-logo-icon-512.png>`
 
    * - .. image:: /attachment/doc/visual_guide/icons/qubes-logo-icon-128.png
           :alt: qubes-logo-icon-128.png
-     - | **Image:** qubes-logo-icon.png
-       | **Size:** 128×128px
-       | **Format:** PNG
-       | **Download:** :download:`qubes-logo-icon-128.png </attachment/doc/visual_guide/icons/qubes-logo-icon-128.png>`
+     - :Image: qubes-logo-icon.png
+       :Size: 128×128px
+       :Format: PNG
+       :Download: :download:`qubes-logo-icon-128.png </attachment/doc/visual_guide/icons/qubes-logo-icon-128.png>`
 
    * - .. image:: /attachment/doc/visual_guide/icons/qubes-logo-icon-48.png
           :alt: qubes-logo-icon-48.png
-     - | **Image:** qubes-logo-icon.png
-       | **Size:** 48×48px
-       | **Format:** PNG
-       | **Download:** :download:`qubes-logo-icon-48.png </attachment/doc/visual_guide/icons/qubes-logo-icon-48.png>`
+     - :Image: qubes-logo-icon.png
+       :Size: 48×48px
+       :Format: PNG
+       :Download: :download:`qubes-logo-icon-48.png </attachment/doc/visual_guide/icons/qubes-logo-icon-48.png>`
