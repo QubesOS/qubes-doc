@@ -89,7 +89,7 @@ This is a common source of confusion and potential security risk. You can verify
 
    [user@net-qube] $ sudo systemctl status qubes-firewall.service
 
-Additionally, if your upstream qube is ``sys-whonix`` instead of ``sys-firewall``, be aware that ``sys-whonix`` does **not** run the ``qubes-firewall`` service. In this case, traffic isolation is handled by Whonix and Tor, not by the Qubes firewall. Any firewall rules configured via ``qvm-firewall`` or the Qubes Manager will have **no effect** on qubes that use ``sys-whonix`` as their net qube.
+Additionally, if the net qube is a Whonix-Gateway (e.g. ``sys-whonix``), be aware that it does not respect the ``qubes-firewall`` service, but runs its own firewall. Any firewall rules configured via ``qvm-firewall`` or the Qubes Manager will have no effect in this case.
 See the `Whonix documentation <https://www.whonix.org/wiki/Qubes>`__ for more details on networking in this configuration.
 
 Reconnecting qubes after a net qube reboot
