@@ -120,7 +120,7 @@ It is the responsibility of each distribution to clearly notify its users in adv
      - Fedora
      - Debian
    * - Release 4.2
-     - 42
+     - 42, 43
      - 12, 13
    * - Release 4.3
      - 42, 43
