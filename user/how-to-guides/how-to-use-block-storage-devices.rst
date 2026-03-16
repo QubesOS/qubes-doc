@@ -13,8 +13,9 @@ Using the Devices Widget to Attach a Drive
 
 Qubes OS supports the ability to attach a USB drive (or just its partitions) to any qube easily, no matter which qube handles the USB controller.
 
-.. figure:: /attachment/doc/qubes-devices.svg
+.. figure:: /attachment/icons/qubes-desktop-linux-manager/qubes-devices.svg
    :alt:
+   :scale: 500%
    :align: center
 
    Qubes Devices Widget tray icon
