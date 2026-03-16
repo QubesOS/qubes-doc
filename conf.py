@@ -7,9 +7,16 @@ from pathlib import Path
 # Append the path to custom extensions
 sys.path.append(str(Path('_ext').resolve()))
 
+
+READTHEDOCS_LANGUAGE = os.environ.get("READTHEDOCS_LANGUAGE")
+READTHEDOCS_VERSION = os.environ.get("READTHEDOCS_VERSION")
+
+# True, if the build is made on Read The Docs, from a pull request
+IS_PULL_REQUEST = os.environ.get("READTHEDOCS_VERSION_TYPE") == "external"
+
+
 # For the full list of options, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-
 
 # -- Project information -----------------------------------------------------
 
@@ -107,7 +114,9 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 html_static_path = ['attachment/doc']
 
-html_use_opensearch = "https://doc.qubes-os.org"
+_build_language = READTHEDOCS_LANGUAGE or "en"
+_build_version = "latest" if IS_PULL_REQUEST else READTHEDOCS_VERSION or "latest"
+html_use_opensearch = f"https://doc.qubes-os.org/{_build_language}/{_build_version}"
 
 html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
 html_favicon = "attachment/icons/favicon-16x16.png"
@@ -149,8 +158,10 @@ html_context = {
 }
 
 # The onion site only mirrors the content of the documentation built as /en/latest/
-if os.environ.get('READTHEDOCS_LANGUAGE') == 'en' and os.environ.get('READTHEDOCS_VERSION') == 'latest':
-    html_context["onion_location"] = "http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion"
+if READTHEDOCS_LANGUAGE == "en" and READTHEDOCS_VERSION == "latest":
+    html_context["onion_location"] = (
+        "http://doc.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion"
+    )
 
 # -- -- Options for internationalisation -------------------------------------
 
