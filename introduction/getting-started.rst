@@ -75,7 +75,9 @@ To see all of your qubes at the same time, you can use the **Qube Manager**. It 
 
 To access Qube Manager go to |qubes-logo-icon|:menuselection:`App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qube Manager`
 
-|r4.1-qubes-manager.png|
+.. image:: /attachment/doc/qube-manager.png
+   :alt:
+   :width: 100%
 
 Command-line interface
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -196,4 +198,3 @@ Browse our extensive library of :doc:`documentation </index>` for users and deve
 .. |snapshot_41.png| image:: /attachment/doc/r4.1-snapshot_40.png
 .. |r4.0-taskbar.png| image:: /attachment/doc/r4.0-taskbar.png
 .. |r4.1-widgets.png| image:: /attachment/doc/r4.1-widgets.png
-.. |r4.1-qubes-manager.png| image:: /attachment/doc/r4.1-qubes-manager.png
