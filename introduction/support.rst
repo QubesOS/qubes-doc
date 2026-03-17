@@ -185,7 +185,7 @@ Google Groups
 ^^^^^^^^^^^^^
 
 
-While the mailing lists are implemented as Google Group web forums, a Google account is in no way required, expected, or encouraged. Many discussants (including most members of the Qubes team) treat these lists as conventional `mailing lists <https://en.wikipedia.org/wiki/Electronic_mailing_list>`__, interacting with them solely through plain text email with `MUAs <https://en.wikipedia.org/wiki/Email_client>`__ like `Thunderbird <https://www.thunderbird.net/>`__ and `Mutt <https://www.mutt.org/>`__. The Google Groups service is just free infrastructure, and we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. This is why, for example, we encourage discussants to use :doc:`Split GPG </user/security-in-qubes/split-gpg>` to sign all of their messages to the lists, but we do not endorse the use of these Google Groups as web forums. For that, we have a separate, dedicated :ref:`introduction/support:forum`.
+While the mailing lists are implemented as Google Group web forums, a Google account is in no way required, expected, or encouraged. Many discussants (including most members of the Qubes team) treat these lists as conventional `mailing lists <https://en.wikipedia.org/wiki/Electronic_mailing_list>`__, interacting with them solely through plain text email with `MUAs <https://en.wikipedia.org/wiki/Email_client>`__ like `Thunderbird <https://www.thunderbird.net/>`__ and `Mutt <http://www.mutt.org/>`__. The Google Groups service is just free infrastructure, and we :ref:`distrust the infrastructure <introduction/faq:what does it mean to "distrust the infrastructure"?>`. This is why, for example, we encourage discussants to use :doc:`Split GPG </user/security-in-qubes/split-gpg>` to sign all of their messages to the lists, but we do not endorse the use of these Google Groups as web forums. For that, we have a separate, dedicated :ref:`introduction/support:forum`.
 
 Mailing lists
 -------------
@@ -199,7 +199,7 @@ qubes-announce
 
 This is a read-only list for those who wish to receive only very important, infrequent messages. Only the core Qubes team can post to this list. Only `Qubes Security Bulletins (QSBs) <https://www.qubes-os.org/security/qsb/>`__, new stable Qubes OS releases, and Qubes OS release end-of-life notices are announced here.
 
-To subscribe, send a blank email to ``qubes-announce+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To unsubscribe, send a blank email to ``qubes-announce+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-announce@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/group/qubes-announce>`__.
+To subscribe, send a blank email to ``qubes-announce+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To unsubscribe, send a blank email to ``qubes-announce+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-announce@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/g/qubes-announce>`__.
 
 qubes-users
 ^^^^^^^^^^^
@@ -227,7 +227,7 @@ Please try searching both the Qubes website and the archives of the mailing list
 
 
 
-You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-users+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-users@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-users+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-users@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/group/qubes-users>`__.
+You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-users+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-users@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-users+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-users@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/g/qubes-users>`__.
 
 qubes-devel
 ^^^^^^^^^^^
@@ -255,7 +255,7 @@ This list is primarily intended for people who are interested in contributing to
 
 
 
-You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-devel+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-devel@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-devel+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-devel@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/group/qubes-devel>`__.
+You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-devel+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-devel@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-devel+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-devel@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/g/qubes-devel>`__.
 
 qubes-project
 ^^^^^^^^^^^^^
@@ -275,7 +275,7 @@ Examples of topics or questions suitable for this list include:
 
 
 
-You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-project+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-project@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-project+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-project@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/group/qubes-project>`__.
+You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-project+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-project@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-project+unsubscribe@googlegroups.com``. This list also has a `traditional mail archive <https://www.mail-archive.com/qubes-project@googlegroups.com/>`__ and an optional `Google Groups web interface <https://groups.google.com/g/qubes-project>`__.
 
 qubes-translation
 ^^^^^^^^^^^^^^^^^
@@ -293,7 +293,7 @@ Examples of topics or questions suitable for this list include:
 
 
 
-You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-translation+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-translation@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-translation+unsubscribe@googlegroups.com``. This list also has an optional `Google Groups web interface <https://groups.google.com/group/qubes-translation>`__.
+You must be subscribed in order to post to this list. To subscribe, send a blank email to ``qubes-translation+subscribe@googlegroups.com``. (**Note:** A Google account is **not** required. Any email address will work.) To post a message to the list, address your email to ``qubes-translation@googlegroups.com``. If your post does not appear immediately, please allow time for moderation to occur. To unsubscribe, send a blank email to ``qubes-translation+unsubscribe@googlegroups.com``. This list also has an optional `Google Groups web interface <https://groups.google.com/g/qubes-translation>`__.
 
 Forum
 -----
@@ -325,7 +325,7 @@ Social media
 
 The Qubes OS Project has a presence on the following social media platforms:
 
-- `Twitter <https://twitter.com/QubesOS>`__
+- `Twitter <https://x.com/QubesOS>`__
 
 - `Mastodon <https://mastodon.social/@QubesOS>`__
 

@@ -33,9 +33,9 @@ Below is a list of various books that might be useful in learning some basics ne
 
 - Useful books about Python:
 
-  - `Programming in Python 3 <https://www.qtrac.eu/py3book.html>`__, by Mark Summerfield
+  - `Programming in Python 3 <https://mark-summerfield.github.io/py3book.html>`__, by Mark Summerfield
 
-  - `Rapid GUI Programming with Python and Qt <https://www.qtrac.eu/pyqtbook.html>`__, by Mark Summerfield (Although note that :ref:`Qt is being replaced by GTK <developer/general/usability-ux:gnome, kde, and xfce>` in Qubes code.)
+  - `Rapid GUI Programming with Python and Qt <https://mark-summerfield.github.io/pyqtbook.html>`__, by Mark Summerfield (Although note that :ref:`Qt is being replaced by GTK <developer/general/usability-ux:gnome, kde, and xfce>` in Qubes code.)
 
 
 
