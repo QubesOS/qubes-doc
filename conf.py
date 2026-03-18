@@ -99,6 +99,7 @@ html_title = f'{project} Documentation'
 html_theme_options = {
   'style_external_links': True,
   'collapse_navigation': True,
+  'sticky_navigation': False,
 }
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")

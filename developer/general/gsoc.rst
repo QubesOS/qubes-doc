@@ -109,6 +109,27 @@ These project ideas were contributed by our developers and may be incomplete. If
 
       **Mentor**: Name and email address.
 
+Graphical package manager support in templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Project**: Graphical package manager support in templates
+
+
+**Brief explanation**: Most of the actions needed to be performed by a Qubes OS user can be done easily with GUI tools and without the command line -- except installing software in a template. This project aims to fill this gap by ensuring a smooth user experience across different default templates (Fedora, Debian, Whonix) to have GUI-based software management. for more info please see: https://github.com/QubesOS/qubes-issues/issues/6310 as well as https://forum.qubes-os.org/t/how-to-fix-software-in-templates-to-install-packages-using-a-gui/20944
+
+**Expected results**: 
+- select a basic software manager for each template
+- ensure necessary tweaks so that they can access internet via `qubes updates proxy` :ref:`user/how-to-guides/how-to-install-software:Updates proxy`
+- an "Add Software" context button in Qubes menu that works across different templates
+
+**Difficulty**: medium
+
+**Knowledge prerequisite**: 
+- Python
+
+**Size of the project**: 175 hours
+
+**Mentor**: Marta Marczykowska-Górecka <marmarta@invisiblethingslab.com>
 
 
 Qubes as a Vagrant provider
@@ -126,8 +147,6 @@ Qubes as a Vagrant provider
   - `box format <https://www.vagrantup.com/docs/plugins/providers.html#box-format>`__
 
   - method for running commands inside (ssh vs qvm-run)
-
-
 
 - Write a Vagrant provider able to create/start/stop/etc a VM
 
@@ -305,43 +324,20 @@ LogVM(s)
 
 **Mentor**: `Frédéric Pierret <https://www.qubes-os.org/team/>`__
 
-Whonix IPv6 and nftables support
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Whonix
+^^^^^^
 
+Nowadays, the following policies apply:
 
-**Project**: Whonix IPv6 and nftables support
+- `First Time Source Code Contributor Policy <https://www.whonix.org/wiki/First_Time_Source_Code_Contributor_Policy>`__
+- `Development Discussion Policy <https://www.whonix.org/wiki/Development_Discussion_Policy>`__
+- `Policy On Artificial Intelligence <https://www.whonix.org/wiki/Policy_On_Artificial_Intelligence>`__
 
-**Brief explanation**: `T509 <https://phabricator.whonix.org/T509>`__
+Steps:
 
-**Expected results**:
-
-- Work at upstream Tor: An older version of `TransparentProxy <https://trac.torproject.org/projects/tor/wiki/doc/TransparentProxy>`__ page was the origin of Whonix. Update that page for nftables / IPv6 support without mentioning Whonix. Then discuss that on the tor-talk mailing list for wider input. `here <https://trac.torproject.org/projects/tor/ticket/21397>`__
-
-- implement corridor feature request add IPv6 support / port to nftables - `issue <https://github.com/rustybird/corridor/issues/39>`__
-
-- port `whonix-firewall <https://github.com/Whonix/whonix-firewall>`__ to nftables
-
-- make connections to IPv6 Tor relays work
-
-- make connections to IPv6 destinations work
-
-
-
-**Difficulty**: medium
-
-**Knowledge prerequisite**:
-
-- nftables
-
-- iptables
-
-- IPv6
-
-
-
-**Size of the project**: 175 hours
-
-**Mentor**: `Patrick Schleizer <https://www.qubes-os.org/team/>`__
+#. Read the policies listed above.
+#. Become a contributor.
+#. Suggest a GSoC project in the `Whonix Forum <https://forums.whonix.org/>`__
 
 GUI agent for Windows 8/10
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
