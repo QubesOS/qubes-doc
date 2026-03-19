@@ -168,6 +168,7 @@ Core documentation for Qubes users.
    user/advanced-topics/resize-disk-image
    user/advanced-topics/qubes-service
    user/advanced-topics/mount-from-other-os
+   user/advanced-topics/how-to-disable-seamless-mode.rst
    user/advanced-topics/kde
    user/advanced-topics/i3
    user/advanced-topics/awesomewm
