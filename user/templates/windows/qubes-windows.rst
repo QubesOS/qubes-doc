@@ -188,7 +188,7 @@ Start Windows VM
 
   - Switch to the “Advanced” tab.
 
-  - Click “Boot from CDROM”:
+  - Click “Boot qube from DISC or block device”:
 
   - “from file in qube”:
 
