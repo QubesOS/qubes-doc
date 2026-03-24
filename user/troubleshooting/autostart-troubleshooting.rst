@@ -14,7 +14,7 @@ To address this, there is a ``qubes.skip_autostart`` option for the kernel comma
 
 |grub1.png|
 
-Press the ``E`` key on the first prompt (or your custom prompt). Then, press the down arrow key multiple times to reach the line starting with ``module2``.
+Press the ``E`` key on the first prompt (or your custom prompt). Then, press the down arrow key multiple times to reach the line starting with ``module2 /vmlinuz``.
 
 |grub2.png|
 
