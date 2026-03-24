@@ -111,7 +111,7 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
         - Initial memory: 4096+ MB
 
-        - Kernel: ``(none)``
+        - Kernel: ``(provided by qube)``
 
         - Mode: ``HVM``
 
@@ -188,7 +188,7 @@ Start Windows VM
 
   - Switch to the “Advanced” tab.
 
-  - Click “Boot from CDROM”:
+  - Click “Boot qube from DISC or block device”:
 
   - “from file in qube”:
 
