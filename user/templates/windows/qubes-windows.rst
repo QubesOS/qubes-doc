@@ -111,7 +111,7 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
         - Initial memory: 4096+ MB
 
-        - Kernel: ``(none)``
+        - Kernel: ``(provided by qube)``
 
         - Mode: ``HVM``
 
