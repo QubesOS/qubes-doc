@@ -53,11 +53,11 @@ Upgrading
 
 There are two ways to upgrade your template to a new Debian release:
 
-- **Recommended:** :ref:`Install a fresh template to replace the existing one. <user/templates/debian/debian:installing>` **This option may be simpler for less experienced users.** After you install the new template, redo all desired template modifications and :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>`. You may want to write down the modifications you make to your templates so that you remember what to redo on each fresh install. In the old Debian template, see ``/var/log/dpkg.log`` and ``/var/log/apt/history.log`` for logs of package manager actions.
+- **Recommended for most users:** :ref:`Install a fresh template <user/templates/debian/debian:installing>`.
+  After installing the new template, redo any custom modifications you need and :ref:`switch all qubes that were using the old template to the new one <user/templates/templates:switching>`. You may want to note down your customizations (or check the package logs in the old template: ``/var/log/apt/history.log`` and ``/var/log/dpkg.log``) so you can easily recreate them.
 
-- **Advanced:** :doc:`Perform an in-place upgrade of an existing Debian template. </user/templates/debian/debian-upgrade>` This option will preserve any modifications you’ve made to the template, **but it may be more complicated for less experienced users.**
-
-
+- **Alternative (in-place upgrade):** :doc:`Upgrade the existing template in-place </user/templates/debian/debian-upgrade>`.
+  This method preserves your current customizations and installed packages without needing to redo them.
 
 Release-specific notes
 ----------------------
