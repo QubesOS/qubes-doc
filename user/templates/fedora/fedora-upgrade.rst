@@ -4,13 +4,10 @@ How to upgrade a Fedora template in-place
 
 .. warning::
 
-      This page is intended for advanced users.
+    Most users should simply :doc:`install a fresh template <user/templates/fedora/fedora:installing>` instead of performing an in-place upgrade.
+    Use the in-place upgrade method below only if you have made customizations or installed additional packages in the current template that you want to preserve.
 
-.. DANGER::
-
-      **Warning:** This page is intended for advanced users only. Most users seeking to upgrade should instead :ref:`install a new Fedora template <user/templates/fedora/fedora:installing>`      . Learn more about the two options :ref:`here <user/templates/fedora/fedora:upgrading>`      .
-
-This page provides instructions for performing an in-place upgrade of an installed :doc:`Fedora Template </user/templates/fedora/fedora>`. If you wish to install a new, unmodified Fedora template instead of upgrading a template that is already installed in your system, please see the :doc:`Fedora Template </user/templates/fedora/fedora>` page instead. (:ref:`Learn more about the two options. <user/templates/fedora/fedora:upgrading>`)
+This page provides instructions for performing an in-place upgrade of an installed :doc:`Fedora Template </user/templates/fedora/fedora>`.
 
 Summary instructions for standard Fedora templates
 --------------------------------------------------
