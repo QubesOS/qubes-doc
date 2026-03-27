@@ -85,8 +85,9 @@ Better yet, it allows us to create new compartments whenever we need them,
 and it gives us sophisticated tools for securely managing our activities
 and data across these compartments.
 
-.. image:: /attachment/doc/r4.0-qubes-manager.png
-   :alt: Qubes manager
+.. image:: /attachment/doc/qube-manager.png
+   :alt: Qube manager
+   :width: 100%
 
 Qubes allows you to compartmentalize your digital life
 ------------------------------------------------------
