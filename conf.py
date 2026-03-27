@@ -105,8 +105,6 @@ html_theme_options = {
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-html_static_path = ['attachment/doc']
-
 html_use_opensearch = "https://doc.qubes-os.org"
 
 html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
