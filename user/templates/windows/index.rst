@@ -17,6 +17,11 @@ Like any other unmodified OSes, Windows can be installed in Qubes as an :doc:`HV
    following issues until they're fixed:
    `qubes-issues#10459 <https://github.com/QubesOS/qubes-issues/issues/10459>`__,
    `qubes-issues#6829 <https://github.com/QubesOS/qubes-issues/issues/6829>`__.
+   The workaround is to disconnect ``sys-firewall-windows`` from its NetVM or
+   use the Qubes Firewall to block traffic. It's recommended to use the
+   `qvm-firewall <https://doc.qubes-os.org/en/latest/user/security-in-qubes/firewall.html#how-to-edit-rules-using-qvm-firewall>`__
+   utility for this purpose, as it allows the user to also block ICMP and DNS
+   traffic by deleting rules with ``--rule-no 0``.
 
 
 .. toctree::
