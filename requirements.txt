@@ -13,7 +13,7 @@ MarkupSafe==3.0.2
 packaging==24.2
 Pygments==2.20.0
 referencing==0.35.1
-requests==2.32.4
+requests==2.33.0
 requests-file==2.1.0
 rpds-py==0.22.3
 snowballstemmer==2.2.0
