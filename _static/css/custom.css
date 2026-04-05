@@ -8,4 +8,6 @@
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 
+.accelerator {
+    text-decoration: underline;
 }
