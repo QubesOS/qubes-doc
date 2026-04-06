@@ -40,6 +40,7 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-base.svg
+         :alt:
 
       **Main Black**
 
@@ -48,6 +49,7 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-darker.svg
+         :alt:
 
       **Sub Gray**
 
@@ -56,6 +58,7 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-dark.svg
+         :alt:
 
       **Icon Dark Gray**
 
@@ -64,6 +67,7 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray.svg
+         :alt:
 
       **Middle Gray**
 
@@ -72,6 +76,7 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-light.svg
+         :alt:
 
       **Light Gray**
 
@@ -80,6 +85,7 @@ The following grayscale colors are currently used on the Qubes website and docum
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-gray-lighter.svg
+         :alt:
 
       **Background Gray**
 
@@ -95,6 +101,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-primary.svg
+         :alt:
 
       **Primary Blue**
 
@@ -103,6 +110,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-info.svg
+         :alt:
 
       **Info Blue**
 
@@ -111,6 +119,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-blue.svg
+         :alt:
 
       **Qubes Blue**
 
@@ -119,6 +128,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-blue-light.svg
+         :alt:
 
       **Light Blue**
 
@@ -127,6 +137,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-success.svg
+         :alt:
 
       **Success Green**
 
@@ -135,6 +146,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-purple.svg
+         :alt:
 
       **Purple**
 
@@ -143,6 +155,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-danger.svg
+         :alt:
 
       **Danger Red**
 
@@ -151,6 +164,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-warning.svg
+         :alt:
 
       **Warning Orange**
 
@@ -159,6 +173,7 @@ The following colors are currently being used on the Qubes website and documenta
    .. container:: swatch-item
 
       .. image:: /attachment/doc/visual_guide/swatches/q-yellow.svg
+         :alt:
 
       **Alert Yellow**
 
