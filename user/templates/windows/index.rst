@@ -21,7 +21,8 @@ Like any other unmodified OSes, Windows can be installed in Qubes as an :doc:`HV
    use the Qubes Firewall to block traffic. It's recommended to use the
    `qvm-firewall <https://doc.qubes-os.org/en/latest/user/security-in-qubes/firewall.html#how-to-edit-rules-using-qvm-firewall>`__
    utility for this purpose, as it allows the user to also block ICMP and DNS
-   traffic by deleting rules with ``--rule-no 0``.
+   traffic by deleting the default 0th ``accept`` rule with ``--rule-no 0`` or
+   inserting a new ``drop`` all rule as rule number 0.
 
 
 .. toctree::
