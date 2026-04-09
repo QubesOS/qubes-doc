@@ -26,8 +26,9 @@ Attaching and detaching a USB device
 With Qubes Device Widget
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: /attachment/doc/qubes-devices.svg
+.. figure:: /attachment/icons/qubes-desktop-linux-manager/4.3/qubes-devices.svg
    :alt:
+   :scale: 200%
    :align: center
 
    Qubes Devices Widget tray icon
