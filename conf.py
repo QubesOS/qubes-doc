@@ -46,8 +46,6 @@ redirects = {
         "https://www.qubes-os.org/hcl/",
     "user/downloading-installing-upgrading/downloads:mirrors":
         "https://www.qubes-os.org/downloads/mirrors/",
-    "developer/general/visual-style-guide":
-        "https://www.qubes-os.org/doc/visual-style-guide/",
     "user/downloading-installing-upgrading/downloads":
         "https://www.qubes-os.org/downloads/",
 
@@ -107,6 +105,10 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 html_static_path = ['_static']
 html_css_files = ['css/custom.css']
+
+html_css_files = [
+    'visual_guide/custom.css',
+]
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
