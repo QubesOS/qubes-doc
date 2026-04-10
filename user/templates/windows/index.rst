@@ -9,20 +9,26 @@ Like any other unmodified OSes, Windows can be installed in Qubes as an :doc:`HV
 .. warning::
 
    Windows VMs use a netfront driver that is not hardened against attacks by
-   a malicious netback driver. This means that the NetVM to which you connect
+   a malicious netback driver. This means that the net qube to which you connect
    your Windows VMs should be as trusted (or as *untrusted*) as the Windows VM
-   itself. As such, it's recommended to create a dedicated firewall NetVM for
+   itself.
+
+   It is recommended that you create a dedicated firewall qube for
    Windows VMs, for example a clone of ``sys-firewall`` named
-   ``sys-firewall-windows``. This also allows users to work around the
-   following issues until they're fixed:
-   `qubes-issues#10459 <https://github.com/QubesOS/qubes-issues/issues/10459>`__,
+   ``sys-firewall-windows``. This also allows you to work around this
+   issues until it is fixed:
    `qubes-issues#6829 <https://github.com/QubesOS/qubes-issues/issues/6829>`__.
-   The workaround is to disconnect ``sys-firewall-windows`` from its NetVM or
-   use the Qubes Firewall to block traffic. It's recommended to use the
+   The workaround is to disconnect ``sys-firewall-windows`` from its net qube or
+   use the Qubes Firewall to block traffic.
+
+   If you use the Qubes Firewall then it is recommended that you use the
    `qvm-firewall <https://doc.qubes-os.org/en/latest/user/security-in-qubes/firewall.html#how-to-edit-rules-using-qvm-firewall>`__
-   utility for this purpose, as it allows the user to also block ICMP and DNS
-   traffic by deleting the default 0th ``accept`` rule with ``--rule-no 0`` or
-   inserting a new ``drop`` all rule as rule number 0.
+   utility for this purpose, as it allows you to block ICMP and DNS
+   traffic. By default the firewall rules contain an ``accept`` rule at position 0.
+   You can delete this rule using ``qvm-firewall QUBE_NAME del --rule-no 0`` , or
+   insert a new ``drop`` all rule as rule number 0, using ``qvm-firewall
+   QUBE_NAME add --before 0 drop``. If you have customised the firewall
+   settings, insert the ``drop`` rule as above.
 
 
 .. toctree::
