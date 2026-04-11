@@ -226,7 +226,15 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. As this new QWT version is only provided for Qubes R4.3, it has to be installed by downloading the .rpm file from the repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ) if you want to use it in Qubes R4.2.
 
-   After downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
+     In Qubes R4.2, after downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
+
+     In Qubes R4.3, the QWT package is already part of the repositories. So, QWT can be installed directy, without downloading anything, via
+
+     .. code:: console
+
+     	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools
+     	
+
 
    **Caution:** Installing one of these QWT versions will remove the other if it is installed.
 
