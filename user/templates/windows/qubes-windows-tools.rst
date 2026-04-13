@@ -213,20 +213,17 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 1. First, make sure that ``qubes-windows-tools`` is installed in your system:
 
-   - For use with **Windows 7**, install the previous version of Qubes Windows Tools:
+   - For use with **Windows 7**, install the previous version of Qubes Windows Tools. The corresponding .rpm file for manual QWT installation for Windows 7is still available from the repositories for Qubes R4.2 (version `4.1.69-1 <https://yum.qubes-os.org/r4.2/current/dom0/fc37/rpm/qubes-windows-tools-4.1.69-1.fc37.noarch.rpm>`__ ).
+
+     After downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
+
+   - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. In Qubes R4.3, the QWT package is already part of the repositories. So, QWT can be installed directy, without downloading anything, via
 
      .. code:: console
 
-     	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools-4.1.69
+     	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools
+     	
 
-
-     This will provide the .iso file to be presented as an installation drive to the Windows qube in step 2 of the QWT installation.
-
-     If you prefer to download the corresponding .rpm file for manual QWT installation for Windows 7, this is still available from the repositories (version `4.1.69-1 <https://yum.qubes-os.org/r4.2/current/dom0/fc37/rpm/qubes-windows-tools-4.1.69-1.fc37.noarch.rpm>`__ ).
-
-   - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. As this new QWT version is only provided for Qubes R4.3, it has to be installed by downloading the .rpm file from the repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ) if you want to use it in Qubes R4.2.
-
-   After downloading, copy the file to `dom0` as described in `How to copy from dom0 <https://www.qubes-os.org/doc/how-to-copy-from-dom0/#copying-to-dom0>`__ and install it via ``sudo dnf install PATH_TO_RPMFILE``.
 
    **Caution:** Installing one of these QWT versions will remove the other if it is installed.
 
