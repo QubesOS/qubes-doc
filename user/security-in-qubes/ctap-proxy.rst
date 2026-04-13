@@ -103,19 +103,19 @@ The default model is to allow a qube to access all and only the keys that were e
 Non-default USB qube name
 -------------------------
 
+If your USB qube has a different name (not ``sys-usb``), you need to update two places:
 
-If your USB qube is named differently than ``sys-usb``, then do the following in the appropriate template(s):
+1. In the **template**, run these commands (replace ``YOUR_USB_QUBE`` with your actual USB qube name):
 
-.. code:: console
+   .. code:: console
 
-      $ systemctl enable qubes-ctapproxy@USB_QUBE.service
-      $ systemctl disable qubes-ctapproxy@sys-usb.service
+         [user@template] $ systemctl enable qubes-ctapproxy@YOUR_USB_QUBE.service
+         [user@template] $ systemctl disable qubes-ctapproxy@sys-usb.service
 
+2. In **dom0**, :doc:`edit the policy file </user/how-to-guides/how-to-edit-a-policy>` ``30-user-ctapproxy`` and replace ``sys-usb`` with your USB qube name.
 
+For example, if your USB qube is named ``my-usb``, replace ``sys-usb`` with ``my-usb`` in both the commands and the policy file.
 
-Replace ``USB_QUBE`` with the actual USB qube name.
-
-Do not forget to change the sys-usb qube name in the policy ``/etc/qubes/policy.d/30-user-ctapproxy.policy``.
 
 Template and browser support
 ----------------------------
