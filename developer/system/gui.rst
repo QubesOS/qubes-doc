@@ -9,7 +9,7 @@ All AppVM X applications connect to local (running in AppVM) Xorg servers that u
 -  ``dummyqsb_drv`` - video driver, that paints onto a framebuffer located in RAM, not connected to real hardware
 -  ``qubes_drv`` - it provides a virtual keyboard and mouse (in fact, more, see below)
 
-For each AppVM, there is a pair of ``qubes-gui`` (running in AppVM) and ``qubes-guid`` (running in the AppVM’s GuiVM, dom0 by default) processes connected over vchan. The main responsibilities of ``qubes-gui`` are:
+For each AppVM, there is a pair of ``qubes-gui`` (running in AppVM) and ``qubes-guid`` (running in the AppVM’s GUIVM, dom0 by default) processes connected over vchan. The main responsibilities of ``qubes-gui`` are:
 
 -  call XCompositeRedirectSubwindows on the root window, so that each window has its own composition buffer
 -  instruct the local Xorg server to notify it about window creation, configuration and damage events; pass information on these events to dom0
@@ -91,7 +91,7 @@ If one changes the number/order/signature of messages, one should increase the `
 
 ``qubes-guid`` writes debugging information to ``/var/log/qubes/qubes.domain_id.log`` file; ``qubes-gui`` writes debugging information to ``/var/log/qubes/gui_agent.log``. Include these files when reporting a bug.
 
-AppVM -> GuiVM messages
+AppVM -> GUIVM messages
 -----------------------
 
 Proper handling of the below messages is security-critical. Note that all messages except for ``CLIPBOARD``, ``MFNDUMP``, and ``WINDOW_DUMP`` have fixed size, so the parsing code can be small.
@@ -288,7 +288,7 @@ This header is followed by message-specific data:
 
 
 
-GuiVM -> AppVM messages
+GUIVM -> AppVM messages
 -----------------------
 
 Proper handling of the below messages is NOT security-critical.
