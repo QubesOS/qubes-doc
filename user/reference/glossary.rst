@@ -2,26 +2,18 @@
 Glossary
 ========
 
-
-Primary
--------
-
-
 .. glossary::
 
    Qubes OS
-      A security-oriented operating system (OS). The main principle of Qubes OS is security by compartmentalization (or isolation), in which activities are compartmentalized (or isolated) in separate :term:`qube`.
+      A security-oriented operating system (OS). The main principle of Qubes OS is security by compartmentalization (isolation), in which activities are compartmentalized (isolated) in separate :term:`qubes <qube>`.
 
       - **Important:** The official name is "Qubes OS" (note the capitalization and the space between "Qubes" and "OS"). In casual conversation, this is often shortened to "Qubes". Only in technical contexts where spaces are not permitted (e.g., in usernames) may the space be omitted, as in ``@QubesOS``.
-
-Compartment nomenclature
-------------------------
 
 
 .. glossary::
 
    qube
-      A secure compartment in Qubes OS. Currently, qubes are implemented as Xen :term:`domain`, but Qubes OS is independent of its underlying compartmentalization technology. :term:`VM`\ s could be replaced with a different technology, and qubes would still be called "qubes". Therefore, always opt for the term ``qube`` over the other terms unless explicitly guided otherwise.
+      A secure compartment in Qubes OS. Currently, qubes are implemented as Xen :term:`domains <domain>`, but Qubes OS is independent of its underlying compartmentalization technology. :term:`VMs <VM>` could be replaced with a different technology, and qubes would still be called "qubes". Therefore, always opt for the term ``qube`` over the other terms unless explicitly guided otherwise.
 
       - **Important:** The term "qube" is a common noun and should follow the capitalization rules of common nouns. For example, "I have three qubes" is correct, while "I have three Qubes" is incorrect. Note that starting a sentence with the plural of "qube" (i.e., "Qubes ...") can be ambiguous, since it may not be clear whether the referent is a plurality of qubes or :term:`Qubes OS`.
 
@@ -30,31 +22,45 @@ Compartment nomenclature
       - Historical note: The term "qube" was originally invented as an alternative to "VM" intended to make it easier for less technical users to understand Qubes OS and learn how to use it.
 
    domain
-      In Xen, a synonym for :term:`vm`. See `"domain" on the Xen Wiki <https://wiki.xenproject.org/wiki/Domain>`__. This term has no official meaning in Qubes OS.
+      In Xen, a synonym for a virtual machine. See `"domain" on the Xen Wiki <https://wiki.xenproject.org/wiki/Domain>`__. This term has no official meaning in Qubes OS, but is often used colloquially.
 
    VM
       An abbreviation for "virtual machine". A software implementation of a computer that provides the functionality of a physical machine.
 
-Qube's types
-------------
+Qube types
+----------
 
 
 .. glossary::
 
    admin qube
-      A type of :term:`qube` used for administering Qubes OS.
+      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/adminvm-black.svg
+         :width: 24px
+         :align: left
+         :alt: admin qube icon
 
-      - Currently, the only admin qube is :term:`dom0`.
+      A type of :term:`qube` used for administering Qubes OS. Currently, the only admin qube is :term:`dom0`.
 
    app qube
-      Any :term:`qube` that does not have a root filesystem of its own. Every app qube is based on a :term:`template` from which it borrows the root filesystem.
+      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/appvm-red.svg
+         :width: 24px
+         :align: left
+         :alt: app qube icon
+
+      A :term:`qube` that is based on a template. Normally, *app qubes* are used to run user applications and store user files.
+
+      An *app qube* does not have a root filesystem of its own. The qube borrows its root filesystem from its  :term:`template`, and only owns its own home directory and user files (in Linux-based qubes, they are the /home and /user/local directories).
 
       - Previously known as: ``AppVM``, ``TemplateBasedVM``.
 
-      - Historical note: This term originally meant "a qube intended for running user software applications" (hence the name "app").
 
    disposable
-      A :term:`disposable` is a stateless :term:`qube`, it does not save data for the next boot. These qubes can serve various uses cases that require a pristine environment. See :doc:`/user/how-to-guides/how-to-use-disposables`.
+      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/dispvm-red.svg
+         :width: 24px
+         :align: left
+         :alt: disposable qube icon
+
+      A :term:`disposable` qube is a stateless :term:`qube` - it does not save any data between reboots. Every time it is started, it has the same fresh filesystem.  These qubes can be used for a variety of situations, from experimentation to creating a more secure network connection. See :doc:`/user/how-to-guides/how-to-use-disposables`.
 
       - Previously known as: ``DisposableVM``, ``DispVM``.
 
