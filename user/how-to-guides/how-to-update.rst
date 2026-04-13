@@ -48,7 +48,9 @@ Installing updates
 
 The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the :ref:`user/how-to-guides/how-to-update:command-line interface`.)
 
-|Qubes Update|
+.. image:: /attachment/doc/r4.3/qubes-os-update.png
+   :alt:
+   :width: 100%
 
 You can easily decide which qubes to update by clicking on the checkbox in the column header. At startup, only the qubes for which updates are known are selected for updating, but clicking on the mentioned checkbox will also select all qubes with the “MAYBE” status. It is recommended to update all qubes with the statuses “YES” and “MAYBE”.
 
@@ -227,7 +229,4 @@ Computers without fwupd support
 For computers that do not have firmware update support via ``fwupd``, follow the firmware update instructions on the manufacturer’s website. Verify the authenticity of any firmware updates you apply.
 
 .. |Qube Updates Available| image:: /attachment/doc/r4.2-qube-updates-available.png
-
-
-.. |Qubes Update| image:: /attachment/doc/r4.2-software-update.png
 
