@@ -7,9 +7,9 @@ Update troubleshooting
 ----------------------------------------------------------------------------
 
 
-This is general Fedora issue, not a Qubes-specific issue. Usually, this is due to network problems (especially if downloading updates over Tor) or problems with the download mirrors. Often, the problem can be resolved by trying again on a different connection (a different Tor circuit, if using Tor) or waiting and trying again later. Here are some examples of non-Qubes reports about this problem:
+This is a general Fedora issue, not one that is Qubes-specific. Usually, the issue is due to network problems (especially if downloading updates over Tor) or problems with the download mirrors. Often, the problem can be resolved by trying again on a different connection (a different Tor circuit, if using Tor) or waiting and trying again later. Sometimes you may need to clear the dnf cache. Here are some examples of non-Qubes reports about this problem:
 
-- https://ask.fedoraproject.org/en/question/88086/error-failed-to-synchronize-cache-for-repo-fedora/
+- https://discussion.fedoraproject.org/t/issues-with-dnf-upgrade-on-fedora-30-failed-to-synchronize-cache-for-repo/71681
 
 - https://unix.stackexchange.com/questions/390805/repos-not-working-on-fedora-error-failed-to-synchronize-cache-for-repo-update
 

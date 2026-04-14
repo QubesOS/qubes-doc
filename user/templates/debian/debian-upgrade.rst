@@ -1,3 +1,5 @@
+.. There are currently no release-specific notes, so related sentences and section are commented out.
+
 =========================================
 How to upgrade a Debian template in-place
 =========================================
@@ -16,7 +18,9 @@ Summary instructions for Debian templates
 -----------------------------------------
 
 
-**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See :ref:`user/templates/debian/debian-upgrade:release-specific notes` for any instructions specific to your particular release.
+**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases.
+
+.. See :ref:`user/templates/debian/debian-upgrade:release-specific notes` for any instructions specific to your particular release.
 
 .. code:: console
 
@@ -38,7 +42,9 @@ Detailed instructions for Debian templates
 
 These instructions will show you how to upgrade Debian templates. The same general procedure may be used to upgrade any template based on the standard Debian template.
 
-**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases. See :ref:`user/templates/debian/debian-upgrade:release-specific notes` for any instructions specific to your particular release.
+**Important:** The prompt on each line indicates where each command should be entered: ``dom0``, ``debian-<old>``, or ``debian-<new>``, where ``<old>`` is the Debian version number *from* which you are upgrading, and ``<new>`` is the Debian version number *to* which you are upgrading. The instructions may differ for certain releases.
+
+.. See :ref:`user/templates/debian/debian-upgrade:release-specific notes` for any instructions specific to your particular release.
 
 1. Ensure the existing template is not running.
 
@@ -126,70 +132,10 @@ Standalones
 
 The procedure for upgrading a Debian :doc:`standalone </user/advanced-topics/standalones-and-hvms>` is the same as for a template.
 
-Release-specific notes
-----------------------
+.. Release-specific notes
+   ----------------------
+   This section contains notes about upgrading to specific releases.
 
-
-This section contains notes about upgrading to specific releases.
-
-Debian 11 ("Bullseye")
-^^^^^^^^^^^^^^^^^^^^^^
-
-
-Please see `Debian’s Bullseye upgrade instructions <https://www.debian.org/releases/bullseye/amd64/release-notes/ch-upgrading.en.html>`__. In particular: for APT source lines referencing the security archive, the format has changed slightly along with the release name, going from buster/updates to bullseye-security; see `Section 5.1.2, “Changed security archive layout” <https://www.debian.org/releases/stable/mips64el/release-notes/ch-information.en.html#security-archive>`__.
-
-This means that, when upgrading from Buster to Bullseye, an additional ``sed`` command is required:
-
-.. code:: console
-
-      [user@dom0 ~]$ qvm-clone debian-10 debian-11
-      [user@dom0 ~]$ qvm-run -a debian-11 gnome-terminal
-      [user@debian-<new> ~]$ sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-      [user@debian-<new> ~]$ sudo sed -i 's/debian-security bullseye\/updates/debian-security bullseye-security/g' /etc/apt/sources.list
-      [user@debian-<new> ~]$ sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/qubes-r4.list
-      [user@debian-<new> ~]$ sudo apt update
-      [user@debian-<new> ~]$ sudo apt upgrade
-      [user@debian-<new> ~]$ sudo apt dist-upgrade
-      [user@dom0 ~]$ qvm-shutdown debian-11
-
-
-Debian 10 ("Buster")
-^^^^^^^^^^^^^^^^^^^^
-
-
-Please see `Debian’s Buster upgrade instructions <https://www.debian.org/releases/buster/amd64/release-notes.en.txt>`__.
-
-Debian 9 ("Stretch")
-^^^^^^^^^^^^^^^^^^^^
-
-
-- The upgrade process may prompt you to overwrite two files: ``qubes-r4.list`` and ``pulse/client.conf``. ``qubes-r4.list`` can be overwritten, but ``pulse/client.conf`` must be left as the currently-installed version.
-
-- If sound is not working, you may need to enable the Qubes testing repository to get the testing version of ``qubes-gui-agent``. This can be done by editing the ``/etc/apt/sources.list.d/qubes-r4.list`` file and uncommenting the ``Qubes Updates Candidates`` repo.
-
-- User-initiated updates/upgrades may not run when a template first starts. This is due to a new Debian config setting that attempts to update automatically; it should be disabled with ``sudo systemctl disable apt-daily.{service,timer}``.
-
-
-
-Relevant discussions:
-
-- `Stretch Template Installation <https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/4rdayBF_UTc>`__
-
-- `Stretch availability in 3.2 <https://groups.google.com/forum/#!topicsearchin/qubes-devel/debian$20stretch/qubes-devel/cekPfBqQMOI>`__
-
-- `Fixing sound in Debian Stretch <https://groups.google.com/forum/#!topic/qubes-users/JddCE54GFiU>`__
-
-- `User apt commands blocked on startup <https://github.com/QubesOS/qubes-issues/issues/2621>`__
-
-
-
-Also see `Debian’s Stretch upgrade instructions <https://www.debian.org/releases/stretch/amd64/release-notes.en.txt>`__.
-
-Debian 8 ("Jessie")
-^^^^^^^^^^^^^^^^^^^
-
-
-Please see `Debian’s Jessie upgrade instructions <https://www.debian.org/releases/jessie/amd64/release-notes.en.txt>`__.
 
 End-of-life (EOL) releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

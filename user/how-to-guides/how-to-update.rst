@@ -2,8 +2,9 @@
 How to update
 =============
 
+.. note::
 
-*This page is about updating your system while staying on the same* :ref:`supported version of Qubes OS <user/downloading-installing-upgrading/supported-releases:qubes os>` *. If you’re instead looking to upgrade from your current version of Qubes OS to a newer version, see* :doc:`Upgrade guides </user/downloading-installing-upgrading/upgrade/upgrade>` *.*
+   This page is about updating your system while staying on the same :ref:`supported version of Qubes OS <user/downloading-installing-upgrading/supported-releases:qubes os>`. If you’re instead looking to upgrade from your current version of Qubes OS to a newer version, see :doc:`Upgrade guides </user/downloading-installing-upgrading/upgrade/upgrade>`.
 
 It is important to keep your Qubes OS system up-to-date to ensure you have the latest security updates, as well as the latest non-security enhancements and bug fixes.
 
@@ -47,7 +48,9 @@ Installing updates
 
 The standard way to install updates is with the **Qubes Update** tool. (However, you can also perform the same action via the :ref:`user/how-to-guides/how-to-update:command-line interface`.)
 
-|Qubes Update|
+.. image:: /attachment/doc/r4.3/qubes-os-update.png
+   :alt:
+   :width: 100%
 
 You can easily decide which qubes to update by clicking on the checkbox in the column header. At startup, only the qubes for which updates are known are selected for updating, but clicking on the mentioned checkbox will also select all qubes with the “MAYBE” status. It is recommended to update all qubes with the statuses “YES” and “MAYBE”.
 
@@ -95,7 +98,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
 2. Use ``qubes-dom0-update`` to update dom0, and use ``qubes-vm-update`` to update domUs:
 
-  - To check for dom0 updates and apply them, in a dom0 terminal: 
+  - To check for dom0 updates and apply them, in a dom0 terminal:
 
     .. code:: console
 
@@ -226,7 +229,4 @@ Computers without fwupd support
 For computers that do not have firmware update support via ``fwupd``, follow the firmware update instructions on the manufacturer’s website. Verify the authenticity of any firmware updates you apply.
 
 .. |Qube Updates Available| image:: /attachment/doc/r4.2-qube-updates-available.png
-
-
-.. |Qubes Update| image:: /attachment/doc/r4.2-software-update.png
 

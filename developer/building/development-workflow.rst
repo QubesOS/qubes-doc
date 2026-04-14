@@ -323,7 +323,7 @@ RPM packages - yum repo
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In source VM, grab `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ repository (below is assumed you’ve made it in ``~/repo-yum-upload`` directory) and replace ``update_repo.sh`` script with:
+In source VM, grab `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ repository (below is assumed you’ve made it in ``~/repo-yum-upload`` directory) and replace ``update_repo.sh`` script with:
 
 .. code:: bash
 
@@ -340,7 +340,7 @@ In source VM, grab `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ re
 
 
 
-In target VM, setup actual yum repository (also based on `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__, this time without modifications). You will also need to setup some gpg key for signing packages (it is possible to force yum to install unsigned packages, but it isn’t possible for ``qubes-dom0-update`` tool). Fill ``~/.rpmmacros`` with key description:
+In target VM, setup actual yum repository (also based on `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__, this time without modifications). You will also need to setup some gpg key for signing packages (it is possible to force yum to install unsigned packages, but it isn’t possible for ``qubes-dom0-update`` tool). Fill ``~/.rpmmacros`` with key description:
 
 .. code:: text
 
@@ -420,7 +420,7 @@ Deb packages - Apt repo
 
 Steps are mostly the same as in the case of yum repo. The only details that differ:
 
-- use `linux-deb <https://GitHub.com/QubesOS/qubes-linux-deb>`__ instead of `linux-yum <https://GitHub.com/QubesOS/qubes-linux-yum>`__ as a base - both in source and target VM
+- use `linux-deb <https://github.com/QubesOS/qubes-linux-deb>`__ instead of `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ as a base - both in source and target VM
 
 - use different ``update_repo.sh`` script in source VM (below)
 

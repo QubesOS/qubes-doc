@@ -15,16 +15,17 @@ sys.path.append(str(Path('_ext').resolve()))
 
 project = 'Qubes OS'
 author = 'Qubes OS Project'
-copyright = f'%Y, {author}'
+copyright = f'%Y, {author} and others'
 
 # Warning: Sphinx's version and release differ from Qubes OS !
 
 # The major project version, used as the replacement for the |version| default
 # substitution. i.e. '4.3'
-version = '4.2'
+version = 'latest'
 
 # The full version, including alpha/beta/rc tags
-release = '4.2.4'
+# Note: this value is not used in the Qubes OS documentation
+release = version 
 
 
 # -- General configuration ---------------------------------------------------
@@ -104,7 +105,8 @@ html_theme_options = {
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
-html_static_path = ['attachment/doc']
+html_static_path = ['_static']
+html_css_files = ['css/custom.css']
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
@@ -114,7 +116,7 @@ html_favicon = "attachment/icons/favicon-16x16.png"
 # -- -- Options for the linkcheck builder ------------------------------------
 
 linkcheck_anchors = False
-linkcheck_ignore = [r'^https?://[^/\s]+\.onion']
+linkcheck_ignore = [r"^https?://[^/\s]+\.onion", r"https://localhost:\d+/"]
 
 # -- Extensions configuration ------------------------------------------------
 # Prefix section labels with the document name
