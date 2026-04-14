@@ -206,14 +206,16 @@ The solution is to disable hibernation in Windows with this command. (That comma
 Installing Qubes Windows Tools (QWT) in a Windows VM
 ----------------------------------------------------
 
-.. note::
-
-For Qubes R4.2, the new version of QWT is not included in the repositories, but it can be downloaded from the R4.3 repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ), and it will work under R4.2, too.
-
 
 Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a StandaloneVM as well as a Template VM and a corresponding AppVM, is described in the following sections.
 
 **Note:** Seamless mode is currently only available in an experimental version for Windows 10 and 11. Please check the top of this document for the full feature availability breakdown.
+
+.. note::
+
+
+   For Qubes R4.2, the new version of QWT is not included in the repositories, but it can be downloaded from the R4.3 repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ), and it will work under R4.2, too.
+
 
 1. First, make sure that ``qubes-windows-tools`` is installed in your system:
 
@@ -227,6 +229,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
      	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools
      	
+
    **Caution:** Installing one of these QWT versions will remove the other if it is installed.
 
    **Warning:** In Windows 7, the older version of Qubes Windows Tools will be replaced during the next ``dom0`` update by the current dummy version 4.1.70-1. This can be inhibited by appending the line ``exclude=qubes-windows-tools`` to the file ``/etc/dnf/dnf.conf`` in ``dom0``.
