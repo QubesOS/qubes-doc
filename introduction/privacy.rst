@@ -19,7 +19,7 @@ Obviously, we don’t use any ads or trackers, but this is still a public websit
 Qubes OS documentation
 ----------------------
 
-Qubes OS documentation is hosted on `Read The Docs <https://readsthedocs.com/>`__.
+Qubes OS documentation is hosted on `Read The Docs <https://about.readthedocs.com/>`__.
 We’ve converted all of the :doc:`documentation </index>` from Markdown to reStructuredText. You can enjoy the plain text from the comfort of your terminal. Here’s the `repo <https://github.com/QubesOS/qubes-doc>`__. (By the way, Git tags on our repos are PGP-signed so you can :doc:`verify </project-security/verifying-signatures>` the authenticity of the content.) We omit the ethical ads from RTD, but this is still a public website, so man-in-the-middle attacks and such are always a possibility. Please be careful. Also see :ref:`FAQ: Why is the documentation hosted on ReadTheDocs as opposed to the website? <introduction/faq:why is the documentation hosted on readthedocs as opposed to the website?>`.
 
 Please refer to RTD's `privacy policy <https://docs.readthedocs.com/platform/stable/privacy-policy.html>`__
