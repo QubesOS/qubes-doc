@@ -5,7 +5,8 @@ Qubes Windows Tools (QWT)
 
 .. note::
 
-	As there is no officially supported version of Qubes Windows Tools for Qubes R4.2, the following instructions describe a workaround to obtain QWT functionality using an older version of QWT for Windows 7, and the new version provided in Qubes R4.3 for Windows 10 and 11. In Qubes R4.3, the old version of QWT still has to be used for Windows 7, while for Windows 10 and 11, the new official version of QWT has to be used.
+	As there is no officially supported version of Qubes Windows Tools for Windows 7, the following instructions describe a workaround to obtain QWT functionality using an older version of QWT for Windows 7. For Windows 10 and 11, the latest official version of QWT must be used.
+
 
 Qubes Windows Tools (QWT) are a set of programs and drivers that provide integration of Windows 7, 10, and 11 Standalone, TemplateVMs, and AppVMs with the rest of the Qubes system. They contain several components that can be enabled or disabled during installation and rely on specific functions of Qubes, which support this integration:
 
@@ -223,7 +224,9 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
      	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools
      	
+     .. note::
 
+     For Qubes R4.2, the new version of QWT is not included in the repositories, but it can be downloaded from the R4.3 repository (version `4.2.2-1 <https://yum.qubes-os.org/r4.3/current-testing/dom0/fc41/rpm/qubes-windows-tools-4.2.2-1.fc41.noarch.rpm>`__ ), and it will work under R4.2, too.
 
    **Caution:** Installing one of these QWT versions will remove the other if it is installed.
 
