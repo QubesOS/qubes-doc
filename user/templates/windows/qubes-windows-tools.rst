@@ -2,7 +2,6 @@
 Qubes Windows Tools (QWT)
 =========================
 
-
 .. note::
 
 	As there is no officially supported version of Qubes Windows Tools for Windows 7, the following instructions describe a workaround to obtain QWT functionality using an older version of QWT for Windows 7. For Windows 10 and 11, the latest official version of QWT must be used.
