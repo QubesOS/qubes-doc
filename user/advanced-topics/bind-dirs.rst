@@ -136,6 +136,7 @@ How to remove binds from bind-dirs.sh?
 Custom persist feature
 ----------------------
 
+.. versionadded:: R4.3
 
 Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by disabling the ability to configure persistence from the VM itself. When enabled, the following happens:
 
