@@ -107,11 +107,14 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
 html_static_path = ['_static']
 html_css_files = ['css/custom.css']
+html_js_files = [ 'custom.js', ]
 
 html_use_opensearch = "https://doc.qubes-os.org"
 
 html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
 html_favicon = "attachment/icons/favicon-16x16.png"
+
+
 
 # -- -- Options for the linkcheck builder ------------------------------------
 
