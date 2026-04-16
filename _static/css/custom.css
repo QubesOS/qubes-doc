@@ -16,3 +16,31 @@
 .accelerator {
     text-decoration: underline;
 }
+
+.tw-color-table th.stub,
+.tw-color-table td.stub {
+  text-align: left;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.tw-color-table td:not(.stub) {
+  text-align: center;
+  vertical-align: top;
+  padding: 1px 3px;
+}
+
+.tw-color-table td:not(.stub) img {
+  display: block;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin: 0 auto; /* Center the swatch */
+}
+
+.tw-color-table td:not(.stub) .line-block {
+  font-size: 0.8em;
+  line-height: 1.3;
+  text-align: center;
+}

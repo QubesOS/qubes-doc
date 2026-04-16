@@ -1,224 +1,962 @@
-==============
-Usability & UX
-==============
+=========================
+Usability & UX Guidelines
+=========================
 
-Software that is too complicated to use, is often unused. Because we want as many people as possible to benefit from its unique security properties, the usability and user experience of Qubes OS is an utmost priority!
+Unnecessary complexity and bad UI often scare users away from good software. To avoid this terrible fate, please always take usability and good user experience into account when contributing to Qubes OS.
 
-We ask anyone developing for Qubes OS to please read through this guide to better understand the user experience we strive to achieve. We also ask them to review `our visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>`__ for other design related information.
+If you plan to contribute to GUI tools, please read these guidelines. Additional information can also be found in our `visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>`__.
 
-----
-
-Easy To Use
+Ease of Use
 -----------
 
-An ideal user experience is friendly, and it beckons a new user to explore the interface. In this process, they can naturally discover how to use the software. Below are some guidelines that will help you design a user interface that accomplishes this goal.
+In open source software, a good user interface should not only enable users to achieve their goals, but also allow them to remain in control of the process. The UI should neither overwhelm the users with the amount of information presented nor hide important context from them. In the words falsely attributed to Albert Einstein: our goal is to make things as simple as possible, but not simpler. Make things simple, but removing important elements in the name of simplicity or getting rid of valuable functionality for simplicity's sake is making them too simple.
 
-|redx| **Interfaces Should Not**
+Make sure that the UI you design adheres to the following principles.
 
-- Require extensive configuration before a user can *begin* doing things
+Do not waste the user's time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Make it possible to break provided features or actions in unrecoverable ways
+- the program should not *require* extensive configuration
+    **example**: you don't need to set the policy directory used by the :program:`Qubes Policy Editor` - the program lists available policy files for you
+- the most typical and most recommended workflows should require the least user time and attention
+    **example**: ``Create New Qube`` opens at the typical use-case (a new app qube) with options such as "template" and "networking" set to system defaults; the user only has to enter qube name and click ``Create``
+- the defaults should be sensible - they should work for most use cases and not require changes in most situations, if at all possible
+    **example**: default settings for newly created qubes
+- minimize repetitiveness: if possible, avoid multiple clicks or multiple steps for operations that can be implemented with less clicks/steps
+    **example**: in the ``Devices widget``, if a device is already attached to a qube, you have an option to ``Detach`` the device, but also to ``Detach and Attach`` to another qube - the user doesn't have to do two actions, but only one
 
-- Perform actions which compromise security and data
+Make the UI resilient to errors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Overwhelm the user with too much information and cognitive load
+- users should not be able to break the program (or the entire system) or enter an unrecoverable state
+- users should not be able to compromise the integrity and security of their system accidentally
+- as far as possible, there should be a possibility to undo actions
+- if some actions cannot be undone (for example deleting a qube), they should be impossible to perform accidentally (in case of Qubes OS, you have to type the qube name to delete it, even using GUI tools)
+- the defaults should be reasonably secure
+- avoid leaving users stranded - if there is an error message, there should also be guidance on how to recover or (preferably) an actionable solution
 
-Perhaps the most common cause of mistakes is complexity. If there is a configuration setting that will significantly affect the user’s experience, choose a safe and smart default then tuck this setting in an ``Advanced Settings`` panel.
+Reduce cognitive load
+^^^^^^^^^^^^^^^^^^^^^
 
-|checkmark| **Interfaces Should**
+- show only the relevant information
+    **example**: domains widget does not show qubes that are not running and not consuming resources
+- use simple and understandable language
+    when in doubt, like the author of this document, always use the simpler word and don't write like it's a master's thesis in English literature
+- make it easy to discover and understand features and available options
+    **example**: :guilabel:`Qubes Global Config` aims to show and describe multiple configuration settings that otherwise were only available via CLI and knowing about them
+- do not expect the user to remember: remind them of past actions and choices
+    **example**: during the update process, show which qubes are being updated right now, which are still queued for updated and which are done updating
+- the defaults should make sense for most use cases and not require the user to verify them thoroughly
+    **example**: a new qube will use the default template and default networking settings
 
-- Make it easy to discover features and available actions
 
-- Provide some understanding of what discovered features do
+Language
+--------
 
-- Offer the ability to easily undo mistakes
+There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple hints to help achieve this - as with any writing advice, those are guidelines, not laws.
 
-- Choose intelligent defaults for settings
+Avoid acronyms
+^^^^^^^^^^^^^^
 
-In making software easy to use, it is crucial to be mindful of `cognitive load <https://en.wikipedia.org/wiki/Cognitive_load>`__ which dictates that *“humans are generally able to hold only seven +/- two units of information in short-term memory.”* Making sure your interfaces don’t pass this short-term memory limit is perhaps the most important factor in helping a user feel comfortable instead of overwhelmed.
+Acronyms are compact and make good names for command line tools, but until the user learns an acronym’s meaning, it is gibberish. Avoid introducing new acronyms, unless necessary, and provide explanations if the acronym is uncommon. Some acronyms are more familiar than the full name - it is strongly recommended to use USB instead of Universal Serial Bus, for example.
 
-----
+Use simple words
+^^^^^^^^^^^^^^^^
 
-Easy to Understand
-------------------
+Use the minimum amount of words needed to be informative. Go with common words that are as widely understood. "Unneeded" is better than "superfluous", "correct" is better than "rectify" and "pointless" is better than "nugatory".
 
-There will always be the need to communicate things to users. In these cases, an interface should aim to make this information easy to understand. The following are simple guides to help achieve this - none of these are absolute maxims!
+Follow current Qubes OS terminology
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|redx| **Avoid Acronyms**
+- use **disposable [qube]** instead of ``DVM`` or ``Disposable Virtual Machine``
+- use **networking** or **net qube** instead of ``NetVM``
+- use **qube** instead of ``virtual machine``, ``container``, ``domain`` or ``domU``
+- use terminology consistent with other user-facing tools, not necessarily with internal programming details
 
-Acronyms are compact and make good names for command line tools. They do not make graphical user interfaces more intuitive for non-technical users. Until one learns an acronym’s meaning, it is gibberish. Avoid acronyms in your interfaces whenever possible!
+Avoid technical words
+^^^^^^^^^^^^^^^^^^^^^
 
-- ``DVM`` - Disposable Virtual Machine
+Technical words are usually more accurate, but they often *only* make sense to technical users and are confusing and unhelpful to non-technical users. Strive for accuracy and usefulness above strict technical correctness. If at any point you wish to add to a label a "well, actually", resist the temptation.
 
-- ``GUID`` - Global Unique Identifier
+Prefer a common, understandable concept to detailed technical explanations of a particular implementation
+    - Use ``disk space`` instead of ``root.img``, since while not quite accurate, it makes contextual sense
+    - Use ``saving`` instead of ``savefile`` as the former is the action trying to be completed
+    - Use ``Qubes`` instead of ``qrexec-daemon`` as it gives better context on what is happening
 
-- ``PID`` - Process Identification Number
+Avoid redundancy
+^^^^^^^^^^^^^^^^
 
-- ``NetVM`` - Networking Virtual Machine
+- do not over-use words like ``qube`` or ``domain`` in long lists
+- it is preferable to create common categories/headers than to repeat a single category multiple times
 
-Despite this rule, some acronyms like ``USB`` are widely used and understood due to being in common use for over a decade. It is good to use these acronyms when the full words like ``Universal Serial Bus`` are more likely to confuse users.
+.. image:: /attachment/doc/ux-badmenu.png
+   :alt: Qubes 3.2 system menu with redundant 'domain' prefix to every qube name
 
-|checkmark| **Use Simple Words**
+System menu in Qubes 3.2 used to make both of those mistakes: redundant 'domain' prefix and no category headers.
 
-Use the minimum amount of words needed to be descriptive, but also informative. Go with common words that are as widely understood. Sometimes, inventing a word such as ``Qube`` to describe a ``virtual machine`` makes the life of the user much easier.
+Usability and Accessibility
+---------------------------
 
-- Use ``Disposable Qube`` instead of ``DVM`` or ``Disposable Virtual Machine``
+Usability and accessibility are always tied together. When designing interfaces for Qubes OS, follow general good UI practices, striving for understandability, clarity of interactions, avoid surprising the user, avoid - as far as possible - actions that cannot be undone and strive to make it easy to do the correct/secure action and difficult to do the insecure action.
 
-- Use ``interface`` instead of ``GUI`` or ``Graphical User Interface``
+Use the checklist below to verify fundamental accessibility and usability principles:
 
-- Use ``application number`` instead of ``PID`` or ``Process Identification Number``
+- **visual readability**
+    - there is sufficient contrast between text and background (use `WCAG level AA guidelines <https://www.w3.org/TR/WCAG21/>`__ as minimum when in doubt)
+    - UI remains readable in dark mode and in light mode
+- **color independence**
+    - important information is never communicated solely through color: labels, text, shapes etc. accompany all color-coded information
+- **text scaling support**
+    - the program works for large font sizes (including what you might consider absurdly large)
+- **keyboard/mouse accessibility**
+    - all actions can be reached and performed when using only the keyboard and only the mouse without exorbitant leaps of logic or reading the documentation
+    - tab-order for controls is logical
+- **focus visibility**
+    - it is always visible which element has focus, when using keyboard navigation
+    - focus is not irrevocably lost on some operations
+- **clarity and communication**
+    - language used in the GUI is clear, understandable and simple; avoid complex sentences and overly complex vocabulary
+    - error messages are specific and visible; if possible, errors are accompanied by information about how to recover from them (ideally, this would be done automatically, but of course this is not always possible)
+    - validation is always clearly communicated: the user can easily understand why certain inputs are incorrect
+    - error and validation feedback does not rely on timing
 
-- Use ``Networking`` or ``Networking Qube`` instead of ``NetVM`` given context
+Consistency and UI Elements
+---------------------------
 
-----
+Concepts, names, icons, interaction patters and styling should be consistent across different tools. When in doubt, pattern the behavior of your application on other Qubes OS tools.
 
-|redx| **Avoid Technical Words**
+Particular GUI patterns used in Qubes OS are:
 
-Technical words are usually more accurate, but they often *only* make sense to technical users and are confusing and unhelpful to non-technical users. Examples of technical words that might show up in Qubes OS are:
+Qube names
+^^^^^^^^^^
 
-- ``root.img``
+Qube name should be whenever possible accompanied by the appropriate qube icon in the correct color.
 
-- ``savefile``
 
-- ``qrexec-daemon``
+Examples:
 
-These are all terms that have at some point showed up in users’ notification messages. Each term is very specific, but requires the user to understand virtualization to interpret.
+.. figure:: /attachment/doc/ui_design_qubename_1.png
+   :alt: part of Qubes OS Global Config: two dropdowns used to configure Clock qube and Default net qube. In both dropdowns, the qube names are accompanied by the qube icon to their left
 
-|checkmark| **Use Common Concepts**
+   Dropdowns in :guilabel:`Qubes OS Global Config` contain icons. Always use existing dropdown widgets if possible: they generally already provide the icon display.
 
-Large amounts of the global population have been using computers for one or two decades and have formed some mental models of how things work. Leveraging these mental models are a huge gain.
 
-- Use ``disk space`` instead of ``root.img``, since while not quite accurate, it makes contextual sense
+.. figure:: /attachment/doc/ui_design_qubename_2.png
+   :alt: part of Create New Qube Dialog showing selected net qube with its icon to the left of the qube name
 
-- Use ``saving`` instead of ``savefile`` as the former is the action trying to be completed
+   In :guilabel:`Create New Qube Dialog`, selected network qube is displayed with its icon and also with the qube color used to color the qube name, to reinforce the qube-label association.
 
-- Use ``Qubes`` instead of ``qrexec-daemon`` as it gives better context on what is happening
+.. figure:: /attachment/doc/ui_design_qubename_3.png
+   :alt: list of running qubes from the domains widget; each qube name has the qube icon to the left of it
 
-These words are more abstract and user relevant- they help a user understand what is happening based on already known concepts (disk space) or start to form a mental model of something new (Qubes).
+   In the domains widgets, every qube is always accompanied by its icon.
 
-----
+Action buttons
+^^^^^^^^^^^^^^
 
-|redx| **Avoid Inconsistencies**
+If possible, any button should have a brief and understandable description of the action it will cause if pressed written on the button itself. Avoid generic "OK" buttons. Usually only one button should be marked visually as the main "confirmation" button. If there are multiple buttons who could serve this role, individual discernment must be used.
 
-It is easy to start abbreviating (or making acronyms) of long terms like ``Disposable Virtual Machine`` depending on where the term shows up in an interface.
 
-- ``DVM``
+Use flat buttons.
 
-- ``DispVM``
+Use the following CSS classes (with appropriate text size and padding) for confirm and cancel buttons:
 
-- ``DisposableVM``
+.. code-block:: css
 
-This variation in terms can cause new users to question or second guess what the three different variations mean, which can lead to inaction or mistakes.
+    .confirm-button {
+        background: @blue-500;
+        border-radius: 2px;
+        color: white;
+        font-weight: 600;
+    }
 
-|checkmark| **Make Things Consistent**
+    .cancel-button {
+        background: @gray-100;
+        border-radius: 2px;
+        border: 1px solid @gray-200;
+        font-weight: 600;
+    }
 
-Always strive to keep things consistent in the interfaces as well as documentation and other materials.
+For color definitions, see :ref:`below <developer/general/usability-ux:Colors>`.
 
-- Use ``Disposable Qube`` at all times as it meets other criteria as well.
+Examples:
 
-By using the same term throughout an interface, a user can create a mental model and relationship with that term allowing them to feel empowered.
+.. figure:: /attachment/doc/ui_design_buttons_1.png
+   :alt: part of Qubes OS Global Config: three buttons at the bottom of the screen. Blue button with text "Apply Changes and Close", and two flat normal buttons with text "Apply Changes" and "Cancel"
 
-----
+   The visually marked button is "Apply Changes and Close", because this is assumed to be the typical interaction with the tool.
 
-|redx| **Avoid Duplicate Words**
+.. figure:: /attachment/doc/ui_design_buttons_2.png
+   :alt: part of Policy Editor: three buttons at the bottom of the screen. Flat button with text "Quit" and two blue buttons with "Save changes" and "Save and exit"
 
-It is easy to add words like ``Domain`` before items in a list or menu in an attempt to be descriptive, such as:
+   Button text should be brief and clear. Two actions seemed to be typical for the interaction with the tool (saving and exiting and saving without exiting), so both are emphasised.
 
-.. code:: text
 
-      Menu
-      - Domain: work
-      - Domain: banking
-      - Domain: personal
+Icons
+-----
 
-The repeated use of the word ``Domain`` requires a user to read it for each item in the list, which makes extra work for the eye in parsing out the relevant word like ``work, banking, or personal``. This also affects horizontal space on fixed width lines.
+Core of Qubes OS Icon Set is the set of qube-related icons that can be found in the `qubes-artwork <https://github.com/QubesOS/qubes-artwork/tree/main/icons/scalable/apps>`__ repository.
 
-|checkmark| **Create Groups & Categories**
+Those icons represent possible qube classes and colors. For mapping of qube icon to qube type, see the :doc:`/user/reference/glossary`.
 
-It is more efficient to group things under headings instead as this allows the eye to easily scan the uniqueness of the items. (As per our previous example:)
+Most symbolic icons in Qubes GUI are taken from `lucide.dev <https://lucide.dev>`__ (MIT-licensed open source icon set).
 
-.. code:: text
+The following stroke width is generally recommended for the following icon sizes (adjusted when needed for clarity and cohesion):
 
-      Domains
-      - Work
-      - Banking
-      - Personal
+- 16px = 1.5px stroke
+- 24px = 2px stroke
+- 32px = 3px stroke
+- 48px = 4px stroke
+- 64px = 6px stroke
 
-----
+If any further icons are needed, base them on `lucide.dev <https://lucide.dev>`__ icon set.
 
-Easy To Complete
-----------------
 
-Lastly, expected (and unexpected) situations often require user actions or input. Make resolving these occurences as easy as possible to complete the action.
+Colors
+------
 
-|redx| **Don’t Leave Users Stranded**
+For GUI elements, use the following subset of Tailwind color system (from `Tailwind CSS system <https://www.tailwindcss.com>`__).
 
-Consider the following notifications:
+.. list-table:: Colors
+   :class: tw-color-table
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 15 10 10 10 10 10 10 10 10 10 10 10
 
-- ``The disk space of your Qube "Work" is full``
+   * - Color
+     - 50
+     - 100
+     - 200
+     - 300
+     - 400
+     - 500
+     - 600
+     - 700
+     - 800
+     - 900
+     - 950
+   * - Gray
+     - .. image:: /attachment/doc/colors/f9fafb.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-50
 
-- ``There was an error saving Qube "Personal"``
+       | gray-50
+       | #f9fafb
 
-Instead of displaying solvable errors like these and neglecting to provide a fix:
+     - .. image:: /attachment/doc/colors/f3f4f6.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-100
 
-|checkmark| **Offer Actionable Solutions**
+       | gray-100
+       | #f3f4f6
 
-Error messages and limits such as those in the previous example can be greatly improved by adding buttons or links to helpful information.
+     - .. image:: /attachment/doc/colors/e5e7eb.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-200
 
-- Add a button to ``Increase Disk Space``
+       | gray-200
+       | #e5e7eb
 
-- Add a link to a documentation page called ``Troubleshoot saving data``
+     - .. image:: /attachment/doc/colors/d1d5db.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-300
 
-In adhering to these principles, you’ll make undesirable situations more manageable for users instead of feeling stranded.
+       | gray-300
+       | #d1d5db
 
-----
+     - .. image:: /attachment/doc/colors/9ca3af.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-400
 
-|checkmark| **Minimize Repetitive Steps**
+       | gray-400
+       | #9ca3af
 
-There are many cases where a user wants to perform an action on more than one file or folder. However in order to do the action, the user must repeat certain steps such as:
+     - .. image:: /attachment/doc/colors/6b7280.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-500
 
-1. Click on ``Open File`` from a menu or button
+       | gray-500
+       | #6b7280
 
-2. Navigate through file system
+     - .. image:: /attachment/doc/colors/4b5563.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-600
 
-   - Click Folder One
+       | gray-600
+       | #4b5563
 
-   - Click Folder Two
+     - .. image:: /attachment/doc/colors/374151.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-700
 
-   - Click Folder Three
+       | gray-700
+       | #374151
 
-   - Click Folder Four
+     - .. image:: /attachment/doc/colors/1f2937.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-800
 
-3. Select proper file
+       | gray-800
+       | #1f2937
 
-4. Complete task on file
+     - .. image:: /attachment/doc/colors/111827.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-900
 
-That subtle act of clicking through a file system can prove to be significant if a user needs to open more than a couple files in the same directory. We can alleviate some of the work by changing the process:
+       | gray-900
+       | #111827
 
-1. Click on ``Open File`` from a menu or button
+     - .. image:: /attachment/doc/colors/030712.png
+          :width: 18px
+          :height: 12px
+          :alt: gray-950
 
-2. Remember last open folder/file system
+       | gray-950
+       | #030712
 
-3. Select proper file
+   * - Neutral
+     - .. image:: /attachment/doc/colors/fafafa.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-50
 
-4. Complete task
+       | neutral-50
+       | #fafafa
 
-Clearly, cutting out something as simple as navigating through the file system can save a user quite a bit of time. Alternatively, adding a button or menu item like ``Open Multiple Files`` might be even better, because remembering and using relevant hotkeys is often something only power users know how to do!
+     - .. image:: /attachment/doc/colors/f5f5f5.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-100
 
-----
+       | neutral-100
+       | #f5f5f5
 
-KDE and Xfce
-------------
+     - .. image:: /attachment/doc/colors/e5e5e5.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-200
 
-The desktop GUIs that QubesOS versions 1 - 4.1 offer are `KDE <https://kde.org>`__ and `Xfce <https://xfce.org>`__. Xfce is the default environment on Qubes OS and will always be supported. Technical users will always have the choice to :doc:`install KDE </user/advanced-topics/kde>` or other desktop environments.
+       | neutral-200
+       | #e5e5e5
 
-Both of these desktop environments have their own `human interface guidelines <https://en.wikipedia.org/wiki/Human_interface_guidelines>`__, and we suggest you familiarize yourself with the platform you developing for.
+     - .. image:: /attachment/doc/colors/d4d4d4.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-300
+
+       | neutral-300
+       | #d4d4d4
+
+     - .. image:: /attachment/doc/colors/a3a3a3.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-400
+
+       | neutral-400
+       | #a3a3a3
+
+     - .. image:: /attachment/doc/colors/737373.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-500
+
+       | neutral-500
+       | #737373
+
+     - .. image:: /attachment/doc/colors/525252.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-600
+
+       | neutral-600
+       | #525252
+
+     - .. image:: /attachment/doc/colors/404040.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-700
+
+       | neutral-700
+       | #404040
+
+     - .. image:: /attachment/doc/colors/262626.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-800
+
+       | neutral-800
+       | #262626
+
+     - .. image:: /attachment/doc/colors/171717.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-900
+
+       | neutral-900
+       | #171717
+
+     - .. image:: /attachment/doc/colors/0a0a0a.png
+          :width: 18px
+          :height: 12px
+          :alt: neutral-950
+
+       | neutral-950
+       | #0a0a0a
+
+   * - Red
+     - .. image:: /attachment/doc/colors/fef2f2.png
+          :width: 18px
+          :height: 12px
+          :alt: red-50
+
+       | red-50
+       | #fef2f2
+
+     - .. image:: /attachment/doc/colors/fee2e2.png
+          :width: 18px
+          :height: 12px
+          :alt: red-100
+
+       | red-100
+       | #fee2e2
+
+     - .. image:: /attachment/doc/colors/fecaca.png
+          :width: 18px
+          :height: 12px
+          :alt: red-200
+
+       | red-200
+       | #fecaca
+
+     - .. image:: /attachment/doc/colors/fca5a5.png
+          :width: 18px
+          :height: 12px
+          :alt: red-300
+
+       | red-300
+       | #fca5a5
+
+     - .. image:: /attachment/doc/colors/f87171.png
+          :width: 18px
+          :height: 12px
+          :alt: red-400
+
+       | red-400
+       | #f87171
+
+     - .. image:: /attachment/doc/colors/ef4444.png
+          :width: 18px
+          :height: 12px
+          :alt: red-500
+
+       | red-500
+       | #ef4444
+
+     - .. image:: /attachment/doc/colors/dc2626.png
+          :width: 18px
+          :height: 12px
+          :alt: red-600
+
+       | red-600
+       | #dc2626
+
+     - .. image:: /attachment/doc/colors/b91c1c.png
+          :width: 18px
+          :height: 12px
+          :alt: red-700
+
+       | red-700
+       | #b91c1c
+
+     - .. image:: /attachment/doc/colors/991b1b.png
+          :width: 18px
+          :height: 12px
+          :alt: red-800
+
+       | red-800
+       | #991b1b
+
+     - .. image:: /attachment/doc/colors/7f1d1d.png
+          :width: 18px
+          :height: 12px
+          :alt: red-900
+
+       | red-900
+       | #7f1d1d
+
+     - .. image:: /attachment/doc/colors/450a0a.png
+          :width: 18px
+          :height: 12px
+          :alt: red-950
+
+       | red-950
+       | #450a0a
+
+   * - Orange
+     - .. image:: /attachment/doc/colors/fff7ed.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-50
+
+       | orange-50
+       | #fff7ed
+
+     - .. image:: /attachment/doc/colors/ffedd5.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-100
+
+       | orange-100
+       | #ffedd5
+
+     - .. image:: /attachment/doc/colors/fed7aa.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-200
+
+       | orange-200
+       | #fed7aa
+
+     - .. image:: /attachment/doc/colors/fdba74.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-300
+
+       | orange-300
+       | #fdba74
+
+     - .. image:: /attachment/doc/colors/fb923c.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-400
+
+       | orange-400
+       | #fb923c
+
+     - .. image:: /attachment/doc/colors/f97316.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-500
+
+       | orange-500
+       | #f97316
+
+     - .. image:: /attachment/doc/colors/ea580c.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-600
+
+       | orange-600
+       | #ea580c
+
+     - .. image:: /attachment/doc/colors/c2410c.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-700
+
+       | orange-700
+       | #c2410c
+
+     - .. image:: /attachment/doc/colors/9a3412.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-800
+
+       | orange-800
+       | #9a3412
+
+     - .. image:: /attachment/doc/colors/7c2d12.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-900
+
+       | orange-900
+       | #7c2d12
+
+     - .. image:: /attachment/doc/colors/431407.png
+          :width: 18px
+          :height: 12px
+          :alt: orange-950
+
+       | orange-950
+       | #431407
+
+   * - Yellow
+     - .. image:: /attachment/doc/colors/fefce8.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-50
+
+       | yellow-50
+       | #fefce8
+
+     - .. image:: /attachment/doc/colors/fef9c3.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-100
+
+       | yellow-100
+       | #fef9c3
+
+     - .. image:: /attachment/doc/colors/fef08a.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-200
+
+       | yellow-200
+       | #fef08a
+
+     - .. image:: /attachment/doc/colors/fde047.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-300
+
+       | yellow-300
+       | #fde047
+
+     - .. image:: /attachment/doc/colors/facc15.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-400
+
+       | yellow-400
+       | #facc15
+
+     - .. image:: /attachment/doc/colors/eab308.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-500
+
+       | yellow-500
+       | #eab308
+
+     - .. image:: /attachment/doc/colors/ca8a04.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-600
+
+       | yellow-600
+       | #ca8a04
+
+     - .. image:: /attachment/doc/colors/a16207.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-700
+
+       | yellow-700
+       | #a16207
+
+     - .. image:: /attachment/doc/colors/854d0e.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-800
+
+       | yellow-800
+       | #854d0e
+
+     - .. image:: /attachment/doc/colors/713f12.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-900
+
+       | yellow-900
+       | #713f12
+
+     - .. image:: /attachment/doc/colors/422006.png
+          :width: 18px
+          :height: 12px
+          :alt: yellow-950
+
+       | yellow-950
+       | #422006
+
+   * - Green
+     - .. image:: /attachment/doc/colors/f0fdf4.png
+          :width: 18px
+          :height: 12px
+          :alt: green-50
+
+       | green-50
+       | #f0fdf4
+
+     - .. image:: /attachment/doc/colors/dcfce7.png
+          :width: 18px
+          :height: 12px
+          :alt: green-100
+
+       | green-100
+       | #dcfce7
+
+     - .. image:: /attachment/doc/colors/bbf7d0.png
+          :width: 18px
+          :height: 12px
+          :alt: green-200
+
+       | green-200
+       | #bbf7d0
+
+     - .. image:: /attachment/doc/colors/86efac.png
+          :width: 18px
+          :height: 12px
+          :alt: green-300
+
+       | green-300
+       | #86efac
+
+     - .. image:: /attachment/doc/colors/4ade80.png
+          :width: 18px
+          :height: 12px
+          :alt: green-400
+
+       | green-400
+       | #4ade80
+
+     - .. image:: /attachment/doc/colors/22c55e.png
+          :width: 18px
+          :height: 12px
+          :alt: green-500
+
+       | green-500
+       | #22c55e
+
+     - .. image:: /attachment/doc/colors/16a34a.png
+          :width: 18px
+          :height: 12px
+          :alt: green-600
+
+       | green-600
+       | #16a34a
+
+     - .. image:: /attachment/doc/colors/15803d.png
+          :width: 18px
+          :height: 12px
+          :alt: green-700
+
+       | green-700
+       | #15803d
+
+     - .. image:: /attachment/doc/colors/166534.png
+          :width: 18px
+          :height: 12px
+          :alt: green-800
+
+       | green-800
+       | #166534
+
+     - .. image:: /attachment/doc/colors/14532d.png
+          :width: 18px
+          :height: 12px
+          :alt: green-900
+
+       | green-900
+       | #14532d
+
+     - .. image:: /attachment/doc/colors/052e16.png
+          :width: 18px
+          :height: 12px
+          :alt: green-950
+
+       | green-950
+       | #052e16
+
+   * - Blue
+     - .. image:: /attachment/doc/colors/eff6ff.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-50
+
+       | blue-50
+       | #eff6ff
+
+     - .. image:: /attachment/doc/colors/dbeafe.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-100
+
+       | blue-100
+       | #dbeafe
+
+     - .. image:: /attachment/doc/colors/bfdbfe.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-200
+
+       | blue-200
+       | #bfdbfe
+
+     - .. image:: /attachment/doc/colors/93c5fd.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-300
+
+       | blue-300
+       | #93c5fd
+
+     - .. image:: /attachment/doc/colors/60a5fa.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-400
+
+       | blue-400
+       | #60a5fa
+
+     - .. image:: /attachment/doc/colors/3b82f6.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-500
+
+       | blue-500
+       | #3b82f6
+
+     - .. image:: /attachment/doc/colors/2563eb.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-600
+
+       | blue-600
+       | #2563eb
+
+     - .. image:: /attachment/doc/colors/1d4ed8.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-700
+
+       | blue-700
+       | #1d4ed8
+
+     - .. image:: /attachment/doc/colors/1e40af.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-800
+
+       | blue-800
+       | #1e40af
+
+     - .. image:: /attachment/doc/colors/1e3a8a.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-900
+
+       | blue-900
+       | #1e3a8a
+
+     - .. image:: /attachment/doc/colors/172554.png
+          :width: 18px
+          :height: 12px
+          :alt: blue-950
+
+       | blue-950
+       | #172554
+
+   * - Purple
+     - .. image:: /attachment/doc/colors/faf5ff.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-50
+
+       | purple-50
+       | #faf5ff
+
+     - .. image:: /attachment/doc/colors/f3e8ff.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-100
+
+       | purple-100
+       | #f3e8ff
+
+     - .. image:: /attachment/doc/colors/e9d5ff.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-200
+
+       | purple-200
+       | #e9d5ff
+
+     - .. image:: /attachment/doc/colors/d8b4fe.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-300
+
+       | purple-300
+       | #d8b4fe
+
+     - .. image:: /attachment/doc/colors/c084fc.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-400
+
+       | purple-400
+       | #c084fc
+
+     - .. image:: /attachment/doc/colors/a855f7.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-500
+
+       | purple-500
+       | #a855f7
+
+     - .. image:: /attachment/doc/colors/9333ea.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-600
+
+       | purple-600
+       | #9333ea
+
+     - .. image:: /attachment/doc/colors/7e22ce.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-700
+
+       | purple-700
+       | #7e22ce
+
+     - .. image:: /attachment/doc/colors/6b21a8.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-800
+
+       | purple-800
+       | #6b21a8
+
+     - .. image:: /attachment/doc/colors/581c87.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-900
+
+       | purple-900
+       | #581c87
+
+     - .. image:: /attachment/doc/colors/3b0764.png
+          :width: 18px
+          :height: 12px
+          :alt: purple-950
+
+       | purple-950
+       | #3b0764
+
+Desktop Environments
+--------------------
+
+The desktop GUIs that QubesOS supports out of the box are `KDE <https://kde.org>`__ and `Xfce <https://xfce.org>`__. All GUI tools should function well under both of those desktop environments. There is also a significant minority of users who use tiling desktop environments. Ideally, GUI tools should also function in those desktop environments.
+
+Both of those desktop environments have their own `human interface guidelines <https://en.wikipedia.org/wiki/Human_interface_guidelines>`__, and we suggest you familiarize yourself with the platform you developing for.
 
 - `KDE HIG <https://hig.kde.org/>`__
 
 - `Xfce UI Guidlines <https://wiki.xfce.org/dev/hig/general>`__
-
-----
 
 Further Learning & Inspiration
 ------------------------------
@@ -236,6 +974,3 @@ Learning to make well designing intuitive interfaces and software is specialized
 - `10 Usability Heuristics for User Interface Design <https://www.nngroup.com/articles/ten-usability-heuristics/>`__ by Jakob Nielsen
 
 - `Hack Design <https://hackdesign.org/>`__ - online learning program
-
-.. |checkmark| image:: /attachment/doc/checkmark.png
-.. |redx| image:: /attachment/doc/red_x.png

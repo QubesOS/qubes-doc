@@ -35,7 +35,7 @@ Below is a list of various books that might be useful in learning some basics ne
 
   - `Programming in Python 3 <https://mark-summerfield.github.io/py3book.html>`__, by Mark Summerfield
 
-  - `Rapid GUI Programming with Python and Qt <https://mark-summerfield.github.io/pyqtbook.html>`__, by Mark Summerfield.
+  - `Rapid GUI Programming with Python and Qt <https://mark-summerfield.github.io/pyqtbook.html>`__, by Mark Summerfield
 
 
 
