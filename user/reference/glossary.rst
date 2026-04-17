@@ -34,14 +34,14 @@ Qube types and properties
 .. glossary::
 
    admin qube
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/adminvm-black.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/adminvm-black.svg
          :width: 24px
          :align: left
 
       A type of :term:`qube` used for administering Qubes OS. Currently, the only admin qube is :term:`dom0`.
 
    app qube
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/appvm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/appvm-red.svg
          :width: 24px
          :align: left
 
@@ -53,7 +53,7 @@ Qube types and properties
 
 
    disposable
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/dispvm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/dispvm-red.svg
          :width: 24px
          :align: left
 
@@ -68,7 +68,7 @@ Qube types and properties
       - Previously known as: ``DisposableVM``, ``DispVM``.
 
    standalone
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/standalonevm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/standalonevm-red.svg
          :width: 24px
          :align: left
 
@@ -79,7 +79,7 @@ Qube types and properties
       - Previously known as: ``StandaloneVM``.
 
    template
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/templatevm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/templatevm-red.svg
          :width: 24px
          :align: left
 
@@ -96,7 +96,7 @@ Qube types and properties
       - Previously known as: ``TemplateVM``.
 
    disposable template
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/templatevm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/templatevm-red.svg
          :width: 24px
          :align: left
 
@@ -113,7 +113,7 @@ Qube types and properties
       - Previously known as: ``DisposableVM Template``, ``DVM Template``, ``DVM``.
 
    named disposable
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/dispvm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/dispvm-red.svg
          :width: 24px
          :align: left
 
@@ -134,7 +134,7 @@ Qube types and properties
       - Internally, a net qube is called a `netvm`.
 
    service qube
-      .. image:: https://raw.githubusercontent.com/QubesOS/qubes-artwork/refs/heads/main/icons/scalable/apps/servicevm-red.svg
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/servicevm-red.svg
          :width: 24px
          :align: left
 
