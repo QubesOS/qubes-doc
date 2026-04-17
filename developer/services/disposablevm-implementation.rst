@@ -10,7 +10,7 @@ Disposable behavior
 -------------------
 
 
-A :term:`disposable template` is not a disposable in itself, but a special template that can create different :term:`disposable` types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. This intermediary template serves different functions, first to permit customization of the private volume of a disposable as well as well as a degree of inheritance that would not be possible with normal templates. It has the :py:attr:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.template_for_dispvms` property enabled, being a :py:class:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin`.
+A :term:`disposable template <disposable template>` is not a disposable in itself, but a special template that can create different disposable types: "normal" (unnamed) :term:`disposables <disposable>` and :term:`named disposables <named disposable>`. This intermediary template serves different functions, first to permit customization of the private volume of a disposable as well as well as a degree of inheritance that would not be possible with normal templates. It has the :py:attr:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.template_for_dispvms` property enabled, being a :py:class:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin`.
 
 A :term:`disposable` is a qube with the :py:class:`~core-admin:qubes.vm.dispvm.DispVM` class and is based on a disposable template. Every disposable type has all of its volumes configured to disable :py:attr:`~core-admin:qubes.storage.Volume.save_on_stop`, therefore no changes are saved on shutdown. Unnamed disposables enables the property :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus automatically removes the qube upon shutdown. Named disposables don't enable :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus the qube skeleton is not removed upon shutdown, thus allowing to keep qube settings.
 
@@ -37,7 +37,7 @@ Preloaded disposables
 
 The user desires to circumvent any slow process, the creation of disposables fits into this category. Preloaded disposables enables fast retrieval of fresh disposables, so users don't have to get away from the computer or switch tasks when requesting disposables (or not requesting one at all because it was slow).
 
-Preloaded disposables are :term:`unnamed disposables <unnamed disposable>`, it aims to solve the issue of disposable's long startup time by keeping running (powered on and paused) disposable qubes queued. In order to accomplish this, they are started in the background without user interaction, hidden from most graphical applications by being an :term:`internal <internal qube>`. They are unpaused (transparently) when a disposable qube is requested by the user, therefore the user must not worry about the managing the creation or deletion of them, just how many they'd like to have at maximum.
+Preloaded disposables are a solution to the problem of slow disposable startup time. Instead of performing the whole startup each time a new :term:`disposable` is requested, preloading keeps prepared (running and paused) qubes in the background, ready to be used when needed. In order to accomplish this, they are started in the background without user interaction, hidden from most graphical applications by being an :term:`internal <internal qube>`. They are unpaused (transparently) when a disposable qube is requested by the user.
 
 Preloaded disposable's stages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
