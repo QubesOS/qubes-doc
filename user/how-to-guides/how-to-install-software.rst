@@ -36,6 +36,53 @@ Installing software from default repositories
 
 
 
+.. _installing-software-from-external-repositories-debian:
+
+Installing software from external repositories (Debian)
+-------------------------------------------------------
+
+Some softwares which are not available in the default Debian repositories can be installed through `extrepo <https://manpages.debian.orgo/unstable/extrepo/extrepo.1p.en.html>`__, a Debian tool for safely managing external repositories. Qubes OS Debian templates ship with ``extrepo`` and ``extrepo-offline-data`` pre-installed and configured for offline use, so you do not need to give the template network access to enable a repository.
+
+.. note:: ``extrepo`` is only available in Debian templates, not Fedora or Ubuntu.
+
+.. hint:: While the repositories managed by ``extrepo`` are curated by Debian, the Debian project makes no warranty as to the security or quality of the software in these third-party repositories. It is recommended to install third-party software in a dedicated :term:`template` rather than the default one.
+
+1. (Recommended) Clone the Debian template to create a dedicated template for the software you want to install.
+
+2. Start a terminal in the template and search for the repository you need:
+
+   .. code:: console
+
+         [user@debian-13 ~]$ extrepo search signal
+
+3. Enable the repository. This writes the apt sources configuration and GPG key locally using the offline data — no network access is required for this step:
+
+   .. code:: console
+
+         [user@debian-13 ~]$ sudo extrepo enable signal-desktop
+
+4. Update the package lists and install the software. This step fetches package metadata and packages through the :ref:`updates proxy <updates-proxy>`:
+
+   .. code:: console
+
+         [user@debian-13 ~]$ sudo apt update
+         [user@debian-13 ~]$ sudo apt install signal-desktop
+
+5. Shut down the template.
+
+6. Restart all qubes based on the template.
+
+7. (Recommended) In the relevant qubes' :menuselection:`Settings --> Applications` tab, select the new application(s) from the list, and press :guilabel:`OK`. These new shortcuts will appear in the Applications Menu. (If you encounter problems, see :ref:`app-menu-troubleshooting`)
+
+After enabling a repository, future updates for its packages will be fetched automatically when you :doc:`update the template </user/how-to-guides/how-to-update>`.
+
+To disable an external repository that is no longer needed:
+
+.. code:: console
+
+      [user@debian-13 ~]$ sudo extrepo disable signal-desktop
+
+
 Installing software from other sources
 --------------------------------------
 
