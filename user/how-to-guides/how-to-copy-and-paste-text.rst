@@ -2,28 +2,27 @@
 How to copy and paste text
 ==========================
 
+Qubes OS features a secure inter-qube clipboard that allows you **to copy and paste plain text** between qubes.
 
-*This page is about copying and pasting plain text. If you wish to copy more complex data, such as rich text or images, see* :doc:`copying and moving files between qubes </user/how-to-guides/how-to-copy-and-move-files>` *. For dom0, see* :doc:`copying from (and to) dom0 </user/how-to-guides/how-to-copy-from-dom0>` *.*
+.. note:: If you wish to copy more complex data, such as rich text or images, or copy from dom0, see:
 
-Qubes OS features a secure inter-qube clipboard that allows you to copy and paste text between qubes.
+   * :doc:`/user/how-to-guides/how-to-copy-and-move-files`
+   * :doc:`/user/how-to-guides/how-to-copy-from-dom0`
 
 In order to copy text from qube A to qube B:
 
-1. Select text from the source app in qube A, then copy it normally (e.g., by pressing Ctrl+C).
+1. Select text from the source app in qube A, then copy it normally (e.g., by pressing :kbd:`Ctrl` + :kbd:`C`).
 
-2. With the source app in qube A still in focus, press Ctrl+Shift+C. This copies the text from qube A’s clipboard to the inter-qube clipboard.
+2. With the source app in qube A still in focus, press :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`C`. This copies the text from qube A’s clipboard to the inter-qube clipboard.
 
-3. Select the target app in qube B and press Ctrl+Shift+V. This copies the text from the inter-qube clipboard to qube B’s clipboard and clears the inter-qube clipboard, ensuring that only qube B will have access to the copied text.
+3. Select the target app in qube B and press :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`V`. This copies the text from the inter-qube clipboard to qube B’s clipboard and clears the inter-qube clipboard, ensuring that only qube B will have access to the copied text.
 
-4. Paste the text in the target app in qube B normally (e.g., by pressing Ctrl+V).
-
-
+4. Paste the text in the target app in qube B normally (e.g., by pressing :kbd:`Ctrl` + :kbd:`V`).
 
 This process might look complicated at first glance, but in practice it is actually very easy and fast once you get used to it. At the same time, it provides you with full control over exactly which qube receives the content of the inter-qube clipboard every time.
 
 Security
 --------
-
 
 The inter-qube clipboard system is secure because it doesn’t allow any qube other than your selected target to steal any contents from the inter-qube clipboard. Without such a system in place, any password you were to copy from the password manager in your vault qube to another qube, for example, would immediately be leaked to every other running qube in the system, including qubes that are untrusted by default, such as ``sys-net``. By giving you precise control over exactly which qube receives the inter-qube clipboard content, then immediately wiping the inter-qube clipboard afterward, Qubes OS protects the confidentiality of the text being copied.
 
@@ -34,57 +33,33 @@ See also `this article <https://blog.invisiblethings.org/2011/03/13/partitioning
 Focus stealing
 ^^^^^^^^^^^^^^
 
-
-The above discussion assumes that you control which window is focused in dom0 at the time of the paste. However, if your dom0 window manager is configured to give focus to newly created windows (which, as of Qubes 4.0, is true in the default install with Xfce), then a malicious qube could “steal the focus” by creating a window just before you press Ctrl+Shift+V, and it would receive the data instead of your intended target. (Focus stealing is a risk any time you are typing confidential data, but a Qubes clipboard paste probably presents the greatest risk of leaking an entire password before you have time to react.) You may be able to mitigate this risk by changing the window manager configuration. For example, with Xfce, you could run ``xfwm4-settings`` in dom0, go to the “Focus” tab, and un-check “Automatically give focus to newly created windows”. However, we have not confirmed whether such settings are sufficient to prevent a malicious qube from stealing the focus in all cases.
+The above discussion assumes that you control which window is focused in dom0 at the time of the paste. However, if your dom0 window manager is configured to give focus to newly created windows (which, as of Qubes 4.0, is true in the default install with Xfce), then a malicious qube could “steal the focus” by creating a window just before you press :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`V`, and it would receive the data instead of your intended target. (Focus stealing is a risk any time you are typing confidential data, but a Qubes clipboard paste probably presents the greatest risk of leaking an entire password before you have time to react.) You may be able to mitigate this risk by changing the window manager configuration. For example, with Xfce, you could run ``xfwm4-settings`` in dom0, go to the :guilabel:`Focus` tab, and un-check :guilabel:`Automatically give focus to newly created windows`. However, we have not confirmed whether such settings are sufficient to prevent a malicious qube from stealing the focus in all cases.
 
 Clipboard automatic policy enforcement
 --------------------------------------
 
-
-The Qubes clipboard :doc:`RPC policy </user/advanced-topics/rpc-policy>` is configurable in:
-
-.. code:: text
-
-      /etc/qubes-rpc/policy/qubes.ClipboardPaste
-
-
-
-You may wish to configure this policy in order to prevent user error. For example, if you are certain that you never wish to paste *into* your “vault” app qube (and it is highly recommended that you do not), then you should edit the policy as follows:
-
-.. code:: text
-
-      @anyvm  vault   deny
-      @anyvm  @anyvm  ask
-
-
+The inter-qube clipboard is configurable like any other policy, see: :doc:`/user/how-to-guides/how-to-edit-a-policy`.
 
 Automatic clipboard wiping
 --------------------------
 
-
 By default data pasted into a qube will remain there until user copies something else or restarts the qube. It’s possible to make the ``qubes-gui`` process inside a qube wipe the clipboard automatically after a minute from the last paste operation. This helps protect users from accidentally pasting the old content of the clipboard like a password in the wrong place like a browser search bar. Since qubes don’t share the same clipboard, software like KeePassXC isn’t able to automatically wipe the clipboard of other qubes.
 
-To enable automatic wiping of the clipboard after a minute use ``qvm-service``:
-
-.. code:: console
-
-      $ qvm-service --enable VMNAME gui-agent-clipboard-wipe
-
-
+To enable automatic wiping of the clipboard after a minute :doc:`enable the service </user/how-to-guides/how-to-enable-a-service>` called `gui-agent-clipboard-wipe`.
 
 Shortcut configuration
 ----------------------
 
+The copy/paste shortcuts are configurable via :program:`Qubes OS Global Config`, in the :guilabel:`Clipboard` tab and via :doc:`qvm-features <core-admin-client:manpages/qvm-features>`.
 
-The copy/paste shortcuts are configurable via ``qvm-features``, e.g.
+.. image:: /attachment/doc/qubes-clipboard-config.png
+   :alt:
+
+The following commands would change the *copy/paste to global clipboard* to the :kbd:`Win` key plus :kbd:`c` for copy, or :kbd:`v` for paste:
 
 .. code:: console
 
-      $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
-      $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
+      [user@dom0] $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
+      [user@dom0] $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
 
-
-
-would change the *copy/paste to global clipboard* to the Win key plus c for copy, or v for paste.
-
-You need to restart Qubes for the changes to take effect.
+.. note:: For the changes to take effect in a qube, you need to restart this qube after changing the shortcuts.
