@@ -321,6 +321,12 @@ Unofficial, third-party documentation from the Qubes community and others.
 
 .. toctree::
    :maxdepth: 1
+   :caption: About External documentation
+
+   introduction/external-documentation.rst
+
+.. toctree::
+   :maxdepth: 1
    :caption: External - Operating System Guides
 
    Template: CentOS <https://forum.qubes-os.org/t/centos-rhel-clone-8-templatevm/19006>

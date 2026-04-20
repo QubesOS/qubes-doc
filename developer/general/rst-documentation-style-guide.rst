@@ -634,7 +634,7 @@ Core vs. external documentation
 
 .. admonition:: See also
 
-   :doc:`/external-documentation`
+   :doc:`/introduction/external-documentation`
 
 If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the :doc:`/external-documentation` index (see :ref:`edit_doc_index`) to add and update external links.
 
