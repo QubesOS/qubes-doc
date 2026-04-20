@@ -85,6 +85,8 @@ New features and improvements since Qubes 4.0
 
 - ``qvm-run`` tool got ``--no-shell`` option to run a single command without using a shell inside the qube
 
+  .. _qubes-4.1-mac-randomization:
+
 - MAC Randomization for iwlwifi (see `#938 <https://github.com/QubesOS/qubes-issues/issues/938>`__)
 
 
