@@ -364,9 +364,6 @@ Unofficial, third-party documentation from the Qubes community and others.
    How to install Signal Desktop in Qubes <https://forum.qubes-os.org/t/signal-messenger/19073>
    Reducing the fingerprint of the text-based web browser w3m <https://forum.qubes-os.org/t/reducing-the-fingerprint-of-the-text-based-web-browser-w3m/18993>
 
-.. versionadded:: 4.1
-   The **Wi-Fi** MAC addresses are randomized by default :ref:`since Qubes OS 4.1 <qubes-4.1-mac-randomization>`.
-
 .. _external-configuration-guides:
 
 .. toctree::
