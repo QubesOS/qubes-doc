@@ -217,6 +217,7 @@ Now, when you import any of the release signing keys and many Qubes team member 
 As a final sanity check, make sure the QMSK is in your keyring with the correct trust level.
 
 .. code:: console
+
       :emphasize-lines: 4
 
       $ gpg2 -k "Qubes Master Signing Key"
@@ -278,6 +279,7 @@ After you have completed these two prerequisite steps, the next step is to obtai
 Now that you have the correct RSK, you simply need to verify that it is signed by the QMSK:
 
 .. code:: console
+
       :emphasize-lines: 6
 
       $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
@@ -295,6 +297,7 @@ This is just an example, so the output you receive may not look exactly the same
 As a final sanity check, make sure the RSK is in your keyring with the correct trust level:
 
 .. code:: console
+
       :emphasize-lines: 4
 
       $ gpg2 -k "Qubes OS Release X Signing Key"
@@ -331,6 +334,7 @@ Every Qubes ISO is released with a **detached PGP signature** file, which you ca
 **Download both the ISO and its signature file**. Put both of them **in the same directory**, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files, make sure to replace :samp:`Qubes-R{X}` by the correct release number (i.e.: :samp:`Qubes-R{4.3}`):
 
 .. code:: console
+
    :emphasize-lines: 5
 
    $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
@@ -383,6 +387,7 @@ Where :file:`Qubes-R{X}-x86_64.iso` is your Qubes ISO (with :samp:`{X}` replaced
 You can now use :program:`gpg` to verify the detached PGP signature directly against the data on the USB drive. The following command reads the exact number of bytes from your USB drive and pipes them into :program:`gpg`: 
 
 .. code:: console
+
       :emphasize-lines: 8
 
       $ dd if=/dev/sdX bs=1M count=<SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
