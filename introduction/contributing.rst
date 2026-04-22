@@ -83,3 +83,12 @@ All contributions to the Qubes OS Project are carefully reviewed by humans to ev
 Regardless of how your content was created, you will be considered the fully-accountable author of that content, and you are responsible for reviewing & fixing such output before submitting it.
 
 This policy applies to every way in which you may contribute to, or interact with, the project, including (but not limited to) code, patches, packages, issue tracking, reporting security issues, documentation, artwork, discussion forums, mailing lists, social media, chat, and email.
+
+
+
+Bounties
+--------
+
+The Qubes OS Project allows members of the community to place unofficial bounties on :doc:`issues </introduction/issue-tracking>`. These bounties are not officially sponsored, endorsed, guaranteed, or paid by the Qubes OS Project. The person or group of people offering a bounty are responsible for paying it, and they decide the value of the bounty, the terms of payment, and the acceptance criteria. Contributors who wish to collect a bounty should coordinate with those offering the bounty to ensure that their work will result in a successful bounty payment.
+
+Since bounties are unofficial, it's important to understand that a successful bounty doesn't necessarily mean that a contribution will be accepted by the Qubes OS Project. Since those who offer a bounty are free to set whatever acceptance criteria they like, it's possible that those acceptance criteria could differ significantly from the Qubes OS Project's acceptance criteria for contributions, which can lead to situations in which a bounty is paid, yet the work doesn't get integrated into Qubes afterwards. Whether this is a problem depends on your goals: Some people are satisfied with a work product that they can use, even if it doesn't get officially integrated into the project, while others are not. If official integration is important to you, you can make the bounty contingent on the contribution being officially integrated into Qubes.
