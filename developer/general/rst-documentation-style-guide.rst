@@ -641,13 +641,12 @@ See `#4693 <https://github.com/QubesOS/qubes-issues/issues/4693>`__ for more bac
 Release-specific documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+We maintain one set of documentation for each Qubes OS release, with source files in a named branch (eg Source for r4.3 documentation is in the r4.3 branch of qubes-doc). Documentation is updated on a continual, rolling basis. Our first priority is to document the **current, stable releases** of Qubes. Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
 
-We maintain one set of documentation for each Qubes OS release. Documentation is updated on a continual, rolling basis. Our first priority is to document the **current, stable releases** of Qubes. Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
- 
 Each version is available at Read The Docs. Documentation for the current release is loaded by default, but other versions can be accessed from the flyout version menu.
- 
-In general, you do not need to mention the version in the body text of documentation for each release. Make sure that any PR you submit is relevant to the version you are targeting: the documentation maintainers should ensure that any PR is appropriately handled.
- 
+
+In general, you do not need to mention the version in the body text of documentation for any release. Make sure that any PR you submit is relevant to the version you are targeting, and is a PR against the correct branch: if the change is relevant to more than one release, create a PR against one branch - the documentation maintainers should ensure that the PR is appropriately handled.
+
 
 Git conventions
 ---------------
