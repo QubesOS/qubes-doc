@@ -78,7 +78,20 @@ The firewall rules for each qube are saved in an XML file in that qube’s direc
 
       /var/lib/qubes/appvms/<vm-name>/firewall.xml
 
-Rules are implemented on the :term:`net qube`, so: if a rule is set for a qube that uses *sys-firewall* as its net qube, *sys-firewall* will implement the rules.
+Rules are implemented on the :term:`net qube`: If a rule is set for a qube that uses *sys-firewall* as its net qube, *sys-firewall* will implement the rules. This is done by the `qubes-firewall <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-service.html#supported-services>`_ service. You can verify that the service is running by executing the following command in the net qube:
+
+.. code:: console
+
+   [user@net-qube] $ sudo systemctl status qubes-firewall.service
+
+
+.. warning::
+
+   The firewall rules described above only take effect if the :term:`qubes-firewall` service is running in the net qube. If the service is stopped or has crashed in the net qube **changes to the firewall rules will not be implemented**. If the service is stopped and a new qube is started, the firewall will fail closed: no traffic will pass. For qubes that are *already* attached, changes to the firewall configuration will not be processed until the firewall service is restarted.
+
+.. warning::
+
+  The Whonix-Gateway (e.g. ``sys-whonix``) does not respect the ``qubes-firewall`` service. Firewall rules configured via ``qvm-firewall`` or in the Qubes Manager will have no effect. See the `Whonix documentation <https://www.whonix.org/wiki/Qubes>`__ for more details on networking in this configuration.
 
 Reconnecting qubes after a net qube reboot
 ------------------------------------------
