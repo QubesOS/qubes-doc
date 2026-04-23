@@ -63,7 +63,10 @@ There are several tray widgets that are unique to Qubes OS:
 
 
 
+
 |r4.1-widgets.png|
+
+|r4.3-widgets-todo.png|
 
 To learn more about how to customize your desktop environment, we recommend you go through `XFCE’s documentation <https://docs.xfce.org/>`__.
 
@@ -198,3 +201,4 @@ Browse our extensive library of :doc:`documentation </index>` for users and deve
 .. |snapshot_41.png| image:: /attachment/doc/r4.1-snapshot_40.png
 .. |r4.0-taskbar.png| image:: /attachment/doc/r4.0-taskbar.png
 .. |r4.1-widgets.png| image:: /attachment/doc/r4.1-widgets.png
+.. |r4.3-widgets-todo.png| image:: /attachment/doc/4.3/r4.3-widgets-todo.png
