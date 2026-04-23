@@ -217,10 +217,9 @@ Core documentation for Qubes developers and advanced users.
    developer/general/continuous-integration
    developer/general/usability-ux
    developer/general/developing-gui-applications
-   Visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>
+   developer/general/visual-style-guide
    developer/general/research
    developer/general/devel-books
-
 
 .. _code:
 
