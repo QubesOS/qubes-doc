@@ -87,11 +87,11 @@ Rules are implemented on the :term:`net qube`: If a rule is set for a qube that 
 
 .. warning::
 
-   The firewall rules described above only take effect if the :term:`qubes-firewall` service is running in the net qube. If the service is stopped or has crashed in the net qube **changes to the firewall rules will not be implemented**. If the service is stopped and a new qube is started, the firewall will fail closed: no traffic will pass. For qubes that are *already* attached, changes to the firewall configuration will not be processed until the firewall service is restarted.
+   The firewall rules described above only take effect if the qubes-firewall service is running in the net qube. If the service is stopped or has crashed in the net qube **changes to the firewall rules will not be implemented**. If the service is stopped and a new qube is started, the firewall will fail closed: no traffic will pass. For qubes that are *already* attached, changes to the firewall configuration will not be processed until the firewall service is restarted.
 
 .. warning::
 
-  The Whonix-Gateway (e.g. ``sys-whonix``) does not respect the ``qubes-firewall`` service. Firewall rules configured via ``qvm-firewall`` or in the Qubes Manager will have no effect. See the `Whonix documentation <https://www.whonix.org/wiki/Qubes>`__ for more details on networking in this configuration.
+  The Whonix-Gateway (e.g. ``sys-whonix``) does not respect the qubes-firewall service. Firewall rules configured via ``qvm-firewall`` or in the Qubes Manager will have no effect. See the `Whonix documentation <https://www.whonix.org/wiki/Qubes>`__ for more details on networking in this configuration.
 
 Reconnecting qubes after a net qube reboot
 ------------------------------------------
