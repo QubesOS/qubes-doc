@@ -123,8 +123,7 @@ Important Notes
 
 - Qubes **can** be installed on a USB flash drive or external disk, and testing has shown that this works very well. A fast USB 3.0 flash drive is recommended for this. (As a reminder, its capacity must be at least 32 GiB.) Simply plug the flash drive into the computer before booting into the Qubes installer from a separate installation medium, choose the flash drive as the target installation disk, and proceed with the installation normally. After Qubes has been installed on the flash drive, it can then be plugged into other computers in order to boot into Qubes. In addition to the convenience of having a portable copy of Qubes, this allows users to test for hardware compatibility on multiple machines (e.g., at a brick-and-mortar computer store) before deciding on which computer to purchase. (See :ref:`generating and submitting HCL reports <user/hardware/how-to-use-the-hcl:generating and submitting new reports>` for advice on hardware compatibility testing.) Remember to change the devices assigned to your NetVM and USB VM if you move between different machines.
 
-- You can check whether an Intel processor has VT-x and VT-d on `ark.intel.com <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__.
-
+- You can check whether an Intel processor has VT-x and VT-d on `ark.intel.com <https://ark.intel.com/content/www/us/en/ark.html#@Processors>`__. Note that VT-d also requires chipset support. A processor with VT-d will not provide IOMMU functionality if the chipset does not support it. Consult your motherboard or system documentation to verify chipset compatibility.
 
 .. [1]
    There is an ``amd-ucode-firmware`` package, but it only contains microcode for servers and outdated microcode for Chromebooks. Also, the `AMD security website <https://www.amd.com/en/resources/product-security.html>`__ only lists microcode as a mitigation for data center CPUs.
