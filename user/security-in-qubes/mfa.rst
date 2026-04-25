@@ -304,7 +304,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
          auth include yubikey
 
 
-   (same for YubiKey and NitroKey3) to the corresponding service file in ``/etc/pam.d/`` in dom0. This means, if you want to enable the login via YubiKey / NitroKey3 for xscreensaver (the default screen lock program), you add the line at the beginning of ``/etc/pam.d/xscreensaver``. If you want to use the login for a tty shell, add it to ``/etc/pam.d/login``. Add it to ``/etc/pam.d/lightdm`` if you want to enable the login for the default display manager and so on.
+   (same for YubiKey and NitroKey3) to the corresponding service file in ``/etc/pam.d/`` in dom0. This means, if you want to enable the login via YubiKey / NitroKey3 for xfce4-screensaver (the default screen lock program), you add the line at the beginning of ``/etc/pam.d/xfce4-screensaver``. If you want to use the login for a tty shell, add it to ``/etc/pam.d/login``. Add it to ``/etc/pam.d/lightdm`` if you want to enable the login for the default display manager and so on.
    It is important, that ``auth include yubikey`` is added at the beginning of these files, otherwise it will most likely not work.
 
 7. Adjust the USB VM name in case you are using something other than the default ``sys-usb`` by editing ``/etc/qubes/yk-keys/vm`` in dom0.
@@ -351,11 +351,11 @@ You can setup your system to automatically lock the screen when you unplug your 
 
 In dom0:
 
-1. First configure the qrexec service. Create ``/etc/qubes-rpc/custom.LockScreen`` with a simple command to lock the screen. In the case of xscreensaver (used in Xfce) it would be:
+1. First configure the qrexec service. Create ``/etc/qubes-rpc/custom.LockScreen`` with a simple command to lock the screen. In the case of xfce4-screensaver (used in Xfce) it would be:
 
    .. code:: text
 
-         DISPLAY=:0 xscreensaver-command -lock
+         DISPLAY=:0 xfce4-screensaver-command -lock
 
 
 
