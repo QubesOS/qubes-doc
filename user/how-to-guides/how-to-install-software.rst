@@ -169,6 +169,15 @@ Standalones
 
 The process for installing and updating software in :term:`standalones <standalone>` is the same as described above for templates, except no qubes are based on standalones, so there are no other qubes to restart.
 
+
+Running scripts after package installation or removal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**In Fedora templates**, after a successful `dnf install`  or  `dnf remove` a hook runs :file:`/etc/qubes-rpc/qubes.PostInstall`  which executes any shell scripts in :file:`/etc/qubes/post-install.d/`.
+
+**In Debian templates**, there is a native mechanism, using :file:`/etc/apt/apt.conf.d/`. Scripts may be placed here to call ``Apt Post-Invoke`` `hooks <https://manpages.debian.org/trixie/apt/apt.conf.5.en.html>`__ . :file:`/etc/qubes-rpc/qubes.PostInstall` does not operate in Debian templates.
+
+
 RPMFusion for Fedora templates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
