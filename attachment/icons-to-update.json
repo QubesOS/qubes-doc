@@ -1,0 +1,16 @@
+{
+    "qubes-desktop-linux-manager/4.3/qubes-devices.svg":"qubes-desktop-linux-manager/icons/scalable/qubes-devices.svg",
+    "128x128/apps/qubes-logo-icon.png": "qubes-attachment/icons/128x128/apps/qubes-logo-icon.png",
+    "favicon-16x16.png": "qubesos.github.io/favicon-16x16.png",
+    "qubes-artwork/4.3/qubes-appmenu-select.png": "qubes-artwork/icons/32x32/apps/qubes-appmenu-select.png",
+    "qubes-desktop-linux-manager/4.3/detach-light.svg": "qubes-desktop-linux-manager/icons/scalable/detach-light.svg",
+    "qubes-artwork/icons/scalable/apps/adminvm-black.svg": "",
+    "qubes-artwork/icons/scalable/apps/appvm-red.svg": "",
+    "qubes-artwork/icons/scalable/apps/dispvm-red.svg": "",
+    "qubes-artwork/icons/scalable/apps/standalonevm-red.svg": "",
+    "qubes-artwork/icons/scalable/apps/templatevm-red.svg": "",
+    "qubes-artwork/icons/scalable/apps/templatevm-red.svg": "",
+    "qubes-artwork/icons/scalable/apps/dispvm-red.svg": "",
+    "qubes-artwork/icons/scalable/apps/servicevm-red.svg": ""
+}
+

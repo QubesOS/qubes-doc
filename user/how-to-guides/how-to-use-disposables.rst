@@ -31,7 +31,7 @@ Disposable template
 ^^^^^^^^^^^^^^^^^^^
 
 
-:term:`Disposable template <disposable template>` is not a disposable in itself, but a special template that can create different disposable types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. When there is need to customize the files of a disposable, it must be done on the disposable template or the template itself to be reflected in every new disposable based on that template. By default, Qubes OS creates the ``default-dvm`` disposable template, we will use it as an example on this page, but you can create as many disposable templates as you'd prefer. :doc:`Disposable customization </user/advanced-topics/disposable-customization>` is outside of the scope of this page.
+:term:`Disposable template <disposable template>` is not a disposable in itself, but a special template that can create different disposable types: "normal" (unnamed) :term:`disposables <disposable>` and :term:`named disposables <named disposable>`. When there is need to customize the files of a disposable, it must be done on the disposable template or the template itself to be reflected in every new disposable based on that template. By default, Qubes OS creates the ``default-dvm`` disposable template, we will use it as an example on this page, but you can create as many disposable templates as you'd prefer. :doc:`Disposable customization </user/advanced-topics/disposable-customization>` is outside of the scope of this page.
 
 Named disposable
 ^^^^^^^^^^^^^^^^
@@ -46,7 +46,7 @@ Unnamed disposable
 ^^^^^^^^^^^^^^^^^^
 
 
-:term:`Unnamed disposables<unnamed disposable>` are built upon disposable templates, they don't have a fixed name and are deleted from the system after the termination of initial application opened in them. Therefore, *any changes you made in the unnamed disposable will be lost*. The Qubes Devices widget doesn't connect to an initial application when creating a disposable, therefore it must be manually turned off.
+:term:`Unnamed disposables<disposable>` are built upon disposable templates, they don't have a fixed name and are deleted from the system after the termination of initial application opened in them. Therefore, *any changes you made in the unnamed disposable will be lost*. The Qubes Devices widget doesn't connect to an initial application when creating a disposable, therefore it must be manually turned off.
 
 You would probably use the ``default-dvm`` disposable template to, for example, create an unnamed disposable qube to browse the internet. Every time you launch an application using this disposable template as base, a new disposable qube named :samp:`disp{1234}` (where :samp:`{1234}` is a random number) starts and launches the chosen application. If you close the application window, the :samp:`disp{1234}` qube shuts down and vanishes from your system.
 
@@ -167,7 +167,7 @@ Retrieve unnamed disposables faster (preloaded disposables)
 
 Disposable qubes can take some time to boot. It is possible to queue several unnamed disposables, guaranteeing a faster workflow.
 
-Preloaded disposables are a type of :term:`unnamed disposables <unnamed disposable>` started in the background and queued. It is hidden from most graphical applications by using the :term:`internal <internal qube>` flag. You can use preloaded disposables by attempting to create a new disposable out of a disposable template, instead, the preloaded disposable will be provided to your while another disposable will be preloaded in the background to continue the cycle.
+Preloaded disposables are a type of :term:`disposables <disposable>` started in the background and queued. It is hidden from most graphical applications by using the :term:`internal <internal qube>` flag. You can use preloaded disposables by attempting to create a new disposable out of a disposable template, instead, the preloaded disposable will be provided to your while another disposable will be preloaded in the background to continue the cycle.
 
 The use of preloaded disposables is indistinguishable from the use of :ref:`using unnamed <user/how-to-guides/how-to-use-disposables:how to create unnamed disposables>`. Requesting a disposable respects the template inheritance, if the disposable template has preloaded disposables, it will use those, when it doesn't have any, it will generate new ones.
 

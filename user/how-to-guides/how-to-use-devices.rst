@@ -144,4 +144,4 @@ If no specific ``sourceVM:deviceID`` combination is given, *all devices of that 
 
 **SYNOPSIS** ``qvm-device DEVICE_CLASS {detach|dt|d} targetVM [sourceVM:deviceID]``
 
-.. |eject icon| image:: /attachment/doc/media-eject.png
+.. |eject icon| image:: /attachment/icons/qubes-desktop-linux-manager/4.3/detach-light.svg

@@ -2,26 +2,18 @@
 Glossary
 ========
 
-
-Primary
--------
-
-
 .. glossary::
 
    Qubes OS
-      A security-oriented operating system (OS). The main principle of Qubes OS is security by compartmentalization (or isolation), in which activities are compartmentalized (or isolated) in separate :term:`qube`.
+      A security-oriented operating system (OS). The main principle of Qubes OS is security by compartmentalization (isolation), in which activities are compartmentalized (isolated) in separate :term:`qubes <qube>`.
 
       - **Important:** The official name is "Qubes OS" (note the capitalization and the space between "Qubes" and "OS"). In casual conversation, this is often shortened to "Qubes". Only in technical contexts where spaces are not permitted (e.g., in usernames) may the space be omitted, as in ``@QubesOS``.
-
-Compartment nomenclature
-------------------------
 
 
 .. glossary::
 
    qube
-      A secure compartment in Qubes OS. Currently, qubes are implemented as Xen :term:`domain`, but Qubes OS is independent of its underlying compartmentalization technology. :term:`VM`\ s could be replaced with a different technology, and qubes would still be called "qubes". Therefore, always opt for the term ``qube`` over the other terms unless explicitly guided otherwise.
+      A secure compartment in Qubes OS. Currently, qubes are implemented as Xen :term:`domains <domain>`, but Qubes OS is independent of its underlying compartmentalization technology. :term:`VMs <VM>` could be replaced with a different technology, and qubes would still be called "qubes". Therefore, always opt for the term ``qube`` over the other terms unless explicitly guided otherwise.
 
       - **Important:** The term "qube" is a common noun and should follow the capitalization rules of common nouns. For example, "I have three qubes" is correct, while "I have three Qubes" is incorrect. Note that starting a sentence with the plural of "qube" (i.e., "Qubes ...") can be ambiguous, since it may not be clear whether the referent is a plurality of qubes or :term:`Qubes OS`.
 
@@ -30,43 +22,68 @@ Compartment nomenclature
       - Historical note: The term "qube" was originally invented as an alternative to "VM" intended to make it easier for less technical users to understand Qubes OS and learn how to use it.
 
    domain
-      In Xen, a synonym for :term:`vm`. See `"domain" on the Xen Wiki <https://wiki.xenproject.org/wiki/Domain>`__. This term has no official meaning in Qubes OS.
+      In Xen, a synonym for a virtual machine. See `"domain" on the Xen Wiki <https://wiki.xenproject.org/wiki/Domain>`__. This term has no official meaning in Qubes OS, but is often used colloquially.
 
    VM
       An abbreviation for "virtual machine". A software implementation of a computer that provides the functionality of a physical machine.
 
-Qube's types
-------------
+Qube types and properties
+-------------------------
 
 
 .. glossary::
 
    admin qube
-      A type of :term:`qube` used for administering Qubes OS.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/adminvm-black.svg
+         :width: 24px
+         :align: left
 
-      - Currently, the only admin qube is :term:`dom0`.
+      A type of :term:`qube` used for administering Qubes OS. Currently, the only admin qube is :term:`dom0`.
 
    app qube
-      Any :term:`qube` that does not have a root filesystem of its own. Every app qube is based on a :term:`template` from which it borrows the root filesystem.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/appvm-red.svg
+         :width: 24px
+         :align: left
+
+      A :term:`qube` that is based on a template. Normally, *app qubes* are used to run user applications and store user files.
+
+      An *app qube* does not have a root filesystem of its own. The qube borrows its root filesystem from its  :term:`template`, and only owns its own home directory and user files (in Linux-based qubes, they are the :file:`/home` and :file:`/user/local` directories).
 
       - Previously known as: ``AppVM``, ``TemplateBasedVM``.
 
-      - Historical note: This term originally meant "a qube intended for running user software applications" (hence the name "app").
 
    disposable
-      A :term:`disposable` is a stateless :term:`qube`, it does not save data for the next boot. These qubes can serve various uses cases that require a pristine environment. See :doc:`/user/how-to-guides/how-to-use-disposables`.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/dispvm-red.svg
+         :width: 24px
+         :align: left
+
+      A :term:`disposable` qube is a stateless :term:`qube` - it does not save any data between reboots. Every time it is started, it has the same fresh filesystem.  These qubes can be used for a variety of situations, from experimentation to creating a more secure network connection. See :doc:`/user/how-to-guides/how-to-use-disposables`.
+
+      Typically, disposable qubes have a temporary name (**dispXYZ**, where XYZ is a random number). They cease to exist after the qube is shut down, and closing the first application that was opened in the disposable will trigger the qube to shut down.
+
+      Multiple instances of a disposable qube based on a single disposable template can run at the same time.
+
+      See also :term:`named disposable`.
 
       - Previously known as: ``DisposableVM``, ``DispVM``.
 
    standalone
-      Any :term:`qube` that has its own root filesystem and does not share it with another qube. Distinct from both :term:`template` and :term:`app qube`.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/standalonevm-red.svg
+         :width: 24px
+         :align: left
+
+      Any :term:`qube` that has its own root filesystem and does not share it with another qube (it is **not** based on a template and it's **not** a template itself). Distinct from both :term:`template` and :term:`app qube`.
 
       See :doc:`/user/advanced-topics/standalones-and-hvms`.
 
       - Previously known as: ``StandaloneVM``.
 
    template
-      Any :term:`qube` that shares its root filesystem with another qube. A qube that is borrowing a template's root filesystem is known as an :term:`app qube` and is said to be "based on" the template. Templates are intended for installing and updating software applications, but not for running them.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/templatevm-red.svg
+         :width: 24px
+         :align: left
+
+      Any :term:`qube` that provides its root filesystem to other qube(s). A qube that is borrowing a template's root filesystem is known as an :term:`app qube` and is said to be "based on" the template. Templates are intended for installing and updating software applications, but not for running them.
 
       See :doc:`/user/templates/templates`.
 
@@ -78,67 +95,65 @@ Qube's types
 
       - Previously known as: ``TemplateVM``.
 
-
-Qube's types variations
------------------------
-
-
-.. glossary::
-
    disposable template
-      Any :term:`app qube` on which :term:`disposable` are based. A disposable template shares its user directories (and, indirectly, the root filesystem of the regular :term:`template` on which it is based) with all :term:`disposable` based on it.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/templatevm-red.svg
+         :width: 24px
+         :align: left
 
-      - Not to be confused with the concept of a regular :term:`template` that is itself disposable, which does not exist in Qubes OS.
+      Any :term:`app qube` on which :term:`disposables <disposable>` are based. A disposable template shares its user directories (and, indirectly, the root filesystem of the regular :term:`template` on which it is based) with all :term:`disposable` qubes based on it.
 
-      - Disposable templates must be app qubes. They cannot be regular :term:`template`.
+      - Not to be confused with the concept of a regular :term:`template` that is itself disposable - this is not a possible configuration in Qubes OS.
+
+      - Disposable templates must be app qubes. They cannot be regular :term:`templates <template>`.
 
       - Every :term:`disposable` is based on a disposable template, which is in turn based on a regular :term:`template`.
 
-      - Unlike :term:`disposable`, disposable templates have the persistence properties of normal :term:`app qube`.
+      - Unlike :term:`disposables <disposable>`, disposable templates behave like normal :term:`app qubes <app qube>` in terms of persistence - their contents survive reboots. Thus, you can configure your disposable template to have e.g. browser extensions or configuration that will be present in every disposable qube based on it.
 
-      - Previously known as: ``DisposableVM Template``, ``DVM Template``, ``DVM``. It is advised against the use of the ``DVM`` terms as it can be interpreted by some users as an abbreviation of ``DispVM``, which a ``DVM`` is not.
+      - Previously known as: ``DisposableVM Template``, ``DVM Template``, ``DVM``.
 
    named disposable
-      A type of :term:`disposable` given a permanent name that continues to exist even after it is shut down and can be restarted again.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/dispvm-red.svg
+         :width: 24px
+         :align: left
+
+      A type of :term:`disposable` given a permanent name. This qube continues to exist even after it is shut down and can be started again. Unlike normal disposable qubes, it is also not tied to the program it was started with and will not shut down when the program closes. In all other respects, it behaves like a disposable qube.
 
       - Only one instance of a named disposable can run at a time.
 
       - Technical note: Named disposables are useful for certain :term:`service qube`\ s, where the combination of persistent device assignment and ephemeral qube state is desirable.
 
-   unnamed disposable
-      A type of :term:`disposable` with a temporary name that ceases to exist after the qube is shut down. Closing the first application that was opened in the disposable will trigger the qube to shut down. Thus, if there is not initial application, such is the case with Qubes Devices widget, the qube has to be manually turned off.
-
-      - Multiple instances of a unnamed disposable can run at a time.
-
-      - Technical note: Unnamed disposables are useful for certain converting, viewing and editing untrusted files, where the combination of opening multiple files in disposable qubes that you don't need to remember their name for long is desirable.
-
    management qube
       A :term:`qube` used for automated management of a Qubes OS installation via :doc:`/user/advanced-topics/salt`.
 
    net qube
-      Internally known as :term:`qube` that specifies from which qube, if any, it receives network access. Despite the name, "net qube" (or :term:`app qube` to be the :term:`service qube` ``sys-firewall``, which in turn uses ``sys-net`` as its net qube.
+      A property of any qube that tells the system which (if any) :term:`service qube` to use to connect to the network.
 
-      - If a qube does not have a net qube (i.e., its ``netvm`` is set to ``None``), then that qube is offline. It is disconnected from all networking.
+      - If a qube does not have a net qube (i.e., its ``net qube`` is set to ``None`` in qube settings), then that qube is offline. It is disconnected from all networking.
 
-      - The name :term:`service qube` called a "NetVM". The name of the ``netvm`` property is a holdover from that era.
+      - Internally, a net qube is called a `netvm`.
 
    service qube
-      Any :term:`app qube` with the primary purpose of which is to provide services to other qubes. ``sys-net`` and ``sys-firewall`` are examples of service qubes.
+      .. image:: /attachment/icons/qubes-artwork/icons/scalable/apps/servicevm-red.svg
+         :width: 24px
+         :align: left
+
+      Any :term:`app qube` with the primary purpose of providing services to other qubes. ``sys-net`` and ``sys-firewall`` are examples of service qubes.
 
    internal qube
-      A qube which has the ``internal`` feature set. Used for the :term:`management qube` and preloaded disposables. These qubes are hidden from most Qubes OS graphical applications, as they are not intended to be used directly.
+      A qube which has the ``internal`` feature set. Those qubes are hidden from GUI tools such as user menu and have many GUI features disabled. They are used for the :term:`management qube` and preloading disposable qubes. In most cases, internal qubes should not be manipulated by the user directly.
 
    GUI domain
       The GUI domain handles all the display-related tasks and some system management. There can be multiple GUI domains present on the system. Every GUI domain can have its own set of privileges, permissions, managed qubes etc. By default, :term:`dom0` is the only GUI domain.
 
-Miscellaneous
--------------
+Other terms
+-----------
 
 
 .. glossary::
 
    dom0
-      :term:`domain` zero. A type of :term:`admin qube`. Also known as the **host** domain, dom0 is the initial qube started by the Xen hypervisor on boot. Dom0 runs the Xen management toolstack and has special privileges relative to other domains, such as direct access to most hardware.
+      A type of :term:`admin qube`. Also known as the **host** :term:`domain`, dom0 is the initial qube started by the Xen hypervisor on boot. Dom0 runs the Xen management toolstack and has special privileges relative to other domains, such as direct access to most hardware.
 
       - The term "dom0" is a common noun and should follow the capitalization rules of common nouns.
 
