@@ -30,8 +30,10 @@ Installing software from default repositories
 
 6. (Recommended) In the relevant qubes’ :menuselection:`Settings --> Applications` tab, select the new application(s) from the list, and press :guilabel:`OK`. These new shortcuts will appear in the Applications Menu. (If you encounter problems, see :ref:`app-menu-troubleshooting`)
 
-.. figure:: /attachment/doc/r4.1-dom0-appmenu-select.png
+.. image:: /attachment/doc/r4.3/settings-applications.png
    :alt: The Applications tab in Qube Settings
+   :width: 100%
+
 
 
 Installing software from other sources
@@ -83,8 +85,9 @@ This method assumes that you are trying to follow instructions to install some p
 
 9. (Recommended) In the relevant qubes’ :menuselection:`Settings --> Applications` tab, select the new application(s) from the list, and press :guilabel:`OK`. These new shortcuts will appear in the Applications Menu. (If you encounter problems, see :ref:`app-menu-troubleshooting`)
 
-.. image:: /attachment/doc/r4.1-dom0-appmenu-select.png
+.. image:: /attachment/doc/r4.3/settings-applications.png
    :alt:
+   :width: 100%
 
 
 Troubleshooting
@@ -165,6 +168,15 @@ Standalones
 
 
 The process for installing and updating software in :term:`standalones <standalone>` is the same as described above for templates, except no qubes are based on standalones, so there are no other qubes to restart.
+
+
+Running scripts after package installation or removal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**In Fedora templates**, after a successful `dnf install`  or  `dnf remove` a hook runs :file:`/etc/qubes-rpc/qubes.PostInstall`  which executes any shell scripts in :file:`/etc/qubes/post-install.d/`.
+
+**In Debian templates**, there is a native mechanism, using :file:`/etc/apt/apt.conf.d/`. Scripts may be placed here to call ``Apt Post-Invoke`` `hooks <https://manpages.debian.org/trixie/apt/apt.conf.5.en.html>`__ . :file:`/etc/qubes-rpc/qubes.PostInstall` does not operate in Debian templates.
+
 
 RPMFusion for Fedora templates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
