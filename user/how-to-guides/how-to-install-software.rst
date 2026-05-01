@@ -36,6 +36,19 @@ Installing software from default repositories
 
 
 
+.. _installing-software-from-external-repositories-debian:
+
+Installing software from external repositories (Debian)
+-------------------------------------------------------
+
+Some software which is not available in the default Debian repositories can be installed through `extrepo <https://manpages.debian.org/stable/extrepo/extrepo.1p.en.html>`__, a Debian tool for safely managing external repositories. Qubes OS Debian templates ship with ``extrepo`` and ``extrepo-offline-data`` pre-installed and configured for offline use, so you do not need to give the template network access to enable a repository.
+Use of `extrepo` is documented in the man page. 
+
+.. warning:: While the repositories managed by ``extrepo`` are curated by Debian, the Debian project makes no warranty as to the security or quality of the software in these third-party repositories. We recommend that you install third-party software in a dedicated :term:`template` rather than the default one.
+
+
+For software packages available from repositories **not** included in extrepo, you must create a repository definition and install the relevant signing key. This will usually be documented by the software provider. The only Qubes specific part is that you will have to download the signing key in an online qube, and then use ``qvm-move`` to transfer the key to your template.
+
 Installing software from other sources
 --------------------------------------
 
