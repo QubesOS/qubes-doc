@@ -196,7 +196,7 @@ Salt can be used to configure qubes from dom0. Simply set the qube name as the t
 .. code:: output
 
       usage: qubesctl [-h] [--show-output] [--force-color] [--skip-dom0]
-                      [--targets TARGETS | --templates | --app | --all]
+                      [--targets TARGETS | --templates | --apps | --all]
                       ...
 
       positional arguments:
@@ -210,7 +210,7 @@ Salt can be used to configure qubes from dom0. Simply set the qube name as the t
         --skip-dom0        Skip dom0 configuration (VM creation etc)
         --targets TARGETS  Coma separated list of VMs to target
         --templates        Target all templates
-        --app              Target all app qubes
+        --apps             Target all app qubes
         --all              Target all non-disposables (templates and app qubes)
 
 
