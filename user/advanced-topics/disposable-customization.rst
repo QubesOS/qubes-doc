@@ -17,7 +17,7 @@ Security
 --------
 
 
-If a disposable template becomes compromised, then any disposable based on that disposable template could be compromised. Therefore, you should not make any risky customization (e.g., installing untrusted browser plugins) in important disposable templates. In particular, the *default* disposable template is important because it is used by most app qubes. This means that a compromised disposable template, could be used to derive disposables that will have access to everything that you choose to open in a disposable. For this reason, it is strongly recommended that you base the default disposable template on a trusted template and refrain from making any risky customization to it.
+If a disposable template becomes compromised, then any disposable based on that disposable template could be compromised. Therefore, you should not make any risky customization (e.g., installing untrusted browser plugins) in important disposable templates. In particular, the *default* disposable template is important because it is used by most app qubes. This means that a compromised disposable template could be used to derive disposables that will have access to everything that you choose to open in a disposable. For this reason, it is strongly recommended that you base the default disposable template on a trusted template and refrain from making any risky customization to it.
 
 Disposables and local forensics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,12 +35,12 @@ By default, a disposable will inherit the network and firewall settings of the d
 
 .. warning:: Changing the net qube setting for the system's default disposable template *does* affect the net qube of its new disposables. Different disposable templates with individual net qube settings can be added to the app menu.
 
-You can even set an app qube that has also been configured as a disposable template to use itself, so disposables launched from within the app qube/disposable template would inherit the same settings. This is recommended to avoid sharing too much information about your system, as inhering the same configuration means it helps prevent network leaks. For example, ``anon-whonix`` has its ``default_dispvm`` a Whonix-Workstation qube such as :samp:`whonix-workstation-{12}-dvm` (where :samp:`{12}` is the template's release number), instead of the system default. This ensures that all traffic goes through the intended network chain.
+You can set an app qube that has also been configured as a disposable template to use itself, so disposables launched from within the app qube/disposable template would inherit the same settings. This is recommended to avoid sharing too much information about your system, as inhering the same configuration means it helps prevent network leaks. For example, ``anon-whonix`` has its ``default_dispvm`` a Whonix-Workstation qube such as :samp:`whonix-workstation-{12}-dvm` (where :samp:`{12}` is the template's release number), instead of the system default. This ensures that all traffic goes through the intended network chain.
 
 .. warning:: The opposite is also true. If you have changed ``anon-whonix``'s ``default_dispvm`` to use the system default, and the system default disposable template uses ``sys-net``, launching a disposable from inside ``anon-whonix`` will result in the disposable using ``sys-net``.
 
-Advanced disposable's usage
----------------------------
+Advanced disposable usage
+-------------------------
 
 
 Open a program in a disposable via command line (from app qube)
@@ -53,7 +53,9 @@ Sometimes it can be useful to start an arbitrary program in a disposable. This c
 
       [user@work ~]$ qvm-run-vm -- '@dispvm' qubes-run-terminal
 
-The ``work`` qube default disposable template derives a disposable to execute the program.
+The ``work`` qube default disposable template spawns a disposable to execute the program.
+
+Caution: this disposable will shut down when the program is closed.
 
 Open a link in a disposable based on a non-default disposable template via command line (from app qube)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -203,7 +205,7 @@ Change application settings dynamically
 
 It is possible to specify data from the :term:`GUI domain` to be read inside the qube using :doc:`vm-config.* features <core-admin-client:manpages/qvm-features>`. This is useful to pass secrets to a single qube instead of writing to the disposable template, which would be shared with all descendants of it.
 
-Let's take for example ``sys-net``, which could be a disposable if you enabled that option during installation. In that case, it's template is ``default-dvm``, but that is also the template of unnamed disposables that launch applications which you don't trust. It would be improper to write the Wi-Fi password to ``default-dvm``, as it would expose it to numerous qubes. Instead, write the data as a qube feature using the :samp:`vm-config.{X}` syntax, where :samp:`{X}` is any valid identification string you'd like.
+Let's take for example ``sys-net``, which could be a disposable if you enabled that option during installation. In that case, it's template is ``default-dvm``, but that is also the template for disposables that launch applications which you don't trust. It would be improper to write the Wi-Fi password to ``default-dvm``, as it would expose it to numerous qubes. Instead, write the data as a qube feature using the :samp:`vm-config.{X}` syntax, where :samp:`{X}` is any valid identification string you'd like.
 
 .. note:: It is up to each qube to handle these entries. In this case, :program:`nmcli` command should be called from somewhere during qube startup to configure the network, it is up to the user to manage it.
 
@@ -237,7 +239,7 @@ You can also use the command line equivalent:
       user@dom0:~$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
       user@dom0:~$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
-The ``appmenus-dispvm`` feature is only necessary if you intend to launch unnamed disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new unnamed disposable based on the disposable template (not in the disposable template itself).
+The ``appmenus-dispvm`` feature is only necessary if you intend to launch disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new disposable based on the disposable template (not in the disposable template itself).
 
 .. important:: Application shortcuts that existed before setting this feature will not be updated automatically. Please go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> Settings`, in the :guilabel:`Applications` tab, unselect all existing shortcuts by clicking :guilabel:`<<`, then click :guilabel:`&OK` and close the dialog. Give it a few seconds and then reopen and re-select all the shortcuts you want to see in the menu. See :doc:`app menu shortcut troubleshooting </user/troubleshooting/app-menu-shortcut-troubleshooting>` for background information.
 
