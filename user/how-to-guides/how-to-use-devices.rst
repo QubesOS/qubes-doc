@@ -37,7 +37,7 @@ When clicking on the tray icon, several device-classes separated by lines are di
 
 On most laptops, integrated hardware such as cameras and fingerprint-readers are implemented as USB-devices and can be found here.
 
-.. image::  /attachment/doc/4.3/qubes-devices-widget.png
+.. image::  /attachment/doc/r4.3/qubes-devices-widget.png
    :alt:
    :width: 100%
 

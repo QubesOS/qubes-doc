@@ -618,17 +618,22 @@ Do not duplicate documentation
 
 Duplicating documentation is almost always a bad idea. There are many reasons for this. The main one is that almost all documentation has to be updated as some point. When similar documentation appears in more than one place, it is very easy for it to get updated in one place but not the others (perhaps because the person updating it doesn’t realize it’s in more than once place). When this happens, the documentation as a whole is now inconsistent, and the outdated documentation becomes a trap, especially for novice users. Such traps are often more harmful than if the documentation never existed in the first place. The solution is to **link** to existing documentation rather than duplicating it. There are some exceptions to this policy (e.g., information that is certain not to change for a very long time), but they are rare.
 
+.. _core-vs-external-documentation:
+
 Core vs. external documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. admonition:: See also
 
-Core documentation resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. External documentation can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__. External documentation should not be submitted to `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the documentation index (see :ref:`edit_doc_index`) to add and update Qubes Forum links in the :ref:`“External documentation” <index:external documentation>` section of the documentation table of contents.
+   :doc:`/introduction/external-documentation`
 
-The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether it documents software that is officially written and maintained by the Qubes OS Project. The purpose of this distinction is to keep the core docs maintainable and high-quality by limiting them to the software output by the Qubes OS Project. In other words, we take responsibility for documenting all of the software we put out into the world, but it doesn’t make sense for us to take on the responsibility of documenting or maintaining documentation for anything else. For example, Qubes OS may use a popular Linux distribution for an official :doc:`TemplateVM </user/templates/templates>`. However, it would not make sense for a comparatively small project like ours, with modest funding and a lean workforce, to attempt to document software belonging to a large, richly-funded project with an army of paid and volunteer contributors, especially when they probably already have documentation of their own. This is particularly true when it comes to Linux in general. Although many users who are new to Qubes are also new to Linux, it makes absolutely no sense for our comparatively tiny project to try to document Linux in general when there is already a plethora of documentation out there.
+If you’ve written a piece of documentation that is not appropriate for `qubes-doc <https://github.com/QubesOS/qubes-doc>`__, we encourage you to submit it to the `Qubes Forum <https://forum.qubes-os.org/docs>`__ instead. However, *linking* to external documentation from `qubes-doc <https://github.com/QubesOS/qubes-doc>`__ is perfectly fine. Indeed, the maintainers of the `Qubes Forum <https://forum.qubes-os.org/>`__ should regularly submit PRs against the :ref:`external-documentation` index (see :ref:`edit_doc_index`) to add and update external links.
 
-Many contributors do not realize that there is a significant amount of work involved in *maintaining* documentation after it has been written. They may wish to write documentation and submit it to the core docs, but they see only their own writing process and fail to consider that it will have to be kept up-to-date and consistent with the rest of the docs for years afterward. Submissions to the core docs also have to :ref:`undergo a review process <developer/general/how-to-edit-the-rst-documentation:security>` to ensure accuracy before being merged, which takes up valuable time from the team. We aim to maintain high quality standards for the core docs (style and mechanics, formatting), which also takes up a lot of time. If the documentation involves anything external to the Qubes OS Project (such as a website, platform, program, protocol, framework, practice, or even a reference to a version number), the documentation is likely to become outdated when that external thing changes. It’s also important to periodically review and update this documentation, especially when a new Qubes release comes out. Periodically, there may be technical or policy changes that affect all the core documentation. The more documentation there is relative to maintainers, the harder all of this will be. Since there are many more people who are willing to write documentation than to maintain it, these individually small incremental additions amount to a significant maintenance burden for the project.
+Many contributors do not realize that there is a significant amount of work involved in *maintaining* documentation after it has been written. They may wish to write documentation and submit it to the core docs, but they see only their own writing process and fail to consider that it will have to be kept up-to-date and consistent with the rest of the docs for years afterward. Submissions to the core docs also have to :ref:`undergo a review process <developer/general/how-to-edit-the-rst-documentation:security>` to ensure accuracy before being merged, which takes up valuable time from the team. We aim to maintain high quality standards for the core docs (style and mechanics, formatting), which also takes up a lot of time.
 
-On the positive side, we consider the existence of community documentation to be a sign of a healthy ecosystem, and this is quite common in the software world. The community is better positioned to write and maintain documentation that applies, combines, and simplifies the official documentation, e.g., tutorials that explain how to install and use various programs in Qubes, how to create custom VM setups, and introductory tutorials that teach basic Linux concepts and commands in the context of Qubes. In addition, just because the Qubes OS Project has officially written and maintains some flexible framework, such as ``qrexec``, it does not make sense to include every tutorial that says “here’s how to do something cool with ``qrexec`` in the core docs. Such tutorials generally also belong in the community documentation.
+**If the documentation involves anything external to the Qubes OS Project** (such as a website, platform, program, protocol, framework, practice, or even a reference to a version number), the documentation is likely to become outdated when that external thing changes. It’s also important to periodically review and update this documentation, especially when a new Qubes release comes out. Periodically, there may be technical or policy changes that affect all the core documentation. The more documentation there is relative to maintainers, the harder all of this will be. Since there are many more people who are willing to write documentation than to maintain it, these individually small incremental additions amount to a significant maintenance burden for the project.
+
+On the positive side, **we consider the existence of community documentation to be a sign of a healthy ecosystem**, and this is quite common in the software world. The community is better positioned to write and maintain documentation that applies, combines, and simplifies the official documentation, e.g., tutorials that explain how to install and use various programs in Qubes, how to create custom VM setups, and introductory tutorials that teach basic Linux concepts and commands in the context of Qubes. In addition, just because the Qubes OS Project has officially written and maintains some flexible framework, such as ``qrexec``, it does not make sense to include every tutorial that says “here’s how to do something cool with ``qrexec`` in the core docs. **Such tutorials generally also belong in the community documentation.**
 
 See `#4693 <https://github.com/QubesOS/qubes-issues/issues/4693>`__ for more background information.
 
@@ -636,104 +641,12 @@ See `#4693 <https://github.com/QubesOS/qubes-issues/issues/4693>`__ for more bac
 Release-specific documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+We maintain one set of documentation for each Qubes OS release, with source files in a named branch (eg Source for r4.3 documentation is in the r4.3 branch of qubes-doc). Documentation is updated on a continual, rolling basis. Our first priority is to document the **current, stable releases** of Qubes. Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
 
-*See* `#5308 <https://github.com/QubesOS/qubes-issues/issues/5308>`__ *for pending changes to this policy.*
+Each version is available at Read The Docs. Documentation for the current release is loaded by default, but other versions can be accessed from the flyout version menu.
 
-We maintain only one set of documentation for Qubes OS. We do not maintain a different set of documentation for each release of Qubes. Our single set of Qubes OS documentation is updated on a continual, rolling basis. Our first priority is to document all **current, stable releases** of Qubes. Our second priority is to document the next, upcoming release (if any) that is currently in the beta or release candidate stage.
+In general, you do not need to mention the version in the body text of documentation for any release. Make sure that any PR you submit is relevant to the version you are targeting, and is a PR against the correct branch: if the change is relevant to more than one release, create a PR against one branch - the documentation maintainers should ensure that the PR is appropriately handled.
 
-In cases where a documentation page covers functionality that differs considerably between Qubes OS releases, the page should be subdivided into clearly-labeled sections that cover the different functionality in different releases (examples below).
-
-In general, avoid mentioning specific Qubes versions in the body text of documentation, as these references rapidly go out of date and become misleading to readers.
-
-Incorrect Example
-^^^^^^^^^^^^^^^^^
-
-
-.. code:: rst
-
-     How to Foo
-     ==========
-
-     Fooing is the process by which one foos. There are both general and specific
-     versions of fooing, which vary in usefulness depending on your goals, but for
-     the most part, all fooing is fooing.
-
-     To foo in Qubes 3.2:
-        .. code:: console
-           $ qvm-foo <foo-bar>
-
-     Note that this does not work in Qubes 4.0, where there is a special widget
-     for fooing, which you can find in the lower-right corner of the screen in
-     the Foo Manager. Alternatively, you can use the more general ``qubes-baz``
-     command introduced in 4.0:
-        .. code:: console
-           $ qubes-baz --foo <bar>
-
-     Once you foo, make sure to close the baz before fooing the next bar.
-
-
-
-Correct Example
-^^^^^^^^^^^^^^^
-
-
-.. code:: rst
-
-     Qubes 3.2
-     =========
-
-     How to Foo
-     ----------
-
-     Fooing is the process by which one foos. There are both general and specific
-     versions of fooing, which vary in usefulness depending on your goals, but for
-     the most part, all fooing is fooing.
-
-     To foo:
-
-        .. code:: console
-
-           $ qvm-foo <foo-bar>
-
-     Once you foo, make sure to close the baz before fooing the next bar.
-
-     Qubes 4.0
-     =========
-
-     How to Foo
-     ----------
-
-     Fooing is the process by which one foos. There are both general and specific
-     versions of fooing, which vary in usefulness depending on your goals, but for
-     the most part, all fooing is fooing.
-
-     There is a special widget for fooing, which you can find in the lower-right
-     corner of the screen in the Foo Manager. Alternatively, you can use the
-     general ``qubes-baz`` command:
-
-        .. code:: console
-
-          $ qubes-baz --foo <bar>
-
-     Once you foo, make sure to close the baz before fooing the next bar.
-
-
-
-Subdividing the page into clearly-labeled sections for each release has several benefits:
-
-- It preserves good content for older (but still supported) releases. Many documentation contributors are also people who prefer to use the latest release. Many of them are tempted to *replace* existing content that applies to an older, supported release with content that applies only to the latest release. This is somewhat understandable. Since they only use the latest release, they may be focused on their own experience, and they may even regard the older release as deprecated, even when it’s actually still supported. However, allowing this replacement of content would do a great disservice to those who still rely on the older, supported release. In many cases, these users value the stability and reliability of the older, supported release. With the older, supported release, there has been more time to fix bugs and make improvements in both the software and the documentation. Consequently, much of the documentation content for this release may have gone through several rounds of editing, review, and revision. It would be a tragedy for this content to vanish while the very set of users who most prize stability and reliability are depending on it.
-
-- It’s easy for readers to quickly find the information they’re looking for, since they can go directly to the section that applies to their release.
-
-- It’s hard for readers to miss information they need, since it’s all in one place. In the incorrect example, information that the reader needs could be in any paragraph in the entire document, and there’s no way to tell without reading the entire page. In the correct example, the reader can simply skim the headings in order to know which parts of the page need to be read and which can be safely ignored. The fact that some content is repeated in the two release-specific sections is not a problem, since no reader has to read the same thing twice. Moreover, as one release gets updated, it’s likely that the documentation for that release will also be updated. Therefore, content that is initially duplicated between release-specific sections will not necessarily stay that way, and this is a good thing: We want the documentation for a release that *doesn’t* change to stay the same, and we want the documentation for a release that *does* change to change along with the software.
-
-- It’s easy for documentation contributors and maintainers to know which file to edit and update, since there’s only one page for all Qubes OS releases. Initially creating the new headings and duplicating content that applies to both is only a one-time cost for each page, and many pages don’t even require this treatment, since they apply to all currently-supported Qubes OS releases.
-
-
-
-By contrast, an alternative approach, such as segregating the documentation into two different branches, would mean that contributions that apply to both Qubes releases would only end up in one branch, unless someone remembered to manually submit the same thing to the other branch and actually made the effort to do so. Most of the time, this wouldn’t happen. When it did, it would mean a second pull request that would have to be reviewed. Over time, the different branches would diverge in non-release-specific content. Good general content that was submitted only to one branch would effectively disappear once that release was deprecated. (Even if it were still on the website, no one would look at it, since it would explicitly be in the subdirectory of a deprecated release, and there would be a motivation to remove it from the website so that search results wouldn’t be populated with out-of-date information.)
-
-For further discussion about release-specific documentation in Qubes, see `here <https://groups.google.com/d/topic/qubes-users/H9BZX4K9Ptk/discussion>`__.
 
 Git conventions
 ---------------

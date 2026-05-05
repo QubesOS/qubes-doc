@@ -123,7 +123,9 @@ Starting with Qubes 4.0, there is opt-in support for IPv6 forwarding. Similar to
 
       $ qvm-features sys-net ipv6 1
 
-
+.. note::
+   Enabling IPv6 in this way will not propagate to running qubes. You will have to restart connected qubes for the change to take effect.
+   In some cases you may also have to restart the network-providing qube.
 
 It is also possible to explicitly disable IPv6 support for some qubes, even if it is connected to IPv6-providing one. This can be done by setting ``ipv6`` feature to empty value:
 
@@ -136,14 +138,14 @@ It is also possible to explicitly disable IPv6 support for some qubes, even if i
 This configuration is presented below - green qubes have IPv6 access, red one does not.
 
 .. figure:: /attachment/doc/ipv6-1.png
-   :alt: ipv6-1
+   :alt: Qubes networking tree showing green qubes with IPv6 access and a red qube where ipv6 feature is set to empty value.
 
 
 
 In that case, system uplink connection have native IPv6. But in some cases it may not be true. Then some tunneling solution can be used (for example teredo). The same will apply when the user is connected to VPN service providing IPv6 support, regardless of user’s internet connection. Such configuration can be expressed by enabling ``ipv6`` feature only on some subset of Qubes networking, for example by creating separate qube to encapsulate IPv6 traffic and setting ``ipv6`` to ``1`` only there. See diagram below
 
 .. figure:: /attachment/doc/ipv6-2.png
-   :alt: ipv6-2
+   :alt: Qubes networking tree showing IPv6 provided only by a subset of qubes.
 
 
 

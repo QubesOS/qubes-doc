@@ -9,6 +9,8 @@ Dom0
 
 - :doc:`core-admin <core-admin:manpages/index>`
 - :doc:`core-admin-client <core-admin-client:manpages/index>`
+- `qvm-appmenus <https://github.com/QubesOS/qubes-desktop-linux-common/blob/master/doc/tools/qvm-appmenus.rst>`__
+- `qvm-xkill <https://github.com/QubesOS/qubes-desktop-linux-common/blob/master/doc/tools/qvm-xkill.rst>`__
 
 DomU
 ----
@@ -18,14 +20,14 @@ DomU
 
 - `qvm-copy <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-copy.rst>`__
 
+- `qvm-move <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-move.rst>`__
+
 - `qvm-open-in-dvm <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-dvm.rst>`__
 
 - `qvm-open-in-vm <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-open-in-vm.rst>`__
 
 - `qvm-run-vm <https://github.com/QubesOS/qubes-core-agent-linux/blob/master/doc/vm-tools/qvm-run-vm.rst>`__
 
-- `qvm-convert-pdf <https://github.com/QubesOS/qubes-app-linux-pdf-converter/blob/master/README.md>`__
+- `qvm-convert-pdf <https://github.com/QubesOS/qubes-app-linux-pdf-converter/blob/master/doc/qvm-convert-pdf.rst>`__
 
 - `qvm-convert-img <https://github.com/QubesOS/qubes-app-linux-img-converter/blob/master/README.md>`__
-
-
