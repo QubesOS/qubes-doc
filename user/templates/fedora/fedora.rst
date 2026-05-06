@@ -54,7 +54,7 @@ Upgrading
 There are two ways to upgrade your template to a new Fedora release:
 
 - **Recommended for most users:** :ref:`Install a fresh template <user/templates/fedora/fedora:installing>`.
-  After installing the new template, redo any custom modifications you need and :ref:`switch all qubes that were using the old template to the new one <user/templates/templates:switching>`. You may want to note down your customizations (or check ``dnf history`` in the old template) so you can easily recreate them.
+  After installing the new template, install any new packages and redo any custom modifications you made in the old template. :ref:`switch all qubes that were using the old template to the new one <user/templates/templates:switching>`. You may want to note down your customizations as you make them, and keep a note of any packages you install. (You can also check the package logs in the old template using ``dnf history``.) This will help you recreate them in the future.
 
-- **Alternative (in-place upgrade):** :doc:`Upgrade the existing template in-place </user/templates/fedora/fedora-upgrade>`.
+- **For advanced users**: :doc:`Upgrade the existing template in-place </user/templates/fedora/fedora-upgrade>`.
   This preserves your current customizations and installed packages without needing to redo them.
