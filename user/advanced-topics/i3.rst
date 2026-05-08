@@ -111,8 +111,7 @@ Log out, select i3, then log in again.
 
 
 Troubleshooting
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
-Graphical issues like tearing might be fixed by <user/advanced-topics/gui-configuration:
-Xorg configuration adjustment to mitigate tearing>. 
+Graphical issues like tearing might be fixed by :ref:`user/advanced-topics/gui-configuration:Xorg configuration adjustment to mitigate tearing`. 
