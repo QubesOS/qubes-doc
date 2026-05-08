@@ -3,20 +3,18 @@ How to upgrade a Fedora template in-place
 =========================================
 
 .. warning::
+   This page is intended for advanced users.
 
-      This page is intended for advanced users.
+   Most users will find it easier to doc:`install a fresh template <user/templates/fedora/fedora:installing>` instead of upgrading in-place.
+   If you have made customizations or installed additional packages in the current template that you want to preserve, then upgrading in-place may be the best way to go.
 
-.. DANGER::
+This page provides instructions for performing an in-place upgrade of an installed :doc:`Fedora Template </user/templates/fedora/fedora>`.
 
-      **Warning:** This page is intended for advanced users only. Most users seeking to upgrade should instead :ref:`install a new Fedora template <user/templates/fedora/fedora:installing>`      . Learn more about the two options :ref:`here <user/templates/fedora/fedora:upgrading>`      .
-
-This page provides instructions for performing an in-place upgrade of an installed :doc:`Fedora Template </user/templates/fedora/fedora>`. If you wish to install a new, unmodified Fedora template instead of upgrading a template that is already installed in your system, please see the :doc:`Fedora Template </user/templates/fedora/fedora>` page instead. (:ref:`Learn more about the two options. <user/templates/fedora/fedora:upgrading>`)
+.. note::
+ In what follows the prompt on each line indicates where each command should be entered: ``dom0``, ``fedora-<old>``, or ``fedora-<new>``, where ``<old>`` is the fedora version number *from* which you are upgrading, and ``<new>`` is the fedora version number *to* which you are upgrading. Remember to use the right template *version*: eg clone ``fedora-<old>-minimal`` to ``fedora-<new>-minimal``.
 
 Summary instructions for standard Fedora templates
 --------------------------------------------------
-
-
-**Note:** The prompt on each line indicates where each command should be entered: ``dom0``, ``fedora-<old>``, or ``fedora-<new>``, where ``<old>`` is the Fedora version number *from* which you are upgrading, and ``<new>`` is the Fedora version number *to* which you are upgrading.
 
 .. code:: console
 
@@ -27,6 +25,7 @@ Summary instructions for standard Fedora templates
       [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
       [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
       [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
+      [user@fedora-<new> ~]$ sudo dnf update
       [user@fedora-<new> ~]$ sudo dnf clean all
       [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
       [user@dom0 ~]$ qvm-shutdown fedora-<new>
@@ -35,15 +34,12 @@ Summary instructions for standard Fedora templates
       [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
 
 
-**Recommended:** :ref:`Switch everything that was set to the old template to the new template. <user/templates/templates:switching>`
-
 Detailed instructions for standard Fedora templates
 ---------------------------------------------------
 
 
 These instructions will show you how to upgrade the standard Fedora template. The same general procedure may be used to upgrade any template based on the standard Fedora template.
 
-**Note:** The prompt on each line indicates where each command should be entered: ``dom0``, ``fedora-<old>``, or ``fedora-<new>``, where ``<old>`` is the Fedora version number *from* which you are upgrading, and ``<new>`` is the Fedora version number *to* which you are upgrading.
 
 1. Ensure the existing template is not running.
 
@@ -64,6 +60,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    .. code:: console
 
+         [user@fedora-<new> ~]$ sudo dnf update
          [user@fedora-<new> ~]$ sudo dnf clean all
          [user@fedora-<new> ~]$ sudo dnf --releasever=<new> distro-sync --best --allowerasing
 
