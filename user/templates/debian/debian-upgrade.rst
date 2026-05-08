@@ -1,3 +1,5 @@
+.. There are currently no release-specific notes, so related sentences and section are commented out.
+
 =========================================
 How to upgrade a Debian template in-place
 =========================================
@@ -5,7 +7,7 @@ How to upgrade a Debian template in-place
 .. warning::
    This page is intended for advanced users.
 
-   Most users will find it easier to :doc:`install a new template <user/templates/debian/debian:installing>` instead of upgrading in-place.
+   Most users will find it easier to :ref:`install a new template <user/templates/debian/debian:installing>` instead of upgrading in-place.
    If you have made customizations or installed additional packages in the current template that you want to preserve, then upgrading in-place may be the best way to go.
 
     
@@ -144,9 +146,9 @@ Standalones
 The procedure for upgrading a Debian :doc:`standalone </user/advanced-topics/standalones-and-hvms>` is the same as for a template.
 
 .. Release-specific notes
-   ----------------------
-   This section contains notes about upgrading to specific releases.
+.. ----------------------
 
+.. .. note:: This section contains notes about upgrading to specific releases.
 
 End-of-life (EOL) releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
