@@ -7,7 +7,7 @@ How to upgrade a Debian template in-place
 .. warning::
    This page is intended for advanced users.
 
-   Most users will find it easier to :doc:`install a new template <user/templates/debian/debian:installing>` instead of upgrading in-place.
+   Most users will find it easier to :ref:`install a new template <user/templates/debian/debian:installing>` instead of upgrading in-place.
    If you have made customizations or installed additional packages in the current template that you want to preserve, then upgrading in-place may be the best way to go.
 
     
