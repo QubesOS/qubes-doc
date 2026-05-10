@@ -401,7 +401,6 @@ Deleting disposable templates
 
 It is only possible to delete a disposable template if certain state is met:
 
-- No disposables based on it (preloaded disposables can be ignored).
 - No system or qube property links to it (such as ``template`` or ``default_dispvm``).
 
 Let's delete a disposable template with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Basic --> Delete qube`.
