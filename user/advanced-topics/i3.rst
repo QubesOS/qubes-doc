@@ -114,4 +114,4 @@ Troubleshooting
 ^^^^^^^^^^^^^^^
 
 
-Graphical issues like tearing might be fixed by :ref:`user/advanced-topics/gui-configuration:Xorg configuration adjustment to mitigate tearing`. 
+Graphical issues like tearing might be fixed by :ref:`user/advanced-topics/gui-configuration:Xorg configuration to mitigate tearing`. 
