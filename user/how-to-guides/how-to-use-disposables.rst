@@ -31,7 +31,8 @@ Disposable template
 ^^^^^^^^^^^^^^^^^^^
 
 
-:term:`Disposable template <disposable template>` is not a disposable in itself, but a special template that can create different disposable types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. When there is need to customize the files of a disposable, it must be done on the disposable template or the template itself to be reflected in every new disposable based on that template. By default, Qubes OS creates the ``default-dvm`` disposable template, we will use it as an example on this page, but you can create as many disposable templates as you'd prefer. :doc:`Disposable customization </user/advanced-topics/disposable-customization>` is outside of the scope of this page.
+:term:`Disposable template <disposable template>` is not a disposable in itself, but a special template that can create different disposable types: normal :term:`disposables <disposable>` and :term:`named disposables <named disposable>`. If you need to have a persistent changes in disposable files (e.g. configuration files), do them in the disposable template. If you need certain programs to be available in the disposable, you can install them in the disposable template's own template. By default, Qubes OS creates the ``default-dvm`` disposable template. It will be used it as an example on this page. You can create as many disposable templates as you'd prefer. :doc:`Disposable customization </user/advanced-topics/disposable-customization>` is outside of the scope of this page.
+
 
 Named disposable
 ^^^^^^^^^^^^^^^^
@@ -42,17 +43,16 @@ Named disposable
 If you have selected during installation to use disposable :term:`service qubes<service qube>`, your ``sys-net``, ``sys-usb`` and ``sys-firewall`` are examples of named disposables based on the ``default-dvm`` disposable template.
 
 
-Unnamed disposable
-^^^^^^^^^^^^^^^^^^
-
-
-:term:`Unnamed disposables<unnamed disposable>` are built upon disposable templates, they don't have a fixed name and are deleted from the system after the termination of initial application opened in them. Therefore, *any changes you made in the unnamed disposable will be lost*. The Qubes Devices widget doesn't connect to an initial application when creating a disposable, therefore it must be manually turned off.
-
-You would probably use the ``default-dvm`` disposable template to, for example, create an unnamed disposable qube to browse the internet. Every time you launch an application using this disposable template as base, a new disposable qube named :samp:`disp{1234}` (where :samp:`{1234}` is a random number) starts and launches the chosen application. If you close the application window, the :samp:`disp{1234}` qube shuts down and vanishes from your system.
-
-
 How to create disposables
 -------------------------
+
+How to launch new disposables based on existing template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Disposables can be started with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> default-dvm`. Select the application you wish to launch in a new disposable, and one will be created for you. Notice that the application was not opened in the disposable template ``default-dvm``: instead, it opens in a :samp:`disp{1234}` qube. This is because applications from a disposable template listed in the :guilabel:`APPS` tab will open in a new disposable.
+
+After the qube is created, you can access it via other tools using its :samp:`disp{1234}` name, for example in :ref:`Qubes Domains widget <introduction/getting-started:user interface>`, :ref:`Qubes Manager <introduction/getting-started:qube manager>`, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> disp1234`, :guilabel:`qvm-copy`, :program:`qvm-ls` etc.
 
 
 How to create named disposables
@@ -63,13 +63,6 @@ Named disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App
 
 If you create the qube with the name ``test-disp``, you can open applications on it using |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> test-disp` and selecting the application you wish to open in the named disposable.
 
-How to create unnamed disposables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Unnamed disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> default-dvm`, select the application you wish to launch in a new unnamed disposable and one will created for you. Notice that the application was not opened in the disposable template ``default-dvm``, instead, it opens in a :samp:`disp{1234}` qube. This is because applications from a disposable template listed in the :guilabel:`APPS` tab will open in a new unnamed disposable.
-
-After the qube is created, you can access it via other tools using its :samp:`disp{1234}` name, :ref:`Qubes Domains widget <introduction/getting-started:user interface>`, :ref:`Qubes Manager <introduction/getting-started:qube manager>`, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> disp1234`, :guilabel:`qvm-copy`, :program:`qvm-ls` etc.
 
 In action
 ---------
@@ -129,7 +122,7 @@ If you'd like to sanitize a file, in an app qube's file manager, right click on 
 
 It is also possible to do the same on the command line using :program:`qvm-convert-img` and :program:`qvm-convert-pdf`.
 
-Connect a device to an unnamed disposable (from GUI domain)
+Connect a device to an disposable (from GUI domain)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -158,3 +151,12 @@ The same can be done from the command line, although more difficult:
       user@dom0:~$ # Do your tasks.
       user@dom0:~$ qvm-device <DEVICE_CLASS> detach <ATTACH_OPTIONS> -- "$disp"
       user@dom0:~$ qvm-kill -- "$disp"
+
+
+Call to the application succeeds but disposable exits too soon
+--------------------------------------------------------------
+
+
+When the main process of the initial application used to start the disposable exits, the disposable is removed. Some applications, such as GNOME Terminal (show on the app menu as :guilabel:`Terminal`, `do not wait for the application to close before the main process exits <https://github.com/QubesOS/qubes-issues/issues/2581#issuecomment-272664009>`__.
+
+These cases requires wrappers to keep the application running. Qubes provides a wrapper for this particular case, :program:`qubes-run-gnome-terminal`, which will be used automatically by :program:`qubes-run-terminal` or application :guilabel:`Run Terminal` if GNOME Terminal happens to be the preferred terminal for the disposable template
