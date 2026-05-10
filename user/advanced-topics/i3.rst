@@ -108,3 +108,10 @@ After that you can just install the generated rpm like any other local package:
 
 
 Log out, select i3, then log in again.
+
+
+Troubleshooting
+^^^^^^^^^^^^^^^
+
+
+Graphical issues like tearing might be fixed by :ref:`user/advanced-topics/gui-configuration:Xorg configuration to mitigate tearing`. 
