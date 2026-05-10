@@ -39,11 +39,11 @@ The amount of memory allocated per qube is the maximum of:
 
 Default overhead is about 8 MiB, which is enough for a 1080p display (see above). So, the ``gui-videoram-overhead`` zeroing is not strictly necessary; it only avoids allocating memory that will not be used.
 
-Xorg configuration adjustment to mitigate tearing
+
+Xorg configuration to mitigate tearing
 -------------------------------------------------
 
-
-You might face issues when playing video, if the video is choppy instead of smooth display this could be because the X server doesn’t work. You can use the Linux terminal (Ctrl-Alt-F2) after starting the virtual machine, login. You can look at the Xorg logs file. As an option you can have the below config as well present in ``/etc/X11/xorg.conf.d/90-intel.conf`` (depends on HD graphics though).
+If video playback is choppy instead of smooth, this could be because the X server is not properly configured. If you have HD graphics, then you could try placing this configuration in ``/etc/X11/xorg.conf.d/90-intel.conf``, and restarting the X server.
 
 .. code:: xorg.conf
 
@@ -57,5 +57,6 @@ You might face issues when playing video, if the video is choppy instead of smoo
 GUI Troubleshooting
 -------------------
 
+If the X server does not work, you can switch to another tty by pressing :kbd:`Ctrl-Alt-F2`. Once you have logged in you can examine the Xorg log file, and may be able to identify errors.
 
 See :doc:`GUI Troubleshooting </user/troubleshooting/gui-troubleshooting>` for issues relating to the Qubes graphical user interface and how to fix them.
