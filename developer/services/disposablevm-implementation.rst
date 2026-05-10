@@ -10,23 +10,30 @@ Disposable behavior
 -------------------
 
 
-A :term:`disposable template` is not a disposable in itself, but a special template that can create different :term:`disposable` types, :term:`named disposable <named disposable>` and :term:`unnamed disposables <unnamed disposable>`. This intermediary template serves different functions, first to permit customization of the private volume of a disposable as well as well as a degree of inheritance that would not be possible with normal templates. It has the :py:attr:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.template_for_dispvms` property enabled, being a :py:class:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin`.
+A :term:`disposable template <disposable template>` is not a disposable qube in itself, but a qube that can be used to create different disposable types: normal :term:`disposables <disposable>` and :term:`named disposables <named disposable>`. This intermediary template serves different functions: first, it allows customization of the private volume of a disposable, and second, it provides a degree of inheritance that would not be possible with normal templates. It has the :py:attr:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.template_for_dispvms` property enabled, being a :py:class:`~core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin`.
 
-A :term:`disposable` is a qube with the :py:class:`~core-admin:qubes.vm.dispvm.DispVM` class and is based on a disposable template. Every disposable type has all of its volumes configured to disable :py:attr:`~core-admin:qubes.storage.Volume.save_on_stop`, therefore no changes are saved on shutdown. Unnamed disposables enables the property :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus automatically removes the qube upon shutdown. Named disposables don't enable :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus the qube skeleton is not removed upon shutdown, thus allowing to keep qube settings.
+A :term:`disposable` is a qube with the :py:class:`~core-admin:qubes.vm.dispvm.DispVM` class and is based on a disposable template. Every disposable type has all of its volumes configured to disable :py:attr:`~core-admin:qubes.storage.Volume.save_on_stop`, therefore no changes are saved on shutdown. Normal disposables enable the property :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus Qubes OS automatically removes the qube upon shutdown. Named disposables don't enable :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.auto_cleanup` by default, thus the qube skeleton is not removed upon shutdown, thus allowing to keep qube settings.
 
 Named disposables are useful for service qubes, as referencing static names is easier when the qube name is mentioned on Qrexec policies (:file:`qubes.UpdatesProxy` target) or as a property of another qube, such as a disposable :term:`net qube` which is referenced by downstream clients in the ``netvm`` property.
 
-Unnamed disposables have their names in the format :samp:`disp{1234}`, where :samp:`{1234}` is derived from the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.dispid` property, a random integer ranging from 0 to 9999 with a fail-safe mechanism to avoid reusing the same value in a short period.
+Disposables are generally named according to the :samp:`disp{1234}` scheme, where :samp:`{1234}` is derived from the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.dispid` property, a random integer ranging from 0 to 9999 with a fail-safe mechanism to avoid reusing the same value in a short period. Named disposables have a user-set permanent name.
 
 
-Disposable's creation with Qrexec
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creating disposables through Qrexec
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The system and every qube can have the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property. This property can only have disposable template as value or an empty value. If the qube property is set to the default value, it will use the system's property. An exception to the rule is the property of disposables, which always default to their disposables templates to avoid data leaks such as using unintended network paths.
+Every qube has the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property, which defines which disposable template will be used to spawn disposables for this qube by default (when using actions such as "open in disposable").
+It can have one of three values:
 
-There are some Qrexec policy rules that have some services with allow resolution in case the target is the :doc:`@dispvm <core-qrexec:qrexec-policy>` tag, which translates to creation of disposables out of the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property. It is most commonly used to open files and URLs, (:file:`qubes.OpenInVM` and :file:`qubes.OpenURL`, respectively).
+- a disposable template
+- empty value
+- default system value (this will use the system-wide :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property)
 
-It is also possible to write rules that would allow creating disposables out of different disposables templates by using as destination the disposable template name or a tag it has. The destination would be:
+In case of disposables, this property is by default set to their own disposable template, to avoid data leaks through, for example, using unintended network access paths.
+
+This value is also used in case of Qrexec policy: when policy rules use the :doc:`@dispvm <core-qrexec:qrexec-policy>` tag, it translates to "a disposable based on the source qube's :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm`. It is most commonly used to open files and URLs, (:file:`qubes.OpenInVM` and :file:`qubes.OpenURL`, respectively).
+
+If you want to allow creating disposables based on different disposable templates, you can use the disposable template name or tag as destination. In particular:
 
 - :samp:`@dispvm:{DISPOSABLE_TEMPLATE}`, where :samp:`{DISPOSABLE_TEMPLATE}` is the desired template;
 - :samp:`@dispvm:@tag:{CUSTOM_TAG}`, where :samp:`{CUSTOM_TAG}` is the tag of your choice.
@@ -35,105 +42,105 @@ Preloaded disposables
 ---------------------
 
 
-The user desires to circumvent any slow process, the creation of disposables fits into this category. Preloaded disposables enables fast retrieval of fresh disposables, so users don't have to get away from the computer or switch tasks when requesting disposables (or not requesting one at all because it was slow).
+Starting new disposables can be a slow process. To speed it up, Qubes OS provides disposable preloading, which enables fast retrieval of fresh disposables.
 
-Preloaded disposables are :term:`unnamed disposables <unnamed disposable>`, it aims to solve the issue of disposable's long startup time by keeping running (powered on and paused) disposable qubes queued. In order to accomplish this, they are started in the background without user interaction, hidden from most graphical applications by being an :term:`internal <internal qube>`. They are unpaused (transparently) when a disposable qube is requested by the user, therefore the user must not worry about the managing the creation or deletion of them, just how many they'd like to have at maximum.
+Instead of performing the whole startup each time a new :term:`disposable` is requested, preloading keeps prepared (running and paused) qubes in the background, ready to be used when needed. In order to accomplish this, they are started in the background without user interaction, hidden from most graphical applications by being :term:`internal <internal qube>`. They are unpaused (transparently) when a disposable qube is requested by the user.
 
 Preloaded disposable's stages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are several stages a disposable goes through while preloading and being used. In short:
+There are several stages a disposable goes through when preloading is enabled:
 
-1. **Preload**: The qube is created and marked as preloaded. Qube is not visible in GUI applications.
+1. **Preload**: The qube is created and marked as preloaded. The qube is not visible in GUI applications.
 
-  #. **Startup**: Begins qube startup, start basic services in it and attempt to pause.
+  #. **Startup**: Begins qube startup, starts basic services and attempts to pause the qube.
 
-  #. **Request**: The qube is removed from the preload list. If startup has not yet reached pause, the latter is skipped.
+  #. **Request**: Triggered by the user requesting a new disposable qube. The qube is removed from the preload list. If qube startup has not yet reached pause, the pause stage is skipped.
 
-2. **Used**: The qube is marked as used and may be unpaused/resumed (if applicable). Only in this phase, GUI applications treat the qube as any other unnamed disposable and the qube object is returned to the caller if requested.
+2. **Used**: The qube is marked as used and will be unpaused/resumed (if needed). At this stage, GUI applications treat the qube as any other disposable and the qube object is returned to the caller if requested.
 
 Preloaded disposable's worry-free life-cycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-There are several events that may trigger the creation, deletion of preloaded disposables. If there is a gap between the current number of preloaded disposables and the maximum number allowed, it will be capped *event*\ ually (refill), if the qube is at an invalid state, it will be deleted or replaced (refresh) as soon as possible.
+There are several events that may trigger the creation or deletion of preloaded disposables. Qubes OS attempts to maintain as many preloaded disposables as the user set through the ``preload-dispvm-max`` feature, and any preloaded disposables that are invalid will be deleted or replaced as soon as possible. This is balanced by the need to ensure the system is responsive, thus the refreshing of disposables may take some time.
 
-We cannot prevent all gaps at the moment it occurs and users should not be responsible for filling them, the system must manage to fill gaps when possible.
 
 Preloaded disposable's management
 """""""""""""""""""""""""""""""""
 
+Maximum number of preloaded disposables is defined by the ``preload-dispvm-max`` feature. This feature can be set on any disposable template (this defines the maximum number of disposables preloaded from this template), and on the ``dom0`` (this defines the maximum number of disposables preloaded from the system-wide default disposable template). In case those values conflict, the ``dom0`` value takes precedence (for example, if ``preload-dispvm-max`` is set to 0 on the ``default-dvm`` disposable template, which is the default disposable template, and to 4 on ``dom0``, Qubes OS will attempt to preload 4 disposables from ``default-dvm``).
 
 These are common events that trigger changes in preloaded disposables quantity:
 
-- Refill or remove:
+- Create or remove:
 
   - Changing the ``preload-dispvm-max`` feature;
-  - Changing system's :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` while system's feature is set to a different value than the disposable template setting;
+  - Changing system-wide :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` if system-wide ``preload-dispvm-max`` is set to a different value than the disposable template setting;
 - Refill:
 
   - (Re)starting :file:`qubes-preload-dispvm.service`;
-  - Using a preloaded disposable;
   - Requesting a disposable;
+  - Using a preloaded disposable (both this and requesting a disposable trigger a refill, in case one of them fails - this ensures maximum preloading if possible);
 
-- Refresh:
+- Refresh (delete old preloaded disposables and create then anew):
 
   - Updating the volumes of a template or disposable template;
   - Qubesd was interrupted mid preload creation, on the next service restart, :py:meth:`domain-load <core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.on_domain_loaded>` of the disposable template.
 
-Preloaded disposable's temporary gaps
-"""""""""""""""""""""""""""""""""""""
+Availability gaps
+"""""""""""""""""
 
 
-Some rarer events that may cause a gap in preloaded disposables temporarily:
+Some events that may cause a temporary gap in preloaded disposable availability:
 
-- There is not enough memory to preload at the moment, won't create the qube; and
-- Service to check if the system is fully operational has failed and will remove the qube. Should not attempt refill as it most likely would lead to the same outcome to infinity.
+- There is not enough memory to preload at the moment;
+- Service to check if the system is fully operational has failed and will remove the qube. This will not cause repeated attempts as it most likely would lead to the same outcome to infinity.
 
-Preloaded disposable's bootstrap
-""""""""""""""""""""""""""""""""
+Bootstrapping Preloaded disposables
+"""""""""""""""""""""""""""""""""""
 
 
 To bootstrap the creation of preloaded disposables after boot, the service :file:`qubes-preload-dispvm.service` is used instead of :py:meth:`domain-load <core-admin:qubes.vm.mix.dvmtemplate.DVMTemplateMixin.on_domain_loaded>` of the disposable template because it relies on systemd to:
 
-- Order this action after the autostart or standard qubes, they must precede in order to have a functional system;
+- Order this action after the autostart or standard qubes - they must precede in order to have a functional system;
 - Skip preloading if kernel command line prevents autostart.
 
-Preloaded disposable's memory management
+Preloaded disposables' memory management
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-At the end of preloading, it attempts to manage memory of the qube right before pause, because it is not possible to negotiate memory with the domain after pause. It attempts to retrieve memory from the qube on :py:meth:`domain-pre-paused <core-admin:qubes.vm.dispvm.DispVM.on_domain_pre_paused>` by setting it to use its preferred memory value. In :doc:`qmemman terms </developer/services/qmemman>`, preferred memory is just enough to have the qube running.
+Qubes OS attempts to manage a preloaded disposable's qube memory directly before the pause stage, as it is impossible to negotiate memory with a paused qube. At the :py:meth:`domain-pre-paused <core-admin:qubes.vm.dispvm.DispVM.on_domain_pre_paused>` stage, memory is set to use preferred memory value. In :doc:`qmemman terms </developer/services/qmemman>`, preferred memory is just enough to have the qube running, and so, hopefully as much as possible of qube memory is retrieved to be used by other, currently running qubes.
 
-This process can take a bit of time because it depends on how fast the qube can free up memory. In ``qubes.qmemman.systemstate``, there is a timeout (``CHECK_PERIOD``) and a threshold in transfer speed (``CHECK_MB_S``) when attempting to balloon, then, when both of these conditions are met, the memory management seizes and the preloaded disposable is paused.
+This process can take a bit of time because it depends on how fast the qube can free up memory. In ``qubes.qmemman.systemstate``, there is a timeout (``CHECK_PERIOD``) and a threshold in transfer speed (``CHECK_MB_S``) when attempting to balloon. When both of these conditions are met, the memory management is done and the preloaded disposable can be paused.
 
-Although it takes some time, increasing the preload creation stage, we do not worry much about it because it economizes memory on the long run, the biggest problems is that qmemman is synchronous, so only one request can be made at a time, anything that takes too much time on qmemman could prevent ballooning/balancing of other qubes on the system.
+We do not worry about the time this process takes, even though it does prolong the preload creation stage. In the long run, the memory usage is more important. Unfortunately, qmemman is synchronous, so only one request can be made at a time, thus anything that takes too much time on qmemman could prevent balancing memory usage of other qubes.
 
 Preloaded disposable's pause
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Preloaded disposables are paused for various reasons:
+Preloaded disposables are paused because:
 
-- Detection if the qube was used without being requested with :py:meth:`core-admin:qubes.vm.dispvm.DispVM.from_appvm`. Not every communication with a qube goes through :program:`qubesd`, it may go via Qrexec or GUI daemon;
-- CPU scheduling economy, domain is not eligible; and
-- Cronjob, timers and other things that don't block the init system and service manager completion won't run, they could possibly alter a clean state.
+- it makes detecting if a qube was used without being requested with :py:meth:`core-admin:qubes.vm.dispvm.DispVM.from_appvm`. Not every communication with a qube goes through :program:`qubesd`, it may happen via Qrexec or GUI daemon;
+- CPU scheduling economy: a paused domain is not eligible for it;
+- Cronjob, timers and other things that don't block the init system and service manager completion won't run and alter a clean state.
 
 But this comes at a cost:
 
-- Memory management before pause may take some seconds, that is not prejudicial to the time to use the qube but it is prejudicial to the system as :doc:`qmemman </developer/services/qmemman>` can not balloon/balance other qubes in the mean time due to its design.
+- Memory management before pause may take some seconds. As described above, this does not increase time to use the preloaded qube but can slow down the system as a whole, as :doc:`qmemman </developer/services/qmemman>` can not balance memory usage of other qubes in the mean time.
 
 Preloaded disposable's security
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-As preloaded disposables are started before being used, methods to prevent accidental tampering have been put in place as well as guarantees to prevent reuse:
+As preloaded disposables are started before being used, some measures to prevent accidental tampering and reuse were introduced:
 
-- The qube has the ``internal`` feature enabled, Qubes GUI applications were patched to hide and show :term:`internal qubes<internal qube>` by handling events for ``domain-feature-((pre-)?set|delete):internal``;
-- When requesting an unnamed disposable, the qube object is only returned to the user once it has finished preloading;
-- The qube is paused as the last stage of preloading, this permits receiving :py:meth:`domain-unpaused <core-admin:qubes.vm.dispvm.DispVM.on_domain_unpaused>` event and be notified that the qube was used, marked as such and removed from the preload list to avoid reuse, even without the qube being requested with :py:meth:`core-admin:qubes.vm.dispvm.DispVM.from_appvm`;
-- The GUID and Audio daemon only connects to the GUI agent and audio agent on the qube after the preloaded disposable is marked as used, this prevents that an autostarted applications appearing on the screen before it is ready or before pause, which could be confusing. Enabling a GUI is controlled by the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.is_preload` property, that when disabled, allows the GUI and audio connection to initiate.
+- The qube has the ``internal`` feature enabled. Qubes GUI applications hide :term:`internal qubes<internal qube>`;
+- When requesting a disposable, the qube object is only returned to the user once it has finished preloading;
+- The qube is paused as the last stage of preloading. This means the :py:meth:`domain-unpaused <core-admin:qubes.vm.dispvm.DispVM.on_domain_unpaused>` event  can be used to mark the qube as used and remove it from the preload list, avoiding reliabce on :py:meth:`core-admin:qubes.vm.dispvm.DispVM.from_appvm`;
+- The GUID and Audio daemon only connect to the GUI agent and audio agent in the qube after the preloaded disposable is marked as used. This prevents autostarted applications from appearing on the screen before they are ready or before pause, which could be confusing. Enabling a GUI is controlled by the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.is_preload` property - when it is set to False, GUI and audio connections are initiated.
 
-Another point of security is reliability:
+To ensure reliability:
 
 - The ``preload-dispvm-threshold`` feature controls how much free memory must be present on the system before attempting to create a new preloaded disposable. Used to ensure preloaded disposables do not consume all available memory, which would prevent starting other qubes.
 
@@ -182,7 +189,7 @@ Preload queue
 """""""""""""
 
 
-**Description**: Start disposables and queue them in a disposable template feature, unnamed disposables requested will prefer to retrieve disposables from this list.
+**Description**: Start disposables and queue them in a disposable template feature, requested disposables will prefer to retrieve disposables from this list.
 
 **Evaluation**:
 
