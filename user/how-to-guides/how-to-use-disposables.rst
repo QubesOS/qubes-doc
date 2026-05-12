@@ -152,7 +152,6 @@ The same can be done from the command line, although more difficult:
       user@dom0:~$ qvm-device <DEVICE_CLASS> detach <ATTACH_OPTIONS> -- "$disp"
       user@dom0:~$ qvm-kill -- "$disp"
 
-
 Call to the application succeeds but disposable exits too soon
 --------------------------------------------------------------
 
