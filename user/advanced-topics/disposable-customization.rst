@@ -82,7 +82,7 @@ The line above means:
 
 - ACTION: Allow action to proceed.
 
-In other words, the ``email`` qube will be allowed to create a new disposable based on ``net-dvm`` and open a URL inside of that disposable. For more information about Qrexec usage, checkout :ref:`the policy directives <developer/services/qrexec:specifying vms: tags, types, targets, etc.>`.
+In other words, the ``email`` qube will be allowed to create a new disposable based on ``net-dvm`` and open a URL inside of that disposable. For more information about qrexec usage, checkout :ref:`the policy directives <developer/services/qrexec:specifying vms: tags, types, targets, etc.>`.
 
 To check if everything is working as expected, from the ``email`` qube with :program:`qvm-open-in-vm`:
 
