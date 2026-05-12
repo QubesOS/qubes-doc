@@ -176,7 +176,7 @@ Disposable qubes can take some time to boot; preloading speeds this process up.
 
 Preloaded disposables are a type of :term:`disposables <disposable>` started in the background, waiting to be used when needed. They are hidden from most graphical applications by using the :term:`internal <internal qube>` flag. For most intents and purposes, using a preloaded disposable is indistinguishable from using normal disposable qubes, just faster.
 
-It is possible to preload from any disposable template as long as it supports :doc:`Qrexec </developer/services/qrexec>`, except :term:`Qubes Windows Tools (QWT)` which isn't feature complete yet.
+It is possible to preload from any disposable template as long as it supports :doc:`qrexec </developer/services/qrexec>`, except :term:`Qubes Windows Tools (QWT)` which isn't feature complete yet.
 
 Preload disposables from the system's default disposable template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
