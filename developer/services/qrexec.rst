@@ -75,7 +75,7 @@ You can specify the source and destination by name or by one of the reserved key
 
 Whenever a RPC request for an action is received, the domain checks the first matching line of the files in ``/etc/qubes/policy.d/`` and ``/run/qubes/policy.d/`` to determine access: whether to allow the request, what VM to redirect the execution to, and what user account the program should run under. Note that if the request is redirected (``target=`` parameter), policy action remains the same – even if there is another rule which would otherwise deny such request. If no policy rule is matched, the action is denied.
 
-Files in ``/run/qubes/policy.d/`` are deleted when the system is rebooted. This is useful for temporary policy that contains the name or UUID of a disposable VM, which will not be meaningful after the system has rebooted. Such policy files can be created manually, but they are usually created automatically by a Qrexec call to dom0.
+Files in ``/run/qubes/policy.d/`` are deleted when the system is rebooted. This is useful for temporary policy that contains the name or UUID of a disposable VM, which will not be meaningful after the system has rebooted. Such policy files can be created manually, but they are usually created automatically by a qrexec call to dom0.
 
 Making an RPC call
 ^^^^^^^^^^^^^^^^^^

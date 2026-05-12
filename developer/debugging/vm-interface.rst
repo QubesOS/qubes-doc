@@ -221,7 +221,7 @@ Services called by dom0 to provide some VM configuration:
 
 
 
-Other Qrexec services installed by default:
+Other qrexec services installed by default:
 
 - ``qubes.Backup`` - store a Qubes backup. The service receives a location chosen by the user (one line, terminated by ``\n``) and the backup archive (:doc:`description of backup format </user/how-to-guides/backup-emergency-restore-v2>`)
 
