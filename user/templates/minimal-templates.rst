@@ -32,8 +32,6 @@ Minimal templates of the following distros are available:
 
 - Debian
 
-- Gentoo
-
 
 
 A list of all available templates can also be obtained with the :doc:`Template Manager </developer/system/template-manager>` tool.
