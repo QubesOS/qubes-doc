@@ -204,7 +204,10 @@ Emergency recovery instructions
 
 9. Mount ``private.img`` and access your data.
 
-   .. code:: console
+  .. warning::   Beside the security risk of accessing compromised *files*,  there can be security consequences of simply mounting *file systems* if an attacker had been able to compromise the file system in some way. For better security, handle these files within an isolated environment like a dedicated VM, a Live USB, or by using `libguestfs <https://libguestfs.org/>`__
+
+
+  .. code:: console
 
          [user@restore ~]$ sudo mkdir /mnt/img
          [user@restore ~]$ sudo mount -o loop vm123/private.img /mnt/img/
