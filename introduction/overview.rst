@@ -14,33 +14,29 @@ Here are some diagrams illustrating the basic ideas behind Qubes OS's architectu
 
 |Glance_Building|
 
-|Glance_Qubes_philosopy|
-
-|Glance_Qubes_compartmentalization|
+|Glance_Qubes_Philosopy|
 
 |Glance_Compartmentalization|
 
-|Glance_Securing_IT|
+|Glance_Secure_Desktop|
 
-|Glance_Blueprint|
+|Glance_Windows|
 
-|Glance_Open_Source_Path|
+|Glance_Achieving_Sovereignty|
 
 .. |Glance_Illusion_of_Isolation| image:: /attachment/doc/Glance_Illusion_of_Isolation.png
 
 .. |Glance_Building| image:: /attachment/doc/Glance_Building.png
 
-.. |Glance_Qubes_philosopy| image:: /attachment/doc/Glance_Qubes_philosophy.png
-
-.. |Glance_Qubes_compartmentalization| image:: /attachment/doc/Glance_Qubes_compartmentalization.png
+.. |Glance_Qubes_Philosopy| image:: /attachment/doc/Glance_Qubes_Philosophy.png
 
 .. |Glance_Compartmentalization| image:: /attachment/doc/Glance_Compartmentalization.png
 
-.. |Glance_Securing_IT| image:: /attachment/doc/Glance_Securing_IT.png
+.. |Glance_Secure_Desktop| image:: /attachment/doc/Glance_Secure_Desktop.png
 
-.. |Glance_Blueprint| image:: /attachment/doc/Glance_Blueprint.png
+.. |Glance_Windows| image:: /attachment/doc/Glance_Windows.png
 
-.. |Glance_Open_Source_Path| image:: /attachment/doc/Glance_Open_Source_Path.png
+.. |Glance_Achieving_Sovereignty| image:: /attachment/doc/Glance_Achieving_Sovereignty.png
 
 
 
