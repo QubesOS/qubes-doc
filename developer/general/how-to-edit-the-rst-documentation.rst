@@ -159,20 +159,20 @@ Tips & Tricks
 - Pull upstream changes into your fork regularly. Diverging too far from main can be cumbersome to update at a later stage.
 - To pull in upstream changes:
 
-  .. code:: console
+  .. code-block:: console
 
    $ git remote add upstream https://github.com/QubesOS/qubes-doc.git
    $ git fetch upstream
 
 - Check the log and the current changes, before merging:
 
-  .. code:: console
+  .. code-block:: console
 
    $ git log upstream/main
 
 - Then merge the changes that you fetched:
 
-  .. code:: console
+  .. code-block:: console
 
    $ git merge upstream/main
 
@@ -255,7 +255,7 @@ The first part (before the colon) is the path of the file as with the `:doc: rol
 
 **When referencing some kind of code** use the corresponding role, eventually prefixed by the sub-project, as in:
 
-.. code:: rst
+.. code-block:: rst
 
    See :py:class:`core-admin:qubes.vm.dispvm.DispVM`
 

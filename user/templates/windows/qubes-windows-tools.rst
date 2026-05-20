@@ -150,13 +150,13 @@ Maybe in the future, this step will not be necessary anymore, because we will si
 
 QWT relies on PowerShell scripts. If the execution policy defined for PowerShell is set to `Restricted`, execution of these scripts is blocked. Before QWT installation, this should be checked using the PowerShell command
 
-.. code:: powershell
+.. code-block:: powershell
 
  	PS C:\> Get-ExecutionPolicy
  
 If script execution is blocked, it must be allowed using the following PowerShell command with administrator privileges:
 
-.. code:: powershell
+.. code-block:: powershell
 
 	PS C:\> Set-ExecutionPolicy Unrestricted
 
@@ -165,14 +165,14 @@ If script execution is blocked, it must be allowed using the following PowerShel
 
 **Warning:** It is recommended to increase the default value of the Windows VM’s ``qrexec_timeout`` property from 60 (seconds) to, for example, 300. During one of the first reboots after Windows Tools installation, Windows user profiles are moved onto the private VM’s virtual disk (private.img), and this operation can take some time. Moving profiles and, later on, updating a Windows installation, is performed in an early boot phase when ``qrexec`` is not yet running, so a timeout may occur with the default value. To change the property use this command in ``dom0``: *(where* ``<VMname>`` *is the name of your Windows VM)*
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-prefs <VMNAME> qrexec_timeout 7200
 
 
 To enable file copy operations to a Windows VM, the ``default_user`` property of this VM should be set to the ``<USERNAME>`` that you use to log in to the Windows VM. This can be done via the following command on a ``dom0`` terminal  (where ``<VMNAME>`` is the name of your Windows VM):
 
-   .. code:: console
+   .. code-block:: console
 
 	    [user@dom0 ~]$ qvm-prefs <VMNAME> default_user <USERNAME>
   
@@ -190,13 +190,13 @@ To enable file copy operations to a Windows VM, the ``default_user`` property of
 
 Additionally, these versions of Windows will not display the CD-ROM drive after starting the qube with
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-start <VMNAME> --cdrom ...
 
 or
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-start <VMNAME> --install-windows-tools
 
@@ -225,7 +225,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    - For use with **Windows 10 and 11**, you have to install the new version 4.2.2 of Qubes Windows Tools. In Qubes R4.3, the QWT package is already part of the repositories. So, QWT can be installed directy, without downloading anything, via
 
-     .. code:: console
+     .. code-block:: console
 
      	[user@dom0 ~]$ sudo qubes-dom0-update qubes-windows-tools
      	
@@ -238,7 +238,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 2. To install the Qubes Windows Tools in a Windows VM, one should start the VM passing the additional option ``--install-windows-tools``:
 
-   .. code:: console
+   .. code-block:: console
 
       [user@dom0 ~]$ qvm-start <VMNAME> --install-windows-tools
 
@@ -290,7 +290,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
 5. It is advisable to set some other parameters in order to enable audio and USB block device access, synchronize the Windows clock with the Qubes clock, and so on:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-features <VMNAME> audio-model ich9
          [user@dom0 ~]$ qvm-features <VMNAME> stubdom-qrexec 1
@@ -299,7 +299,7 @@ Installing the Qubes Windows Tools on Windows 7, 10, and 11, both as a Standalon
 
    For audio, the parameter ``audio-model`` can be selected as ``ich6`` or ``ich9``; select the value that gives the best audio quality. Audio quality may also be improved by setting the following parameters, but this can depend on the Windows version and on your hardware:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-features <VMNAME> timer-period 1000
          [user@dom0 ~]$ qvm-features <VMNAME> out.latency 10000
@@ -360,7 +360,7 @@ Windows Apps can be started using the Qubes menu. Alternatively, you can open th
 
 Once you start a Windows-based AppVM with Qubes Tools installed, you can easily start individual applications from the VM (note the ``-a`` switch used here, which will auto-start the VM if it is not running):
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-run -a my-win-appvm explorer.exe
 
@@ -370,7 +370,7 @@ Once you start a Windows-based AppVM with Qubes Tools installed, you can easily 
 
 Also, the inter-VM services work as usual – e.g. to request opening a document or URL in the Windows AppVM from another VM:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-open-in-vm my-win-appvm roadmap.pptx
       
@@ -452,7 +452,7 @@ Windows qubes can be used as disposables, like any other Linux-based qubes. On c
 
 - In the Qube Manager, refresh the applications of the newly created AppVM and select those applications that you want to make available from the disposable. Alternatively, in dom0 execute the command 
 
-.. code:: console
+.. code-block:: console
 
 		[user@dom0 ~]$ qvm-sync-appmenus <VMNAME>
 
@@ -460,7 +460,7 @@ where ``<VMNAME>`` is the name of your windows qube.
 
 - In the Qube Manager, go to the “Advanced” tab and enable the option ``Disposable template`` for your Windows qube. Alternatively, in dom0 execute the commands 
 
-.. code:: console
+.. code-block:: console
 
 		[user@dom0 ~]$ qvm-prefs <VMNAME> template_for_dispvms True
 		[user@dom0 ~]$ qvm-features <VMNAME> appmenus-dispvm 1``.
@@ -573,7 +573,7 @@ Troubleshooting
 If the VM is inaccessible (doesn’t respond to qrexec commands, gui is not functioning), try to boot it in safe mode:
 
 - 
-   .. code:: console
+   .. code-block:: console
 
 		[user@dom0 ~]$ qvm-start --debug <VMNAME>
 
@@ -627,7 +627,7 @@ Updates
 
 When we publish a new QWT version, it’s usually pushed to the ``current-testing`` or ``unstable`` repository first. To use versions from current-testing, run this in dom0:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing qubes-windows-tools
 

@@ -89,7 +89,7 @@ You can manage your templates using the ``Qubes Template Manager``, a GUI tool a
 
 At the command line in dom0, ``qvm-template list --available`` will show available templates. To install a template, use:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-template install  <template_name>
 
@@ -97,7 +97,7 @@ You can also use ``qvm-template`` to upgrade or reinstall templates.
 
 Repository (repo) definitions are stored in dom0 in ``/etc/qubes/repo-templates`` and associated keys in ``/etc/qubes/repo-templates/keys``. There are additional repos for testing releases and community templates. To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. E.g. :
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 
@@ -139,13 +139,13 @@ To remove a template, the graphical ``Qube Manager`` (Qubes Menu > Qubes Tools >
 
 Alternatively, to remove a template via the command line in dom0:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-template remove <TEMPLATE_NAME>
 
 <TEMPLATE_NAME> is the first column from the output of:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-template list --installed
 
@@ -173,13 +173,13 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
 
      In the App Menu, click on Terminal Emulator. Type the command below, substituting ``<SYS_USB_DISPOSABLE_TEMPLATE>`` with the name of the disposable template on which ``sys-usb`` is based, ``<NEW_TEMPLATE>`` with the name of the new template, and ``<USB_QUBE>`` with the name of your USB qube. Other than these substitutions, make sure to enter the command exactly as written.
 
-     .. code:: console
+     .. code-block:: console
 
            $ qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
 
      With substitutions, your command should look similar to this example. (**Warning:** This is just an example. Do not attempt to use it.)
 
-     .. code:: console
+     .. code-block:: console
 
            $ qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
 

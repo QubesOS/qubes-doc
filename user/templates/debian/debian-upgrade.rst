@@ -21,7 +21,7 @@ This page provides instructions for performing an in-place upgrade of an install
 Summary instructions for Debian templates
 -----------------------------------------
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
       [user@dom0 ~]$ qvm-run debian-<new> qubes-run-terminal &
@@ -44,28 +44,28 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 1. Ensure the existing template is not running.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-shutdown debian-<old>
 
 
 2. Clone the existing template and start a terminal in the new template.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-clone debian-<old> debian-<new>
          [user@dom0 ~]$ qvm-run debian-<new> qubes-run-terminal
 
 3. Update the new cloned template.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@debian-<new> ~]$ sudo apt update
          [user@debian-<new> ~]$ sudo apt upgrade
 
 4. Update your ``apt`` repositories to use the new release’s code name instead of the old release’s code name. (This can be done manually with a text editor, but ``sed`` can be used to automatically update the files.)
 
-   .. code:: console
+   .. code-block:: console
 
          [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list
          [user@debian-<new> ~]$ sudo sed -i 's/<old-name>/<new-name>/g' /etc/apt/sources.list.d/qubes-r4.list
@@ -74,7 +74,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 5. Update the package lists and upgrade. During the process, it may prompt you to overwrite the file ``qubes-r4.list``. You should overwrite this file.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@debian-<new> ~]$ sudo apt update
          [user@debian-<new> ~]$ sudo apt upgrade
@@ -84,7 +84,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 6. (Optional) Remove unnecessary packages that were previously installed.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@debian-<new> ~]$ sudo apt-get autoremove
 
@@ -92,7 +92,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 7. (Optional) Clean cached packages from ``/var/cache/apt``.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@debian-<new> ~]$ sudo apt-get clean
 
@@ -100,7 +100,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 8. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have `reported <https://github.com/QubesOS/qubes-issues/issues/5055>`__ that it makes a difference.)
 
-   .. code:: console
+   .. code-block:: console
 
          [user@debian-<new> ~]$ sudo fstrim -av
          [user@dom0 ~]$ qvm-shutdown debian-<new>
@@ -110,14 +110,14 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 9. Shut down the new template.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-shutdown debian-<new>
 
 
 10. Set the template-name, which is used by the Qubes updater.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-features debian-<new> template-name debian-<new>
 
@@ -128,7 +128,7 @@ These instructions will show you how to upgrade Debian templates. The same gener
 
 12. (Optional) Make the new template the global default.
 
-    .. code:: console
+    .. code-block:: console
 
           [user@dom0 ~]$ qubes-prefs --set default_template debian-<new>
 

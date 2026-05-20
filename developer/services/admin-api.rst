@@ -762,7 +762,7 @@ Not all settings needs to be set.
 
 Example backup profile:
 
-.. code:: yaml
+.. code-block:: yaml
 
    # Backup only selected VMs
    include:
@@ -780,7 +780,7 @@ Example backup profile:
 
 And slightly more advanced one:
 
-.. code:: yaml
+.. code-block:: yaml
 
    # Include all VMs with a few exceptions
    include:

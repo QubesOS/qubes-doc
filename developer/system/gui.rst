@@ -102,7 +102,7 @@ Window manager hints and flags are described in the `Extended Window Manager Hin
 
 Each message starts with the following header:
 
-.. code:: c
+.. code-block:: c
 
    struct msghdr {
        uint32_t type;
@@ -132,7 +132,7 @@ This header is followed by message-specific data:
           - Store the received clipboard content (not parsed in any way)
 
         * - MSG_CREATE
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_create {
                      uint32_t x;
@@ -149,7 +149,7 @@ This header is followed by message-specific data:
           - Destroy a window
 
         * - MSG_MAP
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_map_info {
                      uint32_t transient_for;
@@ -163,7 +163,7 @@ This header is followed by message-specific data:
           - Unmap a window
 
         * - MSG_CONFIGURE
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_configure {
                      uint32_t x;
@@ -176,7 +176,7 @@ This header is followed by message-specific data:
           - Change window position/size/type
 
         * - MSG_MFNDUMP
-          - .. code:: c
+          - .. code-block:: c
 
                    struct shm_cmd {
                      uint32_t shmid;
@@ -194,7 +194,7 @@ This header is followed by message-specific data:
             The “num_mfn” 32bit integers follow the shm_cmd structure; “off” is the offset of the composite buffer start in the first frame; “shmid” and “domid” parameters are just placeholders (to be filled by ``qubes-guid``), so that we can use the same structure when talking to ``shmoverride.so``.
 
         * - MSG_SHMIMAGE
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_shmimage {
                         uint32_t x;
@@ -206,7 +206,7 @@ This header is followed by message-specific data:
           - Repaint the given window fragment
 
         * - MSG_WMNAME
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_wmname {
                      char data[128];
@@ -219,7 +219,7 @@ This header is followed by message-specific data:
           - Dock the window in the tray
 
         * - MSG_WINDOW_HINTS
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_window_hints {
                         uint32_t flags;
@@ -236,7 +236,7 @@ This header is followed by message-specific data:
           - Size hints for window manager
 
         * - MSG_WINDOW_FLAGS
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_window_flags {
                         uint32_t flags_set;
@@ -246,7 +246,7 @@ This header is followed by message-specific data:
           - Change window state request; fields contains bitmask which flags request to be set and which unset
 
         * - MSG_CURSOR
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_cursor {
                         uint32_t cursor;
@@ -255,7 +255,7 @@ This header is followed by message-specific data:
           - Update cursor pointer for a window. Supported cursor IDs are default cursor (0) and `X Font cursors <https://tronche.com/gui/x/xlib/appendix/b/>`__ (with 0x100 bit set).
 
         * - MSG_WMCLASS
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_wmclass {
                        char res_class[64];
@@ -265,7 +265,7 @@ This header is followed by message-specific data:
           - Set the WM_CLASS property of a window.
 
         * - MSG_WINDOW_DUMP
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_window_dump_hdr {
                        uint32_t type;
@@ -276,7 +276,7 @@ This header is followed by message-specific data:
 
           - Header for shared memory dump command of type hdr.type. Currently only ``WINDOW_DUMP_TYPE_GRANT_REFS``  (0) is supported.
         * -     WINDOW_DUMP_TYPE_GRANT_REFS
-          -     .. code:: c
+          -     .. code-block:: c
 
                     struct msg_window_dump_grant_refs {
                         uint32_t refs[0];
@@ -295,7 +295,7 @@ Proper handling of the below messages is NOT security-critical.
 
 Each message starts with the following header
 
-.. code:: c
+.. code-block:: c
 
    struct msghdr {
            uint32_t type;
@@ -314,7 +314,7 @@ The header is followed by message-specific data:
           - Action
 
         * - MSG_KEYPRESS
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_keypress {
                      uint32_t type;
@@ -327,7 +327,7 @@ The header is followed by message-specific data:
           - Tell ``qubes_drv`` driver to generate a keypress
 
         * - MSG_BUTTON
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_button {
                      uint32_t type;
@@ -340,7 +340,7 @@ The header is followed by message-specific data:
           - Tell   ``qubes_drv``  driver to generate mouseclick
 
         * - MSG_MOTION
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_motion {
                      uint32_t x;
@@ -351,7 +351,7 @@ The header is followed by message-specific data:
 
           - Tell  ``qubes_drv``  driver to generate motion event
         * - MSG_CONFIGURE
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_configure {
                      uint32_t x;
@@ -364,7 +364,7 @@ The header is followed by message-specific data:
           - Change window position/size/type
 
         * - MSG_MAP
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_map_info {
                      uint32_t transient_for;
@@ -378,7 +378,7 @@ The header is followed by message-specific data:
           - send wmDeleteMessage to the window
 
         * - MSG_CROSSING
-          - .. code:: c
+          - .. code-block:: c
 
                    struct msg_crossing {
                      uint32_t type;
@@ -394,7 +394,7 @@ The header is followed by message-specific data:
 
         * - MSG_FOCUS
 
-          - .. code:: c
+          - .. code-block:: c
 
               struct msg_focus {
                 uint32_t type;
@@ -421,7 +421,7 @@ The header is followed by message-specific data:
           - Synchronize the keyboard state (key pressed/released) with dom0
 
         * - MSG_WINDOW_FLAGS
-          - .. code:: c
+          - .. code-block:: c
 
               struct msg_window_flags {
                 uint32_t flags_set;

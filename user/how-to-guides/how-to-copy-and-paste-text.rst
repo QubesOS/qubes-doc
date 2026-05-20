@@ -62,7 +62,7 @@ The copy/paste shortcuts are configurable via :program:`Qubes OS Global Config`,
 You can also change them using :doc:`qvm-features <core-admin-client:manpages/qvm-features>`.
 The following commands would change the *copy/paste to global clipboard* shortcuts to :kbd:`Win` + :kbd:`c` for copy, and :kbd:`Win` + :kbd:`v` for paste:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0] $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
       [user@dom0] $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'

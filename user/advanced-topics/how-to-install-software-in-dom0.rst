@@ -32,7 +32,7 @@ How to install a specific package
 
 To install additional packages in dom0 (usually not recommended):
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update anti-evil-maid
 
@@ -48,7 +48,7 @@ How to downgrade a specific package
 
 To downgrade a specific package in dom0:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update --action=downgrade package-version
 
@@ -60,7 +60,7 @@ How to re-install a package
 
 To re-install a package in dom0:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update --action=reinstall package
 
@@ -72,7 +72,7 @@ How to uninstall a package
 
 If you’ve installed a package such as anti-evil-maid, you can remove it with the following command:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf remove anti-evil-maid
 
@@ -97,7 +97,7 @@ If you wish to install updates that are still in :doc:`testing </user/downloadin
 
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
       $ sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
@@ -155,7 +155,7 @@ Example
 
 (Note that the following example enables the unstable repo.)
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 
@@ -169,7 +169,7 @@ EFI
 
 Replace the example version numbers with the one you are upgrading to.
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
 
@@ -179,7 +179,7 @@ Grub2
 ^^^^^
 
 
-.. code:: console
+.. code-block:: console
 
       $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -196,14 +196,14 @@ Changing default kernel
 This section describes changing the default kernel in dom0. It is sometimes needed if you have upgraded to a newer kernel and are having problems booting, for example. On the next kernel update, the default will revert to the newest.
 
 
-.. code:: console
+.. code-block:: console
 
       $ sudo nano /etc/default/grub
 
 
 Update the following two lines, add if needed:
 
-.. code:: bash
+.. code-block:: bash
 
       GRUB_DISABLE_SUBMENU=false
       GRUB_SAVEDEFAULT=true
@@ -211,7 +211,7 @@ Update the following two lines, add if needed:
 
 Save and exit nano. Regenerate the GRUB 2 configuration.
 
-.. code:: console
+.. code-block:: console
 
       $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 

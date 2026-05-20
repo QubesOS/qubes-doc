@@ -51,24 +51,24 @@ How to enable a service with :program:`qvm-service`
 
 In a dom0 terminal, enter the following command, replacing :samp:`{<QUBE_NAME>}` by the name of the qube and :samp:`{<SERVICE_NAME>}` by the name of the service:
 
-.. code:: console
+.. code-block:: console
 
    [user@dom0] $ qvm-service -e <QUBE_NAME> <SERVICE_NAME>
 
 This is equivalent to:
 
-.. code:: console
+.. code-block:: console
 
    [user@dom0] $ qvm-service <QUBE_NAME> <SERVICE_NAME> on
 
 You can check the current status of the services of one qube with the following command:
 
-.. code:: console
+.. code-block:: console
 
    [user@dom0] $ qvm-service <QUBE_NAME>
 
 Or you can check only the current status of one service with the following command:
 
-.. code:: console
+.. code-block:: console
 
    [user@dom0] $ qvm-service <QUBE_NAME> <SERVICE_NAME>

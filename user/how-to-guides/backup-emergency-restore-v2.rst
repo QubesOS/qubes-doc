@@ -11,7 +11,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 1. Untar the main backup file.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore ~]$ tar -i -xvf qubes-backup-2013-12-26-123456
          backup-header
@@ -33,7 +33,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore ~]$ read -r backup_pass
 
@@ -41,7 +41,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 3. Verify the integrity of the ``private.img`` file which houses your data.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore ~]$ cd vm1/
          [user@restore vm1]$ openssl dgst -sha512 -hmac "$backup_pass" private.img.000
@@ -59,7 +59,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 4. Decrypt the ``private.img`` file.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore vm1]$ openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -in private.img.000 -out private.img.dec.000
 
@@ -71,7 +71,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 **Note:** For multi-part files, a loop can be used:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
       find -name 'private.img.*' | sort -V | while read f; do
@@ -85,7 +85,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 5. Decompress the decrypted ``private.img`` file.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore vm1]$ zforce private.img.dec.*
          [user@restore vm1]$ gunzip private.img.dec.000.gz
@@ -100,7 +100,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 6. Untar the decrypted and decompressed ``private.img`` file.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore vm1]$ tar -M -xvf private.img.dec.000
          vm1/private.img
@@ -110,7 +110,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
    1. Create a ``new-volume-script``:
 
-      .. code:: bash
+      .. code-block:: bash
 
             #!/bin/sh
             name=`expr $TAR_ARCHIVE : '\(.*\)\..*'`
@@ -127,7 +127,7 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 
 7. Mount the private.img file and access your data.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@restore vm1]$ sudo mkdir /mnt/img
          [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/

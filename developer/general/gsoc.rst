@@ -49,7 +49,7 @@ A project proposal is what you will be judged upon. Write a clear proposal on wh
 
 Below is the application template:
 
-.. code:: markdown
+.. code-block:: markdown
 
       # Introduction
 

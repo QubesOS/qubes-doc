@@ -53,7 +53,7 @@ Edit a policy with :program:`Qubes Policy Editor`
 
 3. Add a line to the file. In order to prevent the *untrusted* qube from pasting to the *vault* qube, the line should be:
 
-   .. code:: text
+   .. code-block:: text
 
       qubes.ClipboardPaste *       untrusted       vault   deny
 
@@ -64,7 +64,7 @@ Edit a policy with :program:`qubes-policy-editor`
 
 :program:`qubes-policy-editor` is a command-line tool that ensures that the syntax of the policy is valid. You have to run it as root:
 
-.. code:: console
+.. code-block:: console
 
    [root@dom0] # qubes-policy-editor
 
@@ -72,7 +72,7 @@ An editor will open; it will be your default editor if you have set the environm
 
 It will open :file:`30-user.policy` by default but you can invoke the program with any valid filename (only alphanumeric characters, underscores and hyphens), without the ``.policy`` extension:
 
-.. code:: console
+.. code-block:: console
 
    [root@dom0] # qubes-policy-editor 30-clipboard
 

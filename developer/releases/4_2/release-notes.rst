@@ -91,7 +91,7 @@ Notes
 
   - Users who wish to opt for the more restrictive 4.2.0 and 4.2.1 behavior can do so by modifying their RPC policy rules. To switch a single rule to the more restrictive behavior, change ``*`` in the argument column to ``+`` (i.e., change “any argument” to “only empty”). To use the more restrictive behavior globally, add the following “deny” rule before all other relevant rules:
 
-    .. code:: text
+    .. code-block:: text
 
           qubes.Filecopy    +allow-all-names    @anyvm    @anyvm    deny
 
