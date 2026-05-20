@@ -45,7 +45,7 @@ You will need to create a :doc:`custom libvirt config <core-admin:libvirt>` for 
 
 
 
-.. code:: xml+jinja
+.. code-block:: xml+jinja
 
 
       {% extends 'libvirt/xen.xml' %}
@@ -98,7 +98,7 @@ Host and target preparation
 
   - ``kdnet`` should show that the NIC is supported, note the busparams:
 
-    .. code:: text
+    .. code-block:: text
 
           Network debugging is supported on the following NICs:
           busparams=0.6.0, Intel(R) PRO/1000 MT Network Connection, KDNET is running on this NIC.
@@ -117,7 +117,7 @@ Host and target preparation
 
 - Reboot ``target-vm``, debugging should start:
 
-  .. code:: text
+  .. code-block:: text
 
         Waiting to reconnect...
         Connected to target 10.137.0.19 on port 50000 on local IP 10.137.0.20.

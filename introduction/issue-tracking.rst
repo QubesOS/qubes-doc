@@ -216,7 +216,7 @@ Use collapsible sections for long, nonessential content
 
 On GitHub, create collapsible sections in Markdown like so:
 
-.. code:: html
+.. code-block:: html
 
       <details>
       <summary>Summary goes here. This line is optional.</summary>

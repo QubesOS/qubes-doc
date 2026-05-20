@@ -15,7 +15,7 @@ Alice, the software developer
 
 Alice is a freelance dev who works on several projects for different clients simultaneously. The projects have varying requirements and often different build environments. She has a separate set of qubes for each project. She keeps them organized by coming up with a naming scheme, such as:
 
-.. code:: text
+.. code-block:: text
 
       clientA-code
       clientA-build

@@ -55,7 +55,7 @@ In order to use it, you should use an rpm-based distro, like Fedora :), and shou
 
 Usually you can install those packages by just issuing:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap python3-pyyaml devscripts perl-Digest-MD5 perl-Digest-SHA
 
@@ -65,14 +65,14 @@ The build system creates build environments in chroots and so no other packages 
 The build system is configured via builder.conf file. You can use the setup.sh script to create and modify this file. Alternatively, you can copy the provided default builder.conf, and modify it as needed, e.g.:
 
 
-.. code:: console
+.. code-block:: console
 
       $ cp example-configs/qubes-os-master.conf builder.conf
 
 
 Edit the builder.conf file and set the following variables:
 
-.. code:: bash
+.. code-block:: bash
 
       NO_SIGN=1
 
@@ -81,7 +81,7 @@ One additional useful requirement is that ‘sudo root’ must work without any 
 
 Additionally, if building with signing enabled (NO_SIGN is not set), you must adjust ``\~/.rpmmacros`` file so that it points to the GPG key used for package signing, e.g.:
 
-.. code:: text
+.. code-block:: text
 
       %_signature gpg
       %_gpg_path /home/user/.gnupg
@@ -94,14 +94,14 @@ So, to build Qubes you would do:
 
 Import the Qubes master key:
 
-.. code:: console
+.. code-block:: console
 
       $ gpg --recv-keys 0xDDFA1A3E36879494
 
 
 Verify its fingerprint, set as 'trusted'. This is described :doc:`here </project-security/verifying-signatures>`.
 
-.. code:: console
+.. code-block:: console
 
       $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
       $ gpg --import qubes-developers-keys.asc
@@ -112,42 +112,42 @@ Verify its fingerprint, set as 'trusted'. This is described :doc:`here </project
 
 Verify its integrity:
 
-.. code:: console
+.. code-block:: console
 
       $ git tag -v `git describe`
 
 
 Copy the example ``builder.conf``:
 
-.. code:: console
+.. code-block:: console
 
       $ cp example-configs/qubes-os-master.conf builder.conf
 
 
 Edit the builder.conf file and set the following variables:
 
-.. code:: bash
+.. code-block:: bash
 
       # NO_SIGN="1"
 
 
 Download all components:
 
-.. code:: console
+.. code-block:: console
 
       $ make get-sources
 
 
 And now to build all Qubes RPMs (this will take a few hours):
 
-.. code:: console
+.. code-block:: console
 
       $ make qubes
 
 
 ... and then to build the ISO
 
-.. code:: console
+.. code-block:: console
 
       $ make iso
 
@@ -156,7 +156,7 @@ And this should produce a shiny new ISO.
 
 You can also build selected component separately. Eg. to compile only gui virtualization agent/daemon:
 
-.. code:: console
+.. code-block:: console
 
       $ make gui-daemon
 
@@ -185,7 +185,7 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 3. Download unmodified sources
 
-   .. code:: console
+   .. code-block:: console
 
          $ make get-sources
 
@@ -196,14 +196,14 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 
 6. ``get-sources`` is already done, so continue with the next one. You can skip ``sign-all`` if you’ve disabled signing
 
-   .. code:: console
+   .. code-block:: console
 
          $ make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-qubes-os manager linux-dom0-updates
 
 
 7. build iso installation image
 
-   .. code:: console
+   .. code-block:: console
 
          $ make iso
 
@@ -220,7 +220,7 @@ For building just a few selected packages, it’s very useful to download pre-bu
 
 Before creating the ``chroot``, add this to your ``builder.conf``:
 
-.. code:: bash
+.. code-block:: bash
 
       USE_QUBES_REPO_VERSION = $(RELEASE)
 
@@ -228,7 +228,7 @@ Before creating the ``chroot``, add this to your ``builder.conf``:
 
 It will add the ‘current’ Qubes repository to your ``chroot`` environment. Next, specify which components (``gcc``, for example) you want to download instead of compiling:
 
-.. code:: bash
+.. code-block:: bash
 
       COMPONENTS := $(filter-out gcc,$(COMPONENTS))
 
@@ -238,7 +238,7 @@ Alternatively, edit the actual COMPONENTS list which is defined in the included 
 
 If you also want to use the ‘current-testing’ repository, add this to your configuration:
 
-.. code:: bash
+.. code-block:: bash
 
       USE_QUBES_REPO_TESTING = 1
 
@@ -256,7 +256,7 @@ Code verification keys management
 
 :doc:`QubesBuilder </developer/building/qubes-builder>` by default verifies signed tags on every downloaded code. Public keys used for that are stored in ``keyrings/git``. By default Qubes developers’ keys are imported automatically, but if you need some additional keys (for example your own), you can add them using:
 
-.. code:: bash
+.. code-block:: bash
 
       GNUPGHOME=$PWD/keyrings/git gpg --import /path/to/key.asc
       GNUPGHOME=$PWD/keyrings/git gpg --edit-key ID_OF_JUST_IMPORTED_KEY

@@ -55,7 +55,7 @@ General typographic conventions
 
 - **Comments should be indented together with the code**, e.g. like this:
 
-  .. code:: c
+  .. code-block:: c
 
         for (...) {
             // The following code finds PGP private key matching the given public key in O(1)
@@ -120,7 +120,7 @@ General programming style guidelines
 
 - Do **not** use comments for code fragments where it is immediately clear what the code does. E.g. avoid constructs like this:
 
-  .. code:: c
+  .. code-block:: c
 
         // Return window id
         int get_window_id (...) {
@@ -132,7 +132,7 @@ General programming style guidelines
 
 - Do **not** use comments to disable code fragments. In production code there should really be no commented or disabled code fragments. If you really, really have a good reason to retain some fragment of unused code, use #if or #ifdef to disable it, e.g.:
 
-  .. code:: c
+  .. code-block:: c
 
         #if 0
             (...)   // Some unused code here
@@ -141,7 +141,7 @@ General programming style guidelines
 
   … and preferably use some descriptive macro instead of just ``0``, e.g.:
 
-  .. code:: c
+  .. code-block:: c
 
         #if USE_OLD_WINDOW_TRAVERSING
             (...)   // Some unused code here
@@ -214,7 +214,7 @@ Security coding guidelines
 
 - Use ``untrusted_`` prefix for all variables that hold values read from untrusted party and which have not yet been verified to be decent, e.g.:
 
-  .. code:: c
+  .. code-block:: c
 
         read_struct(untrusted_conf);
         /* sanitize start */

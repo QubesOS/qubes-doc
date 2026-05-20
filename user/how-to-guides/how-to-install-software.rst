@@ -61,7 +61,7 @@ If you are still using the distribution package manager, updates will likely sti
 
 If you are using another installation method fetching remote resources, you might still be able to use the updates proxy by making the tools aware of the proxy. For many tools, it is enough to export the following environment variables in your shell session before proceeding:
 
-.. code:: console
+.. code-block:: console
 
       $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
                HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
@@ -155,7 +155,7 @@ There are three Qubes VM testing repositories (where ``*`` denotes the Release):
 
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
       $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
@@ -196,7 +196,7 @@ RPMFusion for Fedora templates
 
 If you would like to enable the `RPM Fusion <https://rpmfusion.org>`__ repositories, open a Terminal of the template and type the following commands, depending on which RPM Fusion repositories you wish to enable (see `RPM Fusion <https://rpmfusion.org>`__ for details):
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
       $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
@@ -228,7 +228,7 @@ Root revert
 
 2. In a dom0 terminal:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0]$ qvm-volume revert <template>:root
 
@@ -270,7 +270,7 @@ The updates proxy uses RPC/qrexec. The proxy is configured in qrexec policy in d
 
 Example policy file in R4.2 (with Whonix installed, but not set as default UpdateVM for all templates):
 
-.. code:: text
+.. code-block:: text
 
       # HTTP proxy for downloading updates
       # Upgrade all TemplateVMs through sys-whonix.
@@ -291,7 +291,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
 1. In the **template** you must install ``snapd`` and ``qubes-snapd-helper``. Open a terminal in the template and run:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
          Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
@@ -328,7 +328,7 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
    You may see the following message:
 
-   .. code:: console
+   .. code-block:: console
 
          Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
          /usr/sbin/semodule:  Failed!
@@ -336,13 +336,13 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
    This is expected and you can safely continue.
    Shutdown the template:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
 
 2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@snap-demo-app qube ~]$ snap install <package>
 
@@ -361,7 +361,7 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 2. List the names of the available desktop shortcuts by running the command ``ls /usr/share/applications`` and find the exact name of the shortcut to the app you want to autostart:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@example-app qube ~]$ ls /usr/share/applications/
          bluetooth-sendto.desktop
@@ -373,13 +373,13 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
 3. Create the autostart directory:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@example-app qube ~]$ mkdir -p ~/.config/autostart
 
 4. Make a link to the desktop app file you’d like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 

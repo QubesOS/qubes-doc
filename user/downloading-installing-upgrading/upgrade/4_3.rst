@@ -37,13 +37,13 @@ If you would prefer to perform a clean installation rather than upgrading in-pla
 
    1. :ref:`Install in dom0 <install-package-in-dom0>` the :program:`qubes-dist-upgrade` tool, in order to be able to upgrade the templates to the Qubes 4.3 version:
 
-      .. code:: console
+      .. code-block:: console
 
          [user@dom0] $ sudo qubes-dom0-update qubes-dist-upgrade
 
    2. Change your templates to use the 4.3 repositories instead of the 4.2 ones. You do this with the following command in the dom0 terminal:
 
-      .. code:: console
+      .. code-block:: console
 
           [user@dom0] $ sudo qubes-dist-upgrade --releasever=4.3 --template-standalone-upgrade
 
@@ -65,13 +65,13 @@ How-to upgrade from Qubes 4.2 to Qubes 4.3 in-place
 
 1. You have to :ref:`install qubes-dist-upgrade in dom0 <install-package-in-dom0>`:
 
-   .. code:: console
+   .. code-block:: console
 
       [user@dom0] $ sudo qubes-dom0-update qubes-dist-upgrade
 
 2. After installing the tool, pre-reboot stages can be performed at once with:
 
-   .. code:: console
+   .. code-block:: console
 
       [user@dom0] $ sudo qubes-dist-upgrade --releasever 4.3 --all-pre-reboot
 
@@ -83,7 +83,7 @@ How-to upgrade from Qubes 4.2 to Qubes 4.3 in-place
 
 4. Then perform the final steps:
 
-   .. code:: console
+   .. code-block:: console
 
       [user@dom0] $ sudo qubes-dist-upgrade --releasever 4.3 --all-post-reboot
 

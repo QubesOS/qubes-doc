@@ -36,7 +36,7 @@ With the command-line interface
 
 To update the list of available applications, use the ``qvm-sync-appmenus`` command in dom0, replacing ``<QUBE_NAME>`` by the qube name:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0] $ qvm-sync-appmenus <QUBE_NAME>
 
@@ -44,7 +44,7 @@ To update the list of available applications, use the ``qvm-sync-appmenus`` comm
 
 When using the :guilabel:`Refresh Applications` button in a qube’s settings, the command ``qvm-sync-appmenus`` is used at least one time. When refreshing an AppVM application, it is also run against the template. So the console equivalent of clicking the :guilabel:`Refresh Applications` button is the following (always in dom0):
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0] $ qvm-sync-appmenus <APPVM_NAME>
       [user@dom0] $ qvm-sync-appmenus <TEMPLATE_NAME>
@@ -53,7 +53,7 @@ When using the :guilabel:`Refresh Applications` button in a qube’s settings, t
 
 In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available applications (unstable feature), the whitelist of currently show application (unstable feature) and to change this list:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0] $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 
@@ -61,7 +61,7 @@ In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available 
 
 To change the whitelist shown in app menu, you need to provide a list of the desktop entries. Each line contains a desktop entry name, with its ``.desktop`` extension, like this:
 
-.. code:: text
+.. code-block:: text
 
       qubes-open-file-manager.desktop
       qubes-run-terminal.desktop
@@ -87,7 +87,7 @@ You can manually create new entries in the “available applications” list of 
 
 2. Create a custom ``.desktop`` file in :file:`/usr/share/applications` (you may need to first create the subdirectory). Look in :file:`/usr/share/applications` for existing examples, or see the full `.desktop file format <https://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html>`__ specification. It will be something like:
 
-   .. code:: desktop
+   .. code-block:: desktop
 
          [Desktop Entry]
          Type=Application
@@ -120,7 +120,7 @@ To add a custom menu entry instead:
 
 4. Add a custom menu entry referring to your newly created ``.desktop`` file.
 
-   .. code:: xml
+   .. code-block:: xml
 
          <Menu>
               <Name>Webmail</Name>
@@ -161,7 +161,7 @@ What if a removed application is still in the app menu?
 
 First, try this in dom0:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0] $ qvm-appmenus --update --force <QUBE_NAME>
 
@@ -169,7 +169,7 @@ First, try this in dom0:
 
 You can also try:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0] $ qvm-appmenus --remove <QUBE_NAME>
 
@@ -187,7 +187,7 @@ First, check in the corresponding ``.desktop`` file in :file:`~/.local/share/qub
 
 The line starting with ``Exec=`` points out the exact command run by dom0 to start the application. It should be something like:
 
-.. code:: desktop
+.. code-block:: desktop
 
       Exec=qvm-run -q -a --service -- <QUBE_NAME> qubes.StartApp+<APPLICATION_NAME>
 
@@ -195,7 +195,7 @@ The line starting with ``Exec=`` points out the exact command run by dom0 to sta
 
 It’s possible to run the command to check the output, by copying this line without ``Exec=``, and remove ``-q`` (quiet option). But it could be more useful to run it in the qube, with the ``qubes.StartApp`` service:
 
-.. code:: console
+.. code-block:: console
 
       [user@any-qube] $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
 
@@ -215,7 +215,7 @@ The whitelist given to ``qvm-appmenu --set-whitelist`` is stored as a feature ca
 
 Actual command lines for the menu shortcuts involve the ``qvm-run`` command which starts a process in another domain. Examples:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
       $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
@@ -224,7 +224,7 @@ Actual command lines for the menu shortcuts involve the ``qvm-run`` command whic
 
 Note that you can create a shortcut that points to a ``.desktop`` file in your app qube with e.g.:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-run -q -a --service -- personal qubes.StartApp+firefox
 

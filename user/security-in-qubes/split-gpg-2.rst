@@ -28,7 +28,7 @@ Create a policy for Split GPG-2
 
 **In dom0**, :doc:`create or edit an RPC policy </user/how-to-guides/how-to-edit-a-policy>`. Add a line like the following and make sure to replace :samp:`{client-qube}` and :samp:`{server-qube}` by the appropriate values.
 
-.. code:: text
+.. code-block:: text
 
       qubes.Gpg2 + client-qube @default allow target=server-qube
 
@@ -39,13 +39,13 @@ Generate or import the secret keys in the *server qube*
 
 * either generate your secret keys, like this:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@server-qube] $ gpg --gen-key
 
 * or, if you want to use some old keys, previously generated in another qube, import them and the ownertrust. Make sure to replace :file:`/home/user/QubesIncoming/{<SOME_OTHER_QUBE>}/{[...]}` by the path of the expected file:
 
-   .. code:: console
+   .. code-block:: console
 
          [user@server-qube] $ gpg --import /home/user/QubesIncoming/<SOME_OTHER_QUBE>/secret-keys-export
          [user@server-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/<SOME_OTHER_QUBE>/ownertrust-export
@@ -54,7 +54,7 @@ Generate or import the secret keys in the *server qube*
 
 In both situations, you have to export the public part of your keys and the "ownertrust" values in the *client qube*:
 
-.. code:: console
+.. code-block:: console
 
  [user@server-qube] $ gpg --export > public-keys-export
  [user@server-qube] $ gpg --export-ownertrust > ownertrust-export
@@ -75,7 +75,7 @@ Import the public keys and ownertrust
 
 If you have previously exported the public keys and the "ownertrust" values from the *server qube*. Now, you have to import them in the *client qube*. Replace the following paths by the correct values.
 
-.. code:: console
+.. code-block:: console
 
       [user@client-qube] $ gpg --import /home/user/QubesIncoming/server-qube/public-keys-export
       [user@client-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/server-qube/ownertrust-export
@@ -85,7 +85,7 @@ Check that Split GPG-2 works
 
 You should be able to run ``gpg -K`` in the *client qube*:
 
-.. code:: console
+.. code-block:: console
 
       [user@client-qube] $ gpg -K
       /home/user/.gnupg/pubring.kbx
@@ -117,7 +117,7 @@ If you want to change some server option, copy :file:`/usr/share/doc/split-gpg2/
 
 By setting up some values in the configuration file, you can change some parameters. The configurations files are INI files, you can set global options in the ``DEFAULT`` section, or provide some client specific options in their own :samp:`client:{QUBE_NAME}` section (where ``QUBE_NAME`` is the name of the client). The following configuration is an example where no qube is automatically accepted besides *personal* qube:
 
-.. code:: ini
+.. code-block:: ini
 
    [DEFAULT]
    autoaccept = no

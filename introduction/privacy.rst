@@ -26,7 +26,7 @@ Please refer to RTD's `privacy policy <https://docs.readthedocs.com/platform/sta
 for more information.
 As per RTD site, the TL;DR version is as follows:
 
-.. code:: text
+.. code-block:: text
 
    RTD collects information only with consent; only the minimum amount of personal information that is necessary to fulfill the purpose of the interaction with RTD;
    doesn’t sell it to third parties; and only use it as the above Privacy Policy describes.

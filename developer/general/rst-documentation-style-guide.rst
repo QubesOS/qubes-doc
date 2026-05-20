@@ -28,10 +28,10 @@ provided by `Docutils <https://www.docutils.org/>`__ and extended by `Sphinx <ht
 Directives are used to insert non-paragraph content, such as images, tables, and code blocks.
 Example directives are:
 
-.. code:: rst
+.. code-block:: rst
 
    .. image::
-   .. code::
+   .. code-block::
    .. figure::
 
 Directives start with ``..``, followed by directive name, arguments, options, and indented content.
@@ -42,7 +42,7 @@ Images
 To include images (without a caption), use the ``image`` directive.
 You need to specify the path to the image and an alt text.
 
-.. code:: rst
+.. code-block:: rst
 
   .. image:: path/to/image.png
      :alt: Alternative text
@@ -64,7 +64,7 @@ Lists
 
 Nested lists must be separated from the parent list items by blank lines:
 
-.. code:: rst
+.. code-block:: rst
 
   - Item 1
   - Item 2
@@ -76,7 +76,7 @@ Nested lists must be separated from the parent list items by blank lines:
 
 Numbered lists can be autonumbered using the ``#`` sign.
 
-.. code:: rst
+.. code-block:: rst
 
   #. Item 1
   #. Item 2
@@ -96,9 +96,9 @@ or `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/dire
 
 By specifying the language, you enable pygments, which show syntax color coding for that code sample (see `here <https://pygments.org/languages/>`__ for a list of supported languages).
 
-.. code:: rst
+.. code-block:: rst
 
-   .. code:: language
+   .. code-block:: language
 
       code
 
@@ -108,15 +108,15 @@ Use ``[...]`` for anything omitted.
 
 For inlining small code snippets you can use the `code role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-code>`__ as in
 
-.. code:: rst
+.. code-block:: rst
 
    :code:`:term:`qube``
 
 You can add line numbers to code examples with the ``:linenos:`` parameter.
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: python
+    .. code-block:: python
       :linenos:
 
        def hello_world():
@@ -125,50 +125,50 @@ You can add line numbers to code examples with the ``:linenos:`` parameter.
 
 You can have certain lines with the ``:emphasize-lines:`` parameter.
 
-.. code:: rst
+.. code-block:: rst
 
- .. code:: python
+ .. code-block:: python
    :emphasize-lines: 1,3,4
 
 
 
 For Python use ``python``.
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: python
+    .. code-block:: python
 
       string_var = 'python'
 
 For Bash use ``bash``.
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: bash
+    .. code-block:: bash
 
        #!/bin/bash
 
 For a terminal session use ``console``.
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: console
+    .. code-block:: console
 
        $ echo "Hello"
 
 For text output use ``output``.
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: output
+    .. code-block:: output
 
        some output
 
 For text use ``text``.
 
-.. code:: rst
+.. code-block:: rst
 
-    .. code:: text
+    .. code-block:: text
 
        some text
 
@@ -180,7 +180,7 @@ We adhere to the list tables directive by docutils as described `here <https://d
 
 A simple example would be:
 
-    .. code:: rst
+    .. code-block:: rst
 
         .. list-table::
            :widths: 15 10
@@ -204,7 +204,7 @@ They are typically styled as colored text boxes, usually accompanied by icons pr
 
 Here are examples of several types of alerts:
 
-.. code:: rst
+.. code-block:: rst
 
      .. hint::
         If you would like to avoid prefixing commands with [...]
@@ -235,7 +235,7 @@ These render as:
 
 You can also provide a `custom title to the admonition <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-admonition>`_:
 
-.. code:: rst
+.. code-block:: rst
 
    .. admonition:: Did you know?
 
@@ -252,7 +252,7 @@ Glossary
 
 Most of the `glossaries <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#glossary>`__ are present in :file:`/user/reference/glossary.rst`, like:
 
-.. code:: rst
+.. code-block:: rst
 
    .. glossary::
 
@@ -275,7 +275,7 @@ and thus enhance the readability and consistency of the documentation.
 
 Syntax is as follows:
 
-.. code:: rst
+.. code-block:: rst
 
    :rolename:`content`
 
@@ -306,7 +306,7 @@ Cross-referencing a page
 
 To cross-reference a page, use the `doc role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-doc>`__ with a path. To get a link to the file called :file:`intro.rst` in the :file:`introduction/` directory, use:
 
-  .. code:: rst
+  .. code-block:: rst
 
    :doc:`/introduction/intro`
 
@@ -317,7 +317,7 @@ Cross-referencing a section with a header
 
 To cross-reference a section with a header, use the `ref role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref>`__ with a path and the reStructuredText content of the header, separated by a colon:
 
-  .. code:: rst
+  .. code-block:: rst
 
    :ref:`introduction/intro:What is Qubes OS?`
 
@@ -325,13 +325,13 @@ Note that with the `ref role <https://www.sphinx-doc.org/en/master/usage/restruc
 
 You can get a list of the generated labels after building the documentation. If your build directory is :file:`_build/html`, run the following:
 
-.. code:: console
+.. code-block:: console
 
    [~/qubes-doc] $ python3 -m sphinx.ext.intersphinx _build/html/objects.inv
 
 You can also run that command against the current online version of the docs:
 
-.. code:: console
+.. code-block:: console
 
    $ python3 -m sphinx.ext.intersphinx https://doc.qubes-os.org/en/latest/objects.inv
 
@@ -350,7 +350,7 @@ Frequently linked sections, especially when they have a long name can be referen
 
 First, you have to create a custom label, **only use lowercase alphanumeric characters and hyphens**:
 
-.. code:: rst
+.. code-block:: rst
 
    .. _disposable-with-pci-devices:
 
@@ -365,7 +365,7 @@ Now, to reference this label, use the custom label instead of the path and the h
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           :ref:`disposable-with-pci-devices`
 
@@ -388,7 +388,7 @@ Most cross-references can generate an automatic title. If it doesn't fit the sen
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           :ref:`without PCI devices <disposable-with-pci-devices>`
 
@@ -411,7 +411,7 @@ To do such a cross-reference, use the usual cross-reference syntax but with the 
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           :doc:`core-admin:index`
 
@@ -425,7 +425,7 @@ Even if it works without it, **always prefix the external cross-references** wit
 
    Intersphinx `can list all the available links <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#showing-all-links-of-an-intersphinx-mapping-file>`__ to another project with the following command:
 
-   .. code:: console
+   .. code-block:: console
 
        python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
 
@@ -445,7 +445,7 @@ You can create a reference to `any documented python objects <https://www.sphinx
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           :option:`core-admin-client:qubes-prefs --help`
      - :option:`core-admin-client:qubes-prefs --help`
@@ -458,7 +458,7 @@ You can create a reference to `any documented python objects <https://www.sphinx
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           :py:class:`core-admin:qubes.vm.dispvm.DispVM`
 
@@ -472,7 +472,7 @@ Do not use a :ref:`custom title <customizing-text-link>` to shorten the link lab
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           :py:class:`~core-admin:qubes.vm.dispvm.DispVM`
 
@@ -480,7 +480,7 @@ Do not use a :ref:`custom title <customizing-text-link>` to shorten the link lab
 
 **If a cross-reference points to a missing reference** (i.e.: reference to a removed component), prefix the reference with an exclamation mark (``!``). If the function :py:func:`!old_function` has been removed but is still referenced, to discuss the old implementation use:
 
-.. code:: rst
+.. code-block:: rst
 
    :py:func:`!old_function`
 
@@ -489,13 +489,13 @@ Hyperlink to other websites syntax
 
 Use `embedded links <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#external-links>`__ like
 
-.. code:: rst
+.. code-block:: rst
 
     `website <https://example.com/>`__
 
 **Do not use reference-style links** like
 
-.. code:: rst
+.. code-block:: rst
 
    Some text link_
 
@@ -536,7 +536,7 @@ Although possible, using a level under the paragraph level should be avoided.
 
 Here is a simple example of a page with a title and three nested levels of heading:
 
-.. code:: rst
+.. code-block:: rst
 
   ==========
   Main Title
@@ -561,19 +561,19 @@ Emphasis and Italics
 
 - *Italics*: Use single asterisks
 
- .. code:: rst
+ .. code-block:: rst
 
     *italics*
 
 - **Bold**: Use double asterisks.
 
- .. code:: rst
+ .. code-block:: rst
 
     **bold**
 
 - ``Monospace``: Use backticks.
 
- .. code:: rst
+ .. code-block:: rst
 
     ``monospace``
 
@@ -620,11 +620,11 @@ Writing command-line examples
 
    * - reStructuredText markup
      - output
-   * - .. code:: rst
+   * - .. code-block:: rst
 
           Open a terminal in dom0 and run:
 
-          .. code:: console
+          .. code-block:: console
 
              [user@dom0] $ cd test
              [user@dom0 ~/test] $ echo Hello
@@ -632,7 +632,7 @@ Writing command-line examples
 
      - Open a terminal in dom0 and run:
 
-       .. code:: console
+       .. code-block:: console
 
           [user@dom0] $ cd test
           [user@dom0 ~/test] $ echo Hello
@@ -654,46 +654,46 @@ Writing command-line examples
        - output
 
      * - minimal
-       - .. code:: rst
+       - .. code-block:: rst
 
-            .. code:: console
+            .. code-block:: console
 
                $ cd test
 
-       - .. code:: console
+       - .. code-block:: console
 
             $ cd test
 
      * - qube name
-       - .. code:: rst
+       - .. code-block:: rst
 
-            .. code:: console
+            .. code-block:: console
 
                [dom0] $ cd test
 
-       - .. code:: console
+       - .. code-block:: console
 
             [dom0] $ cd test
 
      * - with path
-       - .. code:: rst
+       - .. code-block:: rst
 
-            .. code:: console
+            .. code-block:: console
 
                [dom0 /tmp] $ cd test
 
-       - .. code:: console
+       - .. code-block:: console
 
             [dom0 /tmp] $ cd test
 
      * - full
-       - .. code:: rst
+       - .. code-block:: rst
 
-            .. code:: console
+            .. code-block:: console
 
                [user@dom0 /tmp] $ cd test
 
-       - .. code:: console
+       - .. code-block:: console
 
             [user@dom0 /tmp] $ cd test
 
@@ -701,7 +701,7 @@ Writing command-line examples
 
    **Don’t try to add comments inside the code block**. For example, *don’t* do this:
 
-   .. code:: console
+   .. code-block:: console
 
       # Navigate to the new directory
       $ cd test
@@ -717,7 +717,7 @@ Variable names in commands
 
 **Syntactically distinguish variables in commands**. For example, this is ambiguous:
 
-.. code:: console
+.. code-block:: console
 
      $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
 
@@ -725,7 +725,7 @@ Variable names in commands
 
 It should instead be:
 
-.. code:: console
+.. code-block:: console
 
      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
 
@@ -832,7 +832,7 @@ Cheatsheet: Headings
 
    * - Markdown markup
      - reStructuredText markup
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           [...]
           # Title
@@ -847,7 +847,7 @@ Cheatsheet: Headings
           #### Paragraph
           [...]
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         =====
         Title
@@ -872,35 +872,35 @@ Cheatsheet: Hyperlinks and cross-references
    * - Markdown markup
      - reStructuredText markup
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           [Link Text](/doc/path/to/some-file)
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           :doc:`/path/to/some-file`
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           [Link Text](/doc/path/to/some-file#some-title)
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           :ref:`/path/to/some-file:Some title`
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           a [qube](/doc/glossary#qube)
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           :term:`qube`
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           [Link Text](http://example.com)
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           `Link Text <http://example.com>`__
 
@@ -914,31 +914,31 @@ Cheatsheet: Text Decorations
    * - Markdown markup
      - reStructuredText markup
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
          *Italic* or _Italic_
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         *Italic*
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           **Bold** or __Bold__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           **Bold**
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           ~~Strikethrough~~
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           :strike:`Strikethrough`
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           ***Bold and italic***
 
@@ -960,7 +960,7 @@ Cheatsheet: Lists
    * - Markdown markup
      - reStructuredText markup
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           - Item 1
           - Item 2
@@ -972,7 +972,7 @@ Cheatsheet: Lists
              a. Subitem 1
              b. Subitem 2
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           - Item 1
           - Item 2
@@ -998,14 +998,14 @@ Cheatsheet: Tables
    * - Markdown markup
      - reStructuredText markup
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           | Header 1 | Header 2 |
           |----------|----------|
           | Cell 1   | Cell 2   |
           | Cell 3   | Cell 4   |
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           .. list-table::
              :widths: 10 10
@@ -1032,14 +1032,14 @@ Cheatsheet: Code Blocks
    * - Markdown markup
      - reStructuredText markup
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           ```python
           print("Hello, world!")
           ```
-     - .. code:: rst
+     - .. code-block:: rst
 
-          .. code:: python
+          .. code-block:: python
 
               print("Hello, world!")
 
@@ -1057,14 +1057,14 @@ Alerts and Warnings
    * - Markdown markup
      - reStructuredText markup
 
-   * - .. code:: markdown
+   * - .. code-block:: markdown
 
           <div class="alert alert-info" role="alert">
             <i class="fa fa-info-circle"></i>
             <b>Note:</b> This is a note
           </div>
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           .. note::
 
@@ -1091,7 +1091,7 @@ List of the roles used in documentation
 
    * - `:guilabel: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-guilabel>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :guilabel:`&Apply`
 
@@ -1099,7 +1099,7 @@ List of the roles used in documentation
 
    * - `:file: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-file>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :file:`~/QubesIncoming/disp{XXXX}`
 
@@ -1107,7 +1107,7 @@ List of the roles used in documentation
 
    * - `:program: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-program>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :program:`qvm-copy`
 
@@ -1115,7 +1115,7 @@ List of the roles used in documentation
 
    * - `:menuselection: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-menuselection>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :menuselection:`Settings --> &Advanced`
 
@@ -1123,7 +1123,7 @@ List of the roles used in documentation
 
    * - `:samp: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-samp>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :samp:`disp{XXXX}`
 
@@ -1131,7 +1131,7 @@ List of the roles used in documentation
 
    * - `:kbd: <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-kbd>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :kbd:`Ctrl`
 
@@ -1139,7 +1139,7 @@ List of the roles used in documentation
 
    * - `:abbr: <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-abbr>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :abbr:`OCR (Optical Character Recognition)`
 
@@ -1147,7 +1147,7 @@ List of the roles used in documentation
 
    * - `:code: <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-code>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
           :code:`qvm-ls --help`
 
@@ -1155,7 +1155,7 @@ List of the roles used in documentation
 
    * - `:mimetype: <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-mimetype>`__
 
-     - .. code:: rst
+     - .. code-block:: rst
 
         :mimetype:`application/pdf`
 
