@@ -3,7 +3,7 @@ Fedora templates
 ================
 
 
-The Fedora :doc:`template </user/templates/templates>` is the default template in Qubes OS. The current version is Fedora 42. This page is about the “full” Fedora templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
+The Fedora :doc:`template </user/templates/templates>` is the default template in Qubes OS. The current version is listed in the :ref:`Templates section of Supported releases <user/downloading-installing-upgrading/supported-releases:Templates>`. This page is about the “full” Fedora templates. For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
 
 Installing
 ----------
