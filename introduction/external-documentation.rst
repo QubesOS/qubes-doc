@@ -5,6 +5,7 @@ About external documentation
 .. danger::
 
    **External documentation is not maintained by the Qubes OS Project.** Content linked from the Qubes documentation was reviewed when the link was added to the index, but nothing prevents the content from being edited at any time.
+   You should carefully review any external content before applying it to your system. You do this at your own risk.
 
 **Core documentation** resides in the `Qubes OS Project’s official repositories <https://github.com/QubesOS/>`__, mainly in `qubes-doc <https://github.com/QubesOS/qubes-doc>`__. **External documentation** can be anywhere else (such as forums, community websites, and blogs), but there is an especially large collection in the `Qubes Forum <https://forum.qubes-os.org/docs>`__.
 The main difference between **core** (or **official**) and **external** (or **community** or **unofficial**) documentation is whether **it documents software that is officially written and maintained by the Qubes OS Project**.
