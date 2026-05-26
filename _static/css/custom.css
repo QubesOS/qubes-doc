@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.wy-nav-side .admonition {
+    color: #404040;
+}
+
 .accelerator {
     text-decoration: underline;
 }
