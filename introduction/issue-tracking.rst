@@ -210,6 +210,14 @@ Issues and comments must be written in English
 
 If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a :ref:`collapsible section <introduction/issue-tracking:use collapsible sections for long, nonessential content>`.
 
+Developers may ask you for logs or other data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+In some cases, a Qubes developer who is working on an issue may request logs or other data from you. Qubes OS *never* sends such data automatically, and you are *never* required to provide it. *If you wish to do so*, you *may* provide such data, but since Qubes OS has no mechanism by which to transmit the data itself, you will have to share it manually, for example, by posting it in a comment on the relevant issue. This is fine when the data is not sensitive. However, since issues are publicly visible, you should not post any sensitive data there. If the data that a Qubes developer wants from you is sensitive in any way, and if you're comfortable sharing it with that developer, then we strongly recommending using encryption. The most common method is to send it in a PGP-encrypted email. You can find the Qubes developers' email PGP keys on the `Team <https://www.qubes-os.org/team/>`__ page and in the :doc:`Qubes security pack (qubes-secpack) </project-security/security-pack>`.
+
+Please **do not** send unsolicited communications to developers or attempt to contact them directly for help.
+
 Use collapsible sections for long, nonessential content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
