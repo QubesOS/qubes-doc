@@ -388,11 +388,12 @@ Find your `Gitlab pipeline <https://gitlab.com/QubesOS/qubes-continuous-integrat
 openQA pipeline
 """""""""""""""
 
-Find your test in `openQA pull requests group <https://openqa.qubes-os.org/group_overview/11>`.
+Find your test in `openQA pull requests group <https://openqa.qubes-os.org/group_overview/11>`__.
+
 
 **Cancellation**:
 
-- Sometimes, you might want to cancel a test because it is using outdated code. For that, `login to openQA <https://openqa-qubes-os.org/login>` and ask the maintainer for ``cancellation`` permission. After gaining permission, the cancel button appears as an `X` near the circle indicating status of the job
+- Sometimes, you might want to cancel a test because it is using outdated code. For that, `login to openQA <https://openqa-qubes-os.org/login>`__ and ask the maintainer for ``cancellation`` permission. After gaining permission, the cancel button appears as an `X` near the circle indicating status of the job
 - Don't cancel ``install_default_upload@hw*``, it can leave system boot order in weird state, breaks further tests, requiring manual intervention to fix
 
 
