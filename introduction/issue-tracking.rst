@@ -210,6 +210,16 @@ Issues and comments must be written in English
 
 If English is not your native language, you may post a machine translation. If you wish, you may also include the original non-English text in a :ref:`collapsible section <introduction/issue-tracking:use collapsible sections for long, nonessential content>`.
 
+Developers may ask you for logs or other data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+In some cases, Qubes developers who are working on an issue may request logs or other data from you. Qubes OS *never* sends such data automatically, and you are *never* required to provide it. However, without access to the logs, it may not be possible for the developers to diagnose and fix the bug you're experiencing. *If you wish to do so*, you *may* provide such data, for example, by posting it in a comment on the relevant issue. This is fine when the data is not sensitive. However, since issues are publicly visible, you should not post any sensitive data there. If the data that a Qubes developer wants from you is sensitive in any way, and if you're comfortable sharing it with the Qubes team, then we strongly recommend using encryption. The most common method is to send it in a PGP-encrypted email, then add a comment on the issue stating that you've sent the email. You can find the Qubes developers' email PGP keys on the `Team <https://www.qubes-os.org/team/>`__ page and in the :doc:`Qubes security pack (qubes-secpack) </project-security/security-pack>`. Share the information inline or as a file attachment. Please do not just send a link to a pastebin or file-hosting service, as there's a risk that it will expire before the issue is resolved.
+
+In some cases, one Qubes developer may start working on an issue, then another one may take over some time later. If you send logs or other data to the first developer, the second developer will also need access to that data. Therefore, by sharing data with a member of the Qubes team, you thereby grant them permission to share that data with the rest of the Qubes team. Please do not share any data with a member of the Qubes team unless you are comfortable with the entire team having access to that data. (This is also why it's important for you to leave a comment on the issue stating that you emailed data to a specific developer, as it allows other developers to know that data was sent and to whom.)
+
+Please **do not** send unsolicited communications to developers or attempt to contact them directly for help.
+
 Use collapsible sections for long, nonessential content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
