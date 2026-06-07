@@ -206,8 +206,8 @@ By default VMs will be created on the main Qubes disk (i.e. a small SSD), to cr
       $ qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 
 
-We can now add the relevant line to ``/etc/fstab`` to enable auto-mounting of the new pool (note: this assumes you selected ``zstd`` compression):
+We can now add the relevant line to ``/etc/fstab`` to enable auto-mounting of the new pool, replace ``<compression>`` with your chosen compression algorithm:
 
 .. code:: text
 
-      /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde	/mnt/new_qube_storage	btrfs	compress=zstd,defaults	0 2
+      /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde	/mnt/new_qube_storage	btrfs	compress=<compression>,defaults	0 2
