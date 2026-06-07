@@ -206,7 +206,7 @@ By default VMs will be created on the main Qubes disk (i.e. a small SSD), to cr
       $ qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 
 
-We can now add the relevant line to ``/etc/fstab`` to enable auto-mounting of the LUKS drive (note: this assumes you selected ``zstd`` compression):
+We can now add the relevant line to ``/etc/fstab`` to enable auto-mounting of the new pool (note: this assumes you selected ``zstd`` compression):
 
 .. code:: text
 
