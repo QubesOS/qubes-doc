@@ -849,28 +849,25 @@ Example device serialization:
 Writing qrexec policy for Admin API calls
 =========================================
 
-The default Admin API policy advises adding ``target=dom0`` to every
-allow/ask entry, but does not document the reason.
+All ``admin.*`` calls are served by ``qubesd`` in dom0, so every allow/ask
+rule for an ``admin.*`` call must specify ``target=dom0``, whatever the
+destination column selects (a VM name, ``@anyvm``, or a ``@tag:`` selector).
+For example::
 
-All ``admin.*`` calls are handled by ``qubesd`` in dom0. When writing qrexec
-policy rules for these calls, a ``@tag:`` selector in the destination column
-must be paired with ``target=dom0``. For example:
-``admin.vm.firewall.Get * source-vm @tag:some-tag allow target=dom0``.
+   admin.vm.firewall.Get * source-vm @tag:some-tag allow target=dom0
 
-Without ``target=dom0``, the policy matches the rule on the caller-named
-destination VM (validated against the tag constraint) but routes the call to
-that VM rather than to dom0. If the VM is not running, qrexec starts it as
-part of the routing attempt. This is an unintended side effect that occurs
-even with read-only calls such as ``admin.vm.firewall.Get``. The call does
-not succeed, because ``admin.*`` calls are served by ``qubesd`` in dom0, not
-by the target VM.
+Without ``target=dom0``, the rule still matches on the caller-named
+destination VM (validated against the destination selector) but routes the
+call to that VM rather than to dom0. If the VM is not running, qrexec starts
+it as part of the routing attempt. This is an unintended side effect that
+occurs even for read-only calls such as ``admin.vm.firewall.Get``. The call
+does not succeed, because ``admin.*`` calls are served by ``qubesd`` in dom0,
+not by the target VM.
 
-``target=dom0`` redirects routing to dom0 while preserving the ``@tag:``
-constraint: the call is allowed only when the caller-named VM carries the
-tag, and ``qubesd`` in dom0 handles it. This applies to any ``admin.vm.*``
-method whose destination column in the call table lists ``vm``: properties,
-features, firewall rules, volume information, device enumeration, and similar
-per-VM reads and writes.
+``target=dom0`` redirects routing to dom0 while preserving the destination
+constraint: the call is allowed only when the caller-named VM matches, and
+``qubesd`` in dom0 handles it. This applies to any ``admin.vm.*`` method
+whose destination column in the call table lists ``vm``.
 
 General notes
 =============
