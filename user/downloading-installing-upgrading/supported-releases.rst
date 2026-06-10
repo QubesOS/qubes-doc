@@ -121,10 +121,10 @@ It is the responsibility of each distribution to clearly notify its users in adv
      - Debian
    * - Release 4.2
      - 43
-     - 12, 13
+     - 13
    * - Release 4.3
      - 43
-     - 12, 13
+     - 13
 
 
 Note on Debian support
