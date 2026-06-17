@@ -649,14 +649,18 @@ Volume properties:
 -  ``revisions_to_keep``
 -  ``is_outdated``
 
-Method ``admin.vm.Stats`` returns ``vm-stats`` events every
-``stats_interval`` seconds, for every running VM. Parameters of
-``vm-stats`` events:
+Method ``admin.vm.Stats`` returns ``vm-stats`` events every ``stats_interval`` seconds, for every running VM. Clients must not expect parameters in any order nor that this is list set in stone. Therefore, when using Python, join the parameters in ``**kwargs`` and pop/get them to use it. Parameters of ``vm-stats`` events:
 
--  ``memory_kb`` - memory usage in kB
--  ``cpu_time`` - absolute CPU time (in milliseconds) spent by the VM
-   since its startup, normalized for one CPU
--  ``cpu_usage`` - CPU usage in percents
+- ``memory_assigned_KiB`` - memory assigned in KiB
+- ``memory_used_KiB`` - current memory being used, in KiB. When memory balancing is disabled, it is the same value as ``memory_assigned_KiB``. When enabled, it's the value the qmemman agent reports to the meminfo xenstore key, which might include swap and might differ up to 30MiB of the actual usage.
+- ``online_vcpus`` - amount of vcpus assigned.
+- ``cpu_time`` - absolute CPU usage (seconds since its startup).
+- ``cpu_usage_raw`` - CPU usage in %.
+- ``cpu_usage`` - CPU usage in % (normalized to number of vcpus).
+
+Future deprecation:
+
+- ``memory_kb`` - current memory assigned, in KiB. Will be deprecated in a future release due to its misleading unit in the name, prefer ``memory_KiB``
 
 Returned messages
 =================
