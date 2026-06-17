@@ -247,7 +247,7 @@ Input
 
 Both calls accept the following format from standard input:
 
-.. code:: text
+.. code-block:: text
 
       arg1
       arg2

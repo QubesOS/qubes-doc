@@ -12,7 +12,7 @@ Installation
 
 Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with R3.2, however, :doc:`XFCE is the new default desktop environment </developer/releases/3_2/release-notes>`. Nonetheless, it is still possible to install KDE by issuing this command in dom0:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update kde-settings-qubes
 
@@ -23,7 +23,7 @@ After the installation is complete log out. At the top of the log in screen is a
 
 KDE is very customisable, and there is a range of widgets to use. If you want to use the Menu widget, then you must edit ``/etc/X11/xinit/xinitrc.d/55xfce-qubes.sh`` as follows:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/usr/bin/sh
 
@@ -47,7 +47,7 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
 - first you need to edit the ``/etc/sddm.conf`` to make sure if the custom X parameter is set according to Qubes needs:
 
-  .. code:: kconfig
+  .. code-block:: kconfig
 
         [XDisplay]
         ServerArguments=-nolisten tcp -background none
@@ -56,7 +56,7 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
 - disable the lightdm service:
 
-  .. code:: console
+  .. code-block:: console
 
         $ sudo systemctl disable lightdm
 
@@ -64,7 +64,7 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
 - enable the sddm service:
 
-  .. code:: console
+  .. code-block:: console
 
         $ sudo systemctl enable sddm
 
@@ -82,7 +82,7 @@ Window Management
 
 You can set each window’s position and size like this:
 
-.. code:: text
+.. code-block:: text
 
       Right click title bar --> More actions --> Special window settings...
 
@@ -97,7 +97,7 @@ You can set each window’s position and size like this:
 
 You can also use ``kstart`` to control virtual desktop placement like this:
 
-.. code:: console
+.. code-block:: console
 
       $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
@@ -112,7 +112,7 @@ Wayland session
 
 Default installation includes KDE Plasma X11 session. KDE project primary focus is Wayland session, which in Qubes OS is currently experimental. To enable the experimental Wayland session support install the following package:
 
-.. code:: console
+.. code-block:: console
 
     $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
 
@@ -124,7 +124,7 @@ If you decide to remove KDE do **not** use ``dnf remove @kde-desktop-qubes``. Yo
 
 The safest way to remove (most of) KDE is:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf remove kdelibs plasma-workspace
 

@@ -48,7 +48,7 @@ In dom0, you can use ``qvm-usb`` from the commandline to attach and detach devic
 
 Listing available USB devices:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-usb
       BACKEND:DEVID   DESCRIPTION                    USED BY
@@ -58,7 +58,7 @@ Listing available USB devices:
 
 Attaching selected USB device:
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
       [user@dom0 ~]$ qvm-usb
@@ -71,7 +71,7 @@ Now, you can use your USB device (camera in this case) in the ``work`` qube. If 
 
 When you finish, detach the device.
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
       [user@dom0 ~]$ qvm-usb
@@ -99,13 +99,13 @@ If you receive this error: ``ERROR: qubes-usb-proxy not installed in the qube``,
 
 - Fedora:
 
-  .. code:: console
+  .. code-block:: console
 
         $ sudo dnf install qubes-usb-proxy
 
 - Debian/Ubuntu:
 
-  .. code:: console
+  .. code-block:: console
 
         $ sudo apt-get install qubes-usb-proxy
 
@@ -125,13 +125,13 @@ You can find your controller and its BDF address using the method described belo
 
 First, find out which USB bus the device is connected to (note that these steps need to be run from a terminal inside your USB qube):
 
-.. code:: console
+.. code-block:: console
 
       $ lsusb
 
 For example, I want to attach a broadband modem to the NetVM. In the output of ``lsusb`` it may be listed as something like:
 
-.. code:: output
+.. code-block:: output
 
       Bus 003 Device 003: ID 413c:818d Dell Computer Corp.
 
@@ -141,25 +141,25 @@ The device is connected to USB bus #3. Check which other devices are connected t
 
 To find the right controller, follow the usb bus:
 
-.. code:: console
+.. code-block:: console
 
       $ readlink /sys/bus/usb/devices/usb3
 
 This should output something like:
 
-.. code:: output
+.. code-block:: output
 
       ../../../devices/pci-0/pci0000:00/0000:00:1a.0/usb3
 
 Now you see the path: the text between ``/pci0000:00/0000:`` and ``/usb3`` i.e. ``00:1a.0`` is the BDF address. Strip the address and pass it to the :doc:`qvm-pci tool </user/how-to-guides/how-to-use-pci-devices>` to attach the controller to the target qube, like this:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-pci attach --persistent personal dom0:00_1a.0
 
 It is possible that on some system configurations the readlink method produces output which is different from the example above, For example, you might see output like this:
 
-.. code:: output
+.. code-block:: output
 
       ../../../devices/pci0000:00/0000:00:1c.0/0000:01:00.0/usb1
 

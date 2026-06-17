@@ -14,7 +14,7 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
 
 - ``/rw/config/rc.local`` - script runs at VM startup. Good place to change some service settings, replace config files with its copy stored in ``/rw/config``, etc. The script need to have the executable permission set to be executed. Example usage:
 
-  .. code:: bash
+  .. code-block:: bash
 
         # Store bluetooth keys in /rw to keep them across VM restarts
         rm -rf /var/lib/bluetooth
@@ -22,7 +22,7 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
 
 
 
-  .. code:: bash
+  .. code-block:: bash
 
         # Add entry to /etc/hosts
         echo '127.0.0.1 example.com' >> /etc/hosts
@@ -37,7 +37,7 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
 
 - In ProxyVMs (or app qubes with ``qubes-firewall`` service enabled), scripts placed in the following directories will be executed in the listed order followed by ``qubes-firewall-user-script`` at start up. Good place to write custom firewall rules.
 
-  .. code:: text
+  .. code-block:: text
 
         /etc/qubes/qubes-firewall.d
         /rw/config/qubes-firewall.d
@@ -49,7 +49,7 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
 
 - In NetVMs/ProxyVMs, scripts placed in ``/rw/config/network-hooks.d`` will be ran when configuring Qubes interfaces. For each script, the ``command``, ``vif``, ``vif_type`` and ``ip`` is passed as arguments (see ``/etc/xen/scripts/vif-route-qubes``). For example, consider a PV app qube ``work`` with IP ``10.137.0.100`` and ``sys-firewall`` as NetVM. Assuming it’s Xen domain id is arbitrary ``12`` then, the following script located at ``/rw/config/network-hooks.d/hook-100.sh`` in ``sys-firewall``:
 
-  .. code:: bash
+  .. code-block:: bash
 
         #!/bin/bash
 
@@ -84,7 +84,7 @@ GUI and audio configuration in dom0
 
 The GUI configuration file ``/etc/qubes/guid.conf`` in one of a few not managed by ``qubes-prefs`` or the Qubes Manager tool. Sample config (included in default installation):
 
-.. code::
+.. code-block::
 
       # Sample configuration file for Qubes GUI daemon
       #  For syntax go https://www.hyperrealm.com/libconfig/libconfig_manual.html

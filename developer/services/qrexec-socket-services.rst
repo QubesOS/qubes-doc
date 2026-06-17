@@ -15,7 +15,7 @@ When a Qubes RPC service is invoked, qrexec searches for a file that handles it 
 
 Before passing user input, the socket service will receive a null-terminated service descriptor, i.e. the part after ``QUBESRPC``. When running in a VM, this is:
 
-.. code:: text
+.. code-block:: text
 
       <service_name> <source>\0
 
@@ -23,7 +23,7 @@ Before passing user input, the socket service will receive a null-terminated ser
 
 When running in dom0, it is:
 
-.. code:: text
+.. code-block:: text
 
       <service_name> <source> <target_type> <target>\0
 
@@ -81,7 +81,7 @@ Systemd unit files
 
 **/lib/systemd/user/qubes-qrexec-policy-agent.service**: This is the service configuration.
 
-.. code:: systemd
+.. code-block:: systemd
 
       [Unit]
       Description=Qubes remote exec policy agent
@@ -100,7 +100,7 @@ Systemd unit files
 
 **/lib/systemd/user/qubes-qrexec-policy-agent.socket**: This is the socket file that will activate the service.
 
-.. code:: systemd
+.. code-block:: systemd
 
       [Unit]
       Description=Qubes remote exec policy agent socket
@@ -120,7 +120,7 @@ Note the ``ConditionUser`` and ``ConditionGroup`` that ensure that the socket an
 
 Start the socket using ``systemctl --user start``. Enable it using ``systemctl --user enable``, so that it starts automatically.
 
-.. code:: console
+.. code-block:: console
 
       $ systemctl --user start qubes-qrexec-policy-agent.socket
       $ systemctl --user enable qubes-qrexec-policy-agent.socket
@@ -129,7 +129,7 @@ Start the socket using ``systemctl --user start``. Enable it using ``systemctl -
 
 Alternatively, you can enable the service by creating a symlink:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
 
@@ -141,7 +141,7 @@ Link in qubes-rpc
 
 ``qrexec-policy-agent`` will handle a Qubes RPC service called ``policy.Ask``, so we add a link:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
 
@@ -155,7 +155,7 @@ Socket activation in systemd works by starting our program with the socket file 
 
 Install the Python systemd library:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf install python3-systemd
 
@@ -163,7 +163,7 @@ Install the Python systemd library:
 
 Here is the server code:
 
-.. code:: python
+.. code-block:: python
 
       import os
       import asyncio
@@ -236,7 +236,7 @@ Using the service
 
 The service is invoked in the same way as a standard Qubes RPC service:
 
-.. code:: console
+.. code-block:: console
 
       $ echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
 
@@ -244,7 +244,7 @@ The service is invoked in the same way as a standard Qubes RPC service:
 
 You can also connect to it locally, but remember to include the service descriptor:
 
-.. code:: console
+.. code-block:: console
 
       $ echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
 

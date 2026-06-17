@@ -53,7 +53,7 @@ These instructions assume that there is a ``sys-usb`` qube that holds the USB st
 
 In dom0:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo qubes-dom0-update qubes-ctap-dom0
       $ qvm-service --enable work qubes-ctap-proxy
@@ -64,7 +64,7 @@ The above assumes a ``work`` qube in which you would like to enable ctap. Repeat
 
 In Fedora templates:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf install qubes-ctap
 
@@ -72,7 +72,7 @@ In Fedora templates:
 
 In Debian templates:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo apt install qubes-ctap
 
@@ -90,7 +90,7 @@ If you are using Qubes 4.0, you can further compartmentalise your CTAP keys by r
 
 To enable this, create a file in dom0 named ``/etc/qubes/policy.d/30-user-ctapproxy.policy`` with the following content:
 
-.. code:: text
+.. code-block:: text
 
       policy.RegisterArgument +u2f.Authenticate sys-usb @anyvm allow target=dom0
 
@@ -107,7 +107,7 @@ If your USB qube has a different name (not ``sys-usb``), you need to update in t
 
 1. In the **template**, run these commands (replace ``YOUR_USB_QUBE`` with your actual USB qube name):
 
-   .. code:: console
+   .. code-block:: console
 
          [user@template] $ systemctl enable qubes-ctapproxy@YOUR_USB_QUBE.service
          [user@template] $ systemctl disable qubes-ctapproxy@sys-usb.service

@@ -39,7 +39,7 @@ Indentation example
 
 Here’s an example that follows the indentation rules:
 
-.. code:: html
+.. code-block:: html
 
       <table>
         <tr>
@@ -97,7 +97,7 @@ Image linking
 
 To add an image to a page, use the following syntax in the main document.
 
-.. code:: markdown
+.. code-block:: markdown
 
   [![Image Title](/attachment/doc/image.png)](/attachment/doc/image.png)
 
@@ -143,7 +143,7 @@ Do not use Markdown syntax for styling
 
 For example, there is a common temptation to use block quotations (created by beginning lines with the ``>`` character) in order to stylistically distinguish some portion of text from the rest of the document, e.g.:
 
-.. code:: markdown
+.. code-block:: markdown
 
       > **Note:** This is an important note!
 
@@ -163,7 +163,7 @@ There are two problems with this:
 
 Instead, an example of an appropriate way to stylistically distinguish a portion of text is by using :ref:`developer/general/website-style-guide:alerts`. Consider also that extra styling and visual distinction may not even be necessary. In most cases, traditional writing methods are perfectly sufficient, e.g.,:
 
-.. code:: markdown
+.. code-block:: markdown
 
       **Note:** This is an important note.
 
@@ -177,7 +177,7 @@ Alerts
 
 Alerts are sections of HTML used to draw the reader’s attention to important information, such as warnings, and for stylistic purposes. They are typically styled as colored text boxes, usually accompanied by icons. Alerts should generally be used somewhat sparingly, so as not to cause `alert fatigue <https://en.wikipedia.org/wiki/Alarm_fatigue>`__ and since they must be written in HTML instead of Markdown, which makes the source less readable and more difficult to work with for localization and automation purposes. Here are examples of several types of alerts and their recommended icons:
 
-.. code:: html
+.. code-block:: html
 
       <div class="alert alert-success" role="alert">
         <i class="fa fa-check-circle"></i>
@@ -230,7 +230,7 @@ When providing command-line examples:
 
 - Tell the reader where to open a terminal (dom0 or a specific domU), and show the command along with its output (if any) in a code block, e.g.:
 
-  .. code:: markdown
+  .. code-block:: markdown
 
         Open a terminal in dom0 and run:
         ```
@@ -242,7 +242,7 @@ When providing command-line examples:
 - Precede each command with the appropriate command prompt: At a minimum, the prompt should contain a trailing ``#`` (for the user ``root``) or ``$`` (for other users) on Linux systems and ``>`` on Windows systems, respectively.
 - Don’t try to add comments inside the code block. For example, *don’t* do this:
 
-  .. code:: markdown
+  .. code-block:: markdown
 
         Open a terminal in dom0 and run:
         ```

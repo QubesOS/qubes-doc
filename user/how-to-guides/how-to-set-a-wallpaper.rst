@@ -24,7 +24,7 @@ In default Qubes OS installation, you can use the default XFCE screenshot tool (
 
 The file will be saved in :term:`dom0`, so you need to copy it out of :term:`dom0` if you want to use it in any other qube. The easiest way to do it is with the ``qvm-copy-to-vm`` tool in :term:`dom0` terminal:
 
-.. code:: console
+.. code-block:: console
 
     $ qvm-copy-to-vm qube-name Pictures/screenshot_name.jpg
 

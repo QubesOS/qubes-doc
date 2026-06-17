@@ -55,14 +55,14 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
 - **If you’re on Qubes OS**, it’s available in every qube (`except dom0 <https://github.com/QubesOS/qubes-issues/issues/2544>`__):
 
-  .. code:: console
+  .. code-block:: console
 
         $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
 
 - **If you’re on Fedora**, you can get it in the `distribution-gpg-keys <https://github.com/xsuchy/distribution-gpg-keys>`__ package:
 
-  .. code:: console
+  .. code-block:: console
 
         $ dnf install distribution-gpg-keys
         $ gpg2 --import /usr/share/distribution-gpg-keys/qubes/*
@@ -72,14 +72,14 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
 - You can also **fetch it with GPG**:
 
-  .. code:: console
+  .. code-block:: console
 
         $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
 
 - Get it from a public `keyserver <https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples>`__ (specified on first use with ``--keyserver <URI>`` along with keyserver options to include key signatures), e.g.:
 
-  .. code:: console
+  .. code-block:: console
 
         $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
@@ -97,7 +97,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
   Once you have the key as a file, **import it**:
 
-  .. code:: console
+  .. code-block:: console
 
         $ gpg2 --import /<PATH_TO_FILE>/qubes-master-signing-key.asc
 
@@ -110,7 +110,7 @@ So, what *should* you do? One option is to use the PGP `Web of Trust <https://en
 
 Perhaps the most common route is to rely on the key’s fingerprint, which is a string of 40 alphanumeric characters, like this:
 
-.. code:: text
+.. code-block:: text
 
       427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
 
@@ -122,7 +122,7 @@ But how do you know which fingerprint is the real one? After all, :ref:`this web
 
 For the purpose of convincing yourself that you know the authentic QMSK fingerprint, spaces and capitalization don’t matter. In other words, all of these fingerprints are considered the same:
 
-.. code:: text
+.. code-block:: text
 
       427F 11FD 0FAA 4B08 0123  F01C DDFA 1A3E 3687 9494
       427f 11fd 0faa 4b08 0123  f01c ddfa 1a3e 3687 9494
@@ -135,7 +135,7 @@ Instead, what matters is that *all* the characters are present in *exactly* the 
 
 However, for the purpose of *searching for*, *looking up*, or *entering* keys, spaces and capitalization can matter, depending on the software or tool you’re using. You may need to try different variations (e.g., with and without spaces). You may also sometimes see (or need to enter) the entire fingerprint prefixed with ``0x``, as in:
 
-.. code:: text
+.. code-block:: text
 
       0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       0x427f11fd0faa4b080123f01cddfa1a3e36879494
@@ -170,7 +170,7 @@ Once you’ve observed enough matching fingerprints from enough independent sour
 
 Now that you’ve imported the authentic QMSK, set its trust level to “ultimate” so that it can be used to automatically verify all the keys signed by the QMSK (in particular, RSKs).
 
-.. code:: console
+.. code-block:: console
 
       $ gpg2 --edit-key 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
@@ -254,21 +254,21 @@ After you have completed these two prerequisite steps, the next step is to obtai
 
   If you wish to use one of these keys, **make sure to import it into your keyring**, e.g.:
 
-  .. code:: console
+  .. code-block:: console
 
      [user@fedora-based-qube] $ gpg2 --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*
 
 
 - **Fetch it with GPG**:
 
-  .. code:: console
+  .. code-block:: console
 
         [user@any-online-qube] $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
 
 
 - **Download it as a file**. You can find the RSK for your Qubes release on the `downloads <https://www.qubes-os.org/downloads/>`__ page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, **import it with GPG**:
 
-  .. code:: console
+  .. code-block:: console
 
         [user@any-qube] $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc
 
@@ -373,7 +373,7 @@ In order to do this, **we have to know the exact size, in bytes, of the original
 * **from the Qubes website**, by hovering over any ISO download button on the `downloads page <https://www.qubes-os.org/downloads/>`__. You can also view these values directly in the `downloads page’s source data <https://github.com/QubesOS/qubesos.github.io/blob/master/_data/downloads.yml>`__.
 * **from the ISO itself**:
 
-.. code:: console
+.. code-block:: console
 
       $ stat -c %s Qubes-RX-x86_64.iso
       8176568320
@@ -425,14 +425,14 @@ How to verify a signature on a Git tag
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. code:: console
+.. code-block:: console
 
       $ git tag -v <tag name>
 
 
 or
 
-.. code:: console
+.. code-block:: console
 
       $ git verify-tag <tag name>
 
@@ -441,14 +441,14 @@ How to verify a signature on a Git commit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. code:: console
+.. code-block:: console
 
       $ git log --show-signature <commit ID>
 
 
 or
 
-.. code:: console
+.. code-block:: console
 
       $ git verify-commit <commit ID>
 

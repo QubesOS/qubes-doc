@@ -44,7 +44,7 @@ You can create a standalone in the Qube Manager by selecting the “Type” of �
 
 Alternatively, to create an empty standalone from the dom0 command line:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
 
@@ -52,7 +52,7 @@ Alternatively, to create an empty standalone from the dom0 command line:
 
 Or to create a standalone copied from a template:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
 
@@ -88,7 +88,7 @@ Command line
 
 Qubes are template-based (i.e., :term:`app qubes  <app qube>` by default, so you must set the ``--class StandaloneVM`` option to create a standalone. The name and label color used below are for illustration purposes.
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
 
@@ -96,7 +96,7 @@ Qubes are template-based (i.e., :term:`app qubes  <app qube>` by default, so you
 
 If you receive an error like this one, then you must first enable VT-x in your BIOS:
 
-.. code:: output
+.. code-block:: output
 
       libvirt.libvirtError: invalid argument: could not find capabilities for arch=x86_64
 
@@ -112,7 +112,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
 1. If you have the physical CD-ROM media and an optical disc drive:
 
-   .. code:: console
+   .. code-block:: console
 
          $ qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
 
@@ -120,7 +120,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
 2. If you have an ISO image of the installation media located in dom0:
 
-   .. code:: console
+   .. code-block:: console
 
          $ qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
 
@@ -128,7 +128,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
 3. If you have an ISO image of the installation media located in a qube (the qube where the media is located must be running):
 
-   .. code:: console
+   .. code-block:: console
 
          $ qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
 
@@ -199,7 +199,7 @@ Qubes allows HVMs to share a common root filesystem from a select template. This
 
 In order to create an HVM template, you use the following command, suitably adapted:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
 
@@ -219,7 +219,7 @@ Just like normal app qubes, HVMs can also be cloned either using the command ``q
 
 The cloned qube will get identical root and private images and will essentially be identical to the original qube, except that it will get a different MAC address for the networking interface:
 
-.. code:: console
+.. code-block:: console
 
       [joanna@dom0 ~]$ qvm-prefs my-new-vm
       autostart           D  False
@@ -309,7 +309,7 @@ The cloned qube will get identical root and private images and will essentially 
 
 Note that the MAC addresses differ between those two otherwise identical qubes. The IP addresses assigned by Qubes will also be different, of course, to allow networking to function properly:
 
-.. code:: console
+.. code-block:: console
 
       [joanna@dom0 ~]$ qvm-ls -n
 
@@ -321,7 +321,7 @@ Note that the MAC addresses differ between those two otherwise identical qubes. 
 
 If, for any reason, you would like to make sure that the two qubes have the same MAC address, you can use ``qvm-prefs`` to set a fixed MAC address:
 
-.. code:: console
+.. code-block:: console
 
       [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy -s mac 00:16:3E:5E:6C:05
       [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy
@@ -375,7 +375,7 @@ About 60 GB of disk space is required for conversion. Use an external hard drive
 
 In a Debian app qube, install ``qemu-utils`` and ``unzip``:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo apt install qemu-utils unzip
 
@@ -383,7 +383,7 @@ In a Debian app qube, install ``qemu-utils`` and ``unzip``:
 
 In a Fedora app qube:
 
-.. code:: console
+.. code-block:: console
 
       $ sudo dnf install qemu-img
 
@@ -391,7 +391,7 @@ In a Fedora app qube:
 
 Unzip VirtualBox zip file:
 
-.. code:: console
+.. code-block:: console
 
       $ unzip *.zip
 
@@ -399,7 +399,7 @@ Unzip VirtualBox zip file:
 
 Extract OVA tar archive:
 
-.. code:: console
+.. code-block:: console
 
       $ tar -xvf *.ova
 
@@ -407,7 +407,7 @@ Extract OVA tar archive:
 
 Convert vmdk to raw:
 
-.. code:: console
+.. code-block:: console
 
       $ qemu-img convert -O raw *.vmdk win10.raw
 
@@ -415,7 +415,7 @@ Convert vmdk to raw:
 
 Copy the root image file from the originating qube (here called ``untrusted``) to a temporary location in dom0, typing this in a dom0 terminal:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 
@@ -423,7 +423,7 @@ Copy the root image file from the originating qube (here called ``untrusted``) t
 
 From within dom0, create a new HVM (here called ``win10``) with the root image we just copied to dom0 (change the amount of RAM in GB as you wish):
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
 
@@ -431,7 +431,7 @@ From within dom0, create a new HVM (here called ``win10``) with the root image w
 
 Start ``win10``:
 
-.. code:: console
+.. code-block:: console
 
       $ qvm-start win10
 
@@ -443,7 +443,7 @@ Optional ways to get more information
 
 Filetype of OVA file:
 
-.. code:: console
+.. code-block:: console
 
       $ file *.ova
 
@@ -451,7 +451,7 @@ Filetype of OVA file:
 
 List files of OVA tar archive:
 
-.. code:: console
+.. code-block:: console
 
       $ tar -tf *.ova
 
@@ -459,7 +459,7 @@ List files of OVA tar archive:
 
 List filetypes supported by qemu-img:
 
-.. code:: console
+.. code-block:: console
 
       $ qemu-img -h | tail -n1
 

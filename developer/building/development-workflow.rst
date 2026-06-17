@@ -17,7 +17,7 @@ The best way to write and contribute code is to create a git repo somewhere (e.g
 
 **Example:**
 
-.. code:: console
+.. code-block:: console
 
       $ cd qubes-builder/artifacts/sources/qubes-manager
       $ git remote add abel git@GitHub.com:abeluck/qubes-manager.git
@@ -38,7 +38,7 @@ Prepare fresh version of kernel sources, with Qubes-specific patches applied
 
 In ``qubes-builder/artifacts/sources/linux-kernel``:
 
-.. code:: console
+.. code-block:: console
 
       $ make prep
 
@@ -46,7 +46,7 @@ In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 The resulting tree will be in kernel-<VERSION>/linux-<VERSION>:
 
-.. code:: console
+.. code-block:: console
 
       $ ls -ltrd kernel*/linux*
       drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
@@ -60,7 +60,7 @@ Go to the kernel tree and update the version
 
 In ``qubes-builder/artifacts/sources/linux-kernel``:
 
-.. code:: console
+.. code-block:: console
 
       $ cd kernel-3.4.18/linux-3.4.18
 
@@ -72,7 +72,7 @@ Changing the config
 
 In ``kernel-3.4.18/linux-3.4.18``:
 
-.. code:: console
+.. code-block:: console
 
       $ cp ../../config .config
       $ make oldconfig
@@ -81,7 +81,7 @@ In ``kernel-3.4.18/linux-3.4.18``:
 
 Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
-.. code:: console
+.. code-block:: console
 
       $ make menuconfig
 
@@ -89,7 +89,7 @@ Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
 Copy the modified config back into the kernel tree:
 
-.. code:: console
+.. code-block:: console
 
       $ cp .config ../../../config
 
@@ -101,7 +101,7 @@ Patching the code
 
 TODO: describe the workflow for patching the code, below are some random notes, not working well
 
-.. code:: console
+.. code-block:: console
 
       $ ln -s ../../patches.xen
       $ export QUILT_PATCHES=patches.xen
@@ -131,7 +131,7 @@ You might want to take a moment here to review (git diff, git status), commit yo
 
 To actually build RPMs, in qubes-builder:
 
-.. code:: console
+.. code-block:: console
 
       $ ./qb -c linux-kernel package fetch prep build
 
@@ -169,7 +169,7 @@ Syncing dom0 files
 
 TODO: edit this script to be more generic
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -202,7 +202,7 @@ Apply qvm-tools
 
 TODO: make it more generic
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -217,7 +217,7 @@ Copy from dom0 to an appvm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-.. code:: bash
+.. code-block:: bash
 
       #/bin/sh
       #
@@ -242,7 +242,7 @@ Below example assumes that you use ``builder-RX`` directory in target VM to stor
 
 Service file (save in ``/usr/local/etc/qubes-rpc/local.Git`` in target VM):
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -271,7 +271,7 @@ Service file (save in ``/usr/local/etc/qubes-rpc/local.Git`` in target VM):
 
 Client script (save in ``~/bin/git-qrexec`` in source VM):
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -285,7 +285,7 @@ You will also need to setup qrexec policy in dom0 (``/etc/qubes-rpc/policy/local
 
 Usage:
 
-.. code:: console
+.. code-block:: console
 
       [user@source core-agent-linux]$ git remote add testbuilder "ext::git-qrexec testbuilder 3 core-agent-linux"
       [user@source core-agent-linux]$ git push testbuilder master
@@ -294,7 +294,7 @@ Usage:
 
 You can create ``~/bin/add-remote`` script to ease adding remotes:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -325,7 +325,7 @@ RPM packages - yum repo
 
 In source VM, grab `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ repository (below is assumed you’ve made it in ``~/repo-yum-upload`` directory) and replace ``update_repo.sh`` script with:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -342,7 +342,7 @@ In source VM, grab `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__ re
 
 In target VM, setup actual yum repository (also based on `linux-yum <https://github.com/QubesOS/qubes-linux-yum>`__, this time without modifications). You will also need to setup some gpg key for signing packages (it is possible to force yum to install unsigned packages, but it isn’t possible for ``qubes-dom0-update`` tool). Fill ``~/.rpmmacros`` with key description:
 
-.. code:: text
+.. code-block:: text
 
       %_gpg_name Test packages signing key
 
@@ -350,7 +350,7 @@ In target VM, setup actual yum repository (also based on `linux-yum <https://git
 
 Then setup ``local.UpdateYum`` qrexec service (``/usr/local/etc/qubes-rpc/local.UpdateYum``):
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -388,7 +388,7 @@ If you want to access the repository from network, you need to setup HTTP server
 
 Usage: setup ``builder.conf`` in source VM to use your dummy-uploader repository:
 
-.. code:: bash
+.. code-block:: bash
 
       LINUX_REPO_BASEDIR = ../../repo-yum-upload/r3.1
 
@@ -396,7 +396,7 @@ Usage: setup ``builder.conf`` in source VM to use your dummy-uploader repository
 
 Then use ``make update-repo-unstable`` to upload the packages. You can also specify selected components on command line, then build them and upload to the repository:
 
-.. code:: console
+.. code-block:: console
 
       $ make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
 
@@ -404,7 +404,7 @@ Then use ``make update-repo-unstable`` to upload the packages. You can also spec
 
 On the test machine, add yum repository (``/etc/yum.repos.d``) pointing at just configured HTTP server. For example:
 
-.. code:: ini
+.. code-block:: ini
 
       [local-test]
       name=Test
@@ -432,7 +432,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 
 ``update_repo.sh`` script:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -450,7 +450,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 
 ``local.UpdateApt`` service code (``/usr/local/etc/qubes-rpc/local.UpdateApt`` in repo-serving VM):
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -487,7 +487,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 
 ``update-local-repo.sh``:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -547,7 +547,7 @@ Steps are mostly the same as in the case of yum repo. The only details that diff
 
 Usage: add this line to ``/etc/apt/sources.list`` on test machine (adjust host and path):
 
-.. code:: text
+.. code-block:: text
 
       deb http://local-test.lan/linux-deb/r3.1 jessie-unstable main
 

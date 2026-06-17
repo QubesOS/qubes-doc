@@ -35,7 +35,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 4. Save the following script in ``/home/user/bin/dom0_network.sh`` and make it executable. It should enable your network card in dom0. *Be sure to adjust the script’s variables to suit your needs.*
 
-   .. code:: bash
+   .. code-block:: bash
 
          #!/bin/sh
 
@@ -78,7 +78,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 6. You’ll need to run the above script on every startup. To automate this save the following systemd service ``/etc/systemd/system/dom0-network-direct.service``
 
-   .. code:: systemd
+   .. code-block:: systemd
 
          [Unit]
          Description=Connect network to dom0
@@ -94,7 +94,7 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 
 7. Then, enable and start the SSH Server and the script on boot:
 
-   .. code:: console
+   .. code-block:: console
 
          $ sudo systemctl enable sshd
          $ sudo systemctl start sshd
@@ -117,7 +117,7 @@ Because of the above reason, some additional configurations need to be done to y
 
 The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific local testing system. Run the following in ``dom0``:
 
-.. code:: console
+.. code-block:: console
 
       # For future reference the following commands are an adaptation of
       # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
@@ -155,7 +155,7 @@ SSH
 
 Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Generate SSH key in ``qubes-dev``:
 
-.. code:: console
+.. code-block:: console
 
       $ ssh-keygen -t ecdsa -b 521
 
@@ -163,7 +163,7 @@ Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Gene
 
 Add the following section in ``.ssh/config`` in ``qubes-dev``:
 
-.. code:: text
+.. code-block:: text
 
       Host testbench
           # substitute username in testbench
@@ -187,7 +187,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 
 ``qtb-runtests``:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -196,7 +196,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 
 ``qtb-install``:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -220,7 +220,7 @@ This step is optional, but very helpful. Put these scripts somewhere in your ``$
 
 ``qtb-iterate``:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -247,7 +247,7 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 
 ``core-admin/.git/hooks/pre-commit``: (you may retain also the default hook, here omitted for readability)
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 
@@ -258,7 +258,7 @@ I (woju) have those two git hooks. They ensure tests are passing (or are marked 
 
 ``core-admin/.git/hooks/pre-push``:
 
-.. code:: bash
+.. code-block:: bash
 
       #!/bin/sh
 

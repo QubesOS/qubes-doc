@@ -13,7 +13,7 @@ Where you would normally provide the Qubes object, use the ``qubesadmin.tests.mo
 
 For example, the following code can be used to run the ``qui-domains`` tool using the mock Qubes object (this code would replace the initial part of the main function):
 
-.. code:: python
+.. code-block:: python
 
       def main():
           ''' main function '''
@@ -32,7 +32,7 @@ For example, the following code can be used to run the ``qui-domains`` tool usin
 
 To run a mocked program without installing it in a qube, remember to extend PYTHONPATH appropriately, for example:
 
-.. code:: console
+.. code-block:: console
 
       ~/qubes-sources/manager $ PYTHONPATH=../core-admin-client:. python3 qui/tray/domains.py
 
@@ -49,7 +49,7 @@ The mock Qubes object has a collection of expected Qubes RPC calls and the respo
 
 If you need more calls, you can add them to the mock object using the following syntax (the following example adds listing available vm kernels):
 
-.. code:: python
+.. code-block:: python
 
       mock_app.expected_calls[('dom0', 'admin.pool.volume.List', 'linux-kernel', None)] = \
           b'0\x006.1.57-1.fc37\n6.1.43-1.fc37\ncustom_kernel\n'
@@ -57,7 +57,7 @@ If you need more calls, you can add them to the mock object using the following 
 
 If error should be thrown, you need to provide the error code and name, for example:
 
-.. code:: python
+.. code-block:: python
 
       mock_app.expected_calls[("vmname", "admin.vm.property.Get", "property_name", None)] = \
           b'2\x00QubesNoSuchPropertyError\x00\x00No such property\x00'
@@ -85,7 +85,7 @@ Extending the mock Qubes object
 
 To collect information to modify this script, you can use the wrapper function to wrap and output all qubesd calls used by a program running on a live qubes instance.
 
-.. code:: python
+.. code-block:: python
 
       qapp = qubesadmin.Qubes()
       import qubesadmin.tests.mock_app as mock_app
@@ -99,7 +99,7 @@ Writing tests
 
 The same mock Qubes can also be used to write tests. You can use the wrappers above to check which calls are made when certain actions are performed, and add them to the mock objects in the following way:
 
-.. code:: python
+.. code-block:: python
 
       # this is an excerpt from tests for Qubes Global Config tool
           clockvm_combo.set_active_id('test-blue')

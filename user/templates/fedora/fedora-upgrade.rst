@@ -16,7 +16,7 @@ This page provides instructions for performing an in-place upgrade of an install
 Summary instructions for standard Fedora templates
 --------------------------------------------------
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
       [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
@@ -43,14 +43,14 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 1. Ensure the existing template is not running.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-shutdown fedora-<old>
 
 
 2. Clone the existing template and start a terminal in the new template.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
          [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
@@ -58,7 +58,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 3. Attempt the upgrade process in the new template.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@fedora-<new> ~]$ sudo dnf update
          [user@fedora-<new> ~]$ sudo dnf clean all
@@ -67,7 +67,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    **Note:** ``dnf`` might ask you to approve importing a new package signing key. For example, you might see a prompt like this one:
 
-   .. code:: output
+   .. code-block:: output
 
          warning: /mnt/removable/updates-0b4cc238d1aa4ffe/packages/example-package.fc<new>.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID XXXXXXXX: NOKEY
          Importing GPG key 0xXXXXXXXX:
@@ -83,7 +83,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    - If ``dnf`` reports that you do not have enough free disk space to proceed with the upgrade process, create an empty file in dom0 to use as a cache and attach it to the template as a virtual disk.
 
-     .. code:: console
+     .. code-block:: console
 
            [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
            [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
@@ -91,7 +91,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
      Then reattempt the upgrade process, but this time use the virtual disk as a cache.
 
-     .. code:: console
+     .. code-block:: console
 
            [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
            [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
@@ -108,7 +108,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 4. Check that you are on the correct (new) Fedora release. Do this check only after completing the upgrade process. This is *not* a troubleshooting procedure for fixing download issues from the repository. This check simply verifies that your clone has successfully been upgraded.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@fedora-<new> ~]$ cat /etc/fedora-release
 
@@ -116,7 +116,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 5. (Optional) Trim the new template. (This should :ref:`no longer be necessary <user/templates/templates:important notes>`, but it does not hurt. Some users have `reported <https://github.com/QubesOS/qubes-issues/issues/5055>`__ that it makes a difference.)
 
-   .. code:: console
+   .. code-block:: console
 
          [user@fedora-<new> ~]$ sudo fstrim -av
          [user@dom0 ~]$ qvm-shutdown fedora-<new>
@@ -126,14 +126,14 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 6. Shut down the new template.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-shutdown fedora-<new>
 
 
 7. Remove the cache file, if you created one.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ sudo losetup -d $dev
          [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
@@ -141,7 +141,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 8. Set the template-name, which is used by the Qubes updater.
 
-   .. code:: console
+   .. code-block:: console
 
          [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
 
@@ -150,7 +150,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
 10. (Optional) Make the new template the global default.
 
-    .. code:: console
+    .. code-block:: console
 
           [user@dom0 ~]$ qubes-prefs --set default_template fedora-<new>
 
@@ -165,7 +165,7 @@ Summary instructions for Fedora Minimal templates
 
 **Note:** The prompt on each line indicates where each command should be entered: ``dom0``, ``fedora-<old>``, or ``fedora-<new>``, where ``<old>`` is the Fedora version number *from* which you are upgrading, and ``<new>`` is the Fedora version number *to* which you are upgrading.
 
-.. code:: console
+.. code-block:: console
 
       [user@dom0 ~]$ qvm-clone fedora-<old>-minimal fedora-<new>-minimal
       [user@dom0 ~]$ qvm-run -u root -a fedora-<new>-minimal xterm
@@ -203,7 +203,7 @@ Additional information
 
 As mentioned above, you may encounter the following ``dnf`` error:
 
-.. code:: output
+.. code-block:: output
 
       At least X MB more space needed on the / filesystem.
 

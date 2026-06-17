@@ -5,7 +5,7 @@ Passwordless root access in qubes
 
 The background to passswordless root access is summarised in this statement, that used to be found at ``/etc/sudoers.d/qubes`` in each qube:
 
-.. code:: text
+.. code-block:: text
 
       user ALL=(ALL) NOPASSWD: ALL
 
