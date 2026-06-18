@@ -16,7 +16,7 @@ Installing software from default repositories
 
 1. Start the template.
 
-2. Start either a terminal (e.g. ``Xfce Terminal``) or a dedicated software management application, such as ``gpk-application``.
+2. Start either a terminal (e.g. :program:`qubes-run-terminal`, :guilabel:`Run Terminal`) or a dedicated software management application, such as ``gpk-application``.
 
 3. Install software as normally instructed inside that operating system, e.g.:
 
