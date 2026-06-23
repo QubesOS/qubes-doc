@@ -86,6 +86,7 @@ Core documentation for Qubes users.
    user/how-to-guides/how-to-reinstall-a-template
    user/how-to-guides/how-to-edit-a-policy
    user/how-to-guides/how-to-enable-a-service
+   user/how-to-guides/how-to-shutdown-when-idle
 
 
 .. _templates:
