@@ -717,11 +717,13 @@ The tags provided can be used to write custom policies. They are not
 used in a default Qubes OS installation. However, they are created
 anyway.
 
--  ``created-by-<vm>`` — Created in an extension to `qubesd` at the moment
-   of creation of the VM. Cannot be changed via API, which is also
+-  ``created-by-<QUBE_NAME>`` — Created in an extension to `qubesd` at the moment
+   of creation of the qube. Cannot be changed via API, which is also
    enforced by this extension.
--  ``managed-by-<vm>`` — Can be used for the same purpose, but it is not
+-  ``managed-by-<QUBE_NAME>`` — Can be used for the same purpose, but it is not
    created automatically, nor is it forbidden to set or reset this tag.
+
+.. note:: When cloning a qube, the tag starting by ``created-by-`` will be updated.
 
 Backup profile
 ==============
