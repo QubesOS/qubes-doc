@@ -186,7 +186,7 @@ nitpicky = True
 
 rst_prolog = """
 
-.. warning:: Qubes OS 4.2 has reached end of life - it is no longer supported and thus will no longer receive security updates, bug fixes, or new features. We recommend to perform an in-place upgrade or perform a clean installation of Qubes 4.3!
+.. warning:: Qubes OS 4.2 has reached end of life - it is no longer supported and thus will no longer receive security updates, bug fixes, or new features. We recommend to perform an in-place upgrade or perform a clean installation of Qubes 4.3! The documentation of version 4.2 will also not receive any new updates, unless bug fixes. Its state is thus archived.
 
 
 """
