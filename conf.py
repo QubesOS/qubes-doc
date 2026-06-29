@@ -176,6 +176,17 @@ rst_epilog = """
    :alt: Qubes logo icon
 """
 
+
 # -- -- Options for the nitpicky mode ----------------------------------------
 
 nitpicky = True
+
+
+# -- -- content automatically prepended to the beginning of every .rst source file before Sphinx parses it ----------------------------------------
+
+rst_prolog = """
+
+.. warning:: Qubes OS 4.2 has reached end of life - it is no longer supported and thus will no longer receive security updates, bug fixes, or new features. We recommend to perform an in-place upgrade or perform a clean installation of Qubes 4.3! The documentation of version 4.2 will also not receive any new updates, unless bug fixes. Its state is thus archived.
+
+
+"""
