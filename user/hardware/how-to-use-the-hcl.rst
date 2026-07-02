@@ -5,7 +5,11 @@ How to use the hardware compatibility list (HCL)
 
 The `HCL <https://www.qubes-os.org/hcl/>`__ is a compilation of reports generated and submitted by users across various Qubes versions about their hardware’s compatibility with Qubes.
 
-**Note:** Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports. Please first consult the data sheets (CPU, chipset, motherboard) prior to buying new hardware for Qubes. Make sure it meets the :doc:`System Requirements </user/hardware/system-requirements>` and search in particular for support of:
+.. hint::
+Raw HCL data is available here: https://github.com/QubesOS/qubes-hcl
+
+.. note::
+Except in the case of developer-reported entries, the Qubes team has not independently verified the accuracy of these reports. Please first consult the data sheets (CPU, chipset, motherboard) prior to buying new hardware for Qubes. Make sure it meets the :doc:`System Requirements </user/hardware/system-requirements>` and search in particular for support of:
 
 - HVM (“AMD virtualization (AMD-V)”, “Intel virtualization (VT-x)”, “VIA virtualization (VIA VT)”)
 
@@ -35,4 +39,5 @@ You are encouraged to submit your HCL report for the benefit of further Qubes de
 
 Please include any useful information about any Qubes features you may have tested (see the legend below), as well as general machine compatibility (video, networking, sleep, etc.). Please consider sending the **HCL Support Files** ``.cpio.gz`` file as well. To generate these add the ``-s`` or ``--support`` command line option.
 
-**Please note:** The **HCL Support Files** may contain numerous hardware details, including serial numbers. If, for privacy or security reasons, you do not wish to make this information public, please **do not** post the ``.cpio.gz`` file on a public mailing list or forum.
+.. warning::
+The **HCL Support Files** may contain numerous hardware details, including serial numbers. If, for privacy or security reasons, you do not wish to make this information public, please **do not** post the ``.cpio.gz`` file on a public mailing list or forum.
