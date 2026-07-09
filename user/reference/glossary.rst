@@ -33,12 +33,29 @@ Qube types and properties
 
 .. glossary::
 
+   admin client qube
+      .. image:: /attachment/doc/adminvm-black.svg
+         :width: 24px
+         :align: left
+
+      A :term:`qube` used for administering Qubes OS, running admin client software. In the default install, the only admin client qube is dom0, running `qubes-core-admin-client <https://github.com/QubesOS/qubes-core-admin-client>`__ software.
+
+      “admin client qube” is the preferred term, but it can also be referred to as "AdminVM" or "management VM" in historic blog and forum posts.
+
+      .. note:: Be careful to avoid confusion with these terms. "AdminVM" when referring to admin client qubes is not related to the ``AdminVM`` qube :term:`class`. Similarly, "management VM" and "management DVM" or "default-mgmt-dvm" are not the same, see :term:`management qube`.
+
    admin qube
       .. image:: /attachment/doc/adminvm-black.svg
          :width: 24px
          :align: left
 
-      A type of :term:`qube` used for administering Qubes OS. In the default install, the only admin qube is :term:`dom0`.
+      A :term:`qube` used for administering Qubes OS, running admin server software. In the default install, the only admin qube is dom0, running `qubes-core-admin <https://github.com/QubesOS/qubes-core-admin>`__ and `qrexec <https://github.com/QubesOS/qubes-core-qrexec>`__ daemons.
+
+      "admin qube" is the preferred term, but it can also be referred to as:
+
+      - ``AdminVM`` in historic blog and forum posts, but also in modern technical context when referring to qube :term:`class` used by ``qvm`` tools.
+      - ``@adminvm`` in qrexec policies.
+      - ``dom0`` because in current implementation of Qubes OS this is the only admin qube, and it is hard-coded to be that.
 
    app qube
       .. image:: /attachment/doc/appvm-red.svg
@@ -49,8 +66,10 @@ Qube types and properties
 
       An *app qube* does not have a root file system of its own. The qube borrows its root file system from its  :term:`template`, and only owns its own home directory and user files. (In Linux-based qubes, these are the :file:`/home` and :file:`/usr/local` directories.)
 
-      - Previously known as: ``AppVM``, ``TemplateBasedVM``.
+      "app qube" is the preferred term, but it can also be referred to as:
 
+      - ``AppVM`` in historic blog and forum posts and documentation, but also in modern technical context when referring to qube :term:`class` used by qvm tools, qrexec policies, configuration management, etc.
+      - ``TemplateBasedVM`` in historic blog and forum posts.
 
    disposable
       .. image:: /attachment/doc/dispvm-red.svg
@@ -67,7 +86,11 @@ Qube types and properties
 
       See also :term:`named disposable`.
 
-      - Previously known as: ``DisposableVM``, ``DispVM``.
+      "disposable" is the preferred term, but it can also be referred to as:
+      
+      - ``DispVM`` in historic blog and forum posts and documentation, but also in modern technical context when referring to qube :term:`class` used by qvm tools, qrexec policies, configuration management, etc.
+      - ``@dispvm`` for new disposables in certain qrexec policies and admin API.
+      - ``DisposableVM`` in historic blog and forum posts.
 
    standalone
       .. image:: /attachment/doc/standalonevm-red.svg
@@ -78,7 +101,7 @@ Qube types and properties
 
       See :doc:`/user/advanced-topics/standalones-and-hvms`.
 
-      - Previously known as: ``StandaloneVM``.
+      "standalone" is the preferred term, but it can also be referred to as ``StandaloneVM`` in historic blog and forum posts and documentation, but also in modern technical context when referring to qube :term:`class` used by qvm tools, qrexec policies, configuration management, etc.
 
    template
       .. image:: /attachment/doc/templatevm-red.svg
@@ -95,7 +118,7 @@ Qube types and properties
 
       - Regular templates cannot function as :term:`disposable template`. (Disposable templates must be app qubes).
 
-      - Previously known as: ``TemplateVM``.
+      "template" is the preferred term, but it can also be referred to as ``TemplateVM`` in historic blog and forum posts and documentation, but also in modern technical context when referring to qube :term:`class` used by qvm tools, qrexec policies, configuration management, etc.
 
    disposable template
       .. image:: /attachment/doc/templatevm-red.svg
@@ -112,7 +135,7 @@ Qube types and properties
 
       - Unlike :term:`disposables <disposable>`, disposable templates behave like normal :term:`app qubes <app qube>` in terms of persistence - their contents survive reboots. Thus, you can configure your disposable template to have e.g. browser extensions or configuration that will be present in every disposable qube based on it.
 
-      - Previously known as: ``DisposableVM Template``, ``DVM Template``, ``DVM``.
+      "disposable template" is the preferred term, but it can also be referred to as ``DisposableVM Template``, ``DVM Template`` and ``DVM`` in historic blog and forum posts and documentation.
 
    named disposable
       .. image:: /attachment/doc/dispvm-red.svg
@@ -126,7 +149,10 @@ Qube types and properties
       - Technical note: Named disposables are useful for certain :term:`service qube`\ s, where the combination of persistent device assignment and ephemeral qube state is desirable.
 
    management qube
-      A :term:`qube` used for automated management of a Qubes OS installation via :doc:`/user/advanced-topics/salt`.
+      A :term:`qube` used for automated management of a Qubes OS installation via :doc:`/user/advanced-topics/salt`. Sometimes referred to as "default-mgmt-dvm".
+
+   class
+      Property describing qube type from the system's perspective, sometimes spelled ``klass`` due to a technicality. Can be either of ``AdminVM``, ``StandaloneVM``, ``TemplateVM``, ``AppVM``, and ``DispVM``.
 
    net qube
       A property of any qube that tells the system which (if any) :term:`service qube` to use to connect to the network.
