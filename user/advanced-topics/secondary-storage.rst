@@ -58,7 +58,7 @@ Take note of the VG and thin pool names for your second drive, then register it 
 
 .. code:: console
 
-      $ qvm-pool --add <pool_name> lvm_thin -o volume_group=<vg_name>,thin_pool=<thin_pool_name>,revisions_to_keep=2
+      $ qvm-pool add <pool_name> lvm_thin -o volume_group=<vg_name> -o thin_pool=<thin_pool_name> -o revisions_to_keep=2
 
 
 
@@ -80,7 +80,7 @@ To register the storage to qubes use the following command where ``<pool_name>``
 
 .. code:: console
 
-      $ qvm-pool --add <pool_name> file-reflink -o dir_path=<dir_path>,revisions_to_keep=2
+      $ qvm-pool add <pool_name> file-reflink -o dir_path=<dir_path> -o revisions_to_keep=2
 
 
 Using the new pool
@@ -162,7 +162,7 @@ Finally we will tell Qubes to add a new pool on the just created thin pool:
 
 .. code:: console
 
-      $ qvm-pool --add poolhd0_qubes lvm_thin -o volume_group=qubes,thin_pool=poolhd0,revisions_to_keep=2
+      $ qvm-pool add poolhd0_qubes lvm_thin -o volume_group=qubes -o thin_pool=poolhd0 -o revisions_to_keep=2
 
 
 For Btrfs
@@ -196,7 +196,7 @@ Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume
 
 .. code:: console
 
-      $ qvm-pool --add poolhd0_qubes file-reflink -o dir_path=/mnt/new_qube_storage/qubes,revisions_to_keep=2
+      $ qvm-pool add poolhd0_qubes file-reflink -o dir_path=/mnt/new_qube_storage/qubes -o revisions_to_keep=2
 
 
 By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary drive do the following on a dom0 terminal:
