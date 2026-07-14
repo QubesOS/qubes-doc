@@ -218,7 +218,7 @@ Performance optimizations
 - Caching "system info" structure for qrexec policy evaluation
   (`#9362 <https://github.com/QubesOS/qubes-issues/issues/9362>`__).
 
-- Minimal state qubes to make NetVM and USBVM to consume as little RAM as
+- `Minimal state qubes <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-service.html#:~:text=minimal-netvm,for%20USBVM>`__ to make NetVM and USBVM to consume as little RAM as
   possible.
 
 Updating & upgrading
