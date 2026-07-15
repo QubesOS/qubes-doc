@@ -132,6 +132,14 @@ intersphinx_mapping = {
     'core-admin-client': ('https://dev.qubes-os.org/projects/core-admin-client/en/latest/', None),
     'core-qrexec': ('https://dev.qubes-os.org/projects/qubes-core-qrexec/en/stable/', None),
 }
+
+if os.environ.get("QUBES_DOC_LOCAL_INTERSPHINX", "").lower() in ("true", "on", "1"):
+    local_pattern = os.environ.get(
+        "QUBES_DOC_LOCAL_INTERSPHINX_PATTERN", "../qubes-{}/doc/_build/html"
+    )
+    for repo, (target, inventory) in intersphinx_mapping.items():
+        intersphinx_mapping[repo] = (local_pattern.format(repo), inventory)
+
 intersphinx_disabled_reftypes = ["*"]
 
 # Open Graph image for social media sharing
