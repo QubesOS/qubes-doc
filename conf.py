@@ -140,7 +140,7 @@ if os.environ.get("QUBES_DOC_LOCAL_INTERSPHINX", "").lower() in ("true", "on", "
     for repo, (target, inventory) in intersphinx_mapping.items():
         intersphinx_mapping[repo] = (local_pattern.format(repo), inventory)
 
-intersphinx_disabled_reftypes = ["*"]
+intersphinx_disabled_reftypes = []
 
 # Open Graph image for social media sharing
 ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"
