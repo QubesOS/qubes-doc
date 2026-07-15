@@ -33,7 +33,7 @@ Major features and improvements since Qubes 4.2
 - Device “self-identity oriented” assignment (a.k.a New Devices API)
   (`#9325 <https://github.com/QubesOS/qubes-issues/issues/9325>`__).
 
-  **See:** :option:`core-admin-client:qvm-device --assignments`, ``qvm-device assign`` and ``qvm-device unassign``
+  **See:** :option:`qvm-device --assignments`, :doc:`qvm-device assign <manpages/qvm-device>` and :doc:`qvm-device unassign <manpages/qvm-device>`
 
 - :doc:`/user/templates/windows/qubes-windows-tools` reintroduction with improved features
   (`#1861 <https://github.com/QubesOS/qubes-issues/issues/1861>`__).
@@ -219,7 +219,7 @@ Performance optimizations
   (`#9362 <https://github.com/QubesOS/qubes-issues/issues/9362>`__).
 
 - Minimal state qubes to make NetVM and USBVM to consume as little RAM as
-  possible.
+  possible, see: :option:`qvm-service minimal-netvm` and :option:`qvm-service minimal-usbvm`
 
 Updating & upgrading
 --------------------
