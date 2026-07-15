@@ -40,12 +40,9 @@ Qube types and properties
 
       A :term:`qube` used for administering Qubes OS, running admin software. In the default install, the only admin qube is dom0, running :doc:`qubes-core-admin <core-admin:index>` and :doc:`qrexec </developer/services/qrexec>` daemons. Dom0 is the only admin qube by default, but more can be added by leveraging :doc:`admin API </developer/services/admin-api>`.
 
-      "admin qube" is the preferred term, but it can also be referred to as:
+      - Previously known as: ``AdminVM``, ``management VM``.
 
-      - ``AdminVM`` in outdated sources, but also in modern technical context when referring to qube :term:`class`.
-      - ``management VM`` in outdated sources.
-
-      .. note:: Be careful to avoid confusion with these terms. "AdminVM" when referring to admin qubes does not necessarily imply ``AdminVM`` qube :term:`class` - qubes of other classes can perform some administrative functions too, see :doc:`admin API </developer/services/admin-api>`.
+      .. note:: Be careful to avoid confusion with the outdated terms. "AdminVM" when referring to admin qubes does not necessarily imply ``AdminVM`` qube :term:`class` - qubes of other classes can perform some administrative functions too, see :doc:`admin API </developer/services/admin-api>`.
 
    app qube
       .. image:: /attachment/doc/appvm-red.svg
