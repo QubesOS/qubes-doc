@@ -43,7 +43,6 @@ Qube types and properties
       "admin qube" is the preferred term, but it can also be referred to as:
 
       - ``AdminVM`` in outdated sources, but also in modern technical context when referring to qube :term:`class`.
-      - ``@adminvm`` in qrexec policies.
       - ``management VM`` in outdated sources.
 
       .. note:: Be careful to avoid confusion with these terms. "AdminVM" when referring to admin qubes does not necessarily imply ``AdminVM`` qube :term:`class` - qubes of other classes can perform some administrative functions too, see :doc:`admin API </developer/services/admin-api>`.
