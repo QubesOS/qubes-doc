@@ -29,8 +29,8 @@ release = version
 
 extensions = [
     "sphinx.ext.autosectionlabel",  # Automatically generate section labels
+    "sphinx.ext.imgconverter",  # Allow SVG images in PDFs
     "sphinx.ext.intersphinx",  # Reference other doc projects
-    "sphinxnotes.strike",  # Add strike-through text support
     "qubes_doc.ext.youtube_frame",  # Embed YouTube videos
     "qubes_doc.ext.last_edition",
 ]

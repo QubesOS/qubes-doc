@@ -934,9 +934,7 @@ Cheatsheet: Text Decorations
 
           ~~Strikethrough~~
 
-     - .. code:: rst
-
-          :strike:`Strikethrough`
+     - nothing
 
    * - .. code:: markdown
 

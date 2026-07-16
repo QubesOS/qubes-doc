@@ -6,9 +6,7 @@ authors = [{ name = "Qubes OS" }]
 requires-python = ">=3.13"
 readme = "README.md"
 dependencies = [
-    "sphinx (>=9.1.0,<10.0.0)",
-    "sphinxnotes-any==2.5",
-    "sphinxnotes-strike>=1.2.1,<2",
+    "sphinx (>=9.1,<10.0)",
 ]
 
 [build-system]
