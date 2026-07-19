@@ -18,7 +18,7 @@ For the private volume associated with a VM named *vmname*, you may inspect the 
 
 
 
-The output of the above command will also display the “Available revisions (for revert)” at the bottom. For a very large volume in a small pool, ``revisions_to_keep`` should probably be set to the maximum value of 1 to minimize the possibility of the pool being accidentally filled up by snapshots. For a smaller volume for which you would like to have the future option of reverting, ``revisions_to_keep`` should probably be set to at least 2. To set ``revisions_to_keep`` for this same VM / volume example:
+The output of the above command will also display the “List of available revisions (for revert)” at the bottom. For a very large volume in a small pool, ``revisions_to_keep`` should probably be set to the maximum value of 1 to minimize the possibility of the pool being accidentally filled up by snapshots. For a smaller volume for which you would like to have the future option of reverting, ``revisions_to_keep`` should probably be set to at least 2. To set ``revisions_to_keep`` for this same VM / volume example:
 
 .. code:: console
 
@@ -26,7 +26,7 @@ The output of the above command will also display the “Available revisions (fo
 
 
 
-With the VM stopped, you may revert to an older snapshot of the private volume from the above list of “Available revisions (for revert)”, where the last item on the list with the largest integer is the most recent snapshot:
+With the VM stopped, you may revert to an older snapshot of the private volume from the above “List of available revisions (for revert)”, where the last item on the list with the largest integer is the most recent snapshot:
 
 .. code:: console
 
