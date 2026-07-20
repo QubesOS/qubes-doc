@@ -119,7 +119,7 @@ Template and browser support
 ----------------------------
 
 
-The large number of possible combinations of template (Fedora 37, 38; Debian 10, 11) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes CTAP Proxy. In some cases, you may be the first person to try a particular combination. Consequently, (and as with any new feature), users will inevitably encounter bugs. We ask for your patience and understanding in this regard. As always, please :doc:`report any bugs you encounter </introduction/issue-tracking>`.
+The large number of possible combinations of template (Fedora 43; Debian 13) and browser (multiple Google Chrome versions, multiple Chromium versions, multiple Firefox versions) made it impractical for us to test every combination that users are likely to attempt with the Qubes CTAP Proxy. In some cases, you may be the first person to try a particular combination. Consequently, (and as with any new feature), users will inevitably encounter bugs. We ask for your patience and understanding in this regard. As always, please :doc:`report any bugs you encounter </introduction/issue-tracking>`.
 
 .. |Qubes CTAP Proxy diagram| image:: /attachment/doc/ctap.svg
 

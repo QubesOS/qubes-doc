@@ -39,7 +39,7 @@ For Debian or Whonix:
 
 .. code:: console
 
-      [user@debian-10 ~]$ sudo apt install qubes-gpg-split
+      [user@debian-13 ~]$ sudo apt install qubes-gpg-split
 
 
 
@@ -47,7 +47,7 @@ For Fedora:
 
 .. code:: console
 
-      [user@fedora-32 ~]$ sudo dnf install qubes-gpg-split
+      [user@fedora-r43 ~]$ sudo dnf install qubes-gpg-split
 
 
 

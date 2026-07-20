@@ -59,12 +59,12 @@ There are two ways to upgrade your template to a new Debian release:
 - **For advanced users:** :doc:`Upgrade the existing template in-place </user/templates/debian/debian-upgrade>`.
   This method preserves your current customizations and installed packages without needing to redo them.
 
+..
+    Release-specific notes
+    ----------------------
 
-Release-specific notes
-----------------------
 
-
-This section contains notes about specific Debian releases.
+    This section contains notes about specific Debian releases.
 
 Starting services
 ^^^^^^^^^^^^^^^^^
@@ -107,8 +107,3 @@ Unattended Upgrades
 
 Some users have noticed that on upgrading Debian templates, the ``unattended-upgrade`` package is installed. This package is pulled in as part of a Recommend chain, and can be purged. The lesson is that you should carefully look at what is being installed to your system, particularly if you run ``dist-upgrade``.
 
-Package installation errors in Qubes 4.0
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-If some packages throw installation errors, see :ref:`this guide. <user/troubleshooting/vm-troubleshooting:fixing package installation errors>`
