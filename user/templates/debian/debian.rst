@@ -60,29 +60,13 @@ There are two ways to upgrade your template to a new Debian release:
   This method preserves your current customizations and installed packages without needing to redo them.
 
 
-Release-specific notes
-----------------------
+.. 
+   Release-specific notes
+   ----------------------
+   
+   
+   This section contains notes about specific Debian releases.
 
-
-This section contains notes about specific Debian releases.
-
-Debian 12
-^^^^^^^^^
-
-
-The Debian-12 templates that ship with release 4.2.4 cannot be used for salting Fedora templates. You must change the template used by ``default-mgmt-dvm`` to a Fedora template. You can do this in the Qubes Template Switcher tool, or at the command line using ``qvm-prefs default-mgmt-dvm template``.
-
-If you have a Debian template from an earlier release that you want to use for salting Qubes, you **must** stop the salt-common and salt-ssh packages from being upgraded. Do this by marking these packages on hold *before* updating the template.
-
-.. code:: console
-
-      $ sudo apt-mark hold salt-common salt-ssh
-      $ sudo apt update
-      $ sudo apt upgrade
-
-
-
-This is a `known bug <https://github.com/QubesOS/qubes-issues/issues/9129>`__ in Salt which affects version 3006-5.
 
 Starting services
 ^^^^^^^^^^^^^^^^^
@@ -125,8 +109,9 @@ Unattended Upgrades
 
 Some users have noticed that on upgrading Debian templates, the ``unattended-upgrade`` package is installed. This package is pulled in as part of a Recommend chain, and can be purged. The lesson is that you should carefully look at what is being installed to your system, particularly if you run ``dist-upgrade``.
 
-Package installation errors in Qubes 4.0
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-If some packages throw installation errors, see :ref:`this guide. <user/troubleshooting/vm-troubleshooting:fixing package installation errors>`
+..
+    Package installation errors in Qubes 4.0
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+    
+    If some packages throw installation errors, see :ref:`this guide. <user/troubleshooting/vm-troubleshooting:fixing package installation errors>`

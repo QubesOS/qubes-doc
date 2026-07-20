@@ -160,7 +160,7 @@ This can be useful for making sure that your changes render the way you expect, 
 
 .. code:: console
 
-  $ qvm-clone debian-12-minimal jekyll-tvm
+  $ qvm-clone debian-13-minimal jekyll-tvm
 
 2. Install packages:
 

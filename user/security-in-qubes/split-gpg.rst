@@ -47,7 +47,7 @@ For Fedora:
 
 .. code:: console
 
-      [user@fedora-32 ~]$ sudo dnf install qubes-gpg-split
+      [user@fedora-33 ~]$ sudo dnf install qubes-gpg-split
 
 
 

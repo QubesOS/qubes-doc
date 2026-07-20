@@ -130,7 +130,7 @@ To build a package (from sources in the ``artifacts/sources`` directory), use:
 
       $ ./qb -c core-admin-client package fetch prep build
 
-or, if you want to build for a specific target (``host-fc37`` is a ``dom0`` using Fedora 37, ``vm-fc40`` would be a qube using Fedora 40 etc.), use:
+or, if you want to build for a specific target (``host-fc37`` is a ``dom0`` using Fedora 37, ``vm-fc43`` would be a qube using Fedora 43 etc.), use:
 
 .. code:: console
 
