@@ -1,11 +1,8 @@
 """qubes-doc configuration file"""
 
+import importlib
 import os
 import sys
-from pathlib import Path
-
-# Append the path to custom extensions
-sys.path.append(str(Path('_ext').resolve()))
 
 # For the full list of options, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
@@ -31,14 +28,23 @@ release = version
 # -- General configuration ---------------------------------------------------
 
 extensions = [
-  'sphinx.ext.autosectionlabel',  # Automatically generate section labels
-  'sphinx.ext.intersphinx',  # Reference other doc projects
-  'sphinxnotes.strike', # Add strike-through text support
-  'sphinx_reredirects', # Manage redirects in the documentation
-  'sphinxext.opengraph', # Add Open Graph meta tags for social media sharing
-  'youtube_frame', # Embed YouTube videos
-  'last_edition',
+    "sphinx.ext.autosectionlabel",  # Automatically generate section labels
+    "sphinx.ext.imgconverter",  # Allow SVG images in PDFs
+    "sphinx.ext.intersphinx",  # Reference other doc projects
+    "qubes_doc.ext.youtube_frame",  # Embed YouTube videos
+    "qubes_doc.ext.last_edition",
 ]
+
+optional_extensions = [
+    "sphinx_reredirects",  # Manage redirects in the documentation
+    "sphinxext.opengraph",  # Add Open Graph meta tags for social media sharing
+]
+for extension in optional_extensions:
+    try:
+        if importlib.util.find_spec(extension) is not None:
+            extensions.append(extension)
+    except ModuleNotFoundError:
+        continue
 
 # Redirects for specific URLs as fall back
 redirects = {
@@ -93,15 +99,16 @@ templates_path = ['_templates']
 
 # -- -- Options for HTML output ----------------------------------------------
 
-html_theme = 'sphinx_rtd_theme'
+if importlib.util.find_spec("sphinx_rtd_theme"):
+    html_theme = "sphinx_rtd_theme"
+
+    html_theme_options = {
+        "style_external_links": True,
+        "collapse_navigation": True,
+        "sticky_navigation": False,
+    }
 
 html_title = f'{project} Documentation'
-
-html_theme_options = {
-  'style_external_links': True,
-  'collapse_navigation': True,
-  'sticky_navigation': False,
-}
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
