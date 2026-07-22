@@ -846,6 +846,29 @@ Example device serialization:
 
    1-1.1.1 manufacturer='unknown' self_identity='0000:0000::?******' serial='unknown' ident='1-1.1.1' product='Qubes' vendor='ITL' name='Some untrusted garbage' devclass='bus' backend_domain='vm' interfaces=' ******u03**01' _additional_info='' _date='06.12.23' parent_ident='1-1.1' parent_devclass='None'
 
+Writing qrexec policy for Admin API calls
+=========================================
+
+All ``admin.*`` calls are served by ``qubesd`` in dom0, so every allow/ask
+rule for an ``admin.*`` call must specify ``target=dom0``, whatever the
+destination column selects (a VM name, ``@anyvm``, or a ``@tag:`` selector).
+For example::
+
+   admin.vm.firewall.Get * source-vm @tag:some-tag allow target=dom0
+
+Without ``target=dom0``, the rule still matches on the caller-named
+destination VM (validated against the destination selector) but routes the
+call to that VM rather than to dom0. If the VM is not running, qrexec starts
+it as part of the routing attempt. This is an unintended side effect that
+occurs even for read-only calls such as ``admin.vm.firewall.Get``. The call
+does not succeed, because ``admin.*`` calls are served by ``qubesd`` in dom0,
+not by the target VM.
+
+``target=dom0`` redirects routing to dom0 while preserving the destination
+constraint: the call is allowed only when the caller-named VM matches, and
+``qubesd`` in dom0 handles it. This applies to any ``admin.vm.*`` method
+whose destination column in the call table lists ``vm``.
+
 General notes
 =============
 
