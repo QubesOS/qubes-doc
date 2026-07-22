@@ -35,7 +35,7 @@ These files are placed in ``/rw``, which survives a VM restart. That way, they c
 
 - ``/rw/config/qubes-ip-change-hook`` - script runs in NetVM after every external IP change and on “hardware” link status change.
 
-- In ProxyVMs (or app qubes with ``qubes-firewall`` service enabled), scripts placed in the following directories will be executed in the listed order followed by ``qubes-firewall-user-script`` at start up. Good place to write custom firewall rules.
+- In ProxyVMs (or app qubes with :option:`qubes-firewall <qvm-service qubes-firewall>` service enabled), scripts placed in the following directories will be executed in the listed order followed by ``qubes-firewall-user-script`` at start up. Good place to write custom firewall rules.
 
   .. code:: text
 
