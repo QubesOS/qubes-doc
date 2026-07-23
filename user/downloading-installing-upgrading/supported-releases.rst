@@ -119,9 +119,6 @@ It is the responsibility of each distribution to clearly notify its users in adv
    * - Qubes OS
      - Fedora
      - Debian
-   * - Release 4.2
-     - 43
-     - 13
    * - Release 4.3
      - 43
      - 13
