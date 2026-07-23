@@ -182,4 +182,4 @@ Now you should be able to tell which is the BDF address of the mainboard USB con
 
 .. |usb icon| image:: /attachment/doc/generic-usb.png
 
-.. |eject icon| image:: /attachment/doc/media-eject.png
+.. |eject icon| image:: /attachment/icons/qubes-desktop-linux-manager/4.3/detach-light.svg
