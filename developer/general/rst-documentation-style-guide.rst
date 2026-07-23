@@ -32,6 +32,7 @@ Example directives are:
 
    .. image::
    .. code::
+   .. code-block::
    .. figure::
 
 Directives start with ``..``, followed by directive name, arguments, options, and indented content.
@@ -91,8 +92,12 @@ Item 3 will start at 1.
 Code blocks
 """""""""""
 
-When writing code blocks, use syntax highlighting within the `code <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code>`__
+When writing code blocks, use syntax highlighting within the `code <https://docutils.sourceforge.io/docs/ref/rst/directives.html#code>`__
 or `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__.
+
+.. warning::
+
+   ``code`` and ``code-block`` are two different directives. The second one is specific to Sphinx and allows some options that are not available with the ``code`` directive. `Sphinx' documentation is misleading on this matter <https://github.com/sphinx-doc/sphinx/issues/14411>`__.
 
 By specifying the language, you enable pygments, which show syntax color coding for that code sample (see `here <https://pygments.org/languages/>`__ for a list of supported languages).
 
@@ -112,18 +117,18 @@ For inlining small code snippets you can use the `code role <https://www.sphinx-
 
    :code:`:term:`qube``
 
-You can add line numbers to code examples with the ``:linenos:`` parameter.
+You can add line numbers to code examples with the `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__ directive and the ``:linenos:`` parameter.
 
 .. code:: rst
 
-    .. code:: python
+    .. code-block:: python
       :linenos:
 
        def hello_world():
          print("Hello, world!")
 
 
-You can have certain lines with the ``:emphasize-lines:`` parameter.
+You can have certain lines with the ``:emphasize-lines:`` parameter, only with `code-block <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`__.
 
 .. code:: rst
 
