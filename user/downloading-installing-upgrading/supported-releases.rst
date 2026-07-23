@@ -123,7 +123,7 @@ It is the responsibility of each distribution to clearly notify its users in adv
      - 43
      - 13
    * - Release 4.3
-     - 43
+     - 43, 44
      - 13
 
 
