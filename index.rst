@@ -243,8 +243,8 @@ Core documentation for Qubes developers and advanced users.
    developer/system/architecture
    developer/system/security-design-goals
    developer/system/security-critical-code
-   Qubes core admin <https://dev.qubes-os.org/projects/core-admin/>
-   Qubes core admin client <https://dev.qubes-os.org/projects/core-admin-client/>
+   Qubes core admin <https://doc.qubes-os.org/projects/core-admin/>
+   Qubes core admin client <https://doc.qubes-os.org/projects/core-admin-client/>
    Qubes core stack <https://www.qubes-os.org/news/2017/10/03/core3/>
    developer/system/gui
    developer/system/networking
