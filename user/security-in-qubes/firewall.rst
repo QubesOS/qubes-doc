@@ -78,7 +78,7 @@ The firewall rules for each qube are saved in an XML file in that qube’s direc
 
       /var/lib/qubes/appvms/<vm-name>/firewall.xml
 
-Rules are implemented on the :term:`net qube`: If a rule is set for a qube that uses *sys-firewall* as its net qube, *sys-firewall* will implement the rules. This is done by the `qubes-firewall <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-service.html#supported-services>`_ service. You can verify that the service is running by executing the following command in the net qube:
+Rules are implemented on the :term:`net qube`: If a rule is set for a qube that uses *sys-firewall* as its net qube, *sys-firewall* will implement the rules. This is done by the `qubes-firewall <https://doc.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-service.html#supported-services>`_ service. You can verify that the service is running by executing the following command in the net qube:
 
 .. code:: console
 

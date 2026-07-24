@@ -5,7 +5,7 @@ How to enable a qube service
 To enable a :doc:`service </user/advanced-topics/qubes-service>` in a qube there are two options:
 
 * Use the :program:`Settings` of the qube
-* Use `qvm-service <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-service.html>`__
+* Use `qvm-service <https://doc.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-service.html>`__
 
 You might have to restart the qube for changes to be reflected.
 
