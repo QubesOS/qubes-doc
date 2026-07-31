@@ -116,7 +116,7 @@ You can add line numbers to code examples with the ``:linenos:`` parameter.
 
 .. code:: rst
 
-    .. code:: python
+    .. code-block:: python
       :linenos:
 
        def hello_world():
@@ -127,7 +127,7 @@ You can have certain lines with the ``:emphasize-lines:`` parameter.
 
 .. code:: rst
 
- .. code:: python
+ .. code-block:: python
    :emphasize-lines: 1,3,4
 
 
