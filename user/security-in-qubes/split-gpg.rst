@@ -343,13 +343,13 @@ In this example, the following keys are stored in the following locations (see b
 
 - ``vault``
 
-  - This is a network-isolated VM. The initial master keypair and subkeys are generated in this VM. The master secret key *never* leaves this VM under *any* circumstances. No files or text is *ever* :ref:`copied <user/how-to-guides/how-to-copy-and-move-files:security>` or :ref:`pasted <user/how-to-guides/how-to-copy-and-paste-text:security>` into this VM under *any* circumstances.
+  - This is a network-isolated VM. The initial master keypair and subkeys are generated in this VM. The master secret key *never* leaves this VM under *any* circumstances. No files or text is *ever* :ref:`copied or pasted <user/how-to-guides/how-to-copy-and-paste-text:security>` into this VM under *any* circumstances.
 
 
 
 - ``work-gpg``
 
-  - This is a network-isolated VM. This VM is used *only* as the GPG backend for ``work-email``. The secret subkeys (but *not* the master secret key) are :ref:`copied <user/how-to-guides/how-to-copy-and-move-files:security>` from the ``vault`` VM to this VM. Files from less trusted VMs are *never* :ref:`copied <user/how-to-guides/how-to-copy-and-move-files:security>` into this VM under *any* circumstances.
+  - This is a network-isolated VM. This VM is used *only* as the GPG backend for ``work-email``. The secret subkeys (but *not* the master secret key) are :ref:`copied <qfilecopy-security>` from the ``vault`` VM to this VM. Files from less trusted VMs are *never* copied into this VM under *any* circumstances.
 
 
 

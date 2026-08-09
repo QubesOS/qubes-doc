@@ -16,3 +16,10 @@
 .accelerator {
     text-decoration: underline;
 }
+
+@media screen and (min-width:480px) {
+    .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

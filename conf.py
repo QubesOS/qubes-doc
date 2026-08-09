@@ -32,6 +32,8 @@ release = version
 
 extensions = [
   'sphinx.ext.autosectionlabel',  # Automatically generate section labels
+  'sphinx.ext.graphviz',  # For graphs
+  'sphinx.ext.imgconverter',  # Support SVG in LaTeX builder
   'sphinx.ext.intersphinx',  # Reference other doc projects
   'sphinxnotes.strike', # Add strike-through text support
   'sphinx_reredirects', # Manage redirects in the documentation

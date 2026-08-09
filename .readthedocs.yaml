@@ -4,6 +4,8 @@ build:
   os: "ubuntu-lts-latest"
   tools:
     python: "3.13"
+  apt_packages:
+    - graphviz
 
 submodules:
   include: all
