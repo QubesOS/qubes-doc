@@ -19,7 +19,7 @@ Do not waste the user's time
 - the program should not *require* extensive configuration
     **example**: you don't need to set the policy directory used by the :program:`Qubes Policy Editor` - the program lists available policy files for you
 - the most typical and most recommended workflows should require the least user time and attention
-    **example**: ``Create New Qube`` opens at the typical use-case (a new app qube) with options such as "template" and "networking" set to system defaults; the user only has to enter qube name and click ``Create``
+    **example**: :guilabel:`Create New Qube` opens at the typical use-case (a new app qube) with options such as "template" and "networking" set to system defaults; the user only has to enter qube name and click ``Create``
 - the defaults should be sensible - they should work for most use cases and not require changes in most situations, if at all possible
     **example**: default settings for newly created qubes
 - minimize repetitiveness: if possible, avoid multiple clicks or multiple steps for operations that can be implemented with less clicks/steps
@@ -144,7 +144,7 @@ Examples:
 .. figure:: /attachment/doc/ui_design_qubename_2.png
    :alt: part of Create New Qube Dialog showing selected net qube with its icon to the left of the qube name
 
-   In :guilabel:`Create New Qube Dialog`, selected network qube is displayed with its icon and also with the qube color used to color the qube name, to reinforce the qube-label association.
+   In :guilabel:`Create New Qube` Dialog, selected network qube is displayed with its icon and also with the qube color used to color the qube name, to reinforce the qube-label association.
 
 .. figure:: /attachment/doc/ui_design_qubename_3.png
    :alt: list of running qubes from the domains widget; each qube name has the qube icon to the left of it
