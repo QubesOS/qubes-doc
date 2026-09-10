@@ -49,17 +49,17 @@ The bar at the top of your screen in Qubes 4.2 includes the following XFCE compo
 
 There are several tray widgets that are unique to Qubes OS:
 
-- The **Whonix SDWDate** allows you to control the Tor connection in your `sys-whonix <https://www.whonix.org/wiki/Qubes>`__ qube.
+- The :guilabel:`Whonix SDWDate widget` allows you to control the Tor connection in your `sys-whonix <https://www.whonix.org/wiki/Qubes>`__ qube.
 
-- The **Qubes Clipboard** lets you easily `copy text <https://wwwpreview.qubes-os.org/doc/how-to-copy-and-paste-text/>`__ between various qubes and from dom0.
+- The :guilabel:`Qubes Clipboard widget` lets you easily `copy text <https://wwwpreview.qubes-os.org/doc/how-to-copy-and-paste-text/>`__ between various qubes and from dom0.
 
-- The **Qubes Devices** widget allows you to attach and detach devices — such as USB drives and cameras — to qubes.
+- The :guilabel:`Qubes Devices widget` allows you to attach and detach devices — such as USB drives and cameras — to qubes.
 
-- The **Qubes Disk Space** widget shows you how much storage you’re using. It’ll notify you if you’re ever running out of space.
+- The :guilabel:`Qubes Disk Space widget` shows you how much storage you’re using. It’ll notify you if you’re ever running out of space.
 
-- The **Qubes Domains** widget allows you to manage running qubes, turn them on and off, and monitor RAM and CPU usage.
+- The :guilabel:`Qubes Domains widget` allows you to manage running qubes, turn them on and off, and monitor RAM and CPU usage.
 
-- The **Qubes Updater** widget informs you when updates are available and helps you install them.
+- The :guilabel:`Qubes Updater widget` informs you when updates are available and helps you install them.
 
 
 
