@@ -220,6 +220,25 @@ In some cases, one Qubes developer may start working on an issue, then another o
 
 Please **do not** send unsolicited communications to developers or attempt to contact them directly for help.
 
+The issue title should match the issue type
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+If you're opening a ``T: bug`` issue, then your issue title should state the bug. It should not state your desired fix for the bug or be phrased as a feature. Below are some examples of good and bad bug report titles *with respect to title-type match*. (Here, we're intentionally ignoring other aspects of what makes for a good issue title so that we can focus solely on the matter of title-type match.)
+
+- Good: "Foo crashes when clicking Bar." (States the bug.)
+- Bad: "Rewrite Foo in Rust." (States your desired fix instead of the bug. Let the devs decide what the proper fix should be.)
+- Bad: "Fix the Bar button in Foo." (Still phrased as a desired fix, but at least it doesn't assume the proper fix, which makes it a bit better.)
+- Bad: "Improve stability of Foo." (Phrased as an improvement instead of a bug.)
+
+Similarly, if you're opening a ``T: feature`` issue, then your issue title should state the desired feature. It should not state the problem that your feature is intended to address or be phrased as a bug report. Below are some examples of good and bad feature titles *with respect to title-type match*. (Here, we're intentionally ignoring other aspects of what makes for a good issue title so that we can focus solely on the matter of title-type match.)
+
+- Good: "Improve the UX of Foo." (States the improvement.)
+- Bad: "Foo is counterintuitive and frustrating to use." (Phrased as a problem instead of an improvement.)
+- Bad: "Fix Baz in Foo." (States a desired fix for a bug instead of an improvement.)
+
+If your issue's title does not match its type, it may be retitled, or its type may be changed.
+
 Use collapsible sections for long, nonessential content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
