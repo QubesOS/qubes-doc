@@ -13,6 +13,20 @@ This page provides instructions for performing an in-place upgrade of an install
 .. note::
  In what follows the prompt on each line indicates where each command should be entered: ``dom0``, ``fedora-<old>``, or ``fedora-<new>``, where ``<old>`` is the fedora version number *from* which you are upgrading, and ``<new>`` is the fedora version number *to* which you are upgrading. Remember to use the right template *version*: eg clone ``fedora-<old>-minimal`` to ``fedora-<new>-minimal``.
 
+Automated upgrade with qvm-template-upgrade
+-------------------------------------------
+
+
+The `qvm-template-upgrade <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qvm-template-upgrade.rst>`__ tool automates the clone-and-upgrade procedure described on this page: it clones the template, upgrades the clone to the next Fedora release, and sets the ``template-name`` feature used by the Qubes updater.
+
+.. code:: console
+
+      [user@dom0 ~]$ qvm-template-upgrade --template=fedora-<old>
+
+By default, the clone is named by replacing the release number in the source name, e.g. ``fedora-41`` becomes ``fedora-42`` and ``fedora-41-minimal`` becomes ``fedora-42-minimal``. Use ``--new-name=<NAME>`` to choose a different name, and ``--dry-run`` to preview the planned upgrade without creating a clone.
+
+After the upgrade completes, remember to :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>` and, optionally, make the new template the global default and uninstall the old template, as described in the manual instructions below. Use the manual instructions if you need finer control over the upgrade process or if the automated upgrade fails.
+
 Summary instructions for standard Fedora templates
 --------------------------------------------------
 
