@@ -584,9 +584,9 @@ Additional pillar data is available to ease targeting configurations (for exampl
 
 Features the qube has. Only some values are included:
 
-- ``service.*`` - services enabled or disabled in the qube
+- :option:`service.* <qvm-features service.*>` - services enabled or disabled in the qube
 
-- ``vm-config.*`` - features also exposed to qubesdb
+- :option:`vm-config.* <qvm-features vm-config.*>` - features also exposed to qubesdb
 
 
 

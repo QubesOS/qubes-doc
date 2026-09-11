@@ -104,7 +104,7 @@ For instance, to have Mozilla Thunderbird application open all attachments in a 
 
       qvm-appmenus --get-available --i-understand-format-is-unstable <QUBE> | grep -i thunderbird
 
-In the current case, we identified the application ID to be ``net.thunderbird.Thunderbird`` (in your case it may as well be ``thunderbird``). Finally, enable the ``app-dispvm.net.thunderbird.Thunderbird`` service via the :ref:`qube settings <how-to-enable-a-service-in-the-settings>`.
+In the current case, we identified the application ID to be ``net.thunderbird.Thunderbird`` (in your case it may as well be ``thunderbird``). Finally, enable the :option:`app-dispvm.net.thunderbird.Thunderbird <qvm-features app-dispvm.*>` service via the :ref:`qube settings <how-to-enable-a-service-in-the-settings>`.
 
 .. warning:: This feature is currently somewhat experimental, and only works for Linux qubes. It is known to work with Thunderbird and Wire, but it may fail to work with some applications that do not honor all XDG environment variables. If the feature does not work for you, please file a bug report.
 
@@ -239,7 +239,7 @@ You can also use the command line equivalent:
       user@dom0:~$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
       user@dom0:~$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
-The ``appmenus-dispvm`` feature is only necessary if you intend to launch disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new disposable based on the disposable template (not in the disposable template itself).
+The :option:`appmenus-dispvm <qvm-features appmenus-dispvm>` feature is only necessary if you intend to launch disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new disposable based on the disposable template (not in the disposable template itself).
 
 .. important:: Application shortcuts that existed before setting this feature will not be updated automatically. Please go to |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> Settings`, in the :guilabel:`Applications` tab, unselect all existing shortcuts by clicking :guilabel:`<<`, then click :guilabel:`&OK` and close the dialog. Give it a few seconds and then reopen and re-select all the shortcuts you want to see in the menu. See :doc:`app menu shortcut troubleshooting </user/troubleshooting/app-menu-shortcut-troubleshooting>` for background information.
 

@@ -33,7 +33,7 @@ Major features and improvements since Qubes 4.2
 - Device “self-identity oriented” assignment (a.k.a New Devices API)
   (`#9325 <https://github.com/QubesOS/qubes-issues/issues/9325>`__).
 
-  **See:** :option:`core-admin-client:qvm-device --assignments`, ``qvm-device assign`` and ``qvm-device unassign``
+  **See:** :option:`qvm-device --assignments`, :doc:`qvm-device assign <manpages/qvm-device>` and :doc:`qvm-device unassign <manpages/qvm-device>`
 
 - :doc:`/user/templates/windows/qubes-windows-tools` reintroduction with improved features
   (`#1861 <https://github.com/QubesOS/qubes-issues/issues/1861>`__).
@@ -104,7 +104,7 @@ UI/UX
 - Centralized Tray Notifications
   (`#889 <https://github.com/QubesOS/qubes-issues/issues/889>`__).
 
-- Options to launch root terminal or `console terminal <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#expert-mode>`__ from :program:`Qubes Domains widget` (`#9788 <https://github.com/QubesOS/qubes-issues/issues/9788>`__).
+- Options to launch root terminal or :option:`console terminal <qvm-features expert-mode>` from :program:`Qubes Domains widget` (`#9788 <https://github.com/QubesOS/qubes-issues/issues/9788>`__).
 
   Holding the shift key changes the :guilabel:`Run Terminal` command into a :guilabel:`Run Root Terminal` action.
 
@@ -182,14 +182,14 @@ Security features
 - Preventing unsafe practice of 3rd party template installation with rpm/dnf
   (`#9943 <https://github.com/QubesOS/qubes-issues/issues/9943>`__).
 
-- Ability to `prohibit start <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#prohibit-start>`__ of specific qubes
+- Ability to :option:`prohibit start <qvm-features prohibit-start>` of specific qubes
   (`#9622 <https://github.com/QubesOS/qubes-issues/issues/9622>`__).
 
 - UUID support for qubes and support for addressing them by UUID in policies
   (`#8862 <https://github.com/QubesOS/qubes-issues/issues/8862>`__ &
   `#8510 <https://github.com/QubesOS/qubes-issues/issues/8510>`__).
 
-- `Custom persist feature <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#custom-persist>`__ to avoid unwanted data to persist as much as possible
+- :option:`Custom persist feature <qvm-features custom-persist.*>` to avoid unwanted data to persist as much as possible
   (`#1006 <https://github.com/QubesOS/qubes-issues/issues/1006>`__).
 
 Anonymity improvements
@@ -219,7 +219,7 @@ Performance optimizations
   (`#9362 <https://github.com/QubesOS/qubes-issues/issues/9362>`__).
 
 - Minimal state qubes to make NetVM and USBVM to consume as little RAM as
-  possible.
+  possible, see: :option:`qvm-service minimal-netvm` and :option:`qvm-service minimal-usbvm`
 
 Updating & upgrading
 --------------------
@@ -276,7 +276,7 @@ Other
 - Automatically clean up `QubesIncoming` directory if empty
   (`#8307 <https://github.com/QubesOS/qubes-issues/issues/8307>`__).
 
-- `vm-config.* <https://dev.qubes-os.org/projects/core-admin-client/en/latest/manpages/qvm-features.html#vm-config>`__ features to pass external configuration to inside the qube (`#9837 <https://github.com/QubesOS/qubes-issues/issues/9837>`__).
+- :option:`vm-config.* <qvm-features vm-config.*>` features to pass external configuration to inside the qube (`#9837 <https://github.com/QubesOS/qubes-issues/issues/9837>`__).
 
 - Admin API for reading/writing denied device-interface list
   (`#9674 <https://github.com/QubesOS/qubes-issues/issues/9674>`__).

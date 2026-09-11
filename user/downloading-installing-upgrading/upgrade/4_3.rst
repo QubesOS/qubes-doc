@@ -112,7 +112,7 @@ The upgrade consists of **six stages** available in two phase:
       - resync applications and features
       - create LVM devices cache
       - update PCI device IDs
-      - enable minimal-netvm / minimal-usbvm services
+      - enable :option:`minimal-netvm <qvm-service minimal-netvm>` / :option:`minimal-usbvm <qvm-service minimal-usbvm>` services
       - cleanup salt states
       - enable preloaded disposables if system has more than 16GB memory
 
