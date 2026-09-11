@@ -27,7 +27,7 @@ Attaching device to a qube works, but the device disconnects or disappears upon 
 -------------------------------------------------------------------------------------
 
 
-After attaching a device to a qube, upon attempting to use the device results in the device disappearing or disconnecting. This may be observed by the device no longer existing in the Devices widget or the application within the attached qube indicating the device is no longer found.
+After attaching a device to a qube, upon attempting to use the device results in the device disappearing or disconnecting. This may be observed by the device no longer existing in the :guilabel:`Qubes Devices widget` or the application within the attached qube indicating the device is no longer found.
 
 As a first line of defense, increase the amount of memory given to the USB VM (sys-usb). High-bandwidth devices such as webcams have been `observed <https://github.com/QubesOS/qubes-issues/issues/6200>`__ to need more memory in sys-usb. If increasing the amount of memory does not resolve the issue, check kernel logs within sys-usb as well as the attached qube for errors before filing a bug report.
 

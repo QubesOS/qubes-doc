@@ -23,23 +23,23 @@ Examples of valid cases for USB-passthrough:
 Attaching and detaching a USB device
 ------------------------------------
 
-With Qubes Device Widget
-^^^^^^^^^^^^^^^^^^^^^^^^
+With Qubes Devices Widget
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: /attachment/icons/qubes-desktop-linux-manager/4.3/qubes-devices.svg
    :alt:
    :scale: 200%
    :align: center
 
-   Qubes Devices Widget tray icon
+   Qubes Devices widget tray icon
 
-Click the Device Widget: a list of available devices appears. USB-devices have a USB-icon to their right: |usb icon|
+Click the :guilabel:`Qubes Devices widget`: a list of available devices appears.
 
 Hover on one device to display a list of qubes you may attach it to.
 
 Click one of those. The USB device will be attached to it. You’re done.
 
-After you finished using the USB-device, you can detach it the same way by clicking on the Devices Widget. You will see an entry in bold for your device such as ``sys-usb:2-5 - 058f_USB_2.0_Camera``. Hover on the attached device to display a list of running qubes The one to which your device is connected will have an eject button |eject icon| next to it. Click that and your device will be detached.
+After you finished using the USB-device, you can detach it the same way by clicking on the :guilabel:`Qubes Devices widget`. You will see an entry in bold for your device such as ``sys-usb:2-5 - 058f_USB_2.0_Camera``. Hover on the attached device to display a list of running qubes The one to which your device is connected will have an eject button |eject icon| next to it. Click that and your device will be detached.
 
 With the command line tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

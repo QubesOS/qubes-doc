@@ -6,8 +6,8 @@ How to use block storage devices
 
 If you don’t know what a “block device” is, just think of it as a fancy way to say “something that stores data”.
 
-Using the Devices Widget to Attach a Drive
-------------------------------------------
+Using the Qubes Devices Widget to Attach a Drive
+------------------------------------------------
 
 (**Note:** In the present context, the term “USB drive” denotes any `USB mass storage device <https://en.wikipedia.org/wiki/USB_mass_storage_device_class>`__. In addition to smaller flash memory sticks, this includes things like USB external hard drives.)
 
@@ -18,9 +18,9 @@ Qubes OS supports the ability to attach a USB drive (or just its partitions) to 
    :scale: 200%
    :align: center
 
-   Qubes Devices Widget tray icon
+   Qubes Devices widget tray icon
 
-Attaching USB drives is integrated into the Devices Widget. Simply insert your USB drive and click on the widget. You will see multiple entries for your USB drive; typically, ``sys-usb:sda``, ``sys-usb:sda1``, and ``sys-usb:2-1`` for example. Entries starting with a number (e.g. here ``2-1``) are the :doc:`whole usb-device </user/how-to-guides/how-to-use-usb-devices>`. Entries without a number (e.g. here ``sda``) are the whole block-device. Other entries are partitions of that block-device (e.r. here ``sda1``).
+Attaching USB drives is integrated into the :guilabel:`Qubes Devices widget`. Simply insert your USB drive and click on the widget. You will see multiple entries for your USB drive; typically, ``sys-usb:sda``, ``sys-usb:sda1``, and ``sys-usb:2-1`` for example. Entries starting with a number (e.g. here ``2-1``) are the :doc:`whole usb-device </user/how-to-guides/how-to-use-usb-devices>`. Entries without a number (e.g. here ``sda``) are the whole block-device. Other entries are partitions of that block-device (e.r. here ``sda1``).
 
 The simplest option is to attach the entire block drive. In our example, this is ``sys-usb:sda``, so hover over it. This will pop up a submenu showing running VMs to which the USB drive can be connected. Click on one and your USB drive will be attached!
 
@@ -156,7 +156,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
    `This command <https://linux.die.net/man/8/losetup>`__ will create the device node ``/dev/loop0`` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
 
-2. If you want to use the GUI, you’re done. Click the Device Widget and select the ``loop0``-device to attach it to another qube.
+2. If you want to use the GUI, you’re done. Click the :guilabel:`Qubes Devices widget` and select the ``loop0``-device to attach it to another qube.
 
    - If you rather use the command line, continue:
 

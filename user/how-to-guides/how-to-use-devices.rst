@@ -9,7 +9,7 @@ This is an overview of device handling in Qubes OS. For specific devices (:doc:`
 Introduction
 ------------
 
-The interface to deal with devices of all sorts was unified in Qubes 4.0 with the ``qvm-device`` command and the Qubes Devices Widget. In Qubes 3.X, the Qubes VM Manager dealt with attachment as well. This functionality was moved to the Qubes Device Widget, the tool tray icon with a yellow square located in the top right of your screen by default.
+The interface to deal with devices of all sorts was unified in Qubes 4.0 with the ``qvm-device`` command and the :guilabel:`Qubes Devices widget`. In Qubes 3.X, the Qubes VM Manager dealt with attachment as well. This functionality was moved to the :guilabel:`Qubes Devices widget`, the tool tray icon with a USB trident symbol located in the top right of your screen by default.
 
 There are currently four categories of devices Qubes understands:
 
@@ -23,15 +23,15 @@ There are currently four categories of devices Qubes understands:
 
 Microphones, block devices and USB devices can be attached with the GUI-tool. PCI devices can be attached using the Qube Settings, but require a VM reboot.
 
-General Qubes Device Widget Behavior And Handling
--------------------------------------------------
+General Qubes Devices Widget Behavior And Handling
+--------------------------------------------------
 
 .. figure:: /attachment/icons/qubes-desktop-linux-manager/4.3/qubes-devices.svg
    :alt:
    :scale: 200%
    :align: center
 
-   Qubes Devices Widget tray icon
+   Qubes Devices widget tray icon
 
 When clicking on the tray icon, several device-classes separated by lines are displayed as tooltip. Block devices are displayed on top, microphones one below and USB-devices at the bottom.
 
@@ -49,7 +49,7 @@ Click the tray icon. Hover on a device you want to attach to a VM. A list of run
 Detaching Using The Widget
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To detach a device, click the Qubes Devices Widget icon again. Attached devices are displayed in bold. Hover the one you want to detach. A list of VMs appears, one showing the eject symbol: |eject icon|
+To detach a device, click the :guilabel:`Qubes Devices widget` icon again. Attached devices are displayed in bold. Hover the one you want to detach. A list of VMs appears, one showing the eject symbol: |eject icon|
 
 Attaching a Device to Several VMs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

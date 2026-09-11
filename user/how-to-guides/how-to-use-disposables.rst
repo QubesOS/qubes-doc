@@ -41,7 +41,7 @@ Disposable qube
 
 For example, you can use the ``default-dvm`` disposable template to create a disposable qube to browse the internet. Every time you launch an application using this disposable template as base, a new disposable qube named :samp:`disp{1234}` (where :samp:`{1234}` is a random number) starts and launches the chosen application. If you close the application window, the :samp:`disp{1234}` qube shuts down and vanishes from your system.
 
-Disposables spawned through the Devices widget's **Attach to new in disposable** feature don't have a set initial application - they must be manually turned off when no longer needed.
+Disposables spawned through the :guilabel:`Qubes Devices widget`'s **Attach to new in disposable** feature don't have a set initial application - they must be manually turned off when no longer needed.
 
 Named disposable
 ^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ Connect a device to a disposable (from GUI domain)
 
 Sometimes you have a device which you don't trust, therefore you decide to leverage disposables for the task. To attach a device to a disposable, go to :menuselection:`Qubes Devices widget --> <DEVICE> --> Attach to new disposable qube --> default-dvm`.
 
-.. note:: No application will launch by default and the disposable will continue running, that is expected, no application request was made. Also notice that opening and closing the first (or any other) application opened in the disposable will not turn it off, this is also expected, you must shutdown disposables created by the Qubes Devices widget manually.
+.. note:: No application will launch by default and the disposable will continue running, that is expected, no application request was made. Also notice that opening and closing the first (or any other) application opened in the disposable will not turn it off, this is also expected, you must shutdown disposables created by the :guilabel:`Qubes Devices widget` manually.
 
 
 The same can be done from the command line, although more difficult:
