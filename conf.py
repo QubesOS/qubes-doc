@@ -125,12 +125,12 @@ linkcheck_ignore = [r"^https?://[^/\s]+\.onion", r"https://localhost:\d+/"]
 # Prefix section labels with the document name
 autosectionlabel_prefix_document = True
 
-# Allows references to the docs in dev.qubes-os.org
+# Allows references to the docs in doc.qubes-os.org
 # i.e.: :doc:`core-admin:libvirt`
 intersphinx_mapping = {
-    'core-admin': ('https://dev.qubes-os.org/projects/core-admin/en/latest/', None),
-    'core-admin-client': ('https://dev.qubes-os.org/projects/core-admin-client/en/latest/', None),
-    'core-qrexec': ('https://dev.qubes-os.org/projects/qubes-core-qrexec/en/stable/', None),
+    'core-admin': ('https://doc.qubes-os.org/projects/core-admin/en/latest/', None),
+    'core-admin-client': ('https://doc.qubes-os.org/projects/core-admin-client/en/latest/', None),
+    'core-qrexec': ('https://doc.qubes-os.org/projects/core-qrexec/en/latest/', None),
 }
 intersphinx_disabled_reftypes = ["*"]
 

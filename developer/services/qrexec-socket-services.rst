@@ -72,8 +72,9 @@ Example: ``qrexec-policy-agent``
 - Uses systemd socket activation. This way it can be installed in all VMs, but started only if it’s ever needed.
 
 
+.. seealso::
 
-See the `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository for details.
+   :doc:`core-qrexec:qrexec-policy-agent`
 
 Systemd unit files
 ^^^^^^^^^^^^^^^^^^
@@ -228,7 +229,7 @@ Here is the server code:
           main()
 
 
-You can also use ``qrexec/server.py`` from `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository, which is a variant of the above code - but note that currently it’s somewhat more specific (JSON requests and ASCII responses; no target handling in service descriptors).
+You can also use `qrexec/server.py <https://github.com/QubesOS/qubes-core-qrexec/blob/main/qrexec/server.py>`__ from :doc:`core-qrexec <core-qrexec:index>`, which is a variant of the above code - but note that currently it’s somewhat more specific (JSON requests and ASCII responses; no target handling in service descriptors).
 
 Using the service
 ^^^^^^^^^^^^^^^^^
@@ -258,7 +259,9 @@ Further reading
 
 - :doc:`Qrexec internals </developer/services/qrexec-internals>`
 
-- `qubes-core-qrexec <https://github.com/QubesOS/qubes-core-qrexec/>`__ repository - contains the above example
+- :doc:`core-qrexec:index`
+
+- `qubes-core-qrexec repository <https://github.com/QubesOS/qubes-core-qrexec/>`__ - contains the above example
 
 - `systemd.socket <https://www.freedesktop.org/software/systemd/man/systemd.socket.html>`__ - socket unit configuration
 
