@@ -1,6 +1,8 @@
-=========
-Split GPG
-=========
+.. _split-gpg-1:
+
+===========
+Split GPG-1
+===========
 
 .. warning::
       
@@ -395,6 +397,13 @@ Current limitations
 
 - The Split GPG client will fail to sign or encrypt if the private key in the GnuPG backend is protected by a passphrase. It will give an ``Inappropriate ioctl for device`` error. Do not set passphrases for the private keys in the GPG backend domain. Doing so won’t provide any extra security anyway, as explained in the introduction and in :ref:`using-split-gpg-with-subkeys`. If you are generating a new key pair, or if you have a private key that already has a passphrase, you can use ``gpg2 --edit-key <key_id>`` then ``passwd`` to set an empty passphrase. Note that ``pinentry`` might show an error when you try to set an empty passphrase, but it will still make the change. (See `this StackExchange answer <https://unix.stackexchange.com/a/379373>`__ for more information.) **Note:** The error shows only if you **do not** have graphical pinentry installed.
 
+Split GPG-1 frequently asked questions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+I'm using Split GPG-1, do I need to upgrade to Split GPG-2?
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+:ref:`split-gpg-2` is a different implementation. You can use it instead of, or along with, Split GPG-1.
 
 .. [1]
    In order to gain access to the ``vault`` VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a :ref:`signed, compromised package which is already installed in the template <user/templates/templates:trusting your templates>` upon which the ``vault`` VM is based.
