@@ -330,11 +330,17 @@ Creating a Python environment with venv
 
 2.  **Install Sphinx and Required Extensions**
 
-   Install Sphinx and the necessary extensions (:program:`sphinx-autobuild`, :program:`sphinx-lint`).
+   Install the project, with optional dependencies:
 
    .. code-block:: console
 
-      (.venv) $ pip install -r requirements.txt sphinx-lint sphinx-autobuild
+      (.venv) $ pip install ".[web,dev]"
+
+   `web`
+      If you want to build a documentation similar to the one on `doc.qubes-os.org <https://doc.qubes-os.org>`__
+
+   `dev`
+      Provides useful packages like `sphinx-autobuild` when contributing to the docs
 
 
 Linting the documentation from venv
@@ -421,7 +427,7 @@ Creating a Python environment with poetry
 
       $ curl -sSL https://install.python-poetry.org | python3 -
       $ poetry config virtualenvs.in-project true  # optional
-      $ poetry install
+      $ poetry install --extras dev --extras web
 
    .. hint::
 
