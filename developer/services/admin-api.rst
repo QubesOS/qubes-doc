@@ -649,14 +649,81 @@ Volume properties:
 -  ``revisions_to_keep``
 -  ``is_outdated``
 
-Method ``admin.vm.Stats`` returns ``vm-stats`` events every
-``stats_interval`` seconds, for every running VM. Parameters of
-``vm-stats`` events:
+Method ``admin.vm.Stats`` returns ``vm-stats`` events every ``stats_interval`` seconds, for every running VM. Clients must not expect parameters in any order nor that this is list set in stone. Therefore, when using Python, join the parameters in ``**kwargs`` and pop/get them to use it. Parameters of ``vm-stats`` events:
 
--  ``memory_kb`` - memory usage in kB
--  ``cpu_time`` - absolute CPU time (in milliseconds) spent by the VM
-   since its startup, normalized for one CPU
--  ``cpu_usage`` - CPU usage in percents
+Available keys:
+
+- ``memory_assigned_usable``:
+   - Type: ``int``, unit: ``KiB``.
+   - Description: Amount of memory assigned to a qube available to use. A qube
+     cannot use more memory than this this value. On memory balanced qubes,
+     this value is volatile and controlled by qmemman.
+   - Usage: This value should only be considered per qube. This value should be
+     compared with ``memory_with_swap_used``, to reflect how much memory the
+     qube is using from what it has.
+- ``memory_assigned_total``:
+   - Type: ``int``, unit: ``KiB``.
+   - Description: Amount of memory assigned to a qube in total, this includes
+     ``memory_assigned_usable``, plus overhead of videoram and whatever else
+     the hypervisor considers, such as memory assigned to device model stub
+     domains.
+   - Usage: Summing the value of this key from all domains should reflect the
+     total amount of memory allocated to all qubes.
+- ``memory_with_swap_used``:
+   - Type: ``int``, unit: ``KiB``.
+   - Description: Amount of memory the qube alleges to use, including swap, can
+     be a lie. On memory balanced qubes, might differ up to 30MiB of the actual
+     usage. As this value includes swap and the qube can lie, it might be
+     bigger than ``memory_assigned_usable``.
+   - Usage: This value should be compared with ``memory_assigned_usable``, to
+     reflect how much memory the qube is using from what it can use. Deduct
+     this value with ``swap_used`` to reflect how much memory the qube is using
+     internally.
+- ``swap_used``:
+   - Type: ``int``, unit: ``KiB``.
+   - Description: Amount of swap the qube alleges to use, can be a lie. As this
+     value can be lie, it might be bigger than ``memory_assigned_usable``. This
+     variable is not set if the value of ``memory/swapinfo`` is not set or
+     invalid,
+   - Usage: This value should be compared with ``memory_with_swap_used`` to
+     determine how much the qube is swaping over what it is using of real
+     memory.
+- ``online_vcpus``
+  - Type: ``int``.
+  - Description: Amount of VCPUs assigned.
+- ``cpu_time``
+   - Type: ``int``, unit: ``nanosecond``, API broadcasts in
+     ``millisecond``.
+   - Description: Absolute CPU usage (since its startup).
+- ``cpu_usage``
+    - Type: ``int``, percentage.
+    - Description: CPU usage in normalized to the number of VCPUs. Will be
+      deprecated as it can be calculated on the client.
+
+Implementation specific (normally device model stub domains):
+
+- ``online_vcpus_internal``:
+   - Type: ``int``
+   - Description: Same as description ``online_vcpus``, but only consider
+     internal usage.
+- ``cpu_time_internal``:
+   - Type: ``int``, unit: ``nanosecond``, API broadcasts in
+     ``millisecond``.
+   - Description: Same description as ``cpu_time``, but only consider internal
+     usage.
+- ``cpu_usage_internal``:
+   - Type: ``int``, percentage.
+   - Description: Same description as ``cpu_usage``, but only consider internal
+     usage.
+
+Future key(s) deprecation:
+
+- ``memory_kb``:
+   - Type: ``int``, Unit: ``KiB``
+   - Description: Amount memory assigned that is usable in the qube.  Will be
+     deprecated in a future release due to its ambiguous name.  Prefer the
+     equivalent ``memory_assigned_usable``.
+
 
 Returned messages
 =================
