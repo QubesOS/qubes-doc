@@ -27,11 +27,11 @@ Copying and pasting clipboard text from dom0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Use the **Qubes Clipboard** widget:
+Use the :guilabel:`Qubes Clipboard widget`:
 
 1. Copy text to the clipboard normally in dom0 (e.g., by pressing Ctrl+C).
 
-2. Click the **Qubes Clipboard** icon in the Notification Area.
+2. Click the :guilabel:`Qubes Clipboard widget` in the Notification Area.
 
 3. Click “Copy dom0 clipboard”. This displays a notification that text has been copied to the inter-qube clipboard.
 

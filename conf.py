@@ -21,11 +21,11 @@ copyright = f'%Y, {author} and others'
 
 # The major project version, used as the replacement for the |version| default
 # substitution. i.e. '4.3'
-version = 'latest'
+version = 'development'
 
 # The full version, including alpha/beta/rc tags
 # Note: this value is not used in the Qubes OS documentation
-release = version 
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -95,7 +95,7 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
-html_title = f'{project} Documentation'
+html_title = f'{project} {release} documentation'
 
 html_theme_options = {
   'style_external_links': True,
@@ -169,13 +169,20 @@ gettext_uuid = True
 # -- -- Options for markup ---------------------------------------------------
 
 # Define a block of reusable reStructuredText (reST) snippets, warnings etc. that Sphinx automatically appends to every source file before it is parsed
-rst_epilog = """
+if os.environ.get('READTHEDOCS_VERSION') == 'development':
+    rst_prolog = """
+.. attention:: This is the documentation of the last **development** version. For most users, the documentation of the `latest supported release <https://doc.qubes-os.org/en/latest/>`__ is more appropriate.
+"""
+
+rst_epilog = f"""
 .. |debian-codename| replace:: trixie
 .. |debian-version| replace:: 13
 .. |qubes-logo-icon| image:: /attachment/icons/128x128/apps/qubes-logo-icon.png
    :height: 1em
    :class: no-scaled-link
    :alt: Qubes logo icon
+
+.. |main-title| replace:: {html_title}
 """
 
 # -- -- Options for the nitpicky mode ----------------------------------------

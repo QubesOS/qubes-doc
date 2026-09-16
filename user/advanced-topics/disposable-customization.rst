@@ -197,7 +197,7 @@ It is also possible to change application settings of a disposable by customizin
 
    - Default editor, image viewer. In Debian derivatives, this can be done with the :program:`mimeopen` command.
 
-3. Shutdown the qube, either with Qubes Domains widget, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Shutdown`, :program:`qvm-shutdown` from the :term:`GUI domain` terminal or with :program:`poweroff` from qube's terminal.
+3. Shutdown the qube, either with :guilabel:`Qubes Domains widget`, |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Shutdown`, :program:`qvm-shutdown` from the :term:`GUI domain` terminal or with :program:`poweroff` from qube's terminal.
 
 Change application settings dynamically
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

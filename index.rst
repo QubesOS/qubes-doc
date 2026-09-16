@@ -1,10 +1,11 @@
-=============
-Documentation
-=============
+.. _main-index:
 
-=================
+============
+|main-title|
+============
+
 Table of contents
-=================
+-----------------
 
 
 .. _introduction:
@@ -28,9 +29,8 @@ Table of contents
    introduction/privacy
 
 
-==================
 User Documentation
-==================
+^^^^^^^^^^^^^^^^^^
 
 
 Core documentation for Qubes users.
@@ -196,9 +196,8 @@ Core documentation for Qubes users.
    project-security/verifying-signatures
 
 
-=======================
 Developer Documentation
-=======================
+^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Core documentation for Qubes developers and advanced users.
@@ -313,9 +312,8 @@ Core documentation for Qubes developers and advanced users.
    developer/releases/version-scheme
 
 
-======================
 External Documentation
-======================
+^^^^^^^^^^^^^^^^^^^^^^
 
 Unofficial, third-party documentation from the Qubes community and others.
 
