@@ -757,6 +757,7 @@ The file uses yaml syntax and has the following settings:
    interactively, or to have some automated passphrase handling (for
    example: generate randomly, then encrypt with a public key and send
    somewhere)
+
 .. note ::
     Not all settings needs to be specified
 
