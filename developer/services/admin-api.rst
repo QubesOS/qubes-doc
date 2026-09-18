@@ -849,25 +849,29 @@ Example device serialization:
 Writing qrexec policy for Admin API calls
 =========================================
 
+The default Admin API policy, :file:`/etc/qubes/policy/90-admin-default.policy` , advises adding ``target=dom0`` to every
+allow/ask entry. The reason for this is explained below.
+
+
 All ``admin.*`` calls are served by ``qubesd`` in dom0, so every allow/ask
-rule for an ``admin.*`` call must specify ``target=dom0``, whatever the
-destination column selects (a VM name, ``@anyvm``, or a ``@tag:`` selector).
-For example::
+rule for an ``admin.*`` call must specify ``target=dom0``, **whatever
+is selected in the destination column** (a qube name, ``@anyvm``, or a
+``@tag:`` selector).  For example::
 
-   admin.vm.firewall.Get * source-vm @tag:some-tag allow target=dom0
+   admin.vm.firewall.Get * source-qube @tag:some-tag allow target=dom0
 
-Without ``target=dom0``, the rule still matches on the caller-named
-destination VM (validated against the destination selector) but routes the
-call to that VM rather than to dom0. If the VM is not running, qrexec starts
-it as part of the routing attempt. This is an unintended side effect that
-occurs even for read-only calls such as ``admin.vm.firewall.Get``. The call
-does not succeed, because ``admin.*`` calls are served by ``qubesd`` in dom0,
-not by the target VM.
+Without ``target=dom0``, the rule matches the specified destination
+qube (validated against the destination selector) and routes the call to
+**that** qube. If the qube is not running, qrexec starts it as part of the
+routing attempt. This is an unintended side effect that occurs even for
+read-only calls such as ``admin.vm.firewall.Get``. The call will not
+succeed, because ``admin.*`` calls are served by ``qubesd`` in dom0,
+not by the target qube.
 
 ``target=dom0`` redirects routing to dom0 while preserving the destination
-constraint: the call is allowed only when the caller-named VM matches, and
-``qubesd`` in dom0 handles it. This applies to any ``admin.vm.*`` method
-whose destination column in the call table lists ``vm``.
+constraint: the call is allowed only when the caller-named qube matches, and
+``qubesd`` in dom0 handles that call. This applies to any ``admin.vm.*`` method
+where the destination column in the call table includes ``vm``.
 
 General notes
 =============
