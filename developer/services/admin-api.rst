@@ -2,25 +2,25 @@
 Admin API
 =========
 
-*You may also be interested in the article* \ `Introducing the Qubes Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__\ *.*
+*For some background to the Admin API you should read the article* \ `Introducing the Qubes Admin API <https://www.qubes-os.org/news/2017/06/27/qubes-admin-api/>`__\ *.*
 
 Goals
 =====
 
-The goals of the Admin API system is to provide a way for the user to
-manage the domains without direct access to dom0.
+The goal of the Admin API system is to provide a way for the user to
+manage qubes without direct access to dom0.
 
-Foreseen benefits include:
+Benefits include:
 
--  Ability to remotely manage the Qubes OS.
--  Possibility to create multi-user system, where different users are
-   able to use different sets of domains, possibly overlapping. This
-   would also require to have separate GUI domain.
+-  The ability to remotely manage the Qubes OS.
+-  The possibility of creating multi-user system, where different users are
+   able to use different sets of qubes, possibly overlapping. This
+   would also require having more than one :term:`interface qube`
 
 The API would be used by:
 
 -  Qubes OS Manager (or any tools that would replace it)
--  CLI tools, when run from another VM (and possibly also from dom0)
+-  CLI tools, when run from another qube (and possibly also from dom0)
 -  remote management tools
 -  any custom tools
 
@@ -49,18 +49,18 @@ The ``qubesd`` daemon may be accessed from other domains through a set
 of qrexec API calls called the “Admin API”. This API is the intended
 management interface supported by the Qubes OS. The API is stable. When
 called, the RPC handler performs basic validation and forwards the
-request to the ``qubesd`` via UNIX domain socket. The socket API is
+request to the ``qubesd`` via an UNIX domain socket. The socket API is
 private, unstable, and not yet documented.
 
 The calls
 =========
 
-The API should be implemented as a set of qrexec calls. This is to make
-it easy to set the policy using current mechanism.
+The API is implemented as a set of qrexec calls. This is to make
+it easy to set the policy using the current mechanism.
 
 
 .. list-table::
-   :widths: 15 8 8 10 20 30
+   :widths: 15 10 11 10 20 30
    :align: left
    :header-rows: 1
 
@@ -77,33 +77,33 @@ it easy to set the policy using current mechanism.
      - ``<class>\n``
      -
    * - ``admin.vm.List``
-     - ``dom0|<vm>``
+     - ``dom0|vm``
      - `-`
      - `-`
      - ``<name> class=<class> state=<state>\n``
      -
    * - ``admin.vm.Create.<class>``
      - ``dom0``
-     - template
+     - ``template``
      - ``name=<name> label=<label>``
      - `-`
      -
    * - ``admin.vm.CreateInPool.<class>``
      - ``dom0``
-     - template
+     - ``template``
      - | ``name=<name> label=<label>``
        | ``pool=<pool> pool:<volume>=<pool>``
      - `-`
      - | either use ``pool=`` to put all volumes there,
        | or ``pool:<volume>=`` for individual volumes - both forms are not allowed at the same time
    * - ``admin.vm.CreateDisposable``
-     - template
+     - ``template``
      - `-`
      - `-`
      - name
-     - Create new DisposableVM, ``template`` is any AppVM with ``dispvm_allowed`` set to True, or ``dom0`` to use default defined in ``default_dispvm`` property of calling VM; VM created with this call will be automatically removed after its shutdown; the main difference from ``admin.vm.Create.DispVM`` is automatic (random) name generation.
+     - Create new DisposableVM, ``template`` is any AppVM with ``dispvm_allowed`` set to True, or ``dom0`` to use default defined in ``default_dispvm`` property of calling qube; qube created with this call will be automatically removed after its shutdown; the main difference from ``admin.vm.Create.DispVM`` is automatic (random) name generation.
    * - ``admin.vm.Remove``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
@@ -116,25 +116,25 @@ it easy to set the policy using current mechanism.
      -
    * - ``admin.label.Create``
      - ``dom0``
-     - label
+     - ``label``
      - ``0xRRGGBB``
      - `-`
      -
    * - ``admin.label.Get``
      - ``dom0``
-     - label
+     - ``label``
      - `-`
      - ``0xRRGGBB``
      -
    * - ``admin.label.Index``
      - ``dom0``
-     - label
+     - ``label``
      - `-`
      - ``<label-index>``
      -
    * - ``admin.label.Remove``
      - ``dom0``
-     - label
+     - ``label``
      - `-`
      - `-`
      -
@@ -146,7 +146,7 @@ it easy to set the policy using current mechanism.
      -
    * - ``admin.property.Get``
      - ``dom0``
-     - property
+     - ``property``
      - `-`
      - | ``default={True|False}``
        | ``type={str|int|bool|vm|label|list} <value>``
@@ -159,215 +159,215 @@ it easy to set the policy using current mechanism.
      - Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal ``\n`` and literal ``\`` are encoded as ``\\``.
    * - ``admin.property.GetDefault``
      - ``dom0``
-     - property
+     - ``property``
      - `-`
      - ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Values are of type ``str`` and each entry is suffixed with newline character.
    * - ``admin.property.Help``
      - ``dom0``
-     - property
+     - ``property``
      - `-`
      - ``help``
      -
    * - ``admin.property.HelpRst``
      - ``dom0``
-     - property
+     - ``property``
      - `-`
      - ``help.rst``
      -
    * - ``admin.property.Reset``
      - ``dom0``
-     - property
+     - ``property``
      - `-`
      - `-`
      -
    * - ``admin.property.Set``
      - ``dom0``
-     - property
+     - ``property``
      - value
      - `-`
      -
    * - ``admin.vm.property.List``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<property>\n``
      -
    * - ``admin.vm.property.Get``
-     - vm
-     - property
+     - ``vm``
+     - ``property``
      - `-`
      - | ``default={True|False}``
        | ``type={str|int|bool|vm|label|list} <value>``
      - Type ``list`` is added in R4.1. Each list entry is suffixed with a newline character.
    * - ``admin.vm.property.GetAll``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<property-name> <full-value-as-in-property.Get>\n``
      - Get all the properties in one call. Each property is returned on a separate line and use the same value encoding as property.Get method, with an exception that newlines are encoded as literal ``\n`` and literal ``\`` are encoded as ``\\``.
    * -  ``admin.vm.property.GetDefault``
-     - vm
-     - property
+     - ``vm``
+     - ``property``
      - `-`
      - ``type={str|int|bool|vm|label|type} <value>``
      - Type ``list`` is added in R4.1. Each list entry is suffixed with a newline character
    * - ``admin.vm.property.Help``
-     - vm
-     - property
+     - ``vm``
+     - ``property``
      - `-`
      - ``help``
      -
    * - ``admin.vm.property.HelpRst``
-     - vm
-     - property
+     - ``vm``
+     - ``property``
      - `-`
      - ``help.rst``
      -
    * - ``admin.vm.property.Reset``
-     - vm
-     - property
+     - ``vm``
+     - ``property``
      - `-`
      - `-`
      -
    * - ``admin.vm.property.Set``
-     - vm
-     - property
+     - ``vm``
+     - ``property``
      - value
      - `-`
      -
    * - ``admin.vm.feature.List``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<feature>\n``
      -
    * - ``admin.vm.feature.Get``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithTemplate``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithNetvm``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithAdminVM``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - `-`
      - value
      -
    * - ``admin.vm.feature.CheckWithTemplateAndAdminVM``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - `-`
      - value
      -
    * - ``admin.vm.feature.Remove``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - `-`
      - `-`
      -
    * - ``admin.vm.feature.Set``
-     - vm
-     - feature
+     - ``vm``
+     - ``feature``
      - value
      - `-`
      -
    * - ``admin.vm.notes.Get``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - notes
      -
    * - ``admin.vm.notes.Set``
-     - vm
+     - ``vm``
      - `-`
      - notes
      - `-`
      -
    * - ``admin.vm.tag.List``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<tag>\n``
      -
    * - ``admin.vm.tag.Get``
-     - vm
-     - tag
+     - ``vm``
+     - ``tag``
      - `-`
      - ``0`` or ``1``
      - retcode?
    * - ``admin.vm.tag.Remove``
-     - vm
-     - tag
+     - ``vm``
+     - ``tag``
      - `-`
      - `-`
      -
    * - ``admin.vm.tag.Set``
-     - vm
-     - tag
+     - ``vm``
+     - ``tag``
      - `-`
      - `-`
      -
    * - ``admin.vm.firewall.Get``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<rule>\n``
      - rules syntax as in :ref:`firewall interface <developer/debugging/vm-interface:firewall rules in 4.x>` with addition of ``expire=`` and ``comment=`` options; ``comment=`` (if present) must be the last option
    * - ``admin.vm.firewall.Set``
-     - vm
+     - ``vm``
      - `-`
      - ``<rule>\n``
      - `-`
      - set firewall rules, see ``admin.vm.firewall.Get`` for syntax
    * - ``admin.vm.firewall.Reload``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
      - force reload firewall without changing any rule
    * - ``admin.vm.device.<class>.Attach``
-     - vm
-     - device
+     - ``vm``
+     - ``device``
      - assignment-serialization
      - `-`
      - | ``device`` is in form ``<backend-name>+<device-ident>``
        | optional options given in ``key=value`` format, separated with spaces;
        | options can include ``persistent=True`` to "persistently" attach the device (default is temporary)
    * - ``admin.vm.device.<class>.Detach``
-     - vm
-     - device
+     - ``vm``
+     - ``device``
      - `-`
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
    * - ``admin.vm.device.<class>.Assign``
-     - vm
-     - device
+     - ``vm``
+     - ``device``
      - assignment-serialization
      - `-`
      - | ``device`` is in form ``<backend-name>+<device-ident>``
        | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Unassign``
-     - vm
-     - device
+     - ``vm``
+     - ``device``
      - `-`
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
    * - ``admin.vm.device.<class>.Set.required``
-     - vm
-     - device
+     - ``vm``
+     - ``device``
      - ``True|False``
      - `-`
      - ``device`` is in form ``<backend-name>+<device-ident>``
@@ -378,22 +378,22 @@ it easy to set the policy using current mechanism.
      - ``<deviceclass>\n``
      -
    * - ``admin.vm.device.<class>.Available``
-     - vm
-     - device-ident
+     - ``vm``
+     - ``device-ident``
      - `-`
      - ``<device-ident> <device-serialization>\n``
      - | optional service argument may be used to get info about a single device,
        | ``device-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Assigned``
-     - vm
-     - device-ident
+     - ``vm``
+     - ``device-ident``
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
      - | optional service argument may be used to get info about a single device,
        | ``assignment-serialization`` is specified in the section Device Serialization.
    * - ``admin.vm.device.<class>.Attached``
-     - vm
-     - device-ident
+     - ``vm``
+     - ``device-ident``
      - `-`
      - ``<device-ident> <assignment-serialization>\n``
      - | optional service argument may be used to get info about a single device,
@@ -412,213 +412,213 @@ it easy to set the policy using current mechanism.
      - Properties allowed in ``admin.pool.Add``
    * - ``admin.pool.Info``
      - ``dom0``
-     - pool
+     - ``pool``
      - `-`
      - ``<property>=<value>\n``
      -
    * - ``admin.pool.Add``
      - ``dom0``
-     - driver
+     - ``driver``
      - ``<property>=<value>\n``
      - `-`
      -
    * - ``admin.pool.Set.revisions_to_keep``
      - ``dom0``
-     - pool
+     - ``pool``
      - ``<value>``
      - `-`
      -
    * - ``admin.pool.Remove``
      - ``dom0``
-     - pool
+     - ``pool``
      - `-`
      - `-`
      -
    * - ``admin.pool.volume.List``
      - ``dom0``
-     - pool
+     - ``pool``
      - `-`
      - volume id
      -
    * - ``admin.pool.volume.Info``
      - ``dom0``
-     - pool
+     - ``pool``
      - vid
      - ``<property>=<value>\n``
      -
    * - ``admin.pool.volume.Set.revisions_to_keep``
      - ``dom0``
-     - pool
+     - ``pool``
      - ``<vid> <value>``
      - `-`
      -
    * - ``admin.pool.volume.ListSnapshots``
      - ``dom0``
-     - pool
+     - ``pool``
      - vid
      - ``<snapshot>\n``
      -
    * - ``admin.pool.volume.Snapshot``
      - ``dom0``
-     - pool
+     - ``pool``
      - vid
      - snapshot
      -
    * - ``admin.pool.volume.Revert``
      - ``dom0``
-     - pool
+     - ``pool``
      - ``<vid> <snapshot>``
      - `-`
      -
    * - ``admin.pool.volume.Resize``
      - ``dom0``
-     - pool
+     - ``pool``
      - ``<vid> <size_in_bytes>``
      - `-`
      -
    * - ``admin.pool.volume.Import``
      - ``dom0``
-     - pool
+     - ``pool``
      - ``<vid>\n<raw volume data>``
      - `-`
      -
    * - ``admin.pool.volume.CloneFrom``
      - ``dom0``
-     - pool
+     - ``pool``
      - vid
      - token, to be used in ``admin.pool.volume.CloneTo``
      - | obtain a token to copy volume ``vid`` in ``pool``;
        | the token is one time use only, it's invalidated by ``admin.pool.volume.CloneTo``, even if the operation fails
    * - ``admin.pool.volume.CloneTo``
      - ``dom0``
-     - pool
+     - ``pool``
      - ``<vid> <token>``
      - `-`
      - copy volume pointed by a token to volume ``vid`` in ``pool``
    * - ``admin.vm.volume.List``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<volume>\n``
      - ``<volume>`` is per-VM volume name (``root``, ``private``, etc), ``<vid>`` is pool-unique volume id
    * - ``admin.vm.volume.Info``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - `-`
      - ``<property>=<value>\n``
      -
    * - ``admin.vm.volume.Set.revisions_to_keep``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - value
      - `-`
      -
    * - ``admin.vm.volume.ListSnapshots``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - `-`
      - snapshot
      - duplicate of ``admin.pool.volume.``, but with other call params
    * - ``admin.vm.volume.Snapshot``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - `-`
      - snapshot
      - id.
    * - ``admin.vm.volume.Revert``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - snapshot
      - `-`
      - id.
    * - ``admin.vm.volume.Resize``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - size_in_bytes
      - `-`
      - id.
    * - ``admin.vm.volume.Import``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - raw volume data
      - `-`
      - id.
    * - ``admin.vm.volume.ImportWithSize``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - ``<size_in_bytes>\n<raw volume data>``
      - `-`
      - new version of ``admin.vm.volume.Import``, allows new volume to be different size
    * - ``admin.vm.volume.Clear``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - `-`
      - `-`
      - clear contents of volume
    * - ``admin.vm.volume.CloneFrom``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - `-`
      - token, to be used in ``admin.vm.volume.CloneTo``
      - | obtain a token to copy ``volume`` of ``vm``;
        | the token is one time use only, it's invalidated by ``admin.vm.volume.CloneTo``, even if the operation fails
    * - ``admin.vm.volume.CloneTo``
-     - vm
-     - volume
+     - ``vm``
+     - ``volume``
      - token, obtained with ``admin.vm.volume.CloneFrom``
      - `-`
      - copy volume pointed by a token to ``volume`` of ``vm``
    * - ``admin.vm.CurrentState``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - ``<state-property>=<value>\n``
      - state properties: ``power_state``, ``mem``, ``mem_static_max``, ``cputime``
    * - ``admin.vm.Start``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
      -
    * - ``admin.vm.Shutdown``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
      -
    * - ``admin.vm.Pause``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
      -
    * - ``admin.vm.Unpause``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
      -
    * - ``admin.vm.Kill``
-     - vm
+     - ``vm``
      - `-`
      - `-`
      - `-`
      -
    * - ``admin.backup.Execute``
      - ``dom0``
-     - config id
+     - ``config id``
      - `-`
      - `-`
      - config in ``/etc/qubes/backup/<id>.conf``, only one backup operation of given ``config id`` can be running at once
    * - ``admin.backup.Info``
      - ``dom0``
-     - config id
+     - ``config id``
      - `-`
      - backup info
      - info what would be included in the backup
    * - ``admin.backup.Cancel``
      - ``dom0``
-     - config id
+     - ``config id``
      - `-`
      - `-`
      - cancel running backup operation
@@ -633,7 +633,7 @@ it easy to set the policy using current mechanism.
      - `-`
      - `-`
      - ``vm-stats`` events, see below
-     - emit VM statistics (CPU, memory usage) in form of events
+     - emit qube statistics (CPU, memory usage) in form of events
 
 
 Volume properties:
@@ -650,11 +650,11 @@ Volume properties:
 -  ``is_outdated``
 
 Method ``admin.vm.Stats`` returns ``vm-stats`` events every
-``stats_interval`` seconds, for every running VM. Parameters of
+``stats_interval`` seconds, for every running qube. Parameters of
 ``vm-stats`` events:
 
 -  ``memory_kb`` - memory usage in kB
--  ``cpu_time`` - absolute CPU time (in milliseconds) spent by the VM
+-  ``cpu_time`` - absolute CPU time (in milliseconds) spent by the qube
    since its startup, normalized for one CPU
 -  ``cpu_usage`` - CPU usage in percents
 
@@ -713,35 +713,33 @@ to the user. Server does not by itself support translation.
 Tags
 ====
 
-The tags provided can be used to write custom policies. They are not
-used in a default Qubes OS installation. However, they are created
-anyway.
+The tags provided can be used to write custom policies. They are created
+in a default Qubes OS installation, but are not used.
 
 -  ``created-by-<QUBE_NAME>`` — Created in an extension to `qubesd` at the moment
-   of creation of the qube. Cannot be changed via API, which is also
+   of creation of the qube. The tag value cannot be changed via API, and is also
    enforced by this extension.
--  ``managed-by-<QUBE_NAME>`` — Can be used for the same purpose, but it is not
-   created automatically, nor is it forbidden to set or reset this tag.
+-  ``managed-by-<QUBE_NAME>`` — This tag is not created automatically, and the tag value can be set and reset.
 
 .. note:: When cloning a qube, the tag starting by ``created-by-`` will be updated.
 
 Backup profile
 ==============
 
-Backup-related calls do not allow (yet) to specify what should be
+Backup-related calls do not (yet) allow specification of what should be
 included in the backup. This needs to be configured separately in dom0,
 with a backup profile, stored in ``/etc/qubes/backup/<profile>.conf``.
-The file use yaml syntax and have following settings:
+The file uses yaml syntax and has the following settings:
 
--  ``include`` - list of VMs to include, can also contains tags using
-   ``$tag:some-tag`` syntax or all VMs of given type using
-   ``$type:AppVM``, known from qrexec policy
--  ``exclude`` - list of VMs to exclude, after evaluating ``include``
+-  ``include`` - list of qubes to include, can also contains tags using
+   ``$tag:some-tag`` syntax or all qubes of a given type using
+   ``$type:AppVM``, as set in qrexec policy
+-  ``exclude`` - list of qubes to exclude, after evaluating the ``include``
    setting
--  ``destination_vm`` - VM to which the backup should be send
+-  ``destination_vm`` - qube to which the backup should be sent
 -  ``destination_path`` - path to which backup should be written in
    ``destination_vm``. This setting is given to ``qubes.Backup`` service
-   and technically it’s up to it how to interpret it. In current
+   and technically it’s up to that service how ti should be interpreted. In current
    implementation it is interpreted as a directory where a new file
    should be written (with a name based on the current timestamp), or a
    command where the backup should be piped to
@@ -751,7 +749,7 @@ The file use yaml syntax and have following settings:
    argument for decompression)
 -  ``passphrase_text`` - passphrase used to encrypt and integrity
    protect the backup
--  ``passphrase_vm`` - VM which should be asked what backup passphrase
+-  ``passphrase_vm`` - qube which should be asked what backup passphrase
    should be used. The asking is performed using
    ``qubes.BackupPassphrase+profile_name`` service, which is expected to
    output chosen passphrase to its stdout. Empty output cancel the
@@ -759,14 +757,14 @@ The file use yaml syntax and have following settings:
    interactively, or to have some automated passphrase handling (for
    example: generate randomly, then encrypt with a public key and send
    somewhere)
-
-Not all settings needs to be set.
+.. note ::
+    Not all settings needs to be specified
 
 Example backup profile:
 
 .. code:: yaml
 
-   # Backup only selected VMs
+   # Backup only selected qubes
    include:
      - work
      - personal
@@ -784,7 +782,7 @@ And slightly more advanced one:
 
 .. code:: yaml
 
-   # Include all VMs with a few exceptions
+   # Include all qubes with a few exceptions
    include:
      - $type:AppVM
      - $type:TemplateVM
@@ -796,7 +794,7 @@ And slightly more advanced one:
    # parallel gzip for faster backup
    compression: pigz
 
-   # ask 'vault' VM for the backup passphrase
+   # ask 'vault' qube for the backup passphrase
    passphrase_vm: vault
 
    # send the (encrypted) backup directly to remote server
@@ -848,28 +846,54 @@ Example device serialization:
 
    1-1.1.1 manufacturer='unknown' self_identity='0000:0000::?******' serial='unknown' ident='1-1.1.1' product='Qubes' vendor='ITL' name='Some untrusted garbage' devclass='bus' backend_domain='vm' interfaces=' ******u03**01' _additional_info='' _date='06.12.23' parent_ident='1-1.1' parent_devclass='None'
 
+Writing qrexec policy for Admin API calls
+=========================================
+
+The default Admin API policy, :file:`/etc/qubes/policy/90-admin-default.policy` , advises adding ``target=dom0`` to every
+allow/ask entry. The reason for this is explained below.
+
+
+All ``admin.*`` calls are served by ``qubesd`` in dom0, so every allow/ask
+rule for an ``admin.*`` call must specify ``target=dom0``, **whatever
+is selected in the destination column** (a qube name, ``@anyvm``, or a
+``@tag:`` selector).  For example::
+
+   admin.vm.firewall.Get * source-qube @tag:some-tag allow target=dom0
+
+Without ``target=dom0``, the rule matches the specified destination
+qube (validated against the destination selector) and routes the call to
+**that** qube. If the qube is not running, qrexec starts it as part of the
+routing attempt. This is an unintended side effect that occurs even for
+read-only calls such as ``admin.vm.firewall.Get``. The call will not
+succeed, because ``admin.*`` calls are served by ``qubesd`` in dom0,
+not by the target qube.
+
+``target=dom0`` redirects routing to dom0 while preserving the destination
+constraint: the call is allowed only when the caller-named qube matches, and
+``qubesd`` in dom0 handles that call. This applies to any ``admin.vm.*`` method
+where the destination column in the call table includes ``vm``.
+
 General notes
 =============
 
--  there is no provision for ``qvm-run``, but there already exists
-   ``qubes.VMShell`` call
--  generally actions ``*.List`` return a list of objects and have
-   “object identifier” as first word in a row. Such action can be also
+-  there is no provision for ``qvm-run``, but there does exist
+   a ``qubes.VMShell`` call
+-  generally, actions using  ``*.List`` return a list of objects and have
+   “object identifier” as the first word in a row. Such actions can also be
    called with “object identifier” in argument to get only a single
    entry (in the same format).
--  closing qrexec connection normally does *not* interrupt running
+-  closing qrexec connection normally does *not* interrupt a running
    operation; this is important to avoid leaving the system in
    inconsistent state
--  actual operation starts only after caller send all the parameters
+-  actual operation starts only after the caller sends all the parameters
    (including a payload), signaled by sending EOF mark; there is no
-   support for interactive protocols, to keep the protocol reasonable
+   support for interactive protocols, to keep the protocol reasonably
    simple
 
 Policy admin API
 ================
 
-There is also an API to view and update :doc:`Qubes RPC policy files </developer/services/qrexec>` in dom0. All of the following calls have dom0 as
-destination:
+There is also an API to view and update :doc:`Qubes RPC policy files </developer/services/qrexec>` in dom0. All of the following calls have dom0 as destination:
 
 +----------------------------+----------+------------------------+------------------+
 | call                       | argument | inside                 | return           |
