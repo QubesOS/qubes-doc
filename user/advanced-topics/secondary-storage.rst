@@ -198,12 +198,17 @@ Finally we will tell Qubes to add a new pool on the just created Btrfs subvolume
 
       $ qvm-pool add poolhd0_qubes file-reflink -o dir_path=/mnt/new_qube_storage/qubes -o revisions_to_keep=2
 
+.. note::
+  By default qubes will be created on the main Qubes disk (i.e. a small SSD). To create them on this secondary drive do the following on a dom0 terminal:
 
-By default VMs will be created on the main Qubes disk (i.e. a small SSD), to create them on this secondary drive do the following on a dom0 terminal:
+  .. code:: console
 
-.. code:: console
-
-      $ qvm-create -P poolhd0_qubes --label red unstrusted-hdd
+        $ qvm-create -P poolhd0_qubes --label red unstrusted-hdd
 
 
-Verify that corresponding lines were added to /etc/fstab and /etc/cryptab to enable auto mounting of the new pool.
+.. note::
+  If you want to enable auto-mounting of the new pool,  add the relevant line to ``/etc/fstab`` , replacing ``<compression>`` with your chosen compression algorithm:
+
+  .. code:: text
+
+      /dev/mapper/luks-b20975aa-8318-433d-8508-6c23982c6cde	/mnt/new_qube_storage	btrfs	compress=<compression>,defaults	0 2
