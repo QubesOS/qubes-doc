@@ -397,7 +397,7 @@ Most cross-references can generate an automatic title. If it doesn't fit the sen
 External cross-referencing
 """"""""""""""""""""""""""
 
-You can make a cross-reference to any of the projects of the external developer's documentation (hosted on `https://dev.qubes-os.org <https://dev.qubes-os.org/en/latest/>`__):
+You can make a cross-reference to any of the projects of the external developer's documentation (hosted on `https://doc.qubes-os.org <https://doc.qubes-os.org/en/latest/>`__):
 
 * :doc:`core-admin <core-admin:index>`
 * :doc:`core-admin-client <core-admin-client:index>`
@@ -427,7 +427,7 @@ Even if it works without it, **always prefix the external cross-references** wit
 
    .. code:: console
 
-       python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
+       python3 -m sphinx.ext.intersphinx https://doc.qubes-os.org/projects/core-admin/en/latest/objects.inv
 
    You can replace ``core-admin`` by any of the projects listed above.
 
@@ -505,7 +505,7 @@ This facilitates the localization process.
 
 .. warning::
 
-   Always use :ref:`cross-references <cross-referencing>` rather than hyperlinks to link to the documentation (``doc.qubes-os.org`` and ``dev.qubes-os.org`` domains), because using those hyperlinks breaks:
+   Always use :ref:`cross-references <cross-referencing>` rather than hyperlinks to link to the documentation (anything in the ``doc.qubes-os.org`` domain), because using those hyperlinks breaks:
 
    - Serving the documentation offline
    - Documentation localization

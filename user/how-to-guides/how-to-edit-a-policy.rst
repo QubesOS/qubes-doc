@@ -82,4 +82,4 @@ See also
 --------
 
 * :doc:`/developer/services/qrexec`
-* `qubes-core-qrexec's documentation <https://dev.qubes-os.org/projects/qubes-core-qrexec/en/latest/>`__
+* :doc:`core-qrexec:index`

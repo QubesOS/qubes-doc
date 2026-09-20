@@ -326,7 +326,7 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 
 This is a service running in dom0. It is called by ``qrexec-daemon`` and is responsible for evaluating the request and possibly launching an action.
 
-The daemon listens on a socket (``/var/run/qubes/policy.sock``). It accepts requests in the format described in `qrexec-policy-daemon.rst <https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-daemon.rst>`__ and replies with ``result=allow/deny``.
+The daemon listens on a socket (``/var/run/qubes/policy.sock``). It accepts requests in the format described in :doc:`core-qrexec:qrexec-policy-daemon` and replies with ``result=allow/deny``.
 
 A standalone version is called ``qrexec-policy-exec`` and is available as a fallback.
 
@@ -346,4 +346,4 @@ There are two endpoints:
 
 
 
-See `qrexec-policy-agent.md <https://github.com/QubesOS/qubes-core-qrexec/blob/master/doc/qrexec-policy-agent.md>`__ for protocol details.
+See :doc:`core-qrexec:qrexec-policy-agent` for protocol details.
