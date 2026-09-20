@@ -186,6 +186,8 @@ Start Windows VM
 
   - Select the new qube, in this example “WindowsNew”.
 
+  - Click "Settings".
+
   - Switch to the “Advanced” tab.
 
   - Click “Boot qube from DISC or block device”:
