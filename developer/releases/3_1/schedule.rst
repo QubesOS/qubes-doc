@@ -22,6 +22,6 @@ This schedule is based on our :ref:`release-schedule-policy`.
      - decide whether 3.1-rc2 is the final 3.1
    * - 9 Feb 2016
      - current-testing freeze before 3.1-rc3
-   * -  :strike:`16 Feb 2016`  23 Feb 2016
+   * - 23 Feb 2016 (instead of 16 Feb 2016)
      - 3.1-rc3 release
 
