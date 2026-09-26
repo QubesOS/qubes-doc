@@ -79,7 +79,7 @@ Firewall rules in 3.x
 
 QubesDB is also used to configure the firewall in ProxyVMs. Rules are stored in separate keys for each target VM. Entries:
 
-- ``/qubes-iptables`` - control entry - dom0 writing ``reload`` here signals the ``qubes-firewall`` service to reload rules
+- ``/qubes-iptables`` - control entry - dom0 writing ``reload`` here signals the :option:`qubes-firewall <qvm-service qubes-firewall>` service to reload rules
 
 - ``/qubes-iptables-header`` - rules not related to any particular VM, should be applied before domain rules
 
@@ -285,7 +285,7 @@ Currently, Qubes still calls a few tools in VM directly, not using the service a
 
 - ``gpk-update-viewer`` - called by Qubes Manager to display available updates in a TemplateVM
 
-- ``systemctl start qubes-update-check.timer`` (and similarly stop) - called when enabling/disabling update checking in a given VM (``qubes-update-check`` :doc:`qvm-service </user/advanced-topics/qubes-service>`)
+- ``systemctl start qubes-update-check.timer`` (and similarly stop) - called when enabling/disabling update checking in a given VM (:option:`qubes-update-check <qvm-service qubes-update-check>` :doc:`qvm-service </user/advanced-topics/qubes-service>`)
 
 
 

@@ -87,7 +87,7 @@ Other Configuration Folders
 
 - ``/etc/qubes-bind-dirs.d`` (intermediate priority, for template wide configuration)
 
-- ``/rw/config/qubes-bind-dirs.d`` (highest priority, for per VM configuration)
+- ``/rw/config/qubes-bind-dirs.d`` (highest priority, for per qube configuration)
 
 
 
@@ -133,11 +133,13 @@ How to remove binds from bind-dirs.sh?
 
 (Editing ``/usr/lib/qubes-bind-dirs.d/40_qubes-whonix.conf`` directly is strongly discouraged, since such changes get lost when that file is changed in the package on upgrades.)
 
+.. _custom-persist:
+
 Custom persist feature
 ----------------------
 
 
-Custom persist is an optional advanced feature allowing the creation of minimal state AppVM. The purpose of such an AppVM is to avoid unwanted data to persist as much as possible by disabling the ability to configure persistence from the VM itself. When enabled, the following happens:
+Custom persist is an optional advanced feature allowing the creation of minimal state qube. The purpose of such an qube is to avoid unwanted data to persist as much as possible by disabling the ability to configure persistence from the qube itself. When enabled, the following happens:
 
 - ``/rw/config/rc.local`` is no longer executed
 
@@ -151,41 +153,36 @@ Custom persist is an optional advanced feature allowing the creation of minimal 
 
 
 
-Bind dirs are obviously still supported but this must be configured either in the template (``/usr/lib/qubes-bind-dirs.d`` and ``/etc/qubes-bind-dirs.d``) or from dom0 using ``qvm-features``. The bind dirs declaration must be done this way: ``qvm-features <VMNAME> custom-persist.<ARBITRARY NAME> [PRE-CREATION SETTINGS]<PATH>``
+Bind dirs are obviously still supported but this must be configured either in the template (``/usr/lib/qubes-bind-dirs.d`` and ``/etc/qubes-bind-dirs.d``) or from dom0 using :doc:`manpages/qvm-features`. The bind dirs declaration must be done with this kind of feature: :option:`qvm-features custom-persist.{FEATURE_NAME} <qvm-features custom-persist.*>` (where :samp:`FEATURE_NAME` is an arbitrary name). The value should be formatted like this: :samp:`[PRE-CREATION SETTINGS:]<PATH>` (where :samp:`[PRE-CREATION-SETTINGS:]` is optional and :samp:`<PATH>` is an absolute path.
 
-To use this feature, first, enable it:
+To use this feature:
 
-.. code:: console
+1. :doc:`enable the service </user/how-to-guides/how-to-enable-a-service>` called :option:`custom-persist <qvm-service custom-persist>`.
 
-      $ qvm-service -e my-app-vm custom-persist
+2. Then, configure a persistent directory with :doc:`qvm-features <manpages/qvm-features>` in the :term:`admin qube`:
 
+   .. code:: console
 
+         [user@dom0] $ qvm-features QUBE_NAME custom-persist.FEATURE_NAME PATH
 
-Then, configure a persistent directory with ``qvm-features``:
+   Where :samp:`FEATURE_NAME` is an arbitrary name and :samp:`PATH` is an absolute path.
 
-.. code:: console
-
-      $ qvm-features my-app-vm custom-persist.my_persistent_dir /var/my_persistent_dir
-
-
-
-To re-enable ``/home`` and ``/usr/local`` persistence, just add them to the list:
+Nothing will be persistent except :samp:`PATH`. To re-enable ``/home`` and ``/usr/local`` persistence, just add them to the list:
 
 .. code:: console
 
-      $ qvm-features my-app-vm custom-persist.home /home
-      $ qvm-features my-app-vm custom-persist.usrlocal /usr/local
+      [user@dom0] $ qvm-features QUBE_NAME custom-persist.home /home
+      [user@dom0] $ qvm-features QUBE_NAME custom-persist.usrlocal /usr/local
 
-
-
-When starting the VM, declared custom-persist bind dirs are automatically added to the ``binds`` variable described above and are handled in the same way.
+When starting the qube, declared custom-persist bind dirs are automatically added to the ``binds`` variable described above and are handled in the same way.
 
 A user may want their bind-dirs to be automatically pre-created in ``/rw/bind-dirs``. Custom persist can do this for you by providing the type of the resource to create (file or dir), owner, group and mode. For example:
 
 .. code:: console
 
-      $ qvm-features my-app-vm custom-persist.downloads dir:user:user:0755:/home/user/Downloads
-      $ qvm-features my-app-vm custom-persist.my_ssh_known_hosts_file file:user:user:0600:/home/user/.ssh/known_hosts
+      [user@dom0] $ qvm-features QUBE_NAME custom-persist.downloads dir:user:user:0755:/home/user/Downloads
+
+Will automatically create a :file:`/home/user/Downloads` directory owned by `user` with the `0755` mode
 
 
 
