@@ -10,6 +10,7 @@ Dom0
 - :doc:`core-admin <core-admin:manpages/index>`
 - :doc:`core-admin-client <core-admin-client:manpages/index>`
 - `qvm-appmenus <https://github.com/QubesOS/qubes-desktop-linux-common/blob/master/doc/tools/qvm-appmenus.rst>`__
+- `qvm-template-upgrade <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qvm-template-upgrade.rst>`__
 - `qvm-xkill <https://github.com/QubesOS/qubes-desktop-linux-common/blob/master/doc/tools/qvm-xkill.rst>`__
 
 DomU
