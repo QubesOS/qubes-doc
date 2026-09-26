@@ -223,47 +223,61 @@ Services called by dom0 to provide some VM configuration:
 
 Other qrexec services installed by default:
 
-- ``qubes.Backup`` - store a Qubes backup. The service receives a location chosen by the user (one line, terminated by ``\n``) and the backup archive (:doc:`description of backup format </user/how-to-guides/backup-emergency-restore-v2>`)
+_`qubes.Backup`
+   store a Qubes backup. The service receives a location chosen by the user (one line, terminated by ``\n``) and the backup archive (:doc:`description of backup format </user/how-to-guides/backup-emergency-restore-v2>`)
 
-- ``qubes.DetachPciDevice`` - service called in reaction to a ``qvm-pci -d`` call on a running VM. The service receives one word - BDF of the device to detach. When the service call ends, the device will be detached
+_`qubes.DetachPciDevice`
+   service called in reaction to a ``qvm-pci -d`` call on a running VM. The service receives one word - BDF of the device to detach. When the service call ends, the device will be detached
 
-- ``qubes.Filecopy`` - receive some files from another VM. Files sent in :doc:`qfile format </developer/services/qfilecopy>`
+_`qubes.Filecopy`
+   receive some files from another VM. Files sent in :doc:`qfile format </developer/services/qfilecopy>`
 
-- ``qubes.OpenInVM`` - open a file in the called VM. Service receives a single file on stdin (in :doc:`qfile format </developer/services/qfilecopy>`. After a file viewer/editor is terminated, if the file was modified, it can be sent back (just raw content, without any headers); otherwise service should just terminate without sending anything. This service is used by both ``qvm-open-in-vm`` and ``qvm-open-in-dvm`` tools. When called in a DispVM, service termination will trigger DispVM cleanup.
+_`qubes.OpenInVM`
+   open a file in the called VM. Service receives a single file on stdin (in :doc:`qfile format </developer/services/qfilecopy>`. After a file viewer/editor is terminated, if the file was modified, it can be sent back (just raw content, without any headers); otherwise service should just terminate without sending anything. This service is used by both ``qvm-open-in-vm`` and ``qvm-open-in-dvm`` tools. When called in a DispVM, service termination will trigger DispVM cleanup.
 
-- ``qubes.Restore`` - retrieve a Qubes backup. The service receives the backup location entered by the user (one line, terminated by ``\n``). Afterwards, it should output the backup archive in :doc:`qfile format </developer/services/qfilecopy>` (core-agent-linux component contains the ``tar2qfile`` utility to do the conversion)
+_`qubes.Restore`
+   retrieve a Qubes backup. The service receives the backup location entered by the user (one line, terminated by ``\n``). Afterwards, it should output the backup archive in :doc:`qfile format </developer/services/qfilecopy>` (core-agent-linux component contains the ``tar2qfile`` utility to do the conversion)
 
-- ``qubes.SelectDirectory``, ``qubes.SelectFile`` - services which should show the file/directory selection dialog and return (to stdout) a single line containing the selected path, or nothing in the case of cancellation
+_`qubes.SelectDirectory`
+   service which should show the directory selection dialog and return (to stdout) a single line containing the selected path, or nothing in the case of cancellation
 
-- ``qubes.SuspendPre`` - service called in every VM with a PCI device attached just before system suspend
+_`qubes.SelectFile`
+   Same as :ref:`qubes.SelectDirectory <qubes.SelectDirectory>` but with a file
 
-- ``qubes.SuspendPost`` - service called in every VM with a PCI device attached just after system resume
+_`qubes.SuspendPre`
+   service called in every VM with a PCI device attached just before system suspend
 
-- ``qubes.SyncNtpClock`` - service called to trigger network time synchronization. Service should synchronize the local VM's time and terminate when done.
+_`qubes.SuspendPost`
+   service called in every VM with a PCI device attached just after system resume
 
-- ``qubes.WindowIconUpdater`` - service called by the VM to send icons of individual windows. The protocol there is simple one direction stream: VM sends a window ID followed by an icon in ``qubes.GetImageRGBA`` format, then the next window ID etc. VM can send an icon for the same window multiple times to replace the previous one (for example for animated icons)
+_`qubes.SyncNtpClock`
+   service called to trigger network time synchronization. Service should synchronize the local VM's time and terminate when done.
 
-- ``qubes.VMShell`` - call any command in the VM; the commands are passed one per line
+_`qubes.WindowIconUpdater`
+   service called by the VM to send icons of individual windows. The protocol there is simple one direction stream: VM sends a window ID followed by an icon in ``qubes.GetImageRGBA`` format, then the next window ID etc. VM can send an icon for the same window multiple times to replace the previous one (for example for animated icons)
 
-  - ``qubes.VMShell+WaitForSession`` waits for full VM startup first
+_`qubes.VMShell`
+   call any command in the VM; the commands are passed one per line
 
-
-
-- ``qubes.VMExec`` - call any command in the VM, without using a shell, the command needs to be passed as argument and encoded as follows:
-
-  - the executable name and arguments are separated by ``+``
-
-  - everything except alphanumeric characters, ``.`` and ``_`` needs to be escaped
-
-  - bytes are escaped as ``-HH`` (where ``HH`` is hex code, capital letters only)
-
-  - ``-`` itself can be escaped as ``--``
-
-  - example: to run ``ls -a /home/user``, use ``qubes.VMExec+ls+--a+-2Fhome-2Fuser``
-
+   _`qubes.VMShell+WaitForSession` waits for full VM startup first
 
 
-- ``qubes.VMExecGUI`` - a variant of ``qubes.VMExec`` that waits for full VM startup first
+
+_`qubes.VMExec`
+   call any command in the VM, without using a shell, the command needs to be passed as argument and encoded as follows:
+
+      - the executable name and arguments are separated by ``+``
+
+      - everything except alphanumeric characters, ``.`` and ``_`` needs to be escaped
+
+      - bytes are escaped as ``-HH`` (where ``HH`` is hex code, capital letters only)
+
+      - ``-`` itself can be escaped as ``--``
+
+      - example: to run ``ls -a /home/user``, use ``qubes.VMExec+ls+--a+-2Fhome-2Fuser``
+
+_`qubes.VMExecGUI`
+   a variant of :ref:`qubes.VMExec <qubes.VMExec>` that waits for full VM startup first
 
 
 

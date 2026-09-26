@@ -57,6 +57,8 @@ The ``work`` qube default disposable template spawns a disposable to execute the
 
 Caution: this disposable will shut down when the program is closed.
 
+.. _open-link-non-default-disposable:
+
 Open a link in a disposable based on a non-default disposable template via command line (from app qube)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -92,13 +94,16 @@ To check if everything is working as expected, from the ``email`` qube with :pro
 
 The ``email`` qube requests to open an URL in a non default disposable template ``net-dvm``, which will derive a disposable and navigate to the link.
 
+.. _make-application-open-everything-in-disposable:
+
 Make a particular application open everything in a disposable
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. warning:: This feature is currently somewhat experimental, and only works for Linux qubes. It is known to work with Thunderbird and Wire, but it may fail to work with some applications that do not honor all XDG environment variables. If the feature does not work for you, please file a bug report.
 
-You can enable a :ref:`qube service <user/how-to-guides/how-to-enable-a-service:how to enable a qube service>` to cause an application in a qube to open files and URLs in a disposable. In order to accomplish this, enable a service named :samp:`app-dispvm.{X}` in that qube, where :samp:`{X}` is the application ID, which is the application name minus the :file:`.desktop` extension.
+You can enable a :ref:`qube service <user/how-to-guides/how-to-enable-a-service:how to enable a qube service>` to cause an application in a qube to open files and URLs in a disposable. In order to accomplish this, enable a service named :option:`!app-dispvm.*` in that qube, where :samp:`{X}` is the application ID, which is the application name minus the :file:`.desktop` extension.
 
-For instance, to have Mozilla Thunderbird application open all attachments in a disposable, find its application name with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Applications`, hover your mouse over the application to see the ``.desktop filename``. Or use the command line equivalent:
+For instance, to have Mozilla Thunderbird application open all attachments in a disposable, find its application name with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> TEMPLATES --> <DISPOSABLE_TEMPLATE> --> Settings --> Applications`, hover your mouse over the application to see the :guilabel:`.desktop filename`. Or use the command line equivalent:
 
 .. code:: console
 
@@ -106,7 +111,8 @@ For instance, to have Mozilla Thunderbird application open all attachments in a 
 
 In the current case, we identified the application ID to be ``net.thunderbird.Thunderbird`` (in your case it may as well be ``thunderbird``). Finally, enable the ``app-dispvm.net.thunderbird.Thunderbird`` service via the :ref:`qube settings <how-to-enable-a-service-in-the-settings>`.
 
-.. warning:: This feature is currently somewhat experimental, and only works for Linux qubes. It is known to work with Thunderbird and Wire, but it may fail to work with some applications that do not honor all XDG environment variables. If the feature does not work for you, please file a bug report.
+
+.. _open-file-type-in-disposable:
 
 Open a particular file type in a disposable
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,17 +163,20 @@ This can also be changed from the command line with :program:`qvm-prefs`:
 
 A qube can be allowed to use :ref:`multiple disposable templates <user/advanced-topics/disposable-customization:open a link in a disposable based on a non-default disposable template via command line (from app qube)>` if you choose so and have configured the :ref:`policy to allow <developer/services/qrexec:specifying vms: tags, types, targets, etc.>`.
 
-Customize a disposable
-----------------------
+
+Customize a disposable template
+-------------------------------
 
 
 .. warning:: If you are trying to customize Tor Browser in a Whonix disposable, please consult the `Whonix documentation <https://www.whonix.org/wiki/Tor_Browser/Advanced_Users#disposable_Template_Customization>`__ instead.
 
-Change qube settings
-^^^^^^^^^^^^^^^^^^^^
+.. _change-disposable-template-settings:
+
+Change disposable template settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-It is possible to change the disposable settings just like any other qube. You might, for example, want to disable all networking for the specific disposable template by default, which can be done by setting the net qube to ``none``. Then, whenever you start a new disposable, you can choose your desired net qube manually by changing the newly-started disposable's settings.
+It is possible to change the disposable templates settings just like any other qube. You might, for example, want to disable all networking for the specific disposable template by default, which can be done by setting the net qube to ``none``. Then, whenever you start a new disposable, you can choose your desired net qube manually by changing the newly-started disposable's settings. It is also possible to change some of the settings of a running disposable.
 
 Add programs to the app menu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -222,6 +231,8 @@ From the configured qube, ``sys-net``:
 
       [user@sys-net ~] $ qubesdb-read /vm-config/wifi-ssid
       [user@sys-net ~] $ qubesdb-read /vm-config/wifi-pass
+
+.. _create-new-disposable-template:
 
 Create a new disposable template
 --------------------------------
