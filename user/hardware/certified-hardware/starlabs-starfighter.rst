@@ -35,9 +35,9 @@ Operating System
 ^^^^^^^^^^^^^^^^
 
 
-- Certified: Qubes OS 4.3.1 or newer (within Release 4).
+- Certified: Qubes OS 4.3.2 or newer (within Release 4).
 
-- Releases older than 4.3.1 are not certified.
+- Releases older than 4.3.2 are not certified.
 
 - You may choose either to have Star Labs preinstall Qubes OS for you, or you may choose to install Qubes OS yourself. This choice does not affect certification.
 
