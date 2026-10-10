@@ -27,6 +27,12 @@ The current Qubes-certified models are listed below in reverse chronological ord
    * - Brand
      - Model
      - Certification details
+   * - `Star Labs <https://starlabs.systems/>`__
+     - `StarFighter <https://starlabs.systems/pages/starfighter>`__
+     - :doc:`Certification details </user/hardware/certified-hardware/starlabs-starfighter/>`
+   * - `Star Labs <https://starlabs.systems/>`__
+     - `StarBook Horizon <https://starlabs.systems/pages/starbook>`__
+     - :doc:`Certification details </user/hardware/certified-hardware/starlabs-starbook-horizon/>`
    * - `NovaCustom <https://novacustom.com/>`__
      - `V54 Series <https://novacustom.com/product/v54-series/>`__
      - :doc:`Certification details </user/hardware/certified-hardware/novacustom-v54-series/>`
