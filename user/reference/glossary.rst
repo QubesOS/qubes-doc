@@ -70,13 +70,14 @@ Qube types and properties
 
       Multiple instances of a disposable qube based on a single disposable template can run at the same time.
 
-      See also :term:`named disposable`.
-
-      "disposable" is the preferred term, but it can also be referred to as:
+      It can be referred by different terms depending on context:
       
-      - ``DispVM`` in outdated sources, but also in modern technical context when referring to qube :term:`class`.
-      - ``@dispvm`` for new disposables in certain qrexec policies.
+      - "disposable" is the modern common name.
+      - ``DispVM`` in modern technical context when referring to qube :term:`class`.
+      - ``DispVM`` in outdated sources.
       - ``DisposableVM`` in outdated sources.
+
+      See also :term:`named disposable`.
 
    standalone
       .. image:: /attachment/doc/standalonevm-red.svg
@@ -87,7 +88,11 @@ Qube types and properties
 
       See :doc:`/user/advanced-topics/standalones-and-hvms`.
 
-      "standalone" is the preferred term, but it can also be referred to as ``StandaloneVM`` in outdated sources and in modern technical context when referring to qube :term:`class`.
+      It can be referred by different terms depending on context:
+
+      - "standalone" is the modern common name.
+      - ``StandaloneVM`` in modern technical context when referring to qube :term:`class`.
+      - ``StandaloneVM`` in outdated sources.
 
    template
       .. image:: /attachment/doc/templatevm-red.svg
@@ -104,7 +109,11 @@ Qube types and properties
 
       - Regular templates cannot function as :term:`disposable template`. (Disposable templates must be app qubes).
 
-      "template" is the preferred term, but it can also be referred to as ``TemplateVM`` in outdated sources and in modern technical context when referring to qube :term:`class`.
+      It can be referred by different terms depending on context:
+
+      - "template" is the modern common name.
+      - ``TemplateVM`` in modern technical context when referring to qube :term:`class`.
+      - ``TemplateVM`` in outdated sources.
 
    disposable template
       .. image:: /attachment/doc/templatevm-red.svg
@@ -135,7 +144,7 @@ Qube types and properties
       - Technical note: Named disposables are useful for certain :term:`service qube`\ s, where the combination of persistent device assignment and ephemeral qube state is desirable.
 
    management qube
-      A :term:`qube` used for automated management of a Qubes OS installation via :doc:`/user/advanced-topics/salt`. Sometimes referred to as "default-mgmt-dvm".
+      A :term:`qube` used for automated management of a Qubes OS installation via :doc:`/user/advanced-topics/salt`. Sometimes referred to as ``default-mgmt-dvm``.
 
    class
       Property describing qube type from the system's perspective, sometimes spelled ``klass`` due to a technicality. Can be either of ``AdminVM``, ``StandaloneVM``, ``TemplateVM``, ``AppVM``, ``DispVM``, and ``RemoteVM``.
