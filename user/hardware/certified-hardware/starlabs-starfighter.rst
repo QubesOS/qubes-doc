@@ -1,8 +1,8 @@
 :orphan:
 
-==================
+=====================
 Star Labs StarFighter
-==================
+=====================
 
 
 The `Star Labs StarFighter <https://starlabs.systems/pages/starfighter>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.

@@ -1,8 +1,8 @@
 :orphan:
 
-==================
+==========================
 Star Labs StarBook Horizon
-==================
+==========================
 
 
 The `Star Labs StarBook Horizon <https://starlabs.systems/pages/starbook-horizon>`__ is :doc:`officially certified </user/hardware/certified-hardware/certified-hardware>` for Qubes OS Release 4.
