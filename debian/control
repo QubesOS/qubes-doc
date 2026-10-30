@@ -1,0 +1,20 @@
+Source: qubes-doc
+Section: doc
+Priority: optional
+Maintainer: Qubes OS Project <qubes-devel@googlegroups.com>
+Build-Depends:
+    debhelper-compat (= 13),
+    make,
+    python3-sphinx,
+    python3-sphinx-rtd-theme,
+    texinfo,
+Standards-Version: 4.6.2
+Homepage: https://doc.qubes-os.org
+Rules-Requires-Root: no
+
+Package: qubes-doc
+Architecture: all
+Depends: xdg-utils, ${misc:Depends}
+Description: Offline Qubes OS documentation
+ The Qubes OS documentation (doc.qubes-os.org), for reading without network
+ access: HTML, EPUB, man page (qubesos(1)) and info.
