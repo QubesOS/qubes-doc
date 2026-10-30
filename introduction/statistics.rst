@@ -5,8 +5,14 @@ Statistics
 
 
 
-.. figure:: https://tools.qubes-os.org/counter/stats.png
-   :alt: Estimated Qubes OS userbase graph
+.. only:: not offline
+
+   .. figure:: https://tools.qubes-os.org/counter/stats.png
+      :alt: Estimated Qubes OS userbase graph
+
+.. only:: offline
+
+   Graph of the estimated Qubes OS userbase: https://tools.qubes-os.org/counter/stats.png
 
 FAQ
 ---
