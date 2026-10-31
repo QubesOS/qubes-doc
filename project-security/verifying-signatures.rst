@@ -345,6 +345,8 @@ This is just an example, so the output you receive will not look exactly the sam
 
 If you don’t see a good signature here, go back and follow the instructions in this section carefully, and consult the :ref:`project-security/verifying-signatures:troubleshooting faq` below.
 
+The downloads page also offers a **digest file**, :file:`Qubes-R{X}-x86_64.iso.DIGESTS`, which lists the hash values of the ISO. Starting with Qubes 4.3.1, it comes with its own detached signature, :file:`Qubes-R{X}-x86_64.iso.DIGESTS.asc`, which you can verify in the same way (``gpg2 -v --verify Qubes-RX-x86_64.iso.DIGESTS.asc Qubes-RX-x86_64.iso.DIGESTS``). Only trust the hash values after you get a good signature.
+
 How to re-verify installation media after writing
 -------------------------------------------------
 
