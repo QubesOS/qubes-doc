@@ -162,7 +162,7 @@ Suspend turns off the screen and gets stuck
 
 On some devices suspend-to-RAM does not work and a hard power-off is needed to recover, because the system does not go into deep sleep. To get suspend to work, you need to add ``mem_sleep_default=deep`` kernel option. Add it to the ``GRUB_CMDLINE_LINUX`` setting in ``/etc/default/grub``, update the grub config, and reboot.
 
-Unable to start any Qube after suspend/resume crash
+Unable to start **any** Qube after suspend/resume crash
 ---------------------------------------------------
 
 If a system crashes while supsended it may lead to corruption of the LVM storage pool.
