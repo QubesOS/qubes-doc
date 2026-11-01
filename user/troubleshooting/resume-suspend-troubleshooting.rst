@@ -169,6 +169,7 @@ If a system crashes while supsended it may lead to corruption of the LVM storage
 This leads to dom0 booting, however none of the qubes start. Attempting to start qubes manually throws an error:
 
 .. code:: console
+      
       [user@dom0 ~]$ qvm-start sys-net
       Error:  Logical Volume "vm-sys-net-private-snap" already exists in volume group "qubes_dom0"
       [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap
@@ -177,6 +178,7 @@ This leads to dom0 booting, however none of the qubes start. Attempting to start
 This should be recoverable by running:
 
 .. code:: console
+
       [user@dom0 ~]$ sudo lvconvert --repair qubes_dom0/vm-pool
       [user@dom0 ~]$ sudo vgchange -ay # Reactivate the volume group
       n logical volume(s) in volume group "qubes_dom0" now active
@@ -184,6 +186,7 @@ This should be recoverable by running:
 After which the error should be resolved and the system should start normally:
 
 .. code:: console
+
       [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap # Volumes now active
       /dev/qubes_dom0/vm-sys-net-private-snap      
       [user@dom0 ~]$ qvm-start sys-net
@@ -192,6 +195,7 @@ In some edge cases the fix might not work and complain about a Transaction ID in
 In this case creating a backup of your LVM config and decrementing the Transaction ID in question by one before loading it back in, might work.
 
 .. code:: console
+
       [user@dom0 ~]$ sudo vgcfgbackup -f /tmp/qubes_dom0
       [user@dom0 ~]$ sudo cp /tmp/qubes_dom0 /tmp/qubes_dom0.bak
       [user@dom0 ~]$ sudo nano /tmp/qubes_dom0
