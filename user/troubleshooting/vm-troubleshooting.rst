@@ -23,6 +23,40 @@ First, try to start a particular VM, check any failure message and direct furthe
 
 This issue has been seen to occur if a dom0 update is interrupted halfway through and/or a hard power off is done without shutting down Qubes, which results in files getting corrupted.
 
+Qube fails to start
+-------------------
+
+
+Start it from a dom0 terminal to see the error:
+
+.. code:: console
+
+      [user@dom0] $ qvm-start VMNAME
+
+
+More details are in these dom0 logs:
+
+- ``journalctl -u qubesd``: start errors.
+- ``/var/log/xen/console/guest-VMNAME.log``: the qube's boot messages, when it starts but then stops or times out.
+- ``/var/log/libvirt/libxl/VMNAME.log`` and ``/var/log/libvirt/libxl/libxl-driver.log``: errors from Xen, for example with PCI devices.
+- ``/var/log/qubes/qrexec.VMNAME.log``, ``guid.VMNAME.log`` and ``qubesdb.VMNAME.log``: qrexec, the GUI and QubesDB for this qube.
+
+To watch the console while it boots, run ``qvm-console-dispvm VMNAME`` right after starting it. For more logs, set ``qvm-prefs VMNAME debug true`` (for HVM qubes, this also shows the qube's screen).
+
+Common causes:
+
+- ``Cannot connect to qrexec agent``: see :ref:`user/troubleshooting/vm-troubleshooting:"cannot connect to qrexec agent" error`.
+- ``Not enough memory to start domain``: shut down other qubes, or lower the qube's initial memory.
+- PCI errors: see :doc:`/user/troubleshooting/pci-troubleshooting`, and for USB controllers :ref:`user/troubleshooting/usb-troubleshooting:usb vm does not boot after creating and assigning usb controllers to it`.
+- Windows qubes: see :ref:`user/templates/windows/qubes-windows-tools:troubleshooting`.
+- PCI devices in a qube restored from a backup made on another computer: the qube keeps the old PCI addresses, which may be missing (``Node device not found``) or hold another device here. List them, remove the wrong ones, then assign the right devices (:doc:`/user/how-to-guides/how-to-use-pci-devices`):
+
+  .. code:: console
+
+        [user@dom0] $ qvm-pci list -s VMNAME
+        [user@dom0] $ qvm-pci unassign VMNAME 'dom0:00_05.0:*'
+
+
 Can not uninstall a VM / "ERROR: VM installed by package manager: template-vm-name"
 -----------------------------------------------------------------------------------
 
