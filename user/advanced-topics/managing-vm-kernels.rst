@@ -14,7 +14,7 @@ By default, VMs kernels are provided by dom0. (See :ref:`here <user/advanced-top
 
 3. You can **not** modify any of the above from inside a VM;
 
-4. Installing additional kernel modules is cumbersome.
+4. Additional kernel modules have to be built in the template, see :ref:`user/advanced-topics/managing-vm-kernels:building kernel modules for the dom0-provided kernel`.
 
 
 
@@ -282,6 +282,40 @@ Kernel for a VM is stored in ``/var/lib/qubes/vm-kernels/KERNEL_VERSION`` direct
 
 
 All the files besides ``vmlinuz`` are optional in Qubes R4.2 or newer.
+
+Building kernel modules for the dom0-provided kernel
+----------------------------------------------------
+
+
+The dom0-provided kernel ships its build files, at ``/lib/modules/$(uname -r)/build`` in the qube. Don't install ``kernel-devel`` or ``linux-headers``: they are for the distribution kernel.
+
+Build and install modules in the template (or a standalone qube).
+
+First check that the kernel doesn't already include the module: ``modinfo MODULE``.
+
+Open a terminal in the template, go to the module's source directory, and run:
+
+.. code:: console
+
+      [user@template ~/MODULE]$ make -C /lib/modules/$(uname -r)/build M=$PWD modules
+      [user@template ~/MODULE]$ sudo make -C /lib/modules/$(uname -r)/build M=$PWD modules_install
+      [user@template ~/MODULE]$ sudo modprobe MODULE
+
+
+
+The module is not signed, so warnings about the compiler version, ``signing_key.pem`` and a tainted kernel are expected.
+
+After the dom0-provided kernel is updated, rebuild the module.
+
+DKMS works too (``dkms install MODULE/VERSION``, then ``dkms autoinstall`` after a kernel update), but:
+
+- the module must support the dom0-provided kernel, which can be newer than the distribution kernel;
+
+- on Fedora, installing ``dkms`` also installs an unneeded ``kernel-devel``, and ``dkms`` reports a ``dracut`` error, which you can ignore.
+
+
+
+Otherwise, or for ``akmods``, use a :ref:`kernel installed in the VM <user/advanced-topics/managing-vm-kernels:using kernel installed in the vm>`.
 
 Using kernel installed in the VM
 --------------------------------
