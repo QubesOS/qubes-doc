@@ -176,3 +176,48 @@ Suspend turns off the screen and gets stuck
 
 
 On some devices suspend-to-RAM does not work and a hard power-off is needed to recover, because the system does not go into deep sleep. To get suspend to work, you need to add ``mem_sleep_default=deep`` kernel option. Add it to the ``GRUB_CMDLINE_LINUX`` setting in ``/etc/default/grub``, update the grub config, and reboot.
+
+Unable to start **any** Qube after suspend/resume crash
+-------------------------------------------------------
+
+If a system crashes while supsended it may lead to corruption of the LVM storage pool.
+This leads to dom0 booting, however none of the qubes start. Attempting to start qubes manually throws an error:
+
+.. code:: console
+      
+      [user@dom0 ~]$ qvm-start sys-net
+      Error:  Logical Volume "vm-sys-net-private-snap" already exists in volume group "qubes_dom0"
+      [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap
+      ls:  cannot access '/dev/qubes_dom0/vm-sys-net-private-snap': No such file or directory
+
+This should be recoverable by running:
+
+.. code:: console
+
+      [user@dom0 ~]$ sudo lvconvert --repair qubes_dom0/vm-pool
+      [user@dom0 ~]$ sudo vgchange -ay # Reactivate the volume group
+      n logical volume(s) in volume group "qubes_dom0" now active
+
+After which the error should be resolved and the system should start normally:
+
+.. code:: console
+
+      [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap # Volumes now active
+      /dev/qubes_dom0/vm-sys-net-private-snap      
+      [user@dom0 ~]$ qvm-start sys-net
+
+In some edge cases the fix might not work and complain about a Transaction ID instead.
+In this case creating a backup of your LVM config and decrementing the Transaction ID in question by one before loading it back in, might work.
+
+.. code:: console
+
+      [user@dom0 ~]$ sudo vgcfgbackup -f /tmp/qubes_dom0
+      [user@dom0 ~]$ sudo cp /tmp/qubes_dom0 /tmp/qubes_dom0.bak
+      [user@dom0 ~]$ sudo nano /tmp/qubes_dom0
+      [user@dom0 ~]$ sudo vgcfgrestore -f /tmp/qubes_dom0 --force 
+
+After this the fix using lvconvert should work.
+
+NOTE: This error state is not really reproducible, however this fix has worked in 2-3 cases. For more information `see this thread <https://github.com/QubesOS/qubes-issues/issues/3964>`__. 
+
+
