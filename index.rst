@@ -83,6 +83,7 @@ Core documentation for Qubes users.
    user/how-to-guides/how-to-use-usb-devices
    user/how-to-guides/how-to-use-pci-devices
    user/how-to-guides/how-to-use-optical-discs
+   user/how-to-guides/how-to-print
    user/how-to-guides/how-to-reinstall-a-template
    user/how-to-guides/how-to-edit-a-policy
    user/how-to-guides/how-to-enable-a-service
