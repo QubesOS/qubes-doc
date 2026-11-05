@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Qubes OS Documentation
+Comment=Offline copy of the Qubes OS documentation
+Icon=qubes-doc
+Exec=xdg-open /usr/share/qubes-doc/html/index.html
+Categories=Utility;Documentation;
+Keywords=help;manual;docs;qubes;

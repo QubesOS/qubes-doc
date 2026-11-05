@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	make -f offline/Makefile BUILDDIR=_build/offline
+
+override_dh_auto_install:
+	make -f offline/Makefile install BUILDDIR=_build/offline \
+		DESTDIR=$(CURDIR)/debian/qubes-doc
+
+override_dh_auto_clean:
+	make -f offline/Makefile clean BUILDDIR=_build/offline
+

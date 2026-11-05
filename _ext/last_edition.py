@@ -37,7 +37,7 @@ def html_page_context(app, pagename, templatename, context, doctree):
                 f"{pagename}{context['page_source_suffix']}",
             )
         ).decode()
-    except subprocess.CalledProcessError:
+    except (OSError, subprocess.CalledProcessError):
         return
 
     try:
