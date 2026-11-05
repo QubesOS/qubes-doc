@@ -138,6 +138,21 @@ In the above example, it would look like this:
       iwlwifi
 
 
+sys-net disappears after suspend/resume
+---------------------------------------
+
+
+After suspend/resume sys-net is not active anymore - manual start of sys-net is required after resume. If you want sys-net starting automatically after suspend/resume, execute the following command to set kernelopts for sys-net in dom0:
+
+.. code:: console
+
+      [user@dom0]$ qvm-prefs sys-net kernelopts qubes_exp_pm_use_suspend=1
+
+After restarting sys-net this setting will be active:
+
+.. figure:: /attachment/doc/r4.3/sys-net-kernelopts.png
+   :alt: Screenshot of sys-net showing the kernelopts qubes_exp_pm_use_suspend=1 setting
+
 
 Power consumption increases on suspend/resume
 ---------------------------------------------
