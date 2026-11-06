@@ -26,7 +26,7 @@ Transferring the Windows Qube
 - If Qubes Windows Tools was installed under R4.1, the new version for R4.2 or R4.3 can then be installed as described in the documentation.
 
 
-**Note:** The Qubes application menus for the newly restored Windows qubes will be empty, but can be easily restored via the Qube Manager or by issuing the command ``qubes-sync-appmenus`` in ``dom0``.
+**Note:** The Qubes application menus for the newly restored Windows qubes will be empty, but can be easily restored via the Qube Manager or by issuing the command ``qvm-sync-appmenus <QUBE_NAME>`` in ``dom0``.
 
 
 Migration from Qubes R4.2 to R4.3
