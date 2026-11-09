@@ -122,6 +122,7 @@ Core documentation for Qubes users.
    user/troubleshooting/hvm-troubleshooting
    user/troubleshooting/disk-troubleshooting
    user/troubleshooting/pci-troubleshooting
+   user/troubleshooting/network-troubleshooting
    user/troubleshooting/usb-troubleshooting
    user/troubleshooting/gui-troubleshooting
    user/troubleshooting/media-troubleshooting
