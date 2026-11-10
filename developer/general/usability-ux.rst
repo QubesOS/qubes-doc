@@ -4,7 +4,7 @@ Usability & UX Guidelines
 
 Unnecessary complexity and bad UI often scare users away from good software. To avoid this terrible fate, please always take usability and good user experience into account when contributing to Qubes OS.
 
-If you plan to contribute to GUI tools, please read these guidelines. Additional information can also be found in our `visual style guide <https://www.qubes-os.org/doc/visual-style-guide/>`__.
+If you plan to contribute to GUI tools, please read these guidelines. Additional information can also be found in our :doc:`visual style guide </developer/general/visual-style-guide>`.
 
 Ease of Use
 -----------
