@@ -71,13 +71,24 @@ Qube Manager
 ^^^^^^^^^^^^
 
 
-To see all of your qubes at the same time, you can use the **Qube Manager**. It displays the states of all the qubes in your system, even the ones that aren’t running.
-
-To access Qube Manager go to |qubes-logo-icon|:menuselection:`App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qube Manager`
+To see all of your qubes at the same time, you can use the :guilabel:`Qube Manager`, accessible via |qubes-logo-icon|:menuselection:`App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Qube Manager`.
 
 .. image:: /attachment/doc/r4.3/qube-manager.png
    :alt:
    :width: 100%
+
+
+Key actions available in the :guilabel:`Qube Manager` include:
+
+    - **Monitoring System State**: Displays the current status (`Running`, `Paused`, `Halted`) of all qubes.
+    - **Resource Management**: Provides monitoring of `Disk Usage`.
+    - **Qube Lifecycle Management**: Allows users to start/resume (via the :menuselection:`Start/Resume` option), pause (via :menuselection:`Emergency pause`), shutdown (via :menuselection:`Shutdown`) or restart (via :menuselection:`Restart`) a qube. Further options include creating new qubes (via :menuselection:`New Qube`), cloning existing qubes (via :menuselection:`Qube --> Clone Qube`), and deleting unnecessary qubes (via the :menuselection:`Delete Qube` option).
+    - **Configuration**: Provides overview and access to detailed settings for each qube (via :menuselection:`Settings`), including net qube assignments, device attachments, memory limits, and startup behavior, as well as configuration of firewall rules (via :menuselection:`Edit firewall`).
+    - **Backup and Restore Qubes OS**: Shortcuts (via :menuselection:`Backup` and :menuselection:`Restore`) for creation of and restoration from backups ensuring data recovery in case of compromise or error.
+    - **Global Configuration**: Enables users to manage system-wide settings (via :menuselection:`Global config`).
+    - **Template Management**: Enables users to bulk-set the template assigned to multiple qubes at once (via :menuselection:`System --> Manage templates for qubes`).
+
+
 
 Command-line interface
 ^^^^^^^^^^^^^^^^^^^^^^
