@@ -17,3 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// The search modal's backdrop blur makes Firefox crawl without a GPU (qubes-issues#10730).
+customElements.whenDefined('readthedocs-search').then(() => {
+  const sheet = new CSSStyleSheet();
+  sheet.replaceSync(':host > div .background { backdrop-filter: none !important; }');
+  const patch = () => {
+    const root = document.querySelector('readthedocs-search')?.shadowRoot;
+    if (!root) return false;
+    if (!root.adoptedStyleSheets.includes(sheet)) {
+      root.adoptedStyleSheets = [...root.adoptedStyleSheets, sheet];
+    }
+    return true;
+  };
+  if (!patch()) {
+    const observer = new MutationObserver(() => { if (patch()) observer.disconnect(); });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+});
