@@ -282,7 +282,7 @@ Core documentation for Qubes developers and advanced users.
    developer/debugging/vm-interface
    developer/debugging/windows-debugging
    developer/debugging/safe-remote-ttys
-   developer/debugging/mount-lvm-image
+   developer/debugging/mount-qube-volume
 
 
 .. _building:

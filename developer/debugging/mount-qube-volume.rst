@@ -1,6 +1,6 @@
-=======================
-How to mount LVM images
-=======================
+=============================================
+How to mount Qube volumes in a different Qube
+=============================================
 
 
 You want to read your LVM image (e.g., there is a problem where you can’t start any VMs except dom0).
