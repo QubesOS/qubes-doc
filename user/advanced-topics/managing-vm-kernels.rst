@@ -295,15 +295,16 @@ Open a terminal in the template, go to the module's source directory, and run:
 
 .. code:: console
 
-      [user@template ~/MODULE]$ make -C /lib/modules/$(uname -r)/build M=$PWD modules
-      [user@template ~/MODULE]$ sudo make -C /lib/modules/$(uname -r)/build M=$PWD modules_install
-      [user@template ~/MODULE]$ sudo modprobe MODULE
+      [user@qube ~/MODULE_SOURCE]$ make -C /lib/modules/$(uname -r)/build M=$PWD modules
+      [user@qube ~/MODULE_SOURCE]$ sudo make -C /lib/modules/$(uname -r)/build M=$PWD modules_install
+      [user@qube ~/MODULE_SOURCE]$ sudo modprobe MODULE
 
 
 
-The module is not signed, so warnings about the compiler version, ``signing_key.pem`` and a tainted kernel are expected.
+.. note::
+    The module is not signed, so warnings about the compiler version, ``signing_key.pem`` and a tainted kernel are expected.
 
-After the dom0-provided kernel is updated, rebuild the module.
+After the dom0-provided kernel is updated, rebuild the module: it was built for the old kernel.
 
 DKMS works too (``dkms install MODULE/VERSION``, then ``dkms autoinstall`` after a kernel update), but:
 
