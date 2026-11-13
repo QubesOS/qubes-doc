@@ -287,7 +287,7 @@ Building kernel modules for the dom0-provided kernel
 ----------------------------------------------------
 
 
-The dom0-provided kernel ships its build files, at ``/lib/modules/$(uname -r)/build`` in the qube. Don't install ``kernel-devel`` or ``linux-headers``: they are for the distribution kernel.
+The dom0-provided kernel ships its build files, at ``/lib/modules/$(uname -r)/build`` in the qube. Neither the ``kernel-devel`` nor ``linux-headers`` packages need to be installed: they are for the distribution kernel.
 
 Build and install modules in the template (or a standalone qube).
 
