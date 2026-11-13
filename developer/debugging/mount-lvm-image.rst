@@ -14,14 +14,21 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
         [user@dom0]$ qubesdb-write /qubes-block-devices/$dev/desc "YOUR_LVM_IMAGE"
 
 
-2. Create a new disposable VM
+2. Tell qubesd that the device list changed
+
+  .. code:: console
+
+        [user@dom0]$ qubesdb-write /qubes-block-devices ''
+
+
+3. Create a new disposable VM
 
   .. code:: console
 
         [user@dom0]$ qvm-run -v --dispvm=YOUR_DVM_TEMPLATE --service qubes.StartApp+xterm &
 
 
-3. Attach the device to your newly created disp VM
+4. Attach the device to your newly created disp VM
 
   From the GUI, or from the command line:
 
@@ -30,25 +37,26 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
         [user@dom0]$ qvm-block attach NEWLY_CREATED_DISPVM dom0:$dev
 
 
-4. Mount the partition you want to, and do what you want with it
+5. Mount the partition you want to, and do what you want with it
 
   .. code:: console
 
         [user@dispXXXX]$ mount /dev/xvdiX /mnt/
 
 
-5. Umount and kill the VM
+6. Umount and kill the VM
 
   .. code:: console
 
         [user@dispXXXX]$ umount /mnt/
 
 
-6. Remove the image from qubesdb
+7. Remove the image from qubesdb
 
   .. code:: console
 
         [user@dom0]$ qubesdb-rm /qubes-block-devices/$dev/
+        [user@dom0]$ qubesdb-write /qubes-block-devices ''
 
 
 References
