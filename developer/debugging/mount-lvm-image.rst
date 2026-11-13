@@ -12,6 +12,9 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
       # Example: /dev/qubes_dom0/vm-debian-9-tmp-root
       [user@dom0]$ dev=$(basename $(readlink /dev/YOUR_LVM_VG/YOUR_LVM_IMAGE))
       [user@dom0]$ qubesdb-write /qubes-block-devices/$dev/desc "YOUR_LVM_IMAGE"
+      [user@dom0]$ qubesdb-write /qubes-block-devices ''
+
+The last command tells qubesd that the device list changed.
 
 
 2: Create a new disposable VM
@@ -49,6 +52,7 @@ From the GUI, or from the command line:
 .. code:: console
 
       [user@dom0]$ qubesdb-rm /qubes-block-devices/$dev/
+      [user@dom0]$ qubesdb-write /qubes-block-devices ''
 
 
 References
