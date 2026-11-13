@@ -14,7 +14,7 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
       [user@dom0]$ qubesdb-write /qubes-block-devices/$dev/desc "YOUR_LVM_IMAGE"
       [user@dom0]$ qubesdb-write /qubes-block-devices ''
 
-The second command tells qubesd that the device list changed.
+The last command tells qubesd that the device list changed.
 
 
 2: Create a new disposable VM
