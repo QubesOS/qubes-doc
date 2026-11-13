@@ -291,8 +291,6 @@ The dom0-provided kernel ships its build files, at ``/lib/modules/$(uname -r)/bu
 
 Build and install modules in the template (or a standalone qube).
 
-First check that the kernel doesn't already include the module: ``modinfo MODULE``.
-
 Open a terminal in the template, go to the module's source directory, and run:
 
 .. code:: console
