@@ -475,6 +475,14 @@ Can I install Qubes in a virtual machine (e.g., on VMware)?
 
 Some users have been able to do this, but it is neither recommended nor supported. Qubes should be installed bare-metal. (After all, it uses its own bare-metal hypervisor!)
 
+Can I run virtual machines inside a qube (e.g., VirtualBox, KVM, or the Android emulator)?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+No. Qubes OS hides the CPU virtualization features (VT-x/AMD-V) from qubes on purpose, so programs that need them do not work in a qube. Turning them on by changing the libvirt templates is not supported and has crashed whole systems (see `#4104 <https://github.com/QubesOS/qubes-issues/issues/4104>`__).
+
+Containers, such as Docker or Podman, do not need these features and work in a qube.
+
 How many qubes should I have? What's a good way to organize them?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
