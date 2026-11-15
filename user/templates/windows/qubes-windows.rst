@@ -59,7 +59,7 @@ Windows VM installation
 -----------------------
 
 
-**qvm-create-windows-qube**: An unofficial, third-party tool for automating this process is available `here <https://github.com/elliotkillick/qvm-create-windows-qube>`__. (Please note that this tool has not been reviewed by the Qubes OS Project. Use it at your own risk.)
+**qvm-create-windows-qube**: `This tool <https://github.com/QubesOS/qvm-create-windows-qube>`__ automates the installation, using an answer file. It runs in dom0 and is not part of Qubes OS: see its README to install it, and its `open issues <https://github.com/QubesOS/qvm-create-windows-qube/issues>`__ for known problems. Use it at your own risk.
 
 However, if you are an expert or want to do it manually, you may continue below.
 
