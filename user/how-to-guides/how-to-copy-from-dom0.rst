@@ -65,11 +65,21 @@ Copying *to* dom0
 -----------------
 
 
-Copying anything into dom0 is not advised, since doing so can compromise the security of your Qubes system. For this reason, there is no simple means of copying anything into dom0, unlike :ref:`user/how-to-guides/how-to-copy-from-dom0:copying *from* dom0`.
+Copying anything into dom0 is strongly discouraged, since doing so can compromise the security of your whole Qubes system.
 
 There should normally be few reasons for the user to want to copy anything from domUs to dom0, as dom0 only acts as a “thin trusted terminal”, and no user applications run there. Sometimes, new users feel the urge to copy a desktop wallpaper image into dom0, but that is not necessary. A safer approach is simply to display the image in :doc:`full-screen mode </user/how-to-guides/how-to-enter-fullscreen-mode>` in an app qube, then take a screenshot from dom0, which results in exactly the image needed for a wallpaper, created securely and natively in dom0.
 
-If you are determined to copy some files to dom0 anyway, you can use the following method. (If you want to copy text, first save it into a text file.) Run this command in a dom0 terminal:
+If you must copy files or directories to dom0 anyway, run in a dom0 terminal:
+
+.. code:: console
+
+      $ qvm-copy-from-vm <src-vm> /path/to/file_or_dir_in_src_domain
+
+
+
+They arrive in ``~/QubesIncoming/<src-vm>/``. To copy text, save it into a file first. See ``man qvm-copy-from-vm`` for details.
+
+On releases without ``qvm-copy-from-vm``, copy a single file with:
 
 .. code:: console
 
