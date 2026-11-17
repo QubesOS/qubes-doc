@@ -48,14 +48,22 @@ class IframeVideo(Directive):
             self.options['height'] = self.default_height
         if not self.options.get('align'):
             self.options['align'] = 'left'
+        if not self.state.document.settings.env.config.youtube_frame_embed:
+            url = self.url % self.options
+            para = nodes.paragraph()
+            para += nodes.Text('Video: ')
+            para += nodes.reference(url, url, refuri=url)
+            return [para]
         return [nodes.raw('', self.html % self.options, format='html')]
 
 
 class GeneralVid(IframeVideo):
+    url = '%(video_id)s'
     html = '<iframe src="%(video_id)s" width="%(width)u" height="%(height)u" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen class="responsive" referrerpolicy="no-referrer" scrolling="no"></iframe>'
 
 
 class Youtube(IframeVideo):
+    url = 'https://www.youtube.com/watch?v=%(video_id)s'
     html = '<iframe src="https://www.youtube-nocookie.com/embed/%(video_id)s" \
     width="%(width)u" height="%(height)u" frameborder="0" \
     webkitAllowFullScreen mozallowfullscreen allowfullscreen \
@@ -63,6 +71,7 @@ class Youtube(IframeVideo):
 
 
 def setup(builder):
+    builder.add_config_value('youtube_frame_embed', True, 'env')
     directives.register_directive('youtube', Youtube)
     directives.register_directive('generalvid', GeneralVid)
 

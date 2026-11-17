@@ -1,0 +1,5 @@
+qubes-doc (4.3.2-1) unstable; urgency=medium
+
+  * Initial offline documentation package.
+
+ -- Qubes OS Project <qubes-devel@googlegroups.com>  Fri, 30 Oct 2026 12:00:00 +0000

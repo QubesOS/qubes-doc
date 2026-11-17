@@ -40,6 +40,20 @@ extensions = [
   'last_edition',
 ]
 
+# Offline build (sphinx-build -t offline), e.g. for a distribution package:
+# read without network access, built with distribution-packaged extensions only
+offline = tags.has('offline')
+
+if offline:
+    # Online-only features
+    for ext in ('sphinx.ext.intersphinx', 'sphinx_reredirects', 'sphinxext.opengraph'):
+        extensions.remove(ext)
+    # Not packaged in all distributions
+    try:
+        import sphinxnotes.strike
+    except ImportError:
+        extensions[extensions.index('sphinxnotes.strike')] = 'strike_fallback'
+
 # Redirects for specific URLs as fall back
 redirects = {
     "user/hardware/hcl":
@@ -109,7 +123,7 @@ html_static_path = ['_static']
 html_css_files = ['css/custom.css']
 html_js_files = [ 'custom.js', ]
 
-html_use_opensearch = "https://doc.qubes-os.org"
+html_use_opensearch = "" if offline else "https://doc.qubes-os.org"
 
 html_logo = "attachment/icons/128x128/apps/qubes-logo-icon.png"
 html_favicon = "attachment/icons/favicon-16x16.png"
@@ -133,6 +147,9 @@ intersphinx_mapping = {
     'core-qrexec': ('https://dev.qubes-os.org/projects/qubes-core-qrexec/en/stable/', None),
 }
 intersphinx_disabled_reftypes = ["*"]
+
+# Link to videos instead of embedding them
+youtube_frame_embed = not offline
 
 # Open Graph image for social media sharing
 ogp_image = "https://www.qubes-os.org/attachment/icons/qubes-logo-icon-name-slogan-fb.png"

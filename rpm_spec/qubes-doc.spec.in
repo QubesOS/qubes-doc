@@ -1,0 +1,43 @@
+Name:		qubes-doc
+Version:	@VERSION@
+Release:	1%{?dist}
+Summary:	Offline Qubes OS documentation
+License:	GPL-2.0-only
+URL:		https://doc.qubes-os.org
+BuildArch:	noarch
+Source0:	%{name}-%{version}.tar.gz
+
+BuildRequires:	make
+BuildRequires:	python3-sphinx
+BuildRequires:	python3-sphinx_rtd_theme
+BuildRequires:	texinfo
+# Fonts bundled into the HTML by offline/bundle-fonts.sh
+BuildRequires:	font(fontawesome)
+BuildRequires:	font(lato)
+BuildRequires:	font(robotoslab)
+Requires:	xdg-utils
+
+%description
+The Qubes OS documentation (doc.qubes-os.org), for reading without network
+access: HTML, EPUB, man page (qubesos(1)) and info.
+
+%prep
+%setup -q
+
+%build
+make -f offline/Makefile BUILDDIR=_build/offline
+
+%install
+make -f offline/Makefile install BUILDDIR=_build/offline DESTDIR=%{buildroot} \
+	DATADIR=%{_datadir}/%{name} MANDIR=%{_mandir} INFODIR=%{_infodir} \
+	APPDIR=%{_datadir}/applications ICONDIR=%{_datadir}/icons/hicolor/128x128/apps
+
+%files
+%{_datadir}/%{name}
+%{_mandir}/man1/qubesos.1*
+%{_infodir}/qubesos.info*
+%{_datadir}/applications/qubes-doc.desktop
+%{_datadir}/icons/hicolor/128x128/apps/qubes-doc.png
+
+%changelog
+@CHANGELOG@

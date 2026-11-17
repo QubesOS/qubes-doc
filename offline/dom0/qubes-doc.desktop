@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Qubes OS Documentation
+Comment=Read the offline Qubes OS documentation in a disposable qube
+Icon=qubes-logo-icon
+Exec=qvm-run --dispvm --service -- qubes.StartApp+qubes-doc
+Categories=Utility;Documentation;
+Keywords=help;manual;docs;qubes;
