@@ -246,6 +246,7 @@ Core documentation for Qubes developers and advanced users.
    Qubes core admin client <https://dev.qubes-os.org/projects/core-admin-client/>
    Qubes core stack <https://www.qubes-os.org/news/2017/10/03/core3/>
    developer/system/gui
+   developer/system/gui-domain
    developer/system/networking
    developer/system/template-implementation
    developer/system/audio
