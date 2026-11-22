@@ -121,17 +121,19 @@ Note the ``ConditionUser`` and ``ConditionGroup`` that ensure that the socket an
 Start the socket using ``systemctl --user start``. Enable it using ``systemctl --user enable``, so that it starts automatically.
 
 .. code:: console
+   :class: code-block-style
 
-      $ systemctl --user start qubes-qrexec-policy-agent.socket
-      $ systemctl --user enable qubes-qrexec-policy-agent.socket
+   $ systemctl --user start qubes-qrexec-policy-agent.socket
+   $ systemctl --user enable qubes-qrexec-policy-agent.socket
 
 
 
 Alternatively, you can enable the service by creating a symlink:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
+   $ sudo ln -s /lib/systemd/user/qubes-qrexec-policy-agent.socket /lib/systemd/user/sockets.target.wants/
 
 
 
@@ -142,8 +144,9 @@ Link in qubes-rpc
 ``qrexec-policy-agent`` will handle a Qubes RPC service called ``policy.Ask``, so we add a link:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
+   $ sudo ln -s /var/run/qubes/policy-agent.sock /etc/qubes-rpc/policy.Ask
 
 
 
@@ -156,8 +159,9 @@ Socket activation in systemd works by starting our program with the socket file 
 Install the Python systemd library:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo dnf install python3-systemd
+   $ sudo dnf install python3-systemd
 
 
 
@@ -237,16 +241,18 @@ Using the service
 The service is invoked in the same way as a standard Qubes RPC service:
 
 .. code:: console
+   :class: code-block-style
 
-      $ echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
+   $ echo <input_data> | qrexec-client -d domX 'DEFAULT:QUBESRPC policy.Ask'
 
 
 
 You can also connect to it locally, but remember to include the service descriptor:
 
 .. code:: console
+   :class: code-block-style
 
-      $ echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
+   $ echo -e 'policy.Ask dom0\0<input data>' | nc -U /etc/qubes-rpc/policy.Ask
 
 
 

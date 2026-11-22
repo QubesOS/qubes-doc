@@ -49,36 +49,39 @@ In dom0, you can use ``qvm-usb`` from the commandline to attach and detach devic
 Listing available USB devices:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@dom0 ~]$ qvm-usb
-      BACKEND:DEVID   DESCRIPTION                    USED BY
-      sys-usb:2-4     04ca:300d 04ca_300d
-      sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-      sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+   [user@dom0 ~]$ qvm-usb
+   BACKEND:DEVID   DESCRIPTION                    USED BY
+   sys-usb:2-4     04ca:300d 04ca_300d
+   sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+   sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
 Attaching selected USB device:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
-      [user@dom0 ~]$ qvm-usb
-      BACKEND:DEVID   DESCRIPTION                    USED BY
-      sys-usb:2-4     04ca:300d 04ca_300d
-      sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
-      sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
+   [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
+   [user@dom0 ~]$ qvm-usb
+   BACKEND:DEVID   DESCRIPTION                    USED BY
+   sys-usb:2-4     04ca:300d 04ca_300d
+   sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
+   sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 Now, you can use your USB device (camera in this case) in the ``work`` qube. If you see the error ``ERROR: qubes-usb-proxy not installed in the qube`` instead, please refer to the `Installation Section <#installation-of-qubes-usb-proxy>`__.
 
 When you finish, detach the device.
 
 .. code:: console
+   :class: code-block-style
 
-      [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
-      [user@dom0 ~]$ qvm-usb
-      BACKEND:DEVID   DESCRIPTION                    USED BY
-      sys-usb:2-4     04ca:300d 04ca_300d
-      sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-      sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
+   [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
+   [user@dom0 ~]$ qvm-usb
+   BACKEND:DEVID   DESCRIPTION                    USED BY
+   sys-usb:2-4     04ca:300d 04ca_300d
+   sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+   sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 Maintenance and customisation
 -----------------------------
@@ -100,14 +103,16 @@ If you receive this error: ``ERROR: qubes-usb-proxy not installed in the qube``,
 - Fedora:
 
   .. code:: console
+     :class: code-block-style
 
-        $ sudo dnf install qubes-usb-proxy
+     $ sudo dnf install qubes-usb-proxy
 
 - Debian/Ubuntu:
 
   .. code:: console
+     :class: code-block-style
 
-        $ sudo apt-get install qubes-usb-proxy
+     $ sudo apt-get install qubes-usb-proxy
 
 Using USB keyboards and other input devices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -126,8 +131,9 @@ You can find your controller and its BDF address using the method described belo
 First, find out which USB bus the device is connected to (note that these steps need to be run from a terminal inside your USB qube):
 
 .. code:: console
+   :class: code-block-style
 
-      $ lsusb
+   $ lsusb
 
 For example, I want to attach a broadband modem to the NetVM. In the output of ``lsusb`` it may be listed as something like:
 
@@ -142,8 +148,9 @@ The device is connected to USB bus #3. Check which other devices are connected t
 To find the right controller, follow the usb bus:
 
 .. code:: console
+   :class: code-block-style
 
-      $ readlink /sys/bus/usb/devices/usb3
+   $ readlink /sys/bus/usb/devices/usb3
 
 This should output something like:
 
@@ -154,8 +161,9 @@ This should output something like:
 Now you see the path: the text between ``/pci0000:00/0000:`` and ``/usb3`` i.e. ``00:1a.0`` is the BDF address. Strip the address and pass it to the :doc:`qvm-pci tool </user/how-to-guides/how-to-use-pci-devices>` to attach the controller to the target qube, like this:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-pci attach --persistent personal dom0:00_1a.0
+   $ qvm-pci attach --persistent personal dom0:00_1a.0
 
 It is possible that on some system configurations the readlink method produces output which is different from the example above, For example, you might see output like this:
 

@@ -34,16 +34,18 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 1. Check the state of ``installed_by_rpm``
 
    .. code:: console
+      :class: code-block-style
 
-         $ qvm-prefs template-vm-name
+      $ qvm-prefs template-vm-name
 
 
 
 2. If ``installed_by_rpm - True``, mark the template as not installed by package manager
 
    .. code:: console
+      :class: code-block-style
 
-         $ qvm-prefs template-vm-name installed_by_rpm false
+      $ qvm-prefs template-vm-name installed_by_rpm false
 
 
 
@@ -54,8 +56,9 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 - If ``installed_by_rpm - False``, remove the template like you would a regular qube:
 
   .. code:: console
+     :class: code-block-style
 
-        $ qvm-remove template-vm-name
+     $ qvm-remove template-vm-name
 
 
 
@@ -74,10 +77,11 @@ Some packages will throw an error on installation in this situation. For example
 One solution is to add a dummy interface to allow the package to install correctly:
 
 .. code:: console
+   :class: code-block-style
 
-      $ ip link add d0 type dummy
-      $ ip addr add 192.168.0.1/24 dev d0
-      $ ip link set d0 up
+   $ ip link add d0 type dummy
+   $ ip addr add 192.168.0.1/24 dev d0
+   $ ip link set d0 up
 
 
 
@@ -96,11 +100,12 @@ If the error occurs as a result of too little initial memory, increase the initi
 For example:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
-      Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
-      No Match for argument qubes-template-debian-10
-      Nothing to download
+   [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+   Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
+   No Match for argument qubes-template-debian-10
+   Nothing to download
 
 
 This normally means you already have the template installed. It may be that you have the matching package installed, but you removed or renamed the template. Check ``rpm -q qubes-template-<name>``. If it lists the package, but you don’t really have the template present (``qvm-ls`` doesn’t list it), you need to clean up leftovers of the package with ``rpm -e --noscripts qubes-template-<name>``, then install it normally.

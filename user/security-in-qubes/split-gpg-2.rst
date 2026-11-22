@@ -39,26 +39,29 @@ Generate or import the secret keys in the *server qube*
 
 * either generate your secret keys, like this:
 
-   .. code:: console
+  .. code:: console
+     :class: code-block-style
 
-         [user@server-qube] $ gpg --gen-key
+     [user@server-qube] $ gpg --gen-key
 
 * or, if you want to use some old keys, previously generated in another qube, import them and the ownertrust. Make sure to replace :file:`/home/user/QubesIncoming/{<SOME_OTHER_QUBE>}/{[...]}` by the path of the expected file:
 
-   .. code:: console
+  .. code:: console
+     :class: code-block-style
 
-         [user@server-qube] $ gpg --import /home/user/QubesIncoming/<SOME_OTHER_QUBE>/secret-keys-export
-         [user@server-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/<SOME_OTHER_QUBE>/ownertrust-export
+     [user@server-qube] $ gpg --import /home/user/QubesIncoming/<SOME_OTHER_QUBE>/secret-keys-export
+     [user@server-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/<SOME_OTHER_QUBE>/ownertrust-export
 
 .. note:: Ensure your key doesn't have a passphrase set.
 
 In both situations, you have to export the public part of your keys and the "ownertrust" values in the *client qube*:
 
 .. code:: console
+   :class: code-block-style
 
- [user@server-qube] $ gpg --export > public-keys-export
- [user@server-qube] $ gpg --export-ownertrust > ownertrust-export
- [user@server-qube] $ qvm-copy public-keys-export ownertrust-export
+   [user@server-qube] $ gpg --export > public-keys-export
+   [user@server-qube] $ gpg --export-ownertrust > ownertrust-export
+   [user@server-qube] $ qvm-copy public-keys-export ownertrust-export
 
 .. warning:: Do not export the private keys!
 
@@ -76,9 +79,10 @@ Import the public keys and ownertrust
 If you have previously exported the public keys and the "ownertrust" values from the *server qube*. Now, you have to import them in the *client qube*. Replace the following paths by the correct values.
 
 .. code:: console
+   :class: code-block-style
 
-      [user@client-qube] $ gpg --import /home/user/QubesIncoming/server-qube/public-keys-export
-      [user@client-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/server-qube/ownertrust-export
+   [user@client-qube] $ gpg --import /home/user/QubesIncoming/server-qube/public-keys-export
+   [user@client-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/server-qube/ownertrust-export
 
 Check that Split GPG-2 works
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,14 +90,15 @@ Check that Split GPG-2 works
 You should be able to run ``gpg -K`` in the *client qube*:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@client-qube] $ gpg -K
-      /home/user/.gnupg/pubring.kbx
-      -----------------------------
-      sec#  rsa2048 2019-12-18 [SC] [expires: 2021-12-17]
-            50C2035AF57B98CD6E4010F1B808E4BB07BA9EFB
-      uid           [ultimate] test
-      ssb#  rsa2048 2019-12-18 [E]
+   [user@client-qube] $ gpg -K
+   /home/user/.gnupg/pubring.kbx
+   -----------------------------
+   sec#  rsa2048 2019-12-18 [SC] [expires: 2021-12-17]
+         50C2035AF57B98CD6E4010F1B808E4BB07BA9EFB
+   uid           [ultimate] test
+   ssb#  rsa2048 2019-12-18 [E]
 
 Troubleshooting
 ^^^^^^^^^^^^^^^

@@ -12,8 +12,9 @@ Automatic Method
 First, copy any files that you wish to keep from the template’s ``/home`` and ``/rw`` folders to a safe storage location. Then, in a dom0 terminal, run:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update --action=reinstall qubes-template-package-name
+   $ sudo qubes-dom0-update --action=reinstall qubes-template-package-name
 
 
 
@@ -24,8 +25,9 @@ Note that Qubes may initially refuse to perform the reinstall if the exact revis
 **Reminder:** If you’re trying to reinstall a template that is not in an enabled repo, you must enable that repo. For example:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=reinstall qubes-template-whonix-ws
+   $ sudo qubes-dom0-update --enablerepo=qubes-templates-community --action=reinstall qubes-template-whonix-ws
 
 
 
@@ -52,31 +54,33 @@ In what follows, the term “target template” refers to whichever template you
 3. Uninstall the target template from dom0:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo dnf remove <template-package-name>
+      $ sudo dnf remove <template-package-name>
 
 
    For example, to uninstall the ``whonix-gw`` template:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo dnf remove qubes-template-whonix-gw
+      $ sudo dnf remove qubes-template-whonix-gw
 
 
 
 4. Reinstall the target template in dom0:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update --enablerepo=<optional-additional-repo> \
-            <template-package-name>
+      $ sudo qubes-dom0-update --enablerepo=<optional-additional-repo> <template-package-name>
 
    For example, to install the ``whonix-gw`` template:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update --enablerepo=qubes-templates-community \
-            qubes-template-whonix-gw
+      $ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-whonix-gw
 
 
 5. If you temporarily changed all VMs based on the target template to the clone template in step 3, change them back to the new target template now. If you instead removed all VMs based on the old target template, you can recreate your desired VMs from the newly reinstalled target template now.

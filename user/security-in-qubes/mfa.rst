@@ -26,6 +26,7 @@ As the name implies, this generates authentication code that is time-dependent. 
 1. Download ``google-authenticator`` in dom0:
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo qubes-dom0-update google-authenticator
 
@@ -34,6 +35,7 @@ As the name implies, this generates authentication code that is time-dependent. 
 2. Run google authenticator:
 
    .. code:: console
+      :class: code-block-style
 
          $ google-authenticator
 
@@ -85,6 +87,7 @@ Now we are going to add the authenticator as a login requirement:
 3. Lastly, activate this authentication method with:
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo authselect select custom/mfa
 
@@ -109,6 +112,7 @@ The following assumes you haven’t restarted your computer since setting up TOT
 2. Revert to the original policy with:
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo authselect select sssd
 
@@ -169,6 +173,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
 
      .. code:: console
+        :class: code-block-style
 
            $ sudo dnf install ykpers
 
@@ -179,6 +184,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 
 
      .. code:: console
+        :class: code-block-style
 
            $ sudo apt-get install yubikey-personalization
 
@@ -203,6 +209,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
 2. Install `qubes-app-yubikey <https://github.com/QubesOS/qubes-app-yubikey>`__ in dom0. This provides the program to authenticate with password and YubiKey / NitroKey3.
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo qubes-dom0-update qubes-yubikey-dom0
 
@@ -237,6 +244,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
      - Set up a new NK3 Secrets App HOTP secret by attaching the NitroKey to your USB qube and running the following commands in it:
 
        .. code:: console
+          :class: code-block-style
 
              $ AESKEY=$(echo -n "your-20-digit-secret" | base32)
              $ nitropy nk3 secrets register --kind hotp --hash sha256 --digits-str 8 --counter-start 1 --touch-button loginxs $AESKEY
@@ -282,6 +290,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
    - You can calculate your hashed password using the following two commands. First run the following command to store your password in a temporary variable ``password``. (This way your password will not leak to the terminal command history file.)
 
      .. code:: console
+        :class: code-block-style
 
            $ read -r password
 
@@ -290,6 +299,7 @@ All these requirements are described below, step by step, for the YubiKey and Ni
    - Now run the following command to calculate your hashed password.
 
      .. code:: console
+        :class: code-block-style
 
            $ echo -n "$password" | openssl dgst -sha1 | cut -f2 -d ' '
 
@@ -362,6 +372,7 @@ In dom0:
 2. Then make ``/etc/qubes-rpc/custom.LockScreen`` executable.
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo chmod +x /etc/qubes-rpc/custom.LockScreen
 
@@ -399,6 +410,7 @@ In your USB VM:
 3. Then make ``/rw/config/rc.local`` executable.
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo chmod +x /rw/config/rc.local
 
@@ -407,6 +419,7 @@ In your USB VM:
 4. For changes to take effect, you need to call this script manually for the first time.
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo /rw/config/rc.local
 
@@ -417,6 +430,7 @@ In your USB VM:
 If you use KDE, the command(s) in first step would be different:
 
 .. code:: console
+   :class: code-block-style
 
       # In the case of USB VM being autostarted, it will not have direct access to D-Bus
       # session bus, so find its address manually:

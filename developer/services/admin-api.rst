@@ -1019,7 +1019,3 @@ TODO
    custom qrexec calls
 -  maybe some generator for ``.desktop`` for appmenus, which would wrap
    calls in ``qrexec-client-vm``
-
-.. raw:: html
-
-   <!-- vim: set ts=4 sts=4 sw=4 et : -->

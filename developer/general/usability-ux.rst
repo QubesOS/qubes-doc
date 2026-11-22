@@ -162,6 +162,7 @@ Use flat buttons.
 Use the following CSS classes (with appropriate text size and padding) for confirm and cancel buttons:
 
 .. code-block:: css
+   :class: code-block-style
 
     .confirm-button {
         background: @blue-500;

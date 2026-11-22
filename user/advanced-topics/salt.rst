@@ -140,32 +140,36 @@ Enabling Top Files and Applying the States
 Now, because we use custom extensions to manage top files (instead of just enabling them all), to enable a particular top file you should issue command:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl top.enable my-new-vm
+   $ qubesctl top.enable my-new-vm
 
 
 
 To list all enabled top files:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl top.enabled
+   $ qubesctl top.enabled
 
 
 
 And to disable one:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl top.disable my-new-vm
+   $ qubesctl top.disable my-new-vm
 
 
 
 To apply the states to dom0 and all VMs:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl --all state.apply
+   $ qubesctl --all state.apply
 
 
 
@@ -280,16 +284,18 @@ This should be put in ``/srv/salt/my-new-vm.sls`` or another ``.sls`` file. A se
 To enable the particular top file you should issue the command:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl top.enable my-new-vm
+   $ qubesctl top.enable my-new-vm
 
 
 
 To apply the state:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl state.apply
+   $ qubesctl state.apply
 
 
 
@@ -320,16 +326,18 @@ Then the appropriate top file (``/srv/salt/mc-everywhere.top``):
 Now you need to enable the top file:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl top.enable mc-everywhere
+   $ qubesctl top.enable mc-everywhere
 
 
 
 And apply the configuration:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qubesctl --all state.apply
+   $ qubesctl --all state.apply
 
 
 
@@ -541,8 +549,9 @@ Whonix Workstation template
 Updates dom0. Example (executed in dom0):
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubesctl --show-output state.sls update.qubes-dom0
+   $ sudo qubesctl --show-output state.sls update.qubes-dom0
 
 
 
@@ -553,8 +562,9 @@ Updates dom0. Example (executed in dom0):
 Updates domUs. Example to update all templates (executed in dom0):
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
+   $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
 
 
 
@@ -643,11 +653,11 @@ If the log does not contain useful information:
 5. Get the last two lines:
 
 
-
 .. code:: console
+   :class: code-block-style
 
-      $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
-      $ salt-ssh "$target_vm" $salt_command
+   $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
+   $ salt-ssh "$target_vm" $salt_command
 
 
 Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
@@ -669,8 +679,9 @@ Using fedora-24-minimal
 The fedora-24-minimal package is missing the ``sudo`` package. You can install it via:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
+   $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
 
 
 The ``-p`` will cause the execution to wait until the package is installed. Having the ``-p`` flag is important when using a state with ``cmd.run``.

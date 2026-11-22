@@ -18,9 +18,10 @@ The best way to write and contribute code is to create a git repo somewhere (e.g
 **Example:**
 
 .. code:: console
+   :class: code-block-style
 
-      $ cd qubes-builder/artifacts/sources/qubes-manager
-      $ git remote add abel git@GitHub.com:abeluck/qubes-manager.git
+   $ cd qubes-builder/artifacts/sources/qubes-manager
+   $ git remote add abel git@GitHub.com:abeluck/qubes-manager.git
 
 
 
@@ -39,18 +40,20 @@ Prepare fresh version of kernel sources, with Qubes-specific patches applied
 In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ make prep
+   $ make prep
 
 
 
 The resulting tree will be in kernel-<VERSION>/linux-<VERSION>:
 
 .. code:: console
+   :class: code-block-style
 
-      $ ls -ltrd kernel*/linux*
-      drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
-      drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
+   $ ls -ltrd kernel*/linux*
+   drwxr-xr-x 23 user user 4096 Nov  5 09:50 kernel-3.4.18/linux-3.4.18
+   drwxr-xr-x  6 user user 4096 Nov 21 20:48 kernel-3.4.18/linux-obj
 
 
 
@@ -61,8 +64,9 @@ Go to the kernel tree and update the version
 In ``qubes-builder/artifacts/sources/linux-kernel``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ cd kernel-3.4.18/linux-3.4.18
+   $ cd kernel-3.4.18/linux-3.4.18
 
 
 
@@ -73,25 +77,28 @@ Changing the config
 In ``kernel-3.4.18/linux-3.4.18``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ cp ../../config .config
-      $ make oldconfig
+   $ cp ../../config .config
+   $ make oldconfig
 
 
 
 Now change the configuration. For example, in ``kernel-3.4.18/linux-3.4.18``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ make menuconfig
+   $ make menuconfig
 
 
 
 Copy the modified config back into the kernel tree:
 
 .. code:: console
+   :class: code-block-style
 
-      $ cp .config ../../../config
+   $ cp .config ../../../config
 
 
 
@@ -102,22 +109,23 @@ Patching the code
 TODO: describe the workflow for patching the code, below are some random notes, not working well
 
 .. code:: console
+   :class: code-block-style
 
-      $ ln -s ../../patches.xen
-      $ export QUILT_PATCHES=patches.xen
-      $ export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
-      $ export QUILT_SERIES=../../series-pvops.conf
+   $ ln -s ../../patches.xen
+   $ export QUILT_PATCHES=patches.xen
+   $ export QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
+   $ export QUILT_SERIES=../../series-pvops.conf
 
-      $ quilt new patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch
-      $ quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
-              drivers/usb/host/xen-usbback/* drivers/usb/host/xen-usbfront.c \
-              include/xen/interface/io/usbif.h
+   $ quilt new patches.xen/pvops-3.4-0101-usb-xen-pvusb-driver-bugfix.patch
+   $ quilt add drivers/usb/host/Kconfig drivers/usb/host/Makefile \
+           drivers/usb/host/xen-usbback/* drivers/usb/host/xen-usbfront.c \
+           include/xen/interface/io/usbif.h
 
-      *edit something*
+   *edit something*
 
-      $ quilt refresh
-      $ cd ../..
-      vi series.conf
+   $ quilt refresh
+   $ cd ../..
+   vi series.conf
 
 
 
@@ -132,8 +140,9 @@ You might want to take a moment here to review (git diff, git status), commit yo
 To actually build RPMs, in qubes-builder:
 
 .. code:: console
+   :class: code-block-style
 
-      $ ./qb -c linux-kernel package fetch prep build
+   $ ./qb -c linux-kernel package fetch prep build
 
 
 
@@ -286,9 +295,10 @@ You will also need to setup qrexec policy in dom0 (``/etc/qubes-rpc/policy/local
 Usage:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@source core-agent-linux]$ git remote add testbuilder "ext::git-qrexec testbuilder 3 core-agent-linux"
-      [user@source core-agent-linux]$ git push testbuilder master
+   [user@source core-agent-linux]$ git remote add testbuilder "ext::git-qrexec testbuilder 3 core-agent-linux"
+   [user@source core-agent-linux]$ git push testbuilder master
 
 
 
@@ -397,8 +407,9 @@ Usage: setup ``builder.conf`` in source VM to use your dummy-uploader repository
 Then use ``make update-repo-unstable`` to upload the packages. You can also specify selected components on command line, then build them and upload to the repository:
 
 .. code:: console
+   :class: code-block-style
 
-      $ make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
+   $ make COMPONENTS="core-agent-linux gui-agent-linux linux-utils" qubes update-repo-unstable
 
 
 

@@ -60,8 +60,9 @@ If this solves the problem then you will want to make the change permanent:
 5. Run this command:
 
    .. code:: console
+      :class: code-block-style
 
-         $ grub2-mkconfig --output=/boot/grub2/grub.cfg
+      $ grub2-mkconfig --output=/boot/grub2/grub.cfg
 
 
 
@@ -76,8 +77,9 @@ Can't start an OS in an HVM / "Probing EDD (edd=off to disable!… ok" message
 If you see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD (edd=off to disable!... ok``, then enter the following command from a ``dom0`` prompt:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-prefs <HVMname> kernel ""
+   $ qvm-prefs <HVMname> kernel ""
 
 
 HVM crashes when booting from ISO
@@ -91,8 +93,9 @@ You can disable memory-balancing in the settings, under the “Advanced” tab.
 To give the VM a RAM of 2GB, open a terminal in ``dom0`` and enter:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-prefs <HVMname> memory 2000
+   $ qvm-prefs <HVMname> memory 2000
 
 
 Attached devices in Windows HVM stop working on suspend/resume

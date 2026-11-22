@@ -14,8 +14,9 @@ Successfully installed in legacy mode, but had to change some xen parameters
 2. Open a terminal and enter the command ``sudo su -``. Use your preferred text editor (e.g ``vi``) to edit your xen config (``EFI/BOOT/grub.cfg``):
 
    .. code:: console
+      :class: code-block-style
 
-         $ vi EFI/BOOT/grub.cfg
+      $ vi EFI/BOOT/grub.cfg
 
 3. Change the ``multiboot2 /images/pxeboot/xen.gz`` line to add your xen parameters on the boot entry of your choice
 
@@ -53,8 +54,9 @@ Some Dell systems and probably others have `another bug in UEFI firmware <https:
 3. Execute:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
+      $ sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
 
 4. Go back to ``tty6`` (Ctrl-Alt-F6) and click ``Reboot``.
 
@@ -69,8 +71,9 @@ Or if you have already rebooted after the first stage install and have encounter
 3. Find and mount the EFI system partition. (replace ``/dev/sda`` with your disk name. If unsure, use the ``lsblk`` command to display a list of disks):
 
    .. code:: console
+      :class: code-block-style
 
-         $ fdisk -l /dev/sda | grep EFI
+      $ fdisk -l /dev/sda | grep EFI
 
    The output should look like this:
 
@@ -81,15 +84,17 @@ Or if you have already rebooted after the first stage install and have encounter
    Then mount it:
 
    .. code:: console
+      :class: code-block-style
 
-         $ mkdir -p /mnt/sysimage/boot/efi
-         $ mount /dev/sda1 /mnt/sysimage/boot/efi
+      $ mkdir -p /mnt/sysimage/boot/efi
+      $ mount /dev/sda1 /mnt/sysimage/boot/efi
 
 4. Execute:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
+      $ sed -i -e 's/ucode=scan/\0 efi=attr=uc/' /mnt/sysimage/boot/efi/EFI/qubes/grub.cfg
 
 5. Type ``reboot``.
 
@@ -107,8 +112,9 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 3. Find and mount the EFI system partition. (replace ``/dev/sda`` with your disk name. If unsure, use the ``lsblk`` command to display a list of disks):
 
    .. code:: console
+      :class: code-block-style
 
-         $ fdisk -l /dev/sda | grep EFI
+      $ fdisk -l /dev/sda | grep EFI
 
    The output should look like this:
 
@@ -119,15 +125,17 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
    Then mount it:
 
    .. code:: console
+      :class: code-block-style
 
-         $ mkdir -p /mnt/sysimage/boot/efi
-         $ mount /dev/sda1 /mnt/sysimage/boot/efi
+      $ mkdir -p /mnt/sysimage/boot/efi
+      $ mount /dev/sda1 /mnt/sysimage/boot/efi
 
 4. Copy ``grubx64.efi`` to the fallback path:
 
    .. code:: console
+      :class: code-block-style
 
-         $ cp /mnt/sysimage/boot/efi/EFI/qubes/grubx64.efi /mnt/sysimage/boot/efi/EFI/BOOT/bootx64.efi
+      $ cp /mnt/sysimage/boot/efi/EFI/qubes/grubx64.efi /mnt/sysimage/boot/efi/EFI/BOOT/bootx64.efi
 
 5. Type ``reboot``
 
@@ -141,8 +149,9 @@ Some firmware will not recognize the default Qubes EFI configuration. As such, i
 3. Create boot entry in EFI firmware (replace ``/dev/sda`` with your disk name and ``-p 1`` with ``/boot/efi`` partition number):
 
    .. code:: console
+      :class: code-block-style
 
-         $ efibootmgr -v -c -u -L Qubes -l /EFI/qubes/grubx64.efi -d /dev/sda -p 1
+      $ efibootmgr -v -c -u -L Qubes -l /EFI/qubes/grubx64.efi -d /dev/sda -p 1
 
 Accessing installer Rescue mode on UEFI
 ---------------------------------------
@@ -166,7 +175,10 @@ The content of :file:`/boot/efi/EFI/qubes/grub.cfg` should be something like:
 Where the end of the first line is replaced by a UUID. If not, you can reinstall this file:
 
 .. code:: console
+   :class: code-block-style
 
-   sudo qubes-dom0-update --action=reinstall grub2-common
+   [user@dom0 ~]$ sudo qubes-dom0-update --action=reinstall grub2-common
+
+
 
 After that, running the `grub2-mkconfig` command should work.

@@ -58,8 +58,9 @@ Linux ISO to USB
 On Linux, if you choose to use a USB drive, copy the ISO onto the USB device, e.g. using ``dd``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1M conv=fsync
+   $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1M conv=fsync
 
 Change :file:`Qubes-R{X}-x86_64.iso` to the filename of the version you’re installing, and change :file:`/dev/sd{Y}` to the correct target device e.g., :file:`/dev/sdc`). Make sure to write to the entire device (e.g., :file:`/dev/sdc`) rather than just a single partition (e.g., :file:`/dev/sdc1`). If you are doing this within Qubes OS, you must make sure that you have attached the whole device to your qube, not just a partition. The path of your target device will then be :file:`/dev/xvd{Y}` such as :file:`/dev/xvdi` - avoid writing to a single partition (e.g., :file:`/dev/xvdi1`).
 
@@ -158,6 +159,7 @@ Installation summary
 
 
 .. admonition:: Did you know?
+   :class: admonition-with-custom-title
 
       The Qubes OS installer is completely offline. It doesn’t even load any networking drivers, so there is no possibility of internet-based data leaks or attacks during the installation process.
 
@@ -204,6 +206,7 @@ Installing an operating system onto a USB drive can be a convenient way to try Q
 |Select storage device screen|
 
 .. admonition:: Did you know?
+   :class: admonition-with-custom-title
 
       By default, Qubes OS uses `LUKS <https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup>`__ /`dm-crypt <https://en.wikipedia.org/wiki/Dm-crypt>`__ to encrypt everything except the ``/boot`` partition.
 

@@ -24,8 +24,9 @@ Installing
 In Dom0 install ``anti-evil-maid``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update anti-evil-maid
+   $ sudo qubes-dom0-update anti-evil-maid
 
 
 

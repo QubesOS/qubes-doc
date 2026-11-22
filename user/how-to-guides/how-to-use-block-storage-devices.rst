@@ -32,10 +32,11 @@ Block Devices in VMs
 If not specified otherwise, block devices will show up as ``/dev/xvdi*`` in a linux VM, where ``*`` may be the partition-number. If a block device isn’t automatically mounted after attaching, open a terminal in the VM and execute:
 
 .. code:: console
+   :class: code-block-style
 
-      $ cd ~
-      $ mkdir mnt
-      $ sudo mount /dev/xvdi2 mnt
+   $ cd ~
+   $ mkdir mnt
+   $ sudo mount /dev/xvdi2 mnt
 
 where ``xvdi2`` needs to be replaced with the partition you want to mount. This will make your drive content accessible under ``~/mnt``.
 
@@ -57,8 +58,9 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 1. In a dom0 console (running as a normal user), list all available block devices:
 
    .. code:: console
+      :class: code-block-style
 
-         $ qvm-block
+      $ qvm-block
 
    This will list all available block devices in your system across all VMs. The name of the qube hosting the block device is displayed before the colon in the device ID. The string after the colon is the ID of the device used within the qube, like so:
 
@@ -70,8 +72,9 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 2. Assuming your block device is attached to ``sys-usb`` and its device node is ``sdb``, we attach the device to a qube with the name ``work`` like so:
 
    .. code:: console
+      :class: code-block-style
 
-         $ qvm-block attach work sys-usb:sdb
+      $ qvm-block attach work sys-usb:sdb
 
    - This will attach the device to the qube as ``/dev/xvdi`` if that name is not already taken by another attached device, or ``/dev/xvdj``, etc.
 
@@ -80,24 +83,27 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 3. The block device is now attached to the qube. If using a default qube, you may open the Nautilus file manager in the qube, and your drive should be visible in the **Devices** panel on the left. If you’ve attached a single partition (e.g. ``sdb2`` instead of ``sdb`` in our example), you may need to manually mount before it becomes visible:
 
    .. code:: console
+      :class: code-block-style
 
-         $ cd ~
-         $ mkdir mnt
-         $ sudo mount /dev/xvdi mnt
+      $ cd ~
+      $ mkdir mnt
+      $ sudo mount /dev/xvdi mnt
 
 4. When you finish using the block device, click the eject button or right-click and select **Unmount**.
 
    - If you’ve manually mounted a single partition in the above step, use:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo umount mnt
+      $ sudo umount mnt
 
 5. In a dom0 console, detach the device
 
    .. code:: console
+      :class: code-block-style
 
-         $ qvm-block detach work sys-usb:sdb
+      $ qvm-block detach work sys-usb:sdb
 
 6. You may now remove the device or attach it to another qube.
 
@@ -109,8 +115,9 @@ If you fail to detach the device before it’s destroyed in the sourceVM (e.g. 
 To recover from this error state, in dom0 run
 
 .. code:: console
+   :class: code-block-style
 
-      $ virsh detach-disk targetVM xvdi
+   $ virsh detach-disk targetVM xvdi
 
 (where ``targetVM`` is to be replaced with the VM name you attached the device to and ``xvdi`` is to be replaced with the used `frontend device node <#frontend-dev>`__.)
 
@@ -126,10 +133,11 @@ Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/108
 2. Attach the device manually to the same VM using the ``xl block-attach`` command. It is important to use the same “frontend” device name (by default, ``xvdi``). You can get it from the ``qvm-block`` listing:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@dom0 ~]$ qvm-block
-         sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
-         [user@dom0 ~]$ sudo xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
+      [user@dom0 ~]$ qvm-block
+      sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
+      [user@dom0 ~]$ sudo xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
 
    In above example, all ``xl block-attach`` parameters can be deduced from the output of ``qvm-block``. In order:
 
@@ -151,8 +159,9 @@ To attach a file as block device to another qube, first turn it into a loopback 
 1. In the linux sourceVM run
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo losetup -f --show /path/to/file
+      $ sudo losetup -f --show /path/to/file
 
    `This command <https://linux.die.net/man/8/losetup>`__ will create the device node ``/dev/loop0`` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
 
@@ -163,22 +172,25 @@ To attach a file as block device to another qube, first turn it into a loopback 
    - In dom0, run ``qvm-block`` to display known block devices. The newly created loop device should show up:
 
    .. code:: console
+      :class: code-block-style
 
-         ~]$ qvm-block
-         BACKEND:DEVID  DESCRIPTION  USED BY
-         sourceVM:loop0 /path/to/file
+      $ qvm-block
+      BACKEND:DEVID  DESCRIPTION  USED BY
+      sourceVM:loop0 /path/to/file
 
 3. Attach the ``loop0``-device using qvm-block as usual:
 
    .. code:: console
+      :class: code-block-style
 
-         $ qvm-block a targetVM sourceVM:loop0
+      $ qvm-block a targetVM sourceVM:loop0
 
 4. After detaching, destroy the loop-device inside the sourceVM as follows:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo losetup -d /dev/loop0
+      $ sudo losetup -d /dev/loop0
 
 Additional Attach Options
 -------------------------
@@ -193,8 +205,9 @@ This option allows you to specify the name of the device node made available in 
 usage example:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
+   $ qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
 
 This command will attach the partition ``sda1`` to ``work`` as ``/dev/xvdz``.
 
@@ -208,14 +221,16 @@ If the device is a read-only device, this option is forced true.
 usage example:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-block a work sys-usb:sda1 -o read-only=true
+   $ qvm-block a work sys-usb:sda1 -o read-only=true
 
 There exists a shortcut to set read-only ``true``, ``--ro``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-block a work sys-usb:sda1 --ro
+   $ qvm-block a work sys-usb:sda1 --ro
 
 The two commands are equivalent.
 
@@ -227,7 +242,8 @@ Usually, a block device is attached as disk. In case you need to attach a block 
 usage example:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-block a work sys-usb:sda1 -o devtype=cdrom
+   $ qvm-block a work sys-usb:sda1 -o devtype=cdrom
 
 This option accepts ``cdrom`` and ``disk``, default is ``disk``.

@@ -18,16 +18,18 @@ By default, in Qubes R1, there is only one template, however users are free to c
 2. Install ``qubes-upgrade-vm`` package (this package brings in R2 repo definitions and R2 keys)
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo yum install qubes-upgrade-vm
+      $ sudo yum install qubes-upgrade-vm
 
 
 
 3. Proceed with normal update in the template (this should bring in also the R2 packages for the VMs):
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo yum update
+      $ sudo yum update
 
 
    The installer (yum) will prompt to accept the new Qubes R2 signing key:
@@ -65,12 +67,13 @@ Installing new template
 Qubes R2 Beta2 brings new fedora-18-x64 template (based on Fedora 18). You can install it from Qubes installation DVD. Insert installation DVD into your drive and issue following commands:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo -s
-      # mkdir -p /mnt/cdrom
-      # mount /dev/cdrom /mnt/cdrom # you can also use ISO image instead of /dev/cdrom; then add -o loop option
-      # yum install /mnt/cdrom/Packages/q/qubes-template-fedora-18-x64*rpm
-      # umount /mnt/cdrom
+   $ sudo -s
+   $ mkdir -p /mnt/cdrom
+   $ mount /dev/cdrom /mnt/cdrom # you can also use ISO image instead of /dev/cdrom; then add -o loop option
+   $ yum install /mnt/cdrom/Packages/q/qubes-template-fedora-18-x64*rpm
+   $ umount /mnt/cdrom
 
 
 
@@ -87,8 +90,9 @@ Be sure to do steps described in this section after *all* your template and stan
 2. Upgrade the ``qubes-release`` package to the latest version which brings in new repo definitions and R2 signing keys:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update qubes-release
+      $ sudo qubes-dom0-update qubes-release
 
 
    This should install ``qubes-release-1-6`` in your Dom0.
@@ -96,16 +100,18 @@ Be sure to do steps described in this section after *all* your template and stan
 3. Install R2 upgrade package:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update --releasever=1 qubes-dist-upgrade
+      $ sudo qubes-dom0-update --releasever=1 qubes-dist-upgrade
 
 
 
 4. Start upgrade process:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dist-upgrade
+      $ sudo qubes-dist-upgrade
 
 
 
@@ -116,8 +122,9 @@ Be sure to do steps described in this section after *all* your template and stan
 7. When system starts up, login and start start
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dist-upgrade
+      $ sudo qubes-dist-upgrade
 
 
    again. This will start second stage of upgrade, here most packages will be upgraded, so this will take a while.

@@ -18,8 +18,9 @@ Upgrading dom0
 3. Install ``qubes-release`` package carrying R3.2 repository information.
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update --releasever=3.2 qubes-release
+      $ sudo qubes-dom0-update --releasever=3.2 qubes-release
 
 
 
@@ -30,27 +31,29 @@ Upgrading dom0
 
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
-         (...)
-         Transaction Summary
-         ===============================================================
-         Install     16 Packages (+ 31 Dependent packages)
-         Upgrade      4 Packages (+200 Dependent packages)
+      $ sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
+      (...)
+      Transaction Summary
+      ===============================================================
+      Install     16 Packages (+ 31 Dependent packages)
+      Upgrade      4 Packages (+200 Dependent packages)
 
-         Total download size: 173 M
-         Is this ok [y/d/N]: n
-         Exiting on user command
-         Your transaction was saved, rerun it with:
-           yum load-transaction /tmp/yum_save_tx.....
+      Total download size: 173 M
+      Is this ok [y/d/N]: n
+      Exiting on user command
+      Your transaction was saved, rerun it with:
+        yum load-transaction /tmp/yum_save_tx.....
 
 
 
 4. Upgrade dom0 to R3.2:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo qubes-dom0-update
+      $ sudo qubes-dom0-update
 
 
 
@@ -77,14 +80,15 @@ Upgrading dom0
 
 
    .. code:: console
+      :class: code-block-style
 
-         $ rm -f /etc/group.rpmnew
-         $ rm -f /etc/shadow.rpmnew
-         $ rm -f /etc/qubes/guid.conf.rpmnew
-         $ mv -f /etc/nsswitch.conf{.rpmnew,}
-         $ mv -f /etc/pam.d/postlogin{.rpmnew,}
-         $ mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
-         $ mv -f /etc/dracut.conf{.rpmnew,}
+      $ rm -f /etc/group.rpmnew
+      $ rm -f /etc/shadow.rpmnew
+      $ rm -f /etc/qubes/guid.conf.rpmnew
+      $ mv -f /etc/nsswitch.conf{.rpmnew,}
+      $ mv -f /etc/pam.d/postlogin{.rpmnew,}
+      $ mv -f /etc/salt/minion.d/f_defaults.conf{.rpmnew,}
+      $ mv -f /etc/dracut.conf{.rpmnew,}
 
 
 
@@ -117,24 +121,27 @@ Upgrade Fedora templates:
 2. Install the ``qubes-upgrade-vm`` package:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo dnf install --refresh qubes-upgrade-vm
+      $ sudo dnf install --refresh qubes-upgrade-vm
 
 
 
 3. Proceed with a normal upgrade in the template:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo dnf upgrade --refresh
+      $ sudo dnf upgrade --refresh
 
 
 
 4. Add new packages (only needed in default template):
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo dnf install qubes-mgmt-salt-vm-connector
+      $ sudo dnf install qubes-mgmt-salt-vm-connector
 
 
 
@@ -151,34 +158,38 @@ Upgrade Debian (and Whonix) templates:
 2. Update repository definition:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
-         $ sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
+      $ sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
+      $ sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 
 3. Proceed with a normal update in the template:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo apt-get update
-         $ sudo apt-get dist-upgrade
+      $ sudo apt-get update
+      $ sudo apt-get dist-upgrade
 
 
 
 4. Add new packages (only needed in default template):
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo apt-get install qubes-mgmt-salt-vm-connector
+      $ sudo apt-get install qubes-mgmt-salt-vm-connector
 
 
 
 5. Remove unnecessary now file:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
+      $ sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
 
 
 

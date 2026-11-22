@@ -13,14 +13,15 @@ This document explains the basics of RPC policies in Qubes. For more information
 Here’s an example of an RPC policy file in dom0:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@dom0 user ~]$ cat /etc/qubes-rpc/policy/qubes.FileCopy
-      (...)
-      @tag:work   @default    ask
-      @tag:work   @tag:work   allow
-      @tag:work   @anyvm      deny
-      @anyvm      @tag:work   deny
-      @anyvm      @anyvm      ask
+   [user@dom0 user ~]$ cat /etc/qubes-rpc/policy/qubes.FileCopy
+   (...)
+   @tag:work   @default    ask
+   @tag:work   @tag:work   allow
+   @tag:work   @anyvm      deny
+   @anyvm      @tag:work   deny
+   @anyvm      @anyvm      ask
 
 
 

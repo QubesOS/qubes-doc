@@ -62,11 +62,12 @@ If you are still using the distribution package manager, updates will likely sti
 If you are using another installation method fetching remote resources, you might still be able to use the updates proxy by making the tools aware of the proxy. For many tools, it is enough to export the following environment variables in your shell session before proceeding:
 
 .. code:: console
+   :class: code-block-style
 
-      $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
-               HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
-               ALL_PROXY=$HTTP_PROXY all_proxy=$ALL_PROXY \
-               NO_PROXY=127.0.0.1 no_proxy=$NO_PROXY
+   $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
+            HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
+            ALL_PROXY=$HTTP_PROXY all_proxy=$ALL_PROXY \
+            NO_PROXY=127.0.0.1 no_proxy=$NO_PROXY
 
 Using direct networking
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -156,10 +157,11 @@ There are three Qubes VM testing repositories (where ``*`` denotes the Release):
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
-      $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
-      $ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+   $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
+   $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
+   $ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 To enable or disable any of these repos permanently, change the corresponding ``enabled`` value to ``1`` in :file:`/etc/yum.repos.d/qubes-*.repo`.
 
@@ -197,12 +199,13 @@ RPMFusion for Fedora templates
 If you would like to enable the `RPM Fusion <https://rpmfusion.org>`__ repositories, open a Terminal of the template and type the following commands, depending on which RPM Fusion repositories you wish to enable (see `RPM Fusion <https://rpmfusion.org>`__ for details):
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
-      $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
-      $ sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
-      $ sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
-      $ sudo dnf upgrade --refresh
+   $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
+   $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
+   $ sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
+   $ sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
+   $ sudo dnf upgrade --refresh
 
 
 
@@ -229,8 +232,9 @@ Root revert
 2. In a dom0 terminal:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@dom0]$ qvm-volume revert <template>:root
+      [user@dom0]$ qvm-volume revert <template>:root
 
 Reinstall the template
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -292,59 +296,63 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 1. In the **template** you must install ``snapd`` and ``qubes-snapd-helper``. Open a terminal in the template and run:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
-         Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
-         Dependencies resolved.
-         ========================================================================================================
-          Package                       Arch    Version                             Repository              Size
-         ========================================================================================================
-         Installing:
-          snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
-          qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
-         Installing dependencies:
-         [...]
+      [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+      Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
+      Dependencies resolved.
+      ========================================================================================================
+      Package                       Arch    Version                             Repository              Size
+      ========================================================================================================
+      Installing:
+      snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
+      qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
+      Installing dependencies:
+      [...]
 
-         Transaction Summary
-         ========================================================================================================
-         Install  19 Packages
+      Transaction Summary
+      ========================================================================================================
+      Install  19 Packages
 
-         Total download size: 27 M
-         Installed size: 88 M
-         Is this ok [y/N]: y
+      Total download size: 27 M
+      Installed size: 88 M
+      Is this ok [y/N]: y
 
-         Downloading Packages:
-         [..]
-         Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
-         /usr/sbin/semodule:  Failed!
-         [...]
-         Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
-         Notifying dom0 about installed applications
+      Downloading Packages:
+      [..]
+      Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+      /usr/sbin/semodule:  Failed!
+      [...]
+      Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
+      Notifying dom0 about installed applications
 
-         Installed:
-           snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
-         [...]
-         Complete!
+      Installed:
+      snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
+      [...]
+      Complete!
 
    You may see the following message:
 
    .. code:: console
+      :class: code-block-style
 
-         Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
-         /usr/sbin/semodule:  Failed!
+      Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+      /usr/sbin/semodule:  Failed!
 
    This is expected and you can safely continue.
    Shutdown the template:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
+      [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
 
 2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@snap-demo-app qube ~]$ snap install <package>
+      [user@snap-demo-app qube ~]$ snap install <package>
 
    When the install is complete you can close the terminal window.
 
@@ -362,25 +370,28 @@ If you want a desktop app to start automatically every time a qube starts you ca
 2. List the names of the available desktop shortcuts by running the command ``ls /usr/share/applications`` and find the exact name of the shortcut to the app you want to autostart:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@example-app qube ~]$ ls /usr/share/applications/
-         bluetooth-sendto.desktop
-         eog.desktop
-         firefox.desktop
-         ...
-         xterm.desktop
-         yelp.desktop
+      [user@example-app qube ~]$ ls /usr/share/applications/
+      bluetooth-sendto.desktop
+      eog.desktop
+      firefox.desktop
+      ...
+      xterm.desktop
+      yelp.desktop
 
 3. Create the autostart directory:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@example-app qube ~]$ mkdir -p ~/.config/autostart
+      [user@example-app qube ~]$ mkdir -p ~/.config/autostart
 
 4. Make a link to the desktop app file you’d like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
+      [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 
 Note that the app will autostart only when the app qube starts. If you would like the app qube to autostart, select the “Start qube automatically on boot” checkbox in the app qube’s Qube Settings.

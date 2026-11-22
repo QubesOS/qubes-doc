@@ -101,14 +101,16 @@ Advanced users may wish to perform updates via the command-line interface. There
   - To check for dom0 updates and apply them, in a dom0 terminal:
 
     .. code:: console
+       :class: code-block-style
 
-       # qubes-dom0-update
+       $ qubes-dom0-update
 
     Or add arguments to tweak the default behaviour. Refer to ``qubes-dom0-update --help``, ``man qubes-dom0-update`` or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version).
 
   - To update all updatable templates, in a dom0 terminal:
 
     .. code:: console
+       :class: code-block-style
 
        $ qubes-vm-update -T
 
@@ -177,16 +179,18 @@ First, ensure that your UpdateVM contains the ``fwupd-qubes-vm`` package. This p
 In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update fwupd-qubes-dom0
+   $ sudo qubes-dom0-update fwupd-qubes-dom0
 
 
 
 Once the package is installed:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-fwupdmgr get-devices
+   $ sudo qubes-fwupdmgr get-devices
 
 
 
@@ -203,10 +207,11 @@ If so, `adjust your BIOS settings <https://github.com/fwupd/fwupd/wiki/PluginFla
 Once resolved, in a dom0 terminal:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-fwupdmgr get-devices
-      $ sudo qubes-fwupdmgr refresh
-      $ sudo qubes-fwupdmgr update
+   $ sudo qubes-fwupdmgr get-devices
+   $ sudo qubes-fwupdmgr refresh
+   $ sudo qubes-fwupdmgr update
 
 
 

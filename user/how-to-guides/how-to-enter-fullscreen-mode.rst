@@ -69,6 +69,7 @@ With the command-line, targeting the qube
 In dom0, run the following command, replacing :samp:`{<QUBE_NAME>}` with the actual name of the qube:
 
 .. code:: console
+   :class: code-block-style
 
    [user@dom0] $ qvm-features <QUBE_NAME> gui-allow-fullscreen 1
 
@@ -91,6 +92,7 @@ With the command-line, in dom0
 In dom0, run the following command:
 
 .. code:: console
+   :class: code-block-style
 
    [user@dom0] $ qvm-features dom0 gui-default-allow-fullscreen 1
 

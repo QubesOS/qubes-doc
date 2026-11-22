@@ -12,41 +12,44 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 1. Untar the main backup file.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
-         backup-header
-         backup-header.hmac
-         qubes.xml.000
-         qubes.xml.000.hmac
-         vm1/private.img.000
-         vm1/private.img.000.hmac
-         vm1/icon.png.000
-         vm1/icon.png.000.hmac
-         vm1/firewall.xml.000
-         vm1/firewall.xml.000.hmac
-         vm1/whitelisted-appmenus.list.000
-         vm1/whitelisted-appmenus.list.000.hmac
-         dom0-home/dom0user.000
-         dom0-home/dom0user.000.hmac
+      [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
+      backup-header
+      backup-header.hmac
+      qubes.xml.000
+      qubes.xml.000.hmac
+      vm1/private.img.000
+      vm1/private.img.000.hmac
+      vm1/icon.png.000
+      vm1/icon.png.000.hmac
+      vm1/firewall.xml.000
+      vm1/firewall.xml.000.hmac
+      vm1/whitelisted-appmenus.list.000
+      vm1/whitelisted-appmenus.list.000.hmac
+      dom0-home/dom0user.000
+      dom0-home/dom0user.000.hmac
 
 
 
 2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore ~]$ read -r backup_pass
+      [user@restore ~]$ read -r backup_pass
 
 
 
 3. Verify the integrity of the ``backup-header`` file, which contains basic information about your backup.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore ~]$ openssl dgst -sha512 -hmac "$backup_pass" backup-header
-         HMAC-SHA512(backup-header)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
-         [user@restore ~]$ cat backup-header.hmac
-         (stdin)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
+      [user@restore ~]$ openssl dgst -sha512 -hmac "$backup_pass" backup-header
+      HMAC-SHA512(backup-header)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
+      [user@restore ~]$ cat backup-header.hmac
+      (stdin)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
 
 
 
@@ -59,14 +62,15 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 4. Read the ``backup-header``. You’ll need some of this information later. The file will look similar to this:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore ~]$ cat backup-header
-         version=3
-         hmac-algorithm=SHA512
-         crypto-algorithm=aes-256-cbc
-         encrypted=True
-         compressed=True
-         compression-filter=gzip
+      [user@restore ~]$ cat backup-header
+      version=3
+      hmac-algorithm=SHA512
+      crypto-algorithm=aes-256-cbc
+      encrypted=True
+      compressed=True
+      compression-filter=gzip
 
 
    **Note:** If you see ``version=2`` here, go to :doc:`Emergency Backup Recovery - format version 2 </user/how-to-guides/backup-emergency-restore-v2>` instead.
@@ -74,12 +78,13 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 5. Verify the integrity of the ``private.img`` file which houses your data.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore ~]$ cd vm1/
-         [user@restore vm1]$ openssl dgst -sha512 -hmac "$backup_pass" private.img.000
-         HMAC-SHA512(private.img.000)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
-         [user@restore vm1]$ cat private.img.000.hmac
-         (stdin)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+      [user@restore ~]$ cd vm1/
+      [user@restore vm1]$ openssl dgst -sha512 -hmac "$backup_pass" private.img.000
+      HMAC-SHA512(private.img.000)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+      [user@restore vm1]$ cat private.img.000.hmac
+      (stdin)= cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 
 
 
@@ -92,8 +97,9 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 6. Decrypt the ``private.img`` file.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore vm1]$ find -name 'private.img.*[0-9]' | sort -V | xargs cat | openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -out private.img.dec
+      [user@restore vm1]$ find -name 'private.img.*[0-9]' | sort -V | xargs cat | openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -out private.img.dec
 
 
    **Note:** If your backup was encrypted with a cipher algorithm other than ``aes-256-cbc``, you must substitute the correct cipher command. This information is contained in the ``backup-header`` file (see step 4). A complete list of supported cipher algorithms can be found with ``openssl list-cipher-algorithms``.
@@ -101,38 +107,42 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 7. Decompress the decrypted ``private.img`` file.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore vm1]$ zforce private.img.dec
-         private.img.dec -- replaced with private.img.dec.gz
-         [user@restore vm1]$ gunzip private.img.dec.gz
+      [user@restore vm1]$ zforce private.img.dec
+      private.img.dec -- replaced with private.img.dec.gz
+      [user@restore vm1]$ gunzip private.img.dec.gz
 
 
    **Note:** If your backup was compressed with a program other than ``gzip``, you must substitute the correct compression program. This information is contained in the ``backup-header`` file (see step 4). For example, if you used ``bzip2``, then you should do this:
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
-         [user@restore vm1]$ bunzip2 private.img.dec.bz2
+      [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
+      [user@restore vm1]$ bunzip2 private.img.dec.bz2
 
 
 
 8. Untar the decrypted and decompressed ``private.img`` file.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore vm1]$ tar -xvf private.img.dec
-         vm1/private.img
+      [user@restore vm1]$ tar -xvf private.img.dec
+      vm1/private.img
 
 
 
 9. Mount the private.img file and access your data.
 
    .. code:: console
+      :class: code-block-style
 
-         [user@restore vm1]$ sudo mkdir /mnt/img
-         [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
-         [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
-         This data has been successfully recovered!
+      [user@restore vm1]$ sudo mkdir /mnt/img
+      [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/
+      [user@restore vm1]$ cat /mnt/img/home/user/your_data.txt
+      This data has been successfully recovered!
 
 
 

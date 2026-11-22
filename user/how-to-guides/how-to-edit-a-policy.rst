@@ -65,21 +65,22 @@ Edit a policy with :program:`qubes-policy-editor`
 :program:`qubes-policy-editor` is a command-line tool that ensures that the syntax of the policy is valid. You have to run it as root:
 
 .. code:: console
+   :class: code-block-style
 
-   [root@dom0] # qubes-policy-editor
+   [root@dom0] $ qubes-policy-editor
 
 An editor will open; it will be your default editor if you have set the environment variable ``$EDITOR`` or ``$VISUAL``, otherwise it will fall back to :program:`vi`. After saving the file, :program:`qubes-policy-editor` will check the content and tell you if there is something wrong with the syntax.
 
 It will open :file:`30-user.policy` by default but you can invoke the program with any valid filename (only alphanumeric characters, underscores and hyphens), without the ``.policy`` extension:
 
 .. code:: console
+   :class: code-block-style
 
-   [root@dom0] # qubes-policy-editor 30-clipboard
+   [root@dom0] $ qubes-policy-editor 30-clipboard
 
 In that case, :program:`qubes-policy-editor` will also check that the filename of the policy is correct.
 
-See also
---------
+.. seealso::
 
-* :doc:`/developer/services/qrexec`
-* `qubes-core-qrexec's documentation <https://dev.qubes-os.org/projects/qubes-core-qrexec/en/latest/>`__
+   * :doc:`/developer/services/qrexec`
+   * `qubes-core-qrexec's documentation <https://dev.qubes-os.org/projects/qubes-core-qrexec/en/latest/>`__

@@ -25,8 +25,9 @@ Installation
 AwesomeWM can be installed with the standard dom0 installation mechanisms.
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update awesome
+   $ sudo qubes-dom0-update awesome
 
 
 That’s it. After logging out, you can select AwesomeWM in the login manager.
@@ -38,8 +39,9 @@ Development
 To :doc:`contribute code </introduction/contributing>` you may clone the AwesomeWM repository as follows:
 
 .. code:: console
+   :class: code-block-style
 
-      $ git clone https://github.com/QubesOS/qubes-desktop-linux-awesome
+   $ git clone https://github.com/QubesOS/qubes-desktop-linux-awesome
 
 
 For build instructions please check the repository *README*.

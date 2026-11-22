@@ -95,12 +95,13 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 7. Then, enable and start the SSH Server and the script on boot:
 
    .. code:: console
+      :class: code-block-style
 
-         $ sudo systemctl enable sshd
-         $ sudo systemctl start sshd
+      $ sudo systemctl enable sshd
+      $ sudo systemctl start sshd
 
-         $ sudo systemctl enable dom0-network-direct
-         $ sudo systemctl start dom0-network-direct
+      $ sudo systemctl enable dom0-network-direct
+      $ sudo systemctl start dom0-network-direct
 
 
 
@@ -118,31 +119,32 @@ Because of the above reason, some additional configurations need to be done to y
 The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific local testing system. Run the following in ``dom0``:
 
 .. code:: console
+   :class: code-block-style
 
-      # For future reference the following commands are an adaptation of
-      # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
+   # For future reference the following commands are an adaptation of
+   # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
 
-      # Install git
-      $ sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
+   # Install git
+   $ sudo qubes-dom0-update git || sudo dnf --setopt=reposdir=/etc/yum.repos.d install git
 
-      # Download the openQA automated testing environment Salt configuration
-      $ git clone https://github.com/marmarek/openqa-tests-qubesos/
-      $ cd openqa-tests-qubesos/extra-files
-      $ sudo cp -a system-tests/ /srv/salt/
-      $ sudo qubesctl top.enable system-tests
+   # Download the openQA automated testing environment Salt configuration
+   $ git clone https://github.com/marmarek/openqa-tests-qubesos/
+   $ cd openqa-tests-qubesos/extra-files
+   $ sudo cp -a system-tests/ /srv/salt/
+   $ sudo qubesctl top.enable system-tests
 
-      # Install the same configuration as the one in openQA
-      $ QUBES_VERSION=4.1
-      $ PILLAR_DIR=/srv/pillar/base/update
-      $ sudo mkdir -p $PILLAR_DIR
-      $ printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
-      $ printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
-      $ sudo qubesctl top.enable update pillar=True
+   # Install the same configuration as the one in openQA
+   $ QUBES_VERSION=4.1
+   $ PILLAR_DIR=/srv/pillar/base/update
+   $ sudo mkdir -p $PILLAR_DIR
+   $ printf 'update:\n  qubes_ver: '$QUBES_VERSION'\n' | sudo tee $PILLAR_DIR/init.sls
+   $ printf "base:\n  '*':\n    - update\n" | sudo tee $PILLAR_DIR/init.top
+   $ sudo qubesctl top.enable update pillar=True
 
-      # Apply states to dom0 and VMs
-      # NOTE: These commands can take several minutes (if not more) without showing output
-      $ sudo qubesctl --show-output state.highstate
-      $ sudo qubesctl --max-concurrency=2 --skip-dom0 --templates --show-output state.highstate
+   # Apply states to dom0 and VMs
+   # NOTE: These commands can take several minutes (if not more) without showing output
+   $ sudo qubesctl --show-output state.highstate
+   $ sudo qubesctl --max-concurrency=2 --skip-dom0 --templates --show-output state.highstate
 
 
 Development VM
@@ -156,8 +158,9 @@ SSH
 Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Generate SSH key in ``qubes-dev``:
 
 .. code:: console
+   :class: code-block-style
 
-      $ ssh-keygen -t ecdsa -b 521
+   $ ssh-keygen -t ecdsa -b 521
 
 
 

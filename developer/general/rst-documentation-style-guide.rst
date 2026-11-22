@@ -44,10 +44,10 @@ You need to specify the path to the image and an alt text.
 
 .. code:: rst
 
-  .. image:: path/to/image.png
-     :alt: Alternative text
-     :width: 200px
-     :align: center
+   .. image:: path/to/image.png
+      :alt: Alternative text
+      :width: 200px
+      :align: center
 
 Read The Docs and the HTML `sphinx-rtd-theme <https://sphinx-rtd-theme.readthedocs.io/en/stable/>`__ in use
 have a responsive design, which allows the documentation to render appropriately across all screen sizes.
@@ -66,25 +66,25 @@ Nested lists must be separated from the parent list items by blank lines:
 
 .. code:: rst
 
-  - Item 1
-  - Item 2
+   - Item 1
+   - Item 2
 
-    - Subitem 2.1
-    - Subitem 2.2
+     - Subitem 2.1
+     - Subitem 2.2
 
-  - Item 3
+   - Item 3
 
 Numbered lists can be autonumbered using the ``#`` sign.
 
 .. code:: rst
 
-  #. Item 1
-  #. Item 2
+   #. Item 1
+   #. Item 2
 
-    #. Subitem 2.1
-    #. Subitem 2.2
+     #. Subitem 2.1
+     #. Subitem 2.2
 
-  #. Item 3
+   #. Item 3
 
 Item 3 will start at 1.
 
@@ -127,8 +127,8 @@ You can have certain lines with the ``:emphasize-lines:`` parameter.
 
 .. code:: rst
 
- .. code-block:: python
-   :emphasize-lines: 1,3,4
+   .. code-block:: python
+      :emphasize-lines: 1,3,4
 
 
 
@@ -153,6 +153,7 @@ For a terminal session use ``console``.
 .. code:: rst
 
     .. code:: console
+       :class: code-block-style
 
        $ echo "Hello"
 
@@ -233,17 +234,19 @@ These render as:
    Qubes has no control over what happens on your computer before [...]
 
 
-You can also provide a `custom title to the admonition <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-admonition>`_:
+You can also provide a `custom title to the admonition <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-admonition>`_, as well as custom class as shown in:
 
 .. code:: rst
 
    .. admonition:: Did you know?
+      :class: admonition-with-custom-title
 
       The Qubes OS installer is completely offline. It doesn't even load [...]
 
 Rendering as:
 
 .. admonition:: Did you know?
+   :class: admonition-with-custom-title
 
    The Qubes OS installer is completely offline. It doesn't even load [...]
 
@@ -261,7 +264,7 @@ Most of the `glossaries <https://www.sphinx-doc.org/en/master/usage/restructured
 
 Anywhere else in the documentation you can link to a term using the `term role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-term>`__: which automatically generates a hyperlink to the glossary entry. :code:`:term:`qube`` produces the following link: :term:`qube`.
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`customizing-text-link`
 
@@ -283,7 +286,7 @@ In Qubes OS documentation the `doc <https://www.sphinx-doc.org/en/master/usage/r
 `ref <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-ref>`__ roles are used extensively
 as described in :ref:`cross-referencing`.
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`list-roles-used-documentation`
 
@@ -308,7 +311,7 @@ To cross-reference a page, use the `doc role <https://www.sphinx-doc.org/en/mast
 
   .. code:: rst
 
-   :doc:`/introduction/intro`
+     :doc:`/introduction/intro`
 
 The path could be relative to the current document, or absolute. In that case, the path starts from the root of the ``qubes-doc`` repository, **with a leading slash** (``/``). You have to **remove the file extension** (``.rst``).
 
@@ -319,19 +322,21 @@ To cross-reference a section with a header, use the `ref role <https://www.sphin
 
   .. code:: rst
 
-   :ref:`introduction/intro:What is Qubes OS?`
+     :ref:`introduction/intro:What is Qubes OS?`
 
 Note that with the `ref role <https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref>`__ the path starts **without a leading slash** (``/``). You might also encounter the normalized header content: in lowercase, with normalized spaces. This is another way to achieve the same result.
 
 You can get a list of the generated labels after building the documentation. If your build directory is :file:`_build/html`, run the following:
 
 .. code:: console
+   :class: code-block-style
 
    [~/qubes-doc] $ python3 -m sphinx.ext.intersphinx _build/html/objects.inv
 
 You can also run that command against the current online version of the docs:
 
 .. code:: console
+   :class: code-block-style
 
    $ python3 -m sphinx.ext.intersphinx https://doc.qubes-os.org/en/latest/objects.inv
 
@@ -426,8 +431,9 @@ Even if it works without it, **always prefix the external cross-references** wit
    Intersphinx `can list all the available links <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#showing-all-links-of-an-intersphinx-mapping-file>`__ to another project with the following command:
 
    .. code:: console
+      :class: code-block-style
 
-       python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
+      python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
 
    You can replace ``core-admin`` by any of the projects listed above.
 
@@ -481,6 +487,7 @@ Do not use a :ref:`custom title <customizing-text-link>` to shorten the link lab
 **If a cross-reference points to a missing reference** (i.e.: reference to a removed component), prefix the reference with an exclamation mark (``!``). If the function :py:func:`!old_function` has been removed but is still referenced, to discuss the old implementation use:
 
 .. code:: rst
+   :class: code-block-style
 
    :py:func:`!old_function`
 
@@ -538,18 +545,18 @@ Here is a simple example of a page with a title and three nested levels of headi
 
 .. code:: rst
 
-  ==========
-  Main Title
-  ==========
+   ==========
+   Main Title
+   ==========
 
-  Subsection
-  ----------
+   Subsection
+   ----------
 
-  Sub-subsection
-  ^^^^^^^^^^^^^^
+   Sub-subsection
+   ^^^^^^^^^^^^^^
 
-  Paragraph
-  """""""""
+   Paragraph
+   """""""""
 
 
 
@@ -625,6 +632,7 @@ Writing command-line examples
           Open a terminal in dom0 and run:
 
           .. code:: console
+             :class: code-block-style
 
              [user@dom0] $ cd test
              [user@dom0 ~/test] $ echo Hello
@@ -633,6 +641,7 @@ Writing command-line examples
      - Open a terminal in dom0 and run:
 
        .. code:: console
+          :class: code-block-style
 
           [user@dom0] $ cd test
           [user@dom0 ~/test] $ echo Hello
@@ -657,10 +666,12 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
+               :class: code-block-style
 
                $ cd test
 
        - .. code:: console
+            :class: code-block-style
 
             $ cd test
 
@@ -668,10 +679,12 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
+               :class: code-block-style
 
                [dom0] $ cd test
 
        - .. code:: console
+            :class: code-block-style
 
             [dom0] $ cd test
 
@@ -679,10 +692,12 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
+               :class: code-block-style
 
                [dom0 /tmp] $ cd test
 
        - .. code:: console
+            :class: code-block-style
 
             [dom0 /tmp] $ cd test
 
@@ -690,10 +705,12 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
+               :class: code-block-style
 
                [user@dom0 /tmp] $ cd test
 
        - .. code:: console
+            :class: code-block-style
 
             [user@dom0 /tmp] $ cd test
 
@@ -702,6 +719,7 @@ Writing command-line examples
    **Don’t try to add comments inside the code block**. For example, *don’t* do this:
 
    .. code:: console
+      :class: code-block-style
 
       # Navigate to the new directory
       $ cd test
@@ -718,6 +736,7 @@ Variable names in commands
 **Syntactically distinguish variables in commands**. For example, this is ambiguous:
 
 .. code:: console
+   :class: code-block-style
 
      $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
 
@@ -726,6 +745,7 @@ Variable names in commands
 It should instead be:
 
 .. code:: console
+   :class: code-block-style
 
      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
 
@@ -784,7 +804,7 @@ Do not duplicate documentation
 Core vs. external documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. admonition:: See also
+.. seealso::
 
    :doc:`/introduction/external-documentation`
 
@@ -849,18 +869,18 @@ Cheatsheet: Headings
 
      - .. code:: rst
 
-        =====
-        Title
-        =====
+          =====
+          Title
+          =====
 
-        Subsection
-        ----------
+          Subsection
+          ----------
 
-        Subsubsection
-        ^^^^^^^^^^^^^
+          Subsubsection
+          ^^^^^^^^^^^^^
 
-        Paragraph
-        """""""""
+          Paragraph
+          """""""""
 
 Cheatsheet: Hyperlinks and cross-references
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -916,11 +936,11 @@ Cheatsheet: Text Decorations
 
    * - .. code:: markdown
 
-         *Italic* or _Italic_
+          *Italic* or _Italic_
 
      - .. code:: rst
 
-        *Italic*
+          *Italic*
 
    * - .. code:: markdown
 
@@ -946,7 +966,7 @@ Cheatsheet: Text Decorations
 
           Impossible!
 
-.. admonition:: See also
+.. seealso:: 
 
    :ref:`developer/general/rst-documentation-style-guide:Text decorations`
 
@@ -984,7 +1004,7 @@ Cheatsheet: Lists
              a. Subitem 1
              b. Subitem 2
 
-.. admonition:: See also
+.. seealso::
 
    * :ref:`developer/general/rst-documentation-style-guide:Lists`
 
@@ -1018,7 +1038,7 @@ Cheatsheet: Tables
              * - Cell 3
                - Cell 4
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`developer/general/rst-documentation-style-guide:Tables`
 
@@ -1043,7 +1063,7 @@ Cheatsheet: Code Blocks
 
               print("Hello, world!")
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`developer/general/rst-documentation-style-guide:Code blocks`
 
@@ -1070,7 +1090,7 @@ Alerts and Warnings
 
              This is a note.
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`developer/general/rst-documentation-style-guide:Admonitions, messages, and warnings`
 
@@ -1093,7 +1113,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :guilabel:`&Apply`
+          :guilabel:`&Apply`
 
      - :guilabel:`&Apply`
 
@@ -1101,7 +1121,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :file:`~/QubesIncoming/disp{XXXX}`
+          :file:`~/QubesIncoming/disp{XXXX}`
 
      - :file:`~/QubesIncoming/disp{XXXX}`
 
@@ -1109,7 +1129,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :program:`qvm-copy`
+          :program:`qvm-copy`
 
      - :program:`qvm-copy`
 
@@ -1117,7 +1137,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :menuselection:`Settings --> &Advanced`
+          :menuselection:`Settings --> &Advanced`
 
      - :menuselection:`Settings --> &Advanced`
 
@@ -1125,7 +1145,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :samp:`disp{XXXX}`
+          :samp:`disp{XXXX}`
 
      - :samp:`disp{XXXX}`
 
@@ -1133,7 +1153,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :kbd:`Ctrl`
+          :kbd:`Ctrl`
 
      - :kbd:`Ctrl`
 
@@ -1141,7 +1161,7 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :abbr:`OCR (Optical Character Recognition)`
+          :abbr:`OCR (Optical Character Recognition)`
 
      -  :abbr:`OCR (Optical Character Recognition)`
 
@@ -1157,13 +1177,13 @@ List of the roles used in documentation
 
      - .. code:: rst
 
-        :mimetype:`application/pdf`
+          :mimetype:`application/pdf`
 
      - :mimetype:`application/pdf`
 
 Please continue using the above or new ones where appropriate.
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`rst-roles`
 

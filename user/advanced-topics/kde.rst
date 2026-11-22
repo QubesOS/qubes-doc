@@ -13,8 +13,9 @@ Installation
 Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with R3.2, however, :doc:`XFCE is the new default desktop environment </developer/releases/3_2/release-notes>`. Nonetheless, it is still possible to install KDE by issuing this command in dom0:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update kde-settings-qubes
+   $ sudo qubes-dom0-update kde-settings-qubes
 
 
 You may notice some warnings and errors in the installation - it is safe to ignore these.
@@ -57,16 +58,18 @@ You can also change your default login manager (lightdm) to the new KDE default:
 - disable the lightdm service:
 
   .. code:: console
+     :class: code-block-style
 
-        $ sudo systemctl disable lightdm
+     $ sudo systemctl disable lightdm
 
 
 
 - enable the sddm service:
 
   .. code:: console
+     :class: code-block-style
 
-        $ sudo systemctl enable sddm
+     $ sudo systemctl enable sddm
 
 
 
@@ -98,8 +101,9 @@ You can set each window’s position and size like this:
 You can also use ``kstart`` to control virtual desktop placement like this:
 
 .. code:: console
+   :class: code-block-style
 
-      $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
+   $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
 
 
@@ -113,8 +117,9 @@ Wayland session
 Default installation includes KDE Plasma X11 session. KDE project primary focus is Wayland session, which in Qubes OS is currently experimental. To enable the experimental Wayland session support install the following package:
 
 .. code:: console
+   :class: code-block-style
 
-    $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
+   $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
 
 Removal
 -------
@@ -125,7 +130,8 @@ If you decide to remove KDE do **not** use ``dnf remove @kde-desktop-qubes``. Yo
 The safest way to remove (most of) KDE is:
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo dnf remove kdelibs plasma-workspace
+   $ sudo dnf remove kdelibs plasma-workspace
 
 

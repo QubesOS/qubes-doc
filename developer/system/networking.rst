@@ -120,8 +120,9 @@ IPv6
 Starting with Qubes 4.0, there is opt-in support for IPv6 forwarding. Similar to the IPv4, traffic is routed and NAT is applied at each network gateway. This way we avoid reconfiguring every connected qube whenever uplink connection is changed, and even telling the qube what that uplink is - which may be complex when VPN or other tunneling services are employed. The feature can be enabled on any network-providing qube, and will be propagated down the network tree, so every qube connected to it will also have IPv6 enabled. To enable the ``ipv6`` feature use ``qvm-features`` tool and set the value to ``1``. For example to enable it on ``sys-net``, execute in dom0:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-features sys-net ipv6 1
+   $ qvm-features sys-net ipv6 1
 
 .. note::
    Enabling IPv6 in this way will not propagate to running qubes. You will have to restart connected qubes for the change to take effect.
@@ -130,8 +131,9 @@ Starting with Qubes 4.0, there is opt-in support for IPv6 forwarding. Similar to
 It is also possible to explicitly disable IPv6 support for some qubes, even if it is connected to IPv6-providing one. This can be done by setting ``ipv6`` feature to empty value:
 
 .. code:: console
+   :class: code-block-style
 
-      $ qvm-features ipv4-only-qube ipv6 ''
+   $ qvm-features ipv4-only-qube ipv6 ''
 
 
 

@@ -21,8 +21,9 @@ In dom0, use ``qubes-dom0-update``:
 
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update qubes-repo-contrib
+   $ sudo qubes-dom0-update qubes-repo-contrib
 
 
 In a Fedora-based template, use ``dnf``:
@@ -30,8 +31,9 @@ In a Fedora-based template, use ``dnf``:
 
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo dnf install qubes-repo-contrib
+   $ sudo dnf install qubes-repo-contrib
 
 
 In a Debian-based template, use ``apt``:
@@ -39,8 +41,9 @@ In a Debian-based template, use ``apt``:
 
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo apt update && sudo apt install qubes-repo-contrib
+   $ sudo apt update && sudo apt install qubes-repo-contrib
 
 
 The new repository definition will be in the usual location for your distro, and it will follow the naming pattern ``qubes-contrib-*``, depending on your Qubes release and whether it is in dom0 or a template. For example, in a Fedora template on Qubes 4.0, the new repository definition would be:
@@ -64,8 +67,9 @@ For example, to install ``qvm-screenshot-tool`` in dom0:
 
 
 .. code:: console
+   :class: code-block-style
 
-      $ sudo qubes-dom0-update --clean qvm-screenshot-tool
+   $ sudo qubes-dom0-update --clean qvm-screenshot-tool
 
 
 Please see the package’s README for specific installation and setup instructions.

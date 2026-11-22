@@ -143,8 +143,9 @@ dom0: request execution of ``cmd`` in domX
 - **dom0**: ``qrexec-client`` is invoked in **dom0** as follows:
 
   .. code:: console
+     :class: code-block-style
 
-        $ qrexec-client -d domX [-l local_program] user:cmd
+     $ qrexec-client -d domX [-l local_program] user:cmd
 
 
 
@@ -190,8 +191,9 @@ domX: request execution of service ``admin.Service`` in dom0
 - **domX**: ``qrexec-client-vm`` is invoked as follows:
 
   .. code:: console
+     :class: code-block-style
 
-        $ qrexec-client-vm dom0 admin.Service [local_program] [params]
+     $ qrexec-client-vm dom0 admin.Service [local_program] [params]
 
 
 
@@ -216,8 +218,9 @@ domX: request execution of service ``admin.Service`` in dom0
 - **dom0**: If the RPC is allowed, ``qrexec-policy`` will launch a ``qrexec-client`` with the right command:
 
   .. code:: console
+     :class: code-block-style
 
-        $ qrexec-client -d dom0 -c domX,X,SOCKET11 "QUBESRPC admin.Service domX name dom0"
+     $ qrexec-client -d dom0 -c domX,X,SOCKET11 "QUBESRPC admin.Service domX name dom0"
 
 
 
@@ -259,8 +262,9 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 - **domX**: ``qrexec-client-vm`` is invoked as follows:
 
   .. code:: console
+     :class: code-block-style
 
-        $ qrexec-client-vm domY qubes.Service [local_program] [params]
+     $ qrexec-client-vm domY qubes.Service [local_program] [params]
 
 
 
@@ -277,8 +281,9 @@ domX: invoke execution of qubes service ``qubes.Service`` in domY
 - **dom0**: If the RPC is allowed, ``qrexec-policy`` will launch a ``qrexec-client`` with the right command:
 
   .. code:: console
+     :class: code-block-style
 
-        $ qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:QUBESRPC qubes.Service domX"
+     $ qrexec-client -d domY -c domX,X,SOCKET11 user:cmd "DEFAULT:QUBESRPC qubes.Service domX"
 
 
 

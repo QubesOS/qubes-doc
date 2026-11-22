@@ -558,6 +558,7 @@ or
 - Go to the sysfs (``/sys/bus/pci``), find the right device, detach it from the pciback driver and attach back to the original driver. Replace ``<BDF>`` with your device, for example ``00:1c.2``:
 
   .. code:: console
+     :class: code-block-style
 
         $ echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
         $ MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
@@ -567,8 +568,9 @@ or
 
 
 
+.. seealso::
 
-See also :doc:`here </user/how-to-guides/how-to-use-pci-devices>`.
+   :doc:`How to use pci devices </user/how-to-guides/how-to-use-pci-devices>`
 
 How do I play video files?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -585,6 +587,7 @@ For Debian:
 
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo apt install vlc
 
@@ -604,6 +607,7 @@ For Fedora:
 
 
    .. code:: console
+      :class: code-block-style
 
          $ sudo dnf install vlc
 
@@ -687,6 +691,7 @@ I see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD (edd
 From a ``dom0`` prompt, enter:
 
 .. code:: console
+   :class: code-block-style
 
       $ qvm-prefs <HVMname> kernel ""
 
@@ -731,7 +736,9 @@ Could you please make my preference the default?
 
 It would be great if Qubes were configured just the way we like it by default with all of our favorite programs and settings. Then, we could just install Qubes without having to install any programs in it or adjust any settings. We might even think that if a particular program or setting works so well for *us*, it would work well for *everyone*, so we’d actually be doing everyone a favor! The problem is that Qubes has :doc:`tens of thousands of different users </introduction/statistics>` with radically different needs and purposes. There is no particular configuration that will be ideal for everyone (despite how much we might feel that our preference would be better for everyone), so the best we can do is to put power in the hands of users to configure their Qubes installations the way they like (subject to security constraints, of course). For this reason, we generally do not grant requests for people’s favorite programs to be installed by default or for some setting that obviously varies by user preference to be changed so that it matches the requester’s preference.
 
-See also: :ref:`introduction/faq:what is qubes' attitude toward changing guest distros?`
+.. seealso::
+
+   :ref:`introduction/faq:what is qubes' attitude toward changing guest distros?`
 
 Software installed in a qube is gone after restarting. Why?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

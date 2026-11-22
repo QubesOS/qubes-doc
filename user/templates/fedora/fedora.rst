@@ -4,9 +4,8 @@ Fedora templates
 
 The Fedora Xfce :doc:`template </user/templates/templates>` is the default template in Qubes OS. The current supported versions are :ref:`Fedora 43 and Fedora 44 <user/downloading-installing-upgrading/supported-releases:Templates>`. **This page is about the "full" Fedora templates** (with a name ending in ``-43``, ``-xfce`` or ``-gnome``). For the minimal version, please see the :doc:`Minimal templates </user/templates/minimal-templates>` page.
 
-.. versionchanged:: Qubes 4.3 and Fedora 44
-
-   Starting with Fedora 44 (in Qubes 4.3), the Gnome template is named :samp:`fedora-{XX}-gnome` where :samp:`{XX}` is the version number. It was previously named :samp:`fedora-{XX}`.
+.. versionchanged:: 4.3
+   Starting with Fedora 44 in Qubes 4.3, the Gnome template is named :samp:`fedora-{XX}-gnome` where :samp:`{XX}` is the version number. It was previously named :samp:`fedora-{XX}`.
 
 Installing
 ----------
@@ -15,8 +14,9 @@ Installing
 To :ref:`install <user/templates/templates:installing>` a specific Fedora template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 
 .. code:: console
+   :class: code-block-style
 
-      [user@dom0] $ qvm-template install fedora-XX
+   [user@dom0] $ qvm-template install fedora-XX
 
 
 

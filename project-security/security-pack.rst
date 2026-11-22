@@ -32,6 +32,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 1. Use Git to clone the qubes-secpack repo.
 
    .. code:: console
+      :class: code-block-style
 
          $ git clone https://github.com/QubesOS/qubes-secpack.git
          Cloning into 'qubes-secpack'...
@@ -45,6 +46,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 2. Import the included PGP keys. See our :ref:`project-security/security-pack:pgp key policies` for important information about these keys.
 
    .. code:: console
+      :class: code-block-style
 
          $ gpg --import qubes-secpack/keys/*/*
          gpg: directory `/home/user/.gnupg' created
@@ -80,6 +82,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 4. Verify signed Git tags.
 
    .. code:: console
+      :class: code-block-style
 
          $ cd qubes-secpack/
          $ git tag -v `git describe`
@@ -98,6 +101,7 @@ The following example demonstrates one method of obtaining the qubes-secpack and
 5. Verify detached PGP signatures.
 
    .. code:: console
+      :class: code-block-style
 
          $ cd canaries/
          $ gpg --verify canary-001-2015.txt.sig.joanna canary-001-2015.txt
@@ -130,6 +134,7 @@ History and rationale
 On 2013-01-05, Joanna Rutkowska announced the qubes-secpack and explained its rationale in an `email <https://groups.google.com/d/msg/qubes-devel/twkOEaMLtNI/lZyGx6_jFCEJ>`__ to the Qubes mailing lists:
 
 .. code:: text
+   :class: plain-text
 
       Hello,
 
