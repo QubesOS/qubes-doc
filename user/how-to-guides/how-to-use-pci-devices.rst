@@ -152,4 +152,4 @@ or
 
 It is **strongly discouraged to reattach PCI devices to dom0**, especially if they don’t support resetting!
 
-.. |appmenu| image:: /attachment/doc/qubes-appmenu-select.png
+.. |appmenu| image:: /attachment/icons/qubes-artwork/4.3/qubes-appmenu-select.png
