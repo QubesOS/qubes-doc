@@ -345,6 +345,7 @@ To schedule, comment on a PR ``openQArun`` to test that PR, optionally, add filt
 - ``UPDATE_TEMPLATES``: Update only selected templates, CSV
 - ``DEFAULT_TEMPLATE``: Specify default template
 - ``FLAVOR``: ``pull-requests``, ``kernel``, ``whonix``, ``templates``
+- ``VERSION``: OS release, such as ``devel`` (default), ``4.3``, ``4.4`` and any future one
 - ``KERNEL_VERSION``: ``stable``, ``latest``
 - ``QUBES_TEST_MGMT_TPL``: Select ``management_dispvm`` template
 - ``DISTUPGRADE_TEMPLATES``: Dist upgrade only selected templates
@@ -374,6 +375,10 @@ Examples:
     # Same as above, but only run tests on select template
     openQArun PR_LABEL=openqa-group-3 TEST=system_tests_dispvm,system_tests_dispvm_perf TEST_TEMPLATES=debian-13-xfce
 
+    # Flash a specific Qubes release to a certain hardware, for remote access,
+    # by commenting on the highest kernel version PR that can be found in
+    # QubesOS/qubes-linux-kernel/pulls.
+    openQArun MACHINE=hw99 VERSION=4.3 TEST=install_default_upload
 
 Gitlab pipeline
 """""""""""""""
