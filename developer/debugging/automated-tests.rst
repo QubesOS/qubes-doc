@@ -206,7 +206,7 @@ Adding a new test to core-admin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-After adding a new unit test to `core-admin/qubes/tests <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests>`__ you’ll have to include it in `core-admin/qubes/tests/__init__.py <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py>`__
+After adding a new unit test to :py:mod:`core-admin:qubes.tests` you’ll have to include it in `core-admin/qubes/tests/__init__.py <https://github.com/QubesOS/qubes-core-admin/tree/master/qubes/tests/__init__.py>`__
 
 Editing ``__init__.py``
 ^^^^^^^^^^^^^^^^^^^^^^^
