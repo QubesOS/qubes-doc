@@ -255,11 +255,11 @@ Updates proxy is a service which allows access from package managers configured 
 
 The proxy is running in selected VMs (by default all the NetVMs (1)) and intercepts traffic directed to 127.0.0.1:8082. Thanks to such configuration all the VMs can use the same proxy address. If the VM is configured to have access to the updates proxy (2), the startup scripts will automatically configure dnf/apt to really use the proxy (3). Also access to updates proxy is independent of any other firewall settings (VM will have access to updates proxy, even if policy is set to block all the traffic).
 
-There are two services (``qvm-service``, :doc:`service framework </user/advanced-topics/qubes-service>`):
+There are two services (:doc:`core-admin-client:manpages/qvm-service`, :doc:`service framework </user/advanced-topics/qubes-service>`):
 
-1. ``qubes-updates-proxy`` (and its deprecated name: ``qubes-yum-proxy``) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
+1. :option:`qubes-updates-proxy <core-admin-client:qvm-service qubes-updates-proxy>` (and its deprecated name: :option:`qubes-yum-proxy <core-admin-client:qvm-service qubes-yum-proxy>`) - a service providing a proxy for templates - by default enabled in NetVMs (especially: sys-net)
 
-2. ``updates-proxy-setup`` (and its deprecated name: ``yum-proxy-setup``) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
+2. :option:`updates-proxy-setup <core-admin-client:qvm-service updates-proxy-setup>` (and its deprecated name: :option:`yum-proxy-setup <core-admin-client:qvm-service yum-proxy-setup>`) - use a proxy provided by another VM (instead of downloading updates directly), enabled by default in all templates
 
 Both the old and new names work. The defaults listed above are applied if the service is not explicitly listed in the services tab.
 
