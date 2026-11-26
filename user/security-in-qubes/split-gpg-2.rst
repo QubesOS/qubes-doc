@@ -1,3 +1,5 @@
+.. _split-gpg-2:
+
 ===========
 Split GPG-2
 ===========
@@ -8,7 +10,6 @@ This way the compromise of your less trusted qube does not allow the attacker to
 
 How-to split your GPG keys between two qubes
 --------------------------------------------
-
 The following how-to will set up Split GPG-2 with two qubes:
 
 * one qube holding the private keys, called **server-qube**. This qube is offline and should be trusted.
@@ -225,3 +226,15 @@ It is often thought that the use of smart cards for private key storage guarante
 
 With Qubes Split GPG-2 this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running. This way it would be easy to spot unexpected requests to decrypt documents.
 
+Split GPG-2 frequently asked questions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Do I need to install the package ``split-gpg2-dom0``?
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**Short answer: no.** ``split-gpg2-dom0`` will only install some python tests for development purposes and a policy file with comments only. You can install it, but it will probably be useless.
+
+I'm using Split GPG-1, do I need to upgrade to Split GPG-2?
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+:ref:`split-gpg-1` is a different implementation. You can use it instead of, or along with, Split GPG-2.
