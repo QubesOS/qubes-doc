@@ -21,7 +21,7 @@ copyright = f'%Y, {author} and others'
 
 # The major project version, used as the replacement for the |version| default
 # substitution. i.e. '4.3'
-version = 'development'
+version = '4.3.2'
 
 # The full version, including alpha/beta/rc tags
 # Note: this value is not used in the Qubes OS documentation
