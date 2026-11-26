@@ -133,6 +133,22 @@ Select the option to test this media and install Qubes OS.
 
       If the latest stable release is not compatible with your hardware, you may wish to consider installing using the latest kernel. Be aware that this has not been as well tested as the standard kernel.
 
+.. warning::
+
+      **Automated (OEM) installation media are auto-selected.** If any storage
+      device visible at boot carries a filesystem labeled ``QUBES_OEM``, the
+      installer's boot menu gains an additional entry, *OEM installation (with
+      kickstart file)*, and that entry becomes the **default**, starting
+      automatically after the 60-second countdown. It executes the kickstart
+      file (``ks.cfg``) from that volume, which for typical OEM configurations
+      **erases the target disk and installs Qubes OS without any confirmation
+      prompt**. This is intentional, to support unattended installations with
+      an unmodified official ISO. If you did not prepare such a volume
+      yourself, do not leave a ``QUBES_OEM``-labeled device attached while
+      booting the installer, and do not walk away from the boot menu while one
+      is attached - press any arrow key to stop the countdown and choose an
+      entry manually.
+
 If the boot screen does not appear, there are several options to troubleshoot. First, try rebooting your computer. If it still loads your currently installed operating system or does not detect your installation medium, make sure the boot order is set up appropriately. The process to change the boot order varies depending on the currently installed system and the motherboard manufacturer. If **Windows 10** is installed on your machine, you may need to follow specific instructions to change the boot order. This may require an `advanced reboot <https://support.microsoft.com/en-us/help/4026206/windows-10-find-safe-mode-and-other-startup-settings>`__.
 
 The installer home screen
