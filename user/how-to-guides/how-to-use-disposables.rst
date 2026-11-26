@@ -102,11 +102,13 @@ It is possible to do the same as above using the command line:
 
 The browser is opened from a disposable based on the ``default-dvm`` qube.
 
+.. _open-file-in-disposable:
+
 Open a file in a disposable (from app qube)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-In an app qube's file manager, right click on the file you wish to open in a disposable, then choose :guilabel:`Edit/View in disposable qube`. Wait a few seconds and the default application for this file type should appear displaying the file content. This app is running in its own dedicated qube, a disposable created for the purpose of viewing or editing this very file. If you have edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
+In an app qube's file manager, right click on the file you wish to open in a disposable, then choose :guilabel:`View in disposable qube` (or :guilabel:`Edit in disposable qube`). Wait a few seconds and the default application for this file type should appear displaying the file content. This app is running in its own dedicated qube, a disposable created for the purpose of viewing or editing this very file. If you have used the :guilabel:`Edit in disposable qube` option, edited the file and saved the changes, the changed file will be saved back to the original app qube, overwriting the original.
 
 .. image:: /attachment/doc/r4.3-domU-filemanager-disp-pdfviewer.png
    :alt: App qube file manager context menu being used to edit a PDF in a disposable qube.
@@ -124,13 +126,19 @@ It is also possible to do the same from the command line using :program:`qvm-ope
 
 The PDF viewer is opened in a disposable based on the ``work`` qube default disposable template.
 
+.. admonition:: See also
+
+   :ref:`automatically-open-file-type-in-other-qube`
+
+.. _sanitize-file-in-disposable:
+
 Sanitize a file in a disposable (from app qube)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-There is a nice security property in the system that allows transforming untrusted files into trusted files, this process is called sanitization. A sanitized file, presumably, leaves no room to malicious code, therefore, you can safely open the sanitized file in the qube itself (doesn't need to view in disposable anymore), in a viewer outside of :term:`Qubes OS`, or send the sanitized file to someone that doesn't use :term:`Qubes OS` and can't make the conversion themselves without compromising them..
+You can transform untrusted files into trusted files, this process is called sanitization. A sanitized file, presumably, leaves no room to malicious code, therefore, you can safely open the sanitized file in the qube itself (doesn't need to view in disposable anymore), in a viewer outside of :term:`Qubes OS`, or send the sanitized file to someone that doesn't use :term:`Qubes OS` and can't make the conversion themselves without compromising them..
 
-Only supported file types for conversions are images and PDFs. The untrusted files will be converted to :abbr:`RGBA bitmap (A raster image where pixels are stored in Red, Green, Blue and Alpha)`. On conversion, the original untrusted files will be moved to :file:`~/QubesUntrustedPDFs` or :file:`image.png-untrusted` (location depends on the file type) while the sanitized file will be created with the same location and name by reconstructing the received data. As the output is an image, the sanitized files are a bit bigger, searching strings without :abbr:`OCR (Optical Character Recognition)` will not be possible anymore.
+Only supported file types for conversions are images and PDFs. The untrusted files will be converted to :abbr:`RGBA bitmap (A raster image where pixels are stored in Red, Green, Blue and Alpha)`. On conversion, the original untrusted files will be moved to :file:`~/QubesUntrustedPDFs/{<PDF_NAME>}` or :file:`{<IMAGE_NAME>}-untrusted` (location depends on the file type) while the sanitized file will be created with the same location and name, by reconstructing the received data. As the output is an image, the sanitized files are a bit bigger, searching strings without :abbr:`OCR (Optical Character Recognition)` will not be possible anymore.
 
 If you'd like to sanitize a file, in an app qube's file manager, right click on the file (image or PDF) you wish to sanitize in a disposable, then choose :guilabel:`Convert in disposable qube`. Wait a few seconds for the conversion. This conversion runs on its own dedicated qube, a disposable created for the sole purpose of sanitizing this very file.
 

@@ -22,7 +22,7 @@ Disposables are generally named according to the :samp:`disp{1234}` scheme, wher
 Creating disposables through qrexec
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Every qube has the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property, which defines which disposable template will be used to spawn disposables for this qube by default (when using actions such as "open in disposable").
+Every qube has the :py:attr:`~core-admin:qubes.vm.dispvm.DispVM.default_dispvm` property, which defines which disposable template will be used to spawn disposables for this qube by default (when using actions such as :guilabel:`View in disposable qube`).
 It can have one of three values:
 
 - a disposable template

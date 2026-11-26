@@ -49,7 +49,7 @@ Copying a single file between AppVM and a DisposableVM
 
 In order to minimize attack surface presented by necessity to process virtual pendrive metadata sent by (potentially compromised and malicious) DisposableVM, AppVM<->DisposableVM file exchange protocol does not use any filesystem.
 
-1. User in AppVM1 runs *qvm-open-in-dvm* (accessible from Dolphin file manager by right click on a file: :menuselection:`Actions->Open in DisposableVM` menu). *qvm-open-in-dvm*
+1. User in AppVM1 :ref:`opens a file in a disposable <open-file-in-disposable>`:
 
    1. gets a new ``/dev/xvdg`` (just as described in previous paragraph)
 
