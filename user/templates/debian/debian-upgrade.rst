@@ -18,6 +18,20 @@ This page provides instructions for performing an in-place upgrade of an install
 
  By default, Qubes uses code `names` in the apt sources files (bookworm, trixie, etc), although the templates are referred to by release number. Check the code names for the templates, and ensure you are aware of any changes you have made in the repository definitions.
 
+Automated upgrade with qvm-template-upgrade
+-------------------------------------------
+
+
+The `qvm-template-upgrade <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qvm-template-upgrade.rst>`__ tool automates the clone-and-upgrade procedure described on this page: it clones the template, upgrades the clone to the next Debian release (including updating the ``apt`` sources to the new release's code name), and sets the ``template-name`` feature used by the Qubes updater.
+
+.. code:: console
+
+      [user@dom0 ~]$ qvm-template-upgrade --template=debian-<old>
+
+By default, the clone is named by replacing the release number in the source name, e.g. ``debian-12`` becomes ``debian-13`` and ``debian-12-minimal`` becomes ``debian-13-minimal``. Use ``--new-name=<NAME>`` to choose a different name, and ``--dry-run`` to preview the planned upgrade without creating a clone.
+
+After the upgrade completes, remember to :ref:`switch everything that was set to the old template to the new template <user/templates/templates:switching>` and, optionally, make the new template the global default and uninstall the old template, as described in the manual instructions below. Use the manual instructions if you need finer control over the upgrade process or if the automated upgrade fails.
+
 Summary instructions for Debian templates
 -----------------------------------------
 
