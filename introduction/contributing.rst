@@ -55,17 +55,19 @@ Contributing code
 
 If you’re interested in contributing code, the best starting point is to have a look at our `GitHub issues <https://github.com/QubesOS/qubes-issues/issues>`__ to see which tasks are the most urgent. You can filter issues depending on your interest and experience. For example, here are some common issue labels:
 
-- `Help wanted <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22help%20wanted%22&utf8=%E2%9C%93>`__
+- `Good first issue that nobody is working on yet <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3A%22good%20first%20issue%22>`__
 
-- `UX and usability <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3AUX>`__
+- `Help wanted <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3A%22help%20wanted%22>`__
 
-- `Windows tools <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22C%3A%20windows-tools%22>`__
+- `UX and usability <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3Aux>`__
 
-- `Documentation <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22C%3A%20doc%22>`__
+- `Windows tools <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3A%22C%3A%20windows-vm%22%20OR%20label%3A%22C%3A%20windows-tools%22>`__
 
-- `Privacy <https://github.com/QubesOS/qubes-issues/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3A%22privacy%22%20>`__
+- `Documentation <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3A%22C%3A%20windows-vm%22%20OR%20label%3A%22C%3A%20windows-tools%22>`__
 
-- `Debian/Ubuntu <https://github.com/QubesOS/qubes-issues/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22C%3A%20Debian%2FUbuntu%22>`__
+- `Privacy <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3A%22C%3A%20windows-vm%22%20OR%20label%3A%22C%3A%20windows-tools%22>`__
+
+- `Debian/Ubuntu <https://github.com/qubesos/qubes-issues/issues?q=is%3Aissue%20state%3Aopen%20no%3Aassignee%20-linked%3Apr%20label%3A%22C%3A%20Debian%2FUbuntu%22>`__
 
 
 
