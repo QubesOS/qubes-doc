@@ -42,7 +42,7 @@ Creating a backup
 
 3. Select the destination for the backup:
 
-   - If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target app qube**. If you wish to send your backup to a :doc:`USB mass storage device </user/how-to-guides/how-to-use-usb-devices>`, you can use the directory selection widget to mount a connected device (under “Other locations” item on the left); or first mount the device in a VM, then select the mount point inside that VM as the backup destination.
+   - If you wish to send your backup to a (currently running) VM, select the VM in the drop-down box next to **Target qube**. If you wish to send your backup to a :doc:`USB mass storage device </user/how-to-guides/how-to-use-block-storage-devices>`, first attach it to a qube other than ``sys-usb``, then select that qube as the target. You can mount the device from the directory selection dialog (under “Other Locations” on the left), or mount it in that qube yourself and select the mount point. Do not mount the device in ``sys-usb`` itself, even though the dialog may select ``sys-usb`` by default.
 
    - You must also specify a directory on the device or in the VM, or a command to be executed in the VM as a destination for your backup. For example, if you wish to send your backup to the ``~/backups`` folder in the target VM, you would simply browse to it using the convenient directory selection dialog (``...``) at the right. This destination directory must already exist. If it does not exist, you must create it manually prior to backing up.
 
@@ -72,9 +72,9 @@ Restoring from a backup
 
 2. Select the source location of the backup to be restored:
 
-   - If your backup is located on a :doc:`USB mass storage device </user/how-to-guides/how-to-use-usb-devices>`, attach it first to another VM or select ``sys-usb`` in the next item.
+   - If your backup is located on a :doc:`USB mass storage device </user/how-to-guides/how-to-use-block-storage-devices>`, first attach it to a qube other than ``sys-usb``, then select that qube in the next item. You can mount the device from the file selection dialog (under “Other Locations” on the left), or mount it in that qube yourself. Do not mount the device in ``sys-usb`` itself.
 
-   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **app qube**.
+   - If your backup is located in a (currently running) VM, select the VM in the drop-down box next to **Qube**.
 
 
    You must also specify the directory and filename of the backup (or a command to be executed in a VM) in the **Backup file** field. If you followed the instructions in the previous section, “Creating a Backup,” then your backup is most likely in the location you chose as the destination in step 3. For example, if you had chosen the ``~/backups`` directory of a VM as your destination in step 3, you would now select the same VM and again browse to (using ``...``) the ``backups`` folder. Once you’ve located the backup file, double-click it or select it and hit **OK**.
