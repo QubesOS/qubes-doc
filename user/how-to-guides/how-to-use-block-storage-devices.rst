@@ -104,9 +104,20 @@ In case of a USB-drive, make sure it’s attached to your computer. If you don�
 Recovering From Premature Device Destruction
 --------------------------------------------
 
-If you fail to detach the device before it’s destroyed in the sourceVM (e.g. by physically detaching the thumbdrive), `there will be problems <https://github.com/QubesOS/qubes-issues/issues/1082>`__.
+In R4.3 and later, if you remove the device before detaching it (e.g. by physically detaching the thumbdrive), Qubes OS detaches it from the targetVM automatically. In the targetVM, the device (e.g. ``xvdi``) disappears. A filesystem that was mounted from it stays mounted but gives I/O errors, and data not yet written to the device may be lost. Unmount it in the targetVM:
 
-To recover from this error state, in dom0 run
+.. code:: console
+
+      $ sudo umount mnt
+
+You can then connect the device again and attach it as usual. If the device is assigned to the targetVM and the targetVM is running, it is attached again automatically (or, if the assignment is set to ask, after you confirm).
+
+Recovering in R4.2
+^^^^^^^^^^^^^^^^^^
+
+In R4.2, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. The easiest way to recover from such a situation is to reboot the qube to which the device was attached.
+
+If the block device originated in a qube other than dom0, you can instead run in dom0:
 
 .. code:: console
 
@@ -114,12 +125,7 @@ To recover from this error state, in dom0 run
 
 (where ``targetVM`` is to be replaced with the VM name you attached the device to and ``xvdi`` is to be replaced with the used `frontend device node <#frontend-dev>`__.)
 
-However, if the block device originated in dom0, you will have to refer to the next section.
-
-What if I removed the device before detaching it from the VM?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/1082>`__ gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following these steps:
+Otherwise, follow these steps:
 
 1. Physically connect the device back. You can use any device as long as it will be detected under the same name (for example, ``sdb``).
 
@@ -128,20 +134,21 @@ Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/108
    .. code:: console
 
          [user@dom0 ~]$ qvm-block
-         sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
+         BACKEND:DEVID  DESCRIPTION                  USED BY
+         sys-usb:sda    DataTraveler_2.0 () 246 MiB  testvm (read-only=no, frontend-dev=xvdi)
          [user@dom0 ~]$ sudo xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
 
    In above example, all ``xl block-attach`` parameters can be deduced from the output of ``qvm-block``. In order:
 
-   - ``testvm`` - name of target qube to which device was attached - listed in brackets by ``qvm-block`` command
+   - ``testvm`` - name of target qube to which device was attached - listed under ``USED BY`` in ``qvm-block`` output
 
-   - ``phy:/dev/sda`` - physical path at which device appears in source qube (just after source qube name in ``qvm-block`` output)
+   - ``phy:/dev/sda`` - physical path at which device appears in source qube (just after source qube name under ``BACKEND:DEVID`` in ``qvm-block`` output)
 
    - ``backend=sys-usb`` - name of source qube, can be omitted in the case of dom0
 
-   - ``xvdi`` - “frontend” device name (listed at the end of line in ``qvm-block`` output)
+   - ``xvdi`` - “frontend” device name (listed as ``frontend-dev`` in ``qvm-block`` output)
 
-3. Now properly detach the device, either using Qubes VM Manager or the ``qvm-block -d`` command.
+3. Now properly detach the device, either using the Qubes Devices widget or the ``qvm-block detach`` command (for example, ``qvm-block detach testvm sys-usb:sda``).
 
 Attaching a File
 ----------------
