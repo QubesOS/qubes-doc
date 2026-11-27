@@ -15,7 +15,7 @@ Can't attach a USB device / USB device not showing in qvm-usb
 
 To successfully attach a USB device, you require a VM dedicated to handling the USB input and output. For guidance setting up a USB qube, see the :ref:`USB documentation <user/how-to-guides/how-to-use-usb-devices:creating and using a usb qube>`.
 
-Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/1082>`__ gets implemented), if you remove the device before detaching it from the qube, Qubes OS (more precisely, ``libvirtd``) will think that the device is still attached to the qube and will not allow attaching further devices under the same name. This may be characterized by VM manager crashes and the error message: ``Houston, we have a problem``. The easiest way to recover from such a situation is to reboot the qube to which the device was attached. If this isn’t an option, you can manually recover from the situation by following the instructions at the :ref:`Block Devices documentation <user/how-to-guides/how-to-use-block-storage-devices:what if i removed the device before detaching it from the vm?>`.
+If you removed a block device (for example, a USB drive) before detaching it from the qube, see :ref:`Recovering From Premature Device Destruction <user/how-to-guides/how-to-use-block-storage-devices:recovering from premature device destruction>`.
 
 "Device attach failed" error
 ----------------------------
