@@ -29,7 +29,6 @@ Configuring Split GPG
 In dom0, make sure the ``qubes-gpg-split-dom0`` package is installed.
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ sudo qubes-dom0-update qubes-gpg-split-dom0
 
@@ -39,7 +38,6 @@ Make sure you have the ``qubes-gpg-split`` package installed in the template you
 For Debian or Whonix:
 
 .. code:: console
-   :class: code-block-style
 
    [user@debian-10 ~]$ sudo apt install qubes-gpg-split
 
@@ -48,7 +46,6 @@ For Debian or Whonix:
 For Fedora:
 
 .. code:: console
-   :class: code-block-style
 
    [user@fedora-32 ~]$ sudo dnf install qubes-gpg-split
 
@@ -63,7 +60,6 @@ First, create a dedicated app qube for storing your keys (we will be calling it 
 Make sure that gpg is installed there. At this stage you can add the private keys you want to store there, or you can now set up Split GPG and add the keys later. To check which private keys are in your GPG keyring, use:
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-gpg ~]$ gpg -K
    /home/user/.gnupg/secring.gpg
@@ -77,7 +73,6 @@ Make sure that gpg is installed there. At this stage you can add the private key
 This is pretty much all that is required. However, you might want to modify the default timeout: this tells the backend for how long the user’s approval for key access should be valid. (The default is 5 minutes.) You can change this via the ``QUBES_GPG_AUTOACCEPT`` environment variable. You can override it e.g. in ``~/.profile``:
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-gpg ~]$ echo "export QUBES_GPG_AUTOACCEPT=86400" >> ~/.profile
 
@@ -93,7 +88,6 @@ Configuring the client apps to use Split GPG backend
 Normally it should be enough to set the ``QUBES_GPG_DOMAIN`` to the GPG backend domain name and use ``qubes-gpg-client`` in place of ``gpg``, e.g.:
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg
    [user@work-email ~]$ gpg -K
@@ -122,7 +116,6 @@ Advanced Configuration
 The ``qubes-gpg-client-wrapper`` script sets the ``QUBES_GPG_DOMAIN`` variable automatically based on the content of the file ``/rw/config/gpg-split-domain``, which should be set to the name of the GPG backend VM. This file survives the app qube reboot, of course.
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-email ~]$ sudo bash
    [root@work-email ~]$ echo "work-gpg" > /rw/config/gpg-split-domain
@@ -165,7 +158,6 @@ In ``work-email``, use the Thunderbird config editor (found at the bottom of pre
 You need to obtain your key ID which should be **exactly 16 characters**. Enter the command ``qubes-gpg-client-wrapper -K --keyid-format long``:
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-email ~]$ qubes-gpg-client-wrapper -K --keyid-format long
    /home/user/.gnupg/pubring.kbx
@@ -178,7 +170,6 @@ You need to obtain your key ID which should be **exactly 16 characters**. Enter 
 
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-email ~]$ qubes-gpg-client-wrapper --armor --export 777402E6D301615C > 777402E6D301615C.asc
 
@@ -227,7 +218,6 @@ The Keybase service does not preserve/pass the ``QUBES_GPG_DOMAIN`` environment 
 The following command will configure Keybase to use ``/usr/bin/qubes-gpg-client-wrapper`` instead of its built-in GPG client:
 
 .. code:: console
-   :class: code-block-style
 
    $ keybase config set gpg.command /usr/bin/qubes-gpg-client-wrapper
 
@@ -256,7 +246,6 @@ Git can be configured to utilize Split GPG, something useful if you would like t
 Your key id is the public id of your signing key, which can be found by running ``qubes-gpg-client --list-keys``. In this instance, the key id is E142F75A6B1B610E0E8F874FB45589245791CACB.
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-email ~]$ qubes-gpg-client --list-keys
    /home/user/.gnupg/pubring.kbx
@@ -287,7 +276,6 @@ Importing public keys
 Use ``qubes-gpg-import-key`` in the client app qube to import the key into the GPG backend VM.
 
 .. code:: console
-   :class: code-block-style
 
    [user@work-email ~]$ export QUBES_GPG_DOMAIN=work-gpg
    [user@work-email ~]$ qubes-gpg-import-key ~/Downloads/marmarek.asc

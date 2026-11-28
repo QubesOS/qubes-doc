@@ -97,7 +97,6 @@ Sometimes it is desirable to open an instance of Firefox in a new fresh disposab
 It is possible to do the same as above using the command line:
 
 .. code:: console
-   :class: code-block-style
 
    user@dom0:~$ qvm-run --dispvm=default-dvm --service -- qubes.StartApp+firefox
 
@@ -119,7 +118,6 @@ In an app qube's file manager, right click on the file you wish to open in a dis
 It is also possible to do the same from the command line using :program:`qvm-open-in-dvm`:
 
 .. code:: console
-   :class: code-block-style
 
    [user@work ~]$ qvm-open-in-dvm -- 'apple-sandbox.pdf'
    [user@work ~]$ qvm-open-in-dvm --view-only -- 'apple-sandbox.pdf'
@@ -154,7 +152,6 @@ The same can be done from the command line, although more difficult:
    The escaped backslash is used to have indented blocks for readability.
 
 .. code:: console
-   :class: code-block-style
 
    user@dom0:~$ disp_template="default-dvm"
    user@dom0:~$ disp="$(python3 -c "import qubesadmin; \
@@ -195,7 +192,6 @@ Preloading from the system's default disposable is possible with the |qubes-logo
 This can also be changed from the command line from the :term:`GUI domain`, with :program:`qvm-features` targeting ``dom0``:
 
 .. code:: console
-   :class: code-block-style
 
    user@dom0:~$ qvm-features dom0 preload-dispvm-max 2
 
@@ -217,7 +213,6 @@ To configure, for example, the ``default-mgmt-dvm`` qube using the app menu and 
 This can also be changed from the command line from the :term:`GUI domain`, with :program:`qvm-features` targeting ``default-mgmt-dvm``:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ qvm-features default-mgmt-dvm preload-dispvm-max 2
 

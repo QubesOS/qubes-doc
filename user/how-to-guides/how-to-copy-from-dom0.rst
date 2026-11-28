@@ -16,7 +16,6 @@ Copying files from dom0
 To copy a file from dom0 to a VM, simply use ``qvm-copy-to-vm``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-copy-to-vm <target_vm> <file>
 
@@ -73,7 +72,6 @@ There should normally be few reasons for the user to want to copy anything from 
 If you are determined to copy some files to dom0 anyway, you can use the following method. (If you want to copy text, first save it into a text file.) Run this command in a dom0 terminal:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0
 
@@ -82,7 +80,6 @@ If you are determined to copy some files to dom0 anyway, you can use the followi
 Note that you can use the same method to copy files from dom0 to domUs (if, for some reason, you don’t want to use ``qvm-copy-to-vm``):
 
 .. code:: console
-   :class: code-block-style
 
    $ cat /path/to/file_in_dom0 | qvm-run --pass-io <dest-vm> 'cat > /path/to/file_name_in_appvm'
 

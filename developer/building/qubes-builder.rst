@@ -56,7 +56,6 @@ In order to use it, you should use an rpm-based distro, like Fedora :), and shou
 Usually you can install those packages by just issuing:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo dnf install gnupg git createrepo rpm-build make wget rpmdevtools python3-sh dialog rpm-sign dpkg-dev debootstrap python3-pyyaml devscripts perl-Digest-MD5 perl-Digest-SHA
 
@@ -67,7 +66,6 @@ The build system is configured via builder.conf file. You can use the setup.sh s
 
 
 .. code:: console
-   :class: code-block-style
 
    $ cp example-configs/qubes-os-master.conf builder.conf
 
@@ -97,7 +95,6 @@ So, to build Qubes you would do:
 Import the Qubes master key:
 
 .. code:: console
-   :class: code-block-style
 
    $ gpg --recv-keys 0xDDFA1A3E36879494
 
@@ -105,7 +102,6 @@ Import the Qubes master key:
 Verify its fingerprint, set as 'trusted'. This is described :doc:`here </project-security/verifying-signatures>`.
 
 .. code:: console
-   :class: code-block-style
 
    $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
    $ gpg --import qubes-developers-keys.asc
@@ -117,7 +113,6 @@ Verify its fingerprint, set as 'trusted'. This is described :doc:`here </project
 Verify its integrity:
 
 .. code:: console
-   :class: code-block-style
 
    $ git tag -v `git describe`
 
@@ -125,7 +120,6 @@ Verify its integrity:
 Copy the example ``builder.conf``:
 
 .. code:: console
-   :class: code-block-style
 
    $ cp example-configs/qubes-os-master.conf builder.conf
 
@@ -140,7 +134,6 @@ Edit the builder.conf file and set the following variables:
 Download all components:
 
 .. code:: console
-   :class: code-block-style
 
    $ make get-sources
 
@@ -148,7 +141,6 @@ Download all components:
 And now to build all Qubes RPMs (this will take a few hours):
 
 .. code:: console
-   :class: code-block-style
 
    $ make qubes
 
@@ -156,7 +148,6 @@ And now to build all Qubes RPMs (this will take a few hours):
 ... and then to build the ISO
 
 .. code:: console
-   :class: code-block-style
 
    $ make iso
 
@@ -166,7 +157,6 @@ And this should produce a shiny new ISO.
 You can also build selected component separately. Eg. to compile only gui virtualization agent/daemon:
 
 .. code:: console
-   :class: code-block-style
 
    $ make gui-daemon
 
@@ -196,7 +186,6 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 3. Download unmodified sources
 
    .. code:: console
-      :class: code-block-style
 
       $ make get-sources
 
@@ -208,7 +197,6 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 6. ``get-sources`` is already done, so continue with the next one. You can skip ``sign-all`` if you’ve disabled signing
 
    .. code:: console
-      :class: code-block-style
 
       $ make vmm-xen core-admin linux-kernel gui-daemon template desktop-linux-kde installer-qubes-os manager linux-dom0-updates
 
@@ -216,7 +204,6 @@ You can also modify sources somehow if you wish. Here are some basic steps:
 7. build iso installation image
 
    .. code:: console
-      :class: code-block-style
 
       $ make iso
 

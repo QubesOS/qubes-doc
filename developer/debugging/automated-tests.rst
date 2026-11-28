@@ -40,7 +40,6 @@ Our test runner runs mostly the same as the standard one, but it has some nice a
 You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ python3 -m qubes.tests.run -h
    usage: run.py [-h] [--verbose] [--quiet] [--list] [--failfast] [--no-failfast]
@@ -84,7 +83,6 @@ You can use ``python3 -m qubes.tests.run -h`` to get usage information:
 For instance, to run only the tests for the fedora-21 template, you can use the ``-l`` option, then filter the list:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ python3 -m qubes.tests.run -l | grep fedora-21
    network/VmNetworking_fedora-21/test_000_simple_networking
@@ -126,14 +124,12 @@ Some developers script this part, so you can provide arguments to the script and
 And run:
 
 .. code:: console
-   :class: code-block-style
 
     ~/run-tests -L INFO -o /tmp/tests.log <TEST_NAME>
 
 You might even almost complete test names and shell expansion:
 
 .. code:: console
-   :class: code-block-style
 
     ~/run-tests qubes.tests.integ.dispvm_perf/TC_00_DispVMPerf_debian-{12,13}-xfce/test_0{0,1,2}
 
@@ -147,7 +143,6 @@ Example test run:
 Tests are also compatible with nose2 test runner, so you can use this instead:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo systemctl stop qubesd; sudo -E nose2 -v --plugin nose2.plugins.loader.loadtests qubes.tests; sudo systemctl start qubesd
 
@@ -171,7 +166,6 @@ The below example however will assume that you set up a build environment as des
 Assuming you cloned the ``qubes-builder`` repository to your home directory inside a fedora VM, you can use the following commands to run the unit tests:
 
 .. code:: console
-   :class: code-block-style
 
    $ cd ~
    $ sudo dnf install python3-pip lvm2 python35 python3-virtualenv
@@ -364,7 +358,6 @@ Notes:
 Examples:
 
 .. code:: console
-   :class: code-block-style
 
     # Only this PR
     openQArun

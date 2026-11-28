@@ -18,7 +18,6 @@ Upgrading dom0
 3. Install ``qubes-release`` package carrying R3.2 repository information.
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo qubes-dom0-update --releasever=3.2 qubes-release
 
@@ -31,7 +30,6 @@ Upgrading dom0
 
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo qubes-dom0-update systemd-compat-libs perl-libwww-perl perl-Term-ANSIColor perl-Term-Cap gdk-pixbuf2-xlib speexdsp qubes-mgmt-salt-admin-tools lvm2
       (...)
@@ -51,7 +49,6 @@ Upgrading dom0
 4. Upgrade dom0 to R3.2:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo qubes-dom0-update
 
@@ -80,7 +77,6 @@ Upgrading dom0
 
 
    .. code:: console
-      :class: code-block-style
 
       $ rm -f /etc/group.rpmnew
       $ rm -f /etc/shadow.rpmnew
@@ -121,7 +117,6 @@ Upgrade Fedora templates:
 2. Install the ``qubes-upgrade-vm`` package:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo dnf install --refresh qubes-upgrade-vm
 
@@ -130,7 +125,6 @@ Upgrade Fedora templates:
 3. Proceed with a normal upgrade in the template:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo dnf upgrade --refresh
 
@@ -139,7 +133,6 @@ Upgrade Fedora templates:
 4. Add new packages (only needed in default template):
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo dnf install qubes-mgmt-salt-vm-connector
 
@@ -158,7 +151,6 @@ Upgrade Debian (and Whonix) templates:
 2. Update repository definition:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo cp /etc/apt/sources.list.d/qubes-r3.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
       $ sudo sed -i 's/r3.1/r3.2/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
@@ -168,7 +160,6 @@ Upgrade Debian (and Whonix) templates:
 3. Proceed with a normal update in the template:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo apt-get update
       $ sudo apt-get dist-upgrade
@@ -178,7 +169,6 @@ Upgrade Debian (and Whonix) templates:
 4. Add new packages (only needed in default template):
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo apt-get install qubes-mgmt-salt-vm-connector
 
@@ -187,7 +177,6 @@ Upgrade Debian (and Whonix) templates:
 5. Remove unnecessary now file:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo rm -f /etc/apt/sources.list.d/qubes-r3-upgrade.list
 

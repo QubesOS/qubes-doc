@@ -58,7 +58,6 @@ Linux ISO to USB
 On Linux, if you choose to use a USB drive, copy the ISO onto the USB device, e.g. using ``dd``:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1M conv=fsync
 

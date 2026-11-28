@@ -16,7 +16,6 @@ Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below
 **Notes:** On modern Fedora system (like Fedora 37) SeLinux is enforced by default and is blocking the build system. You would get error like “can’t create transaction lock on /…/rpm/.rpm.lock (Permission denied)”. You can set SeLinux to permissive mode with
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo setenforce 0
 
@@ -24,7 +23,6 @@ Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below
 In ``dom0``, install the Fedora 36 (or 37) template if you don’t already have it.
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-dom0-update qubes-template-fedora-36
 
@@ -35,7 +33,6 @@ Create a standalone AppVM from the Fedora template. Set private storage to at le
 Once you’ve built the development AppVM, open a Terminal window to it and install the necessary dependencies (see :doc:`QubesBuilder </developer/building/qubes-builder>` for more info):
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo dnf install git createrepo rpm-build rpm-sign make python3-sh rpmdevtools rpm-sign dialog perl-open python3-pyyaml perl-Digest-MD5 perl-Digest-SHA
 
@@ -44,7 +41,6 @@ Once you’ve built the development AppVM, open a Terminal window to it and inst
 Get the necessary keys to verify the sources (run these and other commands below as a regular user, not root):
 
 .. code:: console
-   :class: code-block-style
 
    $ wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
    $ gpg --import qubes-master-signing-key.asc
@@ -58,7 +54,6 @@ Get the necessary keys to verify the sources (run these and other commands below
       # (Typical sequence is trust, 5, Y, q)
 
 .. code:: console
-   :class: code-block-style
 
    $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
    $ gpg --import qubes-developers-keys.asc
@@ -70,7 +65,6 @@ Get the necessary keys to verify the sources (run these and other commands below
 Now let’s bootstrap the builder. Unfortunately, the builder cannot verify itself (the classic Chicken and Egg problem), so we need to verify the signature manually:
 
 .. code:: console
-   :class: code-block-style
 
    $ git clone https://github.com/QubesOS/qubes-builder.git
    $ cd qubes-builder
@@ -89,7 +83,6 @@ Build using setup script
 Let’s configure the builder first (see :ref:`procedure <developer/building/qubes-iso-building:build using manual steps>` at bottom if you would prefer to manually configure):
 
 .. code:: console
-   :class: code-block-style
 
    $ cd ~/qubes-builder
    $ ./setup
@@ -113,7 +106,6 @@ Let’s configure the builder first (see :ref:`procedure <developer/building/qub
 Once it completes downloading, re-run ``setup`` to add the Whonix templates:
 
 .. code:: console
-   :class: code-block-style
 
    $ ./setup
 
@@ -127,7 +119,6 @@ Once it completes downloading, re-run ``setup`` to add the Whonix templates:
 Continue the build process with:
 
 .. code:: console
-   :class: code-block-style
 
    $ make install-deps
    $ make get-sources
@@ -141,7 +132,6 @@ You may also want to add ``COMPONENTS := $(filter-out gcc,$(COMPONENTS))`` to by
 Finally, if you are making a test build, use:
 
 .. code:: console
-   :class: code-block-style
 
    $ make qubes
    $ make iso
@@ -151,7 +141,6 @@ Finally, if you are making a test build, use:
 Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.conf``):
 
 .. code:: console
-   :class: code-block-style
 
    $ make qubes
    $ make sign-all
@@ -170,7 +159,6 @@ Instead of using ``./setup``, you can manually configure the build. The script t
 If you will be building Whonix templates:
 
 .. code:: console
-   :class: code-block-style
 
    $ cd ~
    $ gpg --keyserver pgp.mit.edu --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
@@ -196,7 +184,6 @@ If you will be building Whonix templates:
 Next, prepare the Git keyring directory and copy them in:
 
 .. code:: console
-   :class: code-block-style
 
    $ export GNUPGHOME=~/qubes-builder/keyrings/git
    $ mkdir --parents "$GNUPGHOME"
@@ -209,7 +196,6 @@ Next, prepare the Git keyring directory and copy them in:
 Copy one of the example configurations:
 
 .. code:: console
-   :class: code-block-style
 
    $ cd ~/qubes-builder
    $ cp example-configs/qubes-os-master.conf builder.conf
@@ -221,7 +207,6 @@ Edit ``builder.conf``, referring to ``doc/Configuration.md`` for a description o
 Continue the build process with:
 
 .. code:: console
-   :class: code-block-style
 
    $ make install-deps
    $ make get-sources
@@ -234,7 +219,6 @@ When building the Whonix templates, you will often need to add/update the ``WHON
 Finally, if you are making a test build, use:
 
 .. code:: console
-   :class: code-block-style
 
    $ make qubes
    $ make iso
@@ -244,7 +228,6 @@ Finally, if you are making a test build, use:
 Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.conf``):
 
 .. code:: console
-   :class: code-block-style
 
    $ make qubes
    $ make sign-all

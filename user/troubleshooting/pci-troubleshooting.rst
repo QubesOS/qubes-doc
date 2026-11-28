@@ -12,7 +12,6 @@ VMs with attached PCI devices in Qubes have allocated a small buffer for DMA ope
 To change this allocation, edit VM’s kernel parameters (this is expressed in 512B chunks) by running the following in a dom0 terminal:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-prefs netvm |grep kernelopts
    kernelopts       : iommu=soft swiotlb=2048 (default)
@@ -73,7 +72,6 @@ Using the command line
    In the above case, the device ``0000:03:00.1`` is the device which we want to use. But we are facing the ``Unable to reset PCI device`` error because another device, ``0000:03:00.0``, is active. To fix this error and get device ``0000:03:00.1`` to work, we must first remove the offending device ``0000:03:00.0``.
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo su
       $ echo -n "1" > /sys/bus/pci/devices/0000:03:00.0/remove
@@ -110,7 +108,6 @@ This is a :ref:`PCI passthrough issue <user/troubleshooting/pci-troubleshooting:
 NOTE: The ``permissive`` flag increases attack surface and possibility of `side channel attacks <https://en.wikipedia.org/wiki/Side-channel_attack>`__. While using the ``no-strict-reset`` flag, do not require PCI device to be reset before attaching it to another VM. This may leak usage data even without malicious intent. Both ``permissive`` and ``no-strict-reset`` options may not be necessary and you should try one first, then the other, before using both.
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-pci attach --persistent --option permissive=true --option no-strict-reset=true sys-usb dom0:<BDF_OF_DEVICE>
 

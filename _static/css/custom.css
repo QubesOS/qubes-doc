@@ -74,10 +74,10 @@ a:hover {
 
 /* Important */
 .admonition.important {
-  background-color: #fefce8;
+  background-color: #ffedd5;
 }
 .admonition.important > .admonition-title {
-  background-color: #fde047;
+  background-color: #fdba74;
 }
 
 
@@ -226,7 +226,7 @@ a:hover {
 
 /*
 div.highlight,
-div.highlight pre {
+div.highlight console {
   background-color: #333333 !important;
   color: #f5f5f5 !important;
 }
@@ -241,7 +241,6 @@ div.highlight pre {
 /* console */
 div.highlight,
 div.highlight pre {
-
   background-color: #e5e5e5 !important;
 }
 
@@ -255,9 +254,15 @@ div.highlight-console .highlight .gp {
     font-weight: 700 !important;
 }
 
+div.highlight-console pre{
+    font-weight: 700 !important;
+}
+
+/*
 .code-block-style pre {
     font-weight: 700 !important;
 }
+*/
 
 
 .plain-text pre {

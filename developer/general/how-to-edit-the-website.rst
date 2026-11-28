@@ -159,14 +159,12 @@ This can be useful for making sure that your changes render the way you expect, 
 1. Create a template qube:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-clone debian-12-minimal jekyll-tvm
 
 2. Install packages:
 
 .. code:: console
-   :class: code-block-style
 
    $ apt install qubes-core-agent-networking
    $ apt install ruby-full build-essential zlib1g-dev vim
@@ -177,7 +175,6 @@ This can be useful for making sure that your changes render the way you expect, 
 3. Create a ``jekyll-app-vm`` based on the ``jekyll-tvm`` template, install and configure in ``jekyll-app-vm``:
 
 .. code:: console
-   :class: code-block-style
 
    $ echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
    $ echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc

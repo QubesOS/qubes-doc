@@ -14,7 +14,6 @@ Installing
 To :ref:`install <user/templates/templates:installing>` a specific Fedora template that is not currently installed in your system, use the Qubes Template Manager, or use the following command in a dom0 terminal:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-template install fedora-XX
 

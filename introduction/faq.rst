@@ -558,7 +558,6 @@ or
 - Go to the sysfs (``/sys/bus/pci``), find the right device, detach it from the pciback driver and attach back to the original driver. Replace ``<BDF>`` with your device, for example ``00:1c.2``:
 
   .. code:: console
-     :class: code-block-style
 
         $ echo 0000:<BDF> > /sys/bus/pci/drivers/pciback/unbind
         $ MODALIAS=`cat /sys/bus/pci/devices/0000:<BDF>/modalias`
@@ -587,7 +586,6 @@ For Debian:
 
 
    .. code:: console
-      :class: code-block-style
 
          $ sudo apt install vlc
 
@@ -607,7 +605,6 @@ For Fedora:
 
 
    .. code:: console
-      :class: code-block-style
 
          $ sudo dnf install vlc
 
@@ -691,7 +688,6 @@ I see a screen popup with SeaBios and 4 lines, last one being ``Probing EDD (edd
 From a ``dom0`` prompt, enter:
 
 .. code:: console
-   :class: code-block-style
 
       $ qvm-prefs <HVMname> kernel ""
 

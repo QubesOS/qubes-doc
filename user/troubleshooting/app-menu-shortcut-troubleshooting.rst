@@ -37,7 +37,6 @@ With the command-line interface
 To update the list of available applications, use the ``qvm-sync-appmenus`` command in dom0, replacing ``<QUBE_NAME>`` by the qube name:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-sync-appmenus <QUBE_NAME>
 
@@ -46,7 +45,6 @@ To update the list of available applications, use the ``qvm-sync-appmenus`` comm
 When using the :guilabel:`Refresh Applications` button in a qube’s settings, the command ``qvm-sync-appmenus`` is used at least one time. When refreshing an AppVM application, it is also run against the template. So the console equivalent of clicking the :guilabel:`Refresh Applications` button is the following (always in dom0):
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-sync-appmenus <APPVM_NAME>
    [user@dom0] $ qvm-sync-appmenus <TEMPLATE_NAME>
@@ -56,7 +54,6 @@ When using the :guilabel:`Refresh Applications` button in a qube’s settings, t
 In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available applications (unstable feature), the whitelist of currently show application (unstable feature) and to change this list:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 
@@ -165,7 +162,6 @@ What if a removed application is still in the app menu?
 First, try this in dom0:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-appmenus --update --force <QUBE_NAME>
 
@@ -174,7 +170,6 @@ First, try this in dom0:
 You can also try:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-appmenus --remove <QUBE_NAME>
 
@@ -201,7 +196,6 @@ The line starting with ``Exec=`` points out the exact command run by dom0 to sta
 It’s possible to run the command to check the output, by copying this line without ``Exec=``, and remove ``-q`` (quiet option). But it could be more useful to run it in the qube, with the ``qubes.StartApp`` service:
 
 .. code:: console
-   :class: code-block-style
 
    [user@any-qube] $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
 
@@ -222,7 +216,6 @@ The whitelist given to ``qvm-appmenu --set-whitelist`` is stored as a feature ca
 Actual command lines for the menu shortcuts involve the ``qvm-run`` command which starts a process in another domain. Examples:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
    $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
@@ -232,7 +225,6 @@ Actual command lines for the menu shortcuts involve the ``qvm-run`` command whic
 Note that you can create a shortcut that points to a ``.desktop`` file in your app qube with e.g.:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-run -q -a --service -- personal qubes.StartApp+firefox
 

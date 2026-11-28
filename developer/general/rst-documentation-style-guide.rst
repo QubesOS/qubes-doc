@@ -153,7 +153,6 @@ For a terminal session use ``console``.
 .. code:: rst
 
     .. code:: console
-       :class: code-block-style
 
        $ echo "Hello"
 
@@ -329,14 +328,12 @@ Note that with the `ref role <https://www.sphinx-doc.org/en/master/usage/restruc
 You can get a list of the generated labels after building the documentation. If your build directory is :file:`_build/html`, run the following:
 
 .. code:: console
-   :class: code-block-style
 
    [~/qubes-doc] $ python3 -m sphinx.ext.intersphinx _build/html/objects.inv
 
 You can also run that command against the current online version of the docs:
 
 .. code:: console
-   :class: code-block-style
 
    $ python3 -m sphinx.ext.intersphinx https://doc.qubes-os.org/en/latest/objects.inv
 
@@ -431,7 +428,6 @@ Even if it works without it, **always prefix the external cross-references** wit
    Intersphinx `can list all the available links <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#showing-all-links-of-an-intersphinx-mapping-file>`__ to another project with the following command:
 
    .. code:: console
-      :class: code-block-style
 
       python3 -m sphinx.ext.intersphinx https://dev.qubes-os.org/projects/core-admin/en/latest/objects.inv
 
@@ -487,7 +483,6 @@ Do not use a :ref:`custom title <customizing-text-link>` to shorten the link lab
 **If a cross-reference points to a missing reference** (i.e.: reference to a removed component), prefix the reference with an exclamation mark (``!``). If the function :py:func:`!old_function` has been removed but is still referenced, to discuss the old implementation use:
 
 .. code:: rst
-   :class: code-block-style
 
    :py:func:`!old_function`
 
@@ -632,7 +627,6 @@ Writing command-line examples
           Open a terminal in dom0 and run:
 
           .. code:: console
-             :class: code-block-style
 
              [user@dom0] $ cd test
              [user@dom0 ~/test] $ echo Hello
@@ -641,7 +635,6 @@ Writing command-line examples
      - Open a terminal in dom0 and run:
 
        .. code:: console
-          :class: code-block-style
 
           [user@dom0] $ cd test
           [user@dom0 ~/test] $ echo Hello
@@ -666,12 +659,10 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
-               :class: code-block-style
 
                $ cd test
 
        - .. code:: console
-            :class: code-block-style
 
             $ cd test
 
@@ -679,12 +670,10 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
-               :class: code-block-style
 
                [dom0] $ cd test
 
        - .. code:: console
-            :class: code-block-style
 
             [dom0] $ cd test
 
@@ -692,12 +681,10 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
-               :class: code-block-style
 
                [dom0 /tmp] $ cd test
 
        - .. code:: console
-            :class: code-block-style
 
             [dom0 /tmp] $ cd test
 
@@ -705,12 +692,10 @@ Writing command-line examples
        - .. code:: rst
 
             .. code:: console
-               :class: code-block-style
 
                [user@dom0 /tmp] $ cd test
 
        - .. code:: console
-            :class: code-block-style
 
             [user@dom0 /tmp] $ cd test
 
@@ -719,7 +704,6 @@ Writing command-line examples
    **Don’t try to add comments inside the code block**. For example, *don’t* do this:
 
    .. code:: console
-      :class: code-block-style
 
       # Navigate to the new directory
       $ cd test
@@ -736,7 +720,6 @@ Variable names in commands
 **Syntactically distinguish variables in commands**. For example, this is ambiguous:
 
 .. code:: console
-   :class: code-block-style
 
      $ qvm-run --dispvm=disposable-template --service qubes.StartApp+xterm
 
@@ -745,7 +728,6 @@ Variable names in commands
 It should instead be:
 
 .. code:: console
-   :class: code-block-style
 
      $ qvm-run --dispvm=<DISPOSABLE_TEMPLATE> --service qubes.StartApp+xterm
 

@@ -101,7 +101,6 @@ Advanced users may wish to perform updates via the command-line interface. There
   - To check for dom0 updates and apply them, in a dom0 terminal:
 
     .. code:: console
-       :class: code-block-style
 
        $ qubes-dom0-update
 
@@ -110,7 +109,6 @@ Advanced users may wish to perform updates via the command-line interface. There
   - To update all updatable templates, in a dom0 terminal:
 
     .. code:: console
-       :class: code-block-style
 
        $ qubes-vm-update -T
 
@@ -179,7 +177,6 @@ First, ensure that your UpdateVM contains the ``fwupd-qubes-vm`` package. This p
 In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-dom0-update fwupd-qubes-dom0
 
@@ -188,7 +185,6 @@ In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 Once the package is installed:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-fwupdmgr get-devices
 
@@ -207,7 +203,6 @@ If so, `adjust your BIOS settings <https://github.com/fwupd/fwupd/wiki/PluginFla
 Once resolved, in a dom0 terminal:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-fwupdmgr get-devices
    $ sudo qubes-fwupdmgr refresh

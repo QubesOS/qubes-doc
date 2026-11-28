@@ -63,7 +63,6 @@ How to test :doc:`templates </user/templates/templates>`:
 To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` option. Example commands:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-template --enablerepo=qubes-templates-itl-testing list --available
    $ qvm-template --enablerepo=qubes-templates-itl-testing install <template_name>

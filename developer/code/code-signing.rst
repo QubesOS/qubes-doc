@@ -14,7 +14,6 @@ Generating a Key
 Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-perfect-gpg-keypair/>`__ on creating a PGP keypair. Below, we reproduce just the minimum steps in generating a keypair using GnuPG. Please read Cabal’s full guide for further important details.
 
 .. code:: console
-   :class: code-block-style
 
    $ gpg --gen-key
    gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
@@ -77,7 +76,6 @@ Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID** which i
 
 
 .. code:: console
-   :class: code-block-style
 
    $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
    gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
@@ -92,7 +90,6 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 1. Set up Git to use your key:
 
    .. code:: console
-      :class: code-block-style
 
       $ git config --global user.signingkey <KEYID>
 
@@ -101,7 +98,6 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 2. Set up Git to sign your commits with your key:
 
    .. code:: console
-      :class: code-block-style
 
       $ git config --global commit.gpgsign true
 
@@ -109,7 +105,6 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
    Alternatively, manually specify when a commit is to be signed:
 
    .. code:: console
-      :class: code-block-style
 
       $ git commit -S
 
@@ -120,7 +115,6 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
    This is useful for example, if you have a commit back in the git history which you like to sign now without rewriting the history.
 
    .. code:: console
-      :class: code-block-style
 
       $ git tag -s <tag_name> -m "<tag_message>"
 
@@ -177,7 +171,6 @@ In this case, you have several options to sign the commit:
 1. Amend the commit and replace it with a signed commit. You can use this command to create a new signed commit:
 
    .. code:: console
-      :class: code-block-style
 
       $ git commit --amend -S
 
@@ -185,7 +178,6 @@ In this case, you have several options to sign the commit:
    This also rewrites the commit so you need to push it forcefully:
 
    .. code:: console
-      :class: code-block-style
 
       $ git push -f
 
@@ -194,7 +186,6 @@ In this case, you have several options to sign the commit:
 2. Create a signed tag for the unsigned commit. If the commit is back in history and you do not want to change it, you can create a signed tag for this commit and push the signature. You can use the alias from above:
 
    .. code:: console
-      :class: code-block-style
 
       $ git checkout <commit>
       $ git spush

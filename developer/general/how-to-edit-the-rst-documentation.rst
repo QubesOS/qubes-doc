@@ -160,7 +160,6 @@ Tips & Tricks
 - To pull in upstream changes:
 
   .. code:: console
-     :class: code-block-style
 
      [user@doc-qube]$ git remote add upstream https://github.com/QubesOS/qubes-doc.git
      [user@doc-qube]$ git fetch upstream
@@ -168,14 +167,12 @@ Tips & Tricks
 - Check the log and the current changes, before merging:
 
   .. code:: console
-     :class: code-block-style
 
      [user@doc-qube]$ git log upstream/main
 
 - Then merge the changes that you fetched:
 
   .. code:: console
-     :class: code-block-style
 
      [user@doc-qube]$ git merge upstream/main
 
@@ -312,7 +309,6 @@ Creating a Python environment with venv
 1. **Install needed packages and clone the repository**
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ sudo apt install git python3-dev python3.11-venv
       [user@doc-qube]$ git clone https://github.com/QubesOS/qubes-doc.git
@@ -323,7 +319,6 @@ Creating a Python environment with venv
    Create and enter the virtual environment.
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ python3 -m venv .venv
       [user@doc-qube]$ . .venv/bin/activate
@@ -338,7 +333,6 @@ Creating a Python environment with venv
    Install Sphinx and the necessary extensions (:program:`sphinx-autobuild`, :program:`sphinx-lint`).
 
    .. code-block:: console
-      :class: code-block-style
 
       (.venv) [user@doc-qube]$ pip install -r requirements.txt sphinx-lint sphinx-autobuild
 
@@ -353,7 +347,6 @@ Linting the documentation from venv
    or formatting errors. Run the linting step using the :program:`sphinx-lint` command.
 
    .. code-block:: console
-      :class: code-block-style
 
       (.venv) [user@doc-qube]$ sphinx-lint -i .venv .
 
@@ -366,7 +359,6 @@ Linting the documentation from venv
    of all checked links and their status (e.g., OK, broken, timeout).
 
    .. code-block:: console
-      :class: code-block-style
 
       (.venv) [user@doc-qube]$ sphinx-build -b linkcheck . _build/linkcheck
 
@@ -381,7 +373,6 @@ Building the documentation from venv
    The build command specifies the source directory (current directory :file:`.`, :file:`qubes-doc` in this case), the output directory (:file:`_build/html`), and the builder (`html`).
 
    .. code-block:: console
-      :class: code-block-style
 
       (.venv) [user@doc-qube]$ sphinx-build -v -b html . _build/html
 
@@ -399,7 +390,6 @@ Building the documentation from venv
    automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
 
    .. code-block:: console
-      :class: code-block-style
 
       (.venv) [user@doc-qube]$ sphinx-autobuild . _build/html
 
@@ -416,7 +406,6 @@ Creating a Python environment with poetry
 1. `Install poetry <https://python-poetry.org/docs/#installation>`__ and git and clone the repository.
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ sudo apt install git
       [user@doc-qube]$ git clone https://github.com/QubesOS/qubes-doc.git
@@ -429,7 +418,6 @@ Creating a Python environment with poetry
    A :file:`pyproject.toml` file is `provided <https://github.com/QubesOS/qubes-doc/blob/main/pyproject.toml>`__.
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ curl -sSL https://install.python-poetry.org | python3 -
       [user@doc-qube]$ poetry config virtualenvs.in-project true  # optional
@@ -449,7 +437,6 @@ Linting the documentation with peotry
    or formatting errors. Run the linting step using the :program:`sphinx-lint` command.
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ poetry run sphinx-lint -i .venv .
 
@@ -462,7 +449,6 @@ Linting the documentation with peotry
    of all checked links and their status (e.g., OK, broken, timeout).
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ poetry run sphinx-build -b linkcheck . _build/linkcheck
 
@@ -477,7 +463,6 @@ Building the documentation with poetry
    The build command specifies the source directory (current directory :file:`.`, :file:`qubes-doc` in this case), the output directory (:file:`_build/html`), and the builder (`html`).
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ poetry run sphinx-build -v -b html . _build/html
 
@@ -495,7 +480,6 @@ Building the documentation with poetry
    automatically rebuilds the documentation and reloads the browser tab when changes are detected in the :file:`qubes-doc` directory.
 
    .. code-block:: console
-      :class: code-block-style
 
       [user@doc-qube]$ poetry run sphinx-autobuild . _build/html
 
@@ -507,7 +491,6 @@ An editor you can use is `ReText <https://github.com/retext-project/retext>`__ b
 
 
 .. code-block:: console
-   :class: code-block-style
 
    [user@doc-qube]$ sudo apt install libxcb-cursor0
    [user@doc-qube]$ python3 -m venv .venv

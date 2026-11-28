@@ -22,14 +22,12 @@ For simplicity, these instructions will refer to copying/moving a single file, b
 The same operations are also available via these command-line tools:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-copy [--without-progress] file [file]+
 
 
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-move [--without-progress] file [file]+
 

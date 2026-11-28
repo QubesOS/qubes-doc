@@ -56,7 +56,6 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 - **If you’re on Qubes OS**, it’s available in every qube (`except dom0 <https://github.com/QubesOS/qubes-issues/issues/2544>`__):
 
   .. code:: console
-     :class: code-block-style
 
      $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
@@ -64,7 +63,6 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 - **If you’re on Fedora**, you can get it in the `distribution-gpg-keys <https://github.com/xsuchy/distribution-gpg-keys>`__ package:
 
   .. code:: console
-     :class: code-block-style
 
      $ dnf install distribution-gpg-keys
      $ gpg2 --import /usr/share/distribution-gpg-keys/qubes/*
@@ -75,7 +73,6 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 - You can also **fetch it with GPG**:
 
   .. code:: console
-     :class: code-block-style
 
      $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
@@ -83,7 +80,6 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 - Get it from a public `keyserver <https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples>`__ (specified on first use with ``--keyserver <URI>`` along with keyserver options to include key signatures), e.g.:
 
   .. code:: console
-     :class: code-block-style
 
      $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
@@ -102,7 +98,6 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
   Once you have the key as a file, **import it**:
 
   .. code:: console
-     :class: code-block-style
 
      $ gpg2 --import /<PATH_TO_FILE>/qubes-master-signing-key.asc
 
@@ -174,7 +169,6 @@ Once you’ve observed enough matching fingerprints from enough independent sour
 Now that you’ve imported the authentic QMSK, set its trust level to “ultimate” so that it can be used to automatically verify all the keys signed by the QMSK (in particular, RSKs).
 
 .. code:: console
-   :class: code-block-style
 
       $ gpg2 --edit-key 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
       gpg (GnuPG) 1.4.18; Copyright (C) 2014 Free Software Foundation, Inc.
@@ -221,7 +215,6 @@ Now, when you import any of the release signing keys and many Qubes team member 
 As a final sanity check, make sure the QMSK is in your keyring with the correct trust level.
 
 .. code-block:: console
-   :class: code-block-style
    :emphasize-lines: 4
 
       $ gpg2 -k "Qubes Master Signing Key"
@@ -260,7 +253,6 @@ After you have completed these two prerequisite steps, the next step is to obtai
   If you wish to use one of these keys, **make sure to import it into your keyring**, e.g.:
 
   .. code:: console
-     :class: code-block-style
 
      [user@fedora-based-qube] $ gpg2 --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qubes-*
 
@@ -268,7 +260,6 @@ After you have completed these two prerequisite steps, the next step is to obtai
 - **Fetch it with GPG**:
 
   .. code:: console
-     :class: code-block-style
 
         [user@any-online-qube] $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --fetch-keys https://keys.qubes-os.org/keys/qubes-release-X-signing-key.asc
 
@@ -276,7 +267,6 @@ After you have completed these two prerequisite steps, the next step is to obtai
 - **Download it as a file**. You can find the RSK for your Qubes release on the `downloads <https://www.qubes-os.org/downloads/>`__ page. You can also download all the currently used developers’ signing keys, RSKs, and the Qubes Master Signing Key from the :doc:`Qubes security pack </project-security/security-pack>` and the `Qubes keyserver <https://keys.qubes-os.org/keys/>`__. Once you’ve downloaded your RSK, **import it with GPG**:
 
   .. code:: console
-     :class: code-block-style
 
         [user@any-qube] $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --import ./qubes-release-X-signing-key.asc
 
@@ -286,7 +276,6 @@ After you have completed these two prerequisite steps, the next step is to obtai
 Now that you have the correct RSK, you simply need to verify that it is signed by the QMSK:
 
 .. code-block:: console
-   :class: code-block-style
    :emphasize-lines: 6
 
       $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
@@ -304,7 +293,6 @@ This is just an example, so the output you receive may not look exactly the same
 As a final sanity check, make sure the RSK is in your keyring with the correct trust level:
 
 .. code-block:: console
-   :class: code-block-style
    :emphasize-lines: 4
 
       $ gpg2 -k "Qubes OS Release X Signing Key"
@@ -341,7 +329,6 @@ Every Qubes ISO is released with a **detached PGP signature** file, which you ca
 **Download both the ISO and its signature file**. Put both of them **in the same directory**, then navigate to that directory. Now, you can verify the ISO by executing this GPG command in the directory that contains both files, make sure to replace :samp:`Qubes-R{X}` by the correct release number (i.e.: :samp:`Qubes-R{4.3}`):
 
 .. code-block:: console
-   :class: code-block-style
    :emphasize-lines: 5
 
    $ gpg2 -v --verify Qubes-RX-x86_64.iso.asc Qubes-RX-x86_64.iso
@@ -385,7 +372,6 @@ In order to do this, **we have to know the exact size, in bytes, of the original
 * **from the ISO itself**:
 
 .. code:: console
-   :class: code-block-style
 
    $ stat -c %s Qubes-RX-x86_64.iso
    8176568320
@@ -395,7 +381,6 @@ Where :file:`Qubes-R{X}-x86_64.iso` is your Qubes ISO (with :samp:`{X}` replaced
 You can now use :program:`gpg` to verify the detached PGP signature directly against the data on the USB drive. The following command reads the exact number of bytes from your USB drive and pipes them into :program:`gpg`: 
 
 .. code-block:: console
-   :class: code-block-style
    :emphasize-lines: 8
 
       $ dd if=/dev/sdX bs=1M count=<SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
@@ -439,7 +424,6 @@ How to verify a signature on a Git tag
 
 
 .. code:: console
-   :class: code-block-style
 
    $ git tag -v <tag name>
 
@@ -447,7 +431,6 @@ How to verify a signature on a Git tag
 or
 
 .. code:: console
-   :class: code-block-style
 
    $ git verify-tag <tag name>
 
@@ -457,7 +440,6 @@ How to verify a signature on a Git commit
 
 
 .. code:: console
-   :class: code-block-style
 
    $ git log --show-signature <commit ID>
 
@@ -465,7 +447,6 @@ How to verify a signature on a Git commit
 or
 
 .. code:: console
-   :class: code-block-style
 
    $ git verify-commit <commit ID>
 

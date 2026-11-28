@@ -21,7 +21,6 @@ In dom0, use ``qubes-dom0-update``:
 
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-dom0-update qubes-repo-contrib
 
@@ -31,7 +30,6 @@ In a Fedora-based template, use ``dnf``:
 
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo dnf install qubes-repo-contrib
 
@@ -41,7 +39,6 @@ In a Debian-based template, use ``apt``:
 
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo apt update && sudo apt install qubes-repo-contrib
 
@@ -67,7 +64,6 @@ For example, to install ``qvm-screenshot-tool`` in dom0:
 
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-dom0-update --clean qvm-screenshot-tool
 

@@ -18,7 +18,6 @@ Typically, the first thing that a ``qrexec-client`` instance does is to send a r
 E.g., to start a primitive shell in a VM type the following in Dom0 console:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ /usr/lib/qubes/qrexec-client -d <vm name> user:bash
 
@@ -90,7 +89,6 @@ Requesting VM-VM (and VM-Dom0) services execution
 In a src VM, one should invoke the qrexec client via the following command:
 
 .. code:: console
-   :class: code-block-style
 
    $ /usr/lib/qubes/qrexec-client-vm <target vm name> <service name> <local program path> [local program arguments]
 
@@ -115,7 +113,6 @@ Qubes RPC policy supports an “ask” action, that will prompt the user whether
 In order to remove such authorization, issue this command from a Dom0 terminal (example below for ``qubes.Filecopy`` service):
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo nano /etc/qubes-rpc/policy/qubes.Filecopy
 
@@ -166,7 +163,6 @@ We will show the necessary files to create a simple RPC call that adds two integ
 - To test this service, run the following in the source VM:
 
   .. code:: console
-     :class: code-block-style
 
      $ /usr/lib/qubes/qrexec-client-vm <target VM> test.Add /usr/bin/our_test_add_client 1 2
 

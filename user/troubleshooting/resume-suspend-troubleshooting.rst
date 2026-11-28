@@ -22,7 +22,6 @@ First, determine which kernel module corresponds to your wireless card. There ar
 The easiest is via the output of ``lspci -k`` in your sys-net VM:
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net ~]$ lspci -k
    00:00.0 Network controller: Intel Corporation Wireless 8260 (rev 3a)
@@ -66,7 +65,6 @@ You can check which drivers are currently loaded with ``lsmod``, and view detail
 For example, we list what modules we have loaded:
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net ~]$ lsmod
    Module                  Size  Used by
@@ -81,7 +79,6 @@ For example, we list what modules we have loaded:
 and check one:
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net ~]$ modinfo iwlmvm | grep -E '^(description|author|depends):'
    author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
@@ -95,7 +92,6 @@ Hey, it’s our wireless driver!
 Now, check if reloading the module makes wireless work again:
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net ~]$ sudo rmmod iwlmvm
    [user@sys-net ~]$ sudo modprobe iwlmvm
@@ -107,7 +103,6 @@ and try reconnecting to a network that is known to work.
 If that is successful, see below about having Qubes automatically reload the driver for you. If not, try also reloading some dependent modules, in our example we must also reload iwlwifi:
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net ~]$ modinfo iwlwifi | grep -E '^(description|author|depends):'
    author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
@@ -117,7 +112,6 @@ If that is successful, see below about having Qubes automatically reload the dri
 
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net ~]$ sudo rmmod iwlmvm
    [user@sys-net ~]$ sudo rmmod iwlwifi
@@ -135,7 +129,6 @@ If reloading the driver (which resets the hardware into a known-state) resolves 
 In the above example, it would look like this:
 
 .. code:: console
-   :class: code-block-style
 
    [user@sys-net config]$ cat /rw/config/suspend-module-blacklist
    # You can list here modules you want to be unloaded before going to sleep. This
@@ -152,7 +145,6 @@ sys-net disappears after suspend/resume
 After suspend/resume sys-net is not active anymore - manual start of sys-net is required after resume. If you want sys-net starting automatically after suspend/resume, execute the following command to set kernelopts for sys-net in dom0:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0]$ qvm-prefs sys-net kernelopts qubes_exp_pm_use_suspend=1
 
@@ -192,7 +184,6 @@ If a system crashes while supsended it may lead to corruption of the LVM storage
 This leads to dom0 booting, however none of the qubes start. Attempting to start qubes manually throws an error:
 
 .. code:: console
-   :class: code-block-style
       
    [user@dom0 ~]$ qvm-start sys-net
    Error:  Logical Volume "vm-sys-net-private-snap" already exists in volume group "qubes_dom0"
@@ -202,14 +193,12 @@ This leads to dom0 booting, however none of the qubes start. Attempting to start
 This should be recoverable by running:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ sudo lvconvert --repair qubes_dom0/vm-pool
 
 Reactivate the volume group n logical volume(s) in volume group ``qubes_dom0`` now active:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ sudo vgchange -ay
 
@@ -217,7 +206,6 @@ Reactivate the volume group n logical volume(s) in volume group ``qubes_dom0`` n
 After which the error should be resolved and the system should start normally:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap # Volumes now active
    /dev/qubes_dom0/vm-sys-net-private-snap
@@ -227,7 +215,6 @@ In some edge cases the fix might not work and complain about a Transaction ID in
 In this case creating a backup of your LVM config and decrementing the Transaction ID in question by one before loading it back in, might work.
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ sudo vgcfgbackup -f /tmp/qubes_dom0
    [user@dom0 ~]$ sudo cp /tmp/qubes_dom0 /tmp/qubes_dom0.bak

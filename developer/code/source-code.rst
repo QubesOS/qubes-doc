@@ -20,7 +20,6 @@ All of our repositories are available under the `QubesOS GitHub account <https:/
 To clone a repository:
 
 .. code:: console
-   :class: code-block-style
 
    $ git clone https://github.com/QubesOS/qubes-<repo_name>.git <repo_name>
 
@@ -29,7 +28,6 @@ To clone a repository:
 e.g.:
 
 .. code:: console
-   :class: code-block-style
 
    $ git clone https://github.com/QubesOS/qubes-core-admin.git core-admin
 
@@ -40,7 +38,6 @@ To build Qubes you do not need to download all these repositories. If you use :d
 If you really do want to clone **all** of the repositories, you can use these commands:
 
 .. code:: console
-   :class: code-block-style
 
    $ curl "https://api.github.com/orgs/QubesOS/repos?page=1&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
    $ curl "https://api.github.com/orgs/QubesOS/repos?page=2&per_page=100" | grep -e 'clone_url*' | cut -d \" -f 4 | xargs -L1 git clone
@@ -50,7 +47,6 @@ If you really do want to clone **all** of the repositories, you can use these co
 To update (git fetch) **all** of these repositories :
 
 .. code:: console
-   :class: code-block-style
 
    $ find . -mindepth 1 -maxdepth 1 -type d -exec git -C {} fetch --tags --recurse-submodules=on-demand --all \;
 

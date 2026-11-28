@@ -40,14 +40,12 @@ Generate or import the secret keys in the *server qube*
 * either generate your secret keys, like this:
 
   .. code:: console
-     :class: code-block-style
 
      [user@server-qube] $ gpg --gen-key
 
 * or, if you want to use some old keys, previously generated in another qube, import them and the ownertrust. Make sure to replace :file:`/home/user/QubesIncoming/{<SOME_OTHER_QUBE>}/{[...]}` by the path of the expected file:
 
   .. code:: console
-     :class: code-block-style
 
      [user@server-qube] $ gpg --import /home/user/QubesIncoming/<SOME_OTHER_QUBE>/secret-keys-export
      [user@server-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/<SOME_OTHER_QUBE>/ownertrust-export
@@ -57,7 +55,6 @@ Generate or import the secret keys in the *server qube*
 In both situations, you have to export the public part of your keys and the "ownertrust" values in the *client qube*:
 
 .. code:: console
-   :class: code-block-style
 
    [user@server-qube] $ gpg --export > public-keys-export
    [user@server-qube] $ gpg --export-ownertrust > ownertrust-export
@@ -79,7 +76,6 @@ Import the public keys and ownertrust
 If you have previously exported the public keys and the "ownertrust" values from the *server qube*. Now, you have to import them in the *client qube*. Replace the following paths by the correct values.
 
 .. code:: console
-   :class: code-block-style
 
    [user@client-qube] $ gpg --import /home/user/QubesIncoming/server-qube/public-keys-export
    [user@client-qube] $ gpg --import-ownertrust /home/user/QubesIncoming/server-qube/ownertrust-export
@@ -90,7 +86,6 @@ Check that Split GPG-2 works
 You should be able to run ``gpg -K`` in the *client qube*:
 
 .. code:: console
-   :class: code-block-style
 
    [user@client-qube] $ gpg -K
    /home/user/.gnupg/pubring.kbx

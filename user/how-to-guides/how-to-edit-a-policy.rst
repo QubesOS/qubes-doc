@@ -65,7 +65,6 @@ Edit a policy with :program:`qubes-policy-editor`
 :program:`qubes-policy-editor` is a command-line tool that ensures that the syntax of the policy is valid. You have to run it as root:
 
 .. code:: console
-   :class: code-block-style
 
    [root@dom0] $ qubes-policy-editor
 
@@ -74,7 +73,6 @@ An editor will open; it will be your default editor if you have set the environm
 It will open :file:`30-user.policy` by default but you can invoke the program with any valid filename (only alphanumeric characters, underscores and hyphens), without the ``.policy`` extension:
 
 .. code:: console
-   :class: code-block-style
 
    [root@dom0] $ qubes-policy-editor 30-clipboard
 

@@ -19,7 +19,6 @@ Qrexec is built on top of *vchan*, a Xen library providing data links between VM
 The ``qrexec-client`` command is used to make connections to VMs from dom0. For example, the following command creates an empty file called ``hello-world.txt`` in the home folder of ``someVM``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 
@@ -28,7 +27,6 @@ The ``qrexec-client`` command is used to make connections to VMs from dom0. For 
 The string before the colon specifies which user will run the command. The ``-e`` flag tells ``qrexec-client`` to exit immediately after sending the execution request and receiving a status code from ``qrexec-agent`` (if the process creation succeeded). With this option, no further data is passed between the domains. The following command demonstrates an open channel between dom0 and someVM (in this case, a remote shell):
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client -d someVM user:bash
 
@@ -86,7 +84,6 @@ Making an RPC call
 From outside of dom0, RPC calls take the following form:
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
 
@@ -95,7 +92,6 @@ From outside of dom0, RPC calls take the following form:
 For example:
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client-vm work qubes.StartApp+firefox
 
@@ -106,7 +102,6 @@ Note that only stdin/stdout is passed between RPC server and client – notably,
 It is also possible to call service without specific client program – in which case server stdin/out will be connected with the terminal:
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
@@ -174,7 +169,6 @@ Be very careful when coding and adding a new RPC service. Unless the offered fun
 For example, this command will run the ``firefox`` command in a DisposableVM based on ``work``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-run --dispvm=work firefox
 
@@ -183,7 +177,6 @@ For example, this command will run the ``firefox`` command in a DisposableVM bas
 By contrast, consider this command:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-run --dispvm=work --service qubes.StartApp+firefox
 
@@ -212,7 +205,6 @@ The argument is specified in the second column of the policy line, as +ARGUMENT.
 When calling a service that takes an argument, just add the argument to the service name separated with ``+``.
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
 
@@ -255,7 +247,6 @@ Our server will be anotherVM at ``/usr/bin/our_test_add_server``. The code for t
 We’ll need to create a service called ``test.Add`` with its own definition and policy file in dom0. Now we need to define what the service does. In this case, it should call our addition script. We define the service with a symlink at ``/etc/qubes-rpc/test.Add`` pointing to our server script (the script can be also placed directly in ``/etc/qubes-rpc/test.Add`` - make sure the file has executable bit set!):
 
 .. code:: console
-   :class: code-block-style
 
    $ ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
 
@@ -274,7 +265,6 @@ This will allow our client and server to communicate.
 Before we make the call, ensure that the client and server scripts have executable permissions. Finally, invoke the RPC service.
 
 .. code:: console
-   :class: code-block-style
 
    $ qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
 
@@ -321,7 +311,6 @@ Now we create the policy file in dom0, at ``/etc/qubes/policy.d/30-test.policy``
 With this done, we can run some tests. Invoke RPC from ``source_vm1`` via
 
 .. code:: console
-   :class: code-block-style
 
    [user@source_vm1] $ qrexec-client-vm target_vm test.File+testfile1
 
@@ -330,7 +319,6 @@ With this done, we can run some tests. Invoke RPC from ``source_vm1`` via
 We should get the contents of ``/home/user/testfile1`` printed to the terminal. Invoking the service from ``source_vm2`` should result in a denial, but ``testfile2`` should work.
 
 .. code:: console
-   :class: code-block-style
 
    [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile1
    Request refused

@@ -66,7 +66,6 @@ Security Notes
   3. In the window that opens, enter this command:
 
      .. code:: console
-        :class: code-block-style
 
         $ sudo nano /etc/yum.repos.d/qubes-dom0.repo
 
@@ -88,7 +87,6 @@ Security Notes
   3. In the window that opens, enter the command for your version:
 
      .. code:: console
-        :class: code-block-style
 
         [Qubes 3.2] $ sudo gedit /etc/yum.repos.d/qubes-r3.repo
         [Qubes 4.0] $ sudo gedit /etc/yum.repos.d/qubes-r4.repo

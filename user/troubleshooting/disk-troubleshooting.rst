@@ -29,7 +29,6 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 1. Clean yum cache.
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo dnf clean all
 
@@ -38,7 +37,6 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 2. Delete ``.img`` files of a less important VM, which can be found in ``/var/lib/qubes/appvms/``. Then, when the system is working again, clean up the rest.
 
    .. code:: console
-      :class: code-block-style
 
       $ qvm-remove <VMname>
 
@@ -48,7 +46,6 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 3. Decrease the filesystem safety margin (5% by default).
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
 
@@ -71,7 +68,6 @@ The above steps applies to old VM disks format. These steps may work on Qubes 4.
 For example:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo lvs
      LV                                            VG         Attr       LSize   Pool   Origin                                        Data%  Meta%  Move Log Cpy%Sync Convert
@@ -101,7 +97,6 @@ For example:
 After freeing some initial space, it may be possible to recover more space by deleting files in a userVM after connecting to the userVM terminal:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-start <VMname>
    $ qvm-console-dispvm <VMname>
@@ -121,7 +116,6 @@ To fix this issue:
 1. In the dom0 terminal get a root console on the vm (eg. sys-usb) with:
 
    .. code:: console
-      :class: code-block-style
 
       $ qvm-console-dispvm sys-usb
 
@@ -132,7 +126,6 @@ To fix this issue:
 3. When you attempt to unmount the ``/home`` directory using the ``umount /home`` command, you will encounter an error because there are processes using the ``/home`` directory. You can view a list of these processes with the ``fuser`` command:
 
    .. code:: console
-      :class: code-block-style
 
       $ fuser -m /home
 
@@ -145,7 +138,6 @@ Kill these process until they are all gone using ``kill <process ID>``.
 4. Finally, run:
 
    .. code:: console
-      :class: code-block-style
 
       $ umount /home
       $ fsck /dev/xvdb

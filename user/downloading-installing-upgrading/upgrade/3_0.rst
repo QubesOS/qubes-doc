@@ -28,7 +28,6 @@ Upgrade Fedora template:
 2. Install ``qubes-upgrade-vm`` package:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo yum install qubes-upgrade-vm
 
@@ -37,7 +36,6 @@ Upgrade Fedora template:
 3. Proceed with normal update in the template:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo yum update
 
@@ -57,7 +55,6 @@ Upgrade Debian template:
 2. Update repository definition:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo cp /etc/apt/sources.list.d/qubes-r2.list /etc/apt/sources.list.d/qubes-r3-upgrade.list
       $ sudo sed -i 's/r2/r3.0/' /etc/apt/sources.list.d/qubes-r3-upgrade.list
@@ -67,7 +64,6 @@ Upgrade Debian template:
 3. Proceed with normal update in the template:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo apt-get update
       $ sudo apt-get dist-upgrade
@@ -90,7 +86,6 @@ Be sure to do steps described in this section after *all* your template and stan
 2. Upgrade the ``qubes-release`` package to the latest version which brings in new repo definitions and R2 signing keys:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo qubes-dom0-update qubes-release
 
@@ -100,7 +95,6 @@ Be sure to do steps described in this section after *all* your template and stan
 3. Upgrade dom0 to R3.0:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo qubes-dom0-update --releasever=3.0
 
@@ -112,7 +106,6 @@ Be sure to do steps described in this section after *all* your template and stan
 5. Enable Xen services:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo systemctl enable xenconsoled.service xenstored.service
 
@@ -131,7 +124,6 @@ Please note that if you use Anti Evil Maid, then it won’t be able to unseal th
 Now, when you have dom0 upgraded, you can install new templates from Qubes R3.0 repositories. Especially Fedora 21 - default Qubes R3.0 template:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubes-dom0-update qubes-template-fedora-21
 
@@ -158,7 +150,6 @@ Because of above limitations, you will need to configure some of those manually.
 1. Check the VM network parameters, you will need them later:
 
    .. code:: console
-      :class: code-block-style
 
       [user@dom0 ~]$ qvm-ls -n custom-template
       -------------------+----+--------+-------+------+-------------+-------+-------------+---------+-------------+
@@ -170,7 +161,6 @@ Because of above limitations, you will need to configure some of those manually.
 2. Start the VM from command line:
 
    .. code:: console
-      :class: code-block-style
 
       [user@dom0 ~]$ qvm-start custom-template
       --> Loading the VM (type = template)...
@@ -187,7 +177,6 @@ Because of above limitations, you will need to configure some of those manually.
 3. Access VM console:
 
    .. code:: console
-      :class: code-block-style
 
       [user@dom0 ~]$ virsh -c xen:/// console custom-template
 
@@ -195,7 +184,6 @@ Because of above limitations, you will need to configure some of those manually.
 4. Configure network according to parameters retrieved in first step:
 
    .. code:: console
-      :class: code-block-style
 
       $ ip addr add 10.137.1.53/32 dev eth0
       $ ip route add 10.137.1.1/32 dev eth0

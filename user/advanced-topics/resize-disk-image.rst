@@ -37,7 +37,6 @@ Increasing the size of Disk Images with :program:`qvm-volume`
 Use either GUI tool Qube Settings (``qubes-vm-settings``) or the CLI tool ``qvm-volume``. Maximum size which can be assigned through Qube Settings is 1048576 MiB - if you need more, use ``qvm-volume``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-volume extend <vm_name>:root <size>
 
@@ -46,7 +45,6 @@ Use either GUI tool Qube Settings (``qubes-vm-settings``) or the CLI tool ``qvm-
 OR
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-volume extend <vm_name>:private <size>
 
@@ -89,7 +87,6 @@ FreeBSD
 
 
 .. code:: console
-   :class: code-block-style
 
    $ gpart recover ada0
    $ sysctl kern.geom.debugflags=0x10
@@ -115,7 +112,6 @@ You can create a new qube, copy your files in to the new qube, and delete the ol
 Or you can take the risk of reducing the size of the disk. For example, to reduce the private storage of qube1 to 1GiB: Open a terminal in dom0:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-shutdown qube1
    $ sudo lvresize --size 1024M /dev/qubes_dom0/vm-qube1-private

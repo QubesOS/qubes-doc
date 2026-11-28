@@ -29,7 +29,6 @@ If you’re reading this section, it’s likely because the installer did not al
 First, make sure you have the latest ``qubes-mgmt-salt-dom0-virtual-machines`` package by :ref:`updating dom0 <user/advanced-topics/how-to-install-software-in-dom0:how to update dom0>`. Then, enter the following command in dom0:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl state.sls qvm.usb-keyboard
 
@@ -148,7 +147,6 @@ If :ref:`automatically creating a USB qube for use with a USB keyboard <user/adv
 You can create a USB qube using the management stack by executing the following command as root in dom0:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl state.sls qvm.sys-usb
 

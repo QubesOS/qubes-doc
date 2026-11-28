@@ -16,7 +16,6 @@ Updating Error Messages
 After running the commands to update Debian or Whonix, hopefully everything will complete perfectly.
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo apt-get update && sudo apt-get dist-upgrade
 
@@ -70,7 +69,6 @@ Sometimes if you see a message such as:
 It helps to run the following command:
 
 .. code:: console
-   :class: code-block-style
 
    $ nslookup security.debian.org
 
@@ -79,7 +77,6 @@ It helps to run the following command:
 And then trying running the ``update`` and ``upgrade`` commands again.
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo apt-get update && sudo apt-get dist-upgrade
 

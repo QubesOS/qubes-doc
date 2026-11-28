@@ -15,7 +15,6 @@ When a qube starts, a fixed amount of RAM is allocated to the graphics buffer ca
 To increase the minimum size of the video RAM buffer:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-features dom0 gui-videoram-min $(($WIDTH * $HEIGHT * 4 / 1024))
    $ qvm-features dom0 gui-videoram-overhead 0
@@ -26,7 +25,6 @@ Where ``$WIDTH`` × ``$HEIGHT`` is the maximum desktop size that you anticipate 
 In the case of multiple display with different orientations or if you plug/unplug displays, the following code will set correct memory size using xrandr.
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-features dom0 gui-videoram-min $(xrandr --verbose | grep "Screen 0" | sed -e 's/.*current //' -e 's/\,.*//' | awk '{print $1*$3*4/1024}')
 

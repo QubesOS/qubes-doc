@@ -63,7 +63,6 @@ You can also change them using :doc:`qvm-features <core-admin-client:manpages/qv
 The following commands would change the *copy/paste to global clipboard* shortcuts to :kbd:`Win` + :kbd:`c` for copy, and :kbd:`Win` + :kbd:`v` for paste:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0] $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
    [user@dom0] $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'

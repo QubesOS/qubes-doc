@@ -127,7 +127,6 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
 
   .. code:: console
-     :class: code-block-style
 
      [user@dom0 ~]$ qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
 
@@ -135,7 +134,6 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
   and for a template:
 
   .. code:: console
-     :class: code-block-style
 
      [user@dom0 ~]$ qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
 
@@ -144,7 +142,6 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
 
   .. code:: console
-     :class: code-block-style
 
      [user@dom0 ~]$ qvm-volume extend WindowsNew:root 60g
      [user@dom0 ~]$ qvm-prefs WindowsNew memory 4096
@@ -177,7 +174,6 @@ These parameters are set for the following reasons:
 - After creating the new qube, increase the VM’s ``qrexec_timeout``: in case you happen to get a BSOD or a similar crash in the VM, utilities like ``chkdsk`` won’t complete on restart before ``qrexec_timeout`` automatically halts the VM. That can really put the VM in a totally unrecoverable state, whereas with higher ``qrexec_timeout``, ``chkdsk`` or the appropriate utility has plenty of time to fix the VM. Note that Qubes Windows Tools also require a larger timeout to move the user profiles to the private volume the first time the VM reboots after the tools’ installation. So set the parameter via the following CLI command from a dom0 terminal, because the Qube manager does not support this setting:
 
   .. code:: console
-     :class: code-block-style
 
      [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
 
@@ -207,7 +203,6 @@ Start Windows VM
   This can also be done via the following CLI command in dom0 (assuming that the Windows installer ISO is stored in the directory ``/home/user/`` in the AppVM ``untrusted``):
 
   .. code:: console
-     :class: code-block-style
 
      [user@dom0 ~]$ qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
 
@@ -299,7 +294,6 @@ After Windows installation
 - From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which could lead to corruption of the VM’s disk.
 
   .. code:: powershell
-     :class: code-block-style
 
      C:\> powercfg -H off
 
@@ -381,7 +375,6 @@ Moving the user data is not directly possible under Windows, because the directo
 AppVMs based on these templates can be created in the normal way by using the Qube Manager or by specifying
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ qvm-create --class=AppVM --template=<VMname> WindowsAppVM
 
@@ -394,7 +387,6 @@ On starting the AppVM, sometimes a message is displayed that the Xen PV Network 
 Furthermore, if manual IP setup was used for the template, the IP address selected for the template will also be used for the AppVM, as it inherits this address from the template. Qubes, however, will have assigned a different address to the AppVM, which will have to be changed to that of the template (e.g., 10.137.0.x) so that the AppVM can access the network, via the CLI command in a dom0 terminal:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0 ~]$ qvm-prefs WindowsNew ip 10.137.0.x
 

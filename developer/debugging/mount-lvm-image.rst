@@ -8,7 +8,6 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
 1: make the image available for qubesdb. From dom0 terminal:
 
 .. code:: console
-   :class: code-block-style
 
    # Example: /dev/qubes_dom0/vm-debian-9-tmp-root
    [user@dom0]$ dev=$(basename $(readlink /dev/YOUR_LVM_VG/YOUR_LVM_IMAGE))
@@ -18,7 +17,6 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
 2: Create a new disposable VM
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0]$ qvm-run -v --dispvm=YOUR_DVM_TEMPLATE --service qubes.StartApp+xterm &
 
@@ -28,7 +26,6 @@ You want to read your LVM image (e.g., there is a problem where you can’t star
 From the GUI, or from the command line:
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0]$ qvm-block attach NEWLY_CREATED_DISPVM dom0:$dev
 
@@ -36,7 +33,6 @@ From the GUI, or from the command line:
 4: Mount the partition you want to, and do what you want with it
 
 .. code:: console
-   :class: code-block-style
 
    [user@dispXXXX]$ mount /dev/xvdiX /mnt/
 
@@ -44,7 +40,6 @@ From the GUI, or from the command line:
 5: Umount and kill the VM
 
 .. code:: console
-   :class: code-block-style
 
    [user@dispXXXX]$ umount /mnt/
 
@@ -52,7 +47,6 @@ From the GUI, or from the command line:
 6: Remove the image from qubesdb
 
 .. code:: console
-   :class: code-block-style
 
    [user@dom0]$ qubesdb-rm /qubes-block-devices/$dev/
 

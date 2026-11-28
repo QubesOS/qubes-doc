@@ -12,7 +12,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 1. Untar the main backup file.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore ~]$ tar -i -xvf qubes-backup-2015-06-05T123456
       backup-header
@@ -35,7 +34,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 2. Set the backup passphrase environment variable. While this isn’t strictly required, it will be handy later and will avoid saving the passphrase in the shell’s history.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore ~]$ read -r backup_pass
 
@@ -44,7 +42,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 3. Verify the integrity of the ``backup-header`` file, which contains basic information about your backup.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore ~]$ openssl dgst -sha512 -hmac "$backup_pass" backup-header
       HMAC-SHA512(backup-header)= 5b266783e116fe3b2601a54c249ca5f5f96d421dfe6828eeaeb2dcd014e9e945c27b3d7b0f952f5d55c927318906d9c360f387b0e1f069bb8195e96543e2969c
@@ -62,7 +59,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 4. Read the ``backup-header``. You’ll need some of this information later. The file will look similar to this:
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore ~]$ cat backup-header
       version=3
@@ -78,7 +74,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 5. Verify the integrity of the ``private.img`` file which houses your data.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore ~]$ cd vm1/
       [user@restore vm1]$ openssl dgst -sha512 -hmac "$backup_pass" private.img.000
@@ -97,7 +92,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 6. Decrypt the ``private.img`` file.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore vm1]$ find -name 'private.img.*[0-9]' | sort -V | xargs cat | openssl enc -d -md MD5 -pass pass:"$backup_pass" -aes-256-cbc -out private.img.dec
 
@@ -107,7 +101,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 7. Decompress the decrypted ``private.img`` file.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore vm1]$ zforce private.img.dec
       private.img.dec -- replaced with private.img.dec.gz
@@ -117,7 +110,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
    **Note:** If your backup was compressed with a program other than ``gzip``, you must substitute the correct compression program. This information is contained in the ``backup-header`` file (see step 4). For example, if you used ``bzip2``, then you should do this:
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore vm1]$ mv private.img.dec private.img.dec.bz2
       [user@restore vm1]$ bunzip2 private.img.dec.bz2
@@ -127,7 +119,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 8. Untar the decrypted and decompressed ``private.img`` file.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore vm1]$ tar -xvf private.img.dec
       vm1/private.img
@@ -137,7 +128,6 @@ The Qubes backup system has been designed with emergency disaster recovery in mi
 9. Mount the private.img file and access your data.
 
    .. code:: console
-      :class: code-block-style
 
       [user@restore vm1]$ sudo mkdir /mnt/img
       [user@restore vm1]$ sudo mount -o loop vm1/private.img /mnt/img/

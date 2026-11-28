@@ -21,7 +21,6 @@ Here, we describe how to setup ``sys-gui`` that we call *hybrid mode* or referen
 In ``dom0``, enable the formula for ``sys-gui`` with pillar data:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl top.enable qvm.sys-gui
    $ sudo qubesctl top.enable qvm.sys-gui pillar=True
@@ -30,7 +29,6 @@ In ``dom0``, enable the formula for ``sys-gui`` with pillar data:
 then, execute it:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl --all state.highstate
 
@@ -38,7 +36,6 @@ then, execute it:
 You can now disable the ``sys-gui`` formula:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl top.disable qvm.sys-gui
 
@@ -46,7 +43,6 @@ You can now disable the ``sys-gui`` formula:
 Note that the ``default_guivm`` qubes global property has not been changed. You can confirm this with:
 
 .. code:: console
-   :class: code-block-style
 
    $ qubes-prefs default_guivm
 
@@ -70,7 +66,6 @@ Here, we describe how to setup ``sys-gui-gpu`` which is a GUI domain with *GPU p
 In ``dom0``, enable the formula for ``sys-gui-gpu`` with pillar data:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl top.enable qvm.sys-gui-gpu
    $ sudo qubesctl top.enable qvm.sys-gui-gpu pillar=True
@@ -79,7 +74,6 @@ In ``dom0``, enable the formula for ``sys-gui-gpu`` with pillar data:
 then, execute it:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl --all state.highstate
 
@@ -87,7 +81,6 @@ then, execute it:
 You can now disable the ``sys-gui-gpu`` formula:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl top.disable qvm.sys-gui-gpu
 
@@ -95,7 +88,6 @@ You can now disable the ``sys-gui-gpu`` formula:
 One more step is needed: attaching the actual GPU to ``sys-gui-gpu``. This can be done either manually via ``qvm-pci`` (remember to enable permissive option), or via:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl state.sls qvm.sys-gui-gpu-attach-gpu
 
@@ -121,7 +113,6 @@ Here, we describe how to setup ``sys-gui-vnc`` that we call a *remote* GUI domai
 In ``dom0``, enable the formula for ``sys-gui-vnc`` with pillar data:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl top.enable qvm.sys-gui-vnc
    $ sudo qubesctl top.enable qvm.sys-gui-vnc pillar=True
@@ -130,7 +121,6 @@ In ``dom0``, enable the formula for ``sys-gui-vnc`` with pillar data:
 then, execute it:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl --all state.highstate
 
@@ -138,7 +128,6 @@ then, execute it:
 You can now disable the ``sys-gui-vnc`` formula:
 
 .. code:: console
-   :class: code-block-style
 
    $ sudo qubesctl top.disable qvm.sys-gui-vnc
 
@@ -146,7 +135,6 @@ You can now disable the ``sys-gui-vnc`` formula:
 At this point, you need to shutdown all your running qubes as the ``default_guivm`` qubes global property has been set to ``sys-gui-vnc``. Then, you can start ``sys-gui-vnc``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-start sys-gui-vnc
 
@@ -198,7 +186,6 @@ The following commands have to be run in ``dom0``.
 Set ``default_guivm`` as ``dom0``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qubes-prefs default_guivm dom0
 
@@ -206,7 +193,6 @@ Set ``default_guivm`` as ``dom0``:
 and for every selected qubes not using default value for GUI domain property, for example with a qube ``personal``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-prefs personal guivm dom0
 
@@ -214,7 +200,6 @@ and for every selected qubes not using default value for GUI domain property, fo
 You are now able to delete the GUI domain, for example ``sys-gui-gpu``:
 
 .. code:: console
-   :class: code-block-style
 
    $ qvm-remove -f sys-gui-gpu
 

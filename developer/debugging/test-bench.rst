@@ -95,7 +95,6 @@ Internet access is intentionally disabled by default in dom0. But to ease the de
 7. Then, enable and start the SSH Server and the script on boot:
 
    .. code:: console
-      :class: code-block-style
 
       $ sudo systemctl enable sshd
       $ sudo systemctl start sshd
@@ -119,7 +118,6 @@ Because of the above reason, some additional configurations need to be done to y
 The following commands should work for you, but do keep in mind that the provisioning scripts are designed for the `openQA environment <https://openqa.qubes-os.org/>`__ and not your specific local testing system. Run the following in ``dom0``:
 
 .. code:: console
-   :class: code-block-style
 
    # For future reference the following commands are an adaptation of
    # https://github.com/marmarek/openqa-tests-qubesos/blob/master/tests/update.pm
@@ -158,7 +156,6 @@ SSH
 Arrange firewall so you can reach the testbench from your ``qubes-dev`` VM. Generate SSH key in ``qubes-dev``:
 
 .. code:: console
-   :class: code-block-style
 
    $ ssh-keygen -t ecdsa -b 521
 
