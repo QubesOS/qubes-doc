@@ -33,9 +33,9 @@ If not specified otherwise, block devices will show up as ``/dev/xvdi*`` in a li
 
 .. code:: console
 
-      $ cd ~
-      $ mkdir mnt
-      $ sudo mount /dev/xvdi2 mnt
+   $ cd ~
+   $ mkdir mnt
+   $ sudo mount /dev/xvdi2 mnt
 
 where ``xvdi2`` needs to be replaced with the partition you want to mount. This will make your drive content accessible under ``~/mnt``.
 
@@ -58,7 +58,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         $ qvm-block
+      $ qvm-block
 
    This will list all available block devices in your system across all VMs. The name of the qube hosting the block device is displayed before the colon in the device ID. The string after the colon is the ID of the device used within the qube, like so:
 
@@ -71,7 +71,7 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         $ qvm-block attach work sys-usb:sdb
+      $ qvm-block attach work sys-usb:sdb
 
    - This will attach the device to the qube as ``/dev/xvdi`` if that name is not already taken by another attached device, or ``/dev/xvdj``, etc.
 
@@ -81,9 +81,9 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         $ cd ~
-         $ mkdir mnt
-         $ sudo mount /dev/xvdi mnt
+      $ cd ~
+      $ mkdir mnt
+      $ sudo mount /dev/xvdi mnt
 
 4. When you finish using the block device, click the eject button or right-click and select **Unmount**.
 
@@ -91,13 +91,13 @@ In case of a USB-drive, make sure itâ€™s attached to your computer. If you donâ€
 
    .. code:: console
 
-         $ sudo umount mnt
+      $ sudo umount mnt
 
 5. In a dom0 console, detach the device
 
    .. code:: console
 
-         $ qvm-block detach work sys-usb:sdb
+      $ qvm-block detach work sys-usb:sdb
 
 6. You may now remove the device or attach it to another qube.
 
@@ -110,7 +110,7 @@ To recover from this error state, in dom0 run
 
 .. code:: console
 
-      $ virsh detach-disk targetVM xvdi
+   $ virsh detach-disk targetVM xvdi
 
 (where ``targetVM`` is to be replaced with the VM name you attached the device to and ``xvdi`` is to be replaced with the used `frontend device node <#frontend-dev>`__.)
 
@@ -127,9 +127,9 @@ Currently (until issue `1082 <https://github.com/QubesOS/qubes-issues/issues/108
 
    .. code:: console
 
-         [user@dom0 ~]$ qvm-block
-         sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
-         [user@dom0 ~]$ sudo xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
+      [user@dom0 ~]$ qvm-block
+      sys-usb:sda DataTraveler_2.0 () 246 MiB (attached to 'testvm' as 'xvdi')
+      [user@dom0 ~]$ sudo xl block-attach testvm phy:/dev/sda backend=sys-usb xvdi
 
    In above example, all ``xl block-attach`` parameters can be deduced from the output of ``qvm-block``. In order:
 
@@ -152,7 +152,7 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
    .. code:: console
 
-         $ sudo losetup -f --show /path/to/file
+      $ sudo losetup -f --show /path/to/file
 
    `This command <https://linux.die.net/man/8/losetup>`__ will create the device node ``/dev/loop0`` or, if that is already in use, increase the trailing integer until that name is still available. Afterwards it prints the device-node-name it found.
 
@@ -164,21 +164,21 @@ To attach a file as block device to another qube, first turn it into a loopback 
 
    .. code:: console
 
-         ~]$ qvm-block
-         BACKEND:DEVID  DESCRIPTION  USED BY
-         sourceVM:loop0 /path/to/file
+      $ qvm-block
+      BACKEND:DEVID  DESCRIPTION  USED BY
+      sourceVM:loop0 /path/to/file
 
 3. Attach the ``loop0``-device using qvm-block as usual:
 
    .. code:: console
 
-         $ qvm-block a targetVM sourceVM:loop0
+      $ qvm-block a targetVM sourceVM:loop0
 
 4. After detaching, destroy the loop-device inside the sourceVM as follows:
 
    .. code:: console
 
-         $ sudo losetup -d /dev/loop0
+      $ sudo losetup -d /dev/loop0
 
 Additional Attach Options
 -------------------------
@@ -194,7 +194,7 @@ usage example:
 
 .. code:: console
 
-      $ qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
+   $ qvm-block a work sys-usb:sda1 -o frontend-dev=xvdz
 
 This command will attach the partition ``sda1`` to ``work`` as ``/dev/xvdz``.
 
@@ -209,13 +209,13 @@ usage example:
 
 .. code:: console
 
-      $ qvm-block a work sys-usb:sda1 -o read-only=true
+   $ qvm-block a work sys-usb:sda1 -o read-only=true
 
 There exists a shortcut to set read-only ``true``, ``--ro``:
 
 .. code:: console
 
-      $ qvm-block a work sys-usb:sda1 --ro
+   $ qvm-block a work sys-usb:sda1 --ro
 
 The two commands are equivalent.
 
@@ -228,6 +228,6 @@ usage example:
 
 .. code:: console
 
-      $ qvm-block a work sys-usb:sda1 -o devtype=cdrom
+   $ qvm-block a work sys-usb:sda1 -o devtype=cdrom
 
 This option accepts ``cdrom`` and ``disk``, default is ``disk``.

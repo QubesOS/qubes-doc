@@ -46,7 +46,7 @@ Alternatively, to create an empty standalone from the dom0 command line:
 
 .. code:: console
 
-      $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
+   $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm <NEW_STANDALONE_NAME>
 
 
 
@@ -54,7 +54,7 @@ Or to create a standalone copied from a template:
 
 .. code:: console
 
-      $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
+   $ qvm-create --class StandaloneVM --label <YOUR_COLOR> --property virt_mode=hvm --template <TEMPLATE_QUBE_NAME> <NEW_STANDALONE_NAME>
 
 
 
@@ -90,7 +90,7 @@ Qubes are template-based (i.e., :term:`app qubes  <app qube>` by default, so you
 
 .. code:: console
 
-      $ qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
+   $ qvm-create my-new-vm --class StandaloneVM --property virt_mode=hvm --property kernel='' --label=green
 
 
 
@@ -114,7 +114,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         $ qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
+      $ qvm-start <YOUR_HVM> --cdrom=/dev/cdrom
 
 
 
@@ -122,7 +122,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         $ qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
+      $ qvm-start <YOUR_HVM> --cdrom=dom0:/usr/local/iso/<YOUR_INSTALLER.ISO>
 
 
 
@@ -130,7 +130,7 @@ You will have to boot the qube with the installation media “attached” to it.
 
    .. code:: console
 
-         $ qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
+      $ qvm-start <YOUR_HVM> --cdrom=<YOUR_OTHER_QUBE>:/home/user/<YOUR_INSTALLER.ISO>
 
 
 
@@ -201,7 +201,7 @@ In order to create an HVM template, you use the following command, suitably adap
 
 .. code:: console
 
-      $ qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
+   $ qvm-create --class TemplateVM <YOUR_HVM_TEMPLATE_NAME> --property virt_mode=HVM --property kernel=''  -l <YOUR_COLOR>
 
 
 
@@ -221,89 +221,89 @@ The cloned qube will get identical root and private images and will essentially 
 
 .. code:: console
 
-      [joanna@dom0 ~]$ qvm-prefs my-new-vm
-      autostart           D  False
-      backup_timestamp    U
-      debug               D  False
-      default_dispvm      D  None
-      default_user        D  user
-      gateway             D
-      gateway6            D
-      include_in_backups  -  False
-      installed_by_rpm    D  False
-      ip                  D  10.137.0.122
-      ip6                 D  fd09:24ef:4179::a89:7a
-      kernel              -
-      kernelopts          D  nopat
-      klass               D  StandaloneVM
-      label               -  red
-      mac                 D  00:16:3e:5e:6c:00
-      management_dispvm   D  default-mgmt-dvm
-      maxmem              D  0
-      memory              -  1000
-      name                -  my-new-vm
-      netvm               -  sys-firewall
-      provides_network    -  False
-      qid                 -  122
-      qrexec_timeout      D  60
-      shutdown_timeout    D  60
-      start_time          D
-      stubdom_mem         U
-      stubdom_xid         D  -1
-      updateable          D  True
-      uuid                -  54387f94-8617-46b0-8806-0c18bc387f34
-      vcpus               D  2
-      virt_mode           -  hvm
-      visible_gateway     D  10.137.0.14
-      visible_gateway6    D  fd09:24ef:4179::a89:e
-      visible_ip          D  10.137.0.122
-      visible_ip6         D  fd09:24ef:4179::a89:7a
-      visible_netmask     D  255.255.255.255
-      xid                 D  -1
+   [joanna@dom0 ~]$ qvm-prefs my-new-vm
+   autostart           D  False
+   backup_timestamp    U
+   debug               D  False
+   default_dispvm      D  None
+   default_user        D  user
+   gateway             D
+   gateway6            D
+   include_in_backups  -  False
+   installed_by_rpm    D  False
+   ip                  D  10.137.0.122
+   ip6                 D  fd09:24ef:4179::a89:7a
+   kernel              -
+   kernelopts          D  nopat
+   klass               D  StandaloneVM
+   label               -  red
+   mac                 D  00:16:3e:5e:6c:00
+   management_dispvm   D  default-mgmt-dvm
+   maxmem              D  0
+   memory              -  1000
+   name                -  my-new-vm
+   netvm               -  sys-firewall
+   provides_network    -  False
+   qid                 -  122
+   qrexec_timeout      D  60
+   shutdown_timeout    D  60
+   start_time          D
+   stubdom_mem         U
+   stubdom_xid         D  -1
+   updateable          D  True
+   uuid                -  54387f94-8617-46b0-8806-0c18bc387f34
+   vcpus               D  2
+   virt_mode           -  hvm
+   visible_gateway     D  10.137.0.14
+   visible_gateway6    D  fd09:24ef:4179::a89:e
+   visible_ip          D  10.137.0.122
+   visible_ip6         D  fd09:24ef:4179::a89:7a
+   visible_netmask     D  255.255.255.255
+   xid                 D  -1
 
-      [joanna@dom0 ~]$ qvm-clone my-new-vm my-new-vm-copy
+   [joanna@dom0 ~]$ qvm-clone my-new-vm my-new-vm-copy
 
-      /.../
+   /.../
 
-      [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy
-      autostart           D  False
-      backup_timestamp    U
-      debug               D  False
-      default_dispvm      D  None
-      default_user        D  user
-      gateway             D
-      gateway6            D
-      include_in_backups  -  False
-      installed_by_rpm    D  False
-      ip                  D  10.137.0.137
-      ip6                 D  fd09:24ef:4179::a89:89
-      kernel              -
-      kernelopts          D  nopat
-      klass               D  StandaloneVM
-      label               -  red
-      mac                 D  00:16:3e:5e:6c:00
-      management_dispvm   D  default-mgmt-dvm
-      maxmem              D  0
-      memory              -  1000
-      name                -  my-new-vm-copy
-      netvm               -  sys-firewall
-      provides_network    -  False
-      qid                 -  137
-      qrexec_timeout      D  60
-      shutdown_timeout    D  60
-      start_time          D
-      stubdom_mem         U
-      stubdom_xid         D  -1
-      updateable          D  True
-      uuid                -  9ad109a9-d95a-4e03-b977-592f8424f42b
-      vcpus               D  2
-      virt_mode           -  hvm
-      visible_gateway     D  10.137.0.14
-      visible_gateway6    D  fd09:24ef:4179::a89:e
-      visible_ip          D  10.137.0.137
-      visible_ip6         D  fd09:24ef:4179::a89:89
-      visible_netmask     D  255.255.255.255
-      xid                 D  -1
+   [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy
+   autostart           D  False
+   backup_timestamp    U
+   debug               D  False
+   default_dispvm      D  None
+   default_user        D  user
+   gateway             D
+   gateway6            D
+   include_in_backups  -  False
+   installed_by_rpm    D  False
+   ip                  D  10.137.0.137
+   ip6                 D  fd09:24ef:4179::a89:89
+   kernel              -
+   kernelopts          D  nopat
+   klass               D  StandaloneVM
+   label               -  red
+   mac                 D  00:16:3e:5e:6c:00
+   management_dispvm   D  default-mgmt-dvm
+   maxmem              D  0
+   memory              -  1000
+   name                -  my-new-vm-copy
+   netvm               -  sys-firewall
+   provides_network    -  False
+   qid                 -  137
+   qrexec_timeout      D  60
+   shutdown_timeout    D  60
+   start_time          D
+   stubdom_mem         U
+   stubdom_xid         D  -1
+   updateable          D  True
+   uuid                -  9ad109a9-d95a-4e03-b977-592f8424f42b
+   vcpus               D  2
+   virt_mode           -  hvm
+   visible_gateway     D  10.137.0.14
+   visible_gateway6    D  fd09:24ef:4179::a89:e
+   visible_ip          D  10.137.0.137
+   visible_ip6         D  fd09:24ef:4179::a89:89
+   visible_netmask     D  255.255.255.255
+   xid                 D  -1
 
 
 
@@ -311,11 +311,11 @@ Note that the MAC addresses differ between those two otherwise identical qubes. 
 
 .. code:: console
 
-      [joanna@dom0 ~]$ qvm-ls -n
+   [joanna@dom0 ~]$ qvm-ls -n
 
-      NAME                 STATE   NETVM         IP            IPBACK  GATEWAY
-      my-new-hvm           Halted  sys-firewall  10.137.0.122  -       10.137.0.14
-      my-new-hvm-clone     Halted  sys-firewall  10.137.0.137  -       10.137.0.14
+   NAME                 STATE   NETVM         IP            IPBACK  GATEWAY
+   my-new-hvm           Halted  sys-firewall  10.137.0.122  -       10.137.0.14
+   my-new-hvm-clone     Halted  sys-firewall  10.137.0.137  -       10.137.0.14
 
 
 
@@ -323,30 +323,30 @@ If, for any reason, you would like to make sure that the two qubes have the same
 
 .. code:: console
 
-      [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy -s mac 00:16:3E:5E:6C:05
-      [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy
-      name              : my-new-vm-copy
-      label             : green
-      type              : HVM
-      netvm             : firewallvm
-      updateable?       : True
-      installed by RPM? : False
-      include in backups: False
-      dir               : /var/lib/qubes/appvms/my-new-vm-copy
-      config            : /var/lib/qubes/appvms/my-new-vm-copy/my-new-vm-copy.conf
-      pcidevs           : []
-      root img          : /var/lib/qubes/appvms/my-new-vm-copy/root.img
-      private img       : /var/lib/qubes/appvms/my-new-vm-copy/private.img
-      vcpus             : 4
-      memory            : 512
-      maxmem            : 512
-      MAC               : 00:16:3E:5E:6C:05
-      debug             : off
-      default user      : user
-      qrexec_installed  : False
-      qrexec timeout    : 60
-      drive             : None
-      timezone          : localtime
+   [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy -s mac 00:16:3E:5E:6C:05
+   [joanna@dom0 ~]$ qvm-prefs my-new-vm-copy
+   name              : my-new-vm-copy
+   label             : green
+   type              : HVM
+   netvm             : firewallvm
+   updateable?       : True
+   installed by RPM? : False
+   include in backups: False
+   dir               : /var/lib/qubes/appvms/my-new-vm-copy
+   config            : /var/lib/qubes/appvms/my-new-vm-copy/my-new-vm-copy.conf
+   pcidevs           : []
+   root img          : /var/lib/qubes/appvms/my-new-vm-copy/root.img
+   private img       : /var/lib/qubes/appvms/my-new-vm-copy/private.img
+   vcpus             : 4
+   memory            : 512
+   maxmem            : 512
+   MAC               : 00:16:3E:5E:6C:05
+   debug             : off
+   default user      : user
+   qrexec_installed  : False
+   qrexec timeout    : 60
+   drive             : None
+   timezone          : localtime
 
 
 
@@ -377,7 +377,7 @@ In a Debian app qube, install ``qemu-utils`` and ``unzip``:
 
 .. code:: console
 
-      $ sudo apt install qemu-utils unzip
+   $ sudo apt install qemu-utils unzip
 
 
 
@@ -385,7 +385,7 @@ In a Fedora app qube:
 
 .. code:: console
 
-      $ sudo dnf install qemu-img
+   $ sudo dnf install qemu-img
 
 
 
@@ -393,7 +393,7 @@ Unzip VirtualBox zip file:
 
 .. code:: console
 
-      $ unzip *.zip
+   $ unzip *.zip
 
 
 
@@ -401,7 +401,7 @@ Extract OVA tar archive:
 
 .. code:: console
 
-      $ tar -xvf *.ova
+   $ tar -xvf *.ova
 
 
 
@@ -409,7 +409,7 @@ Convert vmdk to raw:
 
 .. code:: console
 
-      $ qemu-img convert -O raw *.vmdk win10.raw
+   $ qemu-img convert -O raw *.vmdk win10.raw
 
 
 
@@ -417,7 +417,7 @@ Copy the root image file from the originating qube (here called ``untrusted``) t
 
 .. code:: console
 
-      $ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
+   $ qvm-run --pass-io untrusted 'cat "/media/user/externalhd/win10.raw"' > /home/user/win10-root.img
 
 
 
@@ -425,7 +425,7 @@ From within dom0, create a new HVM (here called ``win10``) with the root image w
 
 .. code:: console
 
-      $ qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
+   $ qvm-create --property=virt_mode=hvm --property=memory=4096 --property=kernel='' --label red --standalone --root-move-from /home/user/win10-root.img win10
 
 
 
@@ -433,7 +433,7 @@ Start ``win10``:
 
 .. code:: console
 
-      $ qvm-start win10
+   $ qvm-start win10
 
 
 
@@ -445,7 +445,7 @@ Filetype of OVA file:
 
 .. code:: console
 
-      $ file *.ova
+   $ file *.ova
 
 
 
@@ -453,7 +453,7 @@ List files of OVA tar archive:
 
 .. code:: console
 
-      $ tar -tf *.ova
+   $ tar -tf *.ova
 
 
 
@@ -461,7 +461,7 @@ List filetypes supported by qemu-img:
 
 .. code:: console
 
-      $ qemu-img -h | tail -n1
+   $ qemu-img -h | tail -n1
 
 
 

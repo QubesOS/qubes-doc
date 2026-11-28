@@ -34,7 +34,7 @@ To install additional packages in dom0 (usually not recommended):
 
 .. code:: console
 
-      $ sudo qubes-dom0-update anti-evil-maid
+   $ sudo qubes-dom0-update anti-evil-maid
 
 
 
@@ -50,7 +50,7 @@ To downgrade a specific package in dom0:
 
 .. code:: console
 
-      $ sudo qubes-dom0-update --action=downgrade package-version
+   $ sudo qubes-dom0-update --action=downgrade package-version
 
 
 
@@ -62,7 +62,7 @@ To re-install a package in dom0:
 
 .. code:: console
 
-      $ sudo qubes-dom0-update --action=reinstall package
+   $ sudo qubes-dom0-update --action=reinstall package
 
 
 
@@ -74,7 +74,7 @@ If you’ve installed a package such as anti-evil-maid, you can remove it with t
 
 .. code:: console
 
-      $ sudo dnf remove anti-evil-maid
+   $ sudo dnf remove anti-evil-maid
 
 
 .. _dom0-testing-repositories:
@@ -99,9 +99,9 @@ To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` o
 
 .. code:: console
 
-      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
-      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
-      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
+   $ sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing
+   $ sudo qubes-dom0-update --enablerepo=qubes-dom0-security-testing
+   $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable
 
 
 
@@ -157,7 +157,7 @@ Example
 
 .. code:: console
 
-      $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
+   $ sudo qubes-dom0-update --enablerepo=qubes-dom0-unstable kernel kernel-qubes-vm
 
 
 
@@ -171,7 +171,7 @@ Replace the example version numbers with the one you are upgrading to.
 
 .. code:: console
 
-      $ sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
+   $ sudo dracut -f /boot/efi/EFI/qubes/initramfs-4.14.35-1.pvops.qubes.x86_64.img 4.14.35-1.pvops.qubes.x86_64
 
 
 
@@ -181,7 +181,7 @@ Grub2
 
 .. code:: console
 
-      $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+   $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
@@ -198,7 +198,7 @@ This section describes changing the default kernel in dom0. It is sometimes need
 
 .. code:: console
 
-      $ sudo nano /etc/default/grub
+   $ sudo nano /etc/default/grub
 
 
 Update the following two lines, add if needed:
@@ -213,7 +213,7 @@ Save and exit nano. Regenerate the GRUB 2 configuration.
 
 .. code:: console
 
-      $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+   $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 

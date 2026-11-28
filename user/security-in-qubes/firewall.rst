@@ -62,7 +62,7 @@ See: :doc:`core-admin-client:manpages/qvm-firewall`
 How to edit rules from the qube itself
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`user/security-in-qubes/firewall:where to put firewall rules`.
 
@@ -100,7 +100,7 @@ Qubes OS tries to prevent stopping a net qube if there are other qubes running w
 
 .. code:: console
 
-      [user@dom0] $ qvm-prefs <QUBE> netvm <NET_QUBE>
+   [user@dom0] $ qvm-prefs <QUBE> netvm <NET_QUBE>
 
 Where :samp:`{<QUBE>}` is the qube connected to the stopped net qube and :samp:`{<NET_QUBE>}` is the net qube that stopped.
 
@@ -108,7 +108,7 @@ A qube should normally not connect directly to the actual net qube which has net
 
 .. code:: console
 
-      [user@dom0] $ qvm-prefs sys-firewall netvm sys-net
+   [user@dom0] $ qvm-prefs sys-firewall netvm sys-net
 
 
 
@@ -138,7 +138,7 @@ Thereby *sys-firewall-1* is only needed if you have other client qubes connected
 
 If you adopt this model, you should be aware that all traffic will arrive at the *network service qube* appearing to originate from the IP address of *sys-firewall-2*.
 
-.. admonition:: See also
+.. seealso::
 
    For the VPN service, see the `Meta-topic: List of all VPN guides <https://forum.qubes-os.org/t/meta-topic-list-of-all-vpn-guides/38466>`__ on the forum.
 
@@ -162,7 +162,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 .. code:: console
 
-      $ sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> ct state new,established,related counter accept
+   $ sudo nft add rule ip qubes custom-forward ip saddr <IP address of A> ip daddr <IP address of B> ct state new,established,related counter accept
 
 
 
@@ -172,7 +172,7 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 .. code:: console
 
-      $ sudo nft add rule qubes custom-input ip saddr <IP address of A> ct state new,established,related counter accept
+   $ sudo nft add rule qubes custom-input ip saddr <IP address of A> ct state new,established,related counter accept
 
 
 
@@ -184,8 +184,8 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 .. code:: console
 
-      [user@sys-firewall ~]$ sudo -i
-      [root@sys-firewall user]# echo "nft add rule ip qubes custom-forward ip saddr 10.137.2.25 ip daddr 10.137.2.6 ct state new,established,related counter accept" >> /rw/config/qubes-firewall-user-script
+   [user@sys-firewall ~]$ sudo -i
+   [root@sys-firewall user]# echo "nft add rule ip qubes custom-forward ip saddr 10.137.2.25 ip daddr 10.137.2.6 ct state new,established,related counter accept" >> /rw/config/qubes-firewall-user-script
 
 
 
@@ -195,8 +195,8 @@ In order to allow networking from qube A (client) to qube B (server) follow thes
 
 .. code:: console
 
-      [user@B ~]$ sudo -i
-      [root@B user]# echo "nft add rule qubes custom-input ip saddr 10.137.2.25 accept" >> /rw/config/rc.local
+   [user@B ~]$ sudo -i
+   [root@B user]# echo "nft add rule qubes custom-input ip saddr 10.137.2.25 accept" >> /rw/config/rc.local
 
 
 
@@ -222,7 +222,7 @@ Consider the following example. ``mytcp-service`` qube has a TCP service running
 
   .. code:: console
 
-        [user@untrusted #]$ qvm-connect-tcp 444:@default:444
+     [user@untrusted #]$ qvm-connect-tcp 444:@default:444
 
 
 
@@ -236,7 +236,7 @@ Here ``@default`` is used to hide the destination qube which is specified in the
 
 .. code:: console
 
-      [user@untrusted #]$ qvm-connect-tcp ::444
+   [user@untrusted #]$ qvm-connect-tcp ::444
 
 
 
@@ -256,7 +256,7 @@ in ``/etc/qubes/policy.d/30-user-networking.policy`` and in untrusted, use the t
 
 .. code:: console
 
-      [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
+   [user@untrusted #]$ qvm-connect-tcp 10444:mytcp-service:444
 
 
 
@@ -276,7 +276,7 @@ In that case, calling ``qvm-connect-tcp`` like previous examples, will still bin
 
 .. code:: console
 
-      [user@untrusted #]$ qvm-connect-tcp ::445
+   [user@untrusted #]$ qvm-connect-tcp ::445
 
 
 
@@ -394,7 +394,7 @@ In the sys-net VM’s Terminal, the first step is to define an nftables chain th
 
 .. code:: console
 
-      $ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+   $ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
 
 
@@ -408,7 +408,7 @@ Second step, code a natting firewall rule to route traffic on the outside interf
 
 .. code:: console
 
-      $ nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
+   $ nft add rule qubes custom-dnat-qubeDEST iifname ens6 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.1.z
 
 
 
@@ -416,7 +416,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 .. code:: console
 
-      $ nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
+   $ nft add rule qubes custom-forward iifname ens6 ip saddr 192.168.x.y/24 ip daddr 10.137.1.z tcp dport 443 ct state new,established,related counter accept
 
 
 
@@ -430,7 +430,7 @@ Verify the rules on the sys-net firewall correctly match the packets you want by
 
 .. code:: console
 
-      $ nft list table ip qubes
+   $ nft list table ip qubes
 
 
 
@@ -453,7 +453,7 @@ In this example, we can see 7 packets in the forward rule, and 3 packets in the 
 
 .. code:: console
 
-      $ telnet 192.168.x.n 443
+   $ telnet 192.168.x.n 443
 
 
 
@@ -461,8 +461,8 @@ Once you have confirmed that the counters increase, store the commands used in t
 
 .. code:: console
 
-      [user@sys-net user]$ sudo -i
-      [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
+   [user@sys-net user]$ sudo -i
+   [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 
 
 
@@ -492,7 +492,7 @@ In the sys-firewall Terminal, add a DNAT chain that will contain routing rules:
 
 .. code:: console
 
-      $ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
+   $ nft add chain qubes custom-dnat-qubeDEST '{ type nat hook prerouting priority filter +1 ; policy accept; }'
 
 
 
@@ -500,7 +500,7 @@ Second step, code a natting firewall rule to route traffic on the outside interf
 
 .. code:: console
 
-      $ nft add rule qubes custom-dnat-qubeDEST iifgroup 1 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
+   $ nft add rule qubes custom-dnat-qubeDEST iifgroup 1 ip saddr 192.168.x.y/24 tcp dport 443 ct state new,established,related counter dnat 10.137.0.xx
 
 
 
@@ -508,7 +508,7 @@ Third step, code the appropriate new filtering firewall rule to allow new connec
 
 .. code:: console
 
-      $ nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
+   $ nft add rule qubes custom-forward iifgroup 1 ip saddr 192.168.x.y/24 ip daddr 10.137.0.xx tcp dport 443 ct state new,established,related counter accept
 
 
 
@@ -520,8 +520,8 @@ Once you have confirmed that the counters increase, store these commands in the 
 
 .. code:: console
 
-      [user@sys-net user]$ sudo -i
-      [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
+   [user@sys-net user]$ sudo -i
+   [root@sys-net user]# nano /rw/config/qubes-firewall-user-script
 
 
 
@@ -555,7 +555,7 @@ The according rule to allow the traffic is:
 
 .. code:: console
 
-      $ nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
+   $ nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept
 
 
 
@@ -563,8 +563,8 @@ To make it persistent, you need to add this command in the script ``/rw/config/r
 
 .. code:: console
 
-      [user@qubeDEST user]$ sudo -i
-      [root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept' >> /rw/config/rc.local
+   [user@qubeDEST user]$ sudo -i
+   [root@qubeDEST user]# echo 'nft add rule qubes custom-input tcp dport 443 ip daddr 10.137.0.xx ct state new,established,related counter accept' >> /rw/config/rc.local
 
 
 
@@ -590,7 +590,7 @@ For instance, if you want to check if your network interface ``eth0`` is receivi
 
 .. code:: console
 
-      $ tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
+   $ tcpdump -i eth0 -nn dst port 443 and src net 192.168.x.y/24
 
 
 
@@ -608,7 +608,7 @@ You can dump the ruleset in two files using the following command:
 
 .. code:: console
 
-      $ nft list ruleset | tee nft_backup | tee nft_new_ruleset
+   $ nft list ruleset | tee nft_backup | tee nft_new_ruleset
 
 
 
@@ -618,11 +618,13 @@ You can revert to the original ruleset with the following commands:
 
 .. code:: console
 
-      $ nft flush ruleset && nft -f nft_backup
+   $ nft flush ruleset && nft -f nft_backup
 
 Historical note
 ---------------
 
 In Qubes 4.1 and prior versions, all firewall components used ``iptables``.
 
-**See also:** :ref:`Known issues in Qubes OS 4.2 release notes <developer/releases/4_2/release-notes:Known issues>`
+.. seealso::
+
+    :ref:`Known issues in Qubes OS 4.2 release notes <developer/releases/4_2/release-notes:Known issues>`

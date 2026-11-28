@@ -121,7 +121,7 @@ Starting with Qubes 4.0, there is opt-in support for IPv6 forwarding. Similar to
 
 .. code:: console
 
-      $ qvm-features sys-net ipv6 1
+   $ qvm-features sys-net ipv6 1
 
 .. note::
    Enabling IPv6 in this way will not propagate to running qubes. You will have to restart connected qubes for the change to take effect.
@@ -131,7 +131,7 @@ It is also possible to explicitly disable IPv6 support for some qubes, even if i
 
 .. code:: console
 
-      $ qvm-features ipv4-only-qube ipv6 ''
+   $ qvm-features ipv4-only-qube ipv6 ''
 
 
 

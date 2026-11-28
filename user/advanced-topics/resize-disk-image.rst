@@ -38,7 +38,7 @@ Use either GUI tool Qube Settings (``qubes-vm-settings``) or the CLI tool ``qvm-
 
 .. code:: console
 
-      $ qvm-volume extend <vm_name>:root <size>
+   $ qvm-volume extend <vm_name>:root <size>
 
 
 
@@ -46,7 +46,7 @@ OR
 
 .. code:: console
 
-      $ qvm-volume extend <vm_name>:private <size>
+   $ qvm-volume extend <vm_name>:private <size>
 
 
 
@@ -88,10 +88,10 @@ FreeBSD
 
 .. code:: console
 
-      $ gpart recover ada0
-      $ sysctl kern.geom.debugflags=0x10
-      $ gpart resize -i index ada0
-      $ zpool online -e poolname ada0
+   $ gpart recover ada0
+   $ sysctl kern.geom.debugflags=0x10
+   $ gpart resize -i index ada0
+   $ zpool online -e poolname ada0
 
 
 
@@ -113,8 +113,8 @@ Or you can take the risk of reducing the size of the disk. For example, to reduc
 
 .. code:: console
 
-      $ qvm-shutdown qube1
-      $ sudo lvresize --size 1024M /dev/qubes_dom0/vm-qube1-private
+   $ qvm-shutdown qube1
+   $ sudo lvresize --size 1024M /dev/qubes_dom0/vm-qube1-private
 
 
 

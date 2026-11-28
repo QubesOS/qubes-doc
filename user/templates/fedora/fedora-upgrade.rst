@@ -18,20 +18,20 @@ Summary instructions for standard Fedora templates
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
-      [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-      [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
-      [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
-      [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
-      [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
-      [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
-      [user@fedora-<new> ~]$ sudo dnf update
-      [user@fedora-<new> ~]$ sudo dnf clean all
-      [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
-      [user@dom0 ~]$ qvm-shutdown fedora-<new>
-      [user@dom0 ~]$ sudo losetup -d $dev
-      [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
-      [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
+   [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
+   [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+   [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
+   [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
+   [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
+   [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
+   [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
+   [user@fedora-<new> ~]$ sudo dnf update
+   [user@fedora-<new> ~]$ sudo dnf clean all
+   [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
+   [user@dom0 ~]$ qvm-shutdown fedora-<new>
+   [user@dom0 ~]$ sudo losetup -d $dev
+   [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+   [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
 
 
 Detailed instructions for standard Fedora templates
@@ -45,24 +45,24 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    .. code:: console
 
-         [user@dom0 ~]$ qvm-shutdown fedora-<old>
+      [user@dom0 ~]$ qvm-shutdown fedora-<old>
 
 
 2. Clone the existing template and start a terminal in the new template.
 
    .. code:: console
 
-         [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
-         [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
+      [user@dom0 ~]$ qvm-clone fedora-<old> fedora-<new>
+      [user@dom0 ~]$ qvm-run fedora-<new> qubes-run-terminal
 
 
 3. Attempt the upgrade process in the new template.
 
    .. code:: console
 
-         [user@fedora-<new> ~]$ sudo dnf update
-         [user@fedora-<new> ~]$ sudo dnf clean all
-         [user@fedora-<new> ~]$ sudo dnf --releasever=<new> distro-sync --best --allowerasing
+      [user@fedora-<new> ~]$ sudo dnf update
+      [user@fedora-<new> ~]$ sudo dnf clean all
+      [user@fedora-<new> ~]$ sudo dnf --releasever=<new> distro-sync --best --allowerasing
 
 
    **Note:** ``dnf`` might ask you to approve importing a new package signing key. For example, you might see a prompt like this one:
@@ -85,18 +85,18 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
      .. code:: console
 
-           [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
-           [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
-           [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
+        [user@dom0 ~]$ truncate -s 5GB /var/tmp/template-upgrade-cache.img
+        [user@dom0 ~]$ dev=$(sudo losetup -f --show /var/tmp/template-upgrade-cache.img)
+        [user@dom0 ~]$ qvm-block attach fedora-<new> dom0:${dev##*/}
 
      Then reattempt the upgrade process, but this time use the virtual disk as a cache.
 
      .. code:: console
 
-           [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
-           [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
-           [user@fedora-<new> ~]$ sudo dnf clean all
-           [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
+        [user@fedora-<new> ~]$ sudo mkfs.ext4 /dev/xvdi
+        [user@fedora-<new> ~]$ sudo mount /dev/xvdi /mnt/removable
+        [user@fedora-<new> ~]$ sudo dnf clean all
+        [user@fedora-<new> ~]$ sudo dnf --releasever=<new> --setopt=cachedir=/mnt/removable --best distro-sync --allowerasing
 
 
      If this attempt is successful, proceed to step 4.
@@ -110,7 +110,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    .. code:: console
 
-         [user@fedora-<new> ~]$ cat /etc/fedora-release
+      [user@fedora-<new> ~]$ cat /etc/fedora-release
 
 
 
@@ -118,32 +118,32 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
    .. code:: console
 
-         [user@fedora-<new> ~]$ sudo fstrim -av
-         [user@dom0 ~]$ qvm-shutdown fedora-<new>
-         [user@dom0 ~]$ qvm-start fedora-<new>
-         [user@fedora-<new> ~]$ sudo fstrim -av
+      [user@fedora-<new> ~]$ sudo fstrim -av
+      [user@dom0 ~]$ qvm-shutdown fedora-<new>
+      [user@dom0 ~]$ qvm-start fedora-<new>
+      [user@fedora-<new> ~]$ sudo fstrim -av
 
 
 6. Shut down the new template.
 
    .. code:: console
 
-         [user@dom0 ~]$ qvm-shutdown fedora-<new>
+      [user@dom0 ~]$ qvm-shutdown fedora-<new>
 
 
 7. Remove the cache file, if you created one.
 
    .. code:: console
 
-         [user@dom0 ~]$ sudo losetup -d $dev
-         [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
+      [user@dom0 ~]$ sudo losetup -d $dev
+      [user@dom0 ~]$ rm /var/tmp/template-upgrade-cache.img
 
 
 8. Set the template-name, which is used by the Qubes updater.
 
    .. code:: console
 
-         [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
+      [user@dom0 ~]$ qvm-features fedora-<new> template-name fedora-<new>
 
 
 9. (Recommended) :ref:`Switch everything that was set to the old template to the new template. <user/templates/templates:switching>`
@@ -152,7 +152,7 @@ These instructions will show you how to upgrade the standard Fedora template. Th
 
     .. code:: console
 
-          [user@dom0 ~]$ qubes-prefs --set default_template fedora-<new>
+       [user@dom0 ~]$ qubes-prefs --set default_template fedora-<new>
 
 
 11. (Optional) :ref:`Uninstall the old template. <user/templates/templates:uninstalling>` Make sure that the template you’re uninstalling is the old one, not the new one!
@@ -167,12 +167,12 @@ Summary instructions for Fedora Minimal templates
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-clone fedora-<old>-minimal fedora-<new>-minimal
-      [user@dom0 ~]$ qvm-run -u root -a fedora-<new>-minimal xterm
-      [root@fedora-<new>-minimal ~]# dnf clean all
-      [user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best distro-sync --allowerasing
-      [user@fedora-<new>-minimal ~]# fstrim -v /
-      [user@dom0 ~]$ qvm-features fedora-<new>-minimal template-name fedora-<new>
+   [user@dom0 ~]$ qvm-clone fedora-<old>-minimal fedora-<new>-minimal
+   [user@dom0 ~]$ qvm-run -u root -a fedora-<new>-minimal xterm
+   [root@fedora-<new>-minimal ~]# dnf clean all
+   [user@fedora-<new>-minimal ~]# dnf --releasever=<new> --best distro-sync --allowerasing
+   [user@fedora-<new>-minimal ~]# fstrim -v /
+   [user@dom0 ~]$ qvm-features fedora-<new>-minimal template-name fedora-<new>
 
 
 (Shut down template by any normal means.)

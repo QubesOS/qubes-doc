@@ -35,7 +35,7 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 
    .. code:: console
 
-         $ qvm-prefs template-vm-name
+      $ qvm-prefs template-vm-name
 
 
 
@@ -43,7 +43,7 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 
    .. code:: console
 
-         $ qvm-prefs template-vm-name installed_by_rpm false
+      $ qvm-prefs template-vm-name installed_by_rpm false
 
 
 
@@ -55,7 +55,7 @@ When a template is marked as ‘installed by package manager’, but cannot be u
 
   .. code:: console
 
-        $ qvm-remove template-vm-name
+     $ qvm-remove template-vm-name
 
 
 
@@ -75,9 +75,9 @@ One solution is to add a dummy interface to allow the package to install correct
 
 .. code:: console
 
-      $ ip link add d0 type dummy
-      $ ip addr add 192.168.0.1/24 dev d0
-      $ ip link set d0 up
+   $ ip link add d0 type dummy
+   $ ip addr add 192.168.0.1/24 dev d0
+   $ ip link set d0 up
 
 
 
@@ -97,10 +97,10 @@ For example:
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
-      Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
-      No Match for argument qubes-template-debian-10
-      Nothing to download
+   [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl qubes-template-debian-10
+   Using sys-whonix as UpdateVM to download updates for Dom0; this may take some time...
+   No Match for argument qubes-template-debian-10
+   Nothing to download
 
 
 This normally means you already have the template installed. It may be that you have the matching package installed, but you removed or renamed the template. Check ``rpm -q qubes-template-<name>``. If it lists the package, but you don’t really have the template present (``qvm-ls`` doesn’t list it), you need to clean up leftovers of the package with ``rpm -e --noscripts qubes-template-<name>``, then install it normally.

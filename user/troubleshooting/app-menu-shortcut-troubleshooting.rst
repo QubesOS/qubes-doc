@@ -38,7 +38,7 @@ To update the list of available applications, use the ``qvm-sync-appmenus`` comm
 
 .. code:: console
 
-      [user@dom0] $ qvm-sync-appmenus <QUBE_NAME>
+   [user@dom0] $ qvm-sync-appmenus <QUBE_NAME>
 
 
 
@@ -46,8 +46,8 @@ When using the :guilabel:`Refresh Applications` button in a qube’s settings, t
 
 .. code:: console
 
-      [user@dom0] $ qvm-sync-appmenus <APPVM_NAME>
-      [user@dom0] $ qvm-sync-appmenus <TEMPLATE_NAME>
+   [user@dom0] $ qvm-sync-appmenus <APPVM_NAME>
+   [user@dom0] $ qvm-sync-appmenus <TEMPLATE_NAME>
 
 
 
@@ -55,7 +55,7 @@ In dom0, the ``qvm-appmenus`` tool allows the user to see the list of available 
 
 .. code:: console
 
-      [user@dom0] $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
+   [user@dom0] $ qvm-appmenus --set-whitelist <FILE_PATH> <QUBE_NAME>
 
 
 
@@ -163,7 +163,7 @@ First, try this in dom0:
 
 .. code:: console
 
-      [user@dom0] $ qvm-appmenus --update --force <QUBE_NAME>
+   [user@dom0] $ qvm-appmenus --update --force <QUBE_NAME>
 
 
 
@@ -171,7 +171,7 @@ You can also try:
 
 .. code:: console
 
-      [user@dom0] $ qvm-appmenus --remove <QUBE_NAME>
+   [user@dom0] $ qvm-appmenus --remove <QUBE_NAME>
 
 
 
@@ -197,7 +197,7 @@ It’s possible to run the command to check the output, by copying this line wit
 
 .. code:: console
 
-      [user@any-qube] $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
+   [user@any-qube] $ /etc/qubes-rpc/qubes.StartApp <APPLICATION_NAME>
 
 
 
@@ -217,8 +217,8 @@ Actual command lines for the menu shortcuts involve the ``qvm-run`` command whic
 
 .. code:: console
 
-      $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
-      $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
+   $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+firefox
+   $ qvm-run -q -a --service -- %VMNAME% qubes.StartApp+7-Zip-7-Zip_File_Manager
 
 
 
@@ -226,7 +226,7 @@ Note that you can create a shortcut that points to a ``.desktop`` file in your a
 
 .. code:: console
 
-      $ qvm-run -q -a --service -- personal qubes.StartApp+firefox
+   $ qvm-run -q -a --service -- personal qubes.StartApp+firefox
 
 
 

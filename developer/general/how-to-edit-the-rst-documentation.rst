@@ -161,20 +161,20 @@ Tips & Tricks
 
   .. code:: console
 
-   $ git remote add upstream https://github.com/QubesOS/qubes-doc.git
-   $ git fetch upstream
+     [user@doc-qube]$ git remote add upstream https://github.com/QubesOS/qubes-doc.git
+     [user@doc-qube]$ git fetch upstream
 
 - Check the log and the current changes, before merging:
 
   .. code:: console
 
-   $ git log upstream/main
+     [user@doc-qube]$ git log upstream/main
 
 - Then merge the changes that you fetched:
 
   .. code:: console
 
-   $ git merge upstream/main
+     [user@doc-qube]$ git merge upstream/main
 
 Keep your pull requests limited to a single issue, pull requests should be as atomic as possible.
 
@@ -241,7 +241,7 @@ You can link to any part of the documentation using cross-references.
 
 .. code-block:: rst
 
-  See :doc:`/introduction/contributing` to do [...]
+   See :doc:`/introduction/contributing` to do [...]
 
 Use the path to the file starting from the root of qubes-doc repository, **with a leading slash** (``/``) and without the ``.rst`` file ending.
 
@@ -249,7 +249,7 @@ Use the path to the file starting from the root of qubes-doc repository, **with 
 
 .. code-block:: rst
 
-  See :ref:`introduction/contributing:Contributing Code` for [...]
+   See :ref:`introduction/contributing:Contributing Code` for [...]
 
 The first part (before the colon) is the path of the file as with the `:doc: role <https://www.sphinx-doc.org/en/master/usage/referencing.html#role-doc>`__ but **without the leading slash** (``/``). The second part is the content of the header.
 
@@ -310,9 +310,9 @@ Creating a Python environment with venv
 
    .. code-block:: console
 
-      $ sudo apt install git python3-dev python3.11-venv
-      $ git clone https://github.com/QubesOS/qubes-doc.git
-      $ cd qubes-doc
+      [user@doc-qube]$ sudo apt install git python3-dev python3.11-venv
+      [user@doc-qube]$ git clone https://github.com/QubesOS/qubes-doc.git
+      [user@doc-qube]$ cd qubes-doc
 
 2.  **Create a virtual environment**
 
@@ -320,9 +320,9 @@ Creating a Python environment with venv
 
    .. code-block:: console
 
-      $ python3 -m venv .venv
-      $ . .venv/bin/activate
-      (.venv) $ echo "$VIRTUAL_ENV"
+      [user@doc-qube]$ python3 -m venv .venv
+      [user@doc-qube]$ . .venv/bin/activate
+      (.venv) [user@doc-qube]$ echo "$VIRTUAL_ENV"
 
    .. note::
 
@@ -334,7 +334,7 @@ Creating a Python environment with venv
 
    .. code-block:: console
 
-      (.venv) $ pip install -r requirements.txt sphinx-lint sphinx-autobuild
+      (.venv) [user@doc-qube]$ pip install -r requirements.txt sphinx-lint sphinx-autobuild
 
 
 Linting the documentation from venv
@@ -348,7 +348,7 @@ Linting the documentation from venv
 
    .. code-block:: console
 
-      (.venv) $ sphinx-lint -i .venv .
+      (.venv) [user@doc-qube]$ sphinx-lint -i .venv .
 
 
 2.  **Run Link Checker**
@@ -360,7 +360,7 @@ Linting the documentation from venv
 
    .. code-block:: console
 
-      (.venv) $ sphinx-build -b linkcheck . _build/linkcheck
+      (.venv) [user@doc-qube]$ sphinx-build -b linkcheck . _build/linkcheck
 
 
 Building the documentation from venv
@@ -374,7 +374,7 @@ Building the documentation from venv
 
    .. code-block:: console
 
-      (.venv) $ sphinx-build -v -b html . _build/html
+      (.venv) [user@doc-qube]$ sphinx-build -v -b html . _build/html
 
 
    The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`).
@@ -391,7 +391,7 @@ Building the documentation from venv
 
    .. code-block:: console
 
-      (.venv) $ sphinx-autobuild . _build/html
+      (.venv) [user@doc-qube]$ sphinx-autobuild . _build/html
 
 Using poetry
 ------------
@@ -407,9 +407,9 @@ Creating a Python environment with poetry
 
    .. code-block:: console
 
-      $ sudo apt install git
-      $ git clone https://github.com/QubesOS/qubes-doc.git
-      $ cd qubes-doc
+      [user@doc-qube]$ sudo apt install git
+      [user@doc-qube]$ git clone https://github.com/QubesOS/qubes-doc.git
+      [user@doc-qube]$ cd qubes-doc
 
 
 2.  **Install Sphinx and Required Extensions**
@@ -419,9 +419,9 @@ Creating a Python environment with poetry
 
    .. code-block:: console
 
-      $ curl -sSL https://install.python-poetry.org | python3 -
-      $ poetry config virtualenvs.in-project true  # optional
-      $ poetry install
+      [user@doc-qube]$ curl -sSL https://install.python-poetry.org | python3 -
+      [user@doc-qube]$ poetry config virtualenvs.in-project true  # optional
+      [user@doc-qube]$ poetry install
 
    .. hint::
 
@@ -438,7 +438,7 @@ Linting the documentation with peotry
 
    .. code-block:: console
 
-      $ poetry run sphinx-lint -i .venv .
+      [user@doc-qube]$ poetry run sphinx-lint -i .venv .
 
 
 2.  **Run Link Checker**
@@ -450,7 +450,7 @@ Linting the documentation with peotry
 
    .. code-block:: console
 
-      $ poetry run sphinx-build -b linkcheck . _build/linkcheck
+      [user@doc-qube]$ poetry run sphinx-build -b linkcheck . _build/linkcheck
 
 
 Building the documentation with poetry
@@ -464,7 +464,7 @@ Building the documentation with poetry
 
    .. code-block:: console
 
-      $ poetry run sphinx-build -v -b html . _build/html
+      [user@doc-qube]$ poetry run sphinx-build -v -b html . _build/html
 
 
    The build command specifies the source directory (:file:`qubes-doc`), the output directory (:file:`_build/html`), and the builder (`html`).
@@ -481,7 +481,7 @@ Building the documentation with poetry
 
    .. code-block:: console
 
-      $ poetry run sphinx-autobuild . _build/html
+      [user@doc-qube]$ poetry run sphinx-autobuild . _build/html
 
 
 Editor
@@ -492,10 +492,10 @@ An editor you can use is `ReText <https://github.com/retext-project/retext>`__ b
 
 .. code-block:: console
 
-   $ sudo apt install libxcb-cursor0
-   $ python3 -m venv .venv
-   $ . .venv/bin/activate
-   $ pip3 install ReText
+   [user@doc-qube]$ sudo apt install libxcb-cursor0
+   [user@doc-qube]$ python3 -m venv .venv
+   [user@doc-qube]$ . .venv/bin/activate
+   [user@doc-qube]$ pip3 install ReText
 
 
 Security

@@ -51,7 +51,7 @@ Sometimes it can be useful to start an arbitrary program in a disposable. This c
 
 .. code:: console
 
-      [user@work ~]$ qvm-run-vm -- '@dispvm' qubes-run-terminal
+   [user@work ~]$ qvm-run-vm -- '@dispvm' qubes-run-terminal
 
 The ``work`` qube default disposable template spawns a disposable to execute the program.
 
@@ -88,7 +88,7 @@ To check if everything is working as expected, from the ``email`` qube with :pro
 
 .. code:: console
 
-      [user@email ~] $ qvm-open-in-vm -- '@dispvm:net-dvm' 'https://www.qubes-os.org'
+   [user@email ~] $ qvm-open-in-vm -- '@dispvm:net-dvm' 'https://www.qubes-os.org'
 
 The ``email`` qube requests to open an URL in a non default disposable template ``net-dvm``, which will derive a disposable and navigate to the link.
 
@@ -102,7 +102,7 @@ For instance, to have Mozilla Thunderbird application open all attachments in a 
 
 .. code:: console
 
-      qvm-appmenus --get-available --i-understand-format-is-unstable <QUBE> | grep -i thunderbird
+   [user@dom0 ~]$ qvm-appmenus --get-available --i-understand-format-is-unstable <QUBE> | grep -i thunderbird
 
 In the current case, we identified the application ID to be ``net.thunderbird.Thunderbird`` (in your case it may as well be ``thunderbird``). Finally, enable the ``app-dispvm.net.thunderbird.Thunderbird`` service via the :ref:`qube settings <how-to-enable-a-service-in-the-settings>`.
 
@@ -136,7 +136,7 @@ This can also be changed from the command line with with :program:`qubes-prefs`:
 
 .. code:: console
 
-      user@dom0:~$ qubes-prefs default_dispvm <DISPOSABLE_TEMPLATE>
+   [user@dom0 ~]$ qubes-prefs default_dispvm <DISPOSABLE_TEMPLATE>
 
 The above setting is used whenever a qube has the property ``default_dispvm`` set to default, request starting a new disposable and do not specify which one, for example, via file manager context menu :guilabel:`Edit/View in disposable qube` or :program:`qvm-open-in-dvm` tool), also with :guilabel:`Convert in disposable qube` (:program:`qvm-convert-img`, :program:`qvm-convert-pdf`).
 
@@ -153,7 +153,7 @@ This can also be changed from the command line with :program:`qvm-prefs`:
 
 .. code:: console
 
-      user@dom0:~$ qvm-prefs work default_dispvm <DISPOSABLE_TEMPLATE>
+   [user@dom0: ~]$ qvm-prefs work default_dispvm <DISPOSABLE_TEMPLATE>
 
 A qube can be allowed to use :ref:`multiple disposable templates <user/advanced-topics/disposable-customization:open a link in a disposable based on a non-default disposable template via command line (from app qube)>` if you choose so and have configured the :ref:`policy to allow <developer/services/qrexec:specifying vms: tags, types, targets, etc.>`.
 
@@ -189,7 +189,7 @@ It is also possible to change application settings of a disposable by customizin
 
    .. code:: console
 
-         user@dom0:~$ qvm-run --service -- <DISPOSABLE_TEMPLATE> qubes.StartApp+qubes-run-terminal
+      [user@dom0 ~]$ qvm-run --service -- <DISPOSABLE_TEMPLATE> qubes.StartApp+qubes-run-terminal
 
 2. Change the applications settings, as desired. Some examples of changes you may want to make include:
 
@@ -213,15 +213,15 @@ From the :term:`GUI domain`:
 
 .. code:: console
 
-      user@dom0:~$ qvm-features sys-net vm-config.wifi-ssid <SSID>
-      user@dom0:~$ qvm-features sys-net vm-config.wifi-pass <PASSWORD>
+   [user@dom0: ~]$ qvm-features sys-net vm-config.wifi-ssid <SSID>
+   [user@dom0: ~]$ qvm-features sys-net vm-config.wifi-pass <PASSWORD>
 
 From the configured qube, ``sys-net``:
 
 .. code:: console
 
-      [user@sys-net ~] $ qubesdb-read /vm-config/wifi-ssid
-      [user@sys-net ~] $ qubesdb-read /vm-config/wifi-pass
+   [user@sys-net ~] $ qubesdb-read /vm-config/wifi-ssid
+   [user@sys-net ~] $ qubesdb-read /vm-config/wifi-pass
 
 Create a new disposable template
 --------------------------------
@@ -235,9 +235,9 @@ You can also use the command line equivalent:
 
 .. code:: console
 
-      user@dom0:~$ qvm-create --template <TEMPLATE> --label red <DISPOSABLE_TEMPLATE>
-      user@dom0:~$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
-      user@dom0:~$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
+   [user@dom0: ~]$ qvm-create --template <TEMPLATE> --label red <DISPOSABLE_TEMPLATE>
+   [user@dom0: ~]$ qvm-prefs <DISPOSABLE_TEMPLATE> template_for_dispvms True
+   [user@dom0: ~]$ qvm-features <DISPOSABLE_TEMPLATE> appmenus-dispvm 1
 
 The ``appmenus-dispvm`` feature is only necessary if you intend to launch disposables derived from this disposable template via graphical applications. When enabled, new entries will be available for each application in |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> <DISPOSABLE_TEMPLATE> --> <APPLICATION> --> New disposable qube from <DISPOSABLE_TEMPLATE>` while disposable qube desktop entries will have ``(dvm)`` string inserted. Clicking on this entry will launch the application in a new disposable based on the disposable template (not in the disposable template itself).
 
@@ -272,7 +272,7 @@ On the :term:`GUI domain` terminal, disable disposable's appmenus:
 
 .. code:: console
 
-      user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+   [user@dom0: ~]$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 
 Next, set the old service qube's autostart to false, and update any references to the old one to instead point to the new in the Qube Settings of each qube as well as Global Config. For example, ``qvm-prefs work netvm <SERVICE_QUBE>`` and ``qubes-prefs default_netvm <SERVICE_QUBE``.
 
@@ -284,11 +284,11 @@ To create one that has no PCI devices attached, such as for ``sys-firewall``:
 
 .. code:: console
 
-      user@dom0:~$ qvm-create -C DispVM -l green <SERVICE_QUBE>
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> autostart true
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> netvm <NET_QUBE>
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> provides_network true
-      user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+   [user@dom0: ~]$ qvm-create -C DispVM -l green <SERVICE_QUBE>
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> autostart true
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> netvm <NET_QUBE>
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> provides_network true
+   [user@dom0: ~]$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 
 Next, set the old service qube's ``autostart`` to false, and update any references to the old one to instead point to the new in the Qube Settings of each qube as well as Global Config. Also make sure to update any :doc:`RPC policies </user/advanced-topics/rpc-policy>`, if needed.
 
@@ -296,14 +296,14 @@ Here is an example of a complete ``sys-firewall`` replacement:
 
 .. code:: console
 
-      user@dom0:~$ qvm-create -C DispVM -l green sys-net2
-      user@dom0:~$ qvm-prefs sys-net2 autostart true
-      user@dom0:~$ qvm-prefs sys-net2 netvm <NET_QUBE>
-      user@dom0:~$ qvm-prefs sys-net2 provides_network true
-      user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
-      user@dom0:~$ qubes-prefs default_netvm sys-net2
-      user@dom0:~$ qubes-prefs updatevm sys-net2
-      user@dom0:~$ qvm-prefs sys-firewall netvm sys-net2
+   [user@dom0: ~]$ qvm-create -C DispVM -l green sys-net2
+   [user@dom0: ~]$ qvm-prefs sys-net2 autostart true
+   [user@dom0: ~]$ qvm-prefs sys-net2 netvm <NET_QUBE>
+   [user@dom0: ~]$ qvm-prefs sys-net2 provides_network true
+   [user@dom0: ~]$ qvm-features sys-net2 appmenus-dispvm ''
+   [user@dom0: ~]$ qubes-prefs default_netvm sys-net2
+   [user@dom0: ~]$ qubes-prefs updatevm sys-net2
+   [user@dom0: ~]$ qvm-prefs sys-firewall netvm sys-net2
 
 Named disposable for service qubes with PCI devices via GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,13 +337,13 @@ On the :term:`GUI domain` terminal, disable disposable's appmenus:
 
 .. code:: console
 
-      user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+   [user@dom0: ~]$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
 
 Next, set the old service qube's autostart to false, and update any references to the old one, e.g.:
 
 .. code:: console
 
-      user@dom0:~$ qvm-prefs sys-firewall netvm <SERVICE_QUBE>
+   [user@dom0: ~]$ qvm-prefs sys-firewall netvm <SERVICE_QUBE>
 
 Also make sure to update any :doc:`RPC policies </user/advanced-topics/rpc-policy>`, if needed.
 
@@ -357,25 +357,25 @@ To create one with a PCI device attached, such as for ``sys-net`` or ``sys-usb``
 
 .. code:: console
 
-      user@dom0:~$ qvm-create -C DispVM -l red <SERVICE_QUBE>
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> virt_mode hvm
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> maxmem 0
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> autostart true
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> netvm ''
-      user@dom0:~$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
-      user@dom0:~$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
+   [user@dom0: ~]$ qvm-create -C DispVM -l red <SERVICE_QUBE>
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> virt_mode hvm
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> maxmem 0
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> autostart true
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> netvm ''
+   [user@dom0: ~]$ qvm-features <SERVICE_QUBE> appmenus-dispvm ''
+   [user@dom0: ~]$ qvm-pci attach --persistent <SERVICE_QUBE> dom0:<BDF>
 
 Optionally, if this disposable will also provide network access to other qubes:
 
 .. code:: console
 
-      user@dom0:~$ qvm-prefs <SERVICE_QUBE> provides_network true
+   [user@dom0: ~]$ qvm-prefs <SERVICE_QUBE> provides_network true
 
 Next, set the old service qube's autostart to false, and update any references to the old one, e.g.:
 
 .. code:: console
 
-      user@dom0:~$ qvm-prefs sys-firewall netvm <SERVICE_QUBE>
+   [user@dom0: ~]$ qvm-prefs sys-firewall netvm <SERVICE_QUBE>
 
 Also make sure to update any :doc:`RPC policies </user/advanced-topics/rpc-policy>`, if needed.
 
@@ -383,17 +383,17 @@ Here is an example of a complete ``sys-net`` replacement:
 
 .. code:: console
 
-      user@dom0:~$ qvm-create -C DispVM -l red sys-net2
-      user@dom0:~$ qvm-prefs sys-net2 virt_mode hvm
-      user@dom0:~$ qvm-prefs sys-net2 maxmem 0
-      user@dom0:~$ qvm-prefs sys-net2 autostart true
-      user@dom0:~$ qvm-prefs sys-net2 netvm ''
-      user@dom0:~$ qvm-prefs sys-net2 provides_network true
-      user@dom0:~$ qvm-features sys-net2 appmenus-dispvm ''
-      user@dom0:~$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
-      user@dom0:~$ qvm-prefs sys-net autostart false
-      user@dom0:~$ qvm-prefs sys-firewall netvm sys-net2
-      user@dom0:~$ qubes-prefs clockvm sys-net2
+   [user@dom0: ~]$ qvm-create -C DispVM -l red sys-net2
+   [user@dom0: ~]$ qvm-prefs sys-net2 virt_mode hvm
+   [user@dom0: ~]$ qvm-prefs sys-net2 maxmem 0
+   [user@dom0: ~]$ qvm-prefs sys-net2 autostart true
+   [user@dom0: ~]$ qvm-prefs sys-net2 netvm ''
+   [user@dom0: ~]$ qvm-prefs sys-net2 provides_network true
+   [user@dom0: ~]$ qvm-features sys-net2 appmenus-dispvm ''
+   [user@dom0: ~]$ qvm-pci attach --persistent sys-net2 dom0:00_1a.0
+   [user@dom0: ~]$ qvm-prefs sys-net autostart false
+   [user@dom0: ~]$ qvm-prefs sys-firewall netvm sys-net2
+   [user@dom0: ~]$ qubes-prefs clockvm sys-net2
 
 Deleting disposable templates
 -----------------------------
@@ -410,10 +410,10 @@ Or with the command line equivalent:
 
 .. code:: console
 
-      user@dom0:~$ qvm-remove <DISPOSABLE_TEMPLATE>
-      This will completely remove the selected VM(s)
-        <DISPOSABLE_TEMPLATE>
-      Are you sure? [y/N]
+   [user@dom0: ~]$ qvm-remove <DISPOSABLE_TEMPLATE>
+   This will completely remove the selected VM(s)
+     <DISPOSABLE_TEMPLATE>
+   Are you sure? [y/N]
 
 The deletion may fail if the qube is still referenced, in that case, proceed to the next sections.
 
@@ -425,8 +425,8 @@ The system's default disposable template may reference the :samp:`{<DISPOSABLE_T
 
 .. code:: console
 
-      user@dom0:~$ qubes-prefs default_dispvm
-      <DISPOSABLE_TEMPLATE>
+   [user@dom0: ~]$ qubes-prefs default_dispvm
+   <DISPOSABLE_TEMPLATE>
 
 If the :samp:`{<DISPOSABLE_TEMPLATE>}` is referenced, set an alternative, and if no alternative is available, set it to an empty value.
 
@@ -438,8 +438,8 @@ Now let's check the per qube ``default_dispvm`` property for any qube, in this c
 
 .. code:: console
 
-      user@dom0:~$ qvm-prefs <QUBE> | grep default_dispvm
-      default_dispvm        -  <DISPOSABLE_TEMPLATE>
+   [user@dom0: ~]$ qvm-prefs <QUBE> | grep default_dispvm
+   default_dispvm        -  <DISPOSABLE_TEMPLATE>
 
 If the :samp:`{<DISPOSABLE_TEMPLATE>}` is referenced, set an alternative, and if no alternative is available, set it to an empty value.
 
@@ -453,4 +453,4 @@ If you still encounter a problem, you may have forgotten to clean an entry. Look
 
 .. code:: console
 
-      user@dom0:~$ journalctl -S 60s
+   [user@dom0: ~]$ journalctl -S 60s

@@ -19,9 +19,9 @@ As an example of forwarding terminal output to another VM on the same machine:
 
 .. code:: console
 
-      $ mkfifo /tmp/foo
-      $ qvm-run -p some-vm 'xterm -e "cat 0<&5" 5<&0' </tmp/foo >/dev/null 2>&1 &
-      $ script -f /tmp/foo
+   $ mkfifo /tmp/foo
+   $ qvm-run -p some-vm 'xterm -e "cat 0<&5" 5<&0' </tmp/foo >/dev/null 2>&1 &
+   $ script -f /tmp/foo
 
 
 
@@ -33,11 +33,11 @@ In this case over SSH (from a network-connected VM):
 
 .. code:: console
 
-      $ mkfifo /tmp/foo
-      $ qvm-run -p some-vm \
-          'ssh user@host sh -c "DISPLAY=:0 xterm -e \"cat 0<&5\" 5<&0"' \
-          </tmp/foo >/dev/null 2>&1 &
-      $ script -f /tmp/foo
+   $ mkfifo /tmp/foo
+   $ qvm-run -p some-vm \
+       'ssh user@host sh -c "DISPLAY=:0 xterm -e \"cat 0<&5\" 5<&0"' \
+       </tmp/foo >/dev/null 2>&1 &
+   $ script -f /tmp/foo
 
 
 
@@ -57,8 +57,8 @@ It is up to you to ensure the sizes of the local and remote terminal are the sam
 
 .. code:: console
 
-      $ echo $COLUMNS $LINES
-      80 24
+   $ echo $COLUMNS $LINES
+   80 24
 
 
 
@@ -70,7 +70,7 @@ If your machine has a serial console, you may with to use that, but note that a 
 
 .. code:: console
 
-      $ script -f /dev/ttyS0
+   $ script -f /dev/ttyS0
 
 
 

@@ -13,14 +13,7 @@ For simplicity, these instructions will refer to copying/moving a single file, b
 
 2. A dialog box will appear in dom0 asking for the name of the target qube (qube B). Enter or select the desired destination qube name.
 
-3. If the target qube is not already running, it will be started automatically, and the file will be copied there. It will show up in this directory (which will automatically be created if it does not already exist):
-
-   .. code:: text
-
-         /home/user/QubesIncoming/<source_qube>/<filename>
-
-
-   If you selected **Move** rather than **Copy**, the original file in the source qube will be deleted. (Moving a file is equivalent to copying the file, then deleting the original.)
+3. If the target qube is not already running, it will be started automatically, and the file will be copied there. It will show up in this directory (which will automatically be created if it does not already exist): :file:`/home/user/QubesIncoming/<source_qube>/<filename>`. If you selected **Move** rather than **Copy**, the original file in the source qube will be deleted. (Moving a file is equivalent to copying the file, then deleting the original.)
 
 4. If you wish, you may now move the file in the target qube to a different directory and delete the ``/home/user/QubesIncoming/`` directory when no longer needed.
 
@@ -30,13 +23,13 @@ The same operations are also available via these command-line tools:
 
 .. code:: console
 
-      $ qvm-copy [--without-progress] file [file]+
+   $ qvm-copy [--without-progress] file [file]+
 
 
 
 .. code:: console
 
-      $ qvm-move [--without-progress] file [file]+
+   $ qvm-move [--without-progress] file [file]+
 
 
 

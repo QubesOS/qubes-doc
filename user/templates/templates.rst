@@ -91,7 +91,7 @@ At the command line in dom0, ``qvm-template list --available`` will show availab
 
 .. code:: console
 
-      $ qvm-template install  <template_name>
+   $ qvm-template install  <template_name>
 
 You can also use ``qvm-template`` to upgrade or reinstall templates.
 
@@ -99,7 +99,7 @@ Repository (repo) definitions are stored in dom0 in ``/etc/qubes/repo-templates`
 
 .. code:: console
 
-      $ qvm-template  --enablerepo qubes-templates-community install <template_name>
+   $ qvm-template  --enablerepo qubes-templates-community install <template_name>
 
 To permanently enable a repo, set the line ``enabled = 1`` in the repo definition in ``/etc/qubes/repo-templates``.
 To permanently disable, set the line to ``enabled = 0``.
@@ -141,13 +141,13 @@ Alternatively, to remove a template via the command line in dom0:
 
 .. code:: console
 
-      $ qvm-template remove <TEMPLATE_NAME>
+   $ qvm-template remove <TEMPLATE_NAME>
 
 <TEMPLATE_NAME> is the first column from the output of:
 
 .. code:: console
 
-      $ qvm-template list --installed
+   $ qvm-template list --installed
 
 In either case, issues with template removal may be raised. If an issue is raised, the template will remain installed and a list of concerns displayed. “Global property default_template” requires :ref:`user/templates/templates:switching` the default_template property to another template. “Template for” can be resolved by :ref:`user/templates/templates:switching` the dependent qubes’ template. Once the issues are addressed, attempt the removal again.
 
@@ -175,13 +175,13 @@ When you install a new template or :ref:`upgrade <user/how-to-guides/how-to-upda
 
      .. code:: console
 
-           $ qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
+        $ qvm-shutdown --wait --all; qvm-prefs <SYS_USB_DISPOSABLE_TEMPLATE> template <NEW_TEMPLATE>; qvm-start <USB_QUBE>
 
      With substitutions, your command should look similar to this example. (**Warning:** This is just an example. Do not attempt to use it.)
 
      .. code:: console
 
-           $ qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
+        $ qvm-shutdown --wait --all; qvm-prefs fedora-01-dvm template fedora-02; qvm-start sys-usb
 
 3. **Base your app qubes on the new template.** In the Qube Manager, click on the Template heading to sort by template. Select all the qubes based on the old template by clicking on the first one, holding shift, then clicking on the last one. With multiple qubes selected, right-click on any of them, hover your cursor over Template, then click on the new template. Or in the ``System`` menu select ``Manage templates for qubes``, select any qubes using the old template and update them to the new template using the drop down menu.
 

@@ -30,7 +30,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
    .. code:: console
 
-         $ sudo dnf clean all
+      $ sudo dnf clean all
 
 
 
@@ -38,7 +38,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
    .. code:: console
 
-         $ qvm-remove <VMname>
+      $ qvm-remove <VMname>
 
 
    With this method, you lose the data of one VM, but it’ll work more reliably.
@@ -47,7 +47,7 @@ In any case you’ll need some disk space to start the VM. Check ``df -h`` outpu
 
    .. code:: console
 
-         $ sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
+      $ sudo tune2fs -m 4 /dev/mapper/vg_dom0-lv_root
 
 
 
@@ -69,28 +69,28 @@ For example:
 
 .. code:: console
 
-      $ sudo lvs
-        LV                                            VG         Attr       LSize   Pool   Origin                                        Data%  Meta%  Move Log Cpy%Sync Convert
-        pool00                                        qubes_dom0 twi-aotz-- 453.17g                                                      89.95  69.78
-        root                                          qubes_dom0 Vwi-aotz-- 453.17g pool00                                               5.87
-        swap                                          qubes_dom0 -wi-ao----   7.57g
-      (...)
-        vm-d10test-private                            qubes_dom0 Vwi-a-tz--   2.00g pool00 vm-d10test-private-1600961860-back            29.27
-        vm-d10test-private-1600961860-back            qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.87
-        vm-d10test-standalone-private                 qubes_dom0 Vwi-a-tz--   2.00g pool00 vm-d10test-standalone-private-1580772439-back 4.90
-        vm-d10test-standalone-private-1580772439-back qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.87
-        vm-d10test-standalone-root                    qubes_dom0 Vwi-a-tz--  10.00g pool00 vm-d10test-standalone-root-1580772439-back    43.37
-        vm-d10test-standalone-root-1580772439-back    qubes_dom0 Vwi-a-tz--  10.00g pool00                                               42.05
-        vm-debian-10-my-private                       qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.96
-        vm-debian-10-my-root                          qubes_dom0 Vwi-a-tz--  10.00g pool00 vm-debian-10-my-root-1565013689-back          57.99
-        vm-debian-10-my-root-1565013689-back          qubes_dom0 Vwi-a-tz--  10.00g pool00                                               56.55
-        vm-debian-10-private                          qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.94
-        vm-debian-10-root                             qubes_dom0 Vwi-a-tz--  10.00g pool00 vm-debian-10-root-1601126126-back             93.44
-        vm-debian-10-root-1601126126-back             qubes_dom0 Vwi-a-tz--  10.00g pool00                                               88.75
-      (...)
-      $ sudo lvremove qubes_dom0/vm-d10test-standalone-root-1580772439-back
-      Do you really want to remove and DISCARD active logical volume qubes_dom0/vm-d10test-standalone-root-1580772439-back? [y/n]: y
-        Logical volume "vm-d10test-standalone-root-1580772439-back" successfully removed
+   $ sudo lvs
+     LV                                            VG         Attr       LSize   Pool   Origin                                        Data%  Meta%  Move Log Cpy%Sync Convert
+     pool00                                        qubes_dom0 twi-aotz-- 453.17g                                                      89.95  69.78
+     root                                          qubes_dom0 Vwi-aotz-- 453.17g pool00                                               5.87
+     swap                                          qubes_dom0 -wi-ao----   7.57g
+   (...)
+     vm-d10test-private                            qubes_dom0 Vwi-a-tz--   2.00g pool00 vm-d10test-private-1600961860-back            29.27
+     vm-d10test-private-1600961860-back            qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.87
+     vm-d10test-standalone-private                 qubes_dom0 Vwi-a-tz--   2.00g pool00 vm-d10test-standalone-private-1580772439-back 4.90
+     vm-d10test-standalone-private-1580772439-back qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.87
+     vm-d10test-standalone-root                    qubes_dom0 Vwi-a-tz--  10.00g pool00 vm-d10test-standalone-root-1580772439-back    43.37
+     vm-d10test-standalone-root-1580772439-back    qubes_dom0 Vwi-a-tz--  10.00g pool00                                               42.05
+     vm-debian-10-my-private                       qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.96
+     vm-debian-10-my-root                          qubes_dom0 Vwi-a-tz--  10.00g pool00 vm-debian-10-my-root-1565013689-back          57.99
+     vm-debian-10-my-root-1565013689-back          qubes_dom0 Vwi-a-tz--  10.00g pool00                                               56.55
+     vm-debian-10-private                          qubes_dom0 Vwi-a-tz--   2.00g pool00                                               4.94
+     vm-debian-10-root                             qubes_dom0 Vwi-a-tz--  10.00g pool00 vm-debian-10-root-1601126126-back             93.44
+     vm-debian-10-root-1601126126-back             qubes_dom0 Vwi-a-tz--  10.00g pool00                                               88.75
+   (...)
+   $ sudo lvremove qubes_dom0/vm-d10test-standalone-root-1580772439-back
+   Do you really want to remove and DISCARD active logical volume qubes_dom0/vm-d10test-standalone-root-1580772439-back? [y/n]: y
+     Logical volume "vm-d10test-standalone-root-1580772439-back" successfully removed
 
 
 
@@ -98,8 +98,8 @@ After freeing some initial space, it may be possible to recover more space by de
 
 .. code:: console
 
-      $ qvm-start <VMname>
-      $ qvm-console-dispvm <VMname>
+   $ qvm-start <VMname>
+   $ qvm-console-dispvm <VMname>
 
 
 
@@ -117,7 +117,7 @@ To fix this issue:
 
    .. code:: console
 
-         $ qvm-console-dispvm sys-usb
+      $ qvm-console-dispvm sys-usb
 
 
 
@@ -127,7 +127,7 @@ To fix this issue:
 
    .. code:: console
 
-         $ fuser -m /home
+      $ fuser -m /home
 
 
 
@@ -139,9 +139,9 @@ Kill these process until they are all gone using ``kill <process ID>``.
 
    .. code:: console
 
-         $ umount /home
-         $ fsck /dev/xvdb
-         $ resize2fs /dev/xvdb
+      $ umount /home
+      $ fsck /dev/xvdb
+      $ resize2fs /dev/xvdb
 
 
 

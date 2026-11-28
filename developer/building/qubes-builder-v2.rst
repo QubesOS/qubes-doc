@@ -22,8 +22,8 @@ This is a simple setup using a docker or podman executor. This is a good default
 
    .. code:: console
 
-         $ git clone https://github.com/QubesOS/qubes-builderv2
-         $ cd qubes-builderv2/
+      $ git clone https://github.com/QubesOS/qubes-builderv2
+      $ cd qubes-builderv2/
 
 3. Installing dependencies
 
@@ -49,7 +49,7 @@ This is a simple setup using a docker or podman executor. This is a good default
 
    .. code:: console
 
-         $ sudo usermod -aG docker user
+      $ sudo usermod -aG docker user
 
    Next, **restart the qube**.
 
@@ -59,11 +59,11 @@ This is a simple setup using a docker or podman executor. This is a good default
 
    .. code:: console
 
-         $ tools/generate-container-image.sh docker
+      $ tools/generate-container-image.sh docker
 
    .. code:: console
 
-         $ tools/generate-container-image.sh podman
+      $ tools/generate-container-image.sh podman
 
    If you are using ``docker`` and an app qube, as ``/var/lib/docker`` is not persistent by default, you also need to use :doc:`bind-dirs </user/advanced-topics/bind-dirs>` to avoid repeating this step after reboot, adding the following to the ``/rw/config/qubes-bind-dirs.d/docker.conf`` file in this qube:
 
@@ -111,7 +111,7 @@ If you want use the ``podman`` executor, you have to enable socket activation, w
 
    .. code:: console
 
-         # systemctl --user enable --now podman.socket
+      $ systemctl --user enable --now podman.socket
 
 Using Builder v2
 ----------------
@@ -120,7 +120,7 @@ To fetch sources - in this example, for the ``core-admin-client`` package, you c
 
 .. code:: console
 
-      $ ./qb -c core-admin-client package fetch
+   $ ./qb -c core-admin-client package fetch
 
 This will fetch the sources for the listed package and place them in ``artifacts/sources`` directory.
 
@@ -128,18 +128,18 @@ To build a package (from sources in the ``artifacts/sources`` directory), use:
 
 .. code:: console
 
-      $ ./qb -c core-admin-client package fetch prep build
+   $ ./qb -c core-admin-client package fetch prep build
 
 or, if you want to build for a specific target (``host-fc37`` is a ``dom0`` using Fedora 37, ``vm-fc40`` would be a qube using Fedora 40 etc.), use:
 
 .. code:: console
 
-      $ ./qb -c core-admin-client -d host-fc37 package fetch prep build
+   $ ./qb -c core-admin-client -d host-fc37 package fetch prep build
 
 If you want to fetch the entire Qubes OS source use the following:
 
 .. code:: console
 
-      $ ./qb package fetch
+   $ ./qb package fetch
 
 **caution**: some repositories might have additional requirements. You can disable repositories that are not needed in the ``example-configs/*.yml`` file you are using by commenting them out. In particular, ``python-fido2``, ``lvm`` and ``windows``-related repositories have special requirements.

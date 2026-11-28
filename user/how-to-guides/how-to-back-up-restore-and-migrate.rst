@@ -17,10 +17,10 @@ When backing up dom0 using the Qubes backup tool (explained below), only the hom
 
 .. code:: console
 
-      $ mkdir -p ~/backup/etc/qubes/
-      $ cp -a /etc/qubes/* ~/backup/etc/qubes/
-      $ mkdir ~/backup/etc/qubes-rpc/
-      $ cp -a /etc/qubes-rpc/* ~/backup/etc/qubes-rpc/
+   $ mkdir -p ~/backup/etc/qubes/
+   $ cp -a /etc/qubes/* ~/backup/etc/qubes/
+   $ mkdir ~/backup/etc/qubes-rpc/
+   $ cp -a /etc/qubes-rpc/* ~/backup/etc/qubes-rpc/
 
 
 

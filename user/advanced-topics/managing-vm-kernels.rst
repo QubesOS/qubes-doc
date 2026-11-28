@@ -24,33 +24,33 @@ To select which kernel a given VM will use, you can either use Qubes Manager (VM
 
 .. code:: console
 
-      [user@dom0 ~]$ dnf list --installed kernel
-      Installed Packages
-      kernel.x86_64            1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
-      kernel.x86_64            1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
-      kernel.x86_64            1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
-      [user@dom0 ~]$ qvm-prefs my-appvm kernel
-      6.12.59-1.fc37
-      [user@dom0 ~]$ qvm-prefs my-appvm kernel 6.12.54-1.fc37
-      [user@dom0 ~]$ qvm-prefs -D my-appvm kernel
+   [user@dom0 ~]$ dnf list --installed kernel
+   Installed Packages
+   kernel.x86_64            1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
+   kernel.x86_64            1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
+   kernel.x86_64            1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
+   [user@dom0 ~]$ qvm-prefs my-appvm kernel
+   6.12.59-1.fc37
+   [user@dom0 ~]$ qvm-prefs my-appvm kernel 6.12.54-1.fc37
+   [user@dom0 ~]$ qvm-prefs -D my-appvm kernel
 
 
 To check/change the default kernel you can either go to “Global settings” in Qubes Manager, or use the ``qubes-prefs`` tool:
 
 .. code:: console
 
-      [user@dom0 ~]$ qubes-prefs default-kernel
-      6.12.59-1.fc37
-      [user@dom0 ~]$ qubes-prefs default-kernel 6.12.54-1.fc37
+   [user@dom0 ~]$ qubes-prefs default-kernel
+   6.12.59-1.fc37
+   [user@dom0 ~]$ qubes-prefs default-kernel 6.12.54-1.fc37
 
 
 To view kernel options, you can use the GUI VM Settings tool; to view and change them, use ``qvm-prefs`` commandline tool:
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-prefs my-appvm kernelopts
-      swiotlb=2048
-      [user@dom0 ~]$ qvm-prefs my-appvm kernelopts "swiotlb=10240 apparmor=1 security=apparmor"
+   [user@dom0 ~]$ qvm-prefs my-appvm kernelopts
+   swiotlb=2048
+   [user@dom0 ~]$ qvm-prefs my-appvm kernelopts "swiotlb=10240 apparmor=1 security=apparmor"
 
 
 Installing different kernel using Qubes kernel package
@@ -61,15 +61,15 @@ VM kernels are packaged by the Qubes team in the ``kernel`` packages. Generally,
 
 .. code:: console
 
-      [user@dom0 ~]$ rpm -qa 'kernel'
-      kernel-6.12.47-1.qubes.fc37.x86_64
-      kernel-6.12.54-1.qubes.fc37.x86_64
-      kernel-6.12.59-1.qubes.fc37.x86_64
-      [user@dom0 ~]$ dnf list --installed kernel
-      Installed Packages
-      kernel.x86_64            1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
-      kernel.x86_64            1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
-      kernel.x86_64            1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
+   [user@dom0 ~]$ rpm -qa 'kernel'
+   kernel-6.12.47-1.qubes.fc37.x86_64
+   kernel-6.12.54-1.qubes.fc37.x86_64
+   kernel-6.12.59-1.qubes.fc37.x86_64
+   [user@dom0 ~]$ dnf list --installed kernel
+   Installed Packages
+   kernel.x86_64            1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
+   kernel.x86_64            1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
+   kernel.x86_64            1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
 
 
 If you want a more recent version, you can check ``qubes-dom0-unstable`` and ``qubes-dom0-current-testing`` repositories. There is also ``kernel-latest`` package which should provide a more recent (non-LTS) kernel, but has received much less testing. As the names suggest, keep in mind that those packages may be less stable than the default ones.
@@ -78,120 +78,120 @@ To check available versions in the ``qubes-dom0-current-testing`` repository:
 
 .. code:: console
 
-      [root@dom0 ~]# qubes-dom0-update --enablerepo=qubes-dom0-current-testing --action=list kernel-latest kernel
-      Using sys-whonix as UpdateVM for Dom0
-      Updating package lists. This may take a while...
-      Fedora 37 - x86_64                              3.1 kB/s | 5.1 kB     00:01    
-      Fedora 37 - x86_64 - Updates                    3.2 kB/s | 5.0 kB     00:01                    
-      Qubes Host Repository (updates)                 2.4 kB/s | 2.7 kB     00:01                    
-      Qubes Host Repository (updates-testing)         3.1 kB/s | 2.8 kB     00:00                    
-      Installed Packages                                                                             
-      kernel.x86_64           1000:6.12.47-1.qubes.fc37     @System                                  
-      kernel.x86_64           1000:6.12.54-1.qubes.fc37     @System                                  
-      kernel.x86_64           1000:6.12.59-1.qubes.fc37     @System                                  
-      Available Packages                                                                             
-      kernel.src              1000:6.12.63-1.qubes.fc37     qubes-dom0-current-testing               
-      kernel.x86_64           1000:6.12.63-1.qubes.fc37     qubes-dom0-current-testing               
-      kernel-latest.src       1000:6.18.2-1.qubes.fc37      qubes-dom0-current-testing               
-      kernel-latest.x86_64    1000:6.18.2-1.qubes.fc37      qubes-dom0-current-testing               
-      No packages downloaded
+   [root@dom0 ~]# qubes-dom0-update --enablerepo=qubes-dom0-current-testing --action=list kernel-latest kernel
+   Using sys-whonix as UpdateVM for Dom0
+   Updating package lists. This may take a while...
+   Fedora 37 - x86_64                              3.1 kB/s | 5.1 kB     00:01
+   Fedora 37 - x86_64 - Updates                    3.2 kB/s | 5.0 kB     00:01
+   Qubes Host Repository (updates)                 2.4 kB/s | 2.7 kB     00:01
+   Qubes Host Repository (updates-testing)         3.1 kB/s | 2.8 kB     00:00
+   Installed Packages 
+   kernel.x86_64           1000:6.12.47-1.qubes.fc37     @System
+   kernel.x86_64           1000:6.12.54-1.qubes.fc37     @System
+   kernel.x86_64           1000:6.12.59-1.qubes.fc37     @System
+   Available Packages
+   kernel.src              1000:6.12.63-1.qubes.fc37     qubes-dom0-current-testing
+   kernel.x86_64           1000:6.12.63-1.qubes.fc37     qubes-dom0-current-testing
+   kernel-latest.src       1000:6.18.2-1.qubes.fc37      qubes-dom0-current-testing
+   kernel-latest.x86_64    1000:6.18.2-1.qubes.fc37      qubes-dom0-current-testing
+   No packages downloaded
 
 
 Installing a new version from ``qubes-dom0-current-testing`` repository:
 
 .. code:: console
 
-      [root@dom0 ~]# qubes-dom0-update --enablerepo=qubes-dom0-current-testing kernel
-      Using sys-whonix as UpdateVM for Dom0
-      Downloading packages. This may take a while...
-      Fedora 37 - x86_64                              1.8 kB/s | 5.1 kB     00:02    
-      Fedora 37 - x86_64 - Updates                    3.5 kB/s | 5.0 kB     00:01                    
-      Qubes Host Repository (updates)                 2.1 kB/s | 2.7 kB     00:01                    
-      Qubes Host Repository (updates-testing)         2.2 kB/s | 2.8 kB     00:01                    
-      Last metadata expiration check: 0:00:01 ago on Fri Dec 26 21:49:54 2025.                       
-      Package kernel-1000:6.12.47-1.qubes.fc37.x86_64 is already installed.                          
-      Package kernel-1000:6.12.54-1.qubes.fc37.x86_64 is already installed.                          
-      Package kernel-1000:6.12.59-1.qubes.fc37.x86_64 is already installed.                          
-      Dependencies resolved.                                                                         
-      ================================================================================               
-       Package      Arch   Version                   Repository                  Size                
-      ================================================================================               
-      Installing:                                                                                    
-       kernel       x86_64 1000:6.12.63-1.qubes.fc37 qubes-dom0-current-testing  13 M                
-       kernel-modules                                                                                
-                    x86_64 1000:6.12.63-1.qubes.fc37 qubes-dom0-current-testing  84 M                
-      Removing:                                                                                      
-       kernel       x86_64 1000:6.12.47-1.qubes.fc37 @System                     42 M                
-       kernel-modules                                                                                
-                    x86_64 1000:6.12.47-1.qubes.fc37 @System                    508 M                
+   [root@dom0 ~]# qubes-dom0-update --enablerepo=qubes-dom0-current-testing kernel
+   Using sys-whonix as UpdateVM for Dom0
+   Downloading packages. This may take a while...
+   Fedora 37 - x86_64                              1.8 kB/s | 5.1 kB     00:02
+   Fedora 37 - x86_64 - Updates                    3.5 kB/s | 5.0 kB     00:01
+   Qubes Host Repository (updates)                 2.1 kB/s | 2.7 kB     00:01
+   Qubes Host Repository (updates-testing)         2.2 kB/s | 2.8 kB     00:01
+   Last metadata expiration check: 0:00:01 ago on Fri Dec 26 21:49:54 2025.
+   Package kernel-1000:6.12.47-1.qubes.fc37.x86_64 is already installed.
+   Package kernel-1000:6.12.54-1.qubes.fc37.x86_64 is already installed.
+   Package kernel-1000:6.12.59-1.qubes.fc37.x86_64 is already installed.
+   Dependencies resolved.
+   ================================================================================
+    Package      Arch   Version                   Repository                  Size
+   ================================================================================
+   Installing:
+    kernel       x86_64 1000:6.12.63-1.qubes.fc37 qubes-dom0-current-testing  13 M
+    kernel-modules
+                 x86_64 1000:6.12.63-1.qubes.fc37 qubes-dom0-current-testing  84 M
+   Removing:
+    kernel       x86_64 1000:6.12.47-1.qubes.fc37 @System                     42 M
+    kernel-modules
+                 x86_64 1000:6.12.47-1.qubes.fc37 @System                    508 M
                                                                                                      
-      Transaction Summary                                                                            
-      ================================================================================               
-      Install  2 Packages                                                                            
-      Remove   2 Packages                                                                            
+   Transaction Summary
+   ================================================================================
+   Install  2 Packages
+   Remove   2 Packages
                                                                                                
-      Total download size: 97 M                                                                      
-      DNF will only download packages for the transaction.
-      Downloading Packages:
+   Total download size: 97 M
+   DNF will only download packages for the transaction.
+   Downloading Packages:
 
-      ...
+   ...
 
-      Complete!                                                                         
-      The downloaded packages were saved in cache until the next successful transaction.
-      You can remove cached packages by executing 'dnf clean packages'.                 
-      Qubes OS Repository for Dom0                      2.9 MB/s | 3.0 kB     00:00     
-      Qubes OS Repository for Dom0                      2.2 MB/s |  66 kB     00:00    
-      Package kernel-1000:6.12.47-1.qubes.fc37.x86_64 is already installed.
-      Package kernel-1000:6.12.54-1.qubes.fc37.x86_64 is already installed.
-      Package kernel-1000:6.12.59-1.qubes.fc37.x86_64 is already installed.
-      Dependencies resolved.
-      Nothing to do.
-      Complete!
-      [root@dom0 ~]# dnf list kernel
-      Qubes OS Repository for Dom0                      2.9 MB/s | 3.0 kB     00:00    
-      Installed Packages
-      kernel.x86_64             1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
-      kernel.x86_64             1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
-      kernel.x86_64             1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
-      Available Packages
-      kernel.x86_64             1000:6.12.63-1.qubes.fc37             qubes-dom0-cached
-      [root@dom0 ~]# dnf install kernel-1000:6.12.63-1.qubes.fc37
-      Qubes OS Repository for Dom0                      2.9 MB/s | 3.0 kB     00:00    
-      Dependencies resolved.
-      ==================================================================================
-       Package          Arch     Version                     Repository            Size
-      ==================================================================================
-      Installing:
-       kernel           x86_64   1000:6.12.63-1.qubes.fc37   qubes-dom0-cached     13 M
-       kernel-modules   x86_64   1000:6.12.63-1.qubes.fc37   qubes-dom0-cached     84 M
-      Removing:
-       kernel           x86_64   1000:6.12.47-1.qubes.fc37   @qubes-dom0-cached    42 M
-       kernel-modules   x86_64   1000:6.12.47-1.qubes.fc37   @qubes-dom0-cached   508 M
+   Complete!
+   The downloaded packages were saved in cache until the next successful transaction.
+   You can remove cached packages by executing 'dnf clean packages'.
+   Qubes OS Repository for Dom0                      2.9 MB/s | 3.0 kB     00:00
+   Qubes OS Repository for Dom0                      2.2 MB/s |  66 kB     00:00
+   Package kernel-1000:6.12.47-1.qubes.fc37.x86_64 is already installed.
+   Package kernel-1000:6.12.54-1.qubes.fc37.x86_64 is already installed.
+   Package kernel-1000:6.12.59-1.qubes.fc37.x86_64 is already installed.
+   Dependencies resolved.
+   Nothing to do.
+   Complete!
+   [root@dom0 ~]# dnf list kernel
+   Qubes OS Repository for Dom0                      2.9 MB/s | 3.0 kB     00:00
+   Installed Packages
+   kernel.x86_64             1000:6.12.47-1.qubes.fc37             @qubes-dom0-cached
+   kernel.x86_64             1000:6.12.54-1.qubes.fc37             @qubes-dom0-cached
+   kernel.x86_64             1000:6.12.59-1.qubes.fc37             @qubes-dom0-cached
+   Available Packages
+   kernel.x86_64             1000:6.12.63-1.qubes.fc37             qubes-dom0-cached
+   [root@dom0 ~]# dnf install kernel-1000:6.12.63-1.qubes.fc37
+   Qubes OS Repository for Dom0                      2.9 MB/s | 3.0 kB     00:00
+   Dependencies resolved.
+   ==================================================================================
+    Package          Arch     Version                     Repository            Size
+   ==================================================================================
+   Installing:
+    kernel           x86_64   1000:6.12.63-1.qubes.fc37   qubes-dom0-cached     13 M
+    kernel-modules   x86_64   1000:6.12.63-1.qubes.fc37   qubes-dom0-cached     84 M
+   Removing:
+    kernel           x86_64   1000:6.12.47-1.qubes.fc37   @qubes-dom0-cached    42 M
+    kernel-modules   x86_64   1000:6.12.47-1.qubes.fc37   @qubes-dom0-cached   508 M
 
-      Transaction Summary
-      ==================================================================================
-      Install  2 Packages
-      Remove   2 Packages
+   Transaction Summary
+   ==================================================================================
+    Install  2 Packages
+    Remove   2 Packages
       
-      Total size: 97 M
-      Is this ok [y/N]: y
-      Downloading Packages:
-      Running transaction check
-      Transaction check succeeded.
-      Running transaction test
-      Transaction test succeeded.
-      Running transaction
+    Total size: 97 M
+    Is this ok [y/N]: y
+    Downloading Packages:
+    Running transaction check
+    Transaction check succeeded.
+    Running transaction test
+    Transaction test succeeded.
+    Running transaction
 
-      ...
+    ...
 
-      Installed:
-        kernel-1000:6.12.63-1.qubes.fc37.x86_64                                         
-        kernel-modules-1000:6.12.63-1.qubes.fc37.x86_64                                 
-      Removed:
-        kernel-1000:6.12.47-1.qubes.fc37.x86_64                                         
-        kernel-modules-1000:6.12.47-1.qubes.fc37.x86_64                                 
+    Installed:
+      kernel-1000:6.12.63-1.qubes.fc37.x86_64
+      kernel-modules-1000:6.12.63-1.qubes.fc37.x86_64
+    Removed:
+      kernel-1000:6.12.47-1.qubes.fc37.x86_64
+      kernel-modules-1000:6.12.47-1.qubes.fc37.x86_64
 
-      Complete!
+    Complete!
 
 
 The newly installed package is set as the default VM kernel.
@@ -212,57 +212,57 @@ To prepare such a VM kernel, you need to install the ``qubes-kernel-vm-support``
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
-      Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
-      Running command on VM: 'sys-firewall'...
-      Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
-      Package 1000:kernel-devel-4.1.9-6.pvops.qubes.x86_64 already installed and latest version
-      Resolving Dependencies
-      (...)
+   [user@dom0 ~]$ sudo qubes-dom0-update qubes-kernel-vm-support kernel-devel
+   Using sys-firewall as UpdateVM to download updates for Dom0; this may take some time...
+   Running command on VM: 'sys-firewall'...
+   Loaded plugins: langpacks, post-transaction-actions, yum-qubes-hooks
+   Package 1000:kernel-devel-4.1.9-6.pvops.qubes.x86_64 already installed and latest version
+   Resolving Dependencies
+   (...)
 
-      ================================================================================
-       Package                      Arch        Version        Repository        Size
-      ================================================================================
-      Installing:
-       qubes-kernel-vm-support      x86_64      3.1.2-1.fc20   qubes-dom0-cached 9.2 k
+   ================================================================================
+   Package                      Arch        Version        Repository        Size
+   ================================================================================
+   Installing:
+   qubes-kernel-vm-support      x86_64      3.1.2-1.fc20   qubes-dom0-cached 9.2 k
 
-      Transaction Summary
-      ================================================================================
-      Install  1 Package
+   Transaction Summary
+   ================================================================================
+   Install  1 Package
 
-      Total download size: 9.2 k
-      Installed size: 13 k
-      Is this ok [y/d/N]: y
-      Downloading packages:
-      Running transaction check
-      Running transaction test
-      Transaction test succeeded
-      Running transaction (shutdown inhibited)
-        Installing : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
+   Total download size: 9.2 k
+   Installed size: 13 k
+   Is this ok [y/d/N]: y
+   Downloading packages:
+   Running transaction check
+   Running transaction test
+   Transaction test succeeded
+   Running transaction (shutdown inhibited)
+   Installing : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
 
-      Creating symlink /var/lib/dkms/u2mfn/3.1.2/source ->
-                       /usr/src/u2mfn-3.1.2
+   Creating symlink /var/lib/dkms/u2mfn/3.1.2/source ->
+                    /usr/src/u2mfn-3.1.2
 
-      DKMS: add completed.
-        Verifying  : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
+   DKMS: add completed.
+     Verifying  : qubes-kernel-vm-support-3.1.2-1.fc20.x86_64                  1/1
 
-      Installed:
-        qubes-kernel-vm-support.x86_64 0:3.1.2-1.fc20
+   Installed:
+     qubes-kernel-vm-support.x86_64 0:3.1.2-1.fc20
 
-      Complete!
+   Complete!
 
 
 Then you can call the ``qubes-prepare-vm-kernel`` tool to actually package the kernel. The first parameter is kernel version (exactly as seen by the kernel), the second one (optional) is short name. This is visible in Qubes Manager and the ``qvm-prefs`` tool.
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo qubes-prepare-vm-kernel 4.1.9-6.pvops.qubes.x86_64 4.1.qubes
-      --> Building files for 4.1.9-6.pvops.qubes.x86_64 in /var/lib/qubes/vm-kernels/4.1.qubes
-      ---> Recompiling kernel module (u2mfn)
-      ---> Generating modules.img
-      mke2fs 1.42.12 (29-Aug-2014)
-      ---> Generating initramfs
-      --> Done.
+   [user@dom0 ~]$ sudo qubes-prepare-vm-kernel 4.1.9-6.pvops.qubes.x86_64 4.1.qubes
+   --> Building files for 4.1.9-6.pvops.qubes.x86_64 in /var/lib/qubes/vm-kernels/4.1.qubes
+   ---> Recompiling kernel module (u2mfn)
+   ---> Generating modules.img
+   mke2fs 1.42.12 (29-Aug-2014)
+   ---> Generating initramfs
+   --> Done.
 
 
 Kernel files structure
@@ -291,16 +291,16 @@ Non-minimal debian and fedora templates already have grub and related tools prei
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-prefs <clonetemplatename> virt_mode hvm
-      [user@dom0 ~]$ qvm-prefs <clonetemplatename> kernel ''
+   [user@dom0 ~]$ qvm-prefs <clonetemplatename> virt_mode hvm
+   [user@dom0 ~]$ qvm-prefs <clonetemplatename> kernel ''
 
 
 Depending on vm and kernel you're running, you may also want to disable memory balancing and change the amount of memory vm has: 
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-prefs <clonedtemplatename> maxmem 0
-      [user@dom0 ~]$ qvm-prefs <clonedtemplatename> memory 2000
+   [user@dom0 ~]$ qvm-prefs <clonedtemplatename> maxmem 0
+   [user@dom0 ~]$ qvm-prefs <clonedtemplatename> memory 2000
 
 
 Installing kernel in Fedora VM
@@ -313,7 +313,7 @@ Install kernel and the packages required to run vm with its own kernel:
 
 .. code:: console
 
-  [root@fedora-vm ~]# dnf install kernel qubes-kernel-vm-support grub2
+   [root@fedora-vm ~]# dnf install kernel qubes-kernel-vm-support grub2
 
 
 
@@ -321,7 +321,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 .. code:: console
 
-  [root@fedora-vm ~]# grub2-install /dev/xvda
+   [root@fedora-vm ~]# grub2-install /dev/xvda
 
 
 
@@ -329,7 +329,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 .. code:: console
 
-  [root@fedora-vm ~]# grub2-mkconfig -o /boot/grub2/grub.cfg
+   [root@fedora-vm ~]# grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
@@ -340,7 +340,7 @@ If you are using a manually built kernel, you need to handle the initramfs and k
 
 .. code:: console
 
-  [root@fedora-vm ~]# dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
+   [root@fedora-vm ~]# dracut -f /boot/initramfs-4.15.14-200.fc26.x86_64.img 4.15.14-200.fc26.x86_64
 
 
 
@@ -348,7 +348,7 @@ Once the kernel is installed, you need to setup ``grub2`` by running:
 
 .. code:: console
 
-  [root@fedora-vm ~]# grub2-install /dev/xvda
+   [root@fedora-vm ~]# grub2-install /dev/xvda
 
 
 
@@ -356,7 +356,7 @@ Finally, you need to create a GRUB configuration. You may want to adjust some se
 
 .. code:: console
 
-  [root@fedora-vm ~]# grub2-mkconfig -o /boot/grub2/grub.cfg
+   [root@fedora-vm ~]# grub2-mkconfig -o /boot/grub2/grub.cfg
 
 
 
@@ -398,7 +398,7 @@ Install distribution kernel image, kernel headers and the grub.
 
 .. code:: console
 
-  [root@debian-vm ~]# apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
+   [root@debian-vm ~]# apt install linux-image-amd64 linux-headers-amd64 grub2 qubes-kernel-vm-support
 
 
 
@@ -406,7 +406,7 @@ If you are doing that on a qube based on “Debian Minimal” template, a grub g
 
 .. code:: console
 
-  [root@debian-vm ~]# grub-install /dev/xvda
+   [root@debian-vm ~]# grub-install /dev/xvda
 
 
 
@@ -460,7 +460,7 @@ Run DKMS. Replace this with actual kernel version.
 
 .. code:: console
 
-  [root@debian-vm ~]# dkms autoinstall -k <kernel-version>
+   [root@debian-vm ~]# dkms autoinstall -k <kernel-version>
 
 
 For example.
@@ -469,7 +469,7 @@ For example.
 
 .. code:: console
 
-  [root@debian-vm ~]# dkms autoinstall -k 4.19.0-6-amd64
+   [root@debian-vm ~]# dkms autoinstall -k 4.19.0-6-amd64
 
 
 Update initramfs.
@@ -478,14 +478,14 @@ Update initramfs.
 
 .. code:: console
 
-  [root@debian-vm ~]# update-initramfs -u
+   [root@debian-vm ~]# update-initramfs -u
 
 
 The output should look like this:
 
 .. code:: console
 
-  [root@debian-vm ~]# dkms autoinstall -k 3.16.0-4-amd64
+   [root@debian-vm ~]# dkms autoinstall -k 3.16.0-4-amd64
 
       u2mfn:
       Running module version sanity check.

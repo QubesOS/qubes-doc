@@ -44,21 +44,21 @@ The minimal templates can be installed with the following type of command:
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
+   [user@dom0 ~]$ sudo qubes-dom0-update qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 If your desired version is not found, it may still be in :doc:`testing </user/downloading-installing-upgrading/testing>`. You may wish to try again with the testing repository enabled:
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
+   [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-itl-testing qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 If you would like to install a community distribution, try the install command by enabling the community repository:
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
+   [user@dom0 ~]$ sudo qubes-dom0-update --enablerepo=qubes-templates-community qubes-template-<DISTRO_NAME>-<RELEASE_NUMBER>-minimal
 
 
 The download may take a while depending on your connection speed.
@@ -71,7 +71,7 @@ It is an intentional design choice for :doc:`Passwordless Root Access in VMs </u
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-run -u root <DISTRO_NAME>-<RELEASE_NUMBER>-minimal xterm
+   [user@dom0 ~]$ qvm-run -u root <DISTRO_NAME>-<RELEASE_NUMBER>-minimal xterm
 
 
 This opens a root terminal in the minimal template, from which you can use execute root commands without ``sudo``. You will have to do this every time if you choose not to enable passwordless root.
@@ -102,7 +102,7 @@ The following list provides an overview of which packages are needed for which p
 
 .. code:: console
 
-      [user@your-new-clone ~]$ sudo dnf install packages
+   [user@your-new-clone ~]$ sudo dnf install packages
 
 
 
@@ -188,7 +188,7 @@ The following list provides an overview of which packages are needed for which p
 
 .. code:: console
 
-      [user@your-new-clone ~]$ sudo apt install packages
+   [user@your-new-clone ~]$ sudo apt install packages
 
 
 

@@ -50,22 +50,22 @@ Listing available USB devices:
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-usb
-      BACKEND:DEVID   DESCRIPTION                    USED BY
-      sys-usb:2-4     04ca:300d 04ca_300d
-      sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-      sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
+   [user@dom0 ~]$ qvm-usb
+   BACKEND:DEVID   DESCRIPTION                    USED BY
+   sys-usb:2-4     04ca:300d 04ca_300d
+   sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+   sys-usb:2-1     03f0:0641 PixArt_HP_X1200_USB_Optical_Mouse
 
 Attaching selected USB device:
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
-      [user@dom0 ~]$ qvm-usb
-      BACKEND:DEVID   DESCRIPTION                    USED BY
-      sys-usb:2-4     04ca:300d 04ca_300d
-      sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
-      sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
+   [user@dom0 ~]$ qvm-usb attach work sys-usb:2-5
+   [user@dom0 ~]$ qvm-usb
+   BACKEND:DEVID   DESCRIPTION                    USED BY
+   sys-usb:2-4     04ca:300d 04ca_300d
+   sys-usb:2-5     058f:3822 058f_USB_2.0_Camera  work
+   sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 Now, you can use your USB device (camera in this case) in the ``work`` qube. If you see the error ``ERROR: qubes-usb-proxy not installed in the qube`` instead, please refer to the `Installation Section <#installation-of-qubes-usb-proxy>`__.
 
@@ -73,12 +73,12 @@ When you finish, detach the device.
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
-      [user@dom0 ~]$ qvm-usb
-      BACKEND:DEVID   DESCRIPTION                    USED BY
-      sys-usb:2-4     04ca:300d 04ca_300d
-      sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
-      sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
+   [user@dom0 ~]$ qvm-usb detach work sys-usb:2-5
+   [user@dom0 ~]$ qvm-usb
+   BACKEND:DEVID   DESCRIPTION                    USED BY
+   sys-usb:2-4     04ca:300d 04ca_300d
+   sys-usb:2-5     058f:3822 058f_USB_2.0_Camera
+   sys-usb:2-1     03f0:0641 PixArt_Optical_Mouse
 
 Maintenance and customisation
 -----------------------------
@@ -101,13 +101,13 @@ If you receive this error: ``ERROR: qubes-usb-proxy not installed in the qube``,
 
   .. code:: console
 
-        $ sudo dnf install qubes-usb-proxy
+     $ sudo dnf install qubes-usb-proxy
 
 - Debian/Ubuntu:
 
   .. code:: console
 
-        $ sudo apt-get install qubes-usb-proxy
+     $ sudo apt-get install qubes-usb-proxy
 
 Using USB keyboards and other input devices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -127,7 +127,7 @@ First, find out which USB bus the device is connected to (note that these steps 
 
 .. code:: console
 
-      $ lsusb
+   $ lsusb
 
 For example, I want to attach a broadband modem to the NetVM. In the output of ``lsusb`` it may be listed as something like:
 
@@ -143,7 +143,7 @@ To find the right controller, follow the usb bus:
 
 .. code:: console
 
-      $ readlink /sys/bus/usb/devices/usb3
+   $ readlink /sys/bus/usb/devices/usb3
 
 This should output something like:
 
@@ -155,7 +155,7 @@ Now you see the path: the text between ``/pci0000:00/0000:`` and ``/usb3`` i.e.Â
 
 .. code:: console
 
-      $ qvm-pci attach --persistent personal dom0:00_1a.0
+   $ qvm-pci attach --persistent personal dom0:00_1a.0
 
 It is possible that on some system configurations the readlink method produces output which is different from the example above, For example, you might see output like this:
 

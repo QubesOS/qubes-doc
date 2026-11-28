@@ -23,11 +23,11 @@ The easiest is via the output of ``lspci -k`` in your sys-net VM:
 
 .. code:: console
 
-      [user@sys-net ~]$ lspci -k
-      00:00.0 Network controller: Intel Corporation Wireless 8260 (rev 3a)
-          Subsystem: Intel Corporation Device 0130
-          Kernel driver in use: iwlwifi
-          Kernel modules: iwlwifi
+   [user@sys-net ~]$ lspci -k
+   00:00.0 Network controller: Intel Corporation Wireless 8260 (rev 3a)
+       Subsystem: Intel Corporation Device 0130
+       Kernel driver in use: iwlwifi
+       Kernel modules: iwlwifi
 
 
 
@@ -66,13 +66,13 @@ For example, we list what modules we have loaded:
 
 .. code:: console
 
-      [user@sys-net ~]$ lsmod
-      Module                  Size  Used by
-      iwlmvm                315392  0
-      iwlwifi               155648  1 iwlmvm
-      mac80211              708608  1 iwlmvm
-      cfg80211              557056  3 iwlwifi,mac80211,iwlmvm
-      ...
+   [user@sys-net ~]$ lsmod
+   Module                  Size  Used by
+   iwlmvm                315392  0
+   iwlwifi               155648  1 iwlmvm
+   mac80211              708608  1 iwlmvm
+   cfg80211              557056  3 iwlwifi,mac80211,iwlmvm
+   ...
 
 
 
@@ -80,10 +80,10 @@ and check one:
 
 .. code:: console
 
-      [user@sys-net ~]$ modinfo iwlmvm | grep -E '^(description|author|depends):'
-      author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
-      description:    The new Intel(R) wireless AGN driver for Linux
-      depends:        iwlwifi,mac80211,cfg80211
+   [user@sys-net ~]$ modinfo iwlmvm | grep -E '^(description|author|depends):'
+   author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
+   description:    The new Intel(R) wireless AGN driver for Linux
+   depends:        iwlwifi,mac80211,cfg80211
 
 
 
@@ -93,8 +93,8 @@ Now, check if reloading the module makes wireless work again:
 
 .. code:: console
 
-      [user@sys-net ~]$ sudo rmmod iwlmvm
-      [user@sys-net ~]$ sudo modprobe iwlmvm
+   [user@sys-net ~]$ sudo rmmod iwlmvm
+   [user@sys-net ~]$ sudo modprobe iwlmvm
 
 
 
@@ -104,19 +104,19 @@ If that is successful, see below about having Qubes automatically reload the dri
 
 .. code:: console
 
-      [user@sys-net ~]$ modinfo iwlwifi | grep -E '^(description|author|depends):'
-      author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
-      description:    Intel(R) Wireless WiFi driver for Linux
-      depends:        cfg80211
+   [user@sys-net ~]$ modinfo iwlwifi | grep -E '^(description|author|depends):'
+   author:         Copyright(c) 2003- 2015 Intel Corporation <ilw@linux.intel.com>
+   description:    Intel(R) Wireless WiFi driver for Linux
+   depends:        cfg80211
 
 
 
 .. code:: console
 
-      [user@sys-net ~]$ sudo rmmod iwlmvm
-      [user@sys-net ~]$ sudo rmmod iwlwifi
-      [user@sys-net ~]$ sudo modprobe iwlwifi # note the reverse order of loading/unloading
-      [user@sys-net ~]$ sudo modprobe iwlmvm
+   [user@sys-net ~]$ sudo rmmod iwlmvm
+   [user@sys-net ~]$ sudo rmmod iwlwifi
+   [user@sys-net ~]$ sudo modprobe iwlwifi # note the reverse order of loading/unloading
+   [user@sys-net ~]$ sudo modprobe iwlmvm
 
 
 
@@ -130,12 +130,12 @@ In the above example, it would look like this:
 
 .. code:: console
 
-      [user@sys-net config]$ cat /rw/config/suspend-module-blacklist
-      # You can list here modules you want to be unloaded before going to sleep. This
-      # file is used only if the VM has any PCI device assigned. Modules will be
-      # automatically loaded after resume.
-      iwlmvm
-      iwlwifi
+   [user@sys-net config]$ cat /rw/config/suspend-module-blacklist
+   # You can list here modules you want to be unloaded before going to sleep. This
+   # file is used only if the VM has any PCI device assigned. Modules will be
+   # automatically loaded after resume.
+   iwlmvm
+   iwlwifi
 
 
 sys-net disappears after suspend/resume
@@ -146,7 +146,7 @@ After suspend/resume sys-net is not active anymore - manual start of sys-net is 
 
 .. code:: console
 
-      [user@dom0]$ qvm-prefs sys-net kernelopts qubes_exp_pm_use_suspend=1
+   [user@dom0]$ qvm-prefs sys-net kernelopts qubes_exp_pm_use_suspend=1
 
 After restarting sys-net this setting will be active:
 
@@ -185,36 +185,41 @@ This leads to dom0 booting, however none of the qubes start. Attempting to start
 
 .. code:: console
       
-      [user@dom0 ~]$ qvm-start sys-net
-      Error:  Logical Volume "vm-sys-net-private-snap" already exists in volume group "qubes_dom0"
-      [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap
-      ls:  cannot access '/dev/qubes_dom0/vm-sys-net-private-snap': No such file or directory
+   [user@dom0 ~]$ qvm-start sys-net
+   Error:  Logical Volume "vm-sys-net-private-snap" already exists in volume group "qubes_dom0"
+   [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap
+   ls:  cannot access '/dev/qubes_dom0/vm-sys-net-private-snap': No such file or directory
 
 This should be recoverable by running:
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo lvconvert --repair qubes_dom0/vm-pool
-      [user@dom0 ~]$ sudo vgchange -ay # Reactivate the volume group
-      n logical volume(s) in volume group "qubes_dom0" now active
+   [user@dom0 ~]$ sudo lvconvert --repair qubes_dom0/vm-pool
+
+Reactivate the volume group n logical volume(s) in volume group ``qubes_dom0`` now active:
+
+.. code:: console
+
+   [user@dom0 ~]$ sudo vgchange -ay
+
 
 After which the error should be resolved and the system should start normally:
 
 .. code:: console
 
-      [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap # Volumes now active
-      /dev/qubes_dom0/vm-sys-net-private-snap      
-      [user@dom0 ~]$ qvm-start sys-net
+   [user@dom0 ~]$ ls /dev/qubes_dom0/vm-sys-net-private-snap # Volumes now active
+   /dev/qubes_dom0/vm-sys-net-private-snap
+   [user@dom0 ~]$ qvm-start sys-net
 
 In some edge cases the fix might not work and complain about a Transaction ID instead.
 In this case creating a backup of your LVM config and decrementing the Transaction ID in question by one before loading it back in, might work.
 
 .. code:: console
 
-      [user@dom0 ~]$ sudo vgcfgbackup -f /tmp/qubes_dom0
-      [user@dom0 ~]$ sudo cp /tmp/qubes_dom0 /tmp/qubes_dom0.bak
-      [user@dom0 ~]$ sudo nano /tmp/qubes_dom0
-      [user@dom0 ~]$ sudo vgcfgrestore -f /tmp/qubes_dom0 --force 
+   [user@dom0 ~]$ sudo vgcfgbackup -f /tmp/qubes_dom0
+   [user@dom0 ~]$ sudo cp /tmp/qubes_dom0 /tmp/qubes_dom0.bak
+   [user@dom0 ~]$ sudo nano /tmp/qubes_dom0
+   [user@dom0 ~]$ sudo vgcfgrestore -f /tmp/qubes_dom0 --force
 
 After this the fix using lvconvert should work.
 

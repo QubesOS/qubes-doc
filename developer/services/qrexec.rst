@@ -20,7 +20,7 @@ The ``qrexec-client`` command is used to make connections to VMs from dom0. For 
 
 .. code:: console
 
-      $ qrexec-client -e -d someVM user:'touch hello-world.txt'
+   $ qrexec-client -e -d someVM user:'touch hello-world.txt'
 
 
 
@@ -28,7 +28,7 @@ The string before the colon specifies which user will run the command. The ``-e`
 
 .. code:: console
 
-      $ qrexec-client -d someVM user:bash
+   $ qrexec-client -d someVM user:bash
 
 
 
@@ -85,7 +85,7 @@ From outside of dom0, RPC calls take the following form:
 
 .. code:: console
 
-      $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
+   $ qrexec-client-vm target_vm_name RPC_ACTION_NAME rpc_client_path client arguments
 
 
 
@@ -93,7 +93,7 @@ For example:
 
 .. code:: console
 
-      $ qrexec-client-vm work qubes.StartApp+firefox
+   $ qrexec-client-vm work qubes.StartApp+firefox
 
 
 
@@ -103,7 +103,7 @@ It is also possible to call service without specific client program – in which
 
 .. code:: console
 
-      $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
+   $ qrexec-client-vm target_vm_name RPC_ACTION_NAME
 
 
 
@@ -170,7 +170,7 @@ For example, this command will run the ``firefox`` command in a DisposableVM bas
 
 .. code:: console
 
-      $ qvm-run --dispvm=work firefox
+   $ qvm-run --dispvm=work firefox
 
 
 
@@ -178,7 +178,7 @@ By contrast, consider this command:
 
 .. code:: console
 
-      $ qvm-run --dispvm=work --service qubes.StartApp+firefox
+   $ qvm-run --dispvm=work --service qubes.StartApp+firefox
 
 
 
@@ -206,7 +206,7 @@ When calling a service that takes an argument, just add the argument to the serv
 
 .. code:: console
 
-      $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
+   $ qrexec-client-vm target_vm_name RPC_ACTION_NAME+ARGUMENT
 
 
 
@@ -248,7 +248,7 @@ We’ll need to create a service called ``test.Add`` with its own definition and
 
 .. code:: console
 
-      $ ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
+   $ ln -s /usr/bin/our_test_add_server /etc/qubes-rpc/test.Add
 
 
 
@@ -266,7 +266,7 @@ Before we make the call, ensure that the client and server scripts have executab
 
 .. code:: console
 
-      $ qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
+   $ qrexec-client-vm anotherVM test.Add /usr/bin/our_test_add_client 1 2
 
 
 
@@ -312,7 +312,7 @@ With this done, we can run some tests. Invoke RPC from ``source_vm1`` via
 
 .. code:: console
 
-      [user@source_vm1] $ qrexec-client-vm target_vm test.File+testfile1
+   [user@source_vm1] $ qrexec-client-vm target_vm test.File+testfile1
 
 
 
@@ -320,9 +320,9 @@ We should get the contents of ``/home/user/testfile1`` printed to the terminal. 
 
 .. code:: console
 
-      [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile1
-      Request refused
-      [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile2
+   [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile1
+   Request refused
+   [user@source_vm2] $ qrexec-client-vm target_vm test.File+testfile2
 
 
 

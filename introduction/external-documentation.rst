@@ -1,6 +1,6 @@
-===================================
+============================
 About external documentation
-===================================
+============================
 
 .. danger::
 
@@ -14,6 +14,6 @@ The purpose of this distinction is **to keep the core docs maintainable and high
 
 For example, Qubes OS may use a popular Linux distribution for an official :doc:`template </user/templates/templates>`. However, it would not make sense for a comparatively small project like ours, with modest funding and a lean workforce, to attempt to document software belonging to a large, richly-funded project with an army of paid and volunteer contributors, especially when they probably already have documentation of their own. This is particularly true when it comes to Linux in general. Although many users who are new to Qubes are also new to Linux, it makes absolutely no sense for our comparatively tiny project to try to document Linux in general when there is already a plethora of documentation out there.
 
-.. admonition:: See also
+.. seealso::
 
    :ref:`core-vs-external-documentation`

@@ -63,10 +63,10 @@ If you are using another installation method fetching remote resources, you migh
 
 .. code:: console
 
-      $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
-               HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
-               ALL_PROXY=$HTTP_PROXY all_proxy=$ALL_PROXY \
-               NO_PROXY=127.0.0.1 no_proxy=$NO_PROXY
+   $ export HTTP_PROXY=http://127.0.0.1:8082 http_proxy=$HTTP_PROXY \
+            HTTPS_PROXY=$HTTP_PROXY https_proxy=$HTTPS_PROXY \
+            ALL_PROXY=$HTTP_PROXY all_proxy=$ALL_PROXY \
+            NO_PROXY=127.0.0.1 no_proxy=$NO_PROXY
 
 Using direct networking
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,9 +157,9 @@ To temporarily enable any of these repos, use the ``--enablerepo=<repo-name>`` o
 
 .. code:: console
 
-      $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
-      $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
-      $ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
+   $ sudo dnf upgrade --enablerepo=qubes-vm-*-current-testing
+   $ sudo dnf upgrade --enablerepo=qubes-vm-*-security-testing
+   $ sudo dnf upgrade --enablerepo=qubes-vm-*-unstable
 
 To enable or disable any of these repos permanently, change the corresponding ``enabled`` value to ``1`` in :file:`/etc/yum.repos.d/qubes-*.repo`.
 
@@ -198,11 +198,11 @@ If you would like to enable the `RPM Fusion <https://rpmfusion.org>`__ repositor
 
 .. code:: console
 
-      $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
-      $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
-      $ sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
-      $ sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
-      $ sudo dnf upgrade --refresh
+   $ sudo dnf config-manager setopt rpmfusion-free.enabled=1
+   $ sudo dnf config-manager setopt rpmfusion-free-updates.enabled=1
+   $ sudo dnf config-manager setopt rpmfusion-nonfree.enabled=1
+   $ sudo dnf config-manager setopt rpmfusion-nonfree-updates.enabled=1
+   $ sudo dnf upgrade --refresh
 
 
 
@@ -230,7 +230,7 @@ Root revert
 
    .. code:: console
 
-         [user@dom0]$ qvm-volume revert <template>:root
+      [user@dom0]$ qvm-volume revert <template>:root
 
 Reinstall the template
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -293,58 +293,58 @@ Snap packages do not use the normal update channels for Debian and Fedora (apt a
 
    .. code:: console
 
-         [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
-         Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
-         Dependencies resolved.
-         ========================================================================================================
-          Package                       Arch    Version                             Repository              Size
-         ========================================================================================================
-         Installing:
-          snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
-          qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
-         Installing dependencies:
-         [...]
+      [user@fedora-36-snap-demo ~]$ sudo dnf install snapd qubes-snapd-helper
+      Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
+      Dependencies resolved.
+      ========================================================================================================
+      Package                       Arch    Version                             Repository              Size
+      ========================================================================================================
+      Installing:
+      snapd                        x86_64   2.56.2-4.fc36                       updates                 14 M
+      qubes-snapd-helper           noarch   1.0.4-1.fc36                        qubes-vm-r4.1-current   10 k
+      Installing dependencies:
+      [...]
 
-         Transaction Summary
-         ========================================================================================================
-         Install  19 Packages
+      Transaction Summary
+      ========================================================================================================
+      Install  19 Packages
 
-         Total download size: 27 M
-         Installed size: 88 M
-         Is this ok [y/N]: y
+      Total download size: 27 M
+      Installed size: 88 M
+      Is this ok [y/N]: y
 
-         Downloading Packages:
-         [..]
-         Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
-         /usr/sbin/semodule:  Failed!
-         [...]
-         Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
-         Notifying dom0 about installed applications
+      Downloading Packages:
+      [..]
+      Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+      /usr/sbin/semodule:  Failed!
+      [...]
+      Last metadata expiration check: 0:33:05 ago on Thu 03 Nov 2022 04:34:06.
+      Notifying dom0 about installed applications
 
-         Installed:
-           snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
-         [...]
-         Complete!
+      Installed:
+      snapd-2.56.2-4.fc36.x86_64                                              qubes-snapd-helper-1.0.4-1.fc36.noarch
+      [...]
+      Complete!
 
    You may see the following message:
 
    .. code:: console
 
-         Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
-         /usr/sbin/semodule:  Failed!
+      Failed to resolve booleanif statement at /var/lib/selinux/targeted/tmp/modules/200/snappy/cil:1174
+      /usr/sbin/semodule:  Failed!
 
    This is expected and you can safely continue.
    Shutdown the template:
 
    .. code:: console
 
-         [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
+      [user@fedora-36-snap-demo ~]$ sudo shutdown -h now
 
 2. Now open the **app qube** in which you would like to install the Snap application and run a terminal:
 
    .. code:: console
 
-         [user@snap-demo-app qube ~]$ snap install <package>
+      [user@snap-demo-app qube ~]$ snap install <package>
 
    When the install is complete you can close the terminal window.
 
@@ -363,24 +363,24 @@ If you want a desktop app to start automatically every time a qube starts you ca
 
    .. code:: console
 
-         [user@example-app qube ~]$ ls /usr/share/applications/
-         bluetooth-sendto.desktop
-         eog.desktop
-         firefox.desktop
-         ...
-         xterm.desktop
-         yelp.desktop
+      [user@example-app qube ~]$ ls /usr/share/applications/
+      bluetooth-sendto.desktop
+      eog.desktop
+      firefox.desktop
+      ...
+      xterm.desktop
+      yelp.desktop
 
 3. Create the autostart directory:
 
    .. code:: console
 
-         [user@example-app qube ~]$ mkdir -p ~/.config/autostart
+      [user@example-app qube ~]$ mkdir -p ~/.config/autostart
 
 4. Make a link to the desktop app file you’d like to start in the autostart directory. For example, the command below will link the Thunderbird app into the autostart directory:
 
    .. code:: console
 
-         [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
+      [user@example-app qube ~]$ ln -s /usr/share/applications/mozilla-thunderbird.desktop ~/.config/autostart/mozilla-thunderbird.desktop
 
 Note that the app will autostart only when the app qube starts. If you would like the app qube to autostart, select the “Start qube automatically on boot” checkbox in the app qube’s Qube Settings.

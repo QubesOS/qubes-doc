@@ -21,7 +21,7 @@ copyright = f'%Y, {author} and others'
 
 # The major project version, used as the replacement for the |version| default
 # substitution. i.e. '4.3'
-version = 'development'
+version = 'latest'
 
 # The full version, including alpha/beta/rc tags
 # Note: this value is not used in the Qubes OS documentation
@@ -101,12 +101,15 @@ html_theme_options = {
   'style_external_links': True,
   'collapse_navigation': True,
   'sticky_navigation': False,
+  'style_nav_header_background': '#d2d2d2',
 }
 
 html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "/")
 
+
 html_static_path = ['_static']
 html_css_files = ['css/custom.css']
+html_extra_path = ['_static/img', '_static/fonts']
 html_js_files = [ 'custom.js', ]
 
 html_use_opensearch = "https://doc.qubes-os.org"

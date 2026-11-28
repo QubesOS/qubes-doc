@@ -141,7 +141,7 @@ Now, because we use custom extensions to manage top files (instead of just enabl
 
 .. code:: console
 
-      $ qubesctl top.enable my-new-vm
+   $ qubesctl top.enable my-new-vm
 
 
 
@@ -149,7 +149,7 @@ To list all enabled top files:
 
 .. code:: console
 
-      $ qubesctl top.enabled
+   $ qubesctl top.enabled
 
 
 
@@ -157,7 +157,7 @@ And to disable one:
 
 .. code:: console
 
-      $ qubesctl top.disable my-new-vm
+   $ qubesctl top.disable my-new-vm
 
 
 
@@ -165,7 +165,7 @@ To apply the states to dom0 and all VMs:
 
 .. code:: console
 
-      $ qubesctl --all state.apply
+   $ qubesctl --all state.apply
 
 
 
@@ -281,7 +281,7 @@ To enable the particular top file you should issue the command:
 
 .. code:: console
 
-      $ qubesctl top.enable my-new-vm
+   $ qubesctl top.enable my-new-vm
 
 
 
@@ -289,7 +289,7 @@ To apply the state:
 
 .. code:: console
 
-      $ qubesctl state.apply
+   $ qubesctl state.apply
 
 
 
@@ -321,7 +321,7 @@ Now you need to enable the top file:
 
 .. code:: console
 
-      $ qubesctl top.enable mc-everywhere
+   $ qubesctl top.enable mc-everywhere
 
 
 
@@ -329,7 +329,7 @@ And apply the configuration:
 
 .. code:: console
 
-      $ qubesctl --all state.apply
+   $ qubesctl --all state.apply
 
 
 
@@ -542,7 +542,7 @@ Updates dom0. Example (executed in dom0):
 
 .. code:: console
 
-      $ sudo qubesctl --show-output state.sls update.qubes-dom0
+   $ sudo qubesctl --show-output state.sls update.qubes-dom0
 
 
 
@@ -554,7 +554,7 @@ Updates domUs. Example to update all templates (executed in dom0):
 
 .. code:: console
 
-      $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
+   $ sudo qubesctl --show-output --skip-dom0 --templates state.sls update.qubes-vm
 
 
 
@@ -643,11 +643,10 @@ If the log does not contain useful information:
 5. Get the last two lines:
 
 
-
 .. code:: console
 
-      $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
-      $ salt-ssh "$target_vm" $salt_command
+   $ export PATH="/usr/lib/qubes-vm-connector/ssh-wrapper:$PATH"
+   $ salt-ssh "$target_vm" $salt_command
 
 
 Adjust $target_vm (VM_NAME) and $salt_command (state.apply).
@@ -670,7 +669,7 @@ The fedora-24-minimal package is missing the ``sudo`` package. You can install i
 
 .. code:: console
 
-      $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
+   $ qvm-run -p -u root fedora-24-minimal-template 'dnf install -y sudo'
 
 
 The ``-p`` will cause the execution to wait until the package is installed. Having the ``-p`` flag is important when using a state with ``cmd.run``.

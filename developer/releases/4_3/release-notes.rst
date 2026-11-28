@@ -303,7 +303,7 @@ Known issues
 
   If you are using fresh templates on a :ref:`clean 4.3 installation <clean-installation-4.3>`, or if you performed an :ref:`in-place upgrade from 4.2 to 4.3 <user/downloading-installing-upgrading/upgrade/4_3:In-place upgrade from Qubes 4.2 to Qubes 4.3>`, then this does not affect you.
 
-  .. admonition:: See also
+  .. seealso::
 
      See `related issue #8701 <https://github.com/QubesOS/qubes-issues/issues/8701>`__.
 

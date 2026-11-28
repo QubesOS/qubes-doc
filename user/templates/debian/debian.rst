@@ -13,7 +13,7 @@ To :ref:`install <user/templates/templates:installing>` a specific Debian templa
 
 .. code:: console
 
-      $ qvm-template install XX
+   $ qvm-template install XX
 
 
 

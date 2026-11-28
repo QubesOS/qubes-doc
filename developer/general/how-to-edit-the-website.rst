@@ -160,32 +160,32 @@ This can be useful for making sure that your changes render the way you expect, 
 
 .. code:: console
 
-  $ qvm-clone debian-12-minimal jekyll-tvm
+   $ qvm-clone debian-12-minimal jekyll-tvm
 
 2. Install packages:
 
 .. code:: console
 
-  $ apt install qubes-core-agent-networking
-  $ apt install ruby-full build-essential zlib1g-dev vim
-  $ apt install qubes-core-agent-passwordless-root
-  $ apt install firefox-esr git
+   $ apt install qubes-core-agent-networking
+   $ apt install ruby-full build-essential zlib1g-dev vim
+   $ apt install qubes-core-agent-passwordless-root
+   $ apt install firefox-esr git
 
 
 3. Create a ``jekyll-app-vm`` based on the ``jekyll-tvm`` template, install and configure in ``jekyll-app-vm``:
 
 .. code:: console
 
-  $ echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-  $ echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-  $ echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-  $ source ~/.bashrc
-  $ gem install jekyll bundler
-  $ find . -name gem
-  $ bundle config set --local path '/home/user/.local/share/gem/'
-  $ git clone -b new-main --recursive https://github.com/QubesOS/qubesos.github.io.git; cd qubesos.github.io/
-  $ bundle install
-  $ bundle exec jekyll serve --incremental
+   $ echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+   $ echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+   $ echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+   $ source ~/.bashrc
+   $ gem install jekyll bundler
+   $ find . -name gem
+   $ bundle config set --local path '/home/user/.local/share/gem/'
+   $ git clone -b new-main --recursive https://github.com/QubesOS/qubesos.github.io.git; cd qubesos.github.io/
+   $ bundle install
+   $ bundle exec jekyll serve --incremental
 
 You can view the local site at `http://localhost:4000 <http://localhost:4000>`__.
 

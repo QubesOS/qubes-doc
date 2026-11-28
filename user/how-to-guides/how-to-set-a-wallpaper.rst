@@ -26,7 +26,7 @@ The file will be saved in :term:`dom0`, so you need to copy it out of :term:`dom
 
 .. code:: console
 
-    $ qvm-copy-to-vm qube-name Pictures/screenshot_name.jpg
+   $ qvm-copy-to-vm qube-name Pictures/screenshot_name.jpg
 
 Copying files out of :term:`dom0` is generally safe for your system.
 

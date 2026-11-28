@@ -33,7 +33,7 @@ This error message is related to the faulty creation of the USB installation med
 
 .. code:: console
 
-      $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
+   $ sudo dd if=Qubes-RX-x86_64.iso of=/dev/sdY status=progress bs=1048576 && sync
 
 
 

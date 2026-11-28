@@ -102,7 +102,7 @@ Advanced users may wish to perform updates via the command-line interface. There
 
     .. code:: console
 
-       # qubes-dom0-update
+       $ qubes-dom0-update
 
     Or add arguments to tweak the default behaviour. Refer to ``qubes-dom0-update --help``, ``man qubes-dom0-update`` or `manpage on github <https://github.com/QubesOS/qubes-core-admin-linux/blob/main/doc/tools/qubes-dom0-update.rst>`__ (make sure to read the appropriate version).
 
@@ -178,7 +178,7 @@ In a dom0 terminal, install the ``fwupd-qubes-dom0`` package:
 
 .. code:: console
 
-      $ sudo qubes-dom0-update fwupd-qubes-dom0
+   $ sudo qubes-dom0-update fwupd-qubes-dom0
 
 
 
@@ -186,7 +186,7 @@ Once the package is installed:
 
 .. code:: console
 
-      $ sudo qubes-fwupdmgr get-devices
+   $ sudo qubes-fwupdmgr get-devices
 
 
 
@@ -204,9 +204,9 @@ Once resolved, in a dom0 terminal:
 
 .. code:: console
 
-      $ sudo qubes-fwupdmgr get-devices
-      $ sudo qubes-fwupdmgr refresh
-      $ sudo qubes-fwupdmgr update
+   $ sudo qubes-fwupdmgr get-devices
+   $ sudo qubes-fwupdmgr refresh
+   $ sudo qubes-fwupdmgr update
 
 
 

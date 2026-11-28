@@ -14,7 +14,7 @@ Prior to R3.2, KDE was the default desktop environment in Qubes. Beginning with 
 
 .. code:: console
 
-      $ sudo qubes-dom0-update kde-settings-qubes
+   $ sudo qubes-dom0-update kde-settings-qubes
 
 
 You may notice some warnings and errors in the installation - it is safe to ignore these.
@@ -58,7 +58,7 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
   .. code:: console
 
-        $ sudo systemctl disable lightdm
+     $ sudo systemctl disable lightdm
 
 
 
@@ -66,7 +66,7 @@ You can also change your default login manager (lightdm) to the new KDE default:
 
   .. code:: console
 
-        $ sudo systemctl enable sddm
+     $ sudo systemctl enable sddm
 
 
 
@@ -99,7 +99,7 @@ You can also use ``kstart`` to control virtual desktop placement like this:
 
 .. code:: console
 
-      $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
+   $ kstart --desktop 3 --windowclass <vm_name> -q --tray -a <vm_name> '<run_program_command>'
 
 
 
@@ -114,7 +114,7 @@ Default installation includes KDE Plasma X11 session. KDE project primary focus 
 
 .. code:: console
 
-    $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
+   $ sudo qubes-dom0-update qubes-desktop-linux-common-wayland
 
 Removal
 -------
@@ -126,6 +126,6 @@ The safest way to remove (most of) KDE is:
 
 .. code:: console
 
-      $ sudo dnf remove kdelibs plasma-workspace
+   $ sudo dnf remove kdelibs plasma-workspace
 
 

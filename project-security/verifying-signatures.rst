@@ -57,15 +57,15 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
   .. code:: console
 
-        $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
+     $ gpg2 --import /usr/share/qubes/qubes-master-key.asc
 
 
 - **If you’re on Fedora**, you can get it in the `distribution-gpg-keys <https://github.com/xsuchy/distribution-gpg-keys>`__ package:
 
   .. code:: console
 
-        $ dnf install distribution-gpg-keys
-        $ gpg2 --import /usr/share/distribution-gpg-keys/qubes/*
+     $ dnf install distribution-gpg-keys
+     $ gpg2 --import /usr/share/distribution-gpg-keys/qubes/*
 
 
 - **If you’re on Debian**, it may already be included in your keyring.
@@ -74,14 +74,14 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
   .. code:: console
 
-        $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
+     $ gpg2 --fetch-keys https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
 
 
 - Get it from a public `keyserver <https://en.wikipedia.org/wiki/Key_server_%28cryptographic%29#Keyserver_examples>`__ (specified on first use with ``--keyserver <URI>`` along with keyserver options to include key signatures), e.g.:
 
   .. code:: console
 
-        $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
+     $ gpg2 --keyserver-options no-self-sigs-only,no-import-clean --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x427F11FD0FAA4B080123F01CDDFA1A3E36879494
 
 
 - Or **download it as a file**, then import the file. Here are some example download locations:
@@ -99,9 +99,7 @@ Once you have appropriate OpenPGP software installed, there are several ways to 
 
   .. code:: console
 
-        $ gpg2 --import /<PATH_TO_FILE>/qubes-master-signing-key.asc
-
-
+     $ gpg2 --import /<PATH_TO_FILE>/qubes-master-signing-key.asc
 
 
 Once you’ve obtained the QMSK, you must verify that it’s authentic rather than a forgery. Anyone can create a PGP key with the name “Qubes Master Signing Key” and the short key ID ``0x36879494``, so you cannot rely on these alone. You also should not rely on any single website, not even over HTTPS.
@@ -217,7 +215,7 @@ Now, when you import any of the release signing keys and many Qubes team member 
 As a final sanity check, make sure the QMSK is in your keyring with the correct trust level.
 
 .. code-block:: console
-      :emphasize-lines: 4
+   :emphasize-lines: 4
 
       $ gpg2 -k "Qubes Master Signing Key"
       pub   rsa4096 2010-04-01 [SC]
@@ -278,7 +276,7 @@ After you have completed these two prerequisite steps, the next step is to obtai
 Now that you have the correct RSK, you simply need to verify that it is signed by the QMSK:
 
 .. code-block:: console
-      :emphasize-lines: 6
+   :emphasize-lines: 6
 
       $ gpg2 --check-signatures "Qubes OS Release X Signing Key"
       pub   rsa4096 YYYY-MM-DD [SC]
@@ -295,7 +293,7 @@ This is just an example, so the output you receive may not look exactly the same
 As a final sanity check, make sure the RSK is in your keyring with the correct trust level:
 
 .. code-block:: console
-      :emphasize-lines: 4
+   :emphasize-lines: 4
 
       $ gpg2 -k "Qubes OS Release X Signing Key"
       pub   rsa4096 YYYY-MM-DD [SC]
@@ -375,15 +373,15 @@ In order to do this, **we have to know the exact size, in bytes, of the original
 
 .. code:: console
 
-      $ stat -c %s Qubes-RX-x86_64.iso
-      8176568320
+   $ stat -c %s Qubes-RX-x86_64.iso
+   8176568320
 
 Where :file:`Qubes-R{X}-x86_64.iso` is your Qubes ISO (with :samp:`{X}` replaced by the release number). Note that your actual byte number will depend on which Qubes ISO you’re using. This is just an example.
 
 You can now use :program:`gpg` to verify the detached PGP signature directly against the data on the USB drive. The following command reads the exact number of bytes from your USB drive and pipes them into :program:`gpg`: 
 
 .. code-block:: console
-      :emphasize-lines: 8
+   :emphasize-lines: 8
 
       $ dd if=/dev/sdX bs=1M count=<SIZE> iflag=count_bytes | gpg -v --verify Qubes-RX-x86_64.iso.asc -
       7797+1 records in
@@ -427,14 +425,14 @@ How to verify a signature on a Git tag
 
 .. code:: console
 
-      $ git tag -v <tag name>
+   $ git tag -v <tag name>
 
 
 or
 
 .. code:: console
 
-      $ git verify-tag <tag name>
+   $ git verify-tag <tag name>
 
 
 How to verify a signature on a Git commit
@@ -443,14 +441,14 @@ How to verify a signature on a Git commit
 
 .. code:: console
 
-      $ git log --show-signature <commit ID>
+   $ git log --show-signature <commit ID>
 
 
 or
 
 .. code:: console
 
-      $ git verify-commit <commit ID>
+   $ git verify-commit <commit ID>
 
 
 Troubleshooting FAQ

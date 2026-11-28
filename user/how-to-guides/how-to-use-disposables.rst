@@ -68,7 +68,7 @@ How to create named disposables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Named disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Create New Qube --> Named disposable`, choose a name, configure according to your needs and click on :guilabel:`Create`.
+Named disposables can be created with |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> Settings (icon) --> Qubes Tools --> Create New Qube --> Named disposable`, choose a name, configure according to your needs and click on :guilabel:`Create new qube`.
 
 If you create the qube with the name ``test-disp``, you can open applications on it using |qubes-logo-icon|:menuselection:`Qubes App Menu (Q icon) --> APPS --> test-disp` and selecting the application you wish to open in the named disposable.
 
@@ -98,7 +98,7 @@ It is possible to do the same as above using the command line:
 
 .. code:: console
 
-      user@dom0:~$ qvm-run --dispvm=default-dvm --service -- qubes.StartApp+firefox
+   user@dom0:~$ qvm-run --dispvm=default-dvm --service -- qubes.StartApp+firefox
 
 The browser is opened from a disposable based on the ``default-dvm`` qube.
 
@@ -119,8 +119,8 @@ It is also possible to do the same from the command line using :program:`qvm-ope
 
 .. code:: console
 
-      [user@work ~]$ qvm-open-in-dvm -- 'apple-sandbox.pdf'
-      [user@work ~]$ qvm-open-in-dvm --view-only -- 'apple-sandbox.pdf'
+   [user@work ~]$ qvm-open-in-dvm -- 'apple-sandbox.pdf'
+   [user@work ~]$ qvm-open-in-dvm --view-only -- 'apple-sandbox.pdf'
 
 The PDF viewer is opened in a disposable based on the ``work`` qube default disposable template.
 
@@ -153,18 +153,18 @@ The same can be done from the command line, although more difficult:
 
 .. code:: console
 
-      user@dom0:~$ disp_template="default-dvm"
-      user@dom0:~$ disp="$(python3 -c "import qubesadmin; \
-          app = qubesadmin.Qubes(); \
-          appvm = app.domains['$disp_template']; \
-          disp = qubesadmin.vm.DispVM.from_appvm(qubesadmin.Qubes(), appvm); \
-          disp.start(); \
-          print(disp.name)
-      ")"
-      user@dom0:~$ qvm-device <DEVICE_CLASS> attach <ATTACH_OPTIONS> -- "$disp" <BACKEND:DEVICE_ID>
-      user@dom0:~$ # Do your tasks.
-      user@dom0:~$ qvm-device <DEVICE_CLASS> detach <ATTACH_OPTIONS> -- "$disp"
-      user@dom0:~$ qvm-kill -- "$disp"
+   user@dom0:~$ disp_template="default-dvm"
+   user@dom0:~$ disp="$(python3 -c "import qubesadmin; \
+       app = qubesadmin.Qubes(); \
+       appvm = app.domains['$disp_template']; \
+       disp = qubesadmin.vm.DispVM.from_appvm(qubesadmin.Qubes(), appvm); \
+       disp.start(); \
+       print(disp.name)
+   ")"
+   user@dom0:~$ qvm-device <DEVICE_CLASS> attach <ATTACH_OPTIONS> -- "$disp" <BACKEND:DEVICE_ID>
+   user@dom0:~$ # Do your tasks.
+   user@dom0:~$ qvm-device <DEVICE_CLASS> detach <ATTACH_OPTIONS> -- "$disp"
+   user@dom0:~$ qvm-kill -- "$disp"
 
 .. _preloaded-disposables:
 
@@ -193,7 +193,7 @@ This can also be changed from the command line from the :term:`GUI domain`, with
 
 .. code:: console
 
-      user@dom0:~$ qvm-features dom0 preload-dispvm-max 2
+   user@dom0:~$ qvm-features dom0 preload-dispvm-max 2
 
 Preload disposables from a specific disposable template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -214,7 +214,7 @@ This can also be changed from the command line from the :term:`GUI domain`, with
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-features default-mgmt-dvm preload-dispvm-max 2
+   [user@dom0 ~]$ qvm-features default-mgmt-dvm preload-dispvm-max 2
 
 Call to the application succeeds but disposable exits too soon
 --------------------------------------------------------------

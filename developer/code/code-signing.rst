@@ -15,44 +15,44 @@ Alex Cabal has written an excellent `guide <https://alexcabal.com/creating-the-p
 
 .. code:: console
 
-      $ gpg --gen-key
-      gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
-      This is free software: you are free to change and redistribute it.
-      There is NO WARRANTY, to the extent permitted by law.
+   $ gpg --gen-key
+   gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
+   This is free software: you are free to change and redistribute it.
+   There is NO WARRANTY, to the extent permitted by law.
 
-      gpg: directory '/home/user/.gnupg' created
-      gpg: keybox '/home/user/.gnupg/pubring.kbx' created
-      **Note:** Use "gpg --full-generate-key" for a full featured key generation dialog.
+   gpg: directory '/home/user/.gnupg' created
+   gpg: keybox '/home/user/.gnupg/pubring.kbx' created
+   **Note:** Use "gpg --full-generate-key" for a full featured key generation dialog.
 
-      GnuPG needs to construct a user ID to identify your key.
+   GnuPG needs to construct a user ID to identify your key.
 
-      Real name: Bilbo Baggins
-      Email address: bilbo@shire.org
-      You selected this USER-ID:
-          "Bilbo Baggins <bilbo@shire.org>"
+   Real name: Bilbo Baggins
+   Email address: bilbo@shire.org
+   You selected this USER-ID:
+       "Bilbo Baggins <bilbo@shire.org>"
 
-      Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
-      We need to generate a lot of random bytes. It is a good idea to perform
-      some other action (type on the keyboard, move the mouse, utilize the
-      disks) during the prime generation; this gives the random number
-      generator a better chance to gain enough entropy.
+   Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+   We need to generate a lot of random bytes. It is a good idea to perform
+   some other action (type on the keyboard, move the mouse, utilize the
+   disks) during the prime generation; this gives the random number
+   generator a better chance to gain enough entropy.
 
-      <type your passphrase>
+   <type your passphrase>
 
-      We need to generate a lot of random bytes. It is a good idea to perform
-      some other action (type on the keyboard, move the mouse, utilize the
-      disks) during the prime generation; this gives the random number
-      generator a better chance to gain enough entropy.
-      gpg: /home/user/.gnupg/trustdb.gpg: trustdb created
-      gpg: key 6E2F4E7AF50A5827 marked as ultimately trusted
-      gpg: directory '/home/user/.gnupg/openpgp-revocs.d' created
-      gpg: revocation certificate stored as '/home/user/.gnupg/openpgp-revocs.d/87975838063F97A968D503266E2F4E7AF50A5827.rev'
-      public and secret key created and signed.
+   We need to generate a lot of random bytes. It is a good idea to perform
+   some other action (type on the keyboard, move the mouse, utilize the
+   disks) during the prime generation; this gives the random number
+   generator a better chance to gain enough entropy.
+   gpg: /home/user/.gnupg/trustdb.gpg: trustdb created
+   gpg: key 6E2F4E7AF50A5827 marked as ultimately trusted
+   gpg: directory '/home/user/.gnupg/openpgp-revocs.d' created
+   gpg: revocation certificate stored as '/home/user/.gnupg/openpgp-revocs.d/87975838063F97A968D503266E2F4E7AF50A5827.rev'
+   public and secret key created and signed.
 
-      pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
-            87975838063F97A968D503266E2F4E7AF50A5827
-      uid                      Bilbo Baggins <bilbo@shire.org>
-      sub   rsa3072 2021-12-30 [E] [expires: 2023-12-30]
+   pub   rsa3072 2021-12-30 [SC] [expires: 2023-12-30]
+         87975838063F97A968D503266E2F4E7AF50A5827
+   uid                      Bilbo Baggins <bilbo@shire.org>
+   sub   rsa3072 2021-12-30 [E] [expires: 2023-12-30]
 
 
 
@@ -77,8 +77,8 @@ Replace 6E2F4E7AF50A5827 with your key ID, preferably the **long keyID** which i
 
 .. code:: console
 
-      $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
-      gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
+   $ gpg --send-keys --keyserver hkps://keyserver.ubuntu.com 6E2F4E7AF50A5827
+   gpg: sending key 6E2F4E7AF50A5827 to hkps://keyserver.ubuntu.com
 
 
 Using PGP with Git
@@ -91,7 +91,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    .. code:: console
 
-         $ git config --global user.signingkey <KEYID>
+      $ git config --global user.signingkey <KEYID>
 
 
 
@@ -99,14 +99,14 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    .. code:: console
 
-         $ git config --global commit.gpgsign true
+      $ git config --global commit.gpgsign true
 
 
    Alternatively, manually specify when a commit is to be signed:
 
    .. code:: console
 
-         $ git commit -S
+      $ git commit -S
 
 
 
@@ -116,7 +116,7 @@ If you’re submitting a patch via GitHub (or a similar Git server), please sign
 
    .. code:: console
 
-         $ git tag -s <tag_name> -m "<tag_message>"
+      $ git tag -s <tag_name> -m "<tag_message>"
 
 
    You can also create an alias to make this easier. Edit your ``~/.gitconfig`` file. In the ``[alias]`` section, add ``stag`` to create signed tags and ``spush`` to create signed tags and push them.
@@ -172,14 +172,14 @@ In this case, you have several options to sign the commit:
 
    .. code:: console
 
-         $ git commit --amend -S
+      $ git commit --amend -S
 
 
    This also rewrites the commit so you need to push it forcefully:
 
    .. code:: console
 
-         $ git push -f
+      $ git push -f
 
 
 
@@ -187,8 +187,8 @@ In this case, you have several options to sign the commit:
 
    .. code:: console
 
-         $ git checkout <commit>
-         $ git spush
+      $ git checkout <commit>
+      $ git spush
 
 
    Now, the signature checker needs to re-check the signature. Please comment on the pull request that you would like to have the signatures checked again.

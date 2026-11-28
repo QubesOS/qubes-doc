@@ -128,14 +128,14 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
   .. code:: console
 
-        [user@dom0 ~]$ qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
+     [user@dom0 ~]$ qvm-create --class StandaloneVM --label orange --property virt_mode=hvm WindowsNew
 
 
   and for a template:
 
   .. code:: console
 
-        [user@dom0 ~]$ qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
+     [user@dom0 ~]$ qvm-create --class TemplateVM --label black --property virt_mode=hvm WindowsNew
 
 
 - After creation, set the following parameters via CLI in a dom0 terminal:
@@ -143,11 +143,11 @@ Create a VM named WindowsNew in :doc:`HVM </user/advanced-topics/standalones-and
 
   .. code:: console
 
-        [user@dom0 ~]$ qvm-volume extend WindowsNew:root 60g
-        [user@dom0 ~]$ qvm-prefs WindowsNew memory 4096
-        [user@dom0 ~]$ qvm-prefs WindowsNew maxmem 4096
-        [user@dom0 ~]$ qvm-prefs WindowsNew kernel ''
-        [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
+     [user@dom0 ~]$ qvm-volume extend WindowsNew:root 60g
+     [user@dom0 ~]$ qvm-prefs WindowsNew memory 4096
+     [user@dom0 ~]$ qvm-prefs WindowsNew maxmem 4096
+     [user@dom0 ~]$ qvm-prefs WindowsNew kernel ''
+     [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 These parameters are set for the following reasons:
@@ -175,7 +175,7 @@ These parameters are set for the following reasons:
 
   .. code:: console
 
-        [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
+     [user@dom0 ~]$ qvm-prefs WindowsNew qrexec_timeout 7200
 
 
 Start Windows VM
@@ -204,7 +204,7 @@ Start Windows VM
 
   .. code:: console
 
-        [user@dom0 ~]$ qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
+     [user@dom0 ~]$ qvm-start --cdrom=untrusted:/home/user/windows_install.iso WindowsNew
 
 
 
@@ -293,9 +293,9 @@ After Windows installation
 
 - From the Windows command line, disable hibernation in order to avoid an incomplete Windows shutdown, which could lead to corruption of the VM’s disk.
 
-  .. code:: console
+  .. code:: powershell
 
-        C:\> powercfg -H off
+     C:\> powercfg -H off
 
 
   Also, recent versions of Windows won’t show the CD-ROM drive after starting the qube with ``qvm-start vm --cdrom ...`` (or using the GUI). The solution is to disable hibernation in Windows with this command. (That command is included in QWT’s setup, but it’s necessary to run it manually in order to be able to open QWT’s setup ISO/CD-ROM in Windows).
@@ -376,7 +376,7 @@ AppVMs based on these templates can be created in the normal way by using the Qu
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-create --class=AppVM --template=<VMname> WindowsAppVM
+   [user@dom0 ~]$ qvm-create --class=AppVM --template=<VMname> WindowsAppVM
 
 
 
@@ -388,7 +388,7 @@ Furthermore, if manual IP setup was used for the template, the IP address select
 
 .. code:: console
 
-      [user@dom0 ~]$ qvm-prefs WindowsNew ip 10.137.0.x
+   [user@dom0 ~]$ qvm-prefs WindowsNew ip 10.137.0.x
 
 
 

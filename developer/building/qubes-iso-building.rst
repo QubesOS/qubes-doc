@@ -17,14 +17,14 @@ Fedora 36 (and 37) has been successfully used to build Qubes R4.1 with the below
 
 .. code:: console
 
-      $ sudo setenforce 0
+   $ sudo setenforce 0
 
 
 In ``dom0``, install the Fedora 36 (or 37) template if you don’t already have it.
 
 .. code:: console
 
-      $ sudo qubes-dom0-update qubes-template-fedora-36
+   $ sudo qubes-dom0-update qubes-template-fedora-36
 
 
 
@@ -34,7 +34,7 @@ Once you’ve built the development AppVM, open a Terminal window to it and inst
 
 .. code:: console
 
-      $ sudo dnf install git createrepo rpm-build rpm-sign make python3-sh rpmdevtools rpm-sign dialog perl-open python3-pyyaml perl-Digest-MD5 perl-Digest-SHA
+   $ sudo dnf install git createrepo rpm-build rpm-sign make python3-sh rpmdevtools rpm-sign dialog perl-open python3-pyyaml perl-Digest-MD5 perl-Digest-SHA
 
 
 
@@ -42,10 +42,10 @@ Get the necessary keys to verify the sources (run these and other commands below
 
 .. code:: console
 
-      $ wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
-      $ gpg --import qubes-master-signing-key.asc
-      $ gpg --edit-key 36879494
-      $ fpr
+   $ wget https://keys.qubes-os.org/keys/qubes-master-signing-key.asc
+   $ gpg --import qubes-master-signing-key.asc
+   $ gpg --edit-key 36879494
+   $ fpr
 
 .. code:: output
 
@@ -55,8 +55,8 @@ Get the necessary keys to verify the sources (run these and other commands below
 
 .. code:: console
 
-      $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
-      $ gpg --import qubes-developers-keys.asc
+   $ wget https://keys.qubes-os.org/keys/qubes-developers-keys.asc
+   $ gpg --import qubes-developers-keys.asc
 
 
 
@@ -66,9 +66,9 @@ Now let’s bootstrap the builder. Unfortunately, the builder cannot verify itse
 
 .. code:: console
 
-      $ git clone https://github.com/QubesOS/qubes-builder.git
-      $ cd qubes-builder
-      $ git tag -v `git describe`
+   $ git clone https://github.com/QubesOS/qubes-builder.git
+   $ cd qubes-builder
+   $ git tag -v `git describe`
 
 
 
@@ -84,8 +84,8 @@ Let’s configure the builder first (see :ref:`procedure <developer/building/qub
 
 .. code:: console
 
-      $ cd ~/qubes-builder
-      $ ./setup
+   $ cd ~/qubes-builder
+   $ ./setup
 
 .. code:: output
 
@@ -107,7 +107,7 @@ Once it completes downloading, re-run ``setup`` to add the Whonix templates:
 
 .. code:: console
 
-      $ ./setup
+   $ ./setup
 
 .. code:: output
 
@@ -120,8 +120,8 @@ Continue the build process with:
 
 .. code:: console
 
-      $ make install-deps
-      $ make get-sources
+   $ make install-deps
+   $ make get-sources
 
 
 
@@ -133,8 +133,8 @@ Finally, if you are making a test build, use:
 
 .. code:: console
 
-      $ make qubes
-      $ make iso
+   $ make qubes
+   $ make iso
 
 
 
@@ -142,9 +142,9 @@ Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.con
 
 .. code:: console
 
-      $ make qubes
-      $ make sign-all
-      $ make iso
+   $ make qubes
+   $ make sign-all
+   $ make iso
 
 
 
@@ -160,9 +160,9 @@ If you will be building Whonix templates:
 
 .. code:: console
 
-      $ cd ~
-      $ gpg --keyserver pgp.mit.edu --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
-      $ gpg --fingerprint 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+   $ cd ~
+   $ gpg --keyserver pgp.mit.edu --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+   $ gpg --fingerprint 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
 
 
 
@@ -185,11 +185,11 @@ Next, prepare the Git keyring directory and copy them in:
 
 .. code:: console
 
-      $ export GNUPGHOME=~/qubes-builder/keyrings/git
-      $ mkdir --parents "$GNUPGHOME"
-      $ cp ~/.gnupg/pubring.gpg "$GNUPGHOME"
-      $ cp ~/.gnupg/trustdb.gpg "$GNUPGHOME"
-      $ chmod --recursive 700 "$GNUPGHOME"
+   $ export GNUPGHOME=~/qubes-builder/keyrings/git
+   $ mkdir --parents "$GNUPGHOME"
+   $ cp ~/.gnupg/pubring.gpg "$GNUPGHOME"
+   $ cp ~/.gnupg/trustdb.gpg "$GNUPGHOME"
+   $ chmod --recursive 700 "$GNUPGHOME"
 
 
 
@@ -197,8 +197,8 @@ Copy one of the example configurations:
 
 .. code:: console
 
-      $ cd ~/qubes-builder
-      $ cp example-configs/qubes-os-master.conf builder.conf
+   $ cd ~/qubes-builder
+   $ cp example-configs/qubes-os-master.conf builder.conf
 
 
 
@@ -208,9 +208,9 @@ Continue the build process with:
 
 .. code:: console
 
-      $ make install-deps
-      $ make get-sources
-      $ unset GNUPGHOME
+   $ make install-deps
+   $ make get-sources
+   $ unset GNUPGHOME
 
 
 
@@ -220,8 +220,8 @@ Finally, if you are making a test build, use:
 
 .. code:: console
 
-      $ make qubes
-      $ make iso
+   $ make qubes
+   $ make iso
 
 
 
@@ -229,9 +229,9 @@ Or for a fully signed build (this requires setting ``SIGN_KEY`` in ``builder.con
 
 .. code:: console
 
-      $ make qubes
-      $ make sign-all
-      $ make iso
+   $ make qubes
+   $ make sign-all
+   $ make iso
 
 
 

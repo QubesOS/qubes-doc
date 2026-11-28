@@ -64,7 +64,7 @@ The following commands would change the *copy/paste to global clipboard* shortcu
 
 .. code:: console
 
-      [user@dom0] $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
-      [user@dom0] $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
+   [user@dom0] $ qvm-features dom0 gui-default-secure-copy-sequence 'Mod4-c'
+   [user@dom0] $ qvm-features dom0 gui-default-secure-paste-sequence 'Mod4-v'
 
 .. note:: For the changes to take effect in a qube, you need to restart the qube after changing the shortcuts.
